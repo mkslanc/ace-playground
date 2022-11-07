@@ -1,0 +1,20 @@
+{
+  "name": "ace-playground",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "ace-code": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {
+    "webpack": "latest",
+    "webpack-dev-server": "latest",
+    "webpack-cli": "^4.10.0",
+    "text-loader": "latest",
+    "ts-loader": "latest",
+    "copy-webpack-plugin": "9.1.0"
+  }
+}

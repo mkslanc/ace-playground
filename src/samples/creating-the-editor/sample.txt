@@ -1,0 +1,7 @@
+window.example = ace.edit("example",
+    {
+        theme: theme,
+        customScrollbar: true,
+        mode: jsMode,
+        value: "Hello world"
+    });
