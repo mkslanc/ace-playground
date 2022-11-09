@@ -1,12 +1,15 @@
-import {AceLayout, Box, EditorType, TabManager} from "ace-layout";
-import {Mode as JavascriptMode} from "ace-code/src/mode/javascript";
-
-var theme = require("ace-code/src/theme/textmate");
+import {AceLayout, Box, EditorType, MenuToolBar, TabManager} from "ace-layout";
+import {addMenu} from "./menu";
+import {request} from "./utils";
+import {generateTemplate} from "./template";
 
 var editorBox: Box, outerBox: Box, exampleBox: Box;
 
 document.body.innerHTML = "";
 var base = new Box({
+    toolBars: {
+        top: new MenuToolBar(),
+    },
     vertical: false,
     0: outerBox = new Box({
         vertical: true,
@@ -27,7 +30,9 @@ var base = new Box({
         toolBars: {},
     }),
 });
+
 new AceLayout(base);
+addMenu(loadSample);
 
 base.render();
 
@@ -48,54 +53,63 @@ tabManager.setState({});
 
 onResize();
 
-var jsMode = new JavascriptMode();
-var tab = tabManager.open({title: "Creating ACE editor", path: "creating-the-editor/js"});
-var previewTab = tabManager.open({title: "Result", editorType: EditorType.preview, path: "result/js"}, "example");
-var editorCode = `// Easiest way to run ACE editor in container with id="example"
-ace.edit("example",
-    {
-        theme: "ace/theme/textmate",
-        customScrollbar: true,
-        mode: "ace/mode/javascript",
-        value: "console.log('Hello world');"
-    });
-`
-tab.editor.editor.setOptions({
-    theme: theme,
-    customScrollbar: true,
-    mode: jsMode,
-    value: editorCode
-});
+var startingSample = 'samples/creating-ace-editor/hello-world';
+var tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
+var tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
+var tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
+
+loadSample(startingSample);
+
+
 var div = document.createElement("div");
 var button = document.createElement("button");
 button.textContent = "Run";
-
 button.onclick = () => {
-    var html = `<html>
-<head>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            vertical-align: baseline;
-            height: 100%
-        }
-    </style>
-</head>
-<body>
-<div id='example' style="height: 100%"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js"
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script> ${tab.editor.editor.getValue()};</script>
-</body>
-</html>`;
-    previewTab = tabManager.open({title: "Result", editorType: EditorType.preview, path: "result/js"}, "example");
+    var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
+    var previewTab = tabManager.open({
+        title: "Result",
+        editorType: EditorType.preview,
+        path: "result"
+    }, "example");
     previewTab.editor.setSession(previewTab, html);
 };
 
 div.appendChild(button);
 
 editorBox.addButtons(div);
+
+function loadSample(path) {
+    var js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
+        return response.responseText;
+    });
+    var css = request(path + '/sample.css').then(function (response: XMLHttpRequest) {
+        return response.responseText;
+    });
+    var html = request(path + '/sample.html').then(function (response: XMLHttpRequest) {
+        return response.responseText;
+    });
+
+    Promise.all([js, css, html]).then(
+        function (samples) {
+            tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
+            tabCSS.editor
+                .editor.setOptions({
+                value: samples[1]
+            });
+            tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
+            tabHTML.editor.editor.setOptions({
+                value: samples[2]
+            });
+            tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
+            tabJs.editor.editor.setOptions({
+                value: samples[0]
+            });
+
+        },
+        function (err) {
+            console.log(err);
+        }
+    );
+}
+
+
