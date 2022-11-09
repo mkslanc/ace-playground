@@ -1,5 +1,6 @@
 "use strict";
 const CopyPlugin = require("copy-webpack-plugin");
+const path = require('path');
 
 module.exports = (env, argv) => {
     let loader;
@@ -11,7 +12,10 @@ module.exports = (env, argv) => {
                 transpileOnly: true
             }
         },
-        exclude: /node_modules/
+        exclude: [
+            path.resolve(__dirname,'node_modules'),
+            path.resolve(__dirname, 'samples')
+        ]
     };
     return {
         devtool: 'source-map',
@@ -28,6 +32,10 @@ module.exports = (env, argv) => {
                         {
                             loader: "text-loader",
                         }
+                    ],
+                    exclude: [
+                        path.resolve(__dirname,'node_modules'),
+                        path.resolve(__dirname, 'samples/')
                     ]
                 }
             ]
@@ -65,7 +73,7 @@ module.exports = (env, argv) => {
                         to: "."
                     },
                     {
-                        from: "src/samples/**/*",
+                        from: "samples/**/*",
                         to: "."
                     }
                 ]
