@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "ace-code": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "ace-layout": "latest"
   },
   "devDependencies": {
     "webpack": "latest",

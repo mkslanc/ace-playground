@@ -21,7 +21,15 @@ module.exports = (env, argv) => {
         mode: "production",
         module: {
             rules: [
-                loader
+                loader,
+                {
+                    test: /\.css$/,
+                    use: [
+                        {
+                            loader: "text-loader",
+                        }
+                    ]
+                }
             ]
         },
         resolveLoader: {
