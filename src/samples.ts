@@ -5,6 +5,8 @@ export const SAMPLES = {
 
     ],
     "Interacting-with-editor": [
-        'Keyboard-shortcuts'
+        'Keyboard-shortcuts',
+        'Scrollable-page',
+        'Settings-menu'
     ]
 };
