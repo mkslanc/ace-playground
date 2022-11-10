@@ -1,6 +1,6 @@
 import {AceLayout, Box, EditorType, MenuToolBar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
-import {request} from "./utils";
+import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
 
 var editorBox: Box, outerBox: Box, exampleBox: Box;
@@ -41,6 +41,7 @@ var onResize = function () {
 };
 window.onresize = onResize;
 
+
 document.body.appendChild(base.element);
 var tabManager = window["tabManager"] = TabManager.getInstance({
     containers: {
@@ -71,6 +72,10 @@ button.onclick = () => {
         editorType: EditorType.preview,
         path: "result"
     }, "example");
+    displayError("");
+    if (!window.onmessage) window.onmessage = (e) => {
+        displayError(e.data);
+    }
     previewTab.editor.setSession(previewTab, html);
 };
 
@@ -102,14 +107,20 @@ function loadSample(path) {
             });
             tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
             tabJs.editor.editor.setOptions({
-                value: samples[0]
+                value: `//${pathToTitle(path)}\n\n` + samples[0]
             });
 
         },
         function (err) {
-            console.log(err);
+            displayError(err);
         }
     );
 }
 
-
+function displayError(errorMessage) {
+    if (typeof errorMessage !== "string") return;
+    var terminal = tabManager.open({title: "Problems", path: 'terminal'}, "console");
+    terminal.editor.editor.setOptions({
+        value: errorMessage
+    });
+}

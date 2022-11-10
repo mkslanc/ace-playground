@@ -15,10 +15,13 @@ export function generateTemplate(js, html, css) {
   </style>
 </head>
 <body>
+<script>
+window.onerror = (e) => parent.postMessage(e);
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js"
 ></script>
 ${html}
-<script> ${js}</script>
+<script>${js}</script>
 </body>
 </html>`;
 }
