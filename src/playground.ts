@@ -62,9 +62,10 @@ var tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
 loadSample(startingSample);
 
 
-var div = document.createElement("div");
 var button = document.createElement("button");
 button.textContent = "Run";
+button.style.marginLeft = "auto";
+button.style.marginRight = "5px";
 button.onclick = () => {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
     var previewTab = tabManager.open({
@@ -78,10 +79,7 @@ button.onclick = () => {
     }
     previewTab.editor.setSession(previewTab, html);
 };
-
-div.appendChild(button);
-
-editorBox.addButtons(div);
+editorBox.addButtons(button);
 
 function loadSample(path) {
     var js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {

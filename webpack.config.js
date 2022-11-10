@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
         },
         devServer: {
             compress: true,
-            port: 9000,
+            port: 9001,
             client: {
                 overlay: false
             }

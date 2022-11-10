@@ -17,5 +17,6 @@
     "text-loader": "latest",
     "ts-loader": "latest",
     "copy-webpack-plugin": "9.1.0"
-  }
+  },
+  "license": "MIT"
 }
