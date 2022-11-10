@@ -1,0 +1,24 @@
+<!-- load ace language tools -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ext-language_tools.min.js"></script>
+<div class="transformed">
+    <div class="wrapper">
+        <pre id="editor1">editor1</pre>
+        <pre id="editor2">editor2</pre>
+        <pre id="editor3">editor3</pre>
+    </div>
+    <div class="scrollmargin"></div>
+    <pre id="editor4">editor4</pre>
+    <div class="scrollmargin">
+        <textarea></textarea>
+    </div>
+    <pre id="editor">editor</pre>
+    <div class="scrollmargin" style="transform: scale(2) translateY(3em);">
+        <input type="checkbox" id="option">Auto scroll into view</input>
+
+        <input type="range" onchange="document.body.style.zoom = 1 + value/250">css Zoom</input>
+        <input type="range" onchange="document.body.style.transform = 'rotateZ(' + (this.value * 18) +'deg)'">css Transform</input>
+    </div>
+</div>
+
+<div class="scrollmargin">
+</div>

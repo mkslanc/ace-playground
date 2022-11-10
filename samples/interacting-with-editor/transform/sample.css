@@ -1,0 +1,58 @@
+.ace_editor {
+    border: 1px solid lightgray;
+    margin: auto;
+    height: 800px;
+    width: 400px;
+    font-size: 26px !important;
+    max-width: 30%;
+}
+
+.scrollmargin {
+    height: 80px;
+    text-align: center;
+
+}
+
+#editor1, #editor2, #editor3 {
+    display: inline-block
+}
+
+.wrapper {
+    text-align: center;
+    perspective: 700px;
+    margin-top: 0px;
+}
+
+#editor1 {
+    transform: rotateY(10deg) rotateX(-1deg);
+}
+
+#editor2 {
+    transform: translateZ(-36px) rotateX(-1deg);
+}
+
+#editor3 {
+    transform: rotateY(-10deg) rotateX(-1deg);
+}
+
+#editor4 {
+    transform: scale(-1, 1) rotateX(-1deg);
+}
+
+.transformed {
+    transform: scale(0.5);
+    transform-origin: center 12%
+}
+
+#editor {
+    width: 100%;
+    min-width: 100%
+}
+
+body {
+    background: #eee;
+}
+
+.scrollmargin input > {
+    margin: 10px
+}
