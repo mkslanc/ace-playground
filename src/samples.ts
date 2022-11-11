@@ -2,7 +2,8 @@ export const SAMPLES = {
     "Creating-ACE-Editor": [
         'Hello-World',
         'Autocompletion',
-        'Shadow-DOM'
+        'Shadow-DOM',
+        'Basic-options'
     ],
     "Interacting-with-editor": [
         'Autoresize',
@@ -15,6 +16,6 @@ export const SAMPLES = {
         'Transform'
     ],
     "Extensions": [
-        'Code-Lens'
+        'Code-Lens',
     ]
 };
