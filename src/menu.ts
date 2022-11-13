@@ -1,4 +1,4 @@
-import {MenuManager} from "ace-layout";
+import {MenuManager, TabManager, CommandManager} from "ace-layout";
 import {SAMPLES} from "./samples";
 import {pathToTitle} from "./utils";
 
@@ -21,4 +21,20 @@ export function addMenu(callback) {
         }
         outerPos += 50;
     });
+    menuManager.addByPath("View", {position: 50});
+
+    var toggle = () => TabManager.getInstance().containers["console"].toggleShowHide();
+    menuManager.addByPath("View/Toggle Console", {
+        position: 0,
+        exec: toggle,
+        hotKey: "F6"
+    });
+
+    CommandManager.registerCommands([{
+        bindKey: {
+            win: "F6",
+            mac: "F6"
+        },
+        exec: toggle
+    }]);
 }

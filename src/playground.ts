@@ -1,4 +1,4 @@
-import {AceLayout, Box, EditorType, MenuToolBar, TabManager} from "ace-layout";
+import {AceLayout, Box, CommandManager, EditorType, MenuToolBar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
@@ -66,7 +66,9 @@ var button = document.createElement("button");
 button.textContent = "Run";
 button.style.marginLeft = "auto";
 button.style.marginRight = "5px";
-button.onclick = () => {
+button.setAttribute('title', 'Ctrl+Enter')
+
+var runSample = () => {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
     var previewTab = tabManager.open({
         title: "Result",
@@ -79,6 +81,16 @@ button.onclick = () => {
     }
     previewTab.editor.setSession(previewTab, html);
 };
+button.onclick = runSample;
+
+CommandManager.registerCommands([{
+    bindKey: {
+        win: "Ctrl-Enter",
+        mac: "Command-Enter"
+    },
+    exec: runSample
+}]);
+
 editorBox.addButtons(button);
 
 function loadSample(path) {
