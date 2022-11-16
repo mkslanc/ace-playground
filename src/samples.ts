@@ -3,7 +3,8 @@ export const SAMPLES = {
         'Hello-World',
         'Autocompletion',
         'Shadow-DOM',
-        'Basic-options'
+        'Basic-options',
+        'Hard-wrapping'
     ],
     "Interacting-with-editor": [
         'Autoresize',
@@ -17,5 +18,6 @@ export const SAMPLES = {
     ],
     "Extensions": [
         'Code-Lens',
+        'Custom-completions'
     ]
 };
