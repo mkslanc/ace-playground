@@ -2,6 +2,7 @@ import {AceLayout, Box, CommandManager, EditorType, MenuToolBar, TabManager} fro
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
+import * as twoColumnsBottom from "./layouts/two-columns-bottom.json";
 
 var editorBox: Box, outerBox: Box, exampleBox: Box;
 
@@ -50,7 +51,7 @@ var tabManager = window["tabManager"] = TabManager.getInstance({
         console: outerBox[1],
     }
 });
-tabManager.setState({});
+tabManager.setState(twoColumnsBottom);
 
 onResize();
 
@@ -61,12 +62,16 @@ var tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
 
 loadSample(startingSample);
 
+export function createRunButton() {
+    var button = document.createElement("button");
+    button.textContent = "Run";
+    button.style.marginLeft = "auto";
+    button.style.marginRight = "5px";
+    button.setAttribute('title', 'Ctrl+Enter');
+    button.onclick = runSample;
+    return button;
+}
 
-var button = document.createElement("button");
-button.textContent = "Run";
-button.style.marginLeft = "auto";
-button.style.marginRight = "5px";
-button.setAttribute('title', 'Ctrl+Enter')
 
 var runSample = () => {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
@@ -81,7 +86,7 @@ var runSample = () => {
     }
     previewTab.editor.setSession(previewTab, html);
 };
-button.onclick = runSample;
+
 
 CommandManager.registerCommands([{
     bindKey: {
@@ -91,6 +96,7 @@ CommandManager.registerCommands([{
     exec: runSample
 }]);
 
+var button = createRunButton();
 editorBox.addButtons(button);
 
 function loadSample(path) {
@@ -129,8 +135,8 @@ function loadSample(path) {
 
 function displayError(errorMessage) {
     if (typeof errorMessage !== "string") return;
-    var terminal = tabManager.open({title: "Problems", path: 'terminal'}, "console");
-    terminal.editor.editor.setOptions({
+    var terminal = tabManager.open({title: "Problems", path: 'terminal', editorType: EditorType.ace}, "console");
+    terminal.editor?.editor.setOptions({
         value: errorMessage
     });
 }
