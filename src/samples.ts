@@ -9,6 +9,7 @@ export const SAMPLES = {
     "Interacting-with-editor": [
         'Autoresize',
         'Keyboard-shortcuts',
+        'Adding-new-command',
         'Scrollable-page',
         'Settings-menu',
         'Static-Code-Highlighter',
