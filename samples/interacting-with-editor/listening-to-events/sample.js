@@ -1,7 +1,6 @@
 // Editor main events
 let editor = ace.edit("example", {
     theme: "ace/theme/textmate",
-    customScrollbar: true,
     mode: "ace/mode/javascript",
     value: "console.log('Hello world');"
 });

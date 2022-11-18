@@ -18,7 +18,8 @@ export const SAMPLES = {
         'Transform',
         'Reveal-range',
         'Providing-custom-annotations',
-        'Listening-to-events'
+        'Listening-to-events',
+        'Scrollbars'
     ],
     "Customising-the-appearance": [
         'Creating-new-theme'

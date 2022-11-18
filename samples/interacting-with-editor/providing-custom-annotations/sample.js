@@ -3,7 +3,6 @@ lines.length = 100;
 lines.fill("console.log('Hello world');", 0, 30);
 var editor = ace.edit("example", {
     theme: "ace/theme/textmate",
-    customScrollbar: true,
     mode: "ace/mode/text",
     value: lines.join('\n')
 });
