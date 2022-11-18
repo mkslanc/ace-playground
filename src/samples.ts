@@ -20,6 +20,9 @@ export const SAMPLES = {
         'Providing-custom-annotations',
         'Listening-to-events'
     ],
+    "Customising-the-appearance": [
+        'Creating-new-theme'
+    ],
     "Extensions": [
         'Code-Lens',
         'Custom-completions'
