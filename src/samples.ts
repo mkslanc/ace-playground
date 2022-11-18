@@ -17,7 +17,8 @@ export const SAMPLES = {
         'ToolBar',
         'Transform',
         'Reveal-range',
-        'Providing-custom-annotations'
+        'Providing-custom-annotations',
+        'Listening-to-events'
     ],
     "Extensions": [
         'Code-Lens',
