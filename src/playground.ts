@@ -1,4 +1,4 @@
-import {AceLayout, Box, CommandManager, EditorType, MenuToolBar, TabManager} from "ace-layout";
+import {Ace, AceLayout, Box, CommandManager, EditorType, MenuToolBar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
@@ -57,7 +57,13 @@ tabManager.setState(twoColumnsBottom);
 onResize();
 
 var startingSample = 'samples/creating-ace-editor/hello-world';
-var tabCSS: Tab, tabHTML: Tab, tabJs: Tab;
+var tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
+
+export function initTabs() {
+    tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
+    tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
+    tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
+}
 
 loadSample(startingSample);
 
@@ -70,7 +76,6 @@ export function createRunButton() {
     button.onclick = runSample;
     return button;
 }
-
 
 var runSample = () => {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
@@ -86,7 +91,6 @@ var runSample = () => {
     previewTab.editor.setSession(previewTab, html);
 };
 
-
 CommandManager.registerCommands([{
     bindKey: {
         win: "Ctrl-Enter",
@@ -99,6 +103,8 @@ var button = createRunButton();
 editorBox.addButtons(button);
 
 function loadSample(path) {
+    initTabs();
+
     var js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
@@ -111,20 +117,9 @@ function loadSample(path) {
 
     Promise.all([js, css, html]).then(
         function (samples) {
-            tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
-            tabCSS.editor
-                .editor.setOptions({
-                value: samples[1]
-            });
-            tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
-            tabHTML.editor.editor.setOptions({
-                value: samples[2]
-            });
-            tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
-            tabJs.editor.editor.setOptions({
-                value: `//${pathToTitle(path)}\n\n` + samples[0]
-            });
-
+            tabCSS.session.setValue(samples[1]);
+            tabHTML.session.setValue(samples[2]);
+            tabJs.session.setValue(`//${pathToTitle(path)}\n\n` + samples[0]);
         },
         function (err) {
             displayError(err);
@@ -134,8 +129,7 @@ function loadSample(path) {
 
 function displayError(errorMessage) {
     if (typeof errorMessage !== "string") return;
-    var terminal = tabManager.open({title: "Problems", path: 'terminal', editorType: EditorType.ace}, "console");
-    terminal.editor?.editor.setOptions({
-        value: errorMessage
-    });
+    var terminal = tabManager.open<Ace.EditSession>({title: "Problems", path: 'terminal', editorType: EditorType.ace}, "console");
+    terminal.session.setValue(errorMessage);
+    tabManager.loadFile(terminal);
 }
