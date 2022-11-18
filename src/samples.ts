@@ -15,7 +15,9 @@ export const SAMPLES = {
         'Static-Code-Highlighter',
         'StatusBar',
         'ToolBar',
-        'Transform'
+        'Transform',
+        'Reveal-range',
+        'Providing-custom-annotations'
     ],
     "Extensions": [
         'Code-Lens',
