@@ -3,6 +3,7 @@ import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
 import * as twoColumnsBottom from "./layouts/two-columns-bottom.json";
+import {Tab} from "ace-layout/src/widgets/tabs/tab";
 
 var editorBox: Box, outerBox: Box, exampleBox: Box;
 
@@ -56,9 +57,7 @@ tabManager.setState(twoColumnsBottom);
 onResize();
 
 var startingSample = 'samples/creating-ace-editor/hello-world';
-var tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
-var tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
-var tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
+var tabCSS: Tab, tabHTML: Tab, tabJs: Tab;
 
 loadSample(startingSample);
 
