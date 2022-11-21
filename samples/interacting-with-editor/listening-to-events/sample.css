@@ -1,0 +1,7 @@
+#last-events {
+    background: #ccc;
+}
+
+#output {
+    overflow-y: scroll;
+}

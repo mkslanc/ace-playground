@@ -1,0 +1,8 @@
+body {
+    padding-left: 15px
+}
+.code {
+    width: 50%;
+    white-space: pre-wrap;
+    border: solid lightgrey 1px
+}
