@@ -1,7 +1,9 @@
-import {AceLayout, Box, CommandManager, EditorType, MenuToolBar, TabManager} from "ace-layout";
+import {Ace, AceLayout, Box, CommandManager, EditorType, MenuToolBar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
+import * as twoColumnsBottom from "./layouts/two-columns-bottom.json";
+import {Tab} from "ace-layout/src/widgets/tabs/tab";
 
 var editorBox: Box, outerBox: Box, exampleBox: Box;
 
@@ -50,23 +52,30 @@ var tabManager = window["tabManager"] = TabManager.getInstance({
         console: outerBox[1],
     }
 });
-tabManager.setState({});
+tabManager.setState(twoColumnsBottom);
 
 onResize();
 
 var startingSample = 'samples/creating-ace-editor/hello-world';
-var tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
-var tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
-var tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
+var tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
+
+export function initTabs() {
+    tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
+    tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
+    tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
+}
 
 loadSample(startingSample);
 
-
-var button = document.createElement("button");
-button.textContent = "Run";
-button.style.marginLeft = "auto";
-button.style.marginRight = "5px";
-button.setAttribute('title', 'Ctrl+Enter')
+export function createRunButton() {
+    var button = document.createElement("button");
+    button.textContent = "Run";
+    button.style.marginLeft = "auto";
+    button.style.marginRight = "5px";
+    button.setAttribute('title', 'Ctrl+Enter');
+    button.onclick = runSample;
+    return button;
+}
 
 var runSample = () => {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
@@ -81,7 +90,6 @@ var runSample = () => {
     }
     previewTab.editor.setSession(previewTab, html);
 };
-button.onclick = runSample;
 
 CommandManager.registerCommands([{
     bindKey: {
@@ -91,9 +99,12 @@ CommandManager.registerCommands([{
     exec: runSample
 }]);
 
+var button = createRunButton();
 editorBox.addButtons(button);
 
 function loadSample(path) {
+    initTabs();
+
     var js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
@@ -106,20 +117,9 @@ function loadSample(path) {
 
     Promise.all([js, css, html]).then(
         function (samples) {
-            tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
-            tabCSS.editor
-                .editor.setOptions({
-                value: samples[1]
-            });
-            tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
-            tabHTML.editor.editor.setOptions({
-                value: samples[2]
-            });
-            tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
-            tabJs.editor.editor.setOptions({
-                value: `//${pathToTitle(path)}\n\n` + samples[0]
-            });
-
+            tabCSS.session.setValue(samples[1]);
+            tabHTML.session.setValue(samples[2]);
+            tabJs.session.setValue(`//${pathToTitle(path)}\n\n` + samples[0]);
         },
         function (err) {
             displayError(err);
@@ -129,8 +129,7 @@ function loadSample(path) {
 
 function displayError(errorMessage) {
     if (typeof errorMessage !== "string") return;
-    var terminal = tabManager.open({title: "Problems", path: 'terminal'}, "console");
-    terminal.editor.editor.setOptions({
-        value: errorMessage
-    });
+    var terminal = tabManager.open<Ace.EditSession>({title: "Problems", path: 'terminal', editorType: EditorType.ace}, "console");
+    terminal.session.setValue(errorMessage);
+    tabManager.loadFile(terminal);
 }

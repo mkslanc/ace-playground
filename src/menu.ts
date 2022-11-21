@@ -1,6 +1,8 @@
 import {MenuManager, TabManager, CommandManager} from "ace-layout";
 import {SAMPLES} from "./samples";
 import {pathToTitle} from "./utils";
+import {Layouts} from "./layouts/layouts";
+import {createRunButton, initTabs} from "./playground";
 
 export function addMenu(callback) {
     var menuManager = MenuManager.getInstance();
@@ -21,10 +23,12 @@ export function addMenu(callback) {
         }
         outerPos += 50;
     });
-    menuManager.addByPath("View", {position: 50});
+
+    root = "View";
+    menuManager.addByPath(root, {position: 50});
 
     var toggle = () => TabManager.getInstance().containers["console"].toggleShowHide();
-    menuManager.addByPath("View/Toggle Console", {
+    menuManager.addByPath(root + "/Toggle Console", {
         position: 0,
         exec: toggle,
         hotKey: "F6"
@@ -37,4 +41,20 @@ export function addMenu(callback) {
         },
         exec: toggle
     }]);
+
+    root = "View/Layout";
+    menuManager.addByPath(root, {position: 100});
+    outerPos = 0;
+
+    Object.keys(Layouts).forEach(function (i) {
+        let changeLayout = () => {
+            var currentTabManager = TabManager.getInstance();
+            currentTabManager.setState(Layouts[i]);
+            initTabs();
+            var button = createRunButton();
+            currentTabManager?.containers["main"].addButtons(button);
+        };
+        menuManager.addByPath(root + '/' + i, {position: outerPos, exec: changeLayout});
+        outerPos += 50;
+    });
 }

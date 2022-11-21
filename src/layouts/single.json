@@ -1,0 +1,29 @@
+{
+  "main": {
+    "0": {
+      "type": "pane",
+      "tabBar": {
+        "tabList": [
+          {
+            "title": "CSS",
+            "path": "sample.css"
+          },
+          {
+            "title": "HTML",
+            "path": "sample.html"
+          },
+          {
+            "title": "JavaScript",
+            "active": true,
+            "path": "sample.js"
+          }
+        ],
+        "scrollLeft": 0
+      }
+    },
+    "ratio": 0.5,
+    "type": "hbox",
+    "fixedSize": null,
+    "hidden": false
+  }
+}

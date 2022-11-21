@@ -1,0 +1,59 @@
+{
+  "main": {
+    "0": {
+      "0": {
+        "type": "pane",
+        "tabBar": {
+          "tabList": [
+            {
+              "title": "JavaScript",
+              "active": true,
+              "path": "sample.js"
+            }
+          ],
+          "scrollLeft": 0
+        }
+      },
+      "1": {
+        "0": {
+          "type": "pane",
+          "tabBar": {
+            "tabList": [
+              {
+                "title": "CSS",
+                "active": true,
+                "path": "sample.css"
+              }
+            ],
+            "scrollLeft": 0
+          }
+        },
+        "1": {
+          "type": "pane",
+          "tabBar": {
+            "tabList": [
+              {
+                "title": "HTML",
+                "active": true,
+                "path": "sample.html"
+              }
+            ],
+            "scrollLeft": 0
+          }
+        },
+        "ratio": 0.5,
+        "type": "hbox",
+        "fixedSize": null,
+        "hidden": false
+      },
+      "ratio": 0.33,
+      "type": "hbox",
+      "fixedSize": null,
+      "hidden": false
+    },
+    "ratio": 0.33,
+    "type": "hbox",
+    "fixedSize": null,
+    "hidden": false
+  }
+}
