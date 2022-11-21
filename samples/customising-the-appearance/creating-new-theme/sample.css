@@ -1,0 +1,155 @@
+.my-custom-theme {
+    background-color: #504D7D; /* Overall background color */
+    color: #E5ECF5 /* Overall foreground color */
+}
+
+.my-custom-theme .ace_gutter { /* Editor gutter contains of line numbers and annotation marks. */
+    background: black; /* Background color of the editor gutter.*/
+    color: rgb(200,245,208) /* Color of line numbers */
+}
+
+.my-custom-theme .ace_print-margin { /* Print margin line */
+    width: 1px;
+    background: #44475a
+}
+
+.my-custom-theme .ace_cursor {
+    color: red /* Color of the editor cursor */
+}
+
+.my-custom-theme .ace_marker-layer .ace_selection {
+    background: #4454C2 /* Color of the editor selection */
+}
+
+.my-custom-theme.ace_multiselect .ace_selection.ace_start { /* Ace multi selections */
+    box-shadow: 0 0 3px 0px #000;
+    border-radius: 50px;
+}
+
+.my-custom-theme .ace_marker-layer .ace_step { /* Debugger line */
+    background: rgb(198, 219, 174)
+}
+
+.my-custom-theme .ace_marker-layer .ace_active-line {
+    background: #44475a /* Background color of active editor's line */
+}
+
+.my-custom-theme .ace_gutter-active-line {
+    background-color: #0355ff /* Background color of gutter active line */
+}
+
+.my-custom-theme .ace_marker-layer .ace_selected-word { /* Style of selected words. Try it by double clicking on any word in Result tab*/
+    box-shadow: 0px 0px 0px 1px #fff;
+    border-radius: 20px;
+
+}
+
+.my-custom-theme .ace_fold { /* Fold widget */
+    background-color: #0f0; /* Background of fold widget */
+    border-color: white /* Border color of fold widget */
+}
+
+
+/* Start: different token styles */
+.my-custom-theme .ace_keyword {
+    color: #EC827D
+}
+
+.my-custom-theme .ace_constant.ace_language {
+    color: #A28EFF
+}
+
+.my-custom-theme .ace_constant.ace_numeric {
+    color: #A28EFF
+}
+
+.my-custom-theme .ace_constant.ace_character {
+    color: #A28EFF
+}
+
+.my-custom-theme .ace_constant.ace_character.ace_escape {
+    color: #EC827D
+}
+
+.my-custom-theme .ace_constant.ace_other {
+    color: #A28EFF
+}
+
+.my-custom-theme .ace_support.ace_function {
+    color: #DEA54F
+}
+
+.my-custom-theme .ace_support.ace_constant {
+    color: #DEA54F
+}
+
+.my-custom-theme .ace_support.ace_class {
+    font-style: italic;
+    color: #DEA54F
+}
+
+.my-custom-theme .ace_support.ace_type {
+    font-style: italic;
+    color: #DEA54F
+}
+
+.my-custom-theme .ace_storage {
+    color: #EC827D
+}
+
+.my-custom-theme .ace_storage.ace_type {
+    font-style: italic;
+    color: #DEA54F
+}
+
+.my-custom-theme .ace_invalid {
+    color: #F8F8F0;
+    background-color: #EC827D
+}
+
+.my-custom-theme .ace_invalid.ace_deprecated {
+    color: #F8F8F0;
+    background-color: #A28EFF
+}
+
+.my-custom-theme .ace_string {
+    color: #80B2DD;
+}
+
+.my-custom-theme .ace_comment {
+    color: #E78DB8
+}
+
+.my-custom-theme .ace_variable {
+    color: #47B394
+}
+
+.my-custom-theme .ace_variable.ace_parameter {
+    font-style: italic;
+    color: #ffb86c
+}
+
+.my-custom-theme .ace_entity.ace_other.ace_attribute-name {
+    color: #47B394
+}
+
+.my-custom-theme .ace_entity.ace_name.ace_function {
+    color: #47B394
+}
+
+.my-custom-theme .ace_entity.ace_name.ace_tag {
+    color: #EC827D
+}
+.my-custom-theme .ace_invisible {
+    color: #626680;
+}
+
+/* End: different token styles */
+
+.my-custom-theme .ace_indent-guide { /* Indent guide style */
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYHB3d/8PAAOIAdULw8qMAAAAAElFTkSuQmCC) right repeat-y
+}
+
+.my-custom-theme .ace_indent-guide-active { /* Active indent guide style */
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACAQMAAACjTyRkAAAABlBMVEUAAADCwsK76u2xAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGBoAAAAhACBGFbxzQAAAABJRU5ErkJggg==") right repeat-y;
+}
