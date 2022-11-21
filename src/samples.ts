@@ -19,7 +19,8 @@ export const SAMPLES = {
         'Reveal-range',
         'Providing-custom-annotations',
         'Listening-to-events',
-        'Scrollbars'
+        'Scrollbars',
+        'Creating-own-validation'
     ],
     "Customising-the-appearance": [
         'Creating-new-theme'
