@@ -8,10 +8,17 @@ editor.completers = [{
     getCompletions: function(editor, session, pos, prefix, callback) {
         var completions = [{
             caption: "my caption",
-            snippet: "content",
+            snippet: "content: '$1'",
             meta: "snippet",
             type: "snippet"
-        }];
+        },
+            {
+                caption: "my value",
+                value: "value",
+                meta: "custom",
+                type: "value"
+            }
+        ];
         callback(null, completions);
     }
 }];
