@@ -117,9 +117,9 @@ function loadSample(path) {
 
     Promise.all([js, css, html]).then(
         function (samples) {
-            tabCSS.session.setValue(samples[1]);
-            tabHTML.session.setValue(samples[2]);
-            tabJs.session.setValue(`//${pathToTitle(path)}\n\n` + samples[0]);
+            tabManager.loadFile(tabCSS, samples[1]);
+            tabManager.loadFile(tabHTML, samples[2]);
+            tabManager.loadFile(tabJs, `//${pathToTitle(path)}\n\n` + samples[0]);
         },
         function (err) {
             displayError(err);
