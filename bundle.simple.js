@@ -33655,9 +33655,15 @@ function parseJson(name) {
 var AceEditor = /** @class */ (function () {
     function AceEditor() {
         this.editor = new editor_1.Editor(new virtual_renderer_1.VirtualRenderer(null, theme));
-        this.editor.setOptions({ "customScrollbar": true });
         this.container = this.editor.container;
         this.container.style.position = "absolute";
+        this.editor.setOptions({
+            customScrollbar: true,
+            newLineMode: "unix",
+            enableLiveAutocompletion: true,
+            enableBasicAutocompletion: true,
+            showPrintMargin: false,
+        });
     }
     AceEditor.prototype.resize = function () {
         this.editor.resize();
@@ -33676,40 +33682,37 @@ var AceEditor = /** @class */ (function () {
         this.container.remove();
     };
     AceEditor.prototype.setSession = function (tab, value) {
-        if (!value && tab.session) {
-            value = tab.session.getValue();
-        }
-        if (typeof value == "string") {
-            tab.session = ace.createEditSession(value || "", null);
-        }
         this.saveMetadata();
         this.tab = tab;
-        this.loadMetadata();
-        this.editor.setSession(tab.session);
-        if (tab.path !== undefined) {
-            var mode = modeList.getModeForPath(tab.path).mode;
+        this.initTabSession(value);
+        this.editor.setSession(this.tab.session);
+    };
+    AceEditor.prototype.initTabSession = function (value) {
+        var _a;
+        var _b;
+        (_a = (_b = this.tab).session) !== null && _a !== void 0 ? _a : (_b.session = ace.createEditSession(value !== null && value !== void 0 ? value : "", this.getMode()));
+        if (value == null) {
+            this.loadMetadata();
+        }
+        else {
+            this.tab.session.setValue(value);
+        }
+    };
+    AceEditor.prototype.getMode = function () {
+        if (this.tab.path !== undefined) {
+            var mode = modeList.getModeForPath(this.tab.path).mode;
             //TODO: set mode
             switch (mode) {
                 case "ace/mode/javascript":
-                    mode = new javascript_1.Mode();
-                    break;
+                    return new javascript_1.Mode();
                 case "ace/mode/css":
-                    mode = new css_1.Mode();
-                    break;
+                    return new css_1.Mode();
                 case "ace/mode/html":
-                    mode = new html_1.Mode();
-                    break;
+                    return new html_1.Mode();
             }
-            this.editor.session.setMode(mode);
         }
-        this.editor.setOptions({
-            newLineMode: "unix",
-            enableLiveAutocompletion: true,
-            enableBasicAutocompletion: true,
-            showPrintMargin: false,
-        });
+        return null;
     };
-    //TODO: move to separate class
     AceEditor.prototype.loadMetadata = function () {
         var path = this.tab.path;
         var session = this.tab.session;
@@ -33795,7 +33798,7 @@ exports.PreviewEditor = PreviewEditor;
 /***/ }),
 
 /***/ 5765:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1205542__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1205662__) {
 
 "use strict";
 
@@ -33823,8 +33826,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Button = void 0;
-var dom_1 = __nested_webpack_require_1205542__(5079);
-var buttonCSS = __nested_webpack_require_1205542__(183);
+var dom_1 = __nested_webpack_require_1205662__(5079);
+var buttonCSS = __nested_webpack_require_1205662__(183);
 dom_1.dom.importCssString(buttonCSS, "button.css");
 var Button = /** @class */ (function () {
     function Button(options) {
@@ -33865,7 +33868,7 @@ exports.Button = Button;
 /***/ }),
 
 /***/ 6087:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1208417__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1208537__) {
 
 "use strict";
 
@@ -33893,10 +33896,10 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Dropdown = void 0;
-var lib_1 = __nested_webpack_require_1208417__(1021);
-var dom_1 = __nested_webpack_require_1208417__(5079);
-var dropdownCSS = __nested_webpack_require_1208417__(8638);
-var menuCSS = __nested_webpack_require_1208417__(3694);
+var lib_1 = __nested_webpack_require_1208537__(1021);
+var dom_1 = __nested_webpack_require_1208537__(5079);
+var dropdownCSS = __nested_webpack_require_1208537__(8638);
+var menuCSS = __nested_webpack_require_1208537__(3694);
 dom_1.dom.importCssString(dropdownCSS, "dropdown.css");
 dom_1.dom.importCssString(menuCSS, "menu.css");
 var DEFAULT_WIDTH = 200;
@@ -34204,13 +34207,13 @@ var Popup = /** @class */ (function () {
 /***/ }),
 
 /***/ 2061:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1221210__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1221330__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SettingsSearchBox = void 0;
-var dom_1 = __nested_webpack_require_1221210__(5079);
+var dom_1 = __nested_webpack_require_1221330__(5079);
 var SettingsSearchBox = /** @class */ (function () {
     function SettingsSearchBox(prefsParentNode) {
         this.hideFiltered = false;
@@ -34335,7 +34338,7 @@ exports.SettingsSearchBox = SettingsSearchBox;
 /***/ }),
 
 /***/ 3208:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1226071__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1226191__) {
 
 "use strict";
 
@@ -34363,8 +34366,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Switcher = void 0;
-var dom_1 = __nested_webpack_require_1226071__(5079);
-var switcherCSS = __nested_webpack_require_1226071__(923);
+var dom_1 = __nested_webpack_require_1226191__(5079);
+var switcherCSS = __nested_webpack_require_1226191__(923);
 dom_1.dom.importCssString(switcherCSS, "switcher.css");
 var Switcher = /** @class */ (function () {
     function Switcher(options) {
@@ -34398,14 +34401,14 @@ exports.Switcher = Switcher;
 /***/ }),
 
 /***/ 9251:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1228585__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1228705__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AceLayout = void 0;
-var layoutCSS = __nested_webpack_require_1228585__(4646);
-var dom_1 = __nested_webpack_require_1228585__(5079);
+var layoutCSS = __nested_webpack_require_1228705__(4646);
+var dom_1 = __nested_webpack_require_1228705__(5079);
 var AceLayout = /** @class */ (function () {
     function AceLayout(startBox, css) {
         dom_1.dom.importCssString(css !== null && css !== void 0 ? css : layoutCSS, "layout.css");
@@ -34419,7 +34422,7 @@ exports.AceLayout = AceLayout;
 /***/ }),
 
 /***/ 9367:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1229168__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1229288__) {
 
 "use strict";
 
@@ -34440,10 +34443,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MenuToolBar = exports.MenuSearchBox = exports.MenuPopup = exports.MenuBar = exports.Menu = void 0;
-var lib_1 = __nested_webpack_require_1229168__(1021);
-var dom_1 = __nested_webpack_require_1229168__(5079);
-var menuManager_1 = __nested_webpack_require_1229168__(7282);
-var menuCSS = __nested_webpack_require_1229168__(3694);
+var lib_1 = __nested_webpack_require_1229288__(1021);
+var dom_1 = __nested_webpack_require_1229288__(5079);
+var menuManager_1 = __nested_webpack_require_1229288__(7282);
+var menuCSS = __nested_webpack_require_1229288__(3694);
 dom_1.dom.importCssString(menuCSS, "menu.css");
 var Menu = /** @class */ (function () {
     function Menu() {
@@ -35225,17 +35228,17 @@ exports.MenuToolBar = MenuToolBar;
 /***/ }),
 
 /***/ 7282:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1260493__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1260613__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MenuItems = exports.MenuManager = void 0;
-var lib_1 = __nested_webpack_require_1260493__(1021);
-var menu_1 = __nested_webpack_require_1260493__(9367);
-var hash_handler_1 = __nested_webpack_require_1260493__(7116);
-var event = __nested_webpack_require_1260493__(7989);
-var keyUtil = __nested_webpack_require_1260493__(1797);
+var lib_1 = __nested_webpack_require_1260613__(1021);
+var menu_1 = __nested_webpack_require_1260613__(9367);
+var hash_handler_1 = __nested_webpack_require_1260613__(7116);
+var event = __nested_webpack_require_1260613__(7989);
+var keyUtil = __nested_webpack_require_1260613__(1797);
 function getPrevSibling(node, conditionFn, parentElement) {
     parentElement = node ? node.parentElement : parentElement;
     var wrapped = false;
@@ -35568,7 +35571,7 @@ exports.MenuItems = MenuItems;
 /***/ }),
 
 /***/ 279:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1274312__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1274432__) {
 
 "use strict";
 
@@ -35589,12 +35592,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PanelBar = exports.Panel = void 0;
-var panelManager_1 = __nested_webpack_require_1274312__(6790);
-var lib_1 = __nested_webpack_require_1274312__(1021);
-var tabbar_handler_1 = __nested_webpack_require_1274312__(1966);
-var tab_1 = __nested_webpack_require_1274312__(9165);
-var dom_1 = __nested_webpack_require_1274312__(5079);
-var panelCSS = __nested_webpack_require_1274312__(3612);
+var panelManager_1 = __nested_webpack_require_1274432__(6790);
+var lib_1 = __nested_webpack_require_1274432__(1021);
+var tabbar_handler_1 = __nested_webpack_require_1274432__(1966);
+var tab_1 = __nested_webpack_require_1274432__(9165);
+var dom_1 = __nested_webpack_require_1274432__(5079);
+var panelCSS = __nested_webpack_require_1274432__(3612);
 dom_1.dom.importCssString(panelCSS, "panel.css");
 var Panel = /** @class */ (function (_super) {
     __extends(Panel, _super);
@@ -35745,15 +35748,15 @@ exports.PanelBar = PanelBar;
 /***/ }),
 
 /***/ 6790:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1281407__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1281527__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PanelManager = void 0;
-var box_1 = __nested_webpack_require_1281407__(8795);
-var accordion_1 = __nested_webpack_require_1281407__(4563);
-var panel_1 = __nested_webpack_require_1281407__(279);
+var box_1 = __nested_webpack_require_1281527__(8795);
+var accordion_1 = __nested_webpack_require_1281527__(4563);
+var panel_1 = __nested_webpack_require_1281527__(279);
 var PanelManager = /** @class */ (function () {
     function PanelManager(options) {
         this.layout = options.layout;
@@ -35856,18 +35859,18 @@ exports.PanelManager = PanelManager;
 /***/ }),
 
 /***/ 9165:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1285667__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1285787__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TabBar = exports.Tab = void 0;
-var tabbar_handler_1 = __nested_webpack_require_1285667__(1966);
-var lib_1 = __nested_webpack_require_1285667__(1021);
-var tabManager_1 = __nested_webpack_require_1285667__(8478);
-var dom_1 = __nested_webpack_require_1285667__(5079);
-var tabCSS = __nested_webpack_require_1285667__(2463);
-var params_1 = __nested_webpack_require_1285667__(3130);
+var tabbar_handler_1 = __nested_webpack_require_1285787__(1966);
+var lib_1 = __nested_webpack_require_1285787__(1021);
+var tabManager_1 = __nested_webpack_require_1285787__(8478);
+var dom_1 = __nested_webpack_require_1285787__(5079);
+var tabCSS = __nested_webpack_require_1285787__(2463);
+var params_1 = __nested_webpack_require_1285787__(3130);
 dom_1.dom.importCssString(tabCSS, "tab.css");
 var Tab = /** @class */ (function () {
     function Tab(options) {
@@ -36017,7 +36020,7 @@ var TabBar = /** @class */ (function () {
                 this.toggleSelection(tab);
             }
             else {
-                this.activateTab(tab, "", this.selectedTabs.indexOf(tab) < 0);
+                this.activateTab(tab, null, this.selectedTabs.indexOf(tab) < 0);
             }
         }
     };
@@ -36492,21 +36495,21 @@ exports.TabBar = TabBar;
 /***/ }),
 
 /***/ 8478:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1308883__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1309005__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TabManager = void 0;
-var tabCommands_1 = __nested_webpack_require_1308883__(2656);
-var box_1 = __nested_webpack_require_1308883__(8795);
-var oop = __nested_webpack_require_1308883__(9359);
-var event_emitter_1 = __nested_webpack_require_1308883__(3056);
-var useragent = __nested_webpack_require_1308883__(618);
-var tab_1 = __nested_webpack_require_1308883__(9165);
-var pane_1 = __nested_webpack_require_1308883__(3167);
-var menuManager_1 = __nested_webpack_require_1308883__(7282);
-var commandManager_1 = __nested_webpack_require_1308883__(2583);
+var tabCommands_1 = __nested_webpack_require_1309005__(2656);
+var box_1 = __nested_webpack_require_1309005__(8795);
+var oop = __nested_webpack_require_1309005__(9359);
+var event_emitter_1 = __nested_webpack_require_1309005__(3056);
+var useragent = __nested_webpack_require_1309005__(618);
+var tab_1 = __nested_webpack_require_1309005__(9165);
+var pane_1 = __nested_webpack_require_1309005__(3167);
+var menuManager_1 = __nested_webpack_require_1309005__(7282);
+var commandManager_1 = __nested_webpack_require_1309005__(2583);
 var newTabCounter = 1;
 function saveJson(name, value) {
     localStorage[name] = JSON.stringify(value);
@@ -36684,15 +36687,7 @@ var TabManager = /** @class */ (function () {
     TabManager.prototype.loadFile = function (tab, fileContent) {
         var _a;
         var editor = (_a = tab.editor) !== null && _a !== void 0 ? _a : tab.parent.parent.getEditor(tab.editorType);
-        if (tab.session) {
-            editor.setSession(tab);
-        }
-        else if (!tab.path) {
-            editor.setSession(tab, "");
-        }
-        else {
-            editor.setSession(tab, fileContent !== null && fileContent !== void 0 ? fileContent : "");
-        }
+        editor.setSession(tab, fileContent);
     };
     ;
     TabManager.prototype.navigateToTab = function (index, tab, tabs) {
@@ -36700,7 +36695,7 @@ var TabManager = /** @class */ (function () {
         var activeTab = tab || this.activeTab;
         //TODO: seems we need better `activate` method for Tab
         if (index >= 0 && tabsList.length > index)
-            activeTab.parent.activateTab(tabsList[index], "", true);
+            activeTab.parent.activateTab(tabsList[index], null, true);
     };
     return TabManager;
 }());
@@ -36772,7 +36767,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_1327314__(moduleId) {
+/******/ 	function __nested_webpack_require_1327194__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -36786,24 +36781,24 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_1327314__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_1327194__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_1327314__.m = __webpack_modules__;
+/******/ 	__nested_webpack_require_1327194__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_1327314__.n = (module) => {
+/******/ 		__nested_webpack_require_1327194__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_1327314__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_1327194__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -36811,9 +36806,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_1327314__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_1327194__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_1327314__.o(definition, key) && !__nested_webpack_require_1327314__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_1327194__.o(definition, key) && !__nested_webpack_require_1327194__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -36822,13 +36817,13 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1327314__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_1327194__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_1327314__.r = (exports) => {
+/******/ 		__nested_webpack_require_1327194__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -36838,7 +36833,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1327314__.b = document.baseURI || self.location.href;
+/******/ 		__nested_webpack_require_1327194__.b = document.baseURI || self.location.href;
 /******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
@@ -36864,7 +36859,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1327314__.nc = undefined;
+/******/ 		__nested_webpack_require_1327194__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -36872,7 +36867,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_1327314__(4432);
+/******/ 	var __webpack_exports__ = __nested_webpack_require_1327194__(4432);
 /******/ 	module.exports = __webpack_exports__;
 /******/ 	
 /******/ })()
@@ -37081,9 +37076,9 @@ function loadSample(path) {
         return response.responseText;
     });
     Promise.all([js, css, html]).then(function (samples) {
-        tabCSS.session.setValue(samples[1]);
-        tabHTML.session.setValue(samples[2]);
-        tabJs.session.setValue("//".concat((0, utils_1.pathToTitle)(path), "\n\n") + samples[0]);
+        tabManager.loadFile(tabCSS, samples[1]);
+        tabManager.loadFile(tabHTML, samples[2]);
+        tabManager.loadFile(tabJs, "//".concat((0, utils_1.pathToTitle)(path), "\n\n") + samples[0]);
     }, function (err) {
         displayError(err);
     });
