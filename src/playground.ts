@@ -77,7 +77,7 @@ export function createRunButton() {
     return button;
 }
 
-var runSample = () => {
+export function runSample () {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
     var previewTab = tabManager.open({
         title: "Result",
@@ -89,7 +89,7 @@ var runSample = () => {
         displayError(e.data);
     }
     previewTab.editor.setSession(previewTab, html);
-};
+}
 
 CommandManager.registerCommands([{
     bindKey: {
@@ -120,6 +120,8 @@ function loadSample(path) {
             tabManager.loadFile(tabCSS, samples[1]);
             tabManager.loadFile(tabHTML, samples[2]);
             tabManager.loadFile(tabJs, `//${pathToTitle(path)}\n\n` + samples[0]);
+
+            runSample();
         },
         function (err) {
             displayError(err);

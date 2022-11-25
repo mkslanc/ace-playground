@@ -2,7 +2,7 @@ import {MenuManager, TabManager, CommandManager} from "ace-layout";
 import {SAMPLES} from "./samples";
 import {pathToTitle} from "./utils";
 import {Layouts} from "./layouts/layouts";
-import {createRunButton, initTabs} from "./playground";
+import {createRunButton, initTabs, runSample} from "./playground";
 
 export function addMenu(callback) {
     var menuManager = MenuManager.getInstance();
@@ -53,6 +53,8 @@ export function addMenu(callback) {
             initTabs();
             var button = createRunButton();
             currentTabManager?.containers["main"].addButtons(button);
+
+            runSample();
         };
         menuManager.addByPath(root + '/' + i, {position: outerPos, exec: changeLayout});
         outerPos += 50;
