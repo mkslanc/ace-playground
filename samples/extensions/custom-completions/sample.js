@@ -6,13 +6,13 @@ editor.setTheme("ace/theme/tomorrow");
 
 editor.completers = [{
     getCompletions: function(editor, session, pos, prefix, callback) {
-        var completions = [{
-            caption: "my caption",
-            snippet: "content: '$1'",
-            meta: "snippet",
-            type: "snippet"
-        },
+        var completions = [
             {
+                caption: "my caption",
+                snippet: "content: '$1'",
+                meta: "snippet",
+                type: "snippet"
+            }, {
                 caption: "my value",
                 value: "value",
                 meta: "custom",
