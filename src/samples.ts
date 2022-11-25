@@ -20,7 +20,8 @@ export const SAMPLES = {
         'Providing-custom-annotations',
         'Listening-to-events',
         'Scrollbars',
-        'Creating-own-validation'
+        'Creating-own-validation',
+        'Customizing-line-numbers'
     ],
     "Customising-the-appearance": [
         'Creating-new-theme'
