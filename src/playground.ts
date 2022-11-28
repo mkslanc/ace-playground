@@ -4,6 +4,7 @@ import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
 import * as twoColumnsBottom from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/src/widgets/tabs/tab";
+import {SAMPLES} from "./samples";
 
 var editorBox: Box, outerBox: Box, exampleBox: Box;
 
@@ -56,7 +57,12 @@ tabManager.setState(twoColumnsBottom);
 
 onResize();
 
-var startingSample = 'samples/creating-ace-editor/hello-world';
+var allSamples = Object.values(SAMPLES).reduce((prev, curr) => prev.concat(curr.map(path => path.toLowerCase())), []);
+
+var hashSample = new URL(document.URL).hash.replace("#", "");
+if (!allSamples.includes(hashSample))
+    hashSample = "hello-world";
+
 var tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
 
 export function initTabs() {
@@ -65,7 +71,7 @@ export function initTabs() {
     tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
 }
 
-loadSample(startingSample);
+loadSample('samples/' + hashSample);
 
 export function createRunButton() {
     var button = document.createElement("button");
@@ -77,7 +83,7 @@ export function createRunButton() {
     return button;
 }
 
-var runSample = () => {
+export function runSample () {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
     var previewTab = tabManager.open({
         title: "Result",
@@ -89,7 +95,7 @@ var runSample = () => {
         displayError(e.data);
     }
     previewTab.editor.setSession(previewTab, html);
-};
+}
 
 CommandManager.registerCommands([{
     bindKey: {
@@ -103,6 +109,10 @@ var button = createRunButton();
 editorBox.addButtons(button);
 
 function loadSample(path) {
+    var url = new URL(document.URL);
+    url.hash = path.split("/").pop();
+    document.location.href = url.href;
+
     initTabs();
 
     var js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
@@ -120,6 +130,8 @@ function loadSample(path) {
             tabManager.loadFile(tabCSS, samples[1]);
             tabManager.loadFile(tabHTML, samples[2]);
             tabManager.loadFile(tabJs, `//${pathToTitle(path)}\n\n` + samples[0]);
+
+            runSample();
         },
         function (err) {
             displayError(err);

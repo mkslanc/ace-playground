@@ -2,26 +2,25 @@ import {MenuManager, TabManager, CommandManager} from "ace-layout";
 import {SAMPLES} from "./samples";
 import {pathToTitle} from "./utils";
 import {Layouts} from "./layouts/layouts";
-import {createRunButton, initTabs} from "./playground";
+import {createRunButton, initTabs, runSample} from "./playground";
 
 export function addMenu(callback) {
     var menuManager = MenuManager.getInstance();
-    var outerPos = 0;
+    var position = 0;
     var root = "Samples";
-    menuManager.addByPath(root, {position: outerPos});
+    menuManager.addByPath(root, {position: position});
     Object.keys(SAMPLES).forEach(function (i) {
         let items = SAMPLES[i];
-        menuManager.addByPath(root + '/' + pathToTitle(i), {position: outerPos});
-        var innerPos = 0;
         for (let name of items) {
-            let path = [root, i, name].join('/');
+            position++;
+            let path = [root, name].join('/');
             menuManager.addByPath(pathToTitle(path), {
-                position: innerPos,
+                position: position,
                 exec: () => callback(path.toLowerCase())
             });
-            innerPos += 50;
         }
-        outerPos += 50;
+        position++;
+        menuManager.addByPath(root + '/~' + position, {position: position});
     });
 
     root = "View";
@@ -44,7 +43,7 @@ export function addMenu(callback) {
 
     root = "View/Layout";
     menuManager.addByPath(root, {position: 100});
-    outerPos = 0;
+    position = 0;
 
     Object.keys(Layouts).forEach(function (i) {
         let changeLayout = () => {
@@ -53,8 +52,10 @@ export function addMenu(callback) {
             initTabs();
             var button = createRunButton();
             currentTabManager?.containers["main"].addButtons(button);
+
+            runSample();
         };
-        menuManager.addByPath(root + '/' + i, {position: outerPos, exec: changeLayout});
-        outerPos += 50;
+        menuManager.addByPath(root + '/' + i, {position: position, exec: changeLayout});
+        position++;
     });
 }
