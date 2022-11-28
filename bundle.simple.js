@@ -36911,26 +36911,25 @@ var layouts_1 = __webpack_require__(928);
 var playground_1 = __webpack_require__(139);
 function addMenu(callback) {
     var menuManager = ace_layout_1.MenuManager.getInstance();
-    var outerPos = 0;
+    var position = 0;
     var root = "Samples";
-    menuManager.addByPath(root, { position: outerPos });
+    menuManager.addByPath(root, { position: position });
     Object.keys(samples_1.SAMPLES).forEach(function (i) {
         var items = samples_1.SAMPLES[i];
-        menuManager.addByPath(root + '/' + (0, utils_1.pathToTitle)(i), { position: outerPos });
-        var innerPos = 0;
         var _loop_1 = function (name) {
-            var path = [root, i, name].join('/');
+            position++;
+            var path = [root, name].join('/');
             menuManager.addByPath((0, utils_1.pathToTitle)(path), {
-                position: innerPos,
+                position: position,
                 exec: function () { return callback(path.toLowerCase()); }
             });
-            innerPos += 50;
         };
         for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
             var name = items_1[_i];
             _loop_1(name);
         }
-        outerPos += 50;
+        position++;
+        menuManager.addByPath(root + '/~' + position, { position: position });
     });
     root = "View";
     menuManager.addByPath(root, { position: 50 });
@@ -36949,7 +36948,7 @@ function addMenu(callback) {
         }]);
     root = "View/Layout";
     menuManager.addByPath(root, { position: 100 });
-    outerPos = 0;
+    position = 0;
     Object.keys(layouts_1.Layouts).forEach(function (i) {
         var changeLayout = function () {
             var currentTabManager = ace_layout_1.TabManager.getInstance();
@@ -36957,9 +36956,10 @@ function addMenu(callback) {
             (0, playground_1.initTabs)();
             var button = (0, playground_1.createRunButton)();
             currentTabManager === null || currentTabManager === void 0 ? void 0 : currentTabManager.containers["main"].addButtons(button);
+            (0, playground_1.runSample)();
         };
-        menuManager.addByPath(root + '/' + i, { position: outerPos, exec: changeLayout });
-        outerPos += 50;
+        menuManager.addByPath(root + '/' + i, { position: position, exec: changeLayout });
+        position++;
     });
 }
 exports.addMenu = addMenu;
@@ -36973,12 +36973,13 @@ exports.addMenu = addMenu;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createRunButton = exports.initTabs = void 0;
+exports.runSample = exports.createRunButton = exports.initTabs = void 0;
 var ace_layout_1 = __webpack_require__(364);
 var menu_1 = __webpack_require__(132);
 var utils_1 = __webpack_require__(867);
 var template_1 = __webpack_require__(746);
 var twoColumnsBottom = __webpack_require__(729);
+var samples_1 = __webpack_require__(214);
 var editorBox, outerBox, exampleBox;
 document.body.innerHTML = "";
 var base = new ace_layout_1.Box({
@@ -37022,7 +37023,10 @@ var tabManager = window["tabManager"] = ace_layout_1.TabManager.getInstance({
 });
 tabManager.setState(twoColumnsBottom);
 onResize();
-var startingSample = 'samples/creating-ace-editor/hello-world';
+var allSamples = Object.values(samples_1.SAMPLES).reduce(function (prev, curr) { return prev.concat(curr.map(function (path) { return path.toLowerCase(); })); }, []);
+var hashSample = new URL(document.URL).hash.replace("#", "");
+if (!allSamples.includes(hashSample))
+    hashSample = "hello-world";
 var tabCSS, tabHTML, tabJs;
 function initTabs() {
     tabCSS = tabManager.open({ title: "CSS", path: 'sample.css', active: false }, "main");
@@ -37030,7 +37034,7 @@ function initTabs() {
     tabJs = tabManager.open({ title: "JavaScript", path: 'sample.js' }, "main");
 }
 exports.initTabs = initTabs;
-loadSample(startingSample);
+loadSample('samples/' + hashSample);
 function createRunButton() {
     var button = document.createElement("button");
     button.textContent = "Run";
@@ -37041,7 +37045,7 @@ function createRunButton() {
     return button;
 }
 exports.createRunButton = createRunButton;
-var runSample = function () {
+function runSample() {
     var html = (0, template_1.generateTemplate)(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue());
     var previewTab = tabManager.open({
         title: "Result",
@@ -37054,7 +37058,8 @@ var runSample = function () {
             displayError(e.data);
         };
     previewTab.editor.setSession(previewTab, html);
-};
+}
+exports.runSample = runSample;
 ace_layout_1.CommandManager.registerCommands([{
         bindKey: {
             win: "Ctrl-Enter",
@@ -37065,6 +37070,9 @@ ace_layout_1.CommandManager.registerCommands([{
 var button = createRunButton();
 editorBox.addButtons(button);
 function loadSample(path) {
+    var url = new URL(document.URL);
+    url.hash = path.split("/").pop();
+    document.location.href = url.href;
     initTabs();
     var js = (0, utils_1.request)(path + '/sample.js').then(function (response) {
         return response.responseText;
@@ -37079,6 +37087,7 @@ function loadSample(path) {
         tabManager.loadFile(tabCSS, samples[1]);
         tabManager.loadFile(tabHTML, samples[2]);
         tabManager.loadFile(tabJs, "//".concat((0, utils_1.pathToTitle)(path), "\n\n") + samples[0]);
+        runSample();
     }, function (err) {
         displayError(err);
     });
@@ -37123,7 +37132,8 @@ exports.SAMPLES = {
         'Providing-custom-annotations',
         'Listening-to-events',
         'Scrollbars',
-        'Creating-own-validation'
+        'Creating-own-validation',
+        'Customizing-line-numbers'
     ],
     "Customising-the-appearance": [
         'Creating-new-theme'
