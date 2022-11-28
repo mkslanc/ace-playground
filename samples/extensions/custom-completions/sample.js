@@ -1,9 +1,12 @@
-// trigger extension
-ace.require("ace/ext/language_tools");
 var editor = ace.edit("example");
 editor.session.setMode("ace/mode/html");
 editor.setTheme("ace/theme/tomorrow");
 
+// enable autocompletion and snippets
+editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true
+});
 editor.completers = [{
     getCompletions: function(editor, session, pos, prefix, callback) {
         var completions = [{
@@ -20,11 +23,14 @@ editor.completers = [{
             }
         ];
         callback(null, completions);
+    },
+    getDocTooltip: function(item) {
+        if (!item.docHTML) {
+            item.docHTML = [
+                "<b>", item.caption, "</b>",
+            ].join("");
+        }
     }
 }];
-// enable autocompletion and snippets
-editor.setOptions({
-    enableLiveAutocompletion: true
-});
 
 //Try to write something in Result tab->
