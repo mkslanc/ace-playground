@@ -5,14 +5,14 @@ var editor = ace.edit("example", {
     value: "console.log('Hello world!');\n\n".repeat(20)
 });
 
-var relativeNumberRenderer = {
+var hexNumberRenderer = {
     getText: function(session, row) {
-        return (Math.abs(session.selection.lead.row - row) || (row + 1 + (row < 9 ? "\xb7" : ""))) + "";
+        return (row + 1).toString(16);
     },
     getWidth: function(session, lastLineNumber, config) {
         return Math.max(
-            lastLineNumber.toString().length,
-            (config.lastRow + 1).toString().length,
+            lastLineNumber.toString(16).length,
+            (config.lastRow + 1).toString(16).length,
             2
         ) * config.characterWidth;
     },
@@ -33,5 +33,5 @@ var relativeNumberRenderer = {
 };
 
 setTimeout(function () {
-    relativeNumberRenderer.attach(editor);
+    hexNumberRenderer.attach(editor);
 }, 2000);
