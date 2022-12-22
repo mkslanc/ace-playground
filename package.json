@@ -7,16 +7,17 @@
   },
   "dependencies": {
     "ace-code": "latest",
-    "typescript": "latest",
-    "ace-layout": "1.1.11"
+    "ace-layout": "1.1.11",
+    "ace-linters": "^0.0.2",
+    "typescript": "latest"
   },
   "devDependencies": {
-    "webpack": "latest",
-    "webpack-dev-server": "latest",
-    "webpack-cli": "^4.10.0",
+    "copy-webpack-plugin": "9.1.0",
     "text-loader": "latest",
     "ts-loader": "latest",
-    "copy-webpack-plugin": "9.1.0"
+    "webpack": "latest",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "latest"
   },
   "license": "MIT"
 }

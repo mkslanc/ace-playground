@@ -1,13 +1,14 @@
-import {Ace, AceLayout, Box, CommandManager, EditorType, MenuToolBar, TabManager} from "ace-layout";
+import {Ace, AceLayout, Box, CommandManager, dom, EditorType, MenuToolBar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
 import * as twoColumnsBottom from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/src/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
+import {LanguageProvider, registerStyles} from "ace-linters";
 
+registerStyles();
 var editorBox: Box, outerBox: Box, exampleBox: Box;
-
 document.body.innerHTML = "";
 var base = new Box({
     toolBars: {
@@ -44,7 +45,6 @@ var onResize = function () {
 };
 window.onresize = onResize;
 
-
 document.body.appendChild(base.element);
 var tabManager = window["tabManager"] = TabManager.getInstance({
     containers: {
@@ -69,6 +69,9 @@ export function initTabs() {
     tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
     tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
     tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
+    cssProvider = new LanguageProvider(tabCSS.editor.editor, {});
+    htmlProvider = new LanguageProvider(tabHTML.editor.editor, {});
+    jsProvider = new LanguageProvider(tabJs.editor.editor, {});
 }
 
 loadSample('samples/' + hashSample);
@@ -83,7 +86,7 @@ export function createRunButton() {
     return button;
 }
 
-export function runSample () {
+export function runSample() {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
     var previewTab = tabManager.open({
         title: "Result",
@@ -107,7 +110,7 @@ CommandManager.registerCommands([{
 
 var button = createRunButton();
 editorBox.addButtons(button);
-
+var cssProvider, htmlProvider, jsProvider;
 function loadSample(path) {
     var url = new URL(document.URL);
     url.hash = path.split("/").pop();
@@ -141,7 +144,11 @@ function loadSample(path) {
 
 function displayError(errorMessage) {
     if (typeof errorMessage !== "string") return;
-    var terminal = tabManager.open<Ace.EditSession>({title: "Problems", path: 'terminal', editorType: EditorType.ace}, "console");
+    var terminal = tabManager.open<Ace.EditSession>({
+        title: "Problems",
+        path: 'terminal',
+        editorType: EditorType.ace
+    }, "console");
     terminal.session.setValue(errorMessage);
     tabManager.loadFile(terminal);
 }
