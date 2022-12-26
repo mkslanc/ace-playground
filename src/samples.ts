@@ -28,6 +28,7 @@ export const SAMPLES = {
     ],
     "Extensions": [
         'Code-Lens',
-        'Custom-completions'
+        'Custom-completions',
+        'Validation-against-JSON-schema'
     ]
 };
