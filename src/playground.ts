@@ -64,14 +64,15 @@ if (!allSamples.includes(hashSample))
     hashSample = "hello-world";
 
 var tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
+var cssProvider: LanguageProvider, htmlProvider: LanguageProvider, jsProvider: LanguageProvider;
 
 export function initTabs() {
     tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
     tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
     tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
-    cssProvider = new LanguageProvider(tabCSS.editor.editor, {});
-    htmlProvider = new LanguageProvider(tabHTML.editor.editor, {});
-    jsProvider = new LanguageProvider(tabJs.editor.editor, {});
+    cssProvider ??= new LanguageProvider(tabCSS.editor.editor, {});
+    htmlProvider ??= new LanguageProvider(tabHTML.editor.editor, {});
+    jsProvider ??= new LanguageProvider(tabJs.editor.editor, {});
 }
 
 loadSample('samples/' + hashSample);
@@ -110,7 +111,6 @@ CommandManager.registerCommands([{
 
 var button = createRunButton();
 editorBox.addButtons(button);
-var cssProvider, htmlProvider, jsProvider;
 function loadSample(path) {
     var url = new URL(document.URL);
     url.hash = path.split("/").pop();
