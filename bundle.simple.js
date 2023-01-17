@@ -37141,6 +37141,10 @@ exports.SAMPLES = {
     "Extensions": [
         'Code-Lens',
         'Custom-completions'
+    ],
+    "Language-features": [
+        'Validation-against-JSON-schema',
+        'Typescript-language-service'
     ]
 };
 
