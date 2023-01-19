@@ -28,7 +28,10 @@ export const SAMPLES = {
     ],
     "Extensions": [
         'Code-Lens',
-        'Custom-completions',
-        'Validation-against-JSON-schema'
+        'Custom-completions'
+    ],
+    "Language-features": [
+        'Validation-against-JSON-schema',
+        'Typescript-language-service'
     ]
 };

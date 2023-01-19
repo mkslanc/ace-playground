@@ -41,15 +41,55 @@ var jsonSchema = `{
 }
 `;
 
-//link schema to json service
-setLanguageGlobalOptions("json", {
-    jsonSchemas: [{
-        uri: "common.schema.json",
-        schema: jsonSchema
-    }]
-});
+function $workerBlob(script) {
+    return new Blob([script.toString()], {"type": "application/javascript"});
+}
+
+function createWorker(script) {
+    if (typeof Worker == "undefined") return {
+        postMessage: function () {
+        },
+        terminate: function () {
+        }
+    };
+
+    var blob = $workerBlob(script);
+    var URL = window.URL || window.webkitURL;
+    var blobURL = URL.createObjectURL(blob);
+    // calling URL.revokeObjectURL before worker is terminated breaks it on IE Edge
+    return new Worker(blobURL);
+}
+
+let worker = createWorker("!" + function () {
+    importScripts("https://cdn.jsdelivr.net/npm/ace-linters/build/service-manager.js");
+    let manager = new ServiceManager(self);
+    manager.registerService("json", {
+        module: () => {
+            importScripts("https://cdn.jsdelivr.net/npm/ace-linters/build/json-service.js");
+            return {JsonService};
+        },
+        className: "JsonService",
+        modes: "json|json5"
+    });
+
+} + "();");
+
+
 //create Language Provider for json doc from ace linters
-// `jsonSchemaUri` should point to related schemas uri
-let provider = new LanguageProvider(editor, {jsonSchemaUri: "common.schema.json"});
+
+let provider = LanguageProvider.for(worker);
+
+//link schema to json service
+provider.setGlobalOptions("json", {
+    jsonSchemas: [
+        {
+            uri: "common.schema.json",
+            schema: jsonSchema
+        }
+    ]
+});
+
+provider.registerEditor(editor);
+provider.setOptions(editor.session, {jsonSchemaUri: "common.schema.json"});
 
 //try to write something inside curly braces ->
