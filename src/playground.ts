@@ -1,42 +1,52 @@
-import {Ace, AceLayout, Box, CommandManager, dom, EditorType, MenuToolBar, TabManager} from "ace-layout";
+import {Ace, AceEditor, AceLayout, Box, CommandManager, dom, EditorType, MenuToolBar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
 import * as twoColumnsBottom from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/src/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
-import {LanguageProvider, registerStyles} from "ace-linters";
+import {LanguageProvider} from "ace-linters";
+import {LayoutEditor} from "../../ace-layout/src/widgets/widget";
+let event = require("ace-code/src/lib/event");
+let {HashHandler} = require("ace-code/src/keyboard/hash_handler");
+let keyUtil = require("ace-code/src/lib/keys");
 
-registerStyles();
-var editorBox: Box, outerBox: Box, exampleBox: Box;
+var editorBox: Box, exampleBox: Box, consoleBox: Box;
 document.body.innerHTML = "";
 var base = new Box({
     toolBars: {
         top: new MenuToolBar(),
     },
     vertical: false,
-    0: outerBox = new Box({
-        vertical: true,
-        0: new Box({
-            0: editorBox = new Box({isMain: true}),
-            1: exampleBox = new Box({isMain: true})
-        }),
+    0: new Box({
+        0: editorBox = new Box({isMain: true}),
         1: new Box({
-            ratio: 1,
-            size: 100,
-            isMain: true,
-            buttonList: [{
-                class: "consoleCloseBtn", title: "F6", onclick: function () {
-                    outerBox[1].hide();
-                }
-            }],
-        }),
-        toolBars: {},
+            vertical: true,
+            0: exampleBox = new Box({isMain: true}),
+            1: consoleBox = new Box({
+                ratio: 1,
+                size: 100,
+                isMain: true,
+                buttonList: [{
+                    class: "consoleCloseBtn", title: "F6", onclick: function () {
+                        consoleBox.hide();
+                    }
+                }],
+            }),
+        })
     }),
 });
 
 new AceLayout(base);
 addMenu(loadSample);
+
+let worker = new Worker(new URL('./webworker.ts', import.meta.url));
+let languageProvider = LanguageProvider.default(worker);
+
+editorBox.on("editorAdded", (editor: LayoutEditor) => {
+    if (editor instanceof AceEditor)
+        languageProvider.registerEditor(editor.editor);
+});
 
 base.render();
 
@@ -50,7 +60,7 @@ var tabManager = window["tabManager"] = TabManager.getInstance({
     containers: {
         main: editorBox,
         example: exampleBox,
-        console: outerBox[1],
+        console: consoleBox,
     }
 });
 tabManager.setState(twoColumnsBottom);
@@ -64,15 +74,34 @@ if (!allSamples.includes(hashSample))
     hashSample = "hello-world";
 
 var tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
-var cssProvider: LanguageProvider, htmlProvider: LanguageProvider, jsProvider: LanguageProvider;
+
+
+let menuKb = new HashHandler([
+    {
+        bindKey: "Ctrl-Shift-B",
+        name: "format",
+        exec: function () {
+            languageProvider.format();
+        }
+    }
+]);
+
+event.addCommandKeyListener(window, function (e, hashId, keyCode) {
+    let keyString = keyUtil.keyCodeToString(keyCode);
+    let command = menuKb.findKeyCommand(hashId, keyString);
+    if (command) {
+        command.exec();
+        e.preventDefault();
+    }
+});
+function getTab(title: string, path: string) {
+    return tabManager.open<Ace.EditSession>({title: title, path: path}, "main");
+}
 
 export function initTabs() {
-    tabCSS = tabManager.open({title: "CSS", path: 'sample.css', active: false}, "main");
-    tabHTML = tabManager.open({title: "HTML", path: 'sample.html', active: false}, "main");
-    tabJs = tabManager.open({title: "JavaScript", path: 'sample.js'}, "main");
-    cssProvider ??= new LanguageProvider(tabCSS.editor.editor, {});
-    htmlProvider ??= new LanguageProvider(tabHTML.editor.editor, {});
-    jsProvider ??= new LanguageProvider(tabJs.editor.editor, {});
+    tabCSS = getTab("CSS", "sample.css");
+    tabHTML = getTab("HTML", "sample.html");
+    tabJs = getTab("JavaScript", "sample.js");
 }
 
 loadSample('samples/' + hashSample);
@@ -152,3 +181,4 @@ function displayError(errorMessage) {
     terminal.session.setValue(errorMessage);
     tabManager.loadFile(terminal);
 }
+consoleBox.addButtons();

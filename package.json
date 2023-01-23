@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "ace-code": "latest",
-    "ace-layout": "1.1.11",
-    "ace-linters": "^0.0.4",
+    "ace-layout": "1.2.0",
+    "ace-linters": "^0.2.2",
     "typescript": "latest"
   },
   "devDependencies": {
@@ -19,5 +19,6 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "latest"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
