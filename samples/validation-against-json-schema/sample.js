@@ -77,7 +77,7 @@ let worker = createWorker("!" + function () {
 
 //create Language Provider for json doc from ace linters
 
-let provider = LanguageProvider.for(worker);
+let provider = LanguageProvider.default(worker);
 
 //link schema to json service
 provider.setGlobalOptions("json", {
