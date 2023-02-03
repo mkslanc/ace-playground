@@ -81,7 +81,7 @@ let provider = LanguageProvider.default(worker);
 
 //link schema to json service
 provider.setGlobalOptions("json", {
-    jsonSchemas: [
+    schemas: [
         {
             uri: "common.schema.json",
             schema: jsonSchema
@@ -90,6 +90,6 @@ provider.setGlobalOptions("json", {
 });
 
 provider.registerEditor(editor);
-provider.setOptions(editor.session, {jsonSchemaUri: "common.schema.json"});
+provider.setOptions(editor.session, {schemaUri: "common.schema.json"});
 
 //try to write something inside curly braces ->
