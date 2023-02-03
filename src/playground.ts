@@ -43,6 +43,22 @@ addMenu(loadSample);
 let worker = new Worker(new URL('./webworker.ts', import.meta.url));
 let languageProvider = LanguageProvider.default(worker);
 
+request('ace.d.ts').then(function (response: XMLHttpRequest) {
+    languageProvider.setGlobalOptions("typescript", {
+        extraLibs: {
+            "ace.d.ts": {
+                content: correctDeclaration(response.responseText),
+                version: 1
+            },
+        }
+    });
+});
+
+function correctDeclaration(declaration) {
+    return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
+        .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}";
+}
+
 editorBox.on("editorAdded", (editor: LayoutEditor) => {
     if (editor instanceof AceEditor)
         languageProvider.registerEditor(editor.editor);
