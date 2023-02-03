@@ -13,7 +13,7 @@ loader = {
             transpileOnly: true
         }
     },
-    exclude: /node_modules\//
+    exclude: /node_modules/
 };
 export default {
     devtool: 'source-map',
