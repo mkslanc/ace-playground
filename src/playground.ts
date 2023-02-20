@@ -41,7 +41,7 @@ new AceLayout(base);
 addMenu(loadSample);
 
 let worker = new Worker(new URL('./webworker.ts', import.meta.url));
-let languageProvider = LanguageProvider.default(worker);
+let languageProvider = LanguageProvider.create(worker);
 
 request('ace.d.ts').then(function (response: XMLHttpRequest) {
     languageProvider.setGlobalOptions("typescript", {
