@@ -8,7 +8,7 @@
   "dependencies": {
     "ace-code": "latest",
     "ace-layout": "1.2.0",
-    "ace-linters": "^0.4.0",
+    "ace-linters": "^0.5.0",
     "typescript": "latest"
   },
   "devDependencies": {

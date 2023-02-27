@@ -50,8 +50,12 @@ request('ace.d.ts').then(function (response: XMLHttpRequest) {
                 content: correctDeclaration(response.responseText),
                 version: 1
             },
+        },
+        compilerOptions: {
+            allowJs: true,
+            checkJs: true
         }
-    });
+    }, true);
 });
 
 function correctDeclaration(declaration) {
