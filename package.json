@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "ace-code": "latest",
-    "ace-layout": "1.2.0",
+    "ace-layout": "1.3.0",
     "ace-linters": "^0.3.0",
     "typescript": "latest"
   },
