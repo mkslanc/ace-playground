@@ -39,7 +39,7 @@ new AceLayout(base);
 addMenu(setSample);
 
 let worker = new Worker(new URL('./webworker.ts', import.meta.url));
-let languageProvider = LanguageProvider.default(worker);
+let languageProvider = LanguageProvider.create(worker);
 
 request('ace.d.ts').then(function (response: XMLHttpRequest) {
     languageProvider.setGlobalOptions("typescript", {
@@ -48,8 +48,12 @@ request('ace.d.ts').then(function (response: XMLHttpRequest) {
                 content: correctDeclaration(response.responseText),
                 version: 1
             },
+        },
+        compilerOptions: {
+            allowJs: true,
+            checkJs: true
         }
-    });
+    }, true);
 });
 
 function correctDeclaration(declaration) {

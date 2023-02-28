@@ -46,7 +46,7 @@ let worker = createWorker("!" + function () {
 
 } + "();");
 
-let languageProvider = LanguageProvider.default(worker);
+let languageProvider = LanguageProvider.create(worker);
 
 // Register the editor with the language provider
 languageProvider.registerEditor(editor);

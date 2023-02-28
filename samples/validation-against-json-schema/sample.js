@@ -77,11 +77,11 @@ let worker = createWorker("!" + function () {
 
 //create Language Provider for json doc from ace linters
 
-let provider = LanguageProvider.default(worker);
+let provider = LanguageProvider.create(worker);
 
 //link schema to json service
 provider.setGlobalOptions("json", {
-    jsonSchemas: [
+    schemas: [
         {
             uri: "common.schema.json",
             schema: jsonSchema
@@ -90,6 +90,6 @@ provider.setGlobalOptions("json", {
 });
 
 provider.registerEditor(editor);
-provider.setOptions(editor.session, {jsonSchemaUri: "common.schema.json"});
+provider.setOptions(editor.session, {schemaUri: "common.schema.json"});
 
 //try to write something inside curly braces ->
