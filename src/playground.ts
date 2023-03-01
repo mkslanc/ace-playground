@@ -1,8 +1,8 @@
-import {Ace, AceEditor, AceLayout, Box, CommandManager, dom, EditorType, MenuToolBar, TabManager} from "ace-layout";
+import {Ace, AceEditor, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
-import * as twoColumnsBottom from "./layouts/two-columns-bottom.json";
+import * as defaultLayout from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/src/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
 import {LanguageProvider} from "ace-linters";
@@ -11,11 +11,14 @@ let event = require("ace-code/src/lib/event");
 let {HashHandler} = require("ace-code/src/keyboard/hash_handler");
 let keyUtil = require("ace-code/src/lib/keys");
 
-var editorBox: Box, exampleBox: Box, consoleBox: Box;
+let editorBox: Box, exampleBox: Box, consoleBox: Box;
+
+let currentPath: string;
+
 document.body.innerHTML = "";
-var base = new Box({
+let base = new Box({
     toolBars: {
-        top: new MenuToolBar(),
+        top: new MenuToolbar(),
     },
     vertical: false,
     0: new Box({
@@ -27,18 +30,13 @@ var base = new Box({
                 ratio: 1,
                 size: 100,
                 isMain: true,
-                buttonList: [{
-                    class: "consoleCloseBtn", title: "F6", onclick: function () {
-                        consoleBox.hide();
-                    }
-                }],
             }),
         })
     }),
 });
 
 new AceLayout(base);
-addMenu(loadSample);
+addMenu(setSample);
 
 let worker = new Worker(new URL('./webworker.ts', import.meta.url));
 let languageProvider = LanguageProvider.create(worker);
@@ -70,31 +68,39 @@ editorBox.on("editorAdded", (editor: LayoutEditor) => {
 
 base.render();
 
-var onResize = function () {
+let onResize = function () {
     base.setBox(0, 0, window.innerWidth, window.innerHeight);
 };
 window.onresize = onResize;
 
 document.body.appendChild(base.element);
-var tabManager = window["tabManager"] = TabManager.getInstance({
+let tabManager = TabManager.getInstance({
     containers: {
         main: editorBox,
         example: exampleBox,
         console: consoleBox,
     }
 });
-tabManager.setState(twoColumnsBottom);
+tabManager.setState({"main": defaultLayout});
+
+consoleBox.renderButtons([{
+    class: "consoleCloseBtn",
+    title: "F6",
+    onclick: function () {
+        consoleBox.hide();
+    },
+    content: "x"
+}]);
 
 onResize();
 
-var allSamples = Object.values(SAMPLES).reduce((prev, curr) => prev.concat(curr.map(path => path.toLowerCase())), []);
+window.onpopstate = () => {
+    loadHashSample();
+}
 
-var hashSample = new URL(document.URL).hash.replace("#", "");
-if (!allSamples.includes(hashSample))
-    hashSample = "hello-world";
+let allSamples = Object.values(SAMPLES).reduce((prev, curr) => prev.concat(curr.map(path => path.toLowerCase())), []);
 
-var tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
-
+let tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
 
 let menuKb = new HashHandler([
     {
@@ -114,7 +120,7 @@ event.addCommandKeyListener(window, function (e, hashId, keyCode) {
         e.preventDefault();
     }
 });
-function getTab(title: string, path: string) {
+function getTab(title: string, path: string): Tab<Ace.EditSession> {
     return tabManager.open<Ace.EditSession>({title: title, path: path}, "main");
 }
 
@@ -124,21 +130,41 @@ export function initTabs() {
     tabJs = getTab("JavaScript", "sample.js");
 }
 
-loadSample('samples/' + hashSample);
+let hashSample;
+function loadHashSample() {
+    hashSample = new URL(document.URL).hash.replace("#", "");
+    setSample('samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world"));
+}
+
+loadHashSample();
+
+export function createRollbackButton() {
+    let button = document.createElement("button");
+    button.textContent = "Rollback";
+    button.style.marginLeft = "auto";
+    button.style.marginRight = "5px";
+    button.setAttribute('title', 'Rollback to default sample');
+    button.onclick = function () {
+        localStorage[currentPath] = null;
+        initTabs();
+        loadSample(currentPath);
+    };
+    editorBox.addButton(button);
+}
 
 export function createRunButton() {
-    var button = document.createElement("button");
+    let button = document.createElement("button");
     button.textContent = "Run";
     button.style.marginLeft = "auto";
     button.style.marginRight = "5px";
     button.setAttribute('title', 'Ctrl+Enter');
     button.onclick = runSample;
-    return button;
+    editorBox.addButton(button);
 }
 
 export function runSample() {
-    var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
-    var previewTab = tabManager.open({
+    let html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
+    let previewTab = tabManager.open({
         title: "Result",
         editorType: EditorType.preview,
         path: "result"
@@ -158,30 +184,66 @@ CommandManager.registerCommands([{
     exec: runSample
 }]);
 
-var button = createRunButton();
-editorBox.addButtons(button);
-function loadSample(path) {
-    var url = new URL(document.URL);
-    url.hash = path.split("/").pop();
-    document.location.href = url.href;
+createRollbackButton();
+createRunButton();
+
+function setSample(path) {
+    saveSample();
+
+    let hash = path.split("/").pop();
+    if (hash != hashSample) {
+        let url = new URL(document.URL);
+        url.hash = hash;
+        document.location.href = url.href;
+    }
 
     initTabs();
 
-    var js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
+    if (localStorage[path]) {
+        restoreSample(path);
+    } else {
+        loadSample(path);
+    }
+
+    currentPath = path;
+}
+
+function restoreSample(path) {
+    let storage = JSON.parse(localStorage[path]);
+    tabManager.restoreFrom(storage);
+    runSample();
+}
+
+function saveSample() {
+    if (!currentPath)
+        return;
+
+    let storage = {};
+    tabManager.saveTo(storage);
+    localStorage[currentPath] = JSON.stringify(storage);
+}
+
+
+window.onbeforeunload = function () {
+    saveSample();
+}
+
+function loadSample(path) {
+    let js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
-    var css = request(path + '/sample.css').then(function (response: XMLHttpRequest) {
+    let css = request(path + '/sample.css').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
-    var html = request(path + '/sample.html').then(function (response: XMLHttpRequest) {
+    let html = request(path + '/sample.html').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
 
     Promise.all([js, css, html]).then(
         function (samples) {
-            tabManager.loadFile(tabCSS, samples[1]);
-            tabManager.loadFile(tabHTML, samples[2]);
-            tabManager.loadFile(tabJs, `//${pathToTitle(path)}\n\n` + samples[0]);
+            tabJs.session.setValue(`//${pathToTitle(path)}\n\n` + samples[0]);
+            tabCSS.session.setValue(samples[1]);
+            tabHTML.session.setValue(samples[2]);
 
             runSample();
         },
@@ -193,7 +255,7 @@ function loadSample(path) {
 
 function displayError(errorMessage) {
     if (typeof errorMessage !== "string") return;
-    var terminal = tabManager.open<Ace.EditSession>({
+    let terminal = tabManager.open<Ace.EditSession>({
         title: "Problems",
         path: 'terminal',
         editorType: EditorType.ace
@@ -201,4 +263,3 @@ function displayError(errorMessage) {
     terminal.session.setValue(errorMessage);
     tabManager.loadFile(terminal);
 }
-consoleBox.addButtons();
