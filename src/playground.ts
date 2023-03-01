@@ -83,15 +83,6 @@ let tabManager = TabManager.getInstance({
 });
 tabManager.setState({"main": defaultLayout});
 
-consoleBox.renderButtons([{
-    class: "consoleCloseBtn",
-    title: "F6",
-    onclick: function () {
-        consoleBox.hide();
-    },
-    content: "x"
-}]);
-
 onResize();
 
 window.onpopstate = () => {
@@ -162,6 +153,17 @@ export function createRunButton() {
     editorBox.addButton(button);
 }
 
+export function createCloseConsoleButton() {
+    consoleBox.renderButtons([{
+        class: "consoleCloseBtn",
+        title: "F6",
+        onclick: function () {
+            consoleBox.hide();
+        },
+        content: "x"
+    }]);
+}
+
 export function runSample() {
     let html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
     let previewTab = tabManager.open({
@@ -186,6 +188,7 @@ CommandManager.registerCommands([{
 
 createRollbackButton();
 createRunButton();
+createCloseConsoleButton();
 
 function setSample(path) {
     saveSample();
