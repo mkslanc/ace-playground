@@ -864,11 +864,16 @@ exports.isMobile = exports.isIOS || exports.isAndroid;
 /***/ 364:
 /***/ ((module) => {
 
-/******/ (() => { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else { var i, a; }
+})(self, () => {
+return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 9100:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_132__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_493__) => {
 
 "use strict";
 /**
@@ -880,25 +885,25 @@ exports.isMobile = exports.isIOS || exports.isAndroid;
 
 "include loader_build";
 
-var dom = __nested_webpack_require_132__(6359);
-var event = __nested_webpack_require_132__(7989);
+var dom = __nested_webpack_require_493__(6359);
+var event = __nested_webpack_require_493__(7989);
 
-var Range = (__nested_webpack_require_132__(9082)/* .Range */ .e);
-var Editor = (__nested_webpack_require_132__(2880).Editor);
-var EditSession = (__nested_webpack_require_132__(6480)/* .EditSession */ .m);
-var UndoManager = (__nested_webpack_require_132__(718)/* .UndoManager */ .H);
-var Renderer = (__nested_webpack_require_132__(3049).VirtualRenderer);
+var Range = (__nested_webpack_require_493__(9082)/* .Range */ .e);
+var Editor = (__nested_webpack_require_493__(2880).Editor);
+var EditSession = (__nested_webpack_require_493__(6480)/* .EditSession */ .m);
+var UndoManager = (__nested_webpack_require_493__(718)/* .UndoManager */ .H);
+var Renderer = (__nested_webpack_require_493__(3049).VirtualRenderer);
 
 // The following require()s are for inclusion in the built ace file
-__nested_webpack_require_132__(1451);
-__nested_webpack_require_132__(7116);
-__nested_webpack_require_132__(1553);
-__nested_webpack_require_132__(2972);
-__nested_webpack_require_132__(5369);
-__nested_webpack_require_132__(3687);
-__nested_webpack_require_132__(8552);
+__nested_webpack_require_493__(1451);
+__nested_webpack_require_493__(7116);
+__nested_webpack_require_493__(1553);
+__nested_webpack_require_493__(2972);
+__nested_webpack_require_493__(5369);
+__nested_webpack_require_493__(3687);
+__nested_webpack_require_493__(8552);
 
-exports.config = __nested_webpack_require_132__(3188);
+exports.config = __nested_webpack_require_493__(3188);
 
 
 /**
@@ -970,13 +975,13 @@ exports.version = exports.config.version;
 /***/ }),
 
 /***/ 7869:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_2988__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_3349__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_2988__(9359);
-var EventEmitter = (__nested_webpack_require_2988__(3056).EventEmitter);
+var oop = __nested_webpack_require_3349__(9359);
+var EventEmitter = (__nested_webpack_require_3349__(3056).EventEmitter);
 
 /**
  *
@@ -1267,19 +1272,19 @@ exports.B = function(docLines, delta, doNotValidate) {
 /***/ }),
 
 /***/ 9528:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_12502__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_12863__) => {
 
 "use strict";
 var __webpack_unused_export__;
 
 
-var HashHandler = (__nested_webpack_require_12502__(7116).HashHandler);
-var AcePopup = (__nested_webpack_require_12502__(2985).AcePopup);
-var util = __nested_webpack_require_12502__(3860);
-var lang = __nested_webpack_require_12502__(124);
-var dom = __nested_webpack_require_12502__(6359);
-var snippetManager = (__nested_webpack_require_12502__(6629)/* .snippetManager */ .w);
-var config = __nested_webpack_require_12502__(3188);
+var HashHandler = (__nested_webpack_require_12863__(7116).HashHandler);
+var AcePopup = (__nested_webpack_require_12863__(2985).AcePopup);
+var util = __nested_webpack_require_12863__(3860);
+var lang = __nested_webpack_require_12863__(124);
+var dom = __nested_webpack_require_12863__(6359);
+var snippetManager = (__nested_webpack_require_12863__(6629)/* .snippetManager */ .w);
+var config = __nested_webpack_require_12863__(3188);
 
 var Autocomplete = function() {
     this.autoInsert = false;
@@ -1836,17 +1841,17 @@ __webpack_unused_export__ = FilteredList;
 /***/ }),
 
 /***/ 2985:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_33070__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_33431__) => {
 
 "use strict";
 
 
-var Renderer = (__nested_webpack_require_33070__(3049).VirtualRenderer);
-var Editor = (__nested_webpack_require_33070__(2880).Editor);
-var Range = (__nested_webpack_require_33070__(9082)/* .Range */ .e);
-var event = __nested_webpack_require_33070__(7989);
-var lang = __nested_webpack_require_33070__(124);
-var dom = __nested_webpack_require_33070__(6359);
+var Renderer = (__nested_webpack_require_33431__(3049).VirtualRenderer);
+var Editor = (__nested_webpack_require_33431__(2880).Editor);
+var Range = (__nested_webpack_require_33431__(9082)/* .Range */ .e);
+var event = __nested_webpack_require_33431__(7989);
+var lang = __nested_webpack_require_33431__(124);
+var dom = __nested_webpack_require_33431__(6359);
 
 var $singleLineEditor = function(el) {
     var renderer = new Renderer(el);
@@ -2196,9 +2201,9 @@ exports.$singleLineEditor = $singleLineEditor;
 /***/ }),
 
 /***/ 2636:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_44371__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_44732__) => {
 
-var Range = (__nested_webpack_require_44371__(9082)/* .Range */ .e);
+var Range = (__nested_webpack_require_44732__(9082)/* .Range */ .e);
     
     var splitRegex = /[^a-zA-Z_0-9\$\-\u00C0-\u1FFF\u2C00-\uD7FF\w]+/;
 
@@ -2313,13 +2318,13 @@ exports.getCompletionPrefix = function (editor) {
 /***/ }),
 
 /***/ 2484:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_47692__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_48053__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_47692__(9359);
-var EventEmitter = (__nested_webpack_require_47692__(3056).EventEmitter);
+var oop = __nested_webpack_require_48053__(9359);
+var EventEmitter = (__nested_webpack_require_48053__(3056).EventEmitter);
 
 
 /**
@@ -2542,13 +2547,13 @@ exports.V = BackgroundTokenizer;
 /***/ }),
 
 /***/ 5087:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_54103__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_54464__) => {
 
 "use strict";
 
 
-var bidiUtil = __nested_webpack_require_54103__(2918);
-var lang = __nested_webpack_require_54103__(124);
+var bidiUtil = __nested_webpack_require_54464__(2918);
+var lang = __nested_webpack_require_54464__(124);
 var bidiRE = /[\u0590-\u05f4\u0600-\u06ff\u0700-\u08ac\u202B]/;
 
 /**
@@ -2931,14 +2936,14 @@ module.exports = {
 /***/ }),
 
 /***/ 3190:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_68188__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_68549__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_68188__(9359);
-var MultiHashHandler = (__nested_webpack_require_68188__(7116).MultiHashHandler);
-var EventEmitter = (__nested_webpack_require_68188__(3056).EventEmitter);
+var oop = __nested_webpack_require_68549__(9359);
+var MultiHashHandler = (__nested_webpack_require_68549__(7116).MultiHashHandler);
+var EventEmitter = (__nested_webpack_require_68549__(3056).EventEmitter);
 
 /**
  * @class CommandManager
@@ -3060,14 +3065,14 @@ exports.f = CommandManager;
 /***/ }),
 
 /***/ 883:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_71542__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_71903__) => {
 
 "use strict";
 
 
-var lang = __nested_webpack_require_71542__(124);
-var config = __nested_webpack_require_71542__(3188);
-var Range = (__nested_webpack_require_71542__(9082)/* .Range */ .e);
+var lang = __nested_webpack_require_71903__(124);
+var config = __nested_webpack_require_71903__(3188);
+var Range = (__nested_webpack_require_71903__(9082)/* .Range */ .e);
 
 function bindKey(win, mac) {
     return {win: win, mac: mac};
@@ -3951,7 +3956,7 @@ for (var i = 1; i < 9; i++) {
 /***/ }),
 
 /***/ 8506:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_101026__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_101387__) => {
 
 // commands to enter multiselect mode
 exports.defaultCommands = [{
@@ -4052,22 +4057,22 @@ exports.multiSelectCommands = [{
     isAvailable: function(editor) {return editor && editor.inMultiSelectMode;}
 }];
 
-var HashHandler = (__nested_webpack_require_101026__(7116).HashHandler);
+var HashHandler = (__nested_webpack_require_101387__(7116).HashHandler);
 exports.keyboardHandler = new HashHandler(exports.multiSelectCommands);
 
 
 /***/ }),
 
 /***/ 3188:
-/***/ ((module, exports, __nested_webpack_require_104599__) => {
+/***/ ((module, exports, __nested_webpack_require_104960__) => {
 
 "no use strict";
 
-var lang = __nested_webpack_require_104599__(124);
-var oop = __nested_webpack_require_104599__(9359);
-var net = __nested_webpack_require_104599__(2634);
-var dom = __nested_webpack_require_104599__(6359);
-var AppConfig = (__nested_webpack_require_104599__(6675)/* .AppConfig */ .X);
+var lang = __nested_webpack_require_104960__(124);
+var oop = __nested_webpack_require_104960__(9359);
+var net = __nested_webpack_require_104960__(2634);
+var dom = __nested_webpack_require_104960__(6359);
+var AppConfig = (__nested_webpack_require_104960__(6675)/* .AppConfig */ .X);
 
 module.exports = exports = new AppConfig();
 
@@ -4140,7 +4145,7 @@ exports.setModuleUrl = function(name, subst) {
 
 var loader = function(moduleName, cb) {
     if (moduleName == "ace/theme/textmate")
-        return cb(null, __nested_webpack_require_104599__(3687));
+        return cb(null, __nested_webpack_require_104960__(3687));
     return console.error("loader is not configured");
 };
 
@@ -4157,7 +4162,7 @@ exports.loadModule = function(moduleName, onLoad) {
     }
 
     try {
-        module = __nested_webpack_require_104599__(2126)(moduleName);
+        module = __nested_webpack_require_104960__(2126)(moduleName);
     } catch (e) {}
     // require(moduleName) can return empty object if called after require([moduleName], callback)
     if (module && !exports.$loading[moduleName])
@@ -4798,16 +4803,16 @@ styles.join("\\n")
 /***/ }),
 
 /***/ 1218:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_125525__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_125886__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_125525__(9359);
-var applyDelta = (__nested_webpack_require_125525__(8934)/* .applyDelta */ .B);
-var EventEmitter = (__nested_webpack_require_125525__(3056).EventEmitter);
-var Range = (__nested_webpack_require_125525__(9082)/* .Range */ .e);
-var Anchor = (__nested_webpack_require_125525__(7869)/* .Anchor */ .e);
+var oop = __nested_webpack_require_125886__(9359);
+var applyDelta = (__nested_webpack_require_125886__(8934)/* .applyDelta */ .B);
+var EventEmitter = (__nested_webpack_require_125886__(3056).EventEmitter);
+var Range = (__nested_webpack_require_125886__(9082)/* .Range */ .e);
+var Anchor = (__nested_webpack_require_125886__(7869)/* .Anchor */ .e);
 
 /**
  * Contains the text of the document. Document can be attached to several [[EditSession `EditSession`]]s. 
@@ -5474,22 +5479,22 @@ exports.B = Document;
 /***/ }),
 
 /***/ 6480:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_150412__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_150773__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_150412__(9359);
-var lang = __nested_webpack_require_150412__(124);
-var BidiHandler = (__nested_webpack_require_150412__(5087)/* .BidiHandler */ .l);
-var config = __nested_webpack_require_150412__(3188);
-var EventEmitter = (__nested_webpack_require_150412__(3056).EventEmitter);
-var Selection = (__nested_webpack_require_150412__(8939)/* .Selection */ .Y);
-var TextMode = (__nested_webpack_require_150412__(8030)/* .Mode */ .A);
-var Range = (__nested_webpack_require_150412__(9082)/* .Range */ .e);
-var Document = (__nested_webpack_require_150412__(1218)/* .Document */ .B);
-var BackgroundTokenizer = (__nested_webpack_require_150412__(2484)/* .BackgroundTokenizer */ .V);
-var SearchHighlight = (__nested_webpack_require_150412__(7988)/* .SearchHighlight */ .t);
+var oop = __nested_webpack_require_150773__(9359);
+var lang = __nested_webpack_require_150773__(124);
+var BidiHandler = (__nested_webpack_require_150773__(5087)/* .BidiHandler */ .l);
+var config = __nested_webpack_require_150773__(3188);
+var EventEmitter = (__nested_webpack_require_150773__(3056).EventEmitter);
+var Selection = (__nested_webpack_require_150773__(8939)/* .Selection */ .Y);
+var TextMode = (__nested_webpack_require_150773__(8030)/* .Mode */ .A);
+var Range = (__nested_webpack_require_150773__(9082)/* .Range */ .e);
+var Document = (__nested_webpack_require_150773__(1218)/* .Document */ .B);
+var BackgroundTokenizer = (__nested_webpack_require_150773__(2484)/* .BackgroundTokenizer */ .V);
+var SearchHighlight = (__nested_webpack_require_150773__(7988)/* .SearchHighlight */ .t);
 
 /**
  * Stores all the data about [[Editor `Editor`]] state providing easy way to change editors state.
@@ -7901,8 +7906,8 @@ EditSession.$uid = 0;
 
 }).call(EditSession.prototype);
 
-(__nested_webpack_require_150412__(5612)/* .Folding.call */ .x.call)(EditSession.prototype);
-(__nested_webpack_require_150412__(5990)/* .BracketMatch.call */ .F.call)(EditSession.prototype);
+(__nested_webpack_require_150773__(5612)/* .Folding.call */ .x.call)(EditSession.prototype);
+(__nested_webpack_require_150773__(5990)/* .BracketMatch.call */ .F.call)(EditSession.prototype);
 
 
 config.defineOptions(EditSession.prototype, "session", {
@@ -8020,13 +8025,13 @@ exports.m = EditSession;
 /***/ }),
 
 /***/ 5990:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_234795__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_235156__) => {
 
 "use strict";
 
 
-var TokenIterator = (__nested_webpack_require_234795__(4379)/* .TokenIterator */ .N);
-var Range = (__nested_webpack_require_234795__(9082)/* .Range */ .e);
+var TokenIterator = (__nested_webpack_require_235156__(4379)/* .TokenIterator */ .N);
+var Range = (__nested_webpack_require_235156__(9082)/* .Range */ .e);
 
 
 function BracketMatch() {
@@ -8480,13 +8485,13 @@ exports.F = BracketMatch;
 /***/ }),
 
 /***/ 7899:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_252499__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_252860__) => {
 
 "use strict";
 
 
-var RangeList = (__nested_webpack_require_252499__(6510)/* .RangeList */ .$);
-var oop = __nested_webpack_require_252499__(9359);
+var RangeList = (__nested_webpack_require_252860__(6510)/* .RangeList */ .$);
+var oop = __nested_webpack_require_252860__(9359);
 /*
  * Simple fold-data struct.
  **/
@@ -8596,12 +8601,12 @@ function restoreRange(range, anchor) {
 /***/ }),
 
 /***/ 4285:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_255667__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_256028__) => {
 
 "use strict";
 
 
-var Range = (__nested_webpack_require_255667__(9082)/* .Range */ .e);
+var Range = (__nested_webpack_require_256028__(9082)/* .Range */ .e);
 
 /*
  * If an array is passed in, the folds are expected to be sorted already.
@@ -8841,15 +8846,15 @@ exports.z = FoldLine;
 /***/ }),
 
 /***/ 5612:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_263285__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_263646__) => {
 
 "use strict";
 
 
-var Range = (__nested_webpack_require_263285__(9082)/* .Range */ .e);
-var FoldLine = (__nested_webpack_require_263285__(4285)/* .FoldLine */ .z);
-var Fold = (__nested_webpack_require_263285__(7899)/* .Fold */ .q);
-var TokenIterator = (__nested_webpack_require_263285__(4379)/* .TokenIterator */ .N);
+var Range = (__nested_webpack_require_263646__(9082)/* .Range */ .e);
+var FoldLine = (__nested_webpack_require_263646__(4285)/* .FoldLine */ .z);
+var Fold = (__nested_webpack_require_263646__(7899)/* .Fold */ .q);
+var TokenIterator = (__nested_webpack_require_263646__(4379)/* .TokenIterator */ .N);
 
 function Folding() {
     /*
@@ -9716,29 +9721,29 @@ exports.x = Folding;
 /***/ }),
 
 /***/ 2880:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_292570__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_292931__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_292570__(9359);
-var dom = __nested_webpack_require_292570__(6359);
-var lang = __nested_webpack_require_292570__(124);
-var useragent = __nested_webpack_require_292570__(618);
-var TextInput = (__nested_webpack_require_292570__(1063)/* .TextInput */ .o);
-var MouseHandler = (__nested_webpack_require_292570__(3691)/* .MouseHandler */ .S);
-var FoldHandler = (__nested_webpack_require_292570__(138)/* .FoldHandler */ .z);
-var KeyBinding = (__nested_webpack_require_292570__(8229)/* .KeyBinding */ .M);
-var EditSession = (__nested_webpack_require_292570__(6480)/* .EditSession */ .m);
-var Search = (__nested_webpack_require_292570__(6745)/* .Search */ .o);
-var Range = (__nested_webpack_require_292570__(9082)/* .Range */ .e);
-var EventEmitter = (__nested_webpack_require_292570__(3056).EventEmitter);
-var CommandManager = (__nested_webpack_require_292570__(3190)/* .CommandManager */ .f);
-var defaultCommands = (__nested_webpack_require_292570__(883)/* .commands */ .C);
-var config = __nested_webpack_require_292570__(3188);
-var TokenIterator = (__nested_webpack_require_292570__(4379)/* .TokenIterator */ .N);
+var oop = __nested_webpack_require_292931__(9359);
+var dom = __nested_webpack_require_292931__(6359);
+var lang = __nested_webpack_require_292931__(124);
+var useragent = __nested_webpack_require_292931__(618);
+var TextInput = (__nested_webpack_require_292931__(1063)/* .TextInput */ .o);
+var MouseHandler = (__nested_webpack_require_292931__(3691)/* .MouseHandler */ .S);
+var FoldHandler = (__nested_webpack_require_292931__(138)/* .FoldHandler */ .z);
+var KeyBinding = (__nested_webpack_require_292931__(8229)/* .KeyBinding */ .M);
+var EditSession = (__nested_webpack_require_292931__(6480)/* .EditSession */ .m);
+var Search = (__nested_webpack_require_292931__(6745)/* .Search */ .o);
+var Range = (__nested_webpack_require_292931__(9082)/* .Range */ .e);
+var EventEmitter = (__nested_webpack_require_292931__(3056).EventEmitter);
+var CommandManager = (__nested_webpack_require_292931__(3190)/* .CommandManager */ .f);
+var defaultCommands = (__nested_webpack_require_292931__(883)/* .commands */ .C);
+var config = __nested_webpack_require_292931__(3188);
+var TokenIterator = (__nested_webpack_require_292931__(4379)/* .TokenIterator */ .N);
 
-var clipboard = __nested_webpack_require_292570__(6311);
+var clipboard = __nested_webpack_require_292931__(6311);
 
 /**
  * The main entry point into the Ace functionality.
@@ -12646,13 +12651,13 @@ exports.Editor = Editor;
 /***/ }),
 
 /***/ 8552:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_390536__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_390897__) => {
 
 "use strict";
 
-var LineWidgets = (__nested_webpack_require_390536__(2269)/* .LineWidgets */ .H);
-var dom = __nested_webpack_require_390536__(6359);
-var Range = (__nested_webpack_require_390536__(9082)/* .Range */ .e);
+var LineWidgets = (__nested_webpack_require_390897__(2269)/* .LineWidgets */ .H);
+var dom = __nested_webpack_require_390897__(6359);
+var Range = (__nested_webpack_require_390897__(9082)/* .Range */ .e);
 
 function binarySearch(array, needle, comparator) {
     var first = 0;
@@ -12838,18 +12843,18 @@ dom.importCssString(`
 /***/ }),
 
 /***/ 1105:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_396160__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_396521__) => {
 
 "use strict";
 
 
-var snippetManager = (__nested_webpack_require_396160__(6629)/* .snippetManager */ .w);
-var Autocomplete = (__nested_webpack_require_396160__(9528)/* .Autocomplete */ .F);
-var config = __nested_webpack_require_396160__(3188);
-var lang = __nested_webpack_require_396160__(124);
-var util = __nested_webpack_require_396160__(3860);
+var snippetManager = (__nested_webpack_require_396521__(6629)/* .snippetManager */ .w);
+var Autocomplete = (__nested_webpack_require_396521__(9528)/* .Autocomplete */ .F);
+var config = __nested_webpack_require_396521__(3188);
+var lang = __nested_webpack_require_396521__(124);
+var util = __nested_webpack_require_396521__(3860);
 
-var textCompleter = __nested_webpack_require_396160__(2636);
+var textCompleter = __nested_webpack_require_396521__(2636);
 var keyWordCompleter = {
     getCompletions: function(editor, session, pos, prefix, callback) {
         if (session.$mode.completer) {
@@ -12990,8 +12995,8 @@ var doLiveAutocomplete = function(e) {
     }
 };
 
-var Editor = (__nested_webpack_require_396160__(2880).Editor);
-(__nested_webpack_require_396160__(3188).defineOptions)(Editor.prototype, "editor", {
+var Editor = (__nested_webpack_require_396521__(2880).Editor);
+(__nested_webpack_require_396521__(3188).defineOptions)(Editor.prototype, "editor", {
     enableBasicAutocompletion: {
         set: function(val) {
             if (val) {
@@ -13307,13 +13312,13 @@ module.exports = {
 /***/ }),
 
 /***/ 7116:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_410608__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_410969__) => {
 
 "use strict";
 
 
-var keyUtil = __nested_webpack_require_410608__(1797);
-var useragent = __nested_webpack_require_410608__(618);
+var keyUtil = __nested_webpack_require_410969__(1797);
+var useragent = __nested_webpack_require_410969__(618);
 var KEY_MODS = keyUtil.KEY_MODS;
 
 function HashHandler(config, platform) {
@@ -13539,13 +13544,13 @@ exports.MultiHashHandler = MultiHashHandler;
 /***/ }),
 
 /***/ 8229:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_418170__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_418531__) => {
 
 "use strict";
 
 
-var keyUtil  = __nested_webpack_require_418170__(1797);
-var event = __nested_webpack_require_418170__(7989);
+var keyUtil  = __nested_webpack_require_418531__(1797);
+var event = __nested_webpack_require_418531__(7989);
 
 var KeyBinding = function(editor) {
     this.$editor = editor;
@@ -13667,23 +13672,23 @@ exports.M = KeyBinding;
 /***/ }),
 
 /***/ 1063:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_421904__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_422265__) => {
 
 "use strict";
 var __webpack_unused_export__;
 
 
-var event = __nested_webpack_require_421904__(7989);
-var useragent = __nested_webpack_require_421904__(618);
-var dom = __nested_webpack_require_421904__(6359);
-var lang = __nested_webpack_require_421904__(124);
-var clipboard = __nested_webpack_require_421904__(6311);
+var event = __nested_webpack_require_422265__(7989);
+var useragent = __nested_webpack_require_422265__(618);
+var dom = __nested_webpack_require_422265__(6359);
+var lang = __nested_webpack_require_422265__(124);
+var clipboard = __nested_webpack_require_422265__(6311);
 var BROKEN_SETDATA = useragent.isChrome < 18;
 var USE_IE_MIME_TYPE =  useragent.isIE;
 var HAS_FOCUS_ARGS = useragent.isChrome > 63;
 var MAX_LINE_LENGTH = 400;
 
-var KEYS = __nested_webpack_require_421904__(1797);
+var KEYS = __nested_webpack_require_422265__(1797);
 var MODS = KEYS.KEY_MODS;
 var isIOS = useragent.isIOS;
 var valueResetRegex = isIOS ? /\s/ : /\n/;
@@ -14407,12 +14412,12 @@ __webpack_unused_export__ = function(_isMobile, _isIOS) {
 /***/ }),
 
 /***/ 1175:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_447305__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_447666__) => {
 
 "use strict";
 
 
-var dom = __nested_webpack_require_447305__(6359);
+var dom = __nested_webpack_require_447666__(6359);
 
 var Cursor = function(parentEl) {
     this.element = dom.createElement("div");
@@ -14650,13 +14655,13 @@ exports.C = Cursor;
 /***/ }),
 
 /***/ 2113:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_454681__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_455042__) => {
 
 "use strict";
 
-var dom = __nested_webpack_require_454681__(6359);
-var oop = __nested_webpack_require_454681__(9359);
-var EventEmitter = (__nested_webpack_require_454681__(3056).EventEmitter);
+var dom = __nested_webpack_require_455042__(6359);
+var oop = __nested_webpack_require_455042__(9359);
+var EventEmitter = (__nested_webpack_require_455042__(3056).EventEmitter);
 
 var Decorator = function (parent, renderer) {
     this.canvas = dom.createElement("canvas");
@@ -14786,14 +14791,14 @@ exports.S = Decorator;
 /***/ }),
 
 /***/ 9506:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_459859__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_460220__) => {
 
-var oop = __nested_webpack_require_459859__(9359);
-var dom = __nested_webpack_require_459859__(6359);
-var lang = __nested_webpack_require_459859__(124);
-var event = __nested_webpack_require_459859__(7989);
-var useragent = __nested_webpack_require_459859__(618);
-var EventEmitter = (__nested_webpack_require_459859__(3056).EventEmitter);
+var oop = __nested_webpack_require_460220__(9359);
+var dom = __nested_webpack_require_460220__(6359);
+var lang = __nested_webpack_require_460220__(124);
+var event = __nested_webpack_require_460220__(7989);
+var useragent = __nested_webpack_require_460220__(618);
+var EventEmitter = (__nested_webpack_require_460220__(3056).EventEmitter);
 
 var DEFAULT_CHAR_COUNT = 250;
 var USE_OBSERVER = typeof ResizeObserver == "function";
@@ -15002,16 +15007,16 @@ var FontMetrics = exports.c = function(parentEl, charCount) {
 /***/ }),
 
 /***/ 1479:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_467159__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_467520__) => {
 
 "use strict";
 
 
-var dom = __nested_webpack_require_467159__(6359);
-var oop = __nested_webpack_require_467159__(9359);
-var lang = __nested_webpack_require_467159__(124);
-var EventEmitter = (__nested_webpack_require_467159__(3056).EventEmitter);
-var Lines = (__nested_webpack_require_467159__(5388)/* .Lines */ .x);
+var dom = __nested_webpack_require_467520__(6359);
+var oop = __nested_webpack_require_467520__(9359);
+var lang = __nested_webpack_require_467520__(124);
+var EventEmitter = (__nested_webpack_require_467520__(3056).EventEmitter);
+var Lines = (__nested_webpack_require_467520__(5388)/* .Lines */ .x);
 
 var Gutter = function(parentEl) {
     this.element = dom.createElement("div");
@@ -15431,12 +15436,12 @@ exports.T = Gutter;
 /***/ }),
 
 /***/ 5388:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_481933__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_482294__) => {
 
 "use strict";
 
 
-var dom = __nested_webpack_require_481933__(6359);
+var dom = __nested_webpack_require_482294__(6359);
 
 var Lines = function(element, canvasHeight) {
     this.element = element;
@@ -15562,13 +15567,13 @@ exports.x = Lines;
 /***/ }),
 
 /***/ 4800:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_485699__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_486060__) => {
 
 "use strict";
 
 
-var Range = (__nested_webpack_require_485699__(9082)/* .Range */ .e);
-var dom = __nested_webpack_require_485699__(6359);
+var Range = (__nested_webpack_require_486060__(9082)/* .Range */ .e);
+var dom = __nested_webpack_require_486060__(6359);
 
 var Marker = function(parentEl) {
     this.element = dom.createElement("div");
@@ -15801,16 +15806,16 @@ exports.J = Marker;
 /***/ }),
 
 /***/ 3572:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_494738__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_495099__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_494738__(9359);
-var dom = __nested_webpack_require_494738__(6359);
-var lang = __nested_webpack_require_494738__(124);
-var Lines = (__nested_webpack_require_494738__(5388)/* .Lines */ .x);
-var EventEmitter = (__nested_webpack_require_494738__(3056).EventEmitter);
+var oop = __nested_webpack_require_495099__(9359);
+var dom = __nested_webpack_require_495099__(6359);
+var lang = __nested_webpack_require_495099__(124);
+var Lines = (__nested_webpack_require_495099__(5388)/* .Lines */ .x);
+var EventEmitter = (__nested_webpack_require_495099__(3056).EventEmitter);
 
 var Text = function(parentEl) {
     this.dom = dom;
@@ -16571,12 +16576,12 @@ exports.x = Text;
 /***/ }),
 
 /***/ 6675:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_523344__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_523705__) => {
 
 "no use strict";
 
-var oop = __nested_webpack_require_523344__(9359);
-var EventEmitter = (__nested_webpack_require_523344__(3056).EventEmitter);
+var oop = __nested_webpack_require_523705__(9359);
+var EventEmitter = (__nested_webpack_require_523705__(3056).EventEmitter);
 
 var optionsProvider = {
     setOptions: function(optList) {
@@ -17098,12 +17103,12 @@ exports.getVisualFromLogicalIdx = function(logIdx, rowMap) {
 /***/ }),
 
 /***/ 6359:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_537816__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_538177__) => {
 
 "use strict";
 
 
-var useragent = __nested_webpack_require_537816__(618); 
+var useragent = __nested_webpack_require_538177__(618); 
 var XHTML_NS = "http://www.w3.org/1999/xhtml";
 
 exports.buildDom = function buildDom(arr, parent, refs) {
@@ -17403,13 +17408,13 @@ if (exports.HAS_CSS_TRANSFORMS) {
 /***/ }),
 
 /***/ 7989:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_546137__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_546498__) => {
 
 "use strict";
 
 
-var keys = __nested_webpack_require_546137__(1797);
-var useragent = __nested_webpack_require_546137__(618);
+var keys = __nested_webpack_require_546498__(1797);
+var useragent = __nested_webpack_require_546498__(618);
 
 var pressedKeys = null;
 var ts = 0;
@@ -17883,7 +17888,7 @@ exports.EventEmitter = EventEmitter;
 /***/ }),
 
 /***/ 1797:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_560547__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_560908__) => {
 
 "use strict";
 /*! @license
@@ -17921,7 +17926,7 @@ For more information about SproutCore, visit http://www.sproutcore.com
 
 
 
-var oop = __nested_webpack_require_560547__(9359);
+var oop = __nested_webpack_require_560908__(9359);
 
 /*
  * Helper functions and hashes for key handling.
@@ -18250,7 +18255,7 @@ exports.delayedCall = function(fcn, defaultTimeout) {
 /***/ }),
 
 /***/ 2634:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_569986__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_570347__) => {
 
 "use strict";
 /*
@@ -18262,7 +18267,7 @@ exports.delayedCall = function(fcn, defaultTimeout) {
  */
 
 
-var dom = __nested_webpack_require_569986__(6359);
+var dom = __nested_webpack_require_570347__(6359);
 
 exports.get = function (url, callback) {
     var xhr = new XMLHttpRequest();
@@ -18423,12 +18428,12 @@ exports.isMobile = exports.isIOS || exports.isAndroid;
 /***/ }),
 
 /***/ 2269:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_574657__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_575018__) => {
 
 "use strict";
 
 
-var dom = __nested_webpack_require_574657__(6359);
+var dom = __nested_webpack_require_575018__(6359);
 
 function LineWidgets(session) {
     this.session = session;
@@ -18856,15 +18861,15 @@ exports.T = Behaviour;
 /***/ }),
 
 /***/ 7853:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_588111__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_588472__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_588111__(9359);
-var Behaviour = (__nested_webpack_require_588111__(4708)/* .Behaviour */ .T);
-var CstyleBehaviour = (__nested_webpack_require_588111__(9414)/* .CstyleBehaviour */ .B);
-var TokenIterator = (__nested_webpack_require_588111__(4379)/* .TokenIterator */ .N);
+var oop = __nested_webpack_require_588472__(9359);
+var Behaviour = (__nested_webpack_require_588472__(4708)/* .Behaviour */ .T);
+var CstyleBehaviour = (__nested_webpack_require_588472__(9414)/* .CstyleBehaviour */ .B);
+var TokenIterator = (__nested_webpack_require_588472__(4379)/* .TokenIterator */ .N);
 
 var CssBehaviour = function () {
 
@@ -18954,15 +18959,15 @@ exports.K = CssBehaviour;
 /***/ }),
 
 /***/ 9414:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_591579__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_591940__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_591579__(9359);
-var Behaviour = (__nested_webpack_require_591579__(4708)/* .Behaviour */ .T);
-var TokenIterator = (__nested_webpack_require_591579__(4379)/* .TokenIterator */ .N);
-var lang = __nested_webpack_require_591579__(124);
+var oop = __nested_webpack_require_591940__(9359);
+var Behaviour = (__nested_webpack_require_591940__(4708)/* .Behaviour */ .T);
+var TokenIterator = (__nested_webpack_require_591940__(4379)/* .TokenIterator */ .N);
+var lang = __nested_webpack_require_591940__(124);
 
 var SAFE_INSERT_IN_TOKENS =
     ["text", "paren.rparen", "rparen", "paren", "punctuation.operator"];
@@ -19337,15 +19342,15 @@ exports.B = CstyleBehaviour;
 /***/ }),
 
 /***/ 7809:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_607434__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_607795__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_607434__(9359);
-var Behaviour = (__nested_webpack_require_607434__(4708)/* .Behaviour */ .T);
-var TokenIterator = (__nested_webpack_require_607434__(4379)/* .TokenIterator */ .N);
-var lang = __nested_webpack_require_607434__(124);
+var oop = __nested_webpack_require_607795__(9359);
+var Behaviour = (__nested_webpack_require_607795__(4708)/* .Behaviour */ .T);
+var TokenIterator = (__nested_webpack_require_607795__(4379)/* .TokenIterator */ .N);
+var lang = __nested_webpack_require_607795__(124);
 
 function is(token, type) {
     return token && token.type.lastIndexOf(type + ".xml") > -1;
@@ -19527,19 +19532,19 @@ exports.D = XmlBehaviour;
 /***/ }),
 
 /***/ 8771:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_614515__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_614876__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_614515__(9359);
-var TextMode = (__nested_webpack_require_614515__(8030)/* .Mode */ .A);
-var CssHighlightRules = (__nested_webpack_require_614515__(9301)/* .CssHighlightRules */ .Kd);
-var MatchingBraceOutdent = (__nested_webpack_require_614515__(1164)/* .MatchingBraceOutdent */ .p);
-var WorkerClient = (__nested_webpack_require_614515__(1451).WorkerClient);
-var CssCompletions = (__nested_webpack_require_614515__(7237)/* .CssCompletions */ .A);
-var CssBehaviour = (__nested_webpack_require_614515__(7853)/* .CssBehaviour */ .K);
-var CStyleFoldMode = (__nested_webpack_require_614515__(2764)/* .FoldMode */ .Z);
+var oop = __nested_webpack_require_614876__(9359);
+var TextMode = (__nested_webpack_require_614876__(8030)/* .Mode */ .A);
+var CssHighlightRules = (__nested_webpack_require_614876__(9301)/* .CssHighlightRules */ .Kd);
+var MatchingBraceOutdent = (__nested_webpack_require_614876__(1164)/* .MatchingBraceOutdent */ .p);
+var WorkerClient = (__nested_webpack_require_614876__(1451).WorkerClient);
+var CssCompletions = (__nested_webpack_require_614876__(7237)/* .CssCompletions */ .A);
+var CssBehaviour = (__nested_webpack_require_614876__(7853)/* .CssBehaviour */ .K);
+var CStyleFoldMode = (__nested_webpack_require_614876__(2764)/* .FoldMode */ .Z);
 
 var Mode = function() {
     this.HighlightRules = CssHighlightRules;
@@ -19799,15 +19804,15 @@ exports.A = CssCompletions;
 /***/ }),
 
 /***/ 9301:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_624595__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_624956__) => {
 
 "use strict";
 var __webpack_unused_export__;
 
 
-var oop = __nested_webpack_require_624595__(9359);
-var lang = __nested_webpack_require_624595__(124);
-var TextHighlightRules = (__nested_webpack_require_624595__(8053)/* .TextHighlightRules */ .K);
+var oop = __nested_webpack_require_624956__(9359);
+var lang = __nested_webpack_require_624956__(124);
+var TextHighlightRules = (__nested_webpack_require_624956__(8053)/* .TextHighlightRules */ .K);
 
 
 /* Exports are for Stylus and Less highlighters */
@@ -20005,13 +20010,13 @@ exports.Kd = CssHighlightRules;
 /***/ }),
 
 /***/ 2718:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_637234__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_637595__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_637234__(9359);
-var TextHighlightRules = (__nested_webpack_require_637234__(8053)/* .TextHighlightRules */ .K);
+var oop = __nested_webpack_require_637595__(9359);
+var TextHighlightRules = (__nested_webpack_require_637595__(8053)/* .TextHighlightRules */ .K);
 
 var DocCommentHighlightRules = function() {
     this.$rules = {
@@ -20059,14 +20064,14 @@ exports.c = DocCommentHighlightRules;
 /***/ }),
 
 /***/ 2764:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_638457__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_638818__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_638457__(9359);
-var Range = (__nested_webpack_require_638457__(9082)/* .Range */ .e);
-var BaseFoldMode = (__nested_webpack_require_638457__(5369).FoldMode);
+var oop = __nested_webpack_require_638818__(9359);
+var Range = (__nested_webpack_require_638818__(9082)/* .Range */ .e);
+var BaseFoldMode = (__nested_webpack_require_638818__(5369).FoldMode);
 
 var FoldMode = exports.Z = function(commentRegex) {
     if (commentRegex) {
@@ -20226,12 +20231,12 @@ oop.inherits(FoldMode, BaseFoldMode);
 /***/ }),
 
 /***/ 5369:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_643925__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_644286__) => {
 
 "use strict";
 
 
-var Range = (__nested_webpack_require_643925__(9082)/* .Range */ .e);
+var Range = (__nested_webpack_require_644286__(9082)/* .Range */ .e);
 
 var FoldMode = exports.FoldMode = function() {};
 
@@ -20324,15 +20329,15 @@ var FoldMode = exports.FoldMode = function() {};
 /***/ }),
 
 /***/ 4505:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_646596__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_646957__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_646596__(9359);
-var MixedFoldMode = (__nested_webpack_require_646596__(2974)/* .FoldMode */ .Z);
-var XmlFoldMode = (__nested_webpack_require_646596__(4631)/* .FoldMode */ .Z);
-var CStyleFoldMode = (__nested_webpack_require_646596__(2764)/* .FoldMode */ .Z);
+var oop = __nested_webpack_require_646957__(9359);
+var MixedFoldMode = (__nested_webpack_require_646957__(2974)/* .FoldMode */ .Z);
+var XmlFoldMode = (__nested_webpack_require_646957__(4631)/* .FoldMode */ .Z);
+var CStyleFoldMode = (__nested_webpack_require_646957__(2764)/* .FoldMode */ .Z);
 
 var FoldMode = exports.Z = function(voidElements, optionalTags) {
     MixedFoldMode.call(this, new XmlFoldMode(voidElements, optionalTags), {
@@ -20347,13 +20352,13 @@ oop.inherits(FoldMode, MixedFoldMode);
 /***/ }),
 
 /***/ 2974:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_647211__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_647572__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_647211__(9359);
-var BaseFoldMode = (__nested_webpack_require_647211__(5369).FoldMode);
+var oop = __nested_webpack_require_647572__(9359);
+var BaseFoldMode = (__nested_webpack_require_647572__(5369).FoldMode);
 
 var FoldMode = exports.Z = function(defaultMode, subModes) {
     this.defaultMode = defaultMode;
@@ -20405,14 +20410,14 @@ oop.inherits(FoldMode, BaseFoldMode);
 /***/ }),
 
 /***/ 4631:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_648866__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_649227__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_648866__(9359);
-var Range = (__nested_webpack_require_648866__(9082)/* .Range */ .e);
-var BaseFoldMode = (__nested_webpack_require_648866__(5369).FoldMode);
+var oop = __nested_webpack_require_649227__(9359);
+var Range = (__nested_webpack_require_649227__(9082)/* .Range */ .e);
+var BaseFoldMode = (__nested_webpack_require_649227__(5369).FoldMode);
 
 var FoldMode = exports.Z = function(voidElements, optionalEndTags) {
     BaseFoldMode.call(this);
@@ -20532,21 +20537,21 @@ function is(token, type) {
 /***/ }),
 
 /***/ 5528:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_652845__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_653206__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_652845__(9359);
-var lang = __nested_webpack_require_652845__(124);
-var TextMode = (__nested_webpack_require_652845__(8030)/* .Mode */ .A);
-var JavaScriptMode = (__nested_webpack_require_652845__(8057).Mode);
-var CssMode = (__nested_webpack_require_652845__(8771).Mode);
-var HtmlHighlightRules = (__nested_webpack_require_652845__(2843)/* .HtmlHighlightRules */ .V);
-var XmlBehaviour = (__nested_webpack_require_652845__(7809)/* .XmlBehaviour */ .D);
-var HtmlFoldMode = (__nested_webpack_require_652845__(4505)/* .FoldMode */ .Z);
-var HtmlCompletions = (__nested_webpack_require_652845__(8439)/* .HtmlCompletions */ .A);
-var WorkerClient = (__nested_webpack_require_652845__(1451).WorkerClient);
+var oop = __nested_webpack_require_653206__(9359);
+var lang = __nested_webpack_require_653206__(124);
+var TextMode = (__nested_webpack_require_653206__(8030)/* .Mode */ .A);
+var JavaScriptMode = (__nested_webpack_require_653206__(8057).Mode);
+var CssMode = (__nested_webpack_require_653206__(8771).Mode);
+var HtmlHighlightRules = (__nested_webpack_require_653206__(2843)/* .HtmlHighlightRules */ .V);
+var XmlBehaviour = (__nested_webpack_require_653206__(7809)/* .XmlBehaviour */ .D);
+var HtmlFoldMode = (__nested_webpack_require_653206__(4505)/* .FoldMode */ .Z);
+var HtmlCompletions = (__nested_webpack_require_653206__(8439)/* .HtmlCompletions */ .A);
+var WorkerClient = (__nested_webpack_require_653206__(1451).WorkerClient);
 
 // http://www.w3.org/TR/html5/syntax.html#void-elements
 var voidElements = ["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "menuitem", "param", "source", "track", "wbr"];
@@ -20615,12 +20620,12 @@ exports.Mode = Mode;
 /***/ }),
 
 /***/ 8439:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_655487__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_655848__) => {
 
 "use strict";
 
 
-var TokenIterator = (__nested_webpack_require_655487__(4379)/* .TokenIterator */ .N);
+var TokenIterator = (__nested_webpack_require_655848__(4379)/* .TokenIterator */ .N);
 
 var commonAttributes = [
     "accesskey",
@@ -20950,16 +20955,16 @@ exports.A = HtmlCompletions;
 /***/ }),
 
 /***/ 2843:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_669609__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_669970__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_669609__(9359);
-var lang = __nested_webpack_require_669609__(124);
-var CssHighlightRules = (__nested_webpack_require_669609__(9301)/* .CssHighlightRules */ .Kd);
-var JavaScriptHighlightRules = (__nested_webpack_require_669609__(3801)/* .JavaScriptHighlightRules */ ._);
-var XmlHighlightRules = (__nested_webpack_require_669609__(5239)/* .XmlHighlightRules */ .U);
+var oop = __nested_webpack_require_669970__(9359);
+var lang = __nested_webpack_require_669970__(124);
+var CssHighlightRules = (__nested_webpack_require_669970__(9301)/* .CssHighlightRules */ .Kd);
+var JavaScriptHighlightRules = (__nested_webpack_require_669970__(3801)/* .JavaScriptHighlightRules */ ._);
+var XmlHighlightRules = (__nested_webpack_require_669970__(5239)/* .XmlHighlightRules */ .U);
 
 var tagMap = lang.createMap({
     a           : 'anchor',
@@ -21037,18 +21042,18 @@ exports.V = HtmlHighlightRules;
 /***/ }),
 
 /***/ 8057:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_672177__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_672538__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_672177__(9359);
-var TextMode = (__nested_webpack_require_672177__(8030)/* .Mode */ .A);
-var JavaScriptHighlightRules = (__nested_webpack_require_672177__(3801)/* .JavaScriptHighlightRules */ ._);
-var MatchingBraceOutdent = (__nested_webpack_require_672177__(1164)/* .MatchingBraceOutdent */ .p);
-var WorkerClient = (__nested_webpack_require_672177__(1451).WorkerClient);
-var CstyleBehaviour = (__nested_webpack_require_672177__(9414)/* .CstyleBehaviour */ .B);
-var CStyleFoldMode = (__nested_webpack_require_672177__(2764)/* .FoldMode */ .Z);
+var oop = __nested_webpack_require_672538__(9359);
+var TextMode = (__nested_webpack_require_672538__(8030)/* .Mode */ .A);
+var JavaScriptHighlightRules = (__nested_webpack_require_672538__(3801)/* .JavaScriptHighlightRules */ ._);
+var MatchingBraceOutdent = (__nested_webpack_require_672538__(1164)/* .MatchingBraceOutdent */ .p);
+var WorkerClient = (__nested_webpack_require_672538__(1451).WorkerClient);
+var CstyleBehaviour = (__nested_webpack_require_672538__(9414)/* .CstyleBehaviour */ .B);
+var CStyleFoldMode = (__nested_webpack_require_672538__(2764)/* .FoldMode */ .Z);
 
 var Mode = function() {
     this.HighlightRules = JavaScriptHighlightRules;
@@ -21130,14 +21135,14 @@ exports.Mode = Mode;
 /***/ }),
 
 /***/ 3801:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_674946__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_675307__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_674946__(9359);
-var DocCommentHighlightRules = (__nested_webpack_require_674946__(2718)/* .DocCommentHighlightRules */ .c);
-var TextHighlightRules = (__nested_webpack_require_674946__(8053)/* .TextHighlightRules */ .K);
+var oop = __nested_webpack_require_675307__(9359);
+var DocCommentHighlightRules = (__nested_webpack_require_675307__(2718)/* .DocCommentHighlightRules */ .c);
+var TextHighlightRules = (__nested_webpack_require_675307__(8053)/* .TextHighlightRules */ .K);
 
 // TODO: Unicode escape sequences
 var identifierRe = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*";
@@ -21634,12 +21639,12 @@ exports._ = JavaScriptHighlightRules;
 /***/ }),
 
 /***/ 1164:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_697587__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_697948__) => {
 
 "use strict";
 
 
-var Range = (__nested_webpack_require_697587__(9082)/* .Range */ .e);
+var Range = (__nested_webpack_require_697948__(9082)/* .Range */ .e);
 
 var MatchingBraceOutdent = function() {};
 
@@ -21679,19 +21684,19 @@ exports.p = MatchingBraceOutdent;
 /***/ }),
 
 /***/ 8030:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_698608__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_698969__) => {
 
 "use strict";
 
-var config = __nested_webpack_require_698608__(3188);
+var config = __nested_webpack_require_698969__(3188);
 
-var Tokenizer = (__nested_webpack_require_698608__(760)/* .Tokenizer */ .d);
-var TextHighlightRules = (__nested_webpack_require_698608__(8053)/* .TextHighlightRules */ .K);
-var CstyleBehaviour = (__nested_webpack_require_698608__(9414)/* .CstyleBehaviour */ .B);
-var unicode = __nested_webpack_require_698608__(9740);
-var lang = __nested_webpack_require_698608__(124);
-var TokenIterator = (__nested_webpack_require_698608__(4379)/* .TokenIterator */ .N);
-var Range = (__nested_webpack_require_698608__(9082)/* .Range */ .e);
+var Tokenizer = (__nested_webpack_require_698969__(760)/* .Tokenizer */ .d);
+var TextHighlightRules = (__nested_webpack_require_698969__(8053)/* .TextHighlightRules */ .K);
+var CstyleBehaviour = (__nested_webpack_require_698969__(9414)/* .CstyleBehaviour */ .B);
+var unicode = __nested_webpack_require_698969__(9740);
+var lang = __nested_webpack_require_698969__(124);
+var TokenIterator = (__nested_webpack_require_698969__(4379)/* .TokenIterator */ .N);
+var Range = (__nested_webpack_require_698969__(9082)/* .Range */ .e);
 
 var Mode = function() {
     this.HighlightRules = TextHighlightRules;
@@ -22046,12 +22051,12 @@ exports.A = Mode;
 /***/ }),
 
 /***/ 8053:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_712258__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_712619__) => {
 
 "use strict";
 
 
-var lang = __nested_webpack_require_712258__(124);
+var lang = __nested_webpack_require_712619__(124);
 
 var TextHighlightRules = function() {
 
@@ -22258,14 +22263,103 @@ exports.K = TextHighlightRules;
 
 /***/ }),
 
+/***/ 3123:
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_719728__) => {
+
+"use strict";
+/*
+  THIS FILE WAS AUTOGENERATED BY mode.tmpl.js
+*/
+
+
+
+var oop = __nested_webpack_require_719728__(9359);
+var jsMode = (__nested_webpack_require_719728__(8057).Mode);
+var TypeScriptHighlightRules = (__nested_webpack_require_719728__(7419)/* .TypeScriptHighlightRules */ .x);
+var CstyleBehaviour = (__nested_webpack_require_719728__(9414)/* .CstyleBehaviour */ .B);
+var CStyleFoldMode = (__nested_webpack_require_719728__(2764)/* .FoldMode */ .Z);
+var MatchingBraceOutdent = (__nested_webpack_require_719728__(1164)/* .MatchingBraceOutdent */ .p);
+
+var Mode = function() {
+    this.HighlightRules = TypeScriptHighlightRules;
+    
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CstyleBehaviour();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, jsMode);
+
+(function() {
+    this.createWorker = function(session) {
+        return null;
+    };
+    this.$id = "ace/mode/typescript";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 7419:
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_720723__) => {
+
+"use strict";
+/*
+  THIS FILE WAS AUTOGENERATED BY mode_highlight_rules.tmpl.js (UUID: 21e323af-f665-4161-96e7-5087d262557e) */
+
+
+
+var oop = __nested_webpack_require_720723__(9359);
+var JavaScriptHighlightRules = (__nested_webpack_require_720723__(3801)/* .JavaScriptHighlightRules */ ._);
+
+var TypeScriptHighlightRules = function (options) {
+
+    var tsRules = [
+        // Match stuff like: function name: return type)
+        {
+            token: ["storage.type", "text", "entity.name.function.ts"],
+            regex: "(function)(\\s+)([a-zA-Z0-9\$_\u00a1-\uffff][a-zA-Z0-9\d\$_\u00a1-\uffff]*)"
+        },
+        {
+            token: "keyword",
+            regex: "(?:\\b(constructor|declare|interface|as|AS|public|private|extends|export|super|readonly|module|namespace|abstract|implements)\\b)"
+        },
+        {
+            token: ["keyword", "storage.type.variable.ts"],
+            regex: "(class|type)(\\s+[a-zA-Z0-9_?.$][\\w?.$]*)"
+         },
+        {
+            token: "keyword",
+            regex: "\\b(?:super|export|import|keyof|infer)\\b"
+        }, 
+        {
+            token: ["storage.type.variable.ts"],
+            regex: "(?:\\b(this\\.|string\\b|bool\\b|boolean\\b|number\\b|true\\b|false\\b|undefined\\b|any\\b|null\\b|(?:unique )?symbol\\b|object\\b|never\\b|enum\\b))"
+        }
+    ];
+
+    var JSRules = new JavaScriptHighlightRules({jsx: (options && options.jsx) == true}).getRules();
+    
+    JSRules.no_regex = tsRules.concat(JSRules.no_regex);
+    this.$rules = JSRules;
+};
+
+oop.inherits(TypeScriptHighlightRules, JavaScriptHighlightRules);
+
+exports.x = TypeScriptHighlightRules;
+
+
+/***/ }),
+
 /***/ 5239:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_719367__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_722408__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_719367__(9359);
-var TextHighlightRules = (__nested_webpack_require_719367__(8053)/* .TextHighlightRules */ .K);
+var oop = __nested_webpack_require_722408__(9359);
+var TextHighlightRules = (__nested_webpack_require_722408__(8053)/* .TextHighlightRules */ .K);
 
 var XmlHighlightRules = function(normalize) {
     // http://www.w3.org/TR/REC-xml/#NT-NameChar
@@ -22473,14 +22567,14 @@ exports.U = XmlHighlightRules;
 /***/ }),
 
 /***/ 956:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_726668__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_729709__) => {
 
 "use strict";
 
-var dom = __nested_webpack_require_726668__(6359);
-var oop = __nested_webpack_require_726668__(9359);
-var event = __nested_webpack_require_726668__(7989);
-var Tooltip = (__nested_webpack_require_726668__(962)/* .Tooltip */ .u);
+var dom = __nested_webpack_require_729709__(6359);
+var oop = __nested_webpack_require_729709__(9359);
+var event = __nested_webpack_require_729709__(7989);
+var Tooltip = (__nested_webpack_require_729709__(962)/* .Tooltip */ .u);
 
 function GutterHandler(mouseHandler) {
     var editor = mouseHandler.editor;
@@ -22637,12 +22731,12 @@ exports.d = GutterHandler;
 /***/ }),
 
 /***/ 4452:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_731550__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_734591__) => {
 
 "use strict";
 
 
-var useragent = __nested_webpack_require_731550__(618);
+var useragent = __nested_webpack_require_734591__(618);
 
 var DRAG_OFFSET = 0; // pixels
 var SCROLL_COOLDOWN_T = 550; // milliseconds
@@ -22927,14 +23021,14 @@ function calcRangeOrientation(range, cursor) {
 /***/ }),
 
 /***/ 469:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_741967__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_745008__) => {
 
 "use strict";
 
 
-var dom = __nested_webpack_require_741967__(6359);
-var event = __nested_webpack_require_741967__(7989);
-var useragent = __nested_webpack_require_741967__(618);
+var dom = __nested_webpack_require_745008__(6359);
+var event = __nested_webpack_require_745008__(7989);
+var useragent = __nested_webpack_require_745008__(618);
 
 var AUTOSCROLL_DELAY = 200;
 var SCROLL_CURSOR_DELAY = 200;
@@ -23320,11 +23414,11 @@ exports.q = DragdropHandler;
 /***/ }),
 
 /***/ 138:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_755977__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_759018__) => {
 
 "use strict";
 
-var dom = __nested_webpack_require_755977__(6359);
+var dom = __nested_webpack_require_759018__(6359);
 
 function FoldHandler(editor) {
 
@@ -23397,13 +23491,13 @@ exports.z = FoldHandler;
 /***/ }),
 
 /***/ 3489:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_758304__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_761345__) => {
 
 "use strict";
 
 
-var event = __nested_webpack_require_758304__(7989);
-var useragent = __nested_webpack_require_758304__(618);
+var event = __nested_webpack_require_761345__(7989);
+var useragent = __nested_webpack_require_761345__(618);
 
 /*
  * Custom Ace mouse event
@@ -23501,19 +23595,19 @@ var MouseEvent = exports.T = function(domEvent, editor) {
 /***/ }),
 
 /***/ 3691:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_760931__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_763972__) => {
 
 "use strict";
 
 
-var event = __nested_webpack_require_760931__(7989);
-var useragent = __nested_webpack_require_760931__(618);
-var DefaultHandlers = (__nested_webpack_require_760931__(4452)/* .DefaultHandlers */ .z);
-var DefaultGutterHandler = (__nested_webpack_require_760931__(956)/* .GutterHandler */ .d);
-var MouseEvent = (__nested_webpack_require_760931__(3489)/* .MouseEvent */ .T);
-var DragdropHandler = (__nested_webpack_require_760931__(469)/* .DragdropHandler */ .q);
-var addTouchListeners = (__nested_webpack_require_760931__(6591)/* .addTouchListeners */ .W);
-var config = __nested_webpack_require_760931__(3188);
+var event = __nested_webpack_require_763972__(7989);
+var useragent = __nested_webpack_require_763972__(618);
+var DefaultHandlers = (__nested_webpack_require_763972__(4452)/* .DefaultHandlers */ .z);
+var DefaultGutterHandler = (__nested_webpack_require_763972__(956)/* .GutterHandler */ .d);
+var MouseEvent = (__nested_webpack_require_763972__(3489)/* .MouseEvent */ .T);
+var DragdropHandler = (__nested_webpack_require_763972__(469)/* .DragdropHandler */ .q);
+var addTouchListeners = (__nested_webpack_require_763972__(6591)/* .addTouchListeners */ .W);
+var config = __nested_webpack_require_763972__(3188);
 
 var MouseHandler = function(editor) {
     var _self = this;
@@ -23705,10 +23799,10 @@ exports.S = MouseHandler;
 /***/ }),
 
 /***/ 4407:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_768856__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_771897__) => {
 
-var event = __nested_webpack_require_768856__(7989);
-var useragent = __nested_webpack_require_768856__(618);
+var event = __nested_webpack_require_771897__(7989);
+var useragent = __nested_webpack_require_771897__(618);
 
 // mouse
 function isSamePoint(p1, p2) {
@@ -23881,14 +23975,14 @@ exports.P = onMouseDown;
 /***/ }),
 
 /***/ 6591:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_774607__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_777648__) => {
 
 "use strict";
 
 
-var MouseEvent = (__nested_webpack_require_774607__(3489)/* .MouseEvent */ .T);
-var event = __nested_webpack_require_774607__(7989);
-var dom = __nested_webpack_require_774607__(6359);
+var MouseEvent = (__nested_webpack_require_777648__(3489)/* .MouseEvent */ .T);
+var event = __nested_webpack_require_777648__(7989);
+var dom = __nested_webpack_require_777648__(6359);
 
 exports.W = function(el, editor) {
     var mode = "scroll";
@@ -24203,19 +24297,19 @@ exports.W = function(el, editor) {
 /***/ }),
 
 /***/ 2972:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_786151__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_789192__) => {
 
-var RangeList = (__nested_webpack_require_786151__(6510)/* .RangeList */ .$);
-var Range = (__nested_webpack_require_786151__(9082)/* .Range */ .e);
-var Selection = (__nested_webpack_require_786151__(8939)/* .Selection */ .Y);
-var onMouseDown = (__nested_webpack_require_786151__(4407)/* .onMouseDown */ .P);
-var event = __nested_webpack_require_786151__(7989);
-var lang = __nested_webpack_require_786151__(124);
-var commands = __nested_webpack_require_786151__(8506);
+var RangeList = (__nested_webpack_require_789192__(6510)/* .RangeList */ .$);
+var Range = (__nested_webpack_require_789192__(9082)/* .Range */ .e);
+var Selection = (__nested_webpack_require_789192__(8939)/* .Selection */ .Y);
+var onMouseDown = (__nested_webpack_require_789192__(4407)/* .onMouseDown */ .P);
+var event = __nested_webpack_require_789192__(7989);
+var lang = __nested_webpack_require_789192__(124);
+var commands = __nested_webpack_require_789192__(8506);
 exports.commands = commands.defaultCommands.concat(commands.multiSelectCommands);
 
 // Todo: session.find or editor.findVolatile that returns range
-var Search = (__nested_webpack_require_786151__(6745)/* .Search */ .o);
+var Search = (__nested_webpack_require_789192__(6745)/* .Search */ .o);
 var search = new Search();
 
 function find(session, needle, dir) {
@@ -24226,7 +24320,7 @@ function find(session, needle, dir) {
 }
 
 // extend EditSession
-var EditSession = (__nested_webpack_require_786151__(6480)/* .EditSession */ .m);
+var EditSession = (__nested_webpack_require_789192__(6480)/* .EditSession */ .m);
 (function() {
     this.getSelectionMarkers = function() {
         return this.$selectionMarkers;
@@ -24508,7 +24602,7 @@ var EditSession = (__nested_webpack_require_786151__(6480)/* .EditSession */ .m)
 }).call(Selection.prototype);
 
 // extend Editor
-var Editor = (__nested_webpack_require_786151__(2880).Editor);
+var Editor = (__nested_webpack_require_789192__(2880).Editor);
 (function() {
 
     /** 
@@ -25119,7 +25213,7 @@ function addAltCursorListeners(editor){
 exports.MultiSelect = MultiSelect;
 
 
-(__nested_webpack_require_786151__(3188).defineOptions)(Editor.prototype, "editor", {
+(__nested_webpack_require_789192__(3188).defineOptions)(Editor.prototype, "editor", {
     enableMultiselect: {
         set: function(val) {
             MultiSelect(this);
@@ -25145,14 +25239,14 @@ exports.MultiSelect = MultiSelect;
 /***/ }),
 
 /***/ 1553:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_818806__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_821847__) => {
 
 "use strict";
 
 
-var Range = (__nested_webpack_require_818806__(9082)/* .Range */ .e);
-var EventEmitter = (__nested_webpack_require_818806__(3056).EventEmitter);
-var oop = __nested_webpack_require_818806__(9359);
+var Range = (__nested_webpack_require_821847__(9082)/* .Range */ .e);
+var EventEmitter = (__nested_webpack_require_821847__(3056).EventEmitter);
+var oop = __nested_webpack_require_821847__(9359);
 
 /**
  * @class PlaceHolder
@@ -25857,11 +25951,11 @@ exports.e = Range;
 /***/ }),
 
 /***/ 6510:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_842454__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_845495__) => {
 
 "use strict";
 
-var Range = (__nested_webpack_require_842454__(9082)/* .Range */ .e);
+var Range = (__nested_webpack_require_845495__(9082)/* .Range */ .e);
 var comparePoints = Range.comparePoints;
 
 var RangeList = function() {
@@ -26131,12 +26225,12 @@ exports.$ = RangeList;
 /***/ }),
 
 /***/ 3081:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_850879__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_853920__) => {
 
 "use strict";
 
 
-var event = __nested_webpack_require_850879__(7989);
+var event = __nested_webpack_require_853920__(7989);
 
 /** 
  *
@@ -26196,16 +26290,16 @@ exports.d = RenderLoop;
 /***/ }),
 
 /***/ 1338:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_852208__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_855249__) => {
 
 "use strict";
 var __webpack_unused_export__;
 
 
-var oop = __nested_webpack_require_852208__(9359);
-var dom = __nested_webpack_require_852208__(6359);
-var event = __nested_webpack_require_852208__(7989);
-var EventEmitter = (__nested_webpack_require_852208__(3056).EventEmitter);
+var oop = __nested_webpack_require_855249__(9359);
+var dom = __nested_webpack_require_855249__(6359);
+var event = __nested_webpack_require_855249__(7989);
+var EventEmitter = (__nested_webpack_require_855249__(3056).EventEmitter);
 // on ie maximal element height is smaller than what we get from 4-5K line document
 // so scrollbar doesn't work, as a workaround we do not set height higher than MAX_SCROLL_H
 // and rescale scrolltop
@@ -26461,16 +26555,16 @@ exports.ii = HScrollBar;
 /***/ }),
 
 /***/ 6810:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_860158__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_863199__) => {
 
 "use strict";
 var __webpack_unused_export__;
 
 
-var oop = __nested_webpack_require_860158__(9359);
-var dom = __nested_webpack_require_860158__(6359);
-var event = __nested_webpack_require_860158__(7989);
-var EventEmitter = (__nested_webpack_require_860158__(3056).EventEmitter);
+var oop = __nested_webpack_require_863199__(9359);
+var dom = __nested_webpack_require_863199__(6359);
+var event = __nested_webpack_require_863199__(7989);
+var EventEmitter = (__nested_webpack_require_863199__(3056).EventEmitter);
 
 dom.importCssString(`.ace_editor>.ace_sb-v div, .ace_editor>.ace_sb-h div{
   position: absolute;
@@ -26854,14 +26948,14 @@ exports.ii = HScrollBar;
 /***/ }),
 
 /***/ 6745:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_871627__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_874668__) => {
 
 "use strict";
 
 
-var lang = __nested_webpack_require_871627__(124);
-var oop = __nested_webpack_require_871627__(9359);
-var Range = (__nested_webpack_require_871627__(9082)/* .Range */ .e);
+var lang = __nested_webpack_require_874668__(124);
+var oop = __nested_webpack_require_874668__(9359);
+var Range = (__nested_webpack_require_874668__(9082)/* .Range */ .e);
 
 /**
  * @class Search
@@ -27238,14 +27332,14 @@ exports.o = Search;
 /***/ }),
 
 /***/ 7988:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_885138__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_888179__) => {
 
 "use strict";
 
 
-var lang = __nested_webpack_require_885138__(124);
-var oop = __nested_webpack_require_885138__(9359);
-var Range = (__nested_webpack_require_885138__(9082)/* .Range */ .e);
+var lang = __nested_webpack_require_888179__(124);
+var oop = __nested_webpack_require_888179__(9359);
+var Range = (__nested_webpack_require_888179__(9082)/* .Range */ .e);
 
 var SearchHighlight = function(regExp, clazz, type) {
     this.setRegexp(regExp);
@@ -27302,15 +27396,15 @@ exports.t = SearchHighlight;
 /***/ }),
 
 /***/ 8939:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_887090__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_890131__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_887090__(9359);
-var lang = __nested_webpack_require_887090__(124);
-var EventEmitter = (__nested_webpack_require_887090__(3056).EventEmitter);
-var Range = (__nested_webpack_require_887090__(9082)/* .Range */ .e);
+var oop = __nested_webpack_require_890131__(9359);
+var lang = __nested_webpack_require_890131__(124);
+var EventEmitter = (__nested_webpack_require_890131__(3056).EventEmitter);
+var Range = (__nested_webpack_require_890131__(9082)/* .Range */ .e);
 
 /**
  * Contains the cursor position and the text selection of an edit session.
@@ -28215,19 +28309,19 @@ exports.Y = Selection;
 /***/ }),
 
 /***/ 6629:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_915554__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_918595__) => {
 
 "use strict";
 
-var dom = __nested_webpack_require_915554__(6359);
-var oop = __nested_webpack_require_915554__(9359);
-var EventEmitter = (__nested_webpack_require_915554__(3056).EventEmitter);
-var lang = __nested_webpack_require_915554__(124);
-var Range = (__nested_webpack_require_915554__(9082)/* .Range */ .e);
-var RangeList = (__nested_webpack_require_915554__(6510)/* .RangeList */ .$);
-var HashHandler = (__nested_webpack_require_915554__(7116).HashHandler);
-var Tokenizer = (__nested_webpack_require_915554__(760)/* .Tokenizer */ .d);
-var clipboard = __nested_webpack_require_915554__(6311);
+var dom = __nested_webpack_require_918595__(6359);
+var oop = __nested_webpack_require_918595__(9359);
+var EventEmitter = (__nested_webpack_require_918595__(3056).EventEmitter);
+var lang = __nested_webpack_require_918595__(124);
+var Range = (__nested_webpack_require_918595__(9082)/* .Range */ .e);
+var RangeList = (__nested_webpack_require_918595__(6510)/* .RangeList */ .$);
+var HashHandler = (__nested_webpack_require_918595__(7116).HashHandler);
+var Tokenizer = (__nested_webpack_require_918595__(760)/* .Tokenizer */ .d);
+var clipboard = __nested_webpack_require_918595__(6311);
 
 var VARIABLES = {
     CURRENT_WORD: function(editor) {
@@ -29229,7 +29323,7 @@ dom.importCssString(`
 exports.w = new SnippetManager();
 
 
-var Editor = (__nested_webpack_require_915554__(2880).Editor);
+var Editor = (__nested_webpack_require_918595__(2880).Editor);
 (function() {
     this.insertSnippet = function(content, options) {
         return exports.w.insertSnippet(this, content, options);
@@ -29409,29 +29503,29 @@ module.exports = `.ace-tm .ace_gutter {
 /***/ }),
 
 /***/ 3687:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_956543__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_959584__) => {
 
 "use strict";
 
 
 exports.isDark = false;
 exports.cssClass = "ace-tm";
-exports.cssText = __nested_webpack_require_956543__(5673);
+exports.cssText = __nested_webpack_require_959584__(5673);
 exports.$id = "ace/theme/textmate";
 
-var dom = __nested_webpack_require_956543__(6359);
+var dom = __nested_webpack_require_959584__(6359);
 dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ }),
 
 /***/ 4379:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_956888__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_959929__) => {
 
 "use strict";
 
 
-var Range = (__nested_webpack_require_956888__(9082)/* .Range */ .e);
+var Range = (__nested_webpack_require_959929__(9082)/* .Range */ .e);
 
 /**
  * 
@@ -29570,12 +29664,12 @@ exports.N = TokenIterator;
 /***/ }),
 
 /***/ 760:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_960712__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_963753__) => {
 
 "use strict";
 
 
-var config = __nested_webpack_require_960712__(3188);
+var config = __nested_webpack_require_963753__(3188);
 // tokenizing lines longer than this makes editor very slow
 var MAX_TOKEN_COUNT = 2000;
 /**
@@ -29917,13 +30011,13 @@ exports.d = Tokenizer;
 /***/ }),
 
 /***/ 962:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_972601__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_975642__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_972601__(9359);
-var dom = __nested_webpack_require_972601__(6359);
+var oop = __nested_webpack_require_975642__(9359);
+var dom = __nested_webpack_require_975642__(6359);
 
 var CLASSNAME = "ace_tooltip";
 
@@ -30041,7 +30135,7 @@ exports.u = Tooltip;
 /***/ }),
 
 /***/ 718:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_975198__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_978239__) => {
 
 "use strict";
 
@@ -30319,7 +30413,7 @@ function rearrangeUndoStack(stack, pos) {
     }
 }
 
-var Range = (__nested_webpack_require_975198__(9082)/* .Range */ .e);
+var Range = (__nested_webpack_require_978239__(9082)/* .Range */ .e);
 var cmp = Range.comparePoints;
 var comparePoints = Range.comparePoints;
 
@@ -30640,29 +30734,29 @@ exports.wordChars = String.fromCharCode.apply(null, str);
 /***/ }),
 
 /***/ 3049:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_993594__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_996635__) => {
 
 "use strict";
 
 
-var oop = __nested_webpack_require_993594__(9359);
-var dom = __nested_webpack_require_993594__(6359);
-var config = __nested_webpack_require_993594__(3188);
-var GutterLayer = (__nested_webpack_require_993594__(1479)/* .Gutter */ .T);
-var MarkerLayer = (__nested_webpack_require_993594__(4800)/* .Marker */ .J);
-var TextLayer = (__nested_webpack_require_993594__(3572)/* .Text */ .x);
-var CursorLayer = (__nested_webpack_require_993594__(1175)/* .Cursor */ .C);
-var HScrollBar = (__nested_webpack_require_993594__(1338)/* .HScrollBar */ .ii);
-var VScrollBar = (__nested_webpack_require_993594__(1338)/* .VScrollBar */ .oX);
-var HScrollBarCustom = (__nested_webpack_require_993594__(6810)/* .HScrollBar */ .ii);
-var VScrollBarCustom = (__nested_webpack_require_993594__(6810)/* .VScrollBar */ .oX);
-var RenderLoop = (__nested_webpack_require_993594__(3081)/* .RenderLoop */ .d);
-var FontMetrics = (__nested_webpack_require_993594__(9506)/* .FontMetrics */ .c);
-var EventEmitter = (__nested_webpack_require_993594__(3056).EventEmitter);
-var editorCss = __nested_webpack_require_993594__(610);
-var Decorator = (__nested_webpack_require_993594__(2113)/* .Decorator */ .S);
+var oop = __nested_webpack_require_996635__(9359);
+var dom = __nested_webpack_require_996635__(6359);
+var config = __nested_webpack_require_996635__(3188);
+var GutterLayer = (__nested_webpack_require_996635__(1479)/* .Gutter */ .T);
+var MarkerLayer = (__nested_webpack_require_996635__(4800)/* .Marker */ .J);
+var TextLayer = (__nested_webpack_require_996635__(3572)/* .Text */ .x);
+var CursorLayer = (__nested_webpack_require_996635__(1175)/* .Cursor */ .C);
+var HScrollBar = (__nested_webpack_require_996635__(1338)/* .HScrollBar */ .ii);
+var VScrollBar = (__nested_webpack_require_996635__(1338)/* .VScrollBar */ .oX);
+var HScrollBarCustom = (__nested_webpack_require_996635__(6810)/* .HScrollBar */ .ii);
+var VScrollBarCustom = (__nested_webpack_require_996635__(6810)/* .VScrollBar */ .oX);
+var RenderLoop = (__nested_webpack_require_996635__(3081)/* .RenderLoop */ .d);
+var FontMetrics = (__nested_webpack_require_996635__(9506)/* .FontMetrics */ .c);
+var EventEmitter = (__nested_webpack_require_996635__(3056).EventEmitter);
+var editorCss = __nested_webpack_require_996635__(610);
+var Decorator = (__nested_webpack_require_996635__(2113)/* .Decorator */ .S);
 
-var useragent = __nested_webpack_require_993594__(618);
+var useragent = __nested_webpack_require_996635__(618);
 var HIDE_TEXTAREA = useragent.isIE;
 
 dom.importCssString(editorCss, "ace_editor.css", false);
@@ -32628,16 +32722,16 @@ module.exports = webpackEmptyContext;
 /***/ }),
 
 /***/ 9578:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1061860__) => {
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1064901__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1061860__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1064901__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1061860__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1061860__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1061860__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1061860__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1064901__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1064901__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1064901__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1064901__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
@@ -32651,16 +32745,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".toggle-block {\r\n    position: absol
 /***/ }),
 
 /***/ 7724:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1065641__) => {
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1068682__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1065641__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1068682__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1065641__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1065641__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1065641__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1065641__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1068682__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1068682__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1068682__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1068682__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
@@ -32673,24 +32767,24 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".blackbutton {\r\n    background-image
 
 /***/ }),
 
-/***/ 8659:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1069468__) => {
+/***/ 3345:
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1072509__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1069468__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1072509__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1069468__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1069468__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1069468__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1069468__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1069468__(1667);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1069468__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1072509__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1072509__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1072509__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1072509__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1072509__(1667);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1072509__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __nested_webpack_require_1069468__(9421), __nested_webpack_require_1069468__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __nested_webpack_require_1072509__(9421), __nested_webpack_require_1072509__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -32702,16 +32796,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".black_dropdown {\r\n    display: inli
 /***/ }),
 
 /***/ 2100:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1074867__) => {
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1077908__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1074867__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1077908__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1074867__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1074867__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1074867__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1074867__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1077908__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1077908__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1077908__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1077908__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
@@ -32725,26 +32819,26 @@ ___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n    font-family: Tahoma, san
 /***/ }),
 
 /***/ 9229:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1086023__) => {
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1089064__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1086023__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1089064__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1086023__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1086023__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1086023__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1086023__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1086023__(1667);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1086023__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1089064__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1089064__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1089064__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1089064__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1089064__(1667);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1089064__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __nested_webpack_require_1086023__(7112), __nested_webpack_require_1086023__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __nested_webpack_require_1086023__(7149), __nested_webpack_require_1086023__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __nested_webpack_require_1086023__(6475), __nested_webpack_require_1086023__.b);
-var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __nested_webpack_require_1086023__(2527), __nested_webpack_require_1086023__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __nested_webpack_require_1089064__(7112), __nested_webpack_require_1089064__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __nested_webpack_require_1089064__(7149), __nested_webpack_require_1089064__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __nested_webpack_require_1089064__(6475), __nested_webpack_require_1089064__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __nested_webpack_require_1089064__(2527), __nested_webpack_require_1089064__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -32759,16 +32853,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".menuButton {\r\n    height: 100%;\r\n
 /***/ }),
 
 /***/ 8753:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1102630__) => {
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1105671__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1102630__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1105671__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1102630__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1102630__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1102630__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1102630__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1105671__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1105671__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1105671__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1105671__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
@@ -32782,24 +32876,24 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".panelbar {\r\n    display:flex;\r\n  
 /***/ }),
 
 /***/ 4251:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1106808__) => {
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1109849__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1106808__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1109849__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1106808__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1106808__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1106808__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1106808__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1106808__(1667);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1106808__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1109849__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1109849__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1109849__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1109849__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1109849__(1667);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1109849__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __nested_webpack_require_1106808__(8334), __nested_webpack_require_1106808__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __nested_webpack_require_1106808__(5203), __nested_webpack_require_1106808__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __nested_webpack_require_1109849__(8334), __nested_webpack_require_1109849__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __nested_webpack_require_1109849__(5203), __nested_webpack_require_1109849__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -32812,16 +32906,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".cboffline {\r\n    width: 55px;\r\n  
 /***/ }),
 
 /***/ 8329:
-/***/ ((module, __webpack_exports__, __nested_webpack_require_1110978__) => {
+/***/ ((module, __webpack_exports__, __nested_webpack_require_1114019__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_1110978__.d(__webpack_exports__, {
+/* harmony export */ __nested_webpack_require_1114019__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1110978__(7537);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1110978__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1110978__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1110978__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1114019__(7537);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1114019__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1114019__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1114019__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
@@ -33514,26 +33608,26 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
 /***/ }),
 
 /***/ 1937:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1141466__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1144507__) => {
 
 "use strict";
-__nested_webpack_require_1141466__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1141466__.d(__webpack_exports__, {
+__nested_webpack_require_1144507__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1144507__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1141466__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1141466__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1141466__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1141466__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1141466__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1141466__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1141466__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1141466__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1141466__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1141466__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1141466__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1141466__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_accordion_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1141466__(9578);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1144507__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1144507__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1144507__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1144507__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1144507__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1144507__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1144507__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1144507__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1144507__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1144507__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1144507__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1144507__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_accordion_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1144507__(9578);
 
       
       
@@ -33566,26 +33660,26 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ }),
 
 /***/ 183:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1145745__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1148786__) => {
 
 "use strict";
-__nested_webpack_require_1145745__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1145745__.d(__webpack_exports__, {
+__nested_webpack_require_1148786__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1148786__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1145745__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1145745__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1145745__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1145745__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1145745__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1145745__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1145745__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1145745__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1145745__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1145745__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1145745__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1145745__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_button_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1145745__(7724);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1148786__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1148786__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1148786__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1148786__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1148786__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1148786__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1148786__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1148786__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1148786__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1148786__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1148786__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1148786__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_button_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1148786__(7724);
 
       
       
@@ -33618,26 +33712,26 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ }),
 
 /***/ 8638:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1150010__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1153051__) => {
 
 "use strict";
-__nested_webpack_require_1150010__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1150010__.d(__webpack_exports__, {
+__nested_webpack_require_1153051__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1153051__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1150010__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1150010__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1150010__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1150010__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1150010__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1150010__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1150010__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1150010__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1150010__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1150010__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1150010__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1150010__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_dropdown_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1150010__(8659);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1153051__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1153051__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1153051__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1153051__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1153051__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1153051__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1153051__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1153051__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1153051__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1153051__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1153051__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1153051__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_dropdown_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1153051__(3345);
 
       
       
@@ -33670,26 +33764,26 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ }),
 
 /***/ 4646:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1154285__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1157326__) => {
 
 "use strict";
-__nested_webpack_require_1154285__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1154285__.d(__webpack_exports__, {
+__nested_webpack_require_1157326__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1157326__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1154285__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1154285__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1154285__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1154285__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1154285__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1154285__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1154285__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1154285__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1154285__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1154285__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1154285__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1154285__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_layout_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1154285__(2100);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1157326__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1157326__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1157326__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1157326__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1157326__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1157326__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1157326__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1157326__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1157326__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1157326__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1157326__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1157326__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_layout_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1157326__(2100);
 
       
       
@@ -33722,26 +33816,26 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ }),
 
 /***/ 3694:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1158550__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1161591__) => {
 
 "use strict";
-__nested_webpack_require_1158550__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1158550__.d(__webpack_exports__, {
+__nested_webpack_require_1161591__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1161591__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1158550__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1158550__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1158550__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1158550__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1158550__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1158550__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1158550__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1158550__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1158550__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1158550__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1158550__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1158550__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_menu_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1158550__(9229);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1161591__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1161591__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1161591__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1161591__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1161591__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1161591__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1161591__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1161591__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1161591__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1161591__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1161591__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1161591__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_menu_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1161591__(9229);
 
       
       
@@ -33774,26 +33868,26 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ }),
 
 /***/ 3612:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1162805__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1165846__) => {
 
 "use strict";
-__nested_webpack_require_1162805__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1162805__.d(__webpack_exports__, {
+__nested_webpack_require_1165846__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1165846__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1162805__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1162805__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1162805__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1162805__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1162805__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1162805__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1162805__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1162805__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1162805__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1162805__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1162805__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1162805__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_panel_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1162805__(8753);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1165846__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1165846__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1165846__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1165846__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1165846__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1165846__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1165846__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1165846__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1165846__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1165846__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1165846__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1165846__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_panel_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1165846__(8753);
 
       
       
@@ -33826,26 +33920,26 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ }),
 
 /***/ 923:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1167064__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1170105__) => {
 
 "use strict";
-__nested_webpack_require_1167064__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1167064__.d(__webpack_exports__, {
+__nested_webpack_require_1170105__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1170105__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1167064__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1167064__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1167064__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1167064__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1167064__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1167064__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1167064__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1167064__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1167064__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1167064__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1167064__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1167064__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_switcher_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1167064__(4251);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1170105__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1170105__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1170105__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1170105__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1170105__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1170105__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1170105__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1170105__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1170105__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1170105__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1170105__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1170105__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_switcher_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1170105__(4251);
 
       
       
@@ -33878,26 +33972,26 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ }),
 
 /***/ 2463:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1171339__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nested_webpack_require_1174380__) => {
 
 "use strict";
-__nested_webpack_require_1171339__.r(__webpack_exports__);
-/* harmony export */ __nested_webpack_require_1171339__.d(__webpack_exports__, {
+__nested_webpack_require_1174380__.r(__webpack_exports__);
+/* harmony export */ __nested_webpack_require_1174380__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1171339__(3379);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1171339__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1171339__(7795);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1171339__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1171339__(569);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1171339__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1171339__(3565);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1171339__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1171339__(9216);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1171339__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1171339__(4589);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1171339__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_tab_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1171339__(8329);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1174380__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_1174380__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1174380__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nested_webpack_require_1174380__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1174380__(569);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nested_webpack_require_1174380__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1174380__(3565);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__nested_webpack_require_1174380__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1174380__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__nested_webpack_require_1174380__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1174380__(4589);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__nested_webpack_require_1174380__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_tab_css__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1174380__(8329);
 
       
       
@@ -34105,14 +34199,14 @@ module.exports = insertStyleElement;
 /***/ }),
 
 /***/ 3565:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_1179511__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_1182552__) => {
 
 "use strict";
 
 
 /* istanbul ignore next  */
 function setAttributesWithoutAttributes(styleElement) {
-  var nonce =   true ? __nested_webpack_require_1179511__.nc : 0;
+  var nonce =   true ? __nested_webpack_require_1182552__.nc : 0;
 
   if (nonce) {
     styleElement.setAttribute("nonce", nonce);
@@ -34224,15 +34318,15 @@ module.exports = styleTagTransform;
 /***/ }),
 
 /***/ 2583:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1181763__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1184804__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CommandManager = void 0;
-var event = __nested_webpack_require_1181763__(7989);
-var keyUtil = __nested_webpack_require_1181763__(1797);
-var hash_handler_1 = __nested_webpack_require_1181763__(7116);
+var event = __nested_webpack_require_1184804__(7989);
+var keyUtil = __nested_webpack_require_1184804__(1797);
+var hash_handler_1 = __nested_webpack_require_1184804__(7116);
 var CommandManager = /** @class */ (function () {
     function CommandManager() {
     }
@@ -34256,7 +34350,7 @@ exports.CommandManager = CommandManager;
 /***/ }),
 
 /***/ 2656:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1182792__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1185833__) {
 
 "use strict";
 
@@ -34271,18 +34365,19 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.tabCommands = void 0;
-var tab_1 = __nested_webpack_require_1182792__(9165);
-var tabManager_1 = __nested_webpack_require_1182792__(8478);
+var tab_1 = __nested_webpack_require_1185833__(9165);
+var tabManager_1 = __nested_webpack_require_1185833__(8478);
 function getCurrentPaneTabs(element) {
+    var _a, _b, _c, _d;
     if (element instanceof tab_1.Tab) {
         return {
-            tabs: __spreadArray([], element.parent.tabList, true),
+            tabs: __spreadArray([], (_b = (_a = element.parent) === null || _a === void 0 ? void 0 : _a.tabList) !== null && _b !== void 0 ? _b : [], true),
             activeTab: element
         };
     }
     else {
         return {
-            tabs: __spreadArray([], element.activePane.tabBar.tabList, true),
+            tabs: __spreadArray([], (_d = (_c = element.activePane) === null || _c === void 0 ? void 0 : _c.tabBar.tabList) !== null && _d !== void 0 ? _d : [], true),
             activeTab: element.activeTab
         };
     }
@@ -34490,7 +34585,7 @@ exports.tabCommands = [
         position: 340,
         exec: function (el) {
             //TODO: 
-            /*var path;
+            /*let path;
             if (el instanceof Tab) {
                 path = el.path;
             } else {
@@ -34498,7 +34593,7 @@ exports.tabCommands = [
             }*/
             /*fileTree.popup.data.some((item, i) => {
                 if (item.path === path) {
-                    var scrollTo = fileTree.popup.session.documentToScreenRow(i, 0);
+                    let scrollTo = fileTree.popup.session.documentToScreenRow(i, 0);
                     fileTree.popup.session.setScrollTop(scrollTo)
                     fileTree.popup.setRow(i);
                 }
@@ -34619,9 +34714,10 @@ exports.tabCommands = [
         desc: "close this pane",
         position: 340,
         exec: function (el) {
+            var _a, _b;
             var tabs;
             if (el instanceof tab_1.Tab) {
-                tabs = __spreadArray([], el.parent.tabList, true);
+                tabs = __spreadArray([], (_b = (_a = el.parent) === null || _a === void 0 ? void 0 : _a.tabList) !== null && _b !== void 0 ? _b : [], true);
             }
             else {
                 tabs = __spreadArray([], el.activePane.tabBar.tabList, true);
@@ -34678,7 +34774,7 @@ exports.tabCommands = [
 /***/ }),
 
 /***/ 4432:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1196471__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1199832__) {
 
 "use strict";
 
@@ -34697,106 +34793,41 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-__exportStar(__nested_webpack_require_1196471__(2583), exports);
-__exportStar(__nested_webpack_require_1196471__(5079), exports);
-__exportStar(__nested_webpack_require_1196471__(3130), exports);
-__exportStar(__nested_webpack_require_1196471__(4563), exports);
-__exportStar(__nested_webpack_require_1196471__(8795), exports);
-__exportStar(__nested_webpack_require_1196471__(3186), exports);
-__exportStar(__nested_webpack_require_1196471__(3167), exports);
-__exportStar(__nested_webpack_require_1196471__(9704), exports);
-__exportStar(__nested_webpack_require_1196471__(8575), exports);
-__exportStar(__nested_webpack_require_1196471__(5765), exports);
-__exportStar(__nested_webpack_require_1196471__(6087), exports);
-__exportStar(__nested_webpack_require_1196471__(2061), exports);
-__exportStar(__nested_webpack_require_1196471__(3208), exports);
-__exportStar(__nested_webpack_require_1196471__(9367), exports);
-__exportStar(__nested_webpack_require_1196471__(7282), exports);
-__exportStar(__nested_webpack_require_1196471__(279), exports);
-__exportStar(__nested_webpack_require_1196471__(6790), exports);
-__exportStar(__nested_webpack_require_1196471__(9165), exports);
-__exportStar(__nested_webpack_require_1196471__(8478), exports);
-__exportStar(__nested_webpack_require_1196471__(9251), exports);
-
-
-/***/ }),
-
-/***/ 1021:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Utils = void 0;
-var Utils;
-(function (Utils) {
-    Utils.findHost = function (el, constructor) {
-        while (el) {
-            if (el.$host && (!constructor || el.$host.constructor === constructor))
-                return el.$host;
-            el = el.parentElement;
-        }
-    };
-    Utils.findNode = function (node, className) {
-        while (node && node.classList) {
-            if (node.classList.contains(className))
-                return node;
-            node = node.parentNode;
-        }
-        return null;
-    };
-    Utils.findHostTarget = function (target) {
-        while (target) {
-            if (target.$host)
-                return target;
-            target = target.parentElement;
-        }
-        return null;
-    };
-    Utils.setBox = function (el, x, y, w, h) {
-        if (w) {
-            w = Math.max(w, 0);
-        }
-        if (h) {
-            h = Math.max(h, 0);
-        }
-        var s = el.style;
-        s.left = x + "px";
-        s.top = y + "px";
-        s.width = w + "px";
-        s.height = h + "px";
-    };
-    function getEdge(style, dir) {
-        return parseInt(style["padding" + dir], 10) +
-            parseInt(style["margin" + dir], 10) +
-            parseInt(style["border" + dir], 10);
-    }
-    Utils.getEdge = getEdge;
-    function getElementEdges(element) {
-        var style = getComputedStyle(element);
-        return {
-            "top": getEdge(style, "Top"),
-            "bottom": getEdge(style, "Bottom"),
-            "left": getEdge(style, "Left"),
-            "right": getEdge(style, "Right")
-        };
-    }
-    Utils.getElementEdges = getElementEdges;
-})(Utils = exports.Utils || (exports.Utils = {}));
+__exportStar(__nested_webpack_require_1199832__(2583), exports);
+__exportStar(__nested_webpack_require_1199832__(5079), exports);
+__exportStar(__nested_webpack_require_1199832__(3130), exports);
+__exportStar(__nested_webpack_require_1199832__(4563), exports);
+__exportStar(__nested_webpack_require_1199832__(8795), exports);
+__exportStar(__nested_webpack_require_1199832__(3186), exports);
+__exportStar(__nested_webpack_require_1199832__(3167), exports);
+__exportStar(__nested_webpack_require_1199832__(9704), exports);
+__exportStar(__nested_webpack_require_1199832__(8575), exports);
+__exportStar(__nested_webpack_require_1199832__(5765), exports);
+__exportStar(__nested_webpack_require_1199832__(6087), exports);
+__exportStar(__nested_webpack_require_1199832__(2061), exports);
+__exportStar(__nested_webpack_require_1199832__(3208), exports);
+__exportStar(__nested_webpack_require_1199832__(9367), exports);
+__exportStar(__nested_webpack_require_1199832__(2631), exports);
+__exportStar(__nested_webpack_require_1199832__(7282), exports);
+__exportStar(__nested_webpack_require_1199832__(279), exports);
+__exportStar(__nested_webpack_require_1199832__(6790), exports);
+__exportStar(__nested_webpack_require_1199832__(9165), exports);
+__exportStar(__nested_webpack_require_1199832__(8478), exports);
+__exportStar(__nested_webpack_require_1199832__(9251), exports);
 
 
 /***/ }),
 
 /***/ 9583:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1200250__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1201769__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AccordionHandler = void 0;
-var box_1 = __nested_webpack_require_1200250__(8795);
-var lib_1 = __nested_webpack_require_1200250__(1021);
-var event = __nested_webpack_require_1200250__(7989);
+var box_1 = __nested_webpack_require_1201769__(8795);
+var lib_1 = __nested_webpack_require_1201769__(3723);
+var event = __nested_webpack_require_1201769__(7989);
 var AccordionHandler;
 (function (AccordionHandler) {
     AccordionHandler.toggleBarMouseDown = function (e, accordionConstructor) {
@@ -34805,7 +34836,7 @@ var AccordionHandler;
             return;
         var accordionBox, accordionBoxRect, toggleBlockDragging, toggleBlockRect;
         var startIndex, changeIndex, previousIndex;
-        var toggleBar, box, splitter;
+        var toggleBar, section, splitter;
         var startX = e.clientX, startY = e.clientY;
         var isDragging = false;
         var posX, posY, prevY, prevX;
@@ -34814,6 +34845,8 @@ var AccordionHandler;
             return dx * dx + dy * dy;
         }
         function calculateNearbyBlocksData() {
+            if (!accordionBox)
+                return;
             prevBlock = accordionBox.toggleBlockList[changeIndex - 1] || null;
             nextBlock = accordionBox.toggleBlockList[changeIndex + 1] || null;
             topMaxY = prevBlock && (parseInt(prevBlock.style.top, 10) + parseInt(prevBlock.style.height, 10) / 2 + accordionBoxRect.top);
@@ -34823,6 +34856,8 @@ var AccordionHandler;
             if (isDragging)
                 return;
             accordionBox = lib_1.Utils.findHost(toggleBlock, accordionConstructor);
+            if (!accordionBox)
+                return;
             accordionBoxRect = accordionBox.element.getBoundingClientRect();
             startIndex = changeIndex = previousIndex = toggleBlock.$index;
             toggleBlockRect = toggleBlock.getBoundingClientRect();
@@ -34844,14 +34879,18 @@ var AccordionHandler;
             }
         }
         function accordionDataChanged() {
-            recalculateIndexes(accordionBox.boxList);
+            if (!accordionBox)
+                return;
+            recalculateIndexes(accordionBox.sections);
             recalculateIndexes(accordionBox.toggleBarList);
             recalculateIndexes(accordionBox.toggleBlockList);
             recalculateIndexes(accordionBox.splitterList);
             accordionBox.resize();
         }
         function addToAccordionBox(index) {
-            accordionBox.boxList.splice(index, 0, box);
+            if (!accordionBox)
+                return;
+            accordionBox.sections.splice(index, 0, section);
             accordionBox.toggleBarList.splice(index, 0, toggleBar);
             accordionBox.toggleBlockList.splice(index, 0, toggleBlock);
             calculateNearbyBlocksData();
@@ -34867,12 +34906,14 @@ var AccordionHandler;
             }
             toggleBlock.$parent = accordionBox;
             splitter.$parent = accordionBox;
-            accordionBox.calculateChildrenSizePercents();
+            accordionBox.calculateSectionsSizesPercents();
             accordionBox.recalculateChildrenSizes();
             accordionDataChanged();
         }
         function removeFromAccordionBox() {
-            box = accordionBox.boxList.splice(previousIndex, 1)[0];
+            if (!accordionBox)
+                return;
+            section = accordionBox.sections.splice(previousIndex, 1)[0];
             toggleBar = accordionBox.toggleBarList.splice(previousIndex, 1)[0];
             toggleBlock = accordionBox.toggleBlockList.splice(previousIndex, 1)[0];
             var splitterIndex = accordionBox.splitterList[previousIndex] ? previousIndex : previousIndex - 1;
@@ -34880,10 +34921,10 @@ var AccordionHandler;
             toggleBlockDragging.style.height = accordionBox.toggleBarHeight + "px";
             toggleBlock.remove();
             splitter.remove();
-            accordionBox.calculateChildrenSizePercents();
+            accordionBox.calculateSectionsSizesPercents();
             accordionBox.recalculateChildrenSizes();
             accordionDataChanged();
-            accordionBox = null;
+            accordionBox = undefined;
             toggleBlock.$parent = null;
             splitter.$parent = null;
         }
@@ -34939,7 +34980,7 @@ var AccordionHandler;
                     accordionBox.element.insertBefore(toggleBlock, accordionBox.toggleBlockList[changeIndex]);
                     var splitterIndex = accordionBox.splitterList[previousIndex] ? previousIndex : previousIndex + 1;
                     accordionBox.element.insertBefore(accordionBox.toggleBlockList[changeIndex], accordionBox.splitterList[splitterIndex]);
-                    accordionBox.boxList.splice(changeIndex, 0, accordionBox.boxList.splice(previousIndex, 1)[0]);
+                    accordionBox.sections.splice(changeIndex, 0, accordionBox.sections.splice(previousIndex, 1)[0]);
                     accordionBox.toggleBarList.splice(changeIndex, 0, accordionBox.toggleBarList.splice(previousIndex, 1)[0]);
                     accordionBox.toggleBlockList.splice(changeIndex, 0, accordionBox.toggleBlockList.splice(previousIndex, 1)[0]);
                     calculateNearbyBlocksData();
@@ -34996,7 +35037,7 @@ var AccordionHandler;
         var splitterIndex = splitter.$index + 1;
         var prevX = x;
         var prevY = y;
-        if (!accordionBox.hasNextOpenedBoxes(splitterIndex) || !accordionBox.hasPrevOpenedBoxes(splitterIndex))
+        if (!accordionBox.hasNextOpenedBlocks(splitterIndex) || !accordionBox.hasPrevOpenedBlocks(splitterIndex))
             return;
         accordionBox.keepState();
         var onMouseMove = function (e) {
@@ -35004,16 +35045,16 @@ var AccordionHandler;
             y = e.clientY;
             var changedSize = 0;
             if (prevY > y) {
-                changedSize = accordionBox.recalculatePreviousBoxesSize(splitterIndex, y);
+                changedSize = accordionBox.recalculatePreviousSectionsSize(splitterIndex, y);
                 if (changedSize === 0)
                     return;
-                accordionBox.expandNextBoxes(splitterIndex, changedSize);
+                accordionBox.expandNextSections(splitterIndex, changedSize);
             }
             else if (prevY < y) {
-                changedSize = accordionBox.recalculateNextBoxesSize(splitterIndex, y);
+                changedSize = accordionBox.recalculateNextSectionsSize(splitterIndex, y);
                 if (changedSize === 0)
                     return;
-                accordionBox.expandPrevBoxes(splitterIndex, changedSize);
+                accordionBox.expandPreviousSections(splitterIndex, changedSize);
             }
             else {
                 return;
@@ -35024,7 +35065,7 @@ var AccordionHandler;
         var onResizeEnd = function (e) {
             accordionBox.dischargeState();
             box_1.Box.setGlobalCursor("");
-            accordionBox.calculateChildrenSizePercents();
+            accordionBox.calculateSectionsSizesPercents();
         };
         box_1.Box.setGlobalCursor("".concat(accordionBox.vertical ? "ns" : "ew", "-resize"));
         event.capture(window, onMouseMove, onResizeEnd);
@@ -35036,42 +35077,41 @@ var AccordionHandler;
 /***/ }),
 
 /***/ 1966:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1211688__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1213535__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TabbarHandler = void 0;
-var lib_1 = __nested_webpack_require_1211688__(1021);
-var dom_1 = __nested_webpack_require_1211688__(5079);
-var event = __nested_webpack_require_1211688__(7989);
+var lib_1 = __nested_webpack_require_1213535__(3723);
+var dom_1 = __nested_webpack_require_1213535__(5079);
+var event = __nested_webpack_require_1213535__(7989);
 var TabbarHandler;
 (function (TabbarHandler) {
     TabbarHandler.tabbarMouseDown = function (e, tabConstructor, tabBarConstructor, showSplit) {
         if (showSplit === void 0) { showSplit = false; }
         var divSplit, splitPosition, pane;
         function hideSplitPosition() {
-            divSplit && divSplit.remove();
+            if (!divSplit)
+                return;
+            divSplit.remove();
             divSplit = splitPosition = pane = null;
         }
         function showSplitPosition(e) {
             var el = e.target;
             if (tabBar) {
-                if (divSplit)
-                    hideSplitPosition();
+                hideSplitPosition();
                 return;
             }
             pane = lib_1.Utils.findHost(el);
             // If aml is not the pane we seek, lets abort
             if (!pane || !pane.acceptsTab || !pane.acceptsTab(tab)) {
-                if (divSplit)
-                    hideSplitPosition();
+                hideSplitPosition();
                 return;
             }
             // Cannot split pane that would be removed later
             if (pane.tabBar.tabList.length === 0) {
-                if (divSplit)
-                    hideSplitPosition();
+                hideSplitPosition();
                 return;
             }
             var dark = false; // !tab || tab.classList.constains("dark");
@@ -35121,11 +35161,12 @@ var TabbarHandler;
         if (!tab)
             return;
         var tabBar = lib_1.Utils.findHost(e.target, tabBarConstructor);
+        if (!tabBar)
+            return;
         var isVertical = tabBar.isVertical();
         tabBar.tabMouseDown(tab, e.shiftKey, e.ctrlKey);
-        if (e.shiftKey || e.ctrlKey) {
+        if (e.shiftKey || e.ctrlKey)
             return;
-        }
         var isDragging = false;
         var posX, posY, prevX, prevY;
         var startX = e.clientX, startY = e.clientY;
@@ -35148,9 +35189,8 @@ var TabbarHandler;
             }
         };
         var startDragging = function () {
-            if (isDragging) {
+            if (isDragging || !tabBar)
                 return;
-            }
             tabElement = dom_1.dom.buildDom(["div", {
                     class: "tabDragging"
                 }]);
@@ -35253,9 +35293,8 @@ var TabbarHandler;
         }
         var onMouseMove = function (e) {
             var _a, _b;
-            if (e.type !== "mousemove") {
+            if (e.type !== "mousemove")
                 return;
-            }
             if (!isDragging) {
                 if (distance(e.clientX - startX, e.clientY - startY) < 25)
                     return;
@@ -35263,7 +35302,7 @@ var TabbarHandler;
             }
             function removeTabFromBar() {
                 tabBar.finishTabDragging();
-                tabBar = null;
+                tabBar = undefined;
             }
             if (tabBar) {
                 tabBar.startTabDragging(tabElement, index);
@@ -35292,9 +35331,8 @@ var TabbarHandler;
                     calculateNearbyTabsData();
                 }
             }
-            if (showSplit) {
+            if (showSplit)
                 showSplitPosition(e);
-            }
             var left = e.clientX - posX;
             var top = e.clientY - posY;
             var x = left;
@@ -35368,14 +35406,14 @@ window.addEventListener("mouseup", function () {
 /***/ }),
 
 /***/ 5079:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1226473__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1228251__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.dom = void 0;
 //Picked from ace-code 1.10
-var useragent = __nested_webpack_require_1226473__(618);
+var useragent = __nested_webpack_require_1228251__(618);
 var XHTML_NS = "http://www.w3.org/1999/xhtml";
 var dom;
 (function (dom) {
@@ -35647,6 +35685,72 @@ var dom;
 
 /***/ }),
 
+/***/ 3723:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Utils = void 0;
+var Utils;
+(function (Utils) {
+    Utils.findHost = function (el, constructor) {
+        while (el) {
+            if (el.$host && (!constructor || el.$host.constructor === constructor))
+                return el.$host;
+            el = el.parentElement;
+        }
+    };
+    Utils.findNode = function (node, className) {
+        while (node && node.classList) {
+            if (node.classList.contains(className))
+                return node;
+            node = node.parentNode;
+        }
+        return null;
+    };
+    Utils.findHostTarget = function (target) {
+        while (target) {
+            if (target.$host)
+                return target;
+            target = target.parentElement;
+        }
+        return null;
+    };
+    Utils.setBox = function (el, x, y, w, h) {
+        if (w) {
+            w = Math.max(w, 0);
+        }
+        if (h) {
+            h = Math.max(h, 0);
+        }
+        var s = el.style;
+        s.left = x + "px";
+        s.top = y + "px";
+        s.width = w + "px";
+        s.height = h + "px";
+    };
+    function getEdge(style, dir) {
+        return parseInt(style["padding" + dir], 10) +
+            parseInt(style["margin" + dir], 10) +
+            parseInt(style["border" + dir], 10);
+    }
+    Utils.getEdge = getEdge;
+    function getElementEdges(element) {
+        var style = getComputedStyle(element);
+        return {
+            "top": getEdge(style, "Top"),
+            "bottom": getEdge(style, "Bottom"),
+            "left": getEdge(style, "Left"),
+            "right": getEdge(style, "Right")
+        };
+    }
+    Utils.getElementEdges = getElementEdges;
+})(Utils = exports.Utils || (exports.Utils = {}));
+
+
+/***/ }),
+
 /***/ 3130:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -35669,50 +35773,67 @@ var EditorType;
 /***/ }),
 
 /***/ 4563:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1236741__) => {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1240420__) {
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Accordion = void 0;
-var accordion_handler_1 = __nested_webpack_require_1236741__(9583);
-var box_1 = __nested_webpack_require_1236741__(8795);
-var lib_1 = __nested_webpack_require_1236741__(1021);
-var dom_1 = __nested_webpack_require_1236741__(5079);
-var accordionCSS = __nested_webpack_require_1236741__(1937);
+var accordion_handler_1 = __nested_webpack_require_1240420__(9583);
+var box_1 = __nested_webpack_require_1240420__(8795);
+var lib_1 = __nested_webpack_require_1240420__(3723);
+var dom_1 = __nested_webpack_require_1240420__(5079);
+var accordionCSS = __nested_webpack_require_1240420__(1937);
 dom_1.dom.importCssString(accordionCSS, "accordion.css");
 var BOX_MIN_SIZE = 80;
-var Accordion = /** @class */ (function () {
+var Accordion = /** @class */ (function (_super) {
+    __extends(Accordion, _super);
     function Accordion(options) {
-        this.toggleBarList = [];
-        this.splitterList = [];
-        this.toggleBlockList = [];
-        this.boxList = [];
-        this.boxMinSize = 30;
-        this.toggleBarHeight = 20;
-        this.splitterSize = 1;
-        this.vertical = options.vertical || false;
-        this.color = options.color;
-        this.boxes = options.boxes;
-        this.minSize = options.minSize || BOX_MIN_SIZE;
-        this.minVerticalSize = options.minVerticalSize || this.minSize;
-        this.minHorizontalSize = options.minHorizontalSize || this.minSize;
-        this.padding = { top: 0, right: 0, bottom: 0, left: 0 };
-        this.size = options.size;
+        var _this = this;
+        var _a;
+        _this = _super.call(this, options) || this;
+        _this.toggleBarList = [];
+        _this.splitterList = [];
+        _this.toggleBlockList = [];
+        _this.boxMinSize = 30;
+        _this.toggleBarHeight = 20;
+        _this.splitterSize = 1;
+        _this.vertical = options.vertical || false;
+        _this.color = (_a = options.color) !== null && _a !== void 0 ? _a : "";
+        _this.sections = options.sections;
+        _this.minSize = options.minSize || BOX_MIN_SIZE;
+        _this.minVerticalSize = options.minVerticalSize || _this.minSize;
+        _this.minHorizontalSize = options.minHorizontalSize || _this.minSize;
+        _this.padding = { top: 0, right: 0, bottom: 0, left: 0 };
+        _this.size = options.size;
+        return _this;
     }
-    Accordion.prototype.hasNextOpenedBoxes = function (index) {
+    Accordion.prototype.hasNextOpenedBlocks = function (index) {
         for (var i = index; i < this.toggleBlockList.length; i++) {
-            if (this.isOpenedByIndex(i)) {
+            if (this.isOpenedByIndex(i))
                 return true;
-            }
         }
         return false;
     };
-    Accordion.prototype.hasPrevOpenedBoxes = function (index) {
+    Accordion.prototype.hasPrevOpenedBlocks = function (index) {
         for (var i = index - 1; i >= 0; i--) {
-            if (this.isOpenedByIndex(i)) {
+            if (this.isOpenedByIndex(i))
                 return true;
-            }
         }
         return false;
     };
@@ -35723,82 +35844,67 @@ var Accordion = /** @class */ (function () {
         return toggleBlock.classList.contains("toggle-opened");
     };
     Accordion.prototype.keepState = function () {
-        this.nextChangedBoxes = [];
-        this.prevChangedBoxes = [];
+        this.nextChangedIndexes = [];
+        this.prevChangedIndexes = [];
         for (var i = 0; i < this.toggleBlockList.length; i++) {
             if (this.isOpenedByIndex(i)) {
-                this.boxList[i].$prevSize = this.boxList[i].$size;
+                var section = this.sections[i];
+                section.previousSize = section.currentSize;
             }
         }
     };
     Accordion.prototype.dischargeState = function () {
-        this.nextChangedBoxes = null;
-        this.prevChangedBoxes = null;
+        this.nextChangedIndexes = undefined;
+        this.prevChangedIndexes = undefined;
         for (var i = 0; i < this.toggleBlockList.length; i++) {
-            if (this.isOpenedByIndex(i)) {
-                this.boxList[i].$prevSize = null;
-            }
+            if (this.isOpenedByIndex(i))
+                this.sections[i].previousSize = undefined;
         }
     };
-    Accordion.prototype.addChangedBox = function (index, changedBoxes) {
-        if (changedBoxes && changedBoxes.indexOf(index) < 0) {
-            changedBoxes.unshift(index);
-        }
-    };
-    Accordion.prototype.recalculatePreviousBoxesSize = function (index, top, maxChangeSize) {
-        var box, rect, prevSize, currentSize;
+    Accordion.prototype.recalculatePreviousSectionsSize = function (index, top, maxChangeSize) {
         var changedSize = 0;
-        var done = false;
         for (var i = index - 1; i >= 0; i--) {
             if (this.isOpenedByIndex(i)) {
-                box = this.boxList[i];
-                rect = box.element.getBoundingClientRect();
-                prevSize = rect.height;
-                currentSize = Math.max(top - rect.top, this.boxMinSize);
+                var section = this.sections[i];
+                var rect = section.box.element.getBoundingClientRect();
+                var done = false;
+                var prevSize = rect.height;
+                var currentSize = Math.max(top - rect.top, this.boxMinSize);
                 top -= rect.height;
                 if (currentSize < prevSize) {
-                    if (currentSize > this.boxMinSize) {
+                    if (currentSize > this.boxMinSize)
                         done = true;
-                    }
-                    this.addChangedBox(i, this.prevChangedBoxes);
-                    box.$size = currentSize;
+                    if (!this.prevChangedIndexes.includes(i))
+                        this.prevChangedIndexes.unshift(i);
+                    section.currentSize = currentSize;
                     changedSize += (prevSize - currentSize);
-                    if (done) {
+                    if (done || (maxChangeSize != undefined && changedSize >= maxChangeSize))
                         break;
-                    }
-                    if (maxChangeSize && changedSize >= maxChangeSize) {
-                        break;
-                    }
                 }
             }
             top -= this.toggleBarHeight;
         }
         return changedSize;
     };
-    Accordion.prototype.recalculateNextBoxesSize = function (index, top, maxChangeSize) {
-        var box, rect, prevSize, currentSize;
+    Accordion.prototype.recalculateNextSectionsSize = function (index, top, maxChangeSize) {
         var changedSize = 0;
-        var done = false;
         for (var i = index; i < this.toggleBlockList.length; i++) {
             if (this.isOpenedByIndex(i)) {
-                box = this.boxList[i];
-                rect = box.element.getBoundingClientRect();
-                prevSize = rect.height;
-                currentSize = Math.max(rect.bottom - top - this.toggleBarHeight, this.boxMinSize);
+                var section = this.sections[i];
+                var rect = section.box.element.getBoundingClientRect();
+                var done = false;
+                var prevSize = rect.height;
+                var currentSize = Math.max(rect.bottom - top - this.toggleBarHeight, this.boxMinSize);
                 top += rect.height;
                 if (currentSize < prevSize) {
-                    if (currentSize > this.boxMinSize) {
+                    if (currentSize > this.boxMinSize)
                         done = true;
-                    }
-                    this.addChangedBox(i, this.nextChangedBoxes);
-                    box.$size = currentSize;
+                    if (!this.nextChangedIndexes.includes(i))
+                        this.nextChangedIndexes.unshift(i);
+                    section.currentSize = currentSize;
                     changedSize += (prevSize - currentSize);
-                    if (done) {
+                    if (done || (maxChangeSize != undefined && changedSize >= maxChangeSize))
                         break;
-                    }
-                    if (maxChangeSize && changedSize >= maxChangeSize) {
-                        break;
-                    }
                 }
             }
             top += this.toggleBarHeight;
@@ -35806,82 +35912,71 @@ var Accordion = /** @class */ (function () {
         }
         return changedSize;
     };
-    Accordion.prototype.restoreChangedSizes = function (size, changedBoxes) {
-        if (!changedBoxes) {
+    Accordion.prototype.restoreChangedSizes = function (size, changedIndexes) {
+        if (!changedIndexes)
             return size;
-        }
-        var index, box, currSize;
-        while (changedBoxes.length && size > 0) {
-            index = changedBoxes[0];
-            box = this.boxList[index];
-            currSize = box.$size;
-            box.$size = Math.min(box.$prevSize, currSize + size);
-            size -= (box.$size - currSize);
-            if (box.$size >= box.$prevSize) {
-                changedBoxes.shift();
-            }
+        while (changedIndexes.length && size > 0) {
+            var index = changedIndexes[0];
+            var section = this.sections[index];
+            var currSize = section.currentSize;
+            section.currentSize = Math.min(section.previousSize, currSize + size);
+            size -= (section.currentSize - currSize);
+            if (section.currentSize >= section.previousSize)
+                changedIndexes.shift();
         }
         return size;
     };
-    Accordion.prototype.expandPrevBoxes = function (index, size) {
-        size = this.restoreChangedSizes(size, this.prevChangedBoxes);
-        if (size <= 0) {
+    Accordion.prototype.expandPreviousSections = function (index, size) {
+        size = this.restoreChangedSizes(size, this.prevChangedIndexes);
+        if (size <= 0)
             return;
-        }
-        var boxList = [];
+        var openedSectionsList = [];
         for (var i = index - 1; i >= 0; i--) {
-            if (this.isOpenedByIndex(i)) {
-                boxList.push(this.boxList[i]);
-            }
+            if (this.isOpenedByIndex(i))
+                openedSectionsList.push(this.sections[i]);
         }
-        var count = boxList.length;
-        if (!count)
-            return;
-        var remainder = size % count;
-        var addSize = (size - remainder) / count;
-        for (var i = 0; i < count; i++) {
-            boxList[i].$size += addSize;
-        }
-        boxList[0].$size += remainder;
+        this.applySizeToOpenedSections(size, openedSectionsList);
     };
-    Accordion.prototype.expandNextBoxes = function (index, size) {
-        size = this.restoreChangedSizes(size, this.nextChangedBoxes);
-        if (size <= 0) {
+    Accordion.prototype.expandNextSections = function (index, size) {
+        size = this.restoreChangedSizes(size, this.nextChangedIndexes);
+        if (size <= 0)
             return;
-        }
-        var boxList = [];
+        var openedSectionsList = [];
         for (var i = index; i < this.toggleBlockList.length; i++) {
             if (this.isOpenedByIndex(i)) {
-                boxList.push(this.boxList[i]);
+                openedSectionsList.push(this.sections[i]);
             }
         }
-        var count = boxList.length;
+        this.applySizeToOpenedSections(size, openedSectionsList);
+    };
+    Accordion.prototype.applySizeToOpenedSections = function (size, openedSections) {
+        var count = openedSections.length;
         if (!count)
             return;
         var remainder = size % count;
         var addSize = (size - remainder) / count;
         for (var i = 0; i < count; i++) {
-            boxList[i].$size += addSize;
+            openedSections[i].currentSize += addSize;
         }
-        boxList[0].$size += remainder;
+        openedSections[0].currentSize += remainder;
     };
     Accordion.prototype.resize = function () {
-        // @ts-ignore
-        this.$updateChildSize.apply(this, this.box);
+        this.$updateChildSize.apply(this, this.rect);
     };
     Accordion.prototype.render = function () {
+        var _a, _b;
         if (this.element)
             return this.element;
         this.element = dom_1.dom.buildDom(["div", {
                 class: "box accordion",
                 $host: this,
             }]);
-        var box;
+        var section;
         var splitter;
         var toggleBlock;
         var toggleBar;
-        for (var i = 0; i < this.boxes.length; i++) {
-            box = this.boxes[i];
+        for (var i = 0; i < this.sections.length; i++) {
+            section = this.sections[i];
             if (i > 0) {
                 splitter = dom_1.dom.buildDom(["div", {
                         class: "splitter accordion-splitter splitter".concat(this.vertical ? "-v" : "-h"),
@@ -35907,66 +36002,61 @@ var Accordion = /** @class */ (function () {
                     onclick: function (e) {
                         accordion_handler_1.AccordionHandler.toggleBarOnClick(e);
                     }
-                }, ["div", { class: "title" }, box.title]]);
-            box = box.obj;
-            box.$size = box._$size = parseInt(box.size, 10);
-            this.boxList.push(box);
+                }, ["div", { class: "title" }, section.title]]);
+            section.currentSize = section.savedSize = parseInt((_b = (_a = section.box.size) === null || _a === void 0 ? void 0 : _a.toString()) !== null && _b !== void 0 ? _b : "", 10);
             toggleBlock.appendChild(toggleBar);
             this.toggleBarList.push(toggleBar);
-            toggleBlock.appendChild(box.render());
+            toggleBlock.appendChild(section.box.render());
             this.element.appendChild(toggleBlock);
             this.toggleBlockList.push(toggleBlock);
         }
         this.element.style.backgroundColor = this.color;
         this.element.style.position = "absolute";
-        this.calculateChildrenSizePercents();
+        this.calculateSectionsSizesPercents();
         return this.element;
     };
-    //TODO: rename
-    Accordion.prototype.calculateChildrenSizePercents = function () {
-        var box;
+    Accordion.prototype.calculateSectionsSizesPercents = function () {
         var totalSize = 0;
-        for (var i = 0; i < this.boxList.length; i++) {
-            box = this.boxList[i];
-            box.boxSize = this.isOpenedByIndex(i) ? box.$size : box._$size;
-            totalSize += this.isOpenedByIndex(i) ? box.$size : box._$size;
+        var actualSizes = [];
+        for (var i = 0; i < this.sections.length; i++) {
+            var section = this.sections[i];
+            actualSizes.push(this.isOpenedByIndex(i) ? section.currentSize : section.savedSize);
+            totalSize += actualSizes[i];
         }
         var minPercent = Math.floor(this.boxMinSize / totalSize * 100);
-        var maxPercent = 100 - minPercent * (this.boxList.length - 1);
+        var maxPercent = 100 - minPercent * (this.sections.length - 1);
         var totalPercent = 0;
-        for (var i = 0; i < this.boxList.length; i++) {
-            box = this.boxList[i];
-            box.$sizePercent = Math.floor(box.boxSize / totalSize * 100);
-            box.$sizePercent = Math.min(Math.max(box.$sizePercent, minPercent), maxPercent);
-            totalPercent += box.$sizePercent;
+        for (var i = 0; i < this.sections.length; i++) {
+            var section = this.sections[i];
+            section.sizePercent = Math.floor(actualSizes[i] / totalSize * 100);
+            section.sizePercent = Math.min(Math.max(section.sizePercent, minPercent), maxPercent);
+            totalPercent += section.sizePercent;
         }
-        if (totalPercent !== 100) {
-            box.$sizePercent += (100 - totalPercent);
-        }
+        if (totalPercent !== 100)
+            this.sections[this.sections.length - 1].sizePercent += (100 - totalPercent);
     };
     Accordion.prototype.setBox = function (x, y, w, h) {
-        this.box = [x, y, w, h];
+        this.rect = [x, y, w, h];
         lib_1.Utils.setBox(this.element, x, y, w, h);
         this.recalculateChildrenSizes();
         this.$updateChildSize(x, y, w, h);
     };
     Accordion.prototype.recalculateChildrenSizes = function (index) {
-        var height = this.box[3];
+        var height = this.rect[3];
         height -= this.toggleBarHeight * this.toggleBarList.length;
         height -= this.splitterSize * this.splitterList.length;
-        var box;
         var totalSize = 0;
         var openedIndexes = [];
-        for (var i = 0; i < this.boxList.length; i++) {
-            box = this.boxList[i];
-            box.$size = Math.max(Math.floor((height * box.$sizePercent) / 100), this.boxMinSize);
+        for (var i = 0; i < this.sections.length; i++) {
+            var section = this.sections[i];
+            section.currentSize = Math.max(Math.floor((height * section.sizePercent) / 100), this.boxMinSize);
             if (this.isOpenedByIndex(i)) {
-                totalSize += box.$size;
+                totalSize += section.currentSize;
                 openedIndexes.push(i);
             }
             else {
-                box._$size = box.$size;
-                box.$size = 0;
+                section.savedSize = section.currentSize;
+                section.currentSize = 0;
             }
         }
         var spareSize = height - totalSize;
@@ -35987,18 +36077,17 @@ var Accordion = /** @class */ (function () {
             remainder = spareSize % openedBoxesCount;
             addSize = (spareSize - remainder) / openedBoxesCount;
             for (var i = 0; i < openedIndexes.length; i++) {
-                box = this.boxList[openedIndexes[i]];
-                prevSize = box.$size;
+                var section = this.sections[openedIndexes[i]];
+                prevSize = section.currentSize;
                 if (openedBoxesCount === 1)
                     addSize += remainder;
-                box.$size += addSize;
-                box.$size = Math.max(box.$size, this.boxMinSize);
-                changedSize = box.$size - prevSize;
+                section.currentSize += addSize;
+                section.currentSize = Math.max(section.currentSize, this.boxMinSize);
+                changedSize = section.currentSize - prevSize;
                 spareSize -= changedSize;
                 openedBoxesCount--;
-                if (changedSize < 0) {
+                if (changedSize < 0)
                     changedIndexes.push(openedIndexes[i]);
-                }
             }
             openedIndexes = changedIndexes;
         }
@@ -36006,16 +36095,14 @@ var Accordion = /** @class */ (function () {
     Accordion.prototype.$updateChildSize = function (x, y, w, h) {
         x = 0;
         y = 0;
-        var boxSize;
-        var toggleBlock, box;
         for (var i = 0; i < this.toggleBlockList.length; i++) {
-            toggleBlock = this.toggleBlockList[i];
-            box = this.boxList[i];
-            boxSize = box.$size;
+            var toggleBlock = this.toggleBlockList[i];
+            var section = this.sections[i];
+            var boxSize = section.currentSize;
             h = this.toggleBarHeight + boxSize;
             lib_1.Utils.setBox(toggleBlock, x, y, w, h);
             y += this.toggleBarHeight;
-            box.setBox(0, this.toggleBarHeight, w, boxSize);
+            section.box.setBox(0, this.toggleBarHeight, w, boxSize);
             y += boxSize;
             if (this.splitterList[i]) {
                 lib_1.Utils.setBox(this.splitterList[i], x, y, w, this.splitterSize);
@@ -36023,81 +36110,44 @@ var Accordion = /** @class */ (function () {
             }
         }
     };
-    Accordion.prototype.toggleShowHide = function () {
-        box_1.Box.enableAnimation();
-        this.hidden = !this.hidden;
-        this.parent.resize();
-        var node = this.element;
-        var self = this;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            box_1.Box.disableAnimation();
-            self.parent.resize();
-        });
-    };
-    Accordion.prototype.hide = function () {
-        box_1.Box.enableAnimation();
-        this.hidden = true;
-        this.parent.resize();
-        var node = this.element;
-        var self = this;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            box_1.Box.disableAnimation();
-            self.parent.resize();
-        });
-    };
-    Accordion.prototype.show = function () {
-        box_1.Box.enableAnimation();
-        this.hidden = false;
-        this.parent.resize();
-        var node = this.element;
-        var self = this;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            box_1.Box.disableAnimation();
-            self.parent.resize();
-        });
-    };
     Accordion.prototype.remove = function () {
         if (this.element)
             this.element.remove();
         if (this.parent) {
             if (this.vertical === this.parent.vertical)
-                this.parent.changeMinSize(-this.minSize);
+                this.parent.minSize -= this.minSize; //TODO why did we need this?
             if (this.parent[0] == this)
-                this.parent[0] = null;
+                this.parent[0] = undefined;
             if (this.parent[1] == this)
-                this.parent[1] = null;
-            this.parent = null;
+                this.parent[1] = undefined;
         }
     };
     Accordion.prototype.toJSON = function () {
-        var boxes = [];
-        var box;
-        for (var i = 0; i < this.boxes.length; i++) {
-            box = this.boxes[i];
-            boxes.push({
-                title: box.title,
-                boxData: box.obj.toJSON()
+        var sections = [];
+        var section;
+        for (var i = 0; i < this.sections.length; i++) {
+            section = this.sections[i];
+            sections.push({
+                title: section.title,
+                boxData: section.box.toJSON()
             });
         }
         return {
             type: "accordion",
             vertical: this.vertical,
             size: this.size,
-            boxes: boxes
+            sections: sections
         };
     };
     return Accordion;
-}());
+}(box_1.Box));
 exports.Accordion = Accordion;
 
 
 /***/ }),
 
 /***/ 8795:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1253246__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1256503__) {
 
 "use strict";
 
@@ -36118,18 +36168,18 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Box = void 0;
-var lib_1 = __nested_webpack_require_1253246__(1021);
-var params_1 = __nested_webpack_require_1253246__(3130);
-var event = __nested_webpack_require_1253246__(7989);
-var events = __nested_webpack_require_1253246__(7187);
-var dom_1 = __nested_webpack_require_1253246__(5079);
+var lib_1 = __nested_webpack_require_1256503__(3723);
+var params_1 = __nested_webpack_require_1256503__(3130);
+var event = __nested_webpack_require_1256503__(7989);
+var events = __nested_webpack_require_1256503__(7187);
+var dom_1 = __nested_webpack_require_1256503__(5079);
 var SPLITTER_SIZE = 1;
 var BOX_MIN_SIZE = 40;
 var Box = /** @class */ (function (_super) {
     __extends(Box, _super);
     function Box(options) {
         var _this = this;
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         _this = _super.call(this) || this;
         _this.$editorAdded = function (editor) {
             _this.emit("editorAdded", editor);
@@ -36137,7 +36187,7 @@ var Box = /** @class */ (function (_super) {
         if (options.splitter !== false) {
         }
         _this.vertical = options.vertical || false;
-        _this.color = options.color;
+        _this.color = (_a = options.color) !== null && _a !== void 0 ? _a : "";
         _this.isMain = options.isMain || false;
         _this[0] = options[0];
         _this[1] = options[1];
@@ -36149,13 +36199,12 @@ var Box = /** @class */ (function (_super) {
         _this.toolBars = options.toolBars || {};
         _this.padding = { top: 0, right: 0, bottom: 0, left: 0 };
         _this.size = options.size;
-        _this.sizeUnit = (_a = options.sizeUnit) !== null && _a !== void 0 ? _a : params_1.SizeUnit.px;
-        _this.buttonList = options.buttonList || [];
+        _this.sizeUnit = (_b = options.sizeUnit) !== null && _b !== void 0 ? _b : params_1.SizeUnit.px;
         _this.minSize = options.minSize || BOX_MIN_SIZE;
         _this.minVerticalSize = options.minVerticalSize || _this.minSize;
         _this.minHorizontalSize = options.minHorizontalSize || _this.minSize;
-        _this.classNames = (_b = options.classNames) !== null && _b !== void 0 ? _b : "";
-        _this.hidden = (_c = options.hidden) !== null && _c !== void 0 ? _c : false;
+        _this.classNames = (_c = options.classNames) !== null && _c !== void 0 ? _c : "";
+        _this.hidden = (_d = options.hidden) !== null && _d !== void 0 ? _d : false;
         _this.fixedSize = options.fixedSize;
         return _this;
     }
@@ -36206,7 +36255,7 @@ var Box = /** @class */ (function (_super) {
                     box.fixedChild.fixedSize = (box.fixedChild === box[1]) ? width - x : x;
                 }
                 box.fixedChild.fixedSize = Math.max(box.fixedChild.fixedSize, box.fixedChild.minSize);
-                box.ratio = null;
+                box.ratio = undefined;
             }
             else {
                 if (box.vertical) {
@@ -36230,7 +36279,6 @@ var Box = /** @class */ (function (_super) {
     Box.prototype.resize = function () {
         if (!this.box)
             return;
-        // @ts-ignore
         this.setBox.apply(this, this.box);
     };
     Box.prototype.calculateMinMaxRatio = function () {
@@ -36253,14 +36301,13 @@ var Box = /** @class */ (function (_super) {
             }, ["div"]]);
         this.splitter.onmousedown = this.onMouseDown.bind(this);
         this.element.appendChild(this.splitter);
-        this.element.host = this;
+        this.element.$host = this;
         this.element.style.backgroundColor = this.color;
         this.element.style.position = "absolute";
         this.renderToolBarList();
         this.renderChildren();
         if (!this.ratio)
             this.calculateRatio();
-        this.renderButtons();
         return this.element;
     };
     Box.prototype.renderToolBarList = function () {
@@ -36269,12 +36316,10 @@ var Box = /** @class */ (function (_super) {
         }
     };
     Box.prototype.addToolBar = function (position, bar) {
-        if (position == "left" || position == "right") {
+        var _a, _b;
+        if (position == "left" || position == "right")
             bar.direction = "vertical";
-        }
-        if (this.toolBars[position] && this.toolBars[position].element) {
-            this.toolBars[position].element.remove();
-        }
+        (_b = (_a = this.toolBars[position]) === null || _a === void 0 ? void 0 : _a.element) === null || _b === void 0 ? void 0 : _b.remove();
         bar.position = position;
         this.padding[position] = bar.size;
         this.element.appendChild(bar.render());
@@ -36358,32 +36403,30 @@ var Box = /** @class */ (function (_super) {
                 break;
         }
     };
-    Box.prototype.renderButtons = function () {
-        if (!this.buttonList.length)
-            return;
-        this.buttons = dom_1.dom.buildDom(["div", {
-                class: "buttons"
-            }]);
-        var button, buttonElement;
-        for (var i = 0; i < this.buttonList.length; i++) {
-            button = this.buttonList[i];
-            buttonElement = dom_1.dom.buildDom(["div", {
+    Box.prototype.renderButtons = function (buttonList) {
+        var buttons = buttonList.map(function (button) {
+            return dom_1.dom.buildDom(["div", {
                     class: "button " + button.class,
                     title: button.title,
                     onclick: button.onclick
-                }, "x"]);
-            this.buttons.appendChild(buttonElement);
-        }
+                }, button.content]);
+        });
+        this.setButtons(buttons);
     };
     /**
-     * Adds buttons to top-right tabBar of this box
+     * Sets buttons of this box top-right tabBar
      */
-    Box.prototype.addButtons = function (buttons) {
+    Box.prototype.setButtons = function (buttons) {
         if (this.topRightPane)
             this.topRightPane.removeButtons();
         this.topRightPane = this.getTopRightPane();
         if (this.topRightPane)
-            this.topRightPane.addButtons(buttons !== null && buttons !== void 0 ? buttons : this.buttons);
+            this.topRightPane.setButtons(buttons);
+    };
+    Box.prototype.addButton = function (button) {
+        this.topRightPane = this.getTopRightPane();
+        if (this.topRightPane)
+            this.topRightPane.addButton(button);
     };
     /**
      * Finds the most top-right Pane
@@ -36391,7 +36434,7 @@ var Box = /** @class */ (function (_super) {
     Box.prototype.getTopRightPane = function () {
         var childBox = this.vertical ? this[0] || this[1] : this[1] || this[0];
         if (!childBox)
-            return null;
+            return;
         return childBox.getTopRightPane();
     };
     Box.prototype.setBox = function (x, y, w, h) {
@@ -36407,6 +36450,7 @@ var Box = /** @class */ (function (_super) {
         this.$updateChildSize(x, y, w, h);
     };
     Box.prototype.$updateChildSize = function (x, y, w, h) {
+        var _a;
         var splitterSize = SPLITTER_SIZE;
         if (!this[0] || this[0].hidden || !this[1] || this[1].hidden) {
             this.splitter.style.display = "none";
@@ -36420,10 +36464,6 @@ var Box = /** @class */ (function (_super) {
         h -= this.padding.top + this.padding.bottom;
         x = this.padding.left;
         y = this.padding.top;
-        if (this.editor) {
-            lib_1.Utils.setBox(this.editor.container, x, y, w, h);
-            this.editor.resize();
-        }
         if (this.fixedChild) {
             var size = this.fixedChild.fixedSize;
             if (this.fixedChild === this[1]) {
@@ -36431,7 +36471,7 @@ var Box = /** @class */ (function (_super) {
             }
             this.ratio = this.vertical ? size / h : size / w;
         }
-        this.ratio = Math.max(this.minRatio, Math.min(this.ratio, this.maxRatio));
+        this.ratio = Math.max(this.minRatio, Math.min((_a = this.ratio) !== null && _a !== void 0 ? _a : this.maxRatio, this.maxRatio));
         var ratio = this.ratio;
         if (!this[0] || this[0].hidden) {
             ratio = 0;
@@ -36502,7 +36542,6 @@ var Box = /** @class */ (function (_super) {
             classes.forEach(function (className) {
                 rmClass(document.querySelectorAll("." + className), className);
             });
-            // @ts-ignore
             _this.setBox.apply(_this, _this.box);
         };
         var classes = [
@@ -36530,18 +36569,17 @@ var Box = /** @class */ (function (_super) {
         var node = this.element;
         function addClasses() {
             node.classList.add("fullScreenNode");
-            var parent = node;
-            while (parent = parent.parentNode) {
-                if (parent === document.body)
-                    break;
+            var parent = node.parentNode;
+            while (parent && parent !== document.body) {
                 if (parent.classList)
                     parent.classList.add("fullScreenParent");
-                var ch = parent.childNodes;
-                for (var i = 0; i < ch.length; i++) {
-                    if (ch[i] != node && ch[i].classList)
-                        if (!ch[i].classList.contains("fullScreenParent"))
-                            ch[i].classList.add("fullScreenSibling");
+                var childNodes = parent.childNodes;
+                for (var i = 0; i < childNodes.length; i++) {
+                    var childNode = childNodes[i];
+                    if (childNode != node && childNode.classList && !childNode.classList.contains("fullScreenParent"))
+                        childNode.classList.add("fullScreenSibling");
                 }
+                parent = parent.parentNode;
             }
         }
         var rect = node.getBoundingClientRect();
@@ -36556,7 +36594,6 @@ var Box = /** @class */ (function (_super) {
                 Box.disableAnimation();
             });
         }
-        // @ts-ignore
         this.setBox.apply(this, this.box);
     };
     Box.prototype.toggleMaximize = function () {
@@ -36571,18 +36608,18 @@ var Box = /** @class */ (function (_super) {
             this.element.remove();
         if (this.parent) {
             if (this.parent[0] == this)
-                this.parent[0] = null;
+                this.parent[0] = undefined;
             if (this.parent[1] == this)
-                this.parent[1] = null;
+                this.parent[1] = undefined;
             this.parent.recalculateAllMinSizes();
-            this.parent = null;
+            this.parent = undefined;
         }
     };
     Box.prototype.removeAllChildren = function () {
         this.removeChild(this[0]);
         this.removeChild(this[1]);
-        this[0] = null;
-        this[1] = null;
+        this[0] = undefined;
+        this[1] = undefined;
     };
     Box.prototype.removeChild = function (child) {
         if (!child)
@@ -36592,39 +36629,45 @@ var Box = /** @class */ (function (_super) {
         child.element.remove();
     };
     Box.prototype.toggleShowHide = function () {
+        var _a;
         Box.enableAnimation();
         this.hidden = !this.hidden;
-        this.parent.resize();
+        (_a = this.parent) === null || _a === void 0 ? void 0 : _a.resize();
         var node = this.element;
         var self = this;
         node.addEventListener('transitionend', function handler() {
+            var _a;
             node.removeEventListener('transitionend', handler);
             Box.disableAnimation();
-            self.parent.resize();
+            (_a = self.parent) === null || _a === void 0 ? void 0 : _a.resize();
         });
     };
     Box.prototype.hide = function () {
+        var _a;
         Box.enableAnimation();
         this.hidden = true;
-        this.parent.resize();
+        (_a = this.parent) === null || _a === void 0 ? void 0 : _a.resize();
         var node = this.element;
         var self = this;
         node.addEventListener('transitionend', function handler() {
+            var _a;
             node.removeEventListener('transitionend', handler);
             Box.disableAnimation();
-            self.parent.resize();
+            (_a = self.parent) === null || _a === void 0 ? void 0 : _a.resize();
         });
     };
     Box.prototype.show = function () {
+        var _a;
         Box.enableAnimation();
         this.hidden = false;
-        this.parent.resize();
+        (_a = this.parent) === null || _a === void 0 ? void 0 : _a.resize();
         var node = this.element;
         var self = this;
         node.addEventListener('transitionend', function handler() {
+            var _a;
             node.removeEventListener('transitionend', handler);
             Box.disableAnimation();
-            self.parent.resize();
+            (_a = self.parent) === null || _a === void 0 ? void 0 : _a.resize();
         });
     };
     /**
@@ -36693,7 +36736,7 @@ exports.Box = Box;
 /***/ }),
 
 /***/ 3186:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1275949__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1279386__) {
 
 "use strict";
 
@@ -36714,9 +36757,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListBox = void 0;
-var box_1 = __nested_webpack_require_1275949__(8795);
-var lib_1 = __nested_webpack_require_1275949__(1021);
-var popup_1 = __nested_webpack_require_1275949__(2985);
+var box_1 = __nested_webpack_require_1279386__(8795);
+var lib_1 = __nested_webpack_require_1279386__(3723);
+var popup_1 = __nested_webpack_require_1279386__(2985);
 var ListBox = /** @class */ (function (_super) {
     __extends(ListBox, _super);
     function ListBox() {
@@ -36726,7 +36769,7 @@ var ListBox = /** @class */ (function (_super) {
         var _this = this;
         if (this.element)
             return this.element;
-        _super.prototype.render.call(this);
+        this.element = _super.prototype.render.call(this);
         var popup = new popup_1.AcePopup();
         popup.renderer.setStyle("ace_listBox");
         popup.container.style.display = "block";
@@ -36772,7 +36815,7 @@ exports.ListBox = ListBox;
 /***/ }),
 
 /***/ 3167:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1278836__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1282288__) {
 
 "use strict";
 
@@ -36793,19 +36836,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Pane = void 0;
-var tab_1 = __nested_webpack_require_1278836__(9165);
-var box_1 = __nested_webpack_require_1278836__(8795);
-var dom_1 = __nested_webpack_require_1278836__(5079);
-var aceEditor_1 = __nested_webpack_require_1278836__(9704);
-var previewEditor_1 = __nested_webpack_require_1278836__(8575);
-var params_1 = __nested_webpack_require_1278836__(3130);
+var box_1 = __nested_webpack_require_1282288__(8795);
+var dom_1 = __nested_webpack_require_1282288__(5079);
+var aceEditor_1 = __nested_webpack_require_1282288__(9704);
+var previewEditor_1 = __nested_webpack_require_1282288__(8575);
+var params_1 = __nested_webpack_require_1282288__(3130);
+var lib_1 = __nested_webpack_require_1282288__(3723);
+var tabBar_1 = __nested_webpack_require_1282288__(3242);
 var Pane = /** @class */ (function (_super) {
     __extends(Pane, _super);
     function Pane(options) {
         if (options === void 0) { options = {}; }
         var _this = this;
         var _a;
-        var tabBar = new tab_1.TabBar({
+        var tabBar = new tabBar_1.TabBar({
             tabList: options.tabList
         });
         options.toolBars = (_a = options.toolBars) !== null && _a !== void 0 ? _a : {};
@@ -36846,25 +36890,41 @@ var Pane = /** @class */ (function (_super) {
             _a));
         root.addChildBox(this, wrapper);
         if (this.isButtonHost) {
-            wrapper.buttons = this.buttons;
+            var buttons = this.tabBar.buttons;
             this.removeButtons();
-            wrapper.addButtons();
+            wrapper.setButtons(buttons);
         }
         return newPane;
     };
-    Pane.prototype.addButtons = function (buttons) {
-        this.buttons = buttons;
-        this.tabBar.addButtons(this.buttons);
+    Pane.prototype.setButtons = function (buttons) {
         this.isButtonHost = true;
+        if (buttons) {
+            this.tabBar.setButtons(buttons);
+        }
+        else {
+            this.tabBar.removeButtons();
+        }
+    };
+    Pane.prototype.addButton = function (button) {
+        this.isButtonHost = true;
+        this.tabBar.addButton(button);
+    };
+    Pane.prototype.$updateChildSize = function (x, y, w, h) {
+        this.updateToolBarSize(w, h);
+        w -= this.padding.left + this.padding.right;
+        h -= this.padding.top + this.padding.bottom;
+        x = this.padding.left;
+        y = this.padding.top;
+        if (this.editor) {
+            lib_1.Utils.setBox(this.editor.container, x, y, w, h);
+            this.editor.resize();
+        }
     };
     Pane.prototype.removeButtons = function () {
-        this.buttons = null;
         this.tabBar.removeButtons();
         this.isButtonHost = false;
     };
     Pane.prototype.remove = function () {
-        this.tabBar.clear();
-        this.clearEditors();
         var wrapper = this.parent;
         var root = wrapper.parent;
         var paneIndex = wrapper[0] == this ? 1 : 0;
@@ -36879,21 +36939,23 @@ var Pane = /** @class */ (function (_super) {
                 pane.size = wrapper.size;
                 root.fixedChild = pane;
             }
+            wrapper.element.remove();
         }
         else {
             if (wrapper.isMain) {
                 root = wrapper;
-                wrapper = null;
+            }
+            else {
+                wrapper.element.remove();
             }
             root.ratio = 1;
         }
-        wrapper && wrapper.element.remove();
         root.recalculateAllMinSizes();
         root.resize();
-        if (this.isButtonHost) {
-            root.buttons = this.buttons;
-            root.addButtons();
-        }
+        if (this.isButtonHost)
+            root.setButtons(this.tabBar.buttons);
+        this.clearEditors();
+        this.tabBar.clear();
     };
     Pane.prototype.getTopRightPane = function () {
         return this;
@@ -36918,7 +36980,7 @@ var Pane = /** @class */ (function (_super) {
         if (editorType === void 0) { editorType = params_1.EditorType.ace; }
         if (this.currentEditorType == editorType)
             return;
-        this.editor && this.hidePreviousEditor();
+        this.hidePreviousEditor();
         (_a = this.editors) !== null && _a !== void 0 ? _a : (this.editors = {});
         this.currentEditorType = editorType;
         (_b = (_c = this.editors)[editorType]) !== null && _b !== void 0 ? _b : (_c[editorType] = this.createEditor());
@@ -36926,10 +36988,10 @@ var Pane = /** @class */ (function (_super) {
         this.element.appendChild(this.editor.container);
     };
     Pane.prototype.hidePreviousEditor = function () {
+        if (!this.editor)
+            return;
         this.element.removeChild(this.editor.container);
-        this.editor.hide();
     };
-    //TODO: move
     Pane.prototype.getEditor = function (editorType) {
         if (editorType === void 0) { editorType = params_1.EditorType.ace; }
         this.initEditor(editorType);
@@ -36940,8 +37002,8 @@ var Pane = /** @class */ (function (_super) {
             this.editors[i].destroy();
         }
         this.editors = {};
-        this.currentEditorType = null;
-        this.editor = null;
+        this.currentEditorType = undefined;
+        this.editor = undefined;
     };
     return Pane;
 }(box_1.Box));
@@ -36951,31 +37013,22 @@ exports.Pane = Pane;
 /***/ }),
 
 /***/ 9704:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1285259__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1289363__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AceEditor = void 0;
-var editor_1 = __nested_webpack_require_1285259__(2880);
-var theme = __nested_webpack_require_1285259__(3687);
-var virtual_renderer_1 = __nested_webpack_require_1285259__(3049);
-var ace = __nested_webpack_require_1285259__(9100);
-var modeList = __nested_webpack_require_1285259__(352);
-var javascript_1 = __nested_webpack_require_1285259__(8057);
-var css_1 = __nested_webpack_require_1285259__(8771);
-var html_1 = __nested_webpack_require_1285259__(5528);
-__nested_webpack_require_1285259__(1105);
-//TODO this is for demo
-function parseJson(name) {
-    try {
-        var data = localStorage[name];
-        return data && JSON.parse(data);
-    }
-    catch (e) {
-        return null;
-    }
-}
+var editor_1 = __nested_webpack_require_1289363__(2880);
+var theme = __nested_webpack_require_1289363__(3687);
+var virtual_renderer_1 = __nested_webpack_require_1289363__(3049);
+var ace = __nested_webpack_require_1289363__(9100);
+var modeList = __nested_webpack_require_1289363__(352);
+var javascript_1 = __nested_webpack_require_1289363__(8057);
+var css_1 = __nested_webpack_require_1289363__(8771);
+var html_1 = __nested_webpack_require_1289363__(5528);
+var typescript_1 = __nested_webpack_require_1289363__(3123);
+__nested_webpack_require_1289363__(1105);
 var AceEditor = /** @class */ (function () {
     function AceEditor() {
         this.editor = new editor_1.Editor(new virtual_renderer_1.VirtualRenderer(null, theme));
@@ -36995,19 +37048,12 @@ var AceEditor = /** @class */ (function () {
     AceEditor.prototype.focus = function () {
         this.editor.focus();
     };
-    AceEditor.prototype.hide = function () {
-        if (this.tab) {
-            this.saveMetadata();
-        }
-    };
     AceEditor.prototype.destroy = function () {
-        this.saveMetadata();
-        this.editor.setSession(null);
+        this.editor.setSession(ace.createEditSession("", this.getMode()));
         this.editor.destroy();
         this.container.remove();
     };
     AceEditor.prototype.setSession = function (tab, value) {
-        this.saveMetadata();
         this.tab = tab;
         this.initTabSession(value);
         this.editor.setSession(this.tab.session);
@@ -37019,7 +37065,7 @@ var AceEditor = /** @class */ (function () {
             return;
         (_a = (_b = this.tab).session) !== null && _a !== void 0 ? _a : (_b.session = ace.createEditSession(value !== null && value !== void 0 ? value : "", this.getMode()));
         if (value == null) {
-            this.loadMetadata();
+            this.restoreSessionFromJson(this.tab);
         }
         else {
             this.tab.session.setValue(value);
@@ -37036,39 +37082,16 @@ var AceEditor = /** @class */ (function () {
                     return new css_1.Mode();
                 case "ace/mode/html":
                     return new html_1.Mode();
+                case "ace/mode/typescript":
+                    return new typescript_1.Mode();
             }
         }
         return null;
     };
-    //TODO for demo (shouldn't be here)
-    AceEditor.prototype.loadMetadata = function () {
-        var path = this.tab.path;
-        var session = this.tab.session;
-        var metadata = parseJson("@file@" + path);
-        if (!metadata)
-            return;
-        try {
-            if (typeof metadata.value == "string" && metadata.value != session.getValue()) {
-                session.doc.setValue(metadata.value);
-            }
-            if (metadata.selection) {
-                session.selection.fromJSON(metadata.selection);
-            }
-            if (metadata.scroll) {
-                session.setScrollLeft(metadata.scroll[0]);
-                session.setScrollTop(metadata.scroll[1]);
-            }
-        }
-        catch (e) {
-            console.error(e);
-        }
-    };
-    AceEditor.prototype.saveMetadata = function () {
-        if (!this.tab || !this.tab.path || !this.tab.session)
-            return;
-        var session = this.tab.session;
+    AceEditor.prototype.sessionToJSON = function (tab) {
+        var session = tab.session;
         var undoManager = session.getUndoManager();
-        localStorage["@file@" + this.tab.path] = JSON.stringify({
+        return JSON.stringify({
             selection: session.selection.toJSON(),
             //@ts-ignore
             undoManager: undoManager.toJSON(),
@@ -37078,6 +37101,26 @@ var AceEditor = /** @class */ (function () {
                 session.getScrollTop()
             ],
         });
+    };
+    AceEditor.prototype.restoreSessionFromJson = function (tab) {
+        if (!tab.session || !tab.sessionValue)
+            return;
+        var session = tab.session;
+        var json = JSON.parse(tab.sessionValue);
+        try {
+            if (typeof json.value == "string" && json.value != session.getValue())
+                session.doc.setValue(json.value);
+            if (json.selection)
+                session.selection.fromJSON(json.selection);
+            if (json.scroll) {
+                session.setScrollLeft(json.scroll[0]);
+                session.setScrollTop(json.scroll[1]);
+            }
+            tab.sessionValue = undefined;
+        }
+        catch (e) {
+            console.error(e);
+        }
     };
     return AceEditor;
 }());
@@ -37102,7 +37145,6 @@ var PreviewEditor = /** @class */ (function () {
     };
     PreviewEditor.prototype.focus = function () {
     };
-    PreviewEditor.prototype.hide = function () { };
     PreviewEditor.prototype.destroy = function () {
         this.container.remove();
     };
@@ -37112,6 +37154,14 @@ var PreviewEditor = /** @class */ (function () {
         tab.session = value;
         this.container.setAttribute("srcdoc", value);
     };
+    PreviewEditor.prototype.restoreSessionFromJson = function (tab) {
+        var _a;
+        tab.session = (_a = tab.sessionValue) !== null && _a !== void 0 ? _a : "";
+        tab.sessionValue = undefined;
+    };
+    PreviewEditor.prototype.sessionToJSON = function (tab) {
+        return tab.session;
+    };
     return PreviewEditor;
 }());
 exports.PreviewEditor = PreviewEditor;
@@ -37120,7 +37170,7 @@ exports.PreviewEditor = PreviewEditor;
 /***/ }),
 
 /***/ 5765:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1290793__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1294788__) {
 
 "use strict";
 
@@ -37148,8 +37198,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Button = void 0;
-var dom_1 = __nested_webpack_require_1290793__(5079);
-var buttonCSS = __nested_webpack_require_1290793__(183);
+var dom_1 = __nested_webpack_require_1294788__(5079);
+var buttonCSS = __nested_webpack_require_1294788__(183);
 dom_1.dom.importCssString(buttonCSS, "button.css");
 var Button = /** @class */ (function () {
     function Button(options) {
@@ -37190,7 +37240,7 @@ exports.Button = Button;
 /***/ }),
 
 /***/ 6087:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1293668__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1297663__) {
 
 "use strict";
 
@@ -37218,10 +37268,10 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Dropdown = void 0;
-var lib_1 = __nested_webpack_require_1293668__(1021);
-var dom_1 = __nested_webpack_require_1293668__(5079);
-var dropdownCSS = __nested_webpack_require_1293668__(8638);
-var menuCSS = __nested_webpack_require_1293668__(3694);
+var lib_1 = __nested_webpack_require_1297663__(3723);
+var dom_1 = __nested_webpack_require_1297663__(5079);
+var dropdownCSS = __nested_webpack_require_1297663__(8638);
+var menuCSS = __nested_webpack_require_1297663__(3694);
 dom_1.dom.importCssString(dropdownCSS, "dropdown.css");
 dom_1.dom.importCssString(menuCSS, "menu.css");
 var DEFAULT_WIDTH = 200;
@@ -37242,7 +37292,7 @@ var Dropdown = /** @class */ (function () {
             _this.closePopup();
         };
         var disabled = options.disabled, items = options.items, value = options.value, className = options.className, width = options.width, other = __rest(options, ["disabled", "items", "value", "className", "width"]);
-        this.disabled = disabled;
+        this.disabled = disabled !== null && disabled !== void 0 ? disabled : false;
         this.items = items;
         this.value = value !== null && value !== void 0 ? value : items[0].value;
         this.className = className || "black_dropdown";
@@ -37273,7 +37323,7 @@ var Dropdown = /** @class */ (function () {
                 ["div", {
                         class: "button"
                     }]
-            ]], null, this);
+            ]], undefined, this);
         this.element.$host = this;
         this.updateLabel();
         return this.element;
@@ -37529,13 +37579,13 @@ var Popup = /** @class */ (function () {
 /***/ }),
 
 /***/ 2061:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1306461__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1310512__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SettingsSearchBox = void 0;
-var dom_1 = __nested_webpack_require_1306461__(5079);
+var dom_1 = __nested_webpack_require_1310512__(5079);
 var SettingsSearchBox = /** @class */ (function () {
     function SettingsSearchBox(prefsParentNode) {
         this.hideFiltered = false;
@@ -37660,7 +37710,7 @@ exports.SettingsSearchBox = SettingsSearchBox;
 /***/ }),
 
 /***/ 3208:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1311322__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1315373__) {
 
 "use strict";
 
@@ -37688,8 +37738,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Switcher = void 0;
-var dom_1 = __nested_webpack_require_1311322__(5079);
-var switcherCSS = __nested_webpack_require_1311322__(923);
+var dom_1 = __nested_webpack_require_1315373__(5079);
+var switcherCSS = __nested_webpack_require_1315373__(923);
 dom_1.dom.importCssString(switcherCSS, "switcher.css");
 var Switcher = /** @class */ (function () {
     function Switcher(options) {
@@ -37723,14 +37773,14 @@ exports.Switcher = Switcher;
 /***/ }),
 
 /***/ 9251:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1313836__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1317887__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AceLayout = void 0;
-var layoutCSS = __nested_webpack_require_1313836__(4646);
-var dom_1 = __nested_webpack_require_1313836__(5079);
+var layoutCSS = __nested_webpack_require_1317887__(4646);
+var dom_1 = __nested_webpack_require_1317887__(5079);
 var AceLayout = /** @class */ (function () {
     function AceLayout(startBox, css) {
         dom_1.dom.importCssString(css !== null && css !== void 0 ? css : layoutCSS, "layout.css");
@@ -37744,7 +37794,7 @@ exports.AceLayout = AceLayout;
 /***/ }),
 
 /***/ 9367:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1314419__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1318470__) {
 
 "use strict";
 
@@ -37764,16 +37814,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MenuToolBar = exports.MenuSearchBox = exports.MenuPopup = exports.MenuBar = exports.Menu = void 0;
-var lib_1 = __nested_webpack_require_1314419__(1021);
-var dom_1 = __nested_webpack_require_1314419__(5079);
-var menuManager_1 = __nested_webpack_require_1314419__(7282);
-var menuCSS = __nested_webpack_require_1314419__(3694);
+exports.MenuSearchBox = exports.MenuPopup = exports.MenuBar = exports.Menu = void 0;
+var lib_1 = __nested_webpack_require_1318470__(3723);
+var dom_1 = __nested_webpack_require_1318470__(5079);
+var menuCSS = __nested_webpack_require_1318470__(3694);
 dom_1.dom.importCssString(menuCSS, "menu.css");
 var Menu = /** @class */ (function () {
     function Menu() {
-        this.selectedMenu = null;
-        this.menuPopup = null;
     }
     Menu.prototype.getLastOpenPopup = function () {
         return !this.menuPopup ? this : this.menuPopup.getLastOpenPopup();
@@ -37794,21 +37841,18 @@ var Menu = /** @class */ (function () {
         this.selectedMenu = menu;
     };
     Menu.prototype.unselectMenu = function () {
-        if (!this.selectedMenu) {
+        if (!this.selectedMenu)
             return;
-        }
         this.selectedMenu.buttonElement.classList.remove(this.selectedClass);
-        this.selectedMenu = null;
+        this.selectedMenu = undefined;
     };
     Menu.prototype.openMenu = function (direction) {
-        if (!direction && this.constructor.name === "MenuPopup") {
+        if (!direction && this.constructor.name === "MenuPopup")
             direction = "right";
-        }
-        if (this.menuPopup) {
+        if (this.menuPopup)
             return this.menuPopup;
-        }
         this.menuPopup = new MenuPopup();
-        this.menuPopup.direction = direction;
+        this.menuPopup.direction = direction !== null && direction !== void 0 ? direction : "";
         this.menuPopup.isSubMenu = this.constructor.name === "MenuPopup";
         this.menuPopup.menuManager = this.menuManager;
         this.menuPopup.menu = this.selectedMenu;
@@ -37828,11 +37872,11 @@ var Menu = /** @class */ (function () {
         if (!this.menuPopup) {
             return;
         }
-        if (this.menuManager.searchBox && this.menuManager.searchBox.isOpen && this.menuPopup.isSubMenu && this.menuManager.searchBox.value.substr(this.menuManager.searchBox.value.length - 1, 1) === "/") {
+        if (this.menuManager.searchBox && this.menuManager.searchBox.isOpen && this.menuPopup.isSubMenu && this.menuManager.searchBox.value.substring(this.menuManager.searchBox.value.length - 1) === "/") {
             this.menuManager.searchBox.removeSymbol();
         }
         this.menuPopup.close();
-        this.menuPopup = null;
+        this.menuPopup = undefined;
     };
     Menu.prototype.moveOnTarget = function (target) {
         var host = target ? target.$host : null;
@@ -37854,21 +37898,20 @@ var Menu = /** @class */ (function () {
         this.selectMenu(host);
     };
     Menu.prototype.openMenuByPath = function (path) {
+        var _a;
         if (typeof path === "string")
             path = path.split("/");
         var menu = this.getMenuByPath(path.shift());
         if (!menu)
             return;
-        if (!menu.$host) {
+        if (!menu.$host)
             menu.$host = menu;
-        }
         this.moveOnTarget(menu);
         if (!menu.$host.map)
             return;
         this.openMenu();
-        if (path.length) {
-            this.menuPopup.openMenuByPath(path);
-        }
+        if (path.length)
+            (_a = this.menuPopup) === null || _a === void 0 ? void 0 : _a.openMenuByPath(path);
     };
     return Menu;
 }());
@@ -37925,10 +37968,10 @@ var MenuBar = /** @class */ (function (_super) {
         }
     };
     MenuBar.prototype.moveOnTarget = function (target) {
+        var _a;
         _super.prototype.moveOnTarget.call(this, target);
-        if (this.selectedMenu.map) {
+        if ((_a = this.selectedMenu) === null || _a === void 0 ? void 0 : _a.map)
             this.openMenu();
-        }
     };
     MenuBar.prototype.getMenuByPath = function (path) {
         return this.menuManager.find(path);
@@ -37944,26 +37987,23 @@ var MenuPopup = /** @class */ (function (_super) {
         _this_1.isSubMenu = false;
         //handle events
         _this_1.onMouseMove = function (e) {
-            if (e.target === _this_1.element) {
+            var _a;
+            if (e.target === _this_1.element)
                 return;
-            }
-            if (_this_1.menuPopup && _this_1.isDirectedToSubMenu(e)) {
+            if (_this_1.menuPopup && _this_1.isDirectedToSubMenu(e))
                 return;
-            }
             var target = _this_1.menuManager.getTarget(e.target);
-            if (target === _this_1.element) {
+            if (target === _this_1.element)
                 return;
-            }
             _this_1.moveOnTarget(target);
-            if (_this_1.selectedMenu.map) {
+            if ((_a = _this_1.selectedMenu) === null || _a === void 0 ? void 0 : _a.map)
                 _this_1.openMenu();
-            }
         };
         _this_1.onMouseUp = function (e) {
             if (e.target === _this_1.element)
                 return;
             var target = _this_1.menuManager.getTarget(e.target);
-            if (target === _this_1.element)
+            if (!target || target === _this_1.element)
                 return;
             var host = target.$host;
             if (host && host.buttonElement) {
@@ -37999,13 +38039,13 @@ var MenuPopup = /** @class */ (function (_super) {
             var items = Object.values(this.menu.map).sort(function (item1, item2) {
                 return item1.position - item2.position;
             });
-            var afterDivider = true;
+            var afterDivider_1 = true;
             result = items
                 .map(function (item) {
                 if (item.label[0] === "~") {
-                    if (afterDivider)
+                    if (afterDivider_1)
                         return;
-                    afterDivider = true;
+                    afterDivider_1 = true;
                     return [
                         "div",
                         {
@@ -38014,7 +38054,7 @@ var MenuPopup = /** @class */ (function (_super) {
                         },
                     ];
                 }
-                afterDivider = false;
+                afterDivider_1 = false;
                 var classList = ["menu_item"];
                 if (item.checked)
                     classList.push(item.type === "check" ? "checked" : "selected");
@@ -38040,7 +38080,7 @@ var MenuPopup = /** @class */ (function (_super) {
                 ];
             })
                 .filter(Boolean);
-            if (afterDivider)
+            if (afterDivider_1)
                 result.pop();
         }
         this.menu.element = dom_1.dom.buildDom([
@@ -38057,18 +38097,17 @@ var MenuPopup = /** @class */ (function (_super) {
         this.element = this.menu.element;
     };
     MenuPopup.prototype.render = function () {
-        if (this.element.style.maxWidth) {
+        if (!this.element)
+            return;
+        if (this.element.style.maxWidth)
             this.element.style.maxWidth = window.innerWidth + "px";
-        }
-        if (this.element.style.maxHeight) {
+        if (this.element.style.maxHeight)
             this.element.style.maxHeight = window.innerHeight + "px";
-        }
         var elRect = this.element.getBoundingClientRect();
         var edge = lib_1.Utils.getElementEdges(this.element);
         var parentRect, top, left;
-        if (this.menu && this.menu.buttonElement) {
+        if (this.menu && this.menu.buttonElement)
             parentRect = this.menu.buttonElement.getBoundingClientRect();
-        }
         if (parentRect) {
             if (this.isSubMenu) {
                 top = parentRect.top - edge.top;
@@ -38131,9 +38170,8 @@ var MenuPopup = /** @class */ (function (_super) {
         }
     };
     MenuPopup.prototype.scrollIfNeeded = function () {
-        if (!this.selectedMenu) {
+        if (!this.selectedMenu)
             return;
-        }
         var menu = this.element;
         var item = this.selectedMenu.buttonElement;
         var menuRect = menu.getBoundingClientRect();
@@ -38177,8 +38215,9 @@ var MenuPopup = /** @class */ (function (_super) {
     };
     MenuPopup.prototype.getMenuByPath = function (path) {
         var childNode;
-        for (var i = 0; i < this.element.childNodes.length; i++) {
-            childNode = this.element.childNodes[i];
+        var childNodes = this.element.childNodes;
+        for (var i = 0; i < childNodes.length; i++) {
+            childNode = childNodes[i];
             if (childNode.$host && childNode.$host.id === path) {
                 if (childNode.classList.contains("menu_item") && !childNode.classList.contains("disabled")) {
                     return childNode;
@@ -38192,12 +38231,10 @@ var MenuPopup = /** @class */ (function (_super) {
 exports.MenuPopup = MenuPopup;
 var MenuSearchBox = /** @class */ (function () {
     function MenuSearchBox() {
-        this.parentPopup = null;
         this.isOpen = false;
         this.hideFiltered = false;
         this.value = "";
         this.currValue = "";
-        this.menuManager = null;
     }
     MenuSearchBox.prototype.open = function () {
         if (!this.element) {
@@ -38219,10 +38256,11 @@ var MenuSearchBox = /** @class */ (function () {
             this.currValue = "";
             this.update();
         }
-        this.parentPopup = null;
+        this.parentPopup = undefined;
         this.element.remove();
     };
     MenuSearchBox.prototype.setParentPopup = function (parentPopup) {
+        var _a;
         if (this.parentPopup && this.parentPopup.element) {
             if (this.parentPopup.prevMaxHeight) {
                 this.parentPopup.element.style.maxHeight = this.parentPopup.prevMaxHeight;
@@ -38236,7 +38274,7 @@ var MenuSearchBox = /** @class */ (function () {
             var valueArr = this.value.split("/");
             while (currPopupMenu) {
                 this.currPopupMenu = currPopupMenu;
-                this.currValue = valueArr.shift();
+                this.currValue = (_a = valueArr.shift()) !== null && _a !== void 0 ? _a : "";
                 this.isChanged = true;
                 this.update();
                 this.isOpen = false;
@@ -38246,6 +38284,8 @@ var MenuSearchBox = /** @class */ (function () {
         }
     };
     MenuSearchBox.prototype.calcElementPosition = function () {
+        if (!this.parentPopup)
+            return;
         this.parentPopup.prevMaxHeight = null;
         var parentRect = this.parentPopup.element.getBoundingClientRect();
         var top = parentRect.top - 20;
@@ -38261,12 +38301,13 @@ var MenuSearchBox = /** @class */ (function () {
         this.element.style.right = (window.innerWidth - parentRect.right) + "px";
     };
     MenuSearchBox.prototype.addSymbol = function (symbol) {
-        if (symbol === "/" && this.value.substr(this.value.length - 1, 1) === "/") {
+        var _a;
+        if (symbol === "/" && this.value.substring(this.value.length - 1) === "/") {
             return;
         }
         this.value += symbol;
         if (symbol === "/") {
-            if (this.currPopupMenu.selectedMenu && this.currPopupMenu.selectedMenu.map) {
+            if (((_a = this.currPopupMenu) === null || _a === void 0 ? void 0 : _a.selectedMenu) && this.currPopupMenu.selectedMenu.map) {
                 this.currPopupMenu = this.currPopupMenu.openMenu();
                 this.currValue = "";
             }
@@ -38279,18 +38320,19 @@ var MenuSearchBox = /** @class */ (function () {
         this.update();
     };
     MenuSearchBox.prototype.removeSymbol = function () {
+        var _a, _b;
         if (!this.isOpen) {
             return;
         }
-        var removed = this.value.substr(this.value.length - 1, 1);
-        this.value = this.value.substr(0, this.value.length - 1);
+        var removed = this.value.substring(this.value.length - 1);
+        this.value = this.value.substring(0, this.value.length - 1);
         if (removed === "/") {
-            this.currValue = this.value.split("/").pop();
-            this.currPopupMenu = (this.currPopupMenu.parentMenu instanceof MenuPopup) ? this.currPopupMenu.parentMenu : null;
+            this.currValue = (_a = this.value.split("/").pop()) !== null && _a !== void 0 ? _a : "";
+            this.currPopupMenu = (((_b = this.currPopupMenu) === null || _b === void 0 ? void 0 : _b.parentMenu) instanceof MenuPopup) ? this.currPopupMenu.parentMenu : undefined;
             this.isChanged = false;
         }
         else {
-            this.currValue = this.currValue.substr(0, this.currValue.length - 1);
+            this.currValue = this.currValue.substring(0, this.currValue.length - 1);
             this.isChanged = true;
         }
         this.update();
@@ -38315,8 +38357,9 @@ var MenuSearchBox = /** @class */ (function () {
         }
     };
     MenuSearchBox.prototype.showHideMenuNode = function (menu, show) {
+        var _a;
         show = show || false;
-        if (!show && menu.classList.contains("hover") && this.currPopupMenu.menuPopup) {
+        if (!show && menu.classList.contains("hover") && ((_a = this.currPopupMenu) === null || _a === void 0 ? void 0 : _a.menuPopup)) {
             show = true;
         }
         menu.isFiltered = !show;
@@ -38325,13 +38368,17 @@ var MenuSearchBox = /** @class */ (function () {
     };
     MenuSearchBox.prototype.setPopupMenuHighlights = function () {
         var _this_1 = this;
+        var _a;
+        if (!((_a = this.currPopupMenu) === null || _a === void 0 ? void 0 : _a.element))
+            return;
         var childNode;
+        var width = 0;
         this.selectMenu = null;
         this.secondarySelectMenu = null;
         if (this.hideFiltered) {
             var rect = this.currPopupMenu.element.getBoundingClientRect();
             var edges = lib_1.Utils.getElementEdges(this.currPopupMenu.element);
-            var width = rect.width - edges.left - edges.right;
+            width = rect.width - edges.left - edges.right;
         }
         var afterDivider = true;
         var noResult = true;
@@ -38350,7 +38397,7 @@ var MenuSearchBox = /** @class */ (function () {
             }
         }
         if (this.hideFiltered) {
-            this.currPopupMenu.element.style.width = Math.ceil(width) + "px";
+            this.currPopupMenu.element.style.width = Math.ceil(width) + "px"; //TODO
             var noResultEl = this.currPopupMenu.element.querySelector(".menu_no_result");
             if (noResult && !noResultEl) {
                 dom_1.dom.buildDom(["div", { class: "menu_no_result" }, "No matching result"], this.currPopupMenu.element);
@@ -38372,8 +38419,8 @@ var MenuSearchBox = /** @class */ (function () {
         }
         if (noResult) {
             this.currValue = this.value;
-            var suggestionList = {};
-            var addToSuggestionList = function (menus) {
+            var suggestionList_1 = {};
+            var addToSuggestionList_1 = function (menus) {
                 Object.keys(menus).forEach(function (name) {
                     var item = menus[name];
                     if (item.label && item.label[0] === "~") {
@@ -38386,33 +38433,33 @@ var MenuSearchBox = /** @class */ (function () {
                     var path = item.path;
                     var tokens = _this_1.getTokens(path);
                     if (tokens) {
-                        suggestionList[path] = {
+                        suggestionList_1[path] = {
                             label: path,
                             tokens: tokens
                         };
                     }
                     if (item.map) {
-                        addToSuggestionList(item.map);
+                        addToSuggestionList_1(item.map);
                     }
                 });
             };
-            addToSuggestionList(this.menuManager.menus.map);
+            addToSuggestionList_1(this.menuManager.menus.map);
             this.suggestionPopup = new MenuPopup();
             this.suggestionPopup.direction = "right";
             this.suggestionPopup.isSubMenu = true;
             this.suggestionPopup.menuManager = this.menuManager;
             this.suggestionPopup.menu = {
                 buttonElement: this.element,
-                map: suggestionList
+                map: suggestionList_1
             };
             this.suggestionPopup.parentMenu = this;
             this.suggestionPopup.open();
             for (var i = 0; i < this.suggestionPopup.element.childNodes.length; i++) {
-                var childNode = this.suggestionPopup.element.childNodes[i];
-                var menuTitle = childNode.querySelector("a");
+                var childNode_1 = this.suggestionPopup.element.childNodes[i];
+                var menuTitle = childNode_1.querySelector("a");
                 var innerHtml = "";
-                for (var t = 0; t < childNode.$host.tokens.length; t++) {
-                    innerHtml += "<span class='menu-" + childNode.$host.tokens[t].type + "'>" + childNode.$host.tokens[t].value + "</span>";
+                for (var t = 0; t < childNode_1.$host.tokens.length; t++) {
+                    innerHtml += "<span class='menu-" + childNode_1.$host.tokens[t].type + "'>" + childNode_1.$host.tokens[t].value + "</span>";
                 }
                 menuTitle.innerHTML = innerHtml;
             }
@@ -38471,7 +38518,7 @@ var MenuSearchBox = /** @class */ (function () {
                 var i2 = caption.indexOf(upper[j], lastIndex + 1);
                 index = (i1 >= 0) ? ((i2 < 0 || i1 < i2) ? i1 : i2) : i2;
                 if (index < 0)
-                    return null;
+                    return;
                 distance = index - lastIndex - 1;
                 if (distance > 0) {
                     matchMask = matchMask | (1 << j);
@@ -38499,6 +38546,7 @@ var MenuSearchBox = /** @class */ (function () {
         return tokens;
     };
     MenuSearchBox.prototype.build = function () {
+        var _a, _b, _c, _d;
         this.element = dom_1.dom.buildDom(["div", { class: "menu_searchbox" },
             ["span", { class: "search_field" }],
             ["span", { class: "searchbtn_filter" }],
@@ -38507,67 +38555,38 @@ var MenuSearchBox = /** @class */ (function () {
         this.element.$host = this;
         this.searchField = this.element.querySelector(".search_field");
         var _this = this;
-        this.element.querySelector(".searchbtn_close").addEventListener("mousedown", function (e) {
+        (_b = (_a = this.element) === null || _a === void 0 ? void 0 : _a.querySelector(".searchbtn_close")) === null || _b === void 0 ? void 0 : _b.addEventListener("mousedown", function (e) {
             _this.close();
         });
-        this.element.querySelector(".searchbtn_filter").addEventListener("mousedown", function (e) {
+        (_d = (_c = this.element) === null || _c === void 0 ? void 0 : _c.querySelector(".searchbtn_filter")) === null || _d === void 0 ? void 0 : _d.addEventListener("mousedown", function (e) {
             _this.switchShowHideFiltered();
         });
     };
     return MenuSearchBox;
 }());
 exports.MenuSearchBox = MenuSearchBox;
-var MenuToolBar = /** @class */ (function () {
-    function MenuToolBar() {
-        this.size = 27;
-    }
-    MenuToolBar.prototype.setBox = function (x, y, w, h) {
-        lib_1.Utils.setBox(this.element, x, y, w, h);
-        this.box = [x, y, w, h];
-    };
-    MenuToolBar.prototype.render = function () {
-        if (!this.element) {
-            this.element = dom_1.dom.buildDom(["div", {
-                    class: "menuToolBar",
-                }, [
-                    "div", {
-                        class: "menuBar",
-                        ref: "menuBar"
-                    }
-                ]], null, this);
-            var menuManager = menuManager_1.MenuManager.getInstance();
-            menuManager.build();
-            menuManager.buildMenuBar(this.menuBar);
-            menuManager.bindKeys();
-        }
-        return this.element;
-    };
-    return MenuToolBar;
-}());
-exports.MenuToolBar = MenuToolBar;
 
 
 /***/ }),
 
 /***/ 7282:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1345744__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1349555__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MenuItems = exports.MenuManager = void 0;
-var lib_1 = __nested_webpack_require_1345744__(1021);
-var menu_1 = __nested_webpack_require_1345744__(9367);
-var hash_handler_1 = __nested_webpack_require_1345744__(7116);
-var event = __nested_webpack_require_1345744__(7989);
-var keyUtil = __nested_webpack_require_1345744__(1797);
+var menu_1 = __nested_webpack_require_1349555__(9367);
+var hash_handler_1 = __nested_webpack_require_1349555__(7116);
+var event = __nested_webpack_require_1349555__(7989);
+var keyUtil = __nested_webpack_require_1349555__(1797);
 function getPrevSibling(node, conditionFn, parentElement) {
     parentElement = node ? node.parentElement : parentElement;
     var wrapped = false;
     do {
         node = node && node.previousSibling;
         if (!node && !wrapped) {
-            node = parentElement.lastChild;
+            node = parentElement === null || parentElement === void 0 ? void 0 : parentElement.lastChild;
             wrapped = true;
         }
         if (!node)
@@ -38581,7 +38600,7 @@ function getNextSibling(node, conditionFn, parentElement) {
     do {
         node = node && node.nextSibling;
         if (!node && !wrapped) {
-            node = parentElement.firstChild;
+            node = parentElement === null || parentElement === void 0 ? void 0 : parentElement.firstChild;
             wrapped = true;
         }
         if (!node)
@@ -38593,7 +38612,6 @@ var MenuManager = /** @class */ (function () {
     function MenuManager() {
         var _this_1 = this;
         this.menus = new MenuItems();
-        this.activeMenu = null;
         //event handlers
         this.onMouseDown = function (e) {
             var target = _this_1.getTarget(e.target, function (target) { return target.$host instanceof MenuItems; });
@@ -38647,6 +38665,7 @@ var MenuManager = /** @class */ (function () {
         return item;
     };
     MenuManager.prototype.addByPath = function (path, options) {
+        var _a, _b, _c, _d, _e;
         if (options === void 0) { options = {}; }
         if (typeof path == "string")
             path = path.split("/");
@@ -38662,12 +38681,12 @@ var MenuManager = /** @class */ (function () {
         var name = path.pop();
         item.id = name;
         item.label = options.label || name;
-        item.position = options.position;
+        item.position = (_a = options.position) !== null && _a !== void 0 ? _a : 0;
         item.hotKey = options.hotKey;
-        item.type = options.type;
-        item.checked = options.checked;
-        item.disabled = options.disabled;
-        item.className = options.className;
+        item.type = (_b = options.type) !== null && _b !== void 0 ? _b : "";
+        item.checked = (_c = options.checked) !== null && _c !== void 0 ? _c : false;
+        item.disabled = (_d = options.disabled) !== null && _d !== void 0 ? _d : false;
+        item.className = (_e = options.className) !== null && _e !== void 0 ? _e : "";
         item.exec = options.exec;
     };
     MenuManager.prototype.getTarget = function (target, callback) {
@@ -38676,7 +38695,7 @@ var MenuManager = /** @class */ (function () {
                 return target;
             target = target.parentElement;
         }
-        return null;
+        return;
     };
     MenuManager.prototype.bindKeys = function () {
         function isMenuBarItem(node) {
@@ -38686,7 +38705,8 @@ var MenuManager = /** @class */ (function () {
             return node.classList.contains("menu_item") && !node.classList.contains("disabled") && !node.isFiltered;
         }
         function menuKeyDown(menuManager) {
-            var menuPopup = menuManager.activeMenu.getLastOpenPopup();
+            var _a;
+            var menuPopup = (_a = menuManager.activeMenu) === null || _a === void 0 ? void 0 : _a.getLastOpenPopup();
             if (!menuPopup)
                 return;
             var menu = menuPopup.selectedMenu ? menuPopup.selectedMenu.buttonElement : null;
@@ -38842,26 +38862,25 @@ var MenuManager = /** @class */ (function () {
         this.activeMenu.openMenuByPath(path);
     };
     MenuManager.prototype.activateMenu = function () {
+        var _a;
         this.isActive = true;
         window.addEventListener("mousedown", this.onMouseDown);
         window.addEventListener("mousemove", this.onMouseMove);
         window.addEventListener("resize", this.onWindowResize);
-        if (this.activeMenu.activateMenu) {
+        if ((_a = this.activeMenu) === null || _a === void 0 ? void 0 : _a.activateMenu)
             this.activeMenu.activateMenu();
-        }
     };
     MenuManager.prototype.inactivateMenu = function () {
+        var _a;
         this.isActive = false;
         window.removeEventListener("mousedown", this.onMouseDown);
         window.removeEventListener("mousemove", this.onMouseMove);
         window.removeEventListener("resize", this.onWindowResize);
-        if (this.activeMenu.inactivateMenu) {
+        if ((_a = this.activeMenu) === null || _a === void 0 ? void 0 : _a.inactivateMenu)
             this.activeMenu.inactivateMenu();
-        }
-        this.activeMenu = null;
-        if (this.searchBox) {
+        this.activeMenu = undefined;
+        if (this.searchBox)
             this.searchBox.close();
-        }
         this.currentHost = null;
     };
     MenuManager.prototype.addSymbolToSearchBox = function (symbol) {
@@ -38871,14 +38890,14 @@ var MenuManager = /** @class */ (function () {
         this.searchBox.addSymbol(symbol);
     };
     MenuManager.prototype.openSearchBox = function () {
+        var _a;
         if (!this.searchBox) {
             this.searchBox = new menu_1.MenuSearchBox();
             this.searchBox.menuManager = this;
         }
-        this.searchBox.setParentPopup(this.activeMenu.getLastOpenPopup());
+        this.searchBox.setParentPopup((_a = this.activeMenu) === null || _a === void 0 ? void 0 : _a.getLastOpenPopup());
         this.searchBox.open();
     };
-    MenuManager.findHost = lib_1.Utils.findHost;
     return MenuManager;
 }());
 exports.MenuManager = MenuManager;
@@ -38893,7 +38912,7 @@ exports.MenuItems = MenuItems;
 /***/ }),
 
 /***/ 279:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1359563__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1363849__) {
 
 "use strict";
 
@@ -38913,34 +38932,30 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PanelBar = exports.Panel = void 0;
-var panelManager_1 = __nested_webpack_require_1359563__(6790);
-var lib_1 = __nested_webpack_require_1359563__(1021);
-var tabbar_handler_1 = __nested_webpack_require_1359563__(1966);
-var tab_1 = __nested_webpack_require_1359563__(9165);
-var dom_1 = __nested_webpack_require_1359563__(5079);
-var panelCSS = __nested_webpack_require_1359563__(3612);
+exports.Panel = void 0;
+var panelManager_1 = __nested_webpack_require_1363849__(6790);
+var dom_1 = __nested_webpack_require_1363849__(5079);
+var panelCSS = __nested_webpack_require_1363849__(3612);
+var tabPanel_1 = __nested_webpack_require_1363849__(6751);
 dom_1.dom.importCssString(panelCSS, "panel.css");
 var Panel = /** @class */ (function (_super) {
     __extends(Panel, _super);
     function Panel(options) {
         var _this = this;
-        var _a, _b;
+        var _a;
         _this = _super.call(this, options) || this;
-        _this.active = (_a = options.active) !== null && _a !== void 0 ? _a : false;
         _this.location = options.location;
         _this.panelBody = options.panelBody;
-        _this.autohide = (_b = options.autohide) !== null && _b !== void 0 ? _b : false;
+        _this.autoHide = (_a = options.autoHide) !== null && _a !== void 0 ? _a : false;
+        _this.title = options.title;
         return _this;
     }
     Panel.prototype.activate = function () {
-        this.active = true;
-        this.element.classList.add("active");
+        _super.prototype.activate.call(this);
         panelManager_1.PanelManager.getInstance().activatePanel(this);
     };
     Panel.prototype.deactivate = function () {
-        this.active = false;
-        this.element.classList.remove("active");
+        _super.prototype.deactivate.call(this);
         panelManager_1.PanelManager.getInstance().deactivatePanel(this);
     };
     Panel.prototype.render = function () {
@@ -38956,138 +38971,37 @@ var Panel = /** @class */ (function (_super) {
         return {
             active: this.active,
             title: this.title,
-            autohide: this.autohide,
+            autoHide: this.autoHide,
             panelBody: this.panelBody.toJSON(),
         };
     };
     Panel.prototype.remove = function () {
     };
     return Panel;
-}(tab_1.Tab));
+}(tabPanel_1.TabPanel));
 exports.Panel = Panel;
-//TODO: ?
-var PanelBar = /** @class */ (function (_super) {
-    __extends(PanelBar, _super);
-    /**
-     *
-     * @param {Object} options
-     * @param {String|undefined} options.position
-     * @param {Tab[]|Panel[]|undefined} options.tabList
-     * @param {Panel[]|undefined} options.panelList
-     */
-    function PanelBar(options) {
-        var _this = this;
-        if (!options.tabList) {
-            options.tabList = options.panelList;
-        }
-        _this = _super.call(this, options) || this;
-        _this.position = options.position || "";
-        return _this;
-    }
-    PanelBar.prototype.setBox = function (x, y, w, h) {
-        lib_1.Utils.setBox(this.element, x, y, w, h);
-        this.box = [x, y, w, h];
-        this.configurate();
-    };
-    PanelBar.prototype.configurate = function () {
-        var tabElement;
-        var isVertical = this.isVertical();
-        var tabSize = 30; //TODO
-        var position = 0;
-        for (var i = 0; i < this.tabList.length; i++) {
-            tabElement = this.tabList[i].element;
-            if (this.draggingElementSize && this.draggingElementIndex === i) {
-                position += this.draggingElementSize;
-            }
-            if (isVertical) {
-                tabElement.style.left = 0 + "px";
-                tabElement.style.height = tabSize + "px";
-                tabElement.style.top = position + "px";
-            }
-            else {
-                tabElement.style.top = 0 + "px";
-                tabElement.style.width = tabSize + "px";
-                tabElement.style.left = position + "px";
-            }
-            position += tabSize;
-        }
-    };
-    PanelBar.prototype.render = function () {
-        var _this = this;
-        if (!this.element) {
-            this.element = dom_1.dom.buildDom(["div", {
-                    class: "panelbar " + this.direction + " " + this.position,
-                    onmousedown: function (e) {
-                        tabbar_handler_1.TabbarHandler.tabbarMouseDown(e, Panel, PanelBar);
-                    },
-                }, ["div", {
-                        class: "tabContainer",
-                        ref: "tabContainer",
-                        onclick: this.onTabClick,
-                        onmousedown: function (e) {
-                            tabbar_handler_1.TabbarHandler.tabbarMouseDown(e, tab_1.Tab, tab_1.TabBar);
-                        },
-                        onmouseup: function (e) {
-                            if (_this.activeTabClicked) {
-                                var activeTab = _this.activeTab;
-                                _this.removeSelection(_this.activeTab);
-                                _this.activeTab.deactivate();
-                                _this.activeTab = null;
-                                if (_this.activeTabHistory.length && activeTab.autohide) {
-                                    var previousTab = activeTab;
-                                    while (previousTab === activeTab && _this.activeTabHistory.length) {
-                                        previousTab = _this.activeTabHistory.pop();
-                                    }
-                                    if (previousTab !== activeTab) {
-                                        _this.activateTab(previousTab);
-                                    }
-                                }
-                            }
-                        },
-                    }]], null, this);
-        }
-        if (this.initTabList && this.initTabList.length) {
-            for (var i = 0; i < this.initTabList.length; i++) {
-                this.addTab(this.initTabList[i]);
-            }
-        }
-        this.element.$host = this;
-        return this.element;
-    };
-    PanelBar.prototype.addTabList = function (tabList, index) {
-        index = index || this.tabList.length;
-        var tab;
-        for (var i = 0; i < tabList.length; i++) {
-            tab = new Panel(tabList[i]);
-            this.addTab(tab, index++);
-        }
-    };
-    return PanelBar;
-}(tab_1.TabBar));
-exports.PanelBar = PanelBar;
 
 
 /***/ }),
 
 /***/ 6790:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1366658__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1366562__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PanelManager = void 0;
-var box_1 = __nested_webpack_require_1366658__(8795);
-var accordion_1 = __nested_webpack_require_1366658__(4563);
-var panel_1 = __nested_webpack_require_1366658__(279);
+var box_1 = __nested_webpack_require_1366562__(8795);
+var accordion_1 = __nested_webpack_require_1366562__(4563);
+var panelBar_1 = __nested_webpack_require_1366562__(8659);
 var PanelManager = /** @class */ (function () {
     function PanelManager(options) {
         this.layout = options.layout;
         this.locations = options.locations;
     }
     PanelManager.getInstance = function (options) {
-        if (!PanelManager._instance) {
+        if (!PanelManager._instance)
             PanelManager._instance = new PanelManager(options);
-        }
         return PanelManager._instance;
     };
     PanelManager.prototype.toJSON = function () {
@@ -39097,36 +39011,37 @@ var PanelManager = /** @class */ (function () {
     };
     PanelManager.prototype.panelBarsToJSON = function () {
         var panelBars = {};
-        var panelBar;
-        for (var position in this.layout.toolBars) {
-            panelBar = this.layout.toolBars[position];
-            if (panelBar instanceof panel_1.PanelBar) {
+        for (var _i = 0, _a = Object.entries(this.layout.toolBars); _i < _a.length; _i++) {
+            var _b = _a[_i], position = _b[0], panelBar = _b[1];
+            if (panelBar instanceof panelBar_1.PanelBar)
                 panelBars[position] = panelBar.toJSON();
-            }
         }
         return panelBars;
     };
     PanelManager.prototype.setState = function (state) {
         var panelBars = state.panelBars;
         var panelBar, panelList, panel;
-        var panelBody, panelBodyData, accordionBoxes;
-        for (var position in panelBars) {
+        var panelBody, panelBodyData;
+        for (var _i = 0, _a = Object.keys(panelBars); _i < _a.length; _i++) {
+            var position = _a[_i];
             panelList = [];
-            for (var i = 0; i < panelBars[position].tabList.length; i++) {
-                panel = panelBars[position].tabList[i];
+            var tabList = panelBars[position].tabList;
+            for (var i = 0; i < tabList.length; i++) {
+                panel = tabList[i];
                 panelBodyData = panel.panelBody;
                 if (panelBodyData.type === "accordion") { //todo
-                    accordionBoxes = [];
-                    for (var index = 0; index < panelBodyData.boxes.length; index++) {
-                        accordionBoxes.push({
-                            title: panelBodyData.boxes[index].title,
-                            obj: new box_1.Box(panelBodyData.boxes[index].boxData)
+                    var accordionSections = [];
+                    var sections = panelBodyData.sections;
+                    for (var index = 0; index < sections.length; index++) {
+                        accordionSections.push({
+                            title: sections[index].title,
+                            box: new box_1.Box(sections[index].boxData)
                         });
                     }
                     panelBody = new accordion_1.Accordion({
                         vertical: panelBodyData.vertical,
                         size: panelBodyData.size,
-                        boxes: accordionBoxes
+                        sections: accordionSections
                     });
                 }
                 else {
@@ -39141,37 +39056,31 @@ var PanelManager = /** @class */ (function () {
                 panelList.push({
                     active: panel.active,
                     title: panel.title,
-                    autohide: panel.autohide,
+                    autoHide: panel.autoHide,
                     panelBody: panelBody,
                 });
             }
-            panelBar = new panel_1.PanelBar({ panelList: {} });
+            panelBar = new panelBar_1.PanelBar({ panelList: {} });
             this.layout.addToolBar(position, panelBar);
             panelBar.addTabList(panelList);
         }
     };
-    PanelManager.prototype.addPanel = function (panel, panelBar) {
-    };
     PanelManager.prototype.activatePanel = function (panel) {
-        var location = panel.parent.position;
-        var locationData = this.locations[location];
-        if (!locationData)
+        var location = this.locations[panel.parent.position];
+        if (!location)
             return;
-        var index = locationData.index;
-        var parent = locationData.parent;
-        panel.panelBody.size = locationData.size;
+        var index = location.index;
+        var parent = location.parent;
+        panel.panelBody.size = location.size;
         var newBox = parent.addChildBox(index, panel.panelBody);
         if (newBox.fixedSize && !parent.fixedChild)
             parent.fixedChild = newBox;
-        this.locations[location].box = newBox;
+        location.box = newBox;
         newBox.show();
     };
     PanelManager.prototype.deactivatePanel = function (panel) {
-        var location = panel.parent.position;
-        if (!this.locations[location])
-            return;
-        var locationBox = this.locations[location].box;
-        locationBox.hide();
+        var location = this.locations[panel.parent.position];
+        location === null || location === void 0 ? void 0 : location.box.hide();
     };
     return PanelManager;
 }());
@@ -39181,58 +39090,70 @@ exports.PanelManager = PanelManager;
 /***/ }),
 
 /***/ 9165:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1370918__) => {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1370756__) {
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TabBar = exports.Tab = void 0;
-var tabbar_handler_1 = __nested_webpack_require_1370918__(1966);
-var lib_1 = __nested_webpack_require_1370918__(1021);
-var tabManager_1 = __nested_webpack_require_1370918__(8478);
-var dom_1 = __nested_webpack_require_1370918__(5079);
-var tabCSS = __nested_webpack_require_1370918__(2463);
-var params_1 = __nested_webpack_require_1370918__(3130);
+exports.Tab = void 0;
+var tabManager_1 = __nested_webpack_require_1370756__(8478);
+var dom_1 = __nested_webpack_require_1370756__(5079);
+var tabCSS = __nested_webpack_require_1370756__(2463);
+var params_1 = __nested_webpack_require_1370756__(3130);
+var tabPanel_1 = __nested_webpack_require_1370756__(6751);
 dom_1.dom.importCssString(tabCSS, "tab.css");
-var Tab = /** @class */ (function () {
+var Tab = /** @class */ (function (_super) {
+    __extends(Tab, _super);
     function Tab(options) {
-        var _a, _b;
-        this.contextMenu = "tabs";
-        this.active = (_a = options.active) !== null && _a !== void 0 ? _a : false;
-        this.tabIcon = options.tabIcon;
-        this.title = options.title;
-        this.path = options.path;
-        this.preview = options.preview;
-        this.editorType = (_b = options.editorType) !== null && _b !== void 0 ? _b : params_1.EditorType.ace;
+        var _this = this;
+        var _a, _b, _c;
+        _this = _super.call(this, options) || this;
+        _this.contextMenu = "tabs";
+        _this.tabIcon = (_a = options.icon) !== null && _a !== void 0 ? _a : "";
+        _this.path = options.path;
+        _this.preview = (_b = options.preview) !== null && _b !== void 0 ? _b : false;
+        _this.editorType = (_c = options.editorType) !== null && _c !== void 0 ? _c : params_1.EditorType.ace;
+        return _this;
     }
     Tab.prototype.toJSON = function () {
         return {
-            title: this.title || undefined,
-            tabIcon: this.tabIcon || undefined,
+            title: this.title,
+            icon: this.tabIcon || undefined,
             active: this.active || undefined,
-            path: this.path || undefined,
+            path: this.path,
             preview: this.preview || undefined,
             editorType: this.editorType
         };
     };
     Tab.prototype.activate = function (content) {
-        this.active = true;
-        this.element.classList.add("active");
+        _super.prototype.activate.call(this);
         this.activatePane();
         var tabManager = tabManager_1.TabManager.getInstance();
         tabManager.loadFile(this, content);
         tabManager.activePane.resize();
     };
     Tab.prototype.activatePane = function () {
-        tabManager_1.TabManager.getInstance().activePane = this.parent.parent;
-    };
-    Tab.prototype.deactivate = function () {
-        this.active = false;
-        this.element.classList.remove("active");
+        var _a;
+        tabManager_1.TabManager.getInstance().activePane = (_a = this.parent) === null || _a === void 0 ? void 0 : _a.parent;
     };
     Tab.prototype.remove = function () {
-        if (this.parent)
-            this.parent.closeTab(this);
+        var _a;
+        (_a = this.parent) === null || _a === void 0 ? void 0 : _a.closeTab(this);
     };
     Object.defineProperty(Tab.prototype, "caption", {
         get: function () {
@@ -39240,16 +39161,6 @@ var Tab = /** @class */ (function () {
         },
         set: function (value) {
             this.$caption = value;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Tab.prototype, "icon", {
-        get: function () {
-            return this.$icon;
-        },
-        set: function (value) {
-            this.$icon = value;
         },
         enumerable: false,
         configurable: true
@@ -39263,597 +39174,71 @@ var Tab = /** @class */ (function () {
             ["span", { class: "tabIcon" }, this.tabIcon],
             ["span", { class: "tabTitle", ref: "$title" }, this.title],
             ["span", { class: "tabCloseButton" }],
-        ], null, this);
+        ], undefined, this);
         if (this.preview)
             this.element.style.fontStyle = "italic";
         this.element.$host = this;
         return this.element;
     };
-    Tab.prototype.update = function () {
-    };
     Object.defineProperty(Tab.prototype, "isActive", {
         get: function () {
-            return this.parent.activeTab == this;
+            var _a;
+            return ((_a = this.parent) === null || _a === void 0 ? void 0 : _a.activeTab) == this;
         },
         enumerable: false,
         configurable: true
     });
     Object.defineProperty(Tab.prototype, "editor", {
         get: function () {
-            return this.parent.parent.editor;
+            var _a;
+            return (_a = this.parent) === null || _a === void 0 ? void 0 : _a.parent.editor;
         },
         enumerable: false,
         configurable: true
     });
     return Tab;
-}());
+}(tabPanel_1.TabPanel));
 exports.Tab = Tab;
-var TabBar = /** @class */ (function () {
-    function TabBar(options) {
-        var _this = this;
-        var _a;
-        this.activeTab = null;
-        this.selectedTabs = [];
-        this.box = [];
-        this.inverted = true;
-        this.buttonsWidth = 0;
-        this.activeTabHistory = [];
-        this.tabList = [];
-        this.scrollLeft = 0;
-        this.onMouseWheel = function (e) {
-            var d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-            if (Math.abs(d) > 50) {
-                _this.animateScroll(d);
-            }
-            else {
-                _this.stopScrollAnmation();
-                _this.setScrollPosition((_this.scrollLeft || 0) + d);
-            }
-        };
-        this.animationSteps = 0;
-        this.MIN_TAB_SIZE = 120;
-        this.MAX_TAB_SIZE = 150;
-        this.direction = options.direction || "";
-        this.size = options.size || 27; //TODO
-        this.initTabList = (_a = options.tabList) !== null && _a !== void 0 ? _a : [];
-        this.onMouseWheel = this.onMouseWheel.bind(this);
-        this.onTabClick = this.onTabClick.bind(this);
-        this.onTabMouseUp = this.onTabMouseUp.bind(this);
-        this.onTabMouseDown = this.onTabMouseDown.bind(this);
-        this.onTabPlusClick = this.onTabPlusClick.bind(this);
-    }
-    TabBar.prototype.setBox = function (x, y, w, h) {
-        lib_1.Utils.setBox(this.element, x, y, w, h);
-        this.box = [x, y, w, h];
-        this.width = w;
-        this.configurate();
-    };
-    TabBar.prototype.render = function () {
-        if (!this.element) {
-            this.renderElement();
-        }
-        return this.element;
-    };
-    TabBar.prototype.isVertical = function () {
-        return this.direction === "vertical";
-    };
-    TabBar.prototype.tabMouseDown = function (tab, expand, toggle) {
-        if (expand === void 0) { expand = false; }
-        if (toggle === void 0) { toggle = false; }
-        if (expand) {
-            this.expandSelection(tab, toggle);
-        }
-        else {
-            this.anchorTab = null;
-            if (toggle) {
-                this.toggleSelection(tab);
-            }
-            else {
-                this.activateTab(tab, null, this.selectedTabs.indexOf(tab) < 0);
-            }
-        }
-    };
-    TabBar.prototype.expandSelection = function (tab, toggle) {
-        var _a;
-        var _this = this;
-        if (toggle === void 0) { toggle = false; }
-        if (!this.anchorTab) {
-            this.anchorTab = this.activeTab;
-        }
-        var prevSelectedTabs = this.selectedTabs;
-        this.selectedTabs = [];
-        var start = this.tabList.indexOf(this.anchorTab);
-        var end = this.tabList.indexOf(tab);
-        if (end < start) {
-            _a = [end, start], start = _a[0], end = _a[1];
-        }
-        for (var i = start; i <= end; i++) {
-            this.addSelection(this.tabList[i]);
-        }
-        prevSelectedTabs.forEach(function (selectedTab) {
-            if (_this.selectedTabs.indexOf(selectedTab) < 0) {
-                if (!toggle) {
-                    _this.deselectTab(selectedTab);
-                }
-                else {
-                    _this.addSelection(selectedTab);
-                }
-            }
-        });
-        this.activateTab(tab);
-    };
-    TabBar.prototype.toggleSelection = function (tab) {
-        var index = this.selectedTabs.indexOf(tab);
-        if (index < 0) {
-            this.activateTab(tab);
-        }
-        else if (tab !== this.activeTab) {
-            this.removeSelection(tab);
-        }
-    };
-    TabBar.prototype.addSelection = function (tab) {
-        if (this.selectedTabs.indexOf(tab) < 0) {
-            this.selectTab(tab);
-            this.selectedTabs.push(tab);
-        }
-    };
-    TabBar.prototype.selectTab = function (tab) {
-        tab.element.classList.add("selected");
-    };
-    TabBar.prototype.deselectTab = function (tab) {
-        tab.element.classList.remove("selected");
-    };
-    TabBar.prototype.removeSelection = function (tab) {
-        if (this.selectedTabs.indexOf(tab) < 0) {
-            return;
-        }
-        this.deselectTab(tab);
-        this.selectedTabs.splice(this.selectedTabs.indexOf(tab), 1);
-    };
-    TabBar.prototype.removeSelections = function () {
-        var _this = this;
-        this.selectedTabs.forEach(function (selectedTab) {
-            _this.deselectTab(selectedTab);
-        });
-        this.selectedTabs = [];
-    };
-    TabBar.prototype.scrollTabIntoView = function (tab) {
-        var index = this.tabList.indexOf(tab);
-        this.setScrollPosition((index + 1) * this.tabWidth);
-    };
-    TabBar.prototype.activateTab = function (tab, content, removeSelections) {
-        if (removeSelections === void 0) { removeSelections = false; }
-        removeSelections && this.removeSelections();
-        this.activeTabClicked = false;
-        this.addSelection(tab);
-        if (this.activeTab) {
-            if (this.activeTab === tab) {
-                this.activeTabClicked = true;
-                tab.activatePane();
-                return;
-            }
-            if (this.activeTabHistory.indexOf(this.activeTab) >= 0)
-                this.activeTabHistory.splice(this.activeTabHistory.indexOf(this.activeTab), 1);
-            this.activeTabHistory.push(this.activeTab);
-            this.activeTab.deactivate();
-        }
-        tab.activate(content);
-        this.activeTab = tab;
-        this.configurate();
-    };
-    TabBar.prototype.removeTab = function (tab) {
-        if (tab === this.activeTab)
-            this.activeTab = null;
-        var index = this.tabList.indexOf(tab);
-        if (index >= 0)
-            this.tabList.splice(index, 1);
-        tab.parent = null;
-    };
-    TabBar.prototype.activatePrevious = function (index) {
-        if (this.tabList.length) {
-            var tab = this.tabList[index - 1] || this.tabList[this.tabList.length - 1];
-            this.activateTab(tab);
-        }
-        else if (this.parent) {
-            this.parent.remove();
-        }
-    };
-    TabBar.prototype.closeTab = function (tab) {
-        var index = this.tabList.indexOf(tab);
-        var isActiveTab = this.activeTab === tab;
-        var isAnchorTab = this.anchorTab === tab;
-        this.removeTab(tab);
-        this.removeSelection(tab);
-        if (isActiveTab) {
-            this.activeTab = null;
-            this.activatePrevious(index);
-        }
-        if (isAnchorTab) {
-            this.anchorTab = null;
-        }
-        if (tab.element)
-            tab.element.remove();
-        this.configurate();
-    };
-    TabBar.prototype.addTabList = function (tabList, index) {
-        index = index || this.tabList.length;
-        var tab;
-        for (var i = 0; i < tabList.length; i++) {
-            tab = new Tab(tabList[i]);
-            this.addTab(tab, index++);
-        }
-    };
-    TabBar.prototype.addTab = function (tab, index, content) {
-        if (!tab.element) {
-            tab.render();
-        }
-        tab.parent = this;
-        if (index === undefined || index === null || index >= this.tabList.length) {
-            this.tabContainer.appendChild(tab.element);
-            this.tabList.push(tab);
-        }
-        else {
-            this.tabContainer.insertBefore(tab.element, this.tabContainer.childNodes[index]);
-            this.tabList.splice(index, 0, tab);
-        }
-        if (tab.active) {
-            this.activateTab(tab, content, true);
-        }
-        this.configurate();
-        return tab;
-    };
-    TabBar.prototype.setScrollPosition = function (scrollLeft) {
-        this.scrollLeft = scrollLeft;
-        this.configurate();
-    };
-    TabBar.prototype.animateScroll = function (v) {
-        var _this = this;
-        this.vX = v / 80;
-        this.animationSteps += 15;
-        if (this.animationSteps > 15) {
-            this.vX *= 1.2 * this.animationSteps / 10;
-            this.animationSteps = 15 + Math.ceil((this.animationSteps - 15) * 0.75);
-        }
-        if (this.animationTimer)
-            return;
-        this.animationTimer = setInterval(function () {
-            if (_this.animationSteps-- <= 0) {
-                return _this.stopScrollAnmation();
-            }
-            var vX = _this.vX;
-            if (Math.abs(_this.vX) < 0.01)
-                vX = 0;
-            vX = 0.9 * vX;
-            var oldScrollTop = _this.scrollLeft;
-            _this.setScrollPosition(_this.scrollLeft + 10 * vX);
-            if (oldScrollTop == _this.scrollLeft)
-                _this.animationSteps = 0;
-            _this.vX = vX;
-        }, 10);
-    };
-    TabBar.prototype.stopScrollAnmation = function () {
-        clearInterval(this.animationTimer);
-        this.animationTimer = null;
-        this.animationScrollLeft = null;
-        this.vX = 0;
-    };
-    TabBar.prototype.renderElement = function () {
-        this.element = dom_1.dom.buildDom(["div", {
-                class: "tabbar " + this.direction,
-                onwheel: this.onMouseWheel,
-                $host: this,
-            },
-            ["span", { class: "tabMenuButton" }],
-            [
-                "div",
-                {
-                    class: "tabScroller",
-                },
-                ["div", {
-                        class: "tabContainer",
-                        ref: "tabContainer",
-                        onclick: this.onTabClick,
-                        onmouseup: this.onTabMouseUp,
-                        onmousedown: this.onTabMouseDown,
-                    }]
-            ],
-            ["span", {
-                    class: "tabPlusButton",
-                    ref: "tabPlusButton",
-                    onclick: this.onTabPlusClick
-                }, "+"],
-            ["span", {
-                    class: "sizer"
-                }],
-            ["span", { class: "extraTabButtons" }],
-        ], null, this);
-        if (this.initTabList && this.initTabList.length) {
-            for (var i = 0; i < this.initTabList.length; i++) {
-                this.addTab(this.initTabList[i]);
-            }
-        }
-    };
-    TabBar.prototype.transform = function (el, dx, dy) {
-        el.style.left = Math.round(dx) + "px";
-        el.dx = dx;
-        el.dy = dy;
-    };
-    TabBar.prototype.computeConfig = function () {
-        this.draggingElementSize = this.draggingElementSize || 0;
-        this.plusButtonWidth = this.tabPlusButton.getBoundingClientRect().width;
-        this.containerWidth = this.width - this.plusButtonWidth - this.buttonsWidth;
-        var tabsCount = this.tabList.length;
-        if (tabsCount * this.MAX_TAB_SIZE + this.draggingElementSize < this.containerWidth) {
-            this.tabWidth = this.MAX_TAB_SIZE;
-            this.containerWidth = tabsCount * this.tabWidth + this.draggingElementSize;
-        }
-        else if (tabsCount * this.MIN_TAB_SIZE + this.draggingElementSize < this.containerWidth) {
-            this.tabWidth = (this.containerWidth - this.draggingElementSize) / tabsCount;
-        }
-        else {
-            this.tabWidth = this.MIN_TAB_SIZE;
-        }
-        var tabsWidth = this.tabWidth * tabsCount + this.draggingElementSize;
-        this.scrollLeft = Math.min(Math.max(this.scrollLeft, 0), tabsWidth - this.containerWidth);
-    };
-    TabBar.prototype.configurate = function () {
-        if (!this.width || this.freeze)
-            return;
-        var shadowWidth = 4;
-        this.computeConfig();
-        this.tabContainer.style.width = this.containerWidth + "px";
-        if (this.inverted) {
-            var zIndex = this.tabList.length;
-            var min = shadowWidth - this.tabWidth;
-            var max = this.containerWidth;
-            var maxPos = (max - this.tabWidth) / 2;
-            for (var i = 0; i < this.tabList.length; i++) {
-                var tab = this.tabList[i];
-                var el = tab.element;
-                var pos = this.tabWidth * i - this.scrollLeft;
-                if (this.tabDraggingElement && i >= this.draggingElementIndex) {
-                    pos += this.draggingElementSize;
-                }
-                if (tab === this.activeTab) {
-                    var activeMin = Math.max(min + this.tabWidth * 0.25, -this.tabWidth * 0.75);
-                    if (pos < activeMin)
-                        min = activeMin;
-                }
-                if (pos < min) {
-                    pos = min;
-                    min += shadowWidth;
-                    el.classList.add("scrolledLeft");
-                }
-                else if (pos > maxPos) {
-                    break;
-                }
-                else {
-                    el.classList.remove("scrolledLeft");
-                }
-                el.style.width = this.tabWidth + "px";
-                el.style.zIndex = String(zIndex);
-                zIndex--;
-                this.transform(el, pos, 0);
-            }
-            var lastRendered = i;
-            zIndex = this.tabList.length;
-            for (var i = this.tabList.length - 1; i >= lastRendered; i--) {
-                var tab = this.tabList[i];
-                var el = tab.element;
-                var pos = this.tabWidth * i - this.scrollLeft;
-                if (this.tabDraggingElement && i >= this.draggingElementIndex) {
-                    pos += this.draggingElementSize;
-                }
-                if (tab === this.activeTab) {
-                    var activeMax = Math.min(max - this.tabWidth * 0.25, this.containerWidth - this.tabWidth * 0.25);
-                    if (pos > activeMax)
-                        max = activeMax;
-                }
-                if (pos > max) {
-                    pos = max;
-                    max -= shadowWidth;
-                    el.classList.add("scrolledLeft");
-                }
-                else {
-                    el.classList.remove("scrolledLeft");
-                }
-                el.style.width = this.tabWidth + "px";
-                el.style.zIndex = String(zIndex);
-                zIndex--;
-                this.transform(el, pos, 0);
-            }
-        }
-        else {
-            /*var min = 0;
-            var max = containerWidth - w;
-            var zIndex = 0
-            var zdir = 1
-            for (var i = 0; i < this.tabs.length; i++){
-                var tab = this.tabs[i];
-                var el = tab.element
-                var pos = -this.scrollPos + w * i
-                if (tab == this.activeTab) {
-                    zdir = -1
-                    zIndex = this.tabs.length
-                }
-                if (pos < min) {
-                    pos = min
-                    min += 4
-
-                } else if (pos > max/2) {
-                    break;
-                }
-
-                el.style.zIndex = zIndex
-                zIndex += zdir
-
-                translate(el, pos, 0)
-                el.style.width = w - 1 + "px"
-                el.style.transitionDuration = "0s"
-            }
-            var lastRendered = i
-            var zIndex = 0
-            var zdir = 1
-            for (var i = this.tabs.length - 1; i >= lastRendered; i--){
-                var tab = this.tabs[i];
-                var el = tab.element
-                var pos = -this.scrollPos + w * i
-                if (tab == this.activeTab) {
-                    zdir = -1
-                    zIndex = this.tabs.length
-                }
-                if (pos > max) {
-                    pos = max
-                    max -= 4;
-                }
-
-                el.style.zIndex = zIndex
-                zIndex += zdir
-
-                translate(el, pos, 0)
-                el.style.width = w - 1 + "px"
-                el.style.transitionDuration = "0s"
-            }*/
-        }
-    };
-    TabBar.prototype.addButtons = function (buttons) {
-        if (!buttons) {
-            return;
-        }
-        this.buttons = buttons;
-        this.element.appendChild(this.buttons);
-        var rect = this.buttons.getBoundingClientRect();
-        this.buttonsWidth = rect.width;
-        this.configurate();
-    };
-    TabBar.prototype.removeButtons = function () {
-        this.buttons = null;
-        this.buttonsWidth = 0;
-        this.configurate();
-    };
-    TabBar.prototype.startTabDragging = function (element, index) {
-        if (this.isDragging) {
-            return;
-        }
-        this.tabDraggingElement = element;
-        this.draggingElementSize = this.isVertical() ? this.tabDraggingElement.style.height : this.tabDraggingElement.style.width;
-        this.draggingElementSize = parseInt(this.draggingElementSize, 10);
-        this.draggingElementIndex = index;
-        this.configurate();
-        this.isDragging = true;
-    };
-    TabBar.prototype.finishTabDragging = function () {
-        var _this = this;
-        this.draggingElementSize = this.draggingElementIndex = this.tabDraggingElement = null;
-        if (this.activeTabHistory.length) {
-            var removedHistoryTabs = [];
-            for (var i = 0; i < this.activeTabHistory.length; i++) {
-                if (this.tabList.indexOf(this.activeTabHistory[i]) < 0) {
-                    removedHistoryTabs.push(this.activeTabHistory[i]);
-                }
-            }
-            removedHistoryTabs.forEach(function (tab) {
-                var index = _this.activeTabHistory.indexOf(tab);
-                if (index >= 0) {
-                    _this.activeTabHistory.splice(index, 1);
-                }
-            });
-        }
-        this.configurate();
-        this.isDragging = false;
-    };
-    TabBar.prototype.toJSON = function () {
-        return {
-            tabList: this.tabList.map(function (tab) { return tab.toJSON(); }),
-            scrollLeft: this.scrollLeft
-        };
-    };
-    //events
-    TabBar.prototype.onTabClick = function (e) {
-        var target = e.target;
-        var tab = lib_1.Utils.findHost(target, Tab);
-        if (tab) {
-            if (e.button == 0 && target.classList.contains("tabCloseButton")) {
-                this.closeTab(tab);
-            }
-            else if (e.button == 0 && tab.isActive && tab.editor) {
-                tab.editor.focus();
-            }
-            else if (e.button == 1) {
-                tab.remove();
-            }
-        }
-    };
-    TabBar.prototype.onTabMouseUp = function (e) {
-        if (e.button == 1) {
-            var tab = lib_1.Utils.findHost(e.target, Tab);
-            if (tab)
-                tab.remove();
-        }
-    };
-    TabBar.prototype.onTabMouseDown = function (e) {
-        if (e.button == 0)
-            tabbar_handler_1.TabbarHandler.tabbarMouseDown(e, Tab, TabBar, true);
-    };
-    /*onMouseMove(e) {
-        if (e.button == 0)
-            TabbarHandler.tabbarMouseMove(e, Tab, TabBar)
-    }
-    onMouseMove = this.onMouseMove.bind(this)
-
-    onMouseOut(e) {
-        if (e.button == 0)
-            TabbarHandler.tabbarMouseOut(e, Tab, TabBar)
-    }
-    onMouseOut = this.onMouseOut.bind(this)*/
-    TabBar.prototype.onTabPlusClick = function (e) {
-        this.removeSelections();
-        tabManager_1.TabManager.getInstance().addNewTab(this.parent);
-    };
-    TabBar.prototype.clear = function () {
-        this.removeButtons();
-        this.tabList = [];
-    };
-    TabBar.prototype.remove = function () {
-    };
-    return TabBar;
-}());
-exports.TabBar = TabBar;
 
 
 /***/ }),
 
 /***/ 8478:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1394353__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1375036__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TabManager = void 0;
-var tabCommands_1 = __nested_webpack_require_1394353__(2656);
-var box_1 = __nested_webpack_require_1394353__(8795);
-var oop = __nested_webpack_require_1394353__(9359);
-var event_emitter_1 = __nested_webpack_require_1394353__(3056);
-var useragent = __nested_webpack_require_1394353__(618);
-var tab_1 = __nested_webpack_require_1394353__(9165);
-var pane_1 = __nested_webpack_require_1394353__(3167);
-var menuManager_1 = __nested_webpack_require_1394353__(7282);
-var commandManager_1 = __nested_webpack_require_1394353__(2583);
+var tabCommands_1 = __nested_webpack_require_1375036__(2656);
+var box_1 = __nested_webpack_require_1375036__(8795);
+var oop = __nested_webpack_require_1375036__(9359);
+var event_emitter_1 = __nested_webpack_require_1375036__(3056);
+var useragent = __nested_webpack_require_1375036__(618);
+var tab_1 = __nested_webpack_require_1375036__(9165);
+var pane_1 = __nested_webpack_require_1375036__(3167);
+var menuManager_1 = __nested_webpack_require_1375036__(7282);
+var commandManager_1 = __nested_webpack_require_1375036__(2583);
 var newTabCounter = 1;
-function saveJson(name, value) {
-    localStorage[name] = JSON.stringify(value);
-}
 var TabManager = /** @class */ (function () {
     function TabManager(options) {
+        var _this = this;
+        this.$setBoxState = function (box, state) {
+            if (!box)
+                return;
+            box.removeAllChildren();
+            _this.setBoxData(box, state);
+            if (!box[0] && box.isMain)
+                _this.setChildBoxData(box, [{ type: "pane" }], 0);
+        };
         this.containers = options.containers;
         this.tabs = {};
         this.fileSystem = options.fileSystem;
         this.commandsInit();
     }
     TabManager.getInstance = function (options) {
-        if (!TabManager._instance) {
+        if (!TabManager._instance)
             TabManager._instance = new TabManager(options);
-        }
         return TabManager._instance;
     };
     TabManager.prototype.commandsInit = function () {
@@ -39909,7 +39294,7 @@ var TabManager = /** @class */ (function () {
                             _this.previewTab = tab;
                     });
                     box.tabBar.freeze = false;
-                    box.tabBar.configurate();
+                    box.tabBar.configure();
                 }
             }
         }
@@ -39921,21 +39306,15 @@ var TabManager = /** @class */ (function () {
         }
     };
     TabManager.prototype.setState = function (state) {
-        var _this = this;
-        this.activePane = null;
+        this.activePane = undefined;
         this.tabs = {};
-        this.previewTab = null;
-        var setState = function (box, state) {
-            if (!box)
-                return;
-            box.removeAllChildren();
-            _this.setBoxData(box, state);
-            if (!box[0] && box.isMain)
-                _this.setChildBoxData(box, [{ type: "pane" }], 0);
-        };
+        this.previewTab = undefined;
         for (var container in this.containers) {
-            setState(this.containers[container], state && state[container]);
+            this.setContainerState(container, state[container]);
         }
+    };
+    TabManager.prototype.setContainerState = function (container, state) {
+        this.$setBoxState(this.containers[container], state);
     };
     TabManager.prototype.clear = function () {
     };
@@ -39946,7 +39325,8 @@ var TabManager = /** @class */ (function () {
     };
     Object.defineProperty(TabManager.prototype, "activeTab", {
         get: function () {
-            return this.activePane.tabBar.activeTab;
+            var _a;
+            return (_a = this.activePane) === null || _a === void 0 ? void 0 : _a.tabBar.activeTab;
         },
         enumerable: false,
         configurable: true
@@ -39956,13 +39336,13 @@ var TabManager = /** @class */ (function () {
         var tab = this.tabs[tabOptions.path];
         tabOptions.active = (_a = tabOptions.active) !== null && _a !== void 0 ? _a : true;
         if (!tab || !tab.parent) {
-            var pane;
+            var pane = void 0;
             if (container) {
-                pane = this.containers[container].element.querySelector(".tabPanel").host;
+                pane = this.getContainerPane(container);
             }
             else {
                 pane = this.activePane && this.activePane.tabBar.tabList.length > 0 ? this.activePane
-                    : this.containers.main.element.querySelector(".tabPanel").host;
+                    : this.getContainerPane("main");
             }
             if (this.previewTab)
                 this.previewTab.remove();
@@ -39985,34 +39365,36 @@ var TabManager = /** @class */ (function () {
         tab.parent.activateTab(tab, fileContent);
         return tab;
     };
+    TabManager.prototype.getContainerPane = function (container) {
+        return this.containers[container].element.querySelector(".tabPanel").$host;
+    };
     TabManager.prototype.clearPreviewStatus = function (tab) {
         tab.preview = false;
         tab.element.style.fontStyle = "";
         if (this.previewTab == tab)
-            this.previewTab = null;
+            this.previewTab = undefined;
     };
-    /*updateSaveButton(e, editor) {
-        var tab = editor.session.tab;
-        if (tab.parent && tab.parent.activeTab == tab) {
-            if (tab.session.getUndoManager().isClean() != this.refs.saveButton.disabled) {
-                this.refs.saveButton.disabled = tab.session.getUndoManager().isClean();
-            }
-            if (this.refs.saveButton.disabled) {
-                tab.element.classList.remove("changed");
-            } else {
-                tab.element.classList.add("changed");
-            }
-        }
-        if (e && tab.preview) {
-            tabManager.clearPreviewStatus(tab);
-        }
-    }*/
+    Object.defineProperty(TabManager.prototype, "newTabPath", {
+        get: function () {
+            return "untitled_".concat(newTabCounter);
+        },
+        enumerable: false,
+        configurable: true
+    });
     TabManager.prototype.addNewTab = function (pane, options) {
-        options = options !== null && options !== void 0 ? options : { title: "Untitled ".concat(newTabCounter++) };
+        while (this.tabs.hasOwnProperty(this.newTabPath)) {
+            newTabCounter++;
+        }
+        options !== null && options !== void 0 ? options : (options = { title: "Untitled ".concat(newTabCounter), path: this.newTabPath });
         options.active = true;
-        return pane.tabBar.addTab(new tab_1.Tab(options));
+        var newTab = pane.tabBar.addTab(new tab_1.Tab(options));
+        this.tabs[this.newTabPath] = newTab;
+        return newTab;
     };
     ;
+    TabManager.prototype.removeTab = function (tab) {
+        delete this.tabs[tab.path];
+    };
     //TODO: move to separate class
     TabManager.prototype.loadFile = function (tab, fileContent) {
         var editor = tab.isActive ? tab.editor : tab.parent.parent.getEditor(tab.editorType);
@@ -40020,16 +39402,862 @@ var TabManager = /** @class */ (function () {
     };
     ;
     TabManager.prototype.navigateToTab = function (index, tab, tabs) {
+        var _a;
         var tabsList = tabs || this.tabs;
         var activeTab = tab || this.activeTab;
         //TODO: seems we need better `activate` method for Tab
         if (index >= 0 && tabsList.length > index)
-            activeTab.parent.activateTab(tabsList[index], null, true);
+            (_a = activeTab === null || activeTab === void 0 ? void 0 : activeTab.parent) === null || _a === void 0 ? void 0 : _a.activateTab(tabsList[index], undefined, true);
+    };
+    TabManager.prototype.saveTo = function (storage) {
+        for (var _i = 0, _a = Object.entries(this.tabs); _i < _a.length; _i++) {
+            var _b = _a[_i], path = _b[0], tab = _b[1];
+            storage["@file@" + path] = tab.session ? tab.editor.sessionToJSON(tab) : tab.sessionValue;
+        }
+    };
+    TabManager.prototype.restoreFrom = function (storage) {
+        for (var _i = 0, _a = Object.entries(this.tabs); _i < _a.length; _i++) {
+            var _b = _a[_i], path = _b[0], tab = _b[1];
+            tab.sessionValue = storage["@file@" + path];
+            if (tab.session)
+                tab.editor.restoreSessionFromJson(tab);
+        }
+    };
+    TabManager.prototype.getTab = function (path) {
+        return this.tabs[path];
     };
     return TabManager;
 }());
 exports.TabManager = TabManager;
 oop.implement(TabManager.prototype, event_emitter_1.EventEmitter);
+
+
+/***/ }),
+
+/***/ 6751:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TabPanel = void 0;
+var TabPanel = /** @class */ (function () {
+    function TabPanel(options) {
+        var _a;
+        this.active = (_a = options.active) !== null && _a !== void 0 ? _a : false;
+        this.title = options.title;
+    }
+    TabPanel.prototype.activate = function () {
+        this.active = true;
+        this.element.classList.add("active");
+    };
+    TabPanel.prototype.deactivate = function () {
+        this.active = false;
+        this.element.classList.remove("active");
+    };
+    return TabPanel;
+}());
+exports.TabPanel = TabPanel;
+
+
+/***/ }),
+
+/***/ 2631:
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1385171__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MenuToolbar = void 0;
+var toolbar_1 = __nested_webpack_require_1385171__(6319);
+var dom_1 = __nested_webpack_require_1385171__(5079);
+var menuManager_1 = __nested_webpack_require_1385171__(7282);
+var MenuToolbar = /** @class */ (function (_super) {
+    __extends(MenuToolbar, _super);
+    function MenuToolbar() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MenuToolbar.prototype.render = function () {
+        if (!this.element) {
+            this.element = dom_1.dom.buildDom(["div", {
+                    class: "menuToolBar",
+                }, [
+                    "div", {
+                        class: "menuBar",
+                        ref: "menuBar"
+                    }
+                ]], undefined, this);
+            var menuManager = menuManager_1.MenuManager.getInstance();
+            menuManager.build();
+            menuManager.buildMenuBar(this.menuBar);
+            menuManager.bindKeys();
+        }
+        return this.element;
+    };
+    MenuToolbar.prototype.remove = function () {
+    };
+    MenuToolbar.prototype.toJSON = function () {
+    };
+    return MenuToolbar;
+}(toolbar_1.Toolbar));
+exports.MenuToolbar = MenuToolbar;
+
+
+/***/ }),
+
+/***/ 8659:
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1387318__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PanelBar = void 0;
+var tabPanelBar_1 = __nested_webpack_require_1387318__(9225);
+var dom_1 = __nested_webpack_require_1387318__(5079);
+var tabbar_handler_1 = __nested_webpack_require_1387318__(1966);
+var panel_1 = __nested_webpack_require_1387318__(279);
+var PanelBar = /** @class */ (function (_super) {
+    __extends(PanelBar, _super);
+    function PanelBar() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    PanelBar.prototype.setBox = function (x, y, w, h) {
+        _super.prototype.setBox.call(this, x, y, w, h);
+        this.configure();
+    };
+    PanelBar.prototype.configure = function () {
+        var tabElement;
+        var tabSize = 30; //TODO
+        var position = 0;
+        for (var i = 0; i < this.tabList.length; i++) {
+            tabElement = this.tabList[i].element;
+            if (this.draggingElementIndex === i)
+                position += this.getDraggingElementSize();
+            if (this.isVertical()) {
+                tabElement.style.left = 0 + "px";
+                tabElement.style.height = tabSize + "px";
+                tabElement.style.top = position + "px";
+            }
+            else {
+                tabElement.style.top = 0 + "px";
+                tabElement.style.width = tabSize + "px";
+                tabElement.style.left = position + "px";
+            }
+            position += tabSize;
+        }
+    };
+    PanelBar.prototype.render = function () {
+        var _this = this;
+        if (!this.element) {
+            this.element = dom_1.dom.buildDom(["div", {
+                    class: "panelbar " + this.direction + " " + this.position,
+                }, ["div", {
+                        class: "tabContainer",
+                        ref: "tabContainer",
+                        onmousedown: function (e) {
+                            tabbar_handler_1.TabbarHandler.tabbarMouseDown(e, panel_1.Panel, PanelBar);
+                        },
+                        onmouseup: function (e) {
+                            if (_this.activeTabClicked) {
+                                var activeTab = _this.activeTab;
+                                _this.removeSelection(activeTab);
+                                activeTab.deactivate();
+                                _this.activeTab = undefined;
+                                if (_this.activeTabHistory.length && activeTab.autoHide) {
+                                    var previousTab = activeTab;
+                                    while (previousTab === activeTab && _this.activeTabHistory.length) {
+                                        previousTab = _this.activeTabHistory.pop();
+                                    }
+                                    if (previousTab !== activeTab)
+                                        _this.activateTab(previousTab);
+                                }
+                            }
+                        },
+                    }]], undefined, this);
+        }
+        if (this.initTabList && this.initTabList.length) {
+            for (var i = 0; i < this.initTabList.length; i++) {
+                this.addTab(this.initTabList[i]);
+            }
+        }
+        this.element.$host = this;
+        return this.element;
+    };
+    PanelBar.prototype.addTabList = function (tabList, index) {
+        index = index || this.tabList.length;
+        var tab;
+        for (var i = 0; i < tabList.length; i++) {
+            tab = new panel_1.Panel(tabList[i]);
+            this.addTab(tab, index++);
+        }
+    };
+    PanelBar.prototype.remove = function () {
+    };
+    return PanelBar;
+}(tabPanelBar_1.TabPanelBar));
+exports.PanelBar = PanelBar;
+
+
+/***/ }),
+
+/***/ 3242:
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1391952__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TabBar = void 0;
+var lib_1 = __nested_webpack_require_1391952__(3723);
+var dom_1 = __nested_webpack_require_1391952__(5079);
+var tabbar_handler_1 = __nested_webpack_require_1391952__(1966);
+var tabManager_1 = __nested_webpack_require_1391952__(8478);
+var tabPanelBar_1 = __nested_webpack_require_1391952__(9225);
+var tab_1 = __nested_webpack_require_1391952__(9165);
+var TabBar = /** @class */ (function (_super) {
+    __extends(TabBar, _super);
+    function TabBar() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.inverted = true;
+        _this.buttonsWidth = 0;
+        _this.buttons = [];
+        _this.onTabMouseUp = function (e) {
+            if (e.button == 1) {
+                var tab = lib_1.Utils.findHost(e.target, tab_1.Tab);
+                if (tab)
+                    tab.remove();
+            }
+        };
+        _this.onTabMouseDown = function (e) {
+            if (e.button == 0)
+                tabbar_handler_1.TabbarHandler.tabbarMouseDown(e, tab_1.Tab, TabBar, true);
+        };
+        _this.onTabPlusClick = function (e) {
+            _this.removeSelections();
+            tabManager_1.TabManager.getInstance().addNewTab(_this.parent);
+        };
+        _this.onTabClick = function (e) {
+            var target = e.target;
+            var tab = lib_1.Utils.findHost(target, tab_1.Tab);
+            if (tab) {
+                if (e.button == 0 && target.classList.contains("tabCloseButton")) {
+                    _this.closeTab(tab);
+                }
+                else if (e.button == 0 && tab.isActive && tab.editor) {
+                    tab.editor.focus();
+                }
+                else if (e.button == 1) {
+                    tab.remove();
+                }
+            }
+        };
+        return _this;
+    }
+    TabBar.prototype.setBox = function (x, y, w, h) {
+        _super.prototype.setBox.call(this, x, y, w, h);
+        this.width = w;
+        this.configure();
+    };
+    TabBar.prototype.renderElement = function () {
+        this.element = dom_1.dom.buildDom(["div", {
+                class: "tabbar " + this.direction,
+                onwheel: this.onMouseWheel,
+                $host: this,
+            },
+            ["span", { class: "tabMenuButton" }],
+            [
+                "div",
+                {
+                    class: "tabScroller",
+                },
+                ["div", {
+                        class: "tabContainer",
+                        ref: "tabContainer",
+                        onclick: this.onTabClick,
+                        onmouseup: this.onTabMouseUp,
+                        onmousedown: this.onTabMouseDown,
+                    }]
+            ],
+            ["span", {
+                    class: "tabPlusButton",
+                    ref: "tabPlusButton",
+                    onclick: this.onTabPlusClick
+                }, "+"],
+            ["span", {
+                    class: "sizer"
+                }],
+            ["span", {
+                    class: "buttons",
+                    ref: "additionalButtons"
+                }],
+        ], undefined, this);
+        if (this.initTabList && this.initTabList.length) {
+            for (var i = 0; i < this.initTabList.length; i++) {
+                this.addTab(this.initTabList[i]);
+            }
+        }
+    };
+    TabBar.prototype.render = function () {
+        if (!this.element)
+            this.renderElement();
+        return this.element;
+    };
+    TabBar.prototype.computeConfig = function () {
+        var draggingElementSize = this.getDraggingElementSize();
+        this.plusButtonWidth = this.tabPlusButton.getBoundingClientRect().width;
+        this.containerWidth = this.width - this.plusButtonWidth - this.buttonsWidth;
+        var tabsCount = this.tabList.length;
+        if (tabsCount * this.MAX_TAB_SIZE + draggingElementSize < this.containerWidth) {
+            this.tabWidth = this.MAX_TAB_SIZE;
+            this.containerWidth = tabsCount * this.tabWidth + draggingElementSize;
+        }
+        else if (tabsCount * this.MIN_TAB_SIZE + draggingElementSize < this.containerWidth) {
+            this.tabWidth = (this.containerWidth - draggingElementSize) / tabsCount;
+        }
+        else {
+            this.tabWidth = this.MIN_TAB_SIZE;
+        }
+        var tabsWidth = this.tabWidth * tabsCount + draggingElementSize;
+        this.scrollLeft = Math.min(Math.max(this.scrollLeft, 0), tabsWidth - this.containerWidth);
+    };
+    TabBar.prototype.configure = function () {
+        if (!this.width || this.freeze)
+            return;
+        var shadowWidth = 4;
+        this.computeConfig();
+        this.tabContainer.style.width = this.containerWidth + "px";
+        var draggingElementSize = this.getDraggingElementSize();
+        if (this.inverted) {
+            var zIndex = this.tabList.length;
+            var min = shadowWidth - this.tabWidth;
+            var max = this.containerWidth;
+            var maxPos = (max - this.tabWidth) / 2;
+            var i = 0;
+            for (; i < this.tabList.length; i++) {
+                var tab = this.tabList[i];
+                var el = tab.element;
+                var pos = this.tabWidth * i - this.scrollLeft;
+                if (this.tabDraggingElement && i >= this.draggingElementIndex) {
+                    pos += draggingElementSize;
+                }
+                if (tab === this.activeTab) {
+                    var activeMin = Math.max(min + this.tabWidth * 0.25, -this.tabWidth * 0.75);
+                    if (pos < activeMin)
+                        min = activeMin;
+                }
+                if (pos < min) {
+                    pos = min;
+                    min += shadowWidth;
+                    el.classList.add("scrolledLeft");
+                }
+                else if (pos > maxPos) {
+                    break;
+                }
+                else {
+                    el.classList.remove("scrolledLeft");
+                }
+                el.style.width = this.tabWidth + "px";
+                el.style.zIndex = String(zIndex);
+                zIndex--;
+                this.transform(el, pos, 0);
+            }
+            var lastRendered = i;
+            zIndex = this.tabList.length;
+            for (var i_1 = this.tabList.length - 1; i_1 >= lastRendered; i_1--) {
+                var tab = this.tabList[i_1];
+                var el = tab.element;
+                var pos = this.tabWidth * i_1 - this.scrollLeft;
+                if (this.tabDraggingElement && i_1 >= this.draggingElementIndex) {
+                    pos += draggingElementSize;
+                }
+                if (tab === this.activeTab) {
+                    var activeMax = Math.min(max - this.tabWidth * 0.25, this.containerWidth - this.tabWidth * 0.25);
+                    if (pos > activeMax)
+                        max = activeMax;
+                }
+                if (pos > max) {
+                    pos = max;
+                    max -= shadowWidth;
+                    el.classList.add("scrolledLeft");
+                }
+                else {
+                    el.classList.remove("scrolledLeft");
+                }
+                el.style.width = this.tabWidth + "px";
+                el.style.zIndex = String(zIndex);
+                zIndex--;
+                this.transform(el, pos, 0);
+            }
+        }
+        else {
+            /*let min = 0;
+            let max = containerWidth - w;
+            let zIndex = 0
+            let zdir = 1
+            for (let i = 0; i < this.tabs.length; i++){
+                let tab = this.tabs[i];
+                let el = tab.element
+                let pos = -this.scrollPos + w * i
+                if (tab == this.activeTab) {
+                    zdir = -1
+                    zIndex = this.tabs.length
+                }
+                if (pos < min) {
+                    pos = min
+                    min += 4
+
+                } else if (pos > max/2) {
+                    break;
+                }
+
+                el.style.zIndex = zIndex
+                zIndex += zdir
+
+                translate(el, pos, 0)
+                el.style.width = w - 1 + "px"
+                el.style.transitionDuration = "0s"
+            }
+            let lastRendered = i
+            let zIndex = 0
+            let zdir = 1
+            for (let i = this.tabs.length - 1; i >= lastRendered; i--){
+                let tab = this.tabs[i];
+                let el = tab.element
+                let pos = -this.scrollPos + w * i
+                if (tab == this.activeTab) {
+                    zdir = -1
+                    zIndex = this.tabs.length
+                }
+                if (pos > max) {
+                    pos = max
+                    max -= 4;
+                }
+
+                el.style.zIndex = zIndex
+                zIndex += zdir
+
+                translate(el, pos, 0)
+                el.style.width = w - 1 + "px"
+                el.style.transitionDuration = "0s"
+            }*/
+        }
+    };
+    TabBar.prototype.addButton = function (button) {
+        this.buttons.push(button);
+        this.setButtons(this.buttons);
+    };
+    TabBar.prototype.setButtons = function (buttons) {
+        var _this = this;
+        this.additionalButtons.innerHTML = "";
+        this.buttons = buttons;
+        buttons.forEach(function (button) { return _this.additionalButtons.appendChild(button); });
+        var rect = this.additionalButtons.getBoundingClientRect();
+        this.buttonsWidth = rect.width;
+        this.configure();
+    };
+    TabBar.prototype.removeButtons = function () {
+        if (!this.buttons.length)
+            return;
+        this.buttons = [];
+        this.additionalButtons.innerHTML = "";
+        this.buttonsWidth = 0;
+        this.configure();
+    };
+    TabBar.prototype.clear = function () {
+        this.removeButtons();
+        this.tabList = [];
+    };
+    TabBar.prototype.remove = function () {
+    };
+    TabBar.prototype.closeTab = function (tab) {
+        var index = this.tabList.indexOf(tab);
+        var isActiveTab = this.activeTab === tab;
+        var isAnchorTab = this.anchorTab === tab;
+        this.removeTab(tab);
+        this.removeSelection(tab);
+        if (isActiveTab) {
+            this.activeTab = undefined;
+            this.activatePrevious(index);
+        }
+        if (isAnchorTab)
+            this.anchorTab = null;
+        if (tab.element)
+            tab.element.remove();
+        tabManager_1.TabManager.getInstance().removeTab(tab); //TODO need big refactor for all TabManagement
+        this.configure();
+    };
+    TabBar.prototype.activateTab = function (tab, content, removeSelections) {
+        if (removeSelections === void 0) { removeSelections = false; }
+        removeSelections && this.removeSelections();
+        this.activeTabClicked = false;
+        this.addSelection(tab);
+        if (this.activeTab) {
+            if (this.activeTab === tab) {
+                this.activeTabClicked = true;
+                tab.activatePane();
+                return;
+            }
+            if (this.activeTabHistory.indexOf(this.activeTab) >= 0)
+                this.activeTabHistory.splice(this.activeTabHistory.indexOf(this.activeTab), 1);
+            this.activeTabHistory.push(this.activeTab);
+            this.activeTab.deactivate();
+        }
+        tab.activate(content);
+        this.activeTab = tab;
+        this.configure();
+    };
+    TabBar.prototype.activatePrevious = function (index) {
+        if (this.tabList.length) {
+            var tab = this.tabList[index - 1] || this.tabList[this.tabList.length - 1];
+            this.activateTab(tab);
+        }
+        else if (this.parent) {
+            this.parent.remove();
+        }
+    };
+    return TabBar;
+}(tabPanelBar_1.TabPanelBar));
+exports.TabBar = TabBar;
+
+
+/***/ }),
+
+/***/ 9225:
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1404889__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TabPanelBar = void 0;
+var toolbar_1 = __nested_webpack_require_1404889__(6319);
+var TabPanelBar = /** @class */ (function (_super) {
+    __extends(TabPanelBar, _super);
+    function TabPanelBar(options) {
+        var _this = this;
+        var _a, _b;
+        _this = _super.call(this, options) || this;
+        _this.selectedTabs = [];
+        _this.tabList = [];
+        _this.scrollLeft = 0;
+        _this.animationSteps = 0;
+        _this.MIN_TAB_SIZE = 120;
+        _this.MAX_TAB_SIZE = 150;
+        _this.activeTabHistory = [];
+        _this.onMouseWheel = function (e) {
+            var d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+            if (Math.abs(d) > 50) {
+                _this.animateScroll(d);
+            }
+            else {
+                _this.stopScrollAnimation();
+                _this.setScrollPosition((_this.scrollLeft || 0) + d);
+            }
+        };
+        _this.initTabList = (_b = (_a = options.tabList) !== null && _a !== void 0 ? _a : options.panelList) !== null && _b !== void 0 ? _b : [];
+        return _this;
+    }
+    TabPanelBar.prototype.isVertical = function () {
+        return this.direction === "vertical";
+    };
+    TabPanelBar.prototype.getDraggingElementSize = function () {
+        if (!this.tabDraggingElement)
+            return 0;
+        var draggingElementSize = this.isVertical() ? this.tabDraggingElement.style.height : this.tabDraggingElement.style.width;
+        return parseInt(draggingElementSize, 10);
+    };
+    TabPanelBar.prototype.tabMouseDown = function (tab, expand, toggle) {
+        if (expand === void 0) { expand = false; }
+        if (toggle === void 0) { toggle = false; }
+        if (expand) {
+            this.expandSelection(tab, toggle);
+        }
+        else {
+            this.anchorTab = null;
+            if (toggle) {
+                this.toggleSelection(tab);
+            }
+            else {
+                this.activateTab(tab, undefined, this.selectedTabs.indexOf(tab) < 0);
+            }
+        }
+    };
+    TabPanelBar.prototype.expandSelection = function (tab, toggle) {
+        var _a;
+        var _this = this;
+        if (toggle === void 0) { toggle = false; }
+        if (!this.anchorTab)
+            this.anchorTab = this.activeTab;
+        var prevSelectedTabs = this.selectedTabs;
+        this.selectedTabs = [];
+        var start = this.tabList.indexOf(this.anchorTab);
+        var end = this.tabList.indexOf(tab);
+        if (end < start) {
+            _a = [end, start], start = _a[0], end = _a[1];
+        }
+        for (var i = start; i <= end; i++) {
+            this.addSelection(this.tabList[i]);
+        }
+        prevSelectedTabs.forEach(function (selectedTab) {
+            if (_this.selectedTabs.indexOf(selectedTab) < 0) {
+                if (!toggle) {
+                    _this.deselectTab(selectedTab);
+                }
+                else {
+                    _this.addSelection(selectedTab);
+                }
+            }
+        });
+        this.activateTab(tab);
+    };
+    TabPanelBar.prototype.toggleSelection = function (tab) {
+        var index = this.selectedTabs.indexOf(tab);
+        if (index < 0) {
+            this.activateTab(tab);
+        }
+        else if (tab !== this.activeTab) {
+            this.removeSelection(tab);
+        }
+    };
+    TabPanelBar.prototype.addSelection = function (tab) {
+        if (this.selectedTabs.indexOf(tab) < 0) {
+            this.selectTab(tab);
+            this.selectedTabs.push(tab);
+        }
+    };
+    TabPanelBar.prototype.selectTab = function (tab) {
+        tab.element.classList.add("selected");
+    };
+    TabPanelBar.prototype.deselectTab = function (tab) {
+        tab.element.classList.remove("selected");
+    };
+    TabPanelBar.prototype.removeSelection = function (tab) {
+        if (this.selectedTabs.indexOf(tab) < 0)
+            return;
+        this.deselectTab(tab);
+        this.selectedTabs.splice(this.selectedTabs.indexOf(tab), 1);
+    };
+    TabPanelBar.prototype.removeSelections = function () {
+        var _this = this;
+        this.selectedTabs.forEach(function (selectedTab) {
+            _this.deselectTab(selectedTab);
+        });
+        this.selectedTabs = [];
+    };
+    TabPanelBar.prototype.scrollTabIntoView = function (tab) {
+        var index = this.tabList.indexOf(tab);
+        this.setScrollPosition((index + 1) * this.tabWidth);
+    };
+    TabPanelBar.prototype.activateTab = function (tab, content, removeSelections) {
+        if (removeSelections === void 0) { removeSelections = false; }
+        removeSelections && this.removeSelections();
+        this.activeTabClicked = false;
+        this.addSelection(tab);
+        if (this.activeTab) {
+            if (this.activeTab === tab) {
+                this.activeTabClicked = true;
+                return;
+            }
+            if (this.activeTabHistory.indexOf(this.activeTab) >= 0)
+                this.activeTabHistory.splice(this.activeTabHistory.indexOf(this.activeTab), 1);
+            this.activeTabHistory.push(this.activeTab);
+            this.activeTab.deactivate();
+        }
+        tab.activate();
+        this.activeTab = tab;
+        this.configure();
+    };
+    TabPanelBar.prototype.removeTab = function (tab) {
+        if (tab === this.activeTab)
+            this.activeTab = undefined;
+        var index = this.tabList.indexOf(tab);
+        if (index >= 0)
+            this.tabList.splice(index, 1);
+        tab.parent = undefined;
+    };
+    TabPanelBar.prototype.activatePrevious = function (index) {
+        if (this.tabList.length) {
+            var tab = this.tabList[index - 1] || this.tabList[this.tabList.length - 1];
+            this.activateTab(tab);
+        }
+    };
+    TabPanelBar.prototype.addTab = function (tab, index, content) {
+        if (!tab.element)
+            tab.render();
+        tab.parent = this;
+        if (index === undefined || index === null || index >= this.tabList.length) {
+            this.tabContainer.appendChild(tab.element);
+            this.tabList.push(tab);
+        }
+        else {
+            this.tabContainer.insertBefore(tab.element, this.tabContainer.childNodes[index]);
+            this.tabList.splice(index, 0, tab);
+        }
+        if (tab.active)
+            this.activateTab(tab, content, true);
+        this.configure();
+        return tab;
+    };
+    TabPanelBar.prototype.setScrollPosition = function (scrollLeft) {
+        this.scrollLeft = scrollLeft;
+        this.configure();
+    };
+    TabPanelBar.prototype.animateScroll = function (v) {
+        var _this = this;
+        this.vX = v / 80;
+        this.animationSteps += 15;
+        if (this.animationSteps > 15) {
+            this.vX *= 1.2 * this.animationSteps / 10;
+            this.animationSteps = 15 + Math.ceil((this.animationSteps - 15) * 0.75);
+        }
+        if (this.animationTimer)
+            return;
+        this.animationTimer = setInterval(function () {
+            if (_this.animationSteps-- <= 0) {
+                return _this.stopScrollAnimation();
+            }
+            var vX = _this.vX;
+            if (Math.abs(_this.vX) < 0.01)
+                vX = 0;
+            vX = 0.9 * vX;
+            var oldScrollLeft = _this.scrollLeft;
+            _this.setScrollPosition(_this.scrollLeft + 10 * vX);
+            if (oldScrollLeft == _this.scrollLeft)
+                _this.animationSteps = 0;
+            _this.vX = vX;
+        }, 10);
+    };
+    TabPanelBar.prototype.stopScrollAnimation = function () {
+        clearInterval(this.animationTimer);
+        this.animationTimer = null;
+        this.animationScrollLeft = null;
+        this.vX = 0;
+    };
+    TabPanelBar.prototype.transform = function (el, dx, dy) {
+        el.style.left = Math.round(dx) + "px";
+        el.dx = dx;
+        el.dy = dy;
+    };
+    TabPanelBar.prototype.startTabDragging = function (element, index) {
+        if (this.isDragging)
+            return;
+        this.tabDraggingElement = element;
+        this.draggingElementIndex = index;
+        this.configure();
+        this.isDragging = true;
+    };
+    TabPanelBar.prototype.finishTabDragging = function () {
+        var _this = this;
+        this.draggingElementIndex = undefined;
+        this.tabDraggingElement = undefined;
+        if (this.activeTabHistory.length) {
+            var removedHistoryTabs = [];
+            for (var i = 0; i < this.activeTabHistory.length; i++) {
+                if (this.tabList.indexOf(this.activeTabHistory[i]) < 0) {
+                    removedHistoryTabs.push(this.activeTabHistory[i]);
+                }
+            }
+            removedHistoryTabs.forEach(function (tab) {
+                var index = _this.activeTabHistory.indexOf(tab);
+                if (index >= 0) {
+                    _this.activeTabHistory.splice(index, 1);
+                }
+            });
+        }
+        this.configure();
+        this.isDragging = false;
+    };
+    TabPanelBar.prototype.toJSON = function () {
+        return {
+            tabList: this.tabList.map(function (tab) { return tab.toJSON(); }),
+            scrollLeft: this.scrollLeft
+        };
+    };
+    return TabPanelBar;
+}(toolbar_1.Toolbar));
+exports.TabPanelBar = TabPanelBar;
+
+
+/***/ }),
+
+/***/ 6319:
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1415247__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Toolbar = void 0;
+var lib_1 = __nested_webpack_require_1415247__(3723);
+var Toolbar = /** @class */ (function () {
+    function Toolbar(options) {
+        this.direction = (options === null || options === void 0 ? void 0 : options.direction) || "horizontal";
+        this.size = (options === null || options === void 0 ? void 0 : options.size) || 27; //TODO
+        this.position = options === null || options === void 0 ? void 0 : options.position;
+    }
+    Toolbar.prototype.setBox = function (x, y, w, h) {
+        lib_1.Utils.setBox(this.element, x, y, w, h);
+    };
+    return Toolbar;
+}());
+exports.Toolbar = Toolbar;
 
 
 /***/ }),
@@ -40096,7 +40324,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_1412565__(moduleId) {
+/******/ 	function __nested_webpack_require_1425888__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -40110,24 +40338,24 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_1412565__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_1425888__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_1412565__.m = __webpack_modules__;
+/******/ 	__nested_webpack_require_1425888__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_1412565__.n = (module) => {
+/******/ 		__nested_webpack_require_1425888__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_1412565__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_1425888__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -40135,9 +40363,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_1412565__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_1425888__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_1412565__.o(definition, key) && !__nested_webpack_require_1412565__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_1425888__.o(definition, key) && !__nested_webpack_require_1425888__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -40146,13 +40374,13 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1412565__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_1425888__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_1412565__.r = (exports) => {
+/******/ 		__nested_webpack_require_1425888__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -40162,7 +40390,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1412565__.b = document.baseURI || self.location.href;
+/******/ 		__nested_webpack_require_1425888__.b = document.baseURI || self.location.href;
 /******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
@@ -40188,7 +40416,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1412565__.nc = undefined;
+/******/ 		__nested_webpack_require_1425888__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -40196,11 +40424,12 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_1412565__(4432);
-/******/ 	module.exports = __webpack_exports__;
+/******/ 	var __webpack_exports__ = __nested_webpack_require_1425888__(4432);
 /******/ 	
+/******/ 	return __webpack_exports__;
 /******/ })()
 ;
+});
 //# sourceMappingURL=bundle.index.js.map
 
 /***/ }),
@@ -40377,6 +40606,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
+  "Mu": () => (/* binding */ createRollbackButton),
   "KM": () => (/* binding */ createRunButton),
   "UV": () => (/* binding */ initTabs),
   "jQ": () => (/* binding */ runSample)
@@ -40451,16 +40681,16 @@ function pathToTitle(path) {
 }
 
 ;// CONCATENATED MODULE: ./src/layouts/two-columns-bottom.json
-const two_columns_bottom_namespaceObject = JSON.parse('{"main":{"0":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"1":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","active":true,"path":"sample.css"}],"scrollLeft":0}},"1":{"type":"pane","tabBar":{"tabList":[{"title":"HTML","active":true,"path":"sample.html"}],"scrollLeft":0}},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false},"ratio":0.5,"type":"vbox","fixedSize":null,"hidden":false},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false}}');
+const two_columns_bottom_namespaceObject = JSON.parse('{"0":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"1":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","active":true,"path":"sample.css"}],"scrollLeft":0}},"1":{"type":"pane","tabBar":{"tabList":[{"title":"HTML","active":true,"path":"sample.html"}],"scrollLeft":0}},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false},"ratio":0.5,"type":"vbox","fixedSize":null,"hidden":false},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false}');
 var layouts_two_columns_bottom_namespaceObject = /*#__PURE__*/__webpack_require__.t(two_columns_bottom_namespaceObject, 2);
 ;// CONCATENATED MODULE: ./src/layouts/three-rows.json
-const three_rows_namespaceObject = JSON.parse('{"main":{"0":{"0":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"1":{"type":"pane","tabBar":{"tabList":[{"title":"HTML","active":true,"path":"sample.html"}],"scrollLeft":0}},"ratio":0.5854125901267062,"type":"vbox","fixedSize":null,"hidden":false},"1":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","active":true,"path":"sample.css"}],"scrollLeft":0}},"ratio":0.7420322161481484,"type":"vbox","fixedSize":null,"hidden":false},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false}}');
+const three_rows_namespaceObject = JSON.parse('{"0":{"0":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"1":{"type":"pane","tabBar":{"tabList":[{"title":"HTML","active":true,"path":"sample.html"}],"scrollLeft":0}},"ratio":0.5854125901267062,"type":"vbox","fixedSize":null,"hidden":false},"1":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","active":true,"path":"sample.css"}],"scrollLeft":0}},"ratio":0.7420322161481484,"type":"vbox","fixedSize":null,"hidden":false},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false}');
 var layouts_three_rows_namespaceObject = /*#__PURE__*/__webpack_require__.t(three_rows_namespaceObject, 2);
 ;// CONCATENATED MODULE: ./src/layouts/single.json
-const single_namespaceObject = JSON.parse('{"main":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","path":"sample.css"},{"title":"HTML","path":"sample.html"},{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false}}');
+const single_namespaceObject = JSON.parse('{"0":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","path":"sample.css"},{"title":"HTML","path":"sample.html"},{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false}');
 var layouts_single_namespaceObject = /*#__PURE__*/__webpack_require__.t(single_namespaceObject, 2);
 ;// CONCATENATED MODULE: ./src/layouts/three-columns.json
-const three_columns_namespaceObject = JSON.parse('{"main":{"0":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"1":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","active":true,"path":"sample.css"}],"scrollLeft":0}},"1":{"type":"pane","tabBar":{"tabList":[{"title":"HTML","active":true,"path":"sample.html"}],"scrollLeft":0}},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false},"ratio":0.33,"type":"hbox","fixedSize":null,"hidden":false},"ratio":0.33,"type":"hbox","fixedSize":null,"hidden":false}}');
+const three_columns_namespaceObject = JSON.parse('{"0":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"JavaScript","active":true,"path":"sample.js"}],"scrollLeft":0}},"1":{"0":{"type":"pane","tabBar":{"tabList":[{"title":"CSS","active":true,"path":"sample.css"}],"scrollLeft":0}},"1":{"type":"pane","tabBar":{"tabList":[{"title":"HTML","active":true,"path":"sample.html"}],"scrollLeft":0}},"ratio":0.5,"type":"hbox","fixedSize":null,"hidden":false},"ratio":0.33,"type":"hbox","fixedSize":null,"hidden":false},"ratio":0.33,"type":"hbox","fixedSize":null,"hidden":false}');
 var layouts_three_columns_namespaceObject = /*#__PURE__*/__webpack_require__.t(three_columns_namespaceObject, 2);
 ;// CONCATENATED MODULE: ./src/layouts/layouts.ts
 
@@ -40522,11 +40752,15 @@ function addMenu(callback) {
     position = 0;
     Object.keys(Layouts).forEach(function (i) {
         var changeLayout = function () {
-            var currentTabManager = bundle_index.TabManager.getInstance();
-            currentTabManager.setState(Layouts[i]);
+            var storage = {};
+            var tabManager = bundle_index.TabManager.getInstance();
+            tabManager.saveTo(storage);
+            tabManager.tabs = {}; //TODO tabManager.clear();
+            tabManager.setContainerState("main", Layouts[i]);
             initTabs();
-            var button = createRunButton();
-            currentTabManager === null || currentTabManager === void 0 ? void 0 : currentTabManager.containers["main"].addButtons(button);
+            tabManager.restoreFrom(storage);
+            createRollbackButton();
+            createRunButton();
             runSample();
         };
         menuManager.addByPath(root + '/' + i, { position: position, exec: changeLayout });
@@ -40553,10 +40787,11 @@ var playground_event = __webpack_require__(989);
 var HashHandler = (__webpack_require__(116)/* .HashHandler */ .q);
 var keyUtil = __webpack_require__(797);
 var editorBox, exampleBox, consoleBox;
+var currentPath;
 document.body.innerHTML = "";
 var base = new bundle_index.Box({
     toolBars: {
-        top: new bundle_index.MenuToolBar(),
+        top: new bundle_index.MenuToolbar(),
     },
     vertical: false,
     0: new bundle_index.Box({
@@ -40568,17 +40803,12 @@ var base = new bundle_index.Box({
                 ratio: 1,
                 size: 100,
                 isMain: true,
-                buttonList: [{
-                        class: "consoleCloseBtn", title: "F6", onclick: function () {
-                            consoleBox.hide();
-                        }
-                    }],
             }),
         })
     }),
 });
 new bundle_index.AceLayout(base);
-addMenu(loadSample);
+addMenu(setSample);
 var worker = new Worker(new URL(/* worker import */ __webpack_require__.p + __webpack_require__.u(979), __webpack_require__.b));
 var languageProvider = ace_linters.LanguageProvider.create(worker);
 request('ace.d.ts').then(function (response) {
@@ -40609,19 +40839,27 @@ var onResize = function () {
 };
 window.onresize = onResize;
 document.body.appendChild(base.element);
-var tabManager = window["tabManager"] = bundle_index.TabManager.getInstance({
+var tabManager = bundle_index.TabManager.getInstance({
     containers: {
         main: editorBox,
         example: exampleBox,
         console: consoleBox,
     }
 });
-tabManager.setState(layouts_two_columns_bottom_namespaceObject);
+tabManager.setState({ "main": layouts_two_columns_bottom_namespaceObject });
+consoleBox.renderButtons([{
+        class: "consoleCloseBtn",
+        title: "F6",
+        onclick: function () {
+            consoleBox.hide();
+        },
+        content: "x"
+    }]);
 onResize();
+window.onpopstate = function () {
+    loadHashSample();
+};
 var allSamples = Object.values(SAMPLES).reduce(function (prev, curr) { return prev.concat(curr.map(function (path) { return path.toLowerCase(); })); }, []);
-var hashSample = new URL(document.URL).hash.replace("#", "");
-if (!allSamples.includes(hashSample))
-    hashSample = "hello-world";
 var tabCSS, tabHTML, tabJs;
 var menuKb = new HashHandler([
     {
@@ -40648,7 +40886,25 @@ function initTabs() {
     tabHTML = getTab("HTML", "sample.html");
     tabJs = getTab("JavaScript", "sample.js");
 }
-loadSample('samples/' + hashSample);
+var hashSample;
+function loadHashSample() {
+    hashSample = new URL(document.URL).hash.replace("#", "");
+    setSample('samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world"));
+}
+loadHashSample();
+function createRollbackButton() {
+    var button = document.createElement("button");
+    button.textContent = "Rollback";
+    button.style.marginLeft = "auto";
+    button.style.marginRight = "5px";
+    button.setAttribute('title', 'Rollback to default sample');
+    button.onclick = function () {
+        localStorage[currentPath] = null;
+        initTabs();
+        loadSample(currentPath);
+    };
+    editorBox.addButton(button);
+}
 function createRunButton() {
     var button = document.createElement("button");
     button.textContent = "Run";
@@ -40656,7 +40912,7 @@ function createRunButton() {
     button.style.marginRight = "5px";
     button.setAttribute('title', 'Ctrl+Enter');
     button.onclick = runSample;
-    return button;
+    editorBox.addButton(button);
 }
 function runSample() {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue());
@@ -40679,13 +40935,41 @@ bundle_index.CommandManager.registerCommands([{
         },
         exec: runSample
     }]);
-var playground_button = createRunButton();
-editorBox.addButtons(playground_button);
-function loadSample(path) {
-    var url = new URL(document.URL);
-    url.hash = path.split("/").pop();
-    document.location.href = url.href;
+createRollbackButton();
+createRunButton();
+function setSample(path) {
+    saveSample();
+    var hash = path.split("/").pop();
+    if (hash != hashSample) {
+        var url = new URL(document.URL);
+        url.hash = hash;
+        document.location.href = url.href;
+    }
     initTabs();
+    if (localStorage[path]) {
+        restoreSample(path);
+    }
+    else {
+        loadSample(path);
+    }
+    currentPath = path;
+}
+function restoreSample(path) {
+    var storage = JSON.parse(localStorage[path]);
+    tabManager.restoreFrom(storage);
+    runSample();
+}
+function saveSample() {
+    if (!currentPath)
+        return;
+    var storage = {};
+    tabManager.saveTo(storage);
+    localStorage[currentPath] = JSON.stringify(storage);
+}
+window.onbeforeunload = function () {
+    saveSample();
+};
+function loadSample(path) {
     var js = request(path + '/sample.js').then(function (response) {
         return response.responseText;
     });
@@ -40696,9 +40980,9 @@ function loadSample(path) {
         return response.responseText;
     });
     Promise.all([js, css, html]).then(function (samples) {
-        tabManager.loadFile(tabCSS, samples[1]);
-        tabManager.loadFile(tabHTML, samples[2]);
-        tabManager.loadFile(tabJs, "//".concat(pathToTitle(path), "\n\n") + samples[0]);
+        tabJs.session.setValue("//".concat(pathToTitle(path), "\n\n") + samples[0]);
+        tabCSS.session.setValue(samples[1]);
+        tabHTML.session.setValue(samples[2]);
         runSample();
     }, function (err) {
         displayError(err);
@@ -40715,7 +40999,6 @@ function displayError(errorMessage) {
     terminal.session.setValue(errorMessage);
     tabManager.loadFile(terminal);
 }
-consoleBox.addButtons();
 
 })();
 
