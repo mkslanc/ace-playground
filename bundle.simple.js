@@ -40606,6 +40606,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
+  "U4": () => (/* binding */ createCloseConsoleButton),
   "Mu": () => (/* binding */ createRollbackButton),
   "KM": () => (/* binding */ createRunButton),
   "UV": () => (/* binding */ initTabs),
@@ -40755,12 +40756,12 @@ function addMenu(callback) {
             var storage = {};
             var tabManager = bundle_index.TabManager.getInstance();
             tabManager.saveTo(storage);
-            tabManager.tabs = {}; //TODO tabManager.clear();
-            tabManager.setContainerState("main", Layouts[i]);
+            tabManager.setState({ "main": Layouts[i] });
             initTabs();
             tabManager.restoreFrom(storage);
             createRollbackButton();
             createRunButton();
+            createCloseConsoleButton();
             runSample();
         };
         menuManager.addByPath(root + '/' + i, { position: position, exec: changeLayout });
@@ -40847,14 +40848,6 @@ var tabManager = bundle_index.TabManager.getInstance({
     }
 });
 tabManager.setState({ "main": layouts_two_columns_bottom_namespaceObject });
-consoleBox.renderButtons([{
-        class: "consoleCloseBtn",
-        title: "F6",
-        onclick: function () {
-            consoleBox.hide();
-        },
-        content: "x"
-    }]);
 onResize();
 window.onpopstate = function () {
     loadHashSample();
@@ -40914,6 +40907,16 @@ function createRunButton() {
     button.onclick = runSample;
     editorBox.addButton(button);
 }
+function createCloseConsoleButton() {
+    consoleBox.renderButtons([{
+            class: "consoleCloseBtn",
+            title: "F6",
+            onclick: function () {
+                consoleBox.hide();
+            },
+            content: "x"
+        }]);
+}
 function runSample() {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue());
     var previewTab = tabManager.open({
@@ -40937,6 +40940,7 @@ bundle_index.CommandManager.registerCommands([{
     }]);
 createRollbackButton();
 createRunButton();
+createCloseConsoleButton();
 function setSample(path) {
     saveSample();
     var hash = path.split("/").pop();
