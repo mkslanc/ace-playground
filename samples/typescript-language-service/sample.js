@@ -3,8 +3,7 @@ ace.require("ace/ext/language_tools");
 let editor = ace.edit("example", {
     theme: "ace/theme/textmate",
     mode: "ace/mode/typescript",
-    value: "console.log('Hello world' ;",
-    useWorker: false
+    value: "console.log('Hello world' ;"
 });
 // enable autocompletion and snippets
 editor.setOptions({
@@ -13,40 +12,9 @@ editor.setOptions({
     enableLiveAutocompletion: true
 });
 
-function $workerBlob(script) {
-    return new Blob([script.toString()], {"type": "application/javascript"});
-}
+//create Language Provider for json doc from ace linters
 
-function createWorker(script) {
-    if (typeof Worker == "undefined") return {
-        postMessage: function () {
-        },
-        terminate: function () {
-        }
-    };
-
-    var blob = $workerBlob(script);
-    var URL = window.URL || window.webkitURL;
-    var blobURL = URL.createObjectURL(blob);
-    // calling URL.revokeObjectURL before worker is terminated breaks it on IE Edge
-    return new Worker(blobURL);
-}
-
-let worker = createWorker("!" + function () {
-    importScripts("https://cdn.jsdelivr.net/npm/ace-linters/build/service-manager.js");
-    let manager = new ServiceManager(self);
-    manager.registerService("typescript", {
-        module: () => {
-            importScripts("https://cdn.jsdelivr.net/npm/ace-linters/build/typescript-service.js");
-            return {TypescriptService};
-        },
-        className: "TypescriptService",
-        modes: "typescript|javascript|tsx|jsx"
-    });
-
-} + "();");
-
-let languageProvider = LanguageProvider.create(worker);
+let provider = LanguageProvider.fromCdn("https://cdn.jsdelivr.net/npm/ace-linters/build");
 
 // Register the editor with the language provider
-languageProvider.registerEditor(editor);
+provider.registerEditor(editor);
