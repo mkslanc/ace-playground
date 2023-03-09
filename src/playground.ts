@@ -58,7 +58,20 @@ request('ace.d.ts').then(function (response: XMLHttpRequest) {
 
 function correctDeclaration(declaration) {
     return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
-        .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}";
+            .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}" +
+        `\ndeclare class LanguageProvider {
+    private $activeEditor;
+    private $descriptionTooltip;
+    private readonly $markdownConverter;
+    private readonly $messageController;
+    private $sessionLanguageProviders;
+    private $editors;
+    static fromCdn(cdnUrl: string): LanguageProvider;
+    registerEditor(editor: Ace.Editor)
+    setOptions(session: Ace.EditSession, options);
+    setGlobalOptions(serviceName, options, merge?:boolean)
+}
+`;
 }
 
 editorBox.on("editorAdded", (editor: LayoutEditor) => {
