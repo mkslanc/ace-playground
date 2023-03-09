@@ -40828,7 +40828,8 @@ request('ace.d.ts').then(function (response) {
 });
 function correctDeclaration(declaration) {
     return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
-        .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}";
+        .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}" +
+        "\ndeclare class LanguageProvider {\n    private $activeEditor;\n    private $descriptionTooltip;\n    private readonly $markdownConverter;\n    private readonly $messageController;\n    private $sessionLanguageProviders;\n    private $editors;\n    static fromCdn(cdnUrl: string): LanguageProvider;\n    registerEditor(editor: Ace.Editor)\n    setOptions(session: Ace.EditSession, options);\n    setGlobalOptions(serviceName, options, merge?:boolean)\n}\n";
 }
 editorBox.on("editorAdded", function (editor) {
     if (editor instanceof bundle_index.AceEditor)

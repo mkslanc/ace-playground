@@ -8,7 +8,6 @@ editor.setTheme("ace/theme/tomorrow");
 editor.setOptions({
     enableBasicAutocompletion: true,
     enableLiveAutocompletion: true,
-    useWorker: false,
     value: "{\n  \"name\": \"Jo\"\n}"
 });
 
@@ -41,43 +40,9 @@ var jsonSchema = `{
 }
 `;
 
-function $workerBlob(script) {
-    return new Blob([script.toString()], {"type": "application/javascript"});
-}
-
-function createWorker(script) {
-    if (typeof Worker == "undefined") return {
-        postMessage: function () {
-        },
-        terminate: function () {
-        }
-    };
-
-    var blob = $workerBlob(script);
-    var URL = window.URL || window.webkitURL;
-    var blobURL = URL.createObjectURL(blob);
-    // calling URL.revokeObjectURL before worker is terminated breaks it on IE Edge
-    return new Worker(blobURL);
-}
-
-let worker = createWorker("!" + function () {
-    importScripts("https://cdn.jsdelivr.net/npm/ace-linters/build/service-manager.js");
-    let manager = new ServiceManager(self);
-    manager.registerService("json", {
-        module: () => {
-            importScripts("https://cdn.jsdelivr.net/npm/ace-linters/build/json-service.js");
-            return {JsonService};
-        },
-        className: "JsonService",
-        modes: "json|json5"
-    });
-
-} + "();");
-
-
 //create Language Provider for json doc from ace linters
 
-let provider = LanguageProvider.create(worker);
+let provider = LanguageProvider.fromCdn("https://cdn.jsdelivr.net/npm/ace-linters/build");
 
 //link schema to json service
 provider.setGlobalOptions("json", {
