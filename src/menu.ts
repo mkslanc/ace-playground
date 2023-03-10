@@ -2,7 +2,7 @@ import {MenuManager, TabManager, CommandManager} from "ace-layout";
 import {SAMPLES} from "./samples";
 import {pathToTitle} from "./utils";
 import {Layouts} from "./layouts/layouts";
-import {createCloseConsoleButton, createRollbackButton, createRunButton, initTabs, runSample} from "./playground";
+import {createButtons, initTabs, runSample} from "./playground";
 
 export function addMenu(callback) {
     let menuManager = MenuManager.getInstance();
@@ -54,9 +54,7 @@ export function addMenu(callback) {
             initTabs();
             tabManager.restoreFrom(storage);
 
-            createRollbackButton();
-            createRunButton();
-            createCloseConsoleButton();
+            createButtons();
             runSample();
         };
         menuManager.addByPath(root + '/' + i, {position: position, exec: changeLayout});
