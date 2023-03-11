@@ -13,7 +13,7 @@ let keyUtil = require("ace-code/src/lib/keys");
 
 let editorBox: Box, exampleBox: Box, consoleBox: Box;
 
-let currentPath: string;
+let currentPath: string | undefined;
 
 document.body.innerHTML = "";
 let base = new Box({
@@ -137,26 +137,34 @@ export function initTabs() {
 let hashSample;
 function loadHashSample() {
     hashSample = new URL(document.URL).hash.replace("#", "");
-    setSample('samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world"));
+    let path = 'samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world");
+    let value = new URL(document.URL).searchParams.get("value");
+    if (value) {
+        try {
+            localStorage[path] = window.atob(value);
+        } catch (e) {}
+    }
+
+    setSample(path);
 }
 
 loadHashSample();
 
-export function createRollbackButton() {
+function createRollbackButton() {
     let button = document.createElement("button");
     button.textContent = "Rollback";
     button.style.marginLeft = "auto";
     button.style.marginRight = "5px";
     button.setAttribute('title', 'Rollback to default sample');
     button.onclick = function () {
-        localStorage[currentPath] = null;
+        localStorage[currentPath!] = null;
         initTabs();
-        loadSample(currentPath);
+        loadSample(currentPath!);
     };
     editorBox.addButton(button);
 }
 
-export function createRunButton() {
+function createRunButton() {
     let button = document.createElement("button");
     button.textContent = "Run";
     button.style.marginLeft = "auto";
@@ -166,7 +174,22 @@ export function createRunButton() {
     editorBox.addButton(button);
 }
 
-export function createCloseConsoleButton() {
+function createCopyLinkButton() {
+    let button = document.createElement("button");
+    button.textContent = "Copy link";
+    button.style.marginLeft = "auto";
+    button.style.marginRight = "5px";
+    button.setAttribute('title', 'Copy link');
+    button.onclick = function () {
+        saveSample();
+        let url = new URL(document.URL);
+        url.searchParams.set("value", window.btoa(localStorage[currentPath!]));
+        navigator.clipboard.writeText(url.toString()).then(r => {});
+    };
+    editorBox.addButton(button);
+}
+
+function createCloseConsoleButton() {
     consoleBox.renderButtons([{
         class: "consoleCloseBtn",
         title: "F6",
@@ -175,6 +198,13 @@ export function createCloseConsoleButton() {
         },
         content: "x"
     }]);
+}
+
+export function createButtons() {
+    createRollbackButton();
+    createCopyLinkButton();
+    createRunButton();
+    createCloseConsoleButton();
 }
 
 export function runSample() {
@@ -188,7 +218,7 @@ export function runSample() {
     if (!window.onmessage) window.onmessage = (e) => {
         displayError(e.data);
     }
-    previewTab.editor.setSession(previewTab, html);
+    previewTab.editor!.setSession(previewTab, html);
 }
 
 CommandManager.registerCommands([{
@@ -199,17 +229,16 @@ CommandManager.registerCommands([{
     exec: runSample
 }]);
 
-createRollbackButton();
-createRunButton();
-createCloseConsoleButton();
+createButtons();
 
-function setSample(path) {
+function setSample(path: string) {
     saveSample();
 
-    let hash = path.split("/").pop();
+    let hash = path.split("/").pop()!;
     if (hash != hashSample) {
         let url = new URL(document.URL);
         url.hash = hash;
+        url.searchParams.set("value", "");
         document.location.href = url.href;
     }
 
@@ -244,7 +273,7 @@ window.onbeforeunload = function () {
     saveSample();
 }
 
-function loadSample(path) {
+function loadSample(path: string) {
     let js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });

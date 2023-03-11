@@ -9,7 +9,8 @@
     "moduleResolution": "node",
     "lib": ["dom", "dom.iterable", "esnext"],
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "strictNullChecks": true
   },
   "include": [
     "./src/**/*"

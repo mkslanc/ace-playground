@@ -1,5 +1,5 @@
 export function request(url) {
-    var req: XMLHttpRequest = null;
+    let req: XMLHttpRequest;
     return new Promise(
         function (callback, error) {
             req = new XMLHttpRequest();
