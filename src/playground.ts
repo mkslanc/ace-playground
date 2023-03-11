@@ -139,8 +139,12 @@ function loadHashSample() {
     hashSample = new URL(document.URL).hash.replace("#", "");
     let path = 'samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world");
     let value = new URL(document.URL).searchParams.get("value");
-    if (value)
-        localStorage[path] = window.atob(value);
+    if (value) {
+        try {
+            localStorage[path] = window.atob(value);
+        } catch (e) {}
+    }
+
     setSample(path);
 }
 
