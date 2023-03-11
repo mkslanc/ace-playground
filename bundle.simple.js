@@ -40606,9 +40606,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "U4": () => (/* binding */ createCloseConsoleButton),
-  "Mu": () => (/* binding */ createRollbackButton),
-  "KM": () => (/* binding */ createRunButton),
+  "ED": () => (/* binding */ createButtons),
   "UV": () => (/* binding */ initTabs),
   "jQ": () => (/* binding */ runSample)
 });
@@ -40656,7 +40654,7 @@ var SAMPLES = {
 
 ;// CONCATENATED MODULE: ./src/utils.ts
 function request(url) {
-    var req = null;
+    var req;
     return new Promise(function (callback, error) {
         req = new XMLHttpRequest();
         req.onreadystatechange = function () {
@@ -40759,9 +40757,7 @@ function addMenu(callback) {
             tabManager.setState({ "main": Layouts[i] });
             initTabs();
             tabManager.restoreFrom(storage);
-            createRollbackButton();
-            createRunButton();
-            createCloseConsoleButton();
+            createButtons();
             runSample();
         };
         menuManager.addByPath(root + '/' + i, { position: position, exec: changeLayout });
@@ -40883,7 +40879,15 @@ function initTabs() {
 var hashSample;
 function loadHashSample() {
     hashSample = new URL(document.URL).hash.replace("#", "");
-    setSample('samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world"));
+    var path = 'samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world");
+    var value = new URL(document.URL).searchParams.get("value");
+    if (value) {
+        try {
+            localStorage[path] = window.atob(value);
+        }
+        catch (e) { }
+    }
+    setSample(path);
 }
 loadHashSample();
 function createRollbackButton() {
@@ -40908,6 +40912,20 @@ function createRunButton() {
     button.onclick = runSample;
     editorBox.addButton(button);
 }
+function createCopyLinkButton() {
+    var button = document.createElement("button");
+    button.textContent = "Copy link";
+    button.style.marginLeft = "auto";
+    button.style.marginRight = "5px";
+    button.setAttribute('title', 'Copy link');
+    button.onclick = function () {
+        saveSample();
+        var url = new URL(document.URL);
+        url.searchParams.set("value", window.btoa(localStorage[currentPath]));
+        navigator.clipboard.writeText(url.toString()).then(function (r) { });
+    };
+    editorBox.addButton(button);
+}
 function createCloseConsoleButton() {
     consoleBox.renderButtons([{
             class: "consoleCloseBtn",
@@ -40917,6 +40935,12 @@ function createCloseConsoleButton() {
             },
             content: "x"
         }]);
+}
+function createButtons() {
+    createRollbackButton();
+    createCopyLinkButton();
+    createRunButton();
+    createCloseConsoleButton();
 }
 function runSample() {
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue());
@@ -40939,15 +40963,14 @@ bundle_index.CommandManager.registerCommands([{
         },
         exec: runSample
     }]);
-createRollbackButton();
-createRunButton();
-createCloseConsoleButton();
+createButtons();
 function setSample(path) {
     saveSample();
     var hash = path.split("/").pop();
     if (hash != hashSample) {
         var url = new URL(document.URL);
         url.hash = hash;
+        url.searchParams.set("value", "");
         document.location.href = url.href;
     }
     initTabs();
