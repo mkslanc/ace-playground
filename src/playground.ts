@@ -135,14 +135,24 @@ export function initTabs() {
 }
 
 let hashSample;
+let sampleValues: [string, string, string] | undefined;
 function loadHashSample() {
     hashSample = new URL(document.URL).hash.replace("#", "");
     let path = 'samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world");
     let value = new URL(document.URL).searchParams.get("value");
     if (value) {
         try {
-            localStorage[path] = window.atob(value);
+            let data = window.atob(value).split("\\0");
+            if (data.length == 3)
+                sampleValues = data as [string, string, string];
         } catch (e) {}
+    } else {
+        let state = new URL(document.URL).searchParams.get("state");
+        if (state) {
+            try {
+                localStorage[path] = window.atob(state);
+            } catch (e) {}
+        }
     }
 
     setSample(path);
@@ -150,43 +160,43 @@ function loadHashSample() {
 
 loadHashSample();
 
-function createRollbackButton() {
+function createEditorButton(textContent: string, title: string, onclick: () => void) {
     let button = document.createElement("button");
-    button.textContent = "Rollback";
+    button.textContent = textContent;
     button.style.marginLeft = "auto";
     button.style.marginRight = "5px";
-    button.setAttribute('title', 'Rollback to default sample');
-    button.onclick = function () {
+    button.setAttribute('title', title);
+    button.onclick = onclick;
+    editorBox.addButton(button);
+}
+
+function createRollbackButton() {
+    createEditorButton("Rollback", 'Rollback to default sample', function () {
         localStorage[currentPath!] = null;
         initTabs();
         loadSample(currentPath!);
-    };
-    editorBox.addButton(button);
+    });
 }
 
 function createRunButton() {
-    let button = document.createElement("button");
-    button.textContent = "Run";
-    button.style.marginLeft = "auto";
-    button.style.marginRight = "5px";
-    button.setAttribute('title', 'Ctrl+Enter');
-    button.onclick = runSample;
-    editorBox.addButton(button);
+    createEditorButton("Run", "Ctrl+Enter", runSample);
 }
 
 function createCopyLinkButton() {
-    let button = document.createElement("button");
-    button.textContent = "Copy link";
-    button.style.marginLeft = "auto";
-    button.style.marginRight = "5px";
-    button.setAttribute('title', 'Copy link');
-    button.onclick = function () {
+    createEditorButton("Copy link", "Copy link", function () {
+        let url = new URL(document.URL);
+        url.searchParams.set("value", window.btoa([tabJs, tabCSS, tabHTML].map(tab => tab.session.getValue()).join("\\0")));
+        navigator.clipboard.writeText(url.toString()).then(r => {});
+    });
+}
+
+function createCopyStateButton() {
+    createEditorButton("Copy state", "Copy state", function () {
         saveSample();
         let url = new URL(document.URL);
-        url.searchParams.set("value", window.btoa(localStorage[currentPath!]));
+        url.searchParams.set("state", window.btoa(localStorage[currentPath!]));
         navigator.clipboard.writeText(url.toString()).then(r => {});
-    };
-    editorBox.addButton(button);
+    });
 }
 
 function createCloseConsoleButton() {
@@ -203,6 +213,7 @@ function createCloseConsoleButton() {
 export function createButtons() {
     createRollbackButton();
     createCopyLinkButton();
+    // createCopyStateButton();
     createRunButton();
     createCloseConsoleButton();
 }
@@ -238,13 +249,17 @@ function setSample(path: string) {
     if (hash != hashSample) {
         let url = new URL(document.URL);
         url.hash = hash;
-        url.searchParams.set("value", "");
+        url.searchParams.delete("value");
+        url.searchParams.delete("state");
         document.location.href = url.href;
     }
 
     initTabs();
 
-    if (localStorage[path]) {
+    if (sampleValues) {
+        setTabValues(sampleValues);
+        sampleValues = undefined;
+    } else if (localStorage[path]) {
         restoreSample(path);
     } else {
         loadSample(path);
@@ -273,9 +288,17 @@ window.onbeforeunload = function () {
     saveSample();
 }
 
+function setTabValues(samples: [string, string, string]) {
+    tabJs.session.setValue(samples[0]);
+    tabCSS.session.setValue(samples[1]);
+    tabHTML.session.setValue(samples[2]);
+
+    runSample();
+}
+
 function loadSample(path: string) {
     let js = request(path + '/sample.js').then(function (response: XMLHttpRequest) {
-        return response.responseText;
+        return `//${pathToTitle(path)}\n\n` + response.responseText;
     });
     let css = request(path + '/sample.css').then(function (response: XMLHttpRequest) {
         return response.responseText;
@@ -286,11 +309,7 @@ function loadSample(path: string) {
 
     Promise.all([js, css, html]).then(
         function (samples) {
-            tabJs.session.setValue(`//${pathToTitle(path)}\n\n` + samples[0]);
-            tabCSS.session.setValue(samples[1]);
-            tabHTML.session.setValue(samples[2]);
-
-            runSample();
+            setTabValues(samples);
         },
         function (err) {
             displayError(err);
