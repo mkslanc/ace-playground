@@ -142,7 +142,9 @@ function loadHashSample() {
     let value = new URL(document.URL).searchParams.get("value");
     if (value) {
         try {
-            sampleValues = window.atob(value).split("\\0") as [string, string, string];
+            let data = window.atob(value).split("\\0");
+            if (data.length == 3)
+                sampleValues = data as [string, string, string];
         } catch (e) {}
     } else {
         let state = new URL(document.URL).searchParams.get("state");
