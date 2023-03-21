@@ -6,7 +6,8 @@ import * as defaultLayout from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/src/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
 import {LanguageProvider} from "ace-linters";
-import {LayoutEditor} from "../../ace-layout/src/widgets/widget";
+import {LayoutEditor} from "ace-layout/src/widgets/widget";
+
 let event = require("ace-code/src/lib/event");
 let {HashHandler} = require("ace-code/src/keyboard/hash_handler");
 let keyUtil = require("ace-code/src/lib/keys");
@@ -124,6 +125,7 @@ event.addCommandKeyListener(window, function (e, hashId, keyCode) {
         e.preventDefault();
     }
 });
+
 function getTab(title: string, path: string): Tab<Ace.EditSession> {
     return tabManager.open<Ace.EditSession>({title: title, path: path}, "main");
 }
@@ -136,6 +138,7 @@ export function initTabs() {
 
 let hashSample;
 let sampleValues: [string, string, string] | undefined;
+
 function loadHashSample() {
     hashSample = new URL(document.URL).hash.replace("#", "");
     let path = 'samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world");
@@ -145,13 +148,15 @@ function loadHashSample() {
             let data = window.atob(value).split("\\0");
             if (data.length == 3)
                 sampleValues = data as [string, string, string];
-        } catch (e) {}
+        } catch (e) {
+        }
     } else {
         let state = new URL(document.URL).searchParams.get("state");
         if (state) {
             try {
                 localStorage[path] = window.atob(state);
-            } catch (e) {}
+            } catch (e) {
+            }
         }
     }
 
@@ -186,7 +191,8 @@ function createCopyLinkButton() {
     createEditorButton("Copy link", "Copy link", function () {
         let url = new URL(document.URL);
         url.searchParams.set("value", window.btoa([tabJs, tabCSS, tabHTML].map(tab => tab.session.getValue()).join("\\0")));
-        navigator.clipboard.writeText(url.toString()).then(r => {});
+        navigator.clipboard.writeText(url.toString()).then(r => {
+        });
     });
 }
 
@@ -195,7 +201,8 @@ function createCopyStateButton() {
         saveSample();
         let url = new URL(document.URL);
         url.searchParams.set("state", window.btoa(localStorage[currentPath!]));
-        navigator.clipboard.writeText(url.toString()).then(r => {});
+        navigator.clipboard.writeText(url.toString()).then(r => {
+        });
     });
 }
 
@@ -318,12 +325,23 @@ function loadSample(path: string) {
 }
 
 function displayError(errorMessage) {
-    if (typeof errorMessage !== "string") return;
+    let messages = "";
+    if (errorMessage.log) {
+        messages = errorMessage.elements.filter((el) => el != null).map((el) => {
+            if (errorMessage.log == "error" || errorMessage.log == "warning") {
+                return errorMessage.log + ": " + el.error;
+            } else {
+                return errorMessage.log + ": " + el;
+            }
+
+        }).join("\n");
+
+    }
     let terminal = tabManager.open<Ace.EditSession>({
-        title: "Problems",
+        title: "Log",
         path: 'terminal',
         editorType: EditorType.ace
     }, "console");
-    terminal.session.setValue(errorMessage);
+    terminal.session.setValue(messages);
     tabManager.loadFile(terminal);
 }
