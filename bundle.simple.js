@@ -36994,6 +36994,10 @@ var Pane = /** @class */ (function (_super) {
     };
     Pane.prototype.getEditor = function (editorType) {
         if (editorType === void 0) { editorType = params_1.EditorType.ace; }
+        return this.editors[editorType];
+    };
+    Pane.prototype.getOrCreateEditor = function (editorType) {
+        if (editorType === void 0) { editorType = params_1.EditorType.ace; }
         this.initEditor(editorType);
         return this.editor;
     };
@@ -37013,22 +37017,22 @@ exports.Pane = Pane;
 /***/ }),
 
 /***/ 9704:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1289363__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1289555__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AceEditor = void 0;
-var editor_1 = __nested_webpack_require_1289363__(2880);
-var theme = __nested_webpack_require_1289363__(3687);
-var virtual_renderer_1 = __nested_webpack_require_1289363__(3049);
-var ace = __nested_webpack_require_1289363__(9100);
-var modeList = __nested_webpack_require_1289363__(352);
-var javascript_1 = __nested_webpack_require_1289363__(8057);
-var css_1 = __nested_webpack_require_1289363__(8771);
-var html_1 = __nested_webpack_require_1289363__(5528);
-var typescript_1 = __nested_webpack_require_1289363__(3123);
-__nested_webpack_require_1289363__(1105);
+var editor_1 = __nested_webpack_require_1289555__(2880);
+var theme = __nested_webpack_require_1289555__(3687);
+var virtual_renderer_1 = __nested_webpack_require_1289555__(3049);
+var ace = __nested_webpack_require_1289555__(9100);
+var modeList = __nested_webpack_require_1289555__(352);
+var javascript_1 = __nested_webpack_require_1289555__(8057);
+var css_1 = __nested_webpack_require_1289555__(8771);
+var html_1 = __nested_webpack_require_1289555__(5528);
+var typescript_1 = __nested_webpack_require_1289555__(3123);
+__nested_webpack_require_1289555__(1105);
 var AceEditor = /** @class */ (function () {
     function AceEditor() {
         this.editor = new editor_1.Editor(new virtual_renderer_1.VirtualRenderer(null, theme));
@@ -37170,7 +37174,7 @@ exports.PreviewEditor = PreviewEditor;
 /***/ }),
 
 /***/ 5765:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1294788__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1294980__) {
 
 "use strict";
 
@@ -37198,8 +37202,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Button = void 0;
-var dom_1 = __nested_webpack_require_1294788__(5079);
-var buttonCSS = __nested_webpack_require_1294788__(183);
+var dom_1 = __nested_webpack_require_1294980__(5079);
+var buttonCSS = __nested_webpack_require_1294980__(183);
 dom_1.dom.importCssString(buttonCSS, "button.css");
 var Button = /** @class */ (function () {
     function Button(options) {
@@ -37240,7 +37244,7 @@ exports.Button = Button;
 /***/ }),
 
 /***/ 6087:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1297663__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1297855__) {
 
 "use strict";
 
@@ -37268,10 +37272,10 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Dropdown = void 0;
-var lib_1 = __nested_webpack_require_1297663__(3723);
-var dom_1 = __nested_webpack_require_1297663__(5079);
-var dropdownCSS = __nested_webpack_require_1297663__(8638);
-var menuCSS = __nested_webpack_require_1297663__(3694);
+var lib_1 = __nested_webpack_require_1297855__(3723);
+var dom_1 = __nested_webpack_require_1297855__(5079);
+var dropdownCSS = __nested_webpack_require_1297855__(8638);
+var menuCSS = __nested_webpack_require_1297855__(3694);
 dom_1.dom.importCssString(dropdownCSS, "dropdown.css");
 dom_1.dom.importCssString(menuCSS, "menu.css");
 var DEFAULT_WIDTH = 200;
@@ -37579,13 +37583,13 @@ var Popup = /** @class */ (function () {
 /***/ }),
 
 /***/ 2061:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1310512__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1310704__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SettingsSearchBox = void 0;
-var dom_1 = __nested_webpack_require_1310512__(5079);
+var dom_1 = __nested_webpack_require_1310704__(5079);
 var SettingsSearchBox = /** @class */ (function () {
     function SettingsSearchBox(prefsParentNode) {
         this.hideFiltered = false;
@@ -37710,7 +37714,7 @@ exports.SettingsSearchBox = SettingsSearchBox;
 /***/ }),
 
 /***/ 3208:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1315373__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1315565__) {
 
 "use strict";
 
@@ -37738,8 +37742,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Switcher = void 0;
-var dom_1 = __nested_webpack_require_1315373__(5079);
-var switcherCSS = __nested_webpack_require_1315373__(923);
+var dom_1 = __nested_webpack_require_1315565__(5079);
+var switcherCSS = __nested_webpack_require_1315565__(923);
 dom_1.dom.importCssString(switcherCSS, "switcher.css");
 var Switcher = /** @class */ (function () {
     function Switcher(options) {
@@ -37773,14 +37777,14 @@ exports.Switcher = Switcher;
 /***/ }),
 
 /***/ 9251:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1317887__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1318079__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AceLayout = void 0;
-var layoutCSS = __nested_webpack_require_1317887__(4646);
-var dom_1 = __nested_webpack_require_1317887__(5079);
+var layoutCSS = __nested_webpack_require_1318079__(4646);
+var dom_1 = __nested_webpack_require_1318079__(5079);
 var AceLayout = /** @class */ (function () {
     function AceLayout(startBox, css) {
         dom_1.dom.importCssString(css !== null && css !== void 0 ? css : layoutCSS, "layout.css");
@@ -37794,7 +37798,7 @@ exports.AceLayout = AceLayout;
 /***/ }),
 
 /***/ 9367:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1318470__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1318662__) {
 
 "use strict";
 
@@ -37815,9 +37819,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MenuSearchBox = exports.MenuPopup = exports.MenuBar = exports.Menu = void 0;
-var lib_1 = __nested_webpack_require_1318470__(3723);
-var dom_1 = __nested_webpack_require_1318470__(5079);
-var menuCSS = __nested_webpack_require_1318470__(3694);
+var lib_1 = __nested_webpack_require_1318662__(3723);
+var dom_1 = __nested_webpack_require_1318662__(5079);
+var menuCSS = __nested_webpack_require_1318662__(3694);
 dom_1.dom.importCssString(menuCSS, "menu.css");
 var Menu = /** @class */ (function () {
     function Menu() {
@@ -38570,16 +38574,16 @@ exports.MenuSearchBox = MenuSearchBox;
 /***/ }),
 
 /***/ 7282:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1349555__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1349747__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MenuItems = exports.MenuManager = void 0;
-var menu_1 = __nested_webpack_require_1349555__(9367);
-var hash_handler_1 = __nested_webpack_require_1349555__(7116);
-var event = __nested_webpack_require_1349555__(7989);
-var keyUtil = __nested_webpack_require_1349555__(1797);
+var menu_1 = __nested_webpack_require_1349747__(9367);
+var hash_handler_1 = __nested_webpack_require_1349747__(7116);
+var event = __nested_webpack_require_1349747__(7989);
+var keyUtil = __nested_webpack_require_1349747__(1797);
 function getPrevSibling(node, conditionFn, parentElement) {
     parentElement = node ? node.parentElement : parentElement;
     var wrapped = false;
@@ -38912,7 +38916,7 @@ exports.MenuItems = MenuItems;
 /***/ }),
 
 /***/ 279:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1363849__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1364041__) {
 
 "use strict";
 
@@ -38933,10 +38937,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Panel = void 0;
-var panelManager_1 = __nested_webpack_require_1363849__(6790);
-var dom_1 = __nested_webpack_require_1363849__(5079);
-var panelCSS = __nested_webpack_require_1363849__(3612);
-var tabPanel_1 = __nested_webpack_require_1363849__(6751);
+var panelManager_1 = __nested_webpack_require_1364041__(6790);
+var dom_1 = __nested_webpack_require_1364041__(5079);
+var panelCSS = __nested_webpack_require_1364041__(3612);
+var tabPanel_1 = __nested_webpack_require_1364041__(6751);
 dom_1.dom.importCssString(panelCSS, "panel.css");
 var Panel = /** @class */ (function (_super) {
     __extends(Panel, _super);
@@ -38985,15 +38989,15 @@ exports.Panel = Panel;
 /***/ }),
 
 /***/ 6790:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1366562__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1366754__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PanelManager = void 0;
-var box_1 = __nested_webpack_require_1366562__(8795);
-var accordion_1 = __nested_webpack_require_1366562__(4563);
-var panelBar_1 = __nested_webpack_require_1366562__(8659);
+var box_1 = __nested_webpack_require_1366754__(8795);
+var accordion_1 = __nested_webpack_require_1366754__(4563);
+var panelBar_1 = __nested_webpack_require_1366754__(8659);
 var PanelManager = /** @class */ (function () {
     function PanelManager(options) {
         this.layout = options.layout;
@@ -39019,11 +39023,12 @@ var PanelManager = /** @class */ (function () {
         return panelBars;
     };
     PanelManager.prototype.setState = function (state) {
-        var panelBars = state.panelBars;
+        var _a;
+        var panelBars = (_a = state.panelBars) !== null && _a !== void 0 ? _a : {};
         var panelBar, panelList, panel;
         var panelBody, panelBodyData;
-        for (var _i = 0, _a = Object.keys(panelBars); _i < _a.length; _i++) {
-            var position = _a[_i];
+        for (var _i = 0, _b = Object.keys(panelBars); _i < _b.length; _i++) {
+            var position = _b[_i];
             panelList = [];
             var tabList = panelBars[position].tabList;
             for (var i = 0; i < tabList.length; i++) {
@@ -39090,7 +39095,7 @@ exports.PanelManager = PanelManager;
 /***/ }),
 
 /***/ 9165:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1370756__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1371008__) {
 
 "use strict";
 
@@ -39111,11 +39116,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Tab = void 0;
-var tabManager_1 = __nested_webpack_require_1370756__(8478);
-var dom_1 = __nested_webpack_require_1370756__(5079);
-var tabCSS = __nested_webpack_require_1370756__(2463);
-var params_1 = __nested_webpack_require_1370756__(3130);
-var tabPanel_1 = __nested_webpack_require_1370756__(6751);
+var tabManager_1 = __nested_webpack_require_1371008__(8478);
+var dom_1 = __nested_webpack_require_1371008__(5079);
+var tabCSS = __nested_webpack_require_1371008__(2463);
+var params_1 = __nested_webpack_require_1371008__(3130);
+var tabPanel_1 = __nested_webpack_require_1371008__(6751);
 dom_1.dom.importCssString(tabCSS, "tab.css");
 var Tab = /** @class */ (function (_super) {
     __extends(Tab, _super);
@@ -39180,6 +39185,10 @@ var Tab = /** @class */ (function (_super) {
         this.element.$host = this;
         return this.element;
     };
+    Tab.prototype.setTitle = function (title) {
+        this.title = title;
+        this.element.getElementsByClassName("tabTitle")[0].innerHTML = title;
+    };
     Object.defineProperty(Tab.prototype, "isActive", {
         get: function () {
             var _a;
@@ -39191,7 +39200,7 @@ var Tab = /** @class */ (function (_super) {
     Object.defineProperty(Tab.prototype, "editor", {
         get: function () {
             var _a;
-            return (_a = this.parent) === null || _a === void 0 ? void 0 : _a.parent.editor;
+            return (_a = this.parent) === null || _a === void 0 ? void 0 : _a.parent.getEditor(this.editorType);
         },
         enumerable: false,
         configurable: true
@@ -39204,21 +39213,21 @@ exports.Tab = Tab;
 /***/ }),
 
 /***/ 8478:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1375036__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1375473__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TabManager = void 0;
-var tabCommands_1 = __nested_webpack_require_1375036__(2656);
-var box_1 = __nested_webpack_require_1375036__(8795);
-var oop = __nested_webpack_require_1375036__(9359);
-var event_emitter_1 = __nested_webpack_require_1375036__(3056);
-var useragent = __nested_webpack_require_1375036__(618);
-var tab_1 = __nested_webpack_require_1375036__(9165);
-var pane_1 = __nested_webpack_require_1375036__(3167);
-var menuManager_1 = __nested_webpack_require_1375036__(7282);
-var commandManager_1 = __nested_webpack_require_1375036__(2583);
+var tabCommands_1 = __nested_webpack_require_1375473__(2656);
+var box_1 = __nested_webpack_require_1375473__(8795);
+var oop = __nested_webpack_require_1375473__(9359);
+var event_emitter_1 = __nested_webpack_require_1375473__(3056);
+var useragent = __nested_webpack_require_1375473__(618);
+var tab_1 = __nested_webpack_require_1375473__(9165);
+var pane_1 = __nested_webpack_require_1375473__(3167);
+var menuManager_1 = __nested_webpack_require_1375473__(7282);
+var commandManager_1 = __nested_webpack_require_1375473__(2583);
 var newTabCounter = 1;
 var TabManager = /** @class */ (function () {
     function TabManager(options) {
@@ -39397,7 +39406,7 @@ var TabManager = /** @class */ (function () {
     };
     //TODO: move to separate class
     TabManager.prototype.loadFile = function (tab, fileContent) {
-        var editor = tab.isActive ? tab.editor : tab.parent.parent.getEditor(tab.editorType);
+        var editor = tab.parent.parent.getOrCreateEditor(tab.editorType);
         editor.setSession(tab, fileContent);
     };
     ;
@@ -39463,7 +39472,7 @@ exports.TabPanel = TabPanel;
 /***/ }),
 
 /***/ 2631:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1385171__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1385588__) {
 
 "use strict";
 
@@ -39484,9 +39493,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MenuToolbar = void 0;
-var toolbar_1 = __nested_webpack_require_1385171__(6319);
-var dom_1 = __nested_webpack_require_1385171__(5079);
-var menuManager_1 = __nested_webpack_require_1385171__(7282);
+var toolbar_1 = __nested_webpack_require_1385588__(6319);
+var dom_1 = __nested_webpack_require_1385588__(5079);
+var menuManager_1 = __nested_webpack_require_1385588__(7282);
 var MenuToolbar = /** @class */ (function (_super) {
     __extends(MenuToolbar, _super);
     function MenuToolbar() {
@@ -39521,7 +39530,7 @@ exports.MenuToolbar = MenuToolbar;
 /***/ }),
 
 /***/ 8659:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1387318__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1387735__) {
 
 "use strict";
 
@@ -39542,10 +39551,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PanelBar = void 0;
-var tabPanelBar_1 = __nested_webpack_require_1387318__(9225);
-var dom_1 = __nested_webpack_require_1387318__(5079);
-var tabbar_handler_1 = __nested_webpack_require_1387318__(1966);
-var panel_1 = __nested_webpack_require_1387318__(279);
+var tabPanelBar_1 = __nested_webpack_require_1387735__(9225);
+var dom_1 = __nested_webpack_require_1387735__(5079);
+var tabbar_handler_1 = __nested_webpack_require_1387735__(1966);
+var panel_1 = __nested_webpack_require_1387735__(279);
 var PanelBar = /** @class */ (function (_super) {
     __extends(PanelBar, _super);
     function PanelBar() {
@@ -39631,7 +39640,7 @@ exports.PanelBar = PanelBar;
 /***/ }),
 
 /***/ 3242:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1391952__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1392369__) {
 
 "use strict";
 
@@ -39652,12 +39661,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TabBar = void 0;
-var lib_1 = __nested_webpack_require_1391952__(3723);
-var dom_1 = __nested_webpack_require_1391952__(5079);
-var tabbar_handler_1 = __nested_webpack_require_1391952__(1966);
-var tabManager_1 = __nested_webpack_require_1391952__(8478);
-var tabPanelBar_1 = __nested_webpack_require_1391952__(9225);
-var tab_1 = __nested_webpack_require_1391952__(9165);
+var lib_1 = __nested_webpack_require_1392369__(3723);
+var dom_1 = __nested_webpack_require_1392369__(5079);
+var tabbar_handler_1 = __nested_webpack_require_1392369__(1966);
+var tabManager_1 = __nested_webpack_require_1392369__(8478);
+var tabPanelBar_1 = __nested_webpack_require_1392369__(9225);
+var tab_1 = __nested_webpack_require_1392369__(9165);
 var TabBar = /** @class */ (function (_super) {
     __extends(TabBar, _super);
     function TabBar() {
@@ -39967,7 +39976,7 @@ exports.TabBar = TabBar;
 /***/ }),
 
 /***/ 9225:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1404889__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_1405306__) {
 
 "use strict";
 
@@ -39988,7 +39997,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TabPanelBar = void 0;
-var toolbar_1 = __nested_webpack_require_1404889__(6319);
+var toolbar_1 = __nested_webpack_require_1405306__(6319);
 var TabPanelBar = /** @class */ (function (_super) {
     __extends(TabPanelBar, _super);
     function TabPanelBar(options) {
@@ -40239,13 +40248,13 @@ exports.TabPanelBar = TabPanelBar;
 /***/ }),
 
 /***/ 6319:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1415247__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_1415664__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Toolbar = void 0;
-var lib_1 = __nested_webpack_require_1415247__(3723);
+var lib_1 = __nested_webpack_require_1415664__(3723);
 var Toolbar = /** @class */ (function () {
     function Toolbar(options) {
         this.direction = (options === null || options === void 0 ? void 0 : options.direction) || "horizontal";
@@ -40324,7 +40333,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_1425888__(moduleId) {
+/******/ 	function __nested_webpack_require_1426305__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -40338,24 +40347,24 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_1425888__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_1426305__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_1425888__.m = __webpack_modules__;
+/******/ 	__nested_webpack_require_1426305__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_1425888__.n = (module) => {
+/******/ 		__nested_webpack_require_1426305__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_1425888__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_1426305__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -40363,9 +40372,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_1425888__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_1426305__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_1425888__.o(definition, key) && !__nested_webpack_require_1425888__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_1426305__.o(definition, key) && !__nested_webpack_require_1426305__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -40374,13 +40383,13 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1425888__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_1426305__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_1425888__.r = (exports) => {
+/******/ 		__nested_webpack_require_1426305__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -40390,7 +40399,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1425888__.b = document.baseURI || self.location.href;
+/******/ 		__nested_webpack_require_1426305__.b = document.baseURI || self.location.href;
 /******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
@@ -40416,7 +40425,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_1425888__.nc = undefined;
+/******/ 		__nested_webpack_require_1426305__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -40424,7 +40433,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABR
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_1425888__(4432);
+/******/ 	var __webpack_exports__ = __nested_webpack_require_1426305__(4432);
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()
@@ -40767,11 +40776,133 @@ function addMenu(callback) {
 
 ;// CONCATENATED MODULE: ./src/template.ts
 function generateTemplate(js, html, css) {
-    return "<html>\n<head>\n  <style>\n      html, body {\n          margin: 0;\n          padding: 0;\n          border: 0;\n          font-size: 100%;\n          font: inherit;\n          vertical-align: baseline;\n          height: 100%\n      }\n      ".concat(css, "\n  </style>\n</head>\n<body>\n<script>\nwindow.onerror = (e) => parent.postMessage(e);\n</script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js\"\n></script>\n").concat(html, "\n<script>").concat(js, "</script>\n</body>\n</html>");
+    return "<html>\n<head>\n  <style>\n      html, body {\n          margin: 0;\n          padding: 0;\n          border: 0;\n          font-size: 100%;\n          font: inherit;\n          vertical-align: baseline;\n          height: 100%\n      }\n      ".concat(css, "\n  </style>\n</head>\n<body>\n<script>\n  function wrapConsole(level) {\n    console[level] = (...args) => {\n      parent.postMessage({log: level, elements: args});\n    };\n  }\n  wrapConsole(\"log\");\n  wrapConsole(\"warn\");\n  wrapConsole(\"error\");\n  \n  window.addEventListener(\"error\", e => console.error(e.error));\n\n</script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js\"\n></script>\n").concat(html, "\n<script>").concat(js, "</script>\n</body>\n</html>");
 }
 
 // EXTERNAL MODULE: ./node_modules/ace-linters/build/ace-linters.js
 var ace_linters = __webpack_require__(652);
+;// CONCATENATED MODULE: ./src/linters/linters.ts
+
+
+
+var linters_event = __webpack_require__(989);
+var HashHandler = (__webpack_require__(116)/* .HashHandler */ .q);
+var keyUtil = __webpack_require__(797);
+var languageProvider;
+function requestDeclarations() {
+    request('ace.d.ts').then(function (response) {
+        languageProvider.setGlobalOptions("typescript", {
+            extraLibs: {
+                "ace.d.ts": {
+                    content: correctDeclaration(response.responseText),
+                    version: 1
+                },
+            },
+            compilerOptions: {
+                allowJs: true,
+                checkJs: true
+            }
+        }, true);
+    });
+}
+function correctDeclaration(declaration) {
+    return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
+        .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}" +
+        "\ndeclare class LanguageProvider {\n    private $activeEditor;\n    private $descriptionTooltip;\n    private readonly $markdownConverter;\n    private readonly $messageController;\n    private $sessionLanguageProviders;\n    private $editors;\n    static fromCdn(cdnUrl: string): LanguageProvider;\n    registerEditor(editor: Ace.Editor)\n    setOptions(session: Ace.EditSession, options);\n    setGlobalOptions(serviceName, options, merge?:boolean)\n}\n";
+}
+function registerCommands() {
+    var menuKb = new HashHandler([
+        {
+            bindKey: "Ctrl-Shift-B",
+            name: "format",
+            exec: function () {
+                languageProvider.format();
+            }
+        }
+    ]);
+    linters_event.addCommandKeyListener(window, function (e, hashId, keyCode) {
+        var keyString = keyUtil.keyCodeToString(keyCode);
+        var command = menuKb.findKeyCommand(hashId, keyString);
+        if (command) {
+            command.exec();
+            e.preventDefault();
+        }
+    });
+}
+function registerLanguageProvider(box) {
+    var worker = new Worker(new URL(/* worker import */ __webpack_require__.p + __webpack_require__.u(667), __webpack_require__.b));
+    languageProvider = ace_linters.LanguageProvider.create(worker);
+    requestDeclarations();
+    registerCommands();
+    box.on("editorAdded", function (editor) {
+        if (editor instanceof bundle_index.AceEditor)
+            languageProvider.registerEditor(editor.editor);
+    });
+}
+
+;// CONCATENATED MODULE: ./src/error_handler.ts
+
+function ctorName(obj) {
+    var _a;
+    var ctor = (_a = obj.constructor) === null || _a === void 0 ? void 0 : _a.name;
+    if (ctor)
+        return ctor;
+    var m = /\[object (\w+)\]/.exec(obj + "");
+    return m ? m[1] : null;
+}
+function serialize(val) {
+    var seen = new Set;
+    function inner(val) {
+        if (val instanceof Error)
+            return { error: val.toString(), stack: val.stack };
+        if (typeof val == "function")
+            return { function: val.name || "?" };
+        if (val == null || typeof val != "object")
+            return val;
+        if (seen.has(val))
+            return { cycle: true };
+        seen.add(val);
+        if (Array.isArray(val))
+            return { array: val.map(inner) };
+        var result = { object: Object.create(null), ctor: ctorName(val) };
+        for (var _i = 0, _a = Object.keys(val); _i < _a.length; _i++) {
+            var prop = _a[_i];
+            try {
+                result.object[prop] = inner(val[prop]);
+            }
+            catch (_b) {
+            }
+        }
+        return result;
+    }
+    return inner(val);
+}
+function windowError(e) {
+    var _a;
+    var errorData = e.data;
+    if ((_a = errorData === null || errorData === void 0 ? void 0 : errorData.type) === null || _a === void 0 ? void 0 : _a.startsWith("webpack"))
+        return;
+    var errorMessage = "";
+    if (errorData.log) {
+        var log_1 = errorData.log;
+        errorMessage = errorData.elements.filter(function (el) { return el != null; }).map(function (el) {
+            var element = serialize(el);
+            return log_1 + ": " + (log_1 == "error" || log_1 == "warning" ? element.error : element);
+        }).join("\n");
+    }
+    displayError(errorMessage);
+}
+function displayError(errorMessage) {
+    var tabManager = bundle_index.TabManager.getInstance();
+    var terminal = tabManager.open({
+        title: "Log",
+        path: 'terminal',
+        editorType: bundle_index.EditorType.ace
+    }, "console");
+    terminal.session.setValue(errorMessage);
+    tabManager.loadFile(terminal);
+}
+
 ;// CONCATENATED MODULE: ./src/playground.ts
 
 
@@ -40780,11 +40911,11 @@ var ace_linters = __webpack_require__(652);
 
 
 
-var playground_event = __webpack_require__(989);
-var HashHandler = (__webpack_require__(116)/* .HashHandler */ .q);
-var keyUtil = __webpack_require__(797);
+
 var editorBox, exampleBox, consoleBox;
 var currentPath;
+var serializedTabData = "";
+var previewTab;
 document.body.innerHTML = "";
 var base = new bundle_index.Box({
     toolBars: {
@@ -40797,7 +40928,6 @@ var base = new bundle_index.Box({
             vertical: true,
             0: exampleBox = new bundle_index.Box({ isMain: true }),
             1: consoleBox = new bundle_index.Box({
-                ratio: 1,
                 size: 100,
                 isMain: true,
             }),
@@ -40806,37 +40936,12 @@ var base = new bundle_index.Box({
 });
 new bundle_index.AceLayout(base);
 addMenu(setSample);
-var worker = new Worker(new URL(/* worker import */ __webpack_require__.p + __webpack_require__.u(979), __webpack_require__.b));
-var languageProvider = ace_linters.LanguageProvider.create(worker);
-request('ace.d.ts').then(function (response) {
-    languageProvider.setGlobalOptions("typescript", {
-        extraLibs: {
-            "ace.d.ts": {
-                content: correctDeclaration(response.responseText),
-                version: 1
-            },
-        },
-        compilerOptions: {
-            allowJs: true,
-            checkJs: true
-        }
-    }, true);
-});
-function correctDeclaration(declaration) {
-    return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
-        .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}" +
-        "\ndeclare class LanguageProvider {\n    private $activeEditor;\n    private $descriptionTooltip;\n    private readonly $markdownConverter;\n    private readonly $messageController;\n    private $sessionLanguageProviders;\n    private $editors;\n    static fromCdn(cdnUrl: string): LanguageProvider;\n    registerEditor(editor: Ace.Editor)\n    setOptions(session: Ace.EditSession, options);\n    setGlobalOptions(serviceName, options, merge?:boolean)\n}\n";
-}
-editorBox.on("editorAdded", function (editor) {
-    if (editor instanceof bundle_index.AceEditor)
-        languageProvider.registerEditor(editor.editor);
-});
 base.render();
-var onResize = function () {
-    base.setBox(0, 0, window.innerWidth, window.innerHeight);
-};
-window.onresize = onResize;
 document.body.appendChild(base.element);
+registerLanguageProvider(editorBox);
+function onResize() {
+    base.setBox(0, 0, window.innerWidth, window.innerHeight);
+}
 var tabManager = bundle_index.TabManager.getInstance({
     containers: {
         main: editorBox,
@@ -40844,32 +40949,15 @@ var tabManager = bundle_index.TabManager.getInstance({
         console: consoleBox,
     }
 });
-tabManager.setState({ "main": layouts_two_columns_bottom_namespaceObject });
+var tabState = localStorage.playground_tabs ? JSON.parse(localStorage.playground_tabs) : { "main": layouts_two_columns_bottom_namespaceObject };
+tabManager.setState(tabState);
 onResize();
-window.onpopstate = function () {
-    loadHashSample();
-};
 var allSamples = Object.values(SAMPLES).reduce(function (prev, curr) { return prev.concat(curr.map(function (path) { return path.toLowerCase(); })); }, []);
 var tabCSS, tabHTML, tabJs;
-var menuKb = new HashHandler([
-    {
-        bindKey: "Ctrl-Shift-B",
-        name: "format",
-        exec: function () {
-            languageProvider.format();
-        }
-    }
-]);
-playground_event.addCommandKeyListener(window, function (e, hashId, keyCode) {
-    var keyString = keyUtil.keyCodeToString(keyCode);
-    var command = menuKb.findKeyCommand(hashId, keyString);
-    if (command) {
-        command.exec();
-        e.preventDefault();
-    }
-});
 function getTab(title, path) {
-    return tabManager.open({ title: title, path: path }, "main");
+    var tab = tabManager.open({ title: title, path: path }, "main");
+    onSessionValueChange(tab.session);
+    return tab;
 }
 function initTabs() {
     tabCSS = getTab("CSS", "sample.css");
@@ -40888,7 +40976,8 @@ function loadHashSample() {
             if (data.length == 3)
                 sampleValues = data;
         }
-        catch (e) { }
+        catch (e) {
+        }
     }
     else {
         var state = new URL(document.URL).searchParams.get("state");
@@ -40896,12 +40985,12 @@ function loadHashSample() {
             try {
                 localStorage[path] = window.atob(state);
             }
-            catch (e) { }
+            catch (e) {
+            }
         }
     }
     setSample(path);
 }
-loadHashSample();
 function createEditorButton(textContent, title, onclick) {
     var button = document.createElement("button");
     button.textContent = textContent;
@@ -40921,11 +41010,15 @@ function createRollbackButton() {
 function createRunButton() {
     createEditorButton("Run", "Ctrl+Enter", runSample);
 }
+function serializeTabsData() {
+    return [tabJs, tabCSS, tabHTML].map(function (tab) { return tab.session.getValue(); }).join("\\0");
+}
 function createCopyLinkButton() {
     createEditorButton("Copy link", "Copy link", function () {
         var url = new URL(document.URL);
-        url.searchParams.set("value", window.btoa([tabJs, tabCSS, tabHTML].map(function (tab) { return tab.session.getValue(); }).join("\\0")));
-        navigator.clipboard.writeText(url.toString()).then(function (r) { });
+        url.searchParams.set("value", window.btoa(serializeTabsData()));
+        navigator.clipboard.writeText(url.toString()).then(function (r) {
+        });
     });
 }
 function createCopyStateButton() {
@@ -40933,7 +41026,8 @@ function createCopyStateButton() {
         saveSample();
         var url = new URL(document.URL);
         url.searchParams.set("state", window.btoa(localStorage[currentPath]));
-        navigator.clipboard.writeText(url.toString()).then(function (r) { });
+        navigator.clipboard.writeText(url.toString()).then(function (r) {
+        });
     });
 }
 function createCloseConsoleButton() {
@@ -40954,18 +41048,18 @@ function createButtons() {
     createCloseConsoleButton();
 }
 function runSample() {
+    var _a;
+    (_a = window.onmessage) !== null && _a !== void 0 ? _a : (window.onmessage = windowError);
     var html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue());
-    var previewTab = tabManager.open({
+    previewTab = tabManager.open({
         title: "Result",
         editorType: bundle_index.EditorType.preview,
         path: "result"
     }, "example");
     displayError("");
-    if (!window.onmessage)
-        window.onmessage = function (e) {
-            displayError(e.data);
-        };
     previewTab.editor.setSession(previewTab, html);
+    serializedTabData = serializeTabsData();
+    tabDataIsRun();
 }
 bundle_index.CommandManager.registerCommands([{
         bindKey: {
@@ -41010,9 +41104,6 @@ function saveSample() {
     tabManager.saveTo(storage);
     localStorage[currentPath] = JSON.stringify(storage);
 }
-window.onbeforeunload = function () {
-    saveSample();
-};
 function setTabValues(samples) {
     tabJs.session.setValue(samples[0]);
     tabCSS.session.setValue(samples[1]);
@@ -41032,20 +41123,37 @@ function loadSample(path) {
     Promise.all([js, css, html]).then(function (samples) {
         setTabValues(samples);
     }, function (err) {
-        displayError(err);
+        displayError("");
     });
 }
-function displayError(errorMessage) {
-    if (typeof errorMessage !== "string")
-        return;
-    var terminal = tabManager.open({
-        title: "Problems",
-        path: 'terminal',
-        editorType: bundle_index.EditorType.ace
-    }, "console");
-    terminal.session.setValue(errorMessage);
-    tabManager.loadFile(terminal);
+function tabDataIsChanged() {
+    previewTab.setTitle("Result*");
+    previewTab.element.style.fontStyle = "italic";
 }
+function tabDataIsRun() {
+    previewTab.setTitle("Result");
+    previewTab.element.style.fontStyle = "";
+}
+function onSessionValueChange(session) {
+    session.on("change", function () {
+        if (!previewTab)
+            return;
+        var newTabData = serializeTabsData();
+        if (newTabData != serializedTabData) {
+            tabDataIsChanged();
+        }
+        else {
+            tabDataIsRun();
+        }
+    });
+}
+window.onpopstate = loadHashSample;
+window.onload = loadHashSample;
+window.onresize = onResize;
+window.onbeforeunload = function () {
+    localStorage.playground_tabs = JSON.stringify(tabManager.toJSON());
+    saveSample();
+};
 
 })();
 
