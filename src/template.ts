@@ -16,7 +16,17 @@ export function generateTemplate(js, html, css) {
 </head>
 <body>
 <script>
-window.onerror = (e) => parent.postMessage(e);
+  function wrapConsole(level) {
+    console[level] = (...args) => {
+      parent.postMessage({log: level, elements: args});
+    };
+  }
+  wrapConsole("log");
+  wrapConsole("warn");
+  wrapConsole("error");
+  
+  window.addEventListener("error", e => console.error(e.error));
+
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js"
 ></script>

@@ -1,19 +1,17 @@
-import {Ace, AceEditor, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
+import {Ace, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
 import * as defaultLayout from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/src/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
-import {LanguageProvider} from "ace-linters";
-import {LayoutEditor} from "../../ace-layout/src/widgets/widget";
-let event = require("ace-code/src/lib/event");
-let {HashHandler} = require("ace-code/src/keyboard/hash_handler");
-let keyUtil = require("ace-code/src/lib/keys");
+import {registerLanguageProvider} from "./linters/linters";
+import {displayError, windowError} from "./error_handler";
 
 let editorBox: Box, exampleBox: Box, consoleBox: Box;
-
 let currentPath: string | undefined;
+let serializedTabData = "";
+let previewTab: Tab | undefined;
 
 document.body.innerHTML = "";
 let base = new Box({
@@ -27,7 +25,6 @@ let base = new Box({
             vertical: true,
             0: exampleBox = new Box({isMain: true}),
             1: consoleBox = new Box({
-                ratio: 1,
                 size: 100,
                 isMain: true,
             }),
@@ -38,55 +35,14 @@ let base = new Box({
 new AceLayout(base);
 addMenu(setSample);
 
-let worker = new Worker(new URL('./webworker.ts', import.meta.url));
-let languageProvider = LanguageProvider.create(worker);
-
-request('ace.d.ts').then(function (response: XMLHttpRequest) {
-    languageProvider.setGlobalOptions("typescript", {
-        extraLibs: {
-            "ace.d.ts": {
-                content: correctDeclaration(response.responseText),
-                version: 1
-            },
-        },
-        compilerOptions: {
-            allowJs: true,
-            checkJs: true
-        }
-    }, true);
-});
-
-function correctDeclaration(declaration) {
-    return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
-            .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}" +
-        `\ndeclare class LanguageProvider {
-    private $activeEditor;
-    private $descriptionTooltip;
-    private readonly $markdownConverter;
-    private readonly $messageController;
-    private $sessionLanguageProviders;
-    private $editors;
-    static fromCdn(cdnUrl: string): LanguageProvider;
-    registerEditor(editor: Ace.Editor)
-    setOptions(session: Ace.EditSession, options);
-    setGlobalOptions(serviceName, options, merge?:boolean)
-}
-`;
-}
-
-editorBox.on("editorAdded", (editor: LayoutEditor) => {
-    if (editor instanceof AceEditor)
-        languageProvider.registerEditor(editor.editor);
-});
-
 base.render();
-
-let onResize = function () {
-    base.setBox(0, 0, window.innerWidth, window.innerHeight);
-};
-window.onresize = onResize;
-
 document.body.appendChild(base.element);
+registerLanguageProvider(editorBox);
+
+function onResize() {
+    base.setBox(0, 0, window.innerWidth, window.innerHeight);
+}
+
 let tabManager = TabManager.getInstance({
     containers: {
         main: editorBox,
@@ -94,38 +50,19 @@ let tabManager = TabManager.getInstance({
         console: consoleBox,
     }
 });
-tabManager.setState({"main": defaultLayout});
+let tabState = localStorage.playground_tabs ? JSON.parse(localStorage.playground_tabs) : {"main": defaultLayout};
+tabManager.setState(tabState);
 
 onResize();
-
-window.onpopstate = () => {
-    loadHashSample();
-}
 
 let allSamples = Object.values(SAMPLES).reduce((prev, curr) => prev.concat(curr.map(path => path.toLowerCase())), []);
 
 let tabCSS: Tab<Ace.EditSession>, tabHTML: Tab<Ace.EditSession>, tabJs: Tab<Ace.EditSession>;
 
-let menuKb = new HashHandler([
-    {
-        bindKey: "Ctrl-Shift-B",
-        name: "format",
-        exec: function () {
-            languageProvider.format();
-        }
-    }
-]);
-
-event.addCommandKeyListener(window, function (e, hashId, keyCode) {
-    let keyString = keyUtil.keyCodeToString(keyCode);
-    let command = menuKb.findKeyCommand(hashId, keyString);
-    if (command) {
-        command.exec();
-        e.preventDefault();
-    }
-});
 function getTab(title: string, path: string): Tab<Ace.EditSession> {
-    return tabManager.open<Ace.EditSession>({title: title, path: path}, "main");
+    let tab = tabManager.open<Ace.EditSession>({title: title, path: path}, "main");
+    onSessionValueChange(tab.session);
+    return tab;
 }
 
 export function initTabs() {
@@ -136,6 +73,7 @@ export function initTabs() {
 
 let hashSample;
 let sampleValues: [string, string, string] | undefined;
+
 function loadHashSample() {
     hashSample = new URL(document.URL).hash.replace("#", "");
     let path = 'samples/' + (allSamples.includes(hashSample) ? hashSample : "hello-world");
@@ -145,20 +83,20 @@ function loadHashSample() {
             let data = window.atob(value).split("\\0");
             if (data.length == 3)
                 sampleValues = data as [string, string, string];
-        } catch (e) {}
+        } catch (e) {
+        }
     } else {
         let state = new URL(document.URL).searchParams.get("state");
         if (state) {
             try {
                 localStorage[path] = window.atob(state);
-            } catch (e) {}
+            } catch (e) {
+            }
         }
     }
 
     setSample(path);
 }
-
-loadHashSample();
 
 function createEditorButton(textContent: string, title: string, onclick: () => void) {
     let button = document.createElement("button");
@@ -182,11 +120,16 @@ function createRunButton() {
     createEditorButton("Run", "Ctrl+Enter", runSample);
 }
 
+function serializeTabsData() {
+    return [tabJs, tabCSS, tabHTML].map(tab => tab.session.getValue()).join("\\0");
+}
+
 function createCopyLinkButton() {
     createEditorButton("Copy link", "Copy link", function () {
         let url = new URL(document.URL);
-        url.searchParams.set("value", window.btoa([tabJs, tabCSS, tabHTML].map(tab => tab.session.getValue()).join("\\0")));
-        navigator.clipboard.writeText(url.toString()).then(r => {});
+        url.searchParams.set("value", window.btoa(serializeTabsData()));
+        navigator.clipboard.writeText(url.toString()).then(r => {
+        });
     });
 }
 
@@ -195,7 +138,8 @@ function createCopyStateButton() {
         saveSample();
         let url = new URL(document.URL);
         url.searchParams.set("state", window.btoa(localStorage[currentPath!]));
-        navigator.clipboard.writeText(url.toString()).then(r => {});
+        navigator.clipboard.writeText(url.toString()).then(r => {
+        });
     });
 }
 
@@ -219,17 +163,17 @@ export function createButtons() {
 }
 
 export function runSample() {
+    window.onmessage ??= windowError;
     let html = generateTemplate(tabJs.session.getValue(), tabHTML.session.getValue(), tabCSS.session.getValue())
-    let previewTab = tabManager.open({
+    previewTab = tabManager.open({
         title: "Result",
         editorType: EditorType.preview,
         path: "result"
     }, "example");
     displayError("");
-    if (!window.onmessage) window.onmessage = (e) => {
-        displayError(e.data);
-    }
     previewTab.editor!.setSession(previewTab, html);
+    serializedTabData = serializeTabsData();
+    tabDataIsRun();
 }
 
 CommandManager.registerCommands([{
@@ -283,11 +227,6 @@ function saveSample() {
     localStorage[currentPath] = JSON.stringify(storage);
 }
 
-
-window.onbeforeunload = function () {
-    saveSample();
-}
-
 function setTabValues(samples: [string, string, string]) {
     tabJs.session.setValue(samples[0]);
     tabCSS.session.setValue(samples[1]);
@@ -312,18 +251,38 @@ function loadSample(path: string) {
             setTabValues(samples);
         },
         function (err) {
-            displayError(err);
+            displayError("");
         }
     );
 }
 
-function displayError(errorMessage) {
-    if (typeof errorMessage !== "string") return;
-    let terminal = tabManager.open<Ace.EditSession>({
-        title: "Problems",
-        path: 'terminal',
-        editorType: EditorType.ace
-    }, "console");
-    terminal.session.setValue(errorMessage);
-    tabManager.loadFile(terminal);
+function tabDataIsChanged() {
+    previewTab!.setTitle("Result*");
+    previewTab!.element.style.fontStyle = "italic";
+}
+
+function tabDataIsRun() {
+    previewTab!.setTitle("Result");
+    previewTab!.element.style.fontStyle = "";
+}
+
+function onSessionValueChange(session: Ace.EditSession) {
+    session.on("change", () => {
+        if (!previewTab)
+            return;
+        let newTabData = serializeTabsData();
+        if (newTabData != serializedTabData) {
+            tabDataIsChanged();
+        } else {
+            tabDataIsRun();
+        }
+    })
+}
+
+window.onpopstate = loadHashSample;
+window.onload = loadHashSample;
+window.onresize = onResize;
+window.onbeforeunload = function () {
+    localStorage.playground_tabs = JSON.stringify(tabManager.toJSON());
+    saveSample();
 }
