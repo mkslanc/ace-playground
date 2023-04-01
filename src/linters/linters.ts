@@ -35,11 +35,22 @@ function correctDeclaration(declaration) {
     private readonly $messageController;
     private $sessionLanguageProviders;
     private $editors;
-    static fromCdn(cdnUrl: string): LanguageProvider;
+    static fromCdn(cdnUrl: string, options?:ProviderOptions): LanguageProvider;
     registerEditor(editor: Ace.Editor)
-    setOptions(session: Ace.EditSession, options);
+    setSessionOptions(session: Ace.EditSession, options);
     setGlobalOptions(serviceName, options, merge?:boolean)
-}
+}\n
+    declare interface ProviderOptions {
+        functionality: {
+            hover: boolean,
+            completion: {
+                overwriteCompleters: boolean    
+            } | false,
+            completionResolve: boolean,
+            format: boolean
+        },
+        markdownConverter?: MarkDownConverter
+    }
 `;
 }
 
