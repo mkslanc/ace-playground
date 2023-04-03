@@ -55,6 +55,6 @@ provider.setGlobalOptions("json", {
 });
 
 provider.registerEditor(editor);
-provider.setOptions(editor.session, {schemaUri: "common.schema.json"});
+provider.setSessionOptions(editor.session, {schemaUri: "common.schema.json"});
 
 //try to write something inside curly braces ->
