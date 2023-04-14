@@ -28,7 +28,7 @@ export function generateTemplate(js, html, css) {
   window.addEventListener("error", e => console.error(e.error));
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.17.0/ace.js"
 ></script>
 ${html}
 <script>${js}</script>
