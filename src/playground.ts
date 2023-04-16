@@ -3,7 +3,7 @@ import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
 import * as defaultLayout from "./layouts/two-columns-bottom.json";
-import {Tab} from "ace-layout/src/widgets/tabs/tab";
+import {Tab} from "ace-layout/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
 import {registerLanguageProvider} from "./linters/linters";
 import {displayError, windowError} from "./error_handler";

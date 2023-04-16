@@ -1,10 +1,11 @@
 import {LanguageProvider} from "ace-linters";
 import {request} from "../utils";
 import {AceEditor, Box} from "ace-layout";
-import {LayoutEditor} from "ace-layout/src/widgets/widget";
-let event = require("ace-code/src/lib/event");
-let {HashHandler} = require("ace-code/src/keyboard/hash_handler");
-let keyUtil = require("ace-code/src/lib/keys");
+import {LayoutEditor} from "ace-layout/widgets/widget";
+import event from "ace-code/src/lib/event";
+import {HashHandler} from "ace-code/src/keyboard/hash_handler";
+import keyUtil from "ace-code/src/lib/keys";
+
 let languageProvider: LanguageProvider;
 
 function requestDeclarations() {
