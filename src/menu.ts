@@ -2,7 +2,7 @@ import {MenuManager, TabManager, CommandManager} from "ace-layout";
 import {SAMPLES} from "./samples";
 import {pathToTitle} from "./utils";
 import {Layouts} from "./layouts/layouts";
-import {createButtons, initTabs, runSample} from "./playground";
+import {createButtons, getTabData, initTabs, runSample} from "./playground";
 
 export function addMenu(callback) {
     let menuManager = MenuManager.getInstance();
@@ -47,9 +47,8 @@ export function addMenu(callback) {
 
     Object.keys(Layouts).forEach(function (i) {
         let changeLayout = () => {
-            let storage = {};
+            let storage = getTabData();
             let tabManager = TabManager.getInstance();
-            tabManager.saveTo(storage);
             tabManager.setState({"main": Layouts[i]});
             initTabs();
             tabManager.restoreFrom(storage);
