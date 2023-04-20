@@ -38217,6 +38217,7 @@ var __webpack_exports__ = {};
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "ED": () => (/* binding */ createButtons),
+  "O": () => (/* binding */ getTabData),
   "UV": () => (/* binding */ initTabs),
   "jQ": () => (/* binding */ runSample)
 });
@@ -38361,9 +38362,8 @@ function addMenu(callback) {
     position = 0;
     Object.keys(Layouts).forEach(function (i) {
         var changeLayout = function () {
-            var storage = {};
+            var storage = getTabData();
             var tabManager = bundle_index.TabManager.getInstance();
-            tabManager.saveTo(storage);
             tabManager.setState({ "main": Layouts[i] });
             initTabs();
             tabManager.restoreFrom(storage);
@@ -38708,9 +38708,18 @@ function restoreSample(path) {
 function saveSample() {
     if (!currentPath)
         return;
-    var storage = {};
-    tabManager.saveTo(storage);
+    var storage = getTabData();
     localStorage[currentPath] = JSON.stringify(storage);
+}
+function getTabData() {
+    var storage = {};
+    function saveTabData(tab) {
+        storage["@file@" + tab.path] = bundle_index.AceEditor.getSessionState(tab);
+    }
+    saveTabData(tabJs);
+    saveTabData(tabCSS);
+    saveTabData(tabHTML);
+    return storage;
 }
 function setTabValues(samples) {
     tabJs.session.setValue(samples[0]);
