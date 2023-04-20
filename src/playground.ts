@@ -1,4 +1,4 @@
-import {Ace, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
+import {Ace, AceEditor, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate} from "./template";
@@ -222,9 +222,19 @@ function saveSample() {
     if (!currentPath)
         return;
 
-    let storage = {};
-    tabManager.saveTo(storage);
+    let storage = getTabData();
     localStorage[currentPath] = JSON.stringify(storage);
+}
+
+export function getTabData() {
+    let storage = {};
+    function saveTabData(tab: Tab<Ace.EditSession>) {
+        storage["@file@" + tab.path] = AceEditor.getSessionState(tab);
+    }
+    saveTabData(tabJs);
+    saveTabData(tabCSS);
+    saveTabData(tabHTML);
+    return storage;
 }
 
 function setTabValues(samples: [string, string, string]) {
