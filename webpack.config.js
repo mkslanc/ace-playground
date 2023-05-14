@@ -8,9 +8,11 @@ let loader;
 loader = {
     test: /\.(t|j)sx?$/,
     use: {
-        loader: 'ts-loader',
+        loader: 'swc-loader',
         options: {
-            transpileOnly: true
+            jsc: {
+                "target": "es2019"
+            }
         }
     },
     exclude: /node_modules/
