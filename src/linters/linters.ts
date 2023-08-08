@@ -9,11 +9,35 @@ import keyUtil from "ace-code/src/lib/keys";
 let languageProvider: LanguageProvider;
 
 function requestDeclarations() {
-    request('ace.d.ts').then(function (response: XMLHttpRequest) {
+    let ace = request('ace.d.ts').then(function (response: XMLHttpRequest) {
+        return response.responseText;
+    });
+    let aceModes = request('ace-modes.d.ts').then(function (response: XMLHttpRequest) {
+        return response.responseText;
+    });
+    let languageProviderDeclaration = request('language-provider.d.ts').then(function (response: XMLHttpRequest) {
+        return response.responseText;
+    });
+    let languageServiceDeclaration = request('language-service.d.ts').then(function (response: XMLHttpRequest) {
+        return response.responseText;
+    });
+    Promise.all([ace, languageProviderDeclaration, aceModes, languageServiceDeclaration]).then(function (responses) {
         languageProvider.setGlobalOptions("typescript", {
             extraLibs: {
                 "ace.d.ts": {
-                    content: correctDeclaration(response.responseText),
+                    content: correctAceDeclaration(responses[0]),
+                    version: 1
+                },
+                "language-provider.d.ts": {
+                    content: correctDeclaration(responses[1]),
+                    version: 1
+                },
+                "ace-modes.d.ts": {
+                    content: responses[2],
+                    version: 1
+                },
+                "language-service.d.ts": {
+                    content: correctDeclaration(responses[3]),
                     version: 1
                 },
             },
@@ -21,38 +45,18 @@ function requestDeclarations() {
                 allowJs: true,
                 checkJs: true
             }
-        }, true);
+        }, true);    
     });
 }
 
 
-function correctDeclaration(declaration) {
+function correctAceDeclaration(declaration) {
     return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
-            .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}" +
-        `\ndeclare class LanguageProvider {
-    private $activeEditor;
-    private $descriptionTooltip;
-    private readonly $markdownConverter;
-    private readonly $messageController;
-    private $sessionLanguageProviders;
-    private $editors;
-    static fromCdn(cdnUrl: string, options?:ProviderOptions): LanguageProvider;
-    registerEditor(editor: Ace.Editor)
-    setSessionOptions(session: Ace.EditSession, options);
-    setGlobalOptions(serviceName, options, merge?:boolean)
-}\n
-    declare interface ProviderOptions {
-        functionality: {
-            hover: boolean,
-            completion: {
-                overwriteCompleters: boolean    
-            } | false,
-            completionResolve: boolean,
-            format: boolean
-        },
-        markdownConverter?: MarkDownConverter
-    }
-`;
+            .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}";
+}
+
+function correctDeclaration(declaration) {
+    return declaration.replaceAll(/^\s*import\s.*$/gm, "").replaceAll(/export\s+/g,"declare ");
 }
 
 function registerCommands() {
