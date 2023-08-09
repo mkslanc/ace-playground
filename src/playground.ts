@@ -251,7 +251,7 @@ export function getTabData() {
 function setTabValues(samples: [string, string, string]) {
     tabJs.session.setValue(samples[0]);
     tabCSS.session.setValue(samples[1]);
-    tabHTML.session.setValue(samples[2]);
+    tabHTML.session.setValue(addMissingAceScript(samples[2]));
 
     runSample();
 }
@@ -264,7 +264,7 @@ function loadSample(path: string) {
         return response.responseText;
     });
     let html = request(path + '/sample.html').then(function (response: XMLHttpRequest) {
-        return addMissingAceScript(response.responseText);
+        return response.responseText;
     });
 
     Promise.all([js, css, html]).then(
