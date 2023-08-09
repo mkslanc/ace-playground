@@ -1,4 +1,7 @@
 export function generateTemplate(js, html, css) {
+    if (useCustomUserCode(html)) {
+        return html.replace("{js}", js).replace("{css}", css);
+    }
     return `<html>
 <head>
   <style>
@@ -32,4 +35,8 @@ ${html}
 <script>${js}</script>
 </body>
 </html>`;
+}
+
+export function useCustomUserCode(html: string) {
+    return /<html|<doctype/i.test(html);
 }

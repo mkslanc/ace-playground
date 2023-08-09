@@ -1,7 +1,7 @@
 import {Ace, AceEditor, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
-import {generateTemplate} from "./template";
+import {generateTemplate, useCustomUserCode} from "./template";
 import * as defaultLayout from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
@@ -278,10 +278,15 @@ function loadSample(path: string) {
 }
 
 /**
- * Add ace script to html if it is not present, and replace cdnjs url to unpkg
+ * Add ace script to html if it is not present, and replace cdnjs url to unpkg. Returns non-changed html if it
+ * contains custom user code with html or doctype.
+ * 
  * @param html
  */
 function addMissingAceScript(html: string) {
+    if (useCustomUserCode(html)) {
+        return html;
+    }
     if (!/script\s+src=["'](.+ace\.js)['"]/.test(html)) {
         html = '<script src="https://www.unpkg.com/ace-builds@latest/src-noconflict/ace.js"></script>\n' + html;
     }
