@@ -214,6 +214,15 @@ function setSample(path: string) {
 
 function restoreSample(path) {
     let storage = JSON.parse(localStorage[path]);
+    if (!storage) {
+        loadSample(path);
+        return;
+    }
+    if (storage["@file@sample.html"]) {
+        var html = JSON.parse(storage["@file@sample.html"]);
+        html.value = addMissingAceScript(html.value);
+        storage["@file@sample.html"] = JSON.stringify(html);
+    }
     tabManager.restoreFrom(storage);
     runSample();
 }
@@ -228,9 +237,11 @@ function saveSample() {
 
 export function getTabData() {
     let storage = {};
+
     function saveTabData(tab: Tab<Ace.EditSession>) {
         storage["@file@" + tab.path] = AceEditor.getSessionState(tab);
     }
+
     saveTabData(tabJs);
     saveTabData(tabCSS);
     saveTabData(tabHTML);
@@ -253,7 +264,7 @@ function loadSample(path: string) {
         return response.responseText;
     });
     let html = request(path + '/sample.html').then(function (response: XMLHttpRequest) {
-        return response.responseText;
+        return addMissingAceScript(response.responseText);
     });
 
     Promise.all([js, css, html]).then(
@@ -264,6 +275,18 @@ function loadSample(path: string) {
             displayError("");
         }
     );
+}
+
+/**
+ * Add ace script to html if it is not present, and replace cdnjs url to unpkg
+ * @param html
+ */
+function addMissingAceScript(html: string) {
+    if (!/script\s+src=["'](.+ace\.js)['"]/.test(html)) {
+        html = '<script src="https://www.unpkg.com/ace-builds@latest/src-noconflict/ace.js"></script>\n' + html;
+    }
+    html = html.replaceAll(/cdnjs\.cloudflare\.com\/ajax\/libs\/ace\/[\d.]+\/([\w-]+)(?:\.min)?/g, "www.unpkg.com/ace-builds@latest/src-noconflict/$1");
+    return html;
 }
 
 function tabDataIsChanged() {
