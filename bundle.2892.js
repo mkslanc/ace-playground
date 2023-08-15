@@ -1,6 +1,6 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2892],{
 
-/***/ 49252:
+/***/ 99977:
 /***/ ((module) => {
 
 module.exports = `
@@ -178,9 +178,10 @@ module.exports = `
 var dom = __webpack_require__(6359);
 var lang = __webpack_require__(20124);
 var event = __webpack_require__(17989);
-var searchboxCss = __webpack_require__(49252);
+var searchboxCss = __webpack_require__(99977);
 var HashHandler = (__webpack_require__(7116).HashHandler);
 var keyUtil = __webpack_require__(11797);
+var nls = (__webpack_require__(13188).nls);
 
 var MAX_COUNT = 999;
 
@@ -192,24 +193,24 @@ class SearchBox {
         dom.buildDom(["div", {class:"ace_search right"},
             ["span", {action: "hide", class: "ace_searchbtn_close"}],
             ["div", {class: "ace_search_form"},
-                ["input", {class: "ace_search_field", placeholder: "Search for", spellcheck: "false"}],
+                ["input", {class: "ace_search_field", placeholder: nls("Search for"), spellcheck: "false"}],
                 ["span", {action: "findPrev", class: "ace_searchbtn prev"}, "\u200b"],
                 ["span", {action: "findNext", class: "ace_searchbtn next"}, "\u200b"],
-                ["span", {action: "findAll", class: "ace_searchbtn", title: "Alt-Enter"}, "All"]
+                ["span", {action: "findAll", class: "ace_searchbtn", title: "Alt-Enter"}, nls("All")]
             ],
             ["div", {class: "ace_replace_form"},
-                ["input", {class: "ace_search_field", placeholder: "Replace with", spellcheck: "false"}],
-                ["span", {action: "replaceAndFindNext", class: "ace_searchbtn"}, "Replace"],
-                ["span", {action: "replaceAll", class: "ace_searchbtn"}, "All"]
+                ["input", {class: "ace_search_field", placeholder: nls("Replace with"), spellcheck: "false"}],
+                ["span", {action: "replaceAndFindNext", class: "ace_searchbtn"}, nls("Replace")],
+                ["span", {action: "replaceAll", class: "ace_searchbtn"}, nls("All")]
             ],
             ["div", {class: "ace_search_options"},
-                ["span", {action: "toggleReplace", class: "ace_button", title: "Toggle Replace mode",
+                ["span", {action: "toggleReplace", class: "ace_button", title: nls("Toggle Replace mode"),
                     style: "float:left;margin-top:-2px;padding:0 5px;"}, "+"],
                 ["span", {class: "ace_search_counter"}],
-                ["span", {action: "toggleRegexpMode", class: "ace_button", title: "RegExp Search"}, ".*"],
-                ["span", {action: "toggleCaseSensitive", class: "ace_button", title: "CaseSensitive Search"}, "Aa"],
-                ["span", {action: "toggleWholeWords", class: "ace_button", title: "Whole Word Search"}, "\\b"],
-                ["span", {action: "searchInSelection", class: "ace_button", title: "Search In Selection"}, "S"]
+                ["span", {action: "toggleRegexpMode", class: "ace_button", title: nls("RegExp Search")}, ".*"],
+                ["span", {action: "toggleCaseSensitive", class: "ace_button", title: nls("CaseSensitive Search")}, "Aa"],
+                ["span", {action: "toggleWholeWords", class: "ace_button", title: nls("Whole Word Search")}, "\\b"],
+                ["span", {action: "searchInSelection", class: "ace_button", title: nls("Search In Selection")}, "S"]
             ]
         ], div);
         this.element = div.firstChild;
@@ -219,98 +220,6 @@ class SearchBox {
         this.$init();
         this.setEditor(editor);
         dom.importCssString(searchboxCss, "ace_searchbox", editor.container);
-
-
-        //keybinding outside of the searchbox
-        this.$searchBarKb = new HashHandler();
-        this.$searchBarKb.bindKeys({
-            "Ctrl-f|Command-f": function(sb) {
-                var isReplace = sb.isReplace = !sb.isReplace;
-                sb.replaceBox.style.display = isReplace ? "" : "none";
-                sb.replaceOption.checked = false;
-                sb.$syncOptions();
-                sb.searchInput.focus();
-            },
-            "Ctrl-H|Command-Option-F": function(sb) {
-                if (sb.editor.getReadOnly())
-                    return;
-                sb.replaceOption.checked = true;
-                sb.$syncOptions();
-                sb.replaceInput.focus();
-            },
-            "Ctrl-G|Command-G": function(sb) {
-                sb.findNext();
-            },
-            "Ctrl-Shift-G|Command-Shift-G": function(sb) {
-                sb.findPrev();
-            },
-            "esc": function(sb) {
-                setTimeout(function() { sb.hide();});
-            },
-            "Return": function(sb) {
-                if (sb.activeInput == sb.replaceInput)
-                    sb.replace();
-                sb.findNext();
-            },
-            "Shift-Return": function(sb) {
-                if (sb.activeInput == sb.replaceInput)
-                    sb.replace();
-                sb.findPrev();
-            },
-            "Alt-Return": function(sb) {
-                if (sb.activeInput == sb.replaceInput)
-                    sb.replaceAll();
-                sb.findAll();
-            },
-            "Tab": function(sb) {
-                (sb.activeInput == sb.replaceInput ? sb.searchInput : sb.replaceInput).focus();
-            }
-        });
-
-        this.$searchBarKb.addCommands([{
-            name: "toggleRegexpMode",
-            bindKey: {win: "Alt-R|Alt-/", mac: "Ctrl-Alt-R|Ctrl-Alt-/"},
-            exec: function(sb) {
-                sb.regExpOption.checked = !sb.regExpOption.checked;
-                sb.$syncOptions();
-            }
-        }, {
-            name: "toggleCaseSensitive",
-            bindKey: {win: "Alt-C|Alt-I", mac: "Ctrl-Alt-R|Ctrl-Alt-I"},
-            exec: function(sb) {
-                sb.caseSensitiveOption.checked = !sb.caseSensitiveOption.checked;
-                sb.$syncOptions();
-            }
-        }, {
-            name: "toggleWholeWords",
-            bindKey: {win: "Alt-B|Alt-W", mac: "Ctrl-Alt-B|Ctrl-Alt-W"},
-            exec: function(sb) {
-                sb.wholeWordOption.checked = !sb.wholeWordOption.checked;
-                sb.$syncOptions();
-            }
-        }, {
-            name: "toggleReplace",
-            exec: function(sb) {
-                sb.replaceOption.checked = !sb.replaceOption.checked;
-                sb.$syncOptions();
-            }
-        }, {
-            name: "searchInSelection",
-            exec: function(sb) {
-                sb.searchOption.checked = !sb.searchRange;
-                sb.setSearchRange(sb.searchOption.checked && sb.editor.getSelectionRange());
-                sb.$syncOptions();
-            }
-        }]);
-
-        //keybinding outside of the searchbox
-        this.$closeSearchBarKb = new HashHandler([{
-            bindKey: "Esc",
-            name: "closeSearchBar",
-            exec: function(editor) {
-                editor.searchBox.hide();
-            }
-        }]);
     }
     
     setEditor(editor) {
@@ -460,7 +369,7 @@ class SearchBox {
                 }
             }
         }
-        this.searchCounter.textContent = before + " of " + (all > MAX_COUNT ? MAX_COUNT + "+" : all);
+        this.searchCounter.textContent = nls("$0 of $1", [before , (all > MAX_COUNT ? MAX_COUNT + "+" : all)]);
     }
     findNext() {
         this.find(true, false);
@@ -526,6 +435,100 @@ class SearchBox {
         return el == this.searchInput || el == this.replaceInput;
     }
 }
+
+//keybinding outside of the searchbox
+var $searchBarKb = new HashHandler();
+$searchBarKb.bindKeys({
+    "Ctrl-f|Command-f": function(sb) {
+        var isReplace = sb.isReplace = !sb.isReplace;
+        sb.replaceBox.style.display = isReplace ? "" : "none";
+        sb.replaceOption.checked = false;
+        sb.$syncOptions();
+        sb.searchInput.focus();
+    },
+    "Ctrl-H|Command-Option-F": function(sb) {
+        if (sb.editor.getReadOnly())
+            return;
+        sb.replaceOption.checked = true;
+        sb.$syncOptions();
+        sb.replaceInput.focus();
+    },
+    "Ctrl-G|Command-G": function(sb) {
+        sb.findNext();
+    },
+    "Ctrl-Shift-G|Command-Shift-G": function(sb) {
+        sb.findPrev();
+    },
+    "esc": function(sb) {
+        setTimeout(function() { sb.hide();});
+    },
+    "Return": function(sb) {
+        if (sb.activeInput == sb.replaceInput)
+            sb.replace();
+        sb.findNext();
+    },
+    "Shift-Return": function(sb) {
+        if (sb.activeInput == sb.replaceInput)
+            sb.replace();
+        sb.findPrev();
+    },
+    "Alt-Return": function(sb) {
+        if (sb.activeInput == sb.replaceInput)
+            sb.replaceAll();
+        sb.findAll();
+    },
+    "Tab": function(sb) {
+        (sb.activeInput == sb.replaceInput ? sb.searchInput : sb.replaceInput).focus();
+    }
+});
+
+$searchBarKb.addCommands([{
+    name: "toggleRegexpMode",
+    bindKey: {win: "Alt-R|Alt-/", mac: "Ctrl-Alt-R|Ctrl-Alt-/"},
+    exec: function(sb) {
+        sb.regExpOption.checked = !sb.regExpOption.checked;
+        sb.$syncOptions();
+    }
+}, {
+    name: "toggleCaseSensitive",
+    bindKey: {win: "Alt-C|Alt-I", mac: "Ctrl-Alt-R|Ctrl-Alt-I"},
+    exec: function(sb) {
+        sb.caseSensitiveOption.checked = !sb.caseSensitiveOption.checked;
+        sb.$syncOptions();
+    }
+}, {
+    name: "toggleWholeWords",
+    bindKey: {win: "Alt-B|Alt-W", mac: "Ctrl-Alt-B|Ctrl-Alt-W"},
+    exec: function(sb) {
+        sb.wholeWordOption.checked = !sb.wholeWordOption.checked;
+        sb.$syncOptions();
+    }
+}, {
+    name: "toggleReplace",
+    exec: function(sb) {
+        sb.replaceOption.checked = !sb.replaceOption.checked;
+        sb.$syncOptions();
+    }
+}, {
+    name: "searchInSelection",
+    exec: function(sb) {
+        sb.searchOption.checked = !sb.searchRange;
+        sb.setSearchRange(sb.searchOption.checked && sb.editor.getSelectionRange());
+        sb.$syncOptions();
+    }
+}]);
+
+//keybinding outside of the searchbox
+var $closeSearchBarKb = new HashHandler([{
+    bindKey: "Esc",
+    name: "closeSearchBar",
+    exec: function(editor) {
+        editor.searchBox.hide();
+    }
+}]);
+
+SearchBox.prototype.$searchBarKb = $searchBarKb;
+SearchBox.prototype.$closeSearchBarKb = $closeSearchBarKb;
 
 exports.SearchBox = SearchBox;
 

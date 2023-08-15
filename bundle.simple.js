@@ -42,6 +42,7 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/csound_sc
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/csp', () => __webpack_require__.e(/* import() */ 4780).then(__webpack_require__.t.bind(__webpack_require__, 4780, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/css', () => __webpack_require__.e(/* import() */ 8771).then(__webpack_require__.t.bind(__webpack_require__, 98771, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/curly', () => Promise.all(/* import() */[__webpack_require__.e(3801), __webpack_require__.e(2843), __webpack_require__.e(2207), __webpack_require__.e(5528), __webpack_require__.e(3865)]).then(__webpack_require__.t.bind(__webpack_require__, 13865, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/cuttlefish', () => __webpack_require__.e(/* import() */ 4051).then(__webpack_require__.t.bind(__webpack_require__, 24051, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/d', () => __webpack_require__.e(/* import() */ 1139).then(__webpack_require__.t.bind(__webpack_require__, 91139, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/dart', () => __webpack_require__.e(/* import() */ 4325).then(__webpack_require__.t.bind(__webpack_require__, 34325, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/diff', () => __webpack_require__.e(/* import() */ 47).then(__webpack_require__.t.bind(__webpack_require__, 20047, 19)));
@@ -122,6 +123,7 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nsis', ()
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nunjucks', () => Promise.all(/* import() */[__webpack_require__.e(3801), __webpack_require__.e(2843), __webpack_require__.e(2207), __webpack_require__.e(5528), __webpack_require__.e(9382)]).then(__webpack_require__.t.bind(__webpack_require__, 99382, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/objectivec', () => __webpack_require__.e(/* import() */ 9886).then(__webpack_require__.t.bind(__webpack_require__, 69886, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/ocaml', () => __webpack_require__.e(/* import() */ 6708).then(__webpack_require__.t.bind(__webpack_require__, 96708, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/odin', () => __webpack_require__.e(/* import() */ 34).then(__webpack_require__.t.bind(__webpack_require__, 70034, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/partiql', () => __webpack_require__.e(/* import() */ 1910).then(__webpack_require__.t.bind(__webpack_require__, 81910, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/pascal', () => __webpack_require__.e(/* import() */ 8361).then(__webpack_require__.t.bind(__webpack_require__, 58361, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/perl', () => __webpack_require__.e(/* import() */ 6918).then(__webpack_require__.t.bind(__webpack_require__, 26918, 19)));
@@ -301,6 +303,7 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/dracula'
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/dreamweaver', () => __webpack_require__.e(/* import() */ 8390).then(__webpack_require__.t.bind(__webpack_require__, 28390, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/eclipse', () => __webpack_require__.e(/* import() */ 8385).then(__webpack_require__.t.bind(__webpack_require__, 38385, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/github', () => __webpack_require__.e(/* import() */ 4103).then(__webpack_require__.t.bind(__webpack_require__, 94103, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/github_dark', () => __webpack_require__.e(/* import() */ 3510).then(__webpack_require__.t.bind(__webpack_require__, 33510, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/gob', () => __webpack_require__.e(/* import() */ 1375).then(__webpack_require__.t.bind(__webpack_require__, 81375, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/gruvbox', () => __webpack_require__.e(/* import() */ 8642).then(__webpack_require__.t.bind(__webpack_require__, 8642, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/theme/gruvbox_dark_hard', () => __webpack_require__.e(/* import() */ 9475).then(__webpack_require__.t.bind(__webpack_require__, 99475, 19)));
@@ -336,6 +339,7 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/keyboard/subli
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/keyboard/vscode', () => __webpack_require__.e(/* import() */ 8143).then(__webpack_require__.t.bind(__webpack_require__, 58143, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/ext/beautify', () => __webpack_require__.e(/* import() */ 682).then(__webpack_require__.t.bind(__webpack_require__, 50682, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/ext/code_lens', () => __webpack_require__.e(/* import() */ 2447).then(__webpack_require__.t.bind(__webpack_require__, 62447, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/ext/command_bar', () => __webpack_require__.e(/* import() */ 9700).then(__webpack_require__.t.bind(__webpack_require__, 19700, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/ext/elastic_tabstops_lite', () => __webpack_require__.e(/* import() */ 7720).then(__webpack_require__.t.bind(__webpack_require__, 37720, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/ext/emmet', () => __webpack_require__.e(/* import() */ 4836).then(__webpack_require__.t.bind(__webpack_require__, 24836, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/ext/error_marker', () => Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 18552, 19)));
@@ -813,15 +817,18 @@ class Autocomplete {
     constructor() {
         this.autoInsert = false;
         this.autoSelect = true;
+        this.autoShown = false;
         this.exactMatch = false;
         this.inlineEnabled = false;
         this.keyboardHandler = new HashHandler();
         this.keyboardHandler.bindKeys(this.commands);
+        this.parentNode = null;
 
         this.blurListener = this.blurListener.bind(this);
         this.changeListener = this.changeListener.bind(this);
         this.mousedownListener = this.mousedownListener.bind(this);
         this.mousewheelListener = this.mousewheelListener.bind(this);
+        this.onLayoutChange = this.onLayoutChange.bind(this);
 
         this.changeTimer = lang.delayedCall(function() {
             this.updateCompletions(true);
@@ -831,7 +838,7 @@ class Autocomplete {
     }
 
     $init() {
-        this.popup = new AcePopup(document.body || document.documentElement);
+        this.popup = new AcePopup(this.parentNode || document.body || document.documentElement); 
         this.popup.on("click", function(e) {
             this.insertMatch();
             e.stop();
@@ -872,6 +879,34 @@ class Autocomplete {
             this.$updatePopupPosition();
         }
         this.tooltipTimer.call(null, null);
+    }
+
+    observeLayoutChanges() {
+        if (this.$elements || !this.editor) return;
+        window.addEventListener("resize", this.onLayoutChange, {passive: true});
+        window.addEventListener("wheel", this.mousewheelListener);
+
+        var el = this.editor.container.parentNode;
+        var elements = [];
+        while (el) {
+            elements.push(el);
+            el.addEventListener("scroll", this.onLayoutChange, {passive: true});
+            el = el.parentNode;
+        }
+        this.$elements = elements;
+    }
+    unObserveLayoutChanges() {
+        window.removeEventListener("resize", this.onLayoutChange, {passive: true});
+        window.removeEventListener("wheel", this.mousewheelListener);
+        this.$elements && this.$elements.forEach((el) => {
+            el.removeEventListener("scroll", this.onLayoutChange, {passive: true});
+        });
+        this.$elements = null;
+    }
+    onLayoutChange() {
+        if (!this.popup.isOpen) return this.unObserveLayoutChanges();
+        this.$updatePopupPosition();
+        this.updateDocTooltip();
     }
 
     $updatePopupPosition() {
@@ -942,6 +977,7 @@ class Autocomplete {
             this.detach();
         }
         this.changeTimer.cancel();
+        this.observeLayoutChanges();
     }
 
     /**
@@ -969,6 +1005,7 @@ class Autocomplete {
             this.base.detach();
         this.activated = false;
         this.completionProvider = this.completions = this.base = null;
+        this.unObserveLayoutChanges();
     }
 
     changeListener(e) {
@@ -1013,6 +1050,8 @@ class Autocomplete {
             data = this.popup.getData(this.popup.getRow());
         if (!data)
             return false;
+        if (data.value === "") // Explicitly given nothing to insert, e.g. "No suggestion state"
+            return this.detach();
         var completions = this.completions;
         var result = this.getCompletionProvider().insertMatch(this.editor, data, completions.filterText, options);
         // detach only if new popup was not opened while inserting match
@@ -1047,9 +1086,9 @@ class Autocomplete {
         this.updateCompletions(false, options);
     }
 
-    getCompletionProvider() {
+    getCompletionProvider(initialPosition) {
         if (!this.completionProvider)
-            this.completionProvider = new CompletionProvider();
+            this.completionProvider = new CompletionProvider(initialPosition);
         return this.completionProvider;
     }
 
@@ -1093,21 +1132,37 @@ class Autocomplete {
         this.base = session.doc.createAnchor(pos.row, pos.column - prefix.length);
         this.base.$insertRight = true;
         var completionOptions = { exactMatch: this.exactMatch };
-        this.getCompletionProvider().provideCompletions(this.editor, completionOptions, function(err, completions, finished) {
+        this.getCompletionProvider({
+            prefix,
+            pos
+        }).provideCompletions(this.editor, completionOptions, function(err, completions, finished) {
             var filtered = completions.filtered;
             var prefix = util.getCompletionPrefix(this.editor);
 
             if (finished) {
                 // No results
-                if (!filtered.length)
+                if (!filtered.length) {
+                    var emptyMessage = !this.autoShown && this.emptyMessage;
+                    if ( typeof emptyMessage == "function")
+                          emptyMessage = this.emptyMessage(prefix);
+                    if (emptyMessage) {
+                        var completionsForEmpty = [{
+                            caption: this.emptyMessage(prefix),
+                            value: ""
+                        }];
+                        this.completions = new FilteredList(completionsForEmpty);
+                        this.openPopup(this.editor, prefix, keepPopupPosition);
+                        return;
+                    }
                     return this.detach();
+                }
 
                 // One result equals to the prefix
                 if (filtered.length == 1 && filtered[0].value == prefix && !filtered[0].snippet)
                     return this.detach();
 
                 // Autoinsert if one result
-                if (this.autoInsert && filtered.length == 1)
+                if (this.autoInsert && !this.autoShown && filtered.length == 1)
                     return this.insertMatch(filtered[0]);
             }
             this.completions = completions;
@@ -1148,13 +1203,17 @@ class Autocomplete {
     showDocTooltip(item) {
         if (!this.tooltipNode) {
             this.tooltipNode = dom.createElement("div");
-            this.tooltipNode.className = "ace_tooltip ace_doc-tooltip";
             this.tooltipNode.style.margin = 0;
             this.tooltipNode.style.pointerEvents = "auto";
             this.tooltipNode.tabIndex = -1;
             this.tooltipNode.onblur = this.blurListener.bind(this);
             this.tooltipNode.onclick = this.onTooltipClick.bind(this);
+            this.tooltipNode.id = "doc-tooltip";
+            this.tooltipNode.setAttribute("role", "tooltip");
         }
+        var theme = this.editor.renderer.theme;
+        this.tooltipNode.className = "ace_tooltip ace_doc-tooltip " +
+            (theme.isDark? "ace_dark " : "") + (theme.cssClass || "");
 
         var tooltipNode = this.tooltipNode;
         if (item.docHTML) {
@@ -1164,7 +1223,8 @@ class Autocomplete {
         }
 
         if (!tooltipNode.parentNode)
-            document.body.appendChild(tooltipNode);
+            this.popup.container.appendChild(this.tooltipNode);
+
         var popup = this.popup;
         var rect = popup.container.getBoundingClientRect();
         tooltipNode.style.top = popup.container.style.top;
@@ -1281,6 +1341,7 @@ Autocomplete.startCommand = {
         var completer = Autocomplete.for(editor);
         completer.autoInsert = false;
         completer.autoSelect = true;
+        completer.autoShown = false;
         completer.showPopup(editor, options);
         // prevent ctrl-space opening context menu on firefox on mac
         completer.cancelContextMenu();
@@ -1292,8 +1353,12 @@ Autocomplete.startCommand = {
  * This class is responsible for providing completions and inserting them to the editor
  */
 class CompletionProvider {
-    
-    constructor() {
+
+    /**
+     * @param {{pos: Position, prefix: string}} initialPosition
+     */
+    constructor(initialPosition) {
+        this.initialPosition = initialPosition;
         this.active = true;
     }
     
@@ -1315,15 +1380,33 @@ class CompletionProvider {
             // TODO add support for options.deleteSuffix
             if (!this.completions)
                 return false;
-            if (this.completions.filterText) {
-                var ranges = editor.selection.getAllRanges();
+            
+            var replaceBefore = this.completions.filterText.length;
+            var replaceAfter = 0;
+            if (data.range && data.range.start.row === data.range.end.row) {
+                replaceBefore -= this.initialPosition.prefix.length;
+                replaceBefore += this.initialPosition.pos.column - data.range.start.column;
+                replaceAfter += data.range.end.column - this.initialPosition.pos.column;
+            }
+
+            if (replaceBefore || replaceAfter) {
+                var ranges;
+                if (editor.selection.getAllRanges) {
+                    ranges = editor.selection.getAllRanges();
+                }
+                else {
+                    ranges = [editor.getSelectionRange()];
+                }
                 for (var i = 0, range; range = ranges[i]; i++) {
-                    range.start.column -= this.completions.filterText.length;
+                    range.start.column -= replaceBefore;
+                    range.end.column += replaceAfter;
                     editor.session.remove(range);
                 }
             }
-            if (data.snippet)
-                snippetManager.insertSnippet(editor, data.snippet, data.range);
+          
+            if (data.snippet) {
+                snippetManager.insertSnippet(editor, data.snippet);
+            }
             else {
                 this.$insertString(editor, data);
             }
@@ -1338,23 +1421,7 @@ class CompletionProvider {
 
     $insertString(editor, data) {
         var text = data.value || data;
-        if (data.range) {
-            if (editor.inVirtualSelectionMode) {
-                return editor.session.replace(data.range, text);
-            }
-            editor.forEachSelection(() => {
-                var range = editor.getSelectionRange();
-                if (data.range.compareRange(range) === 0) {
-                    editor.session.replace(data.range, text);
-                }
-                else {
-                    editor.insert(text);
-                }
-            }, null, {keepOrder: true});
-        }
-        else {
-            editor.execCommand("insertstring", text);
-        }
+        editor.execCommand("insertstring", text);
     }
 
     gatherCompletions(editor, callback) {
@@ -1364,6 +1431,7 @@ class CompletionProvider {
         var prefix = util.getCompletionPrefix(editor);
     
         var matches = [];
+        this.completers = editor.completers;
         var total = editor.completers.length;
         editor.completers.forEach(function(completer, i) {
             completer.getCompletions(editor, session, pos, prefix, function(err, results) {
@@ -1441,6 +1509,11 @@ class CompletionProvider {
 
     detach() {
         this.active = false;
+        this.completers && this.completers.forEach(function(completer) {
+            if (typeof completer.cancel === "function") {
+                completer.cancel();
+            }
+        });
     }
 }
 
@@ -1626,6 +1699,7 @@ var Range = (__webpack_require__(59082)/* .Range */ .e);
 var event = __webpack_require__(17989);
 var lang = __webpack_require__(20124);
 var dom = __webpack_require__(6359);
+var nls = (__webpack_require__(13188).nls);
 
 var getAriaId = function(index) {
     return `suggest-aria-id:${index}`;
@@ -1661,15 +1735,17 @@ class AcePopup {
         var el = dom.createElement("div");
         var popup = new $singleLineEditor(el);
 
-        if (parentNode)
+        if (parentNode) {
             parentNode.appendChild(el);
+        }
         el.style.display = "none";
         popup.renderer.content.style.cursor = "default";
         popup.renderer.setStyle("ace_autocomplete");
 
         // Set aria attributes for the popup
-        popup.renderer.container.setAttribute("role", "listbox");
-        popup.renderer.container.setAttribute("aria-label", "Autocomplete suggestions");
+        popup.renderer.$textLayer.element.setAttribute("role", "listbox");
+        popup.renderer.$textLayer.element.setAttribute("aria-label", nls("Autocomplete suggestions"));
+        popup.renderer.textarea.setAttribute("aria-hidden", "true");
 
         popup.setOption("displayIndentGuides", false);
         popup.setOption("dragDelay", 150);
@@ -1751,12 +1827,13 @@ class AcePopup {
                 dom.addCssClass(selected, "ace_selected");
                 var ariaId = getAriaId(row);
                 selected.id = ariaId;
-                popup.renderer.container.setAttribute("aria-activedescendant", ariaId);
+                t.element.setAttribute("aria-activedescendant", ariaId);
                 el.setAttribute("aria-activedescendant", ariaId);
                 selected.setAttribute("role", "option");
                 selected.setAttribute("aria-label", popup.getData(row).value);
                 selected.setAttribute("aria-setsize", popup.data.length);
-                selected.setAttribute("aria-posinset", row);
+                selected.setAttribute("aria-posinset", row+1);
+                selected.setAttribute("aria-describedby", "doc-tooltip");
             }
         });
         var hideHoverMarker = function() { setHoverMarker(-1); };
@@ -1820,6 +1897,7 @@ class AcePopup {
             }
             addToken(caption.slice(lastIndex, caption.length), "");
 
+            tokens.push({type: "completion-spacer", value: " "});
             if (data.meta)
                 tokens.push({type: "completion-meta", value: data.meta});
             if (data.message)
@@ -1855,7 +1933,7 @@ class AcePopup {
             return selectionMarker.start.row;
         };
         popup.setRow = function(line) {
-            line = Math.max(this.autoSelect ? 0 : -1, Math.min(this.data.length, line));
+            line = Math.max(this.autoSelect ? 0 : -1, Math.min(this.data.length - 1, line));
             if (selectionMarker.start.row != line) {
                 popup.selection.clearSelection();
                 selectionMarker.start.row = selectionMarker.end.row = line || 0;
@@ -2026,7 +2104,7 @@ dom.importCssString(`
 }
 .ace_completion-meta {
     opacity: 0.5;
-    margin: 0 0.9em;
+    margin-left: 0.9em;
 }
 .ace_completion-message {
     color: blue;
@@ -2054,15 +2132,25 @@ dom.importCssString(`
     background: #25282c;
     color: #c1c1c1;
 }
-.ace_autocomplete_right .ace_text-layer  {
+.ace_autocomplete .ace_text-layer  {
     width: calc(100% - 8px);
 }
-.ace_autocomplete_right .ace_line {
+.ace_autocomplete .ace_line {
     display: flex;
+    align-items: center;
 }
-.ace_autocomplete_right .ace_completion-meta {
+.ace_autocomplete .ace_line > * {
+    min-width: 0;
+    flex: 0 0 auto;
+}
+.ace_autocomplete .ace_line .ace_ {
+    flex: 0 1 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ace_autocomplete .ace_completion-spacer {
     flex: 1;
-    text-align: right;
 }
 `, "autocompletion.css", false);
 
@@ -2189,6 +2277,18 @@ exports.getCompletionPrefix = function (editor) {
         }
     }.bind(this));
     return prefix || this.retrievePrecedingIdentifier(line, pos.column);
+};
+
+exports.triggerAutocomplete = function (editor) {
+    var pos = editor.getCursorPosition();
+    var line = editor.session.getLine(pos.row);
+    var column = (pos.column === 0) ? 0 : pos.column - 1;
+    var previousChar = line[column];
+    return editor.completers.some((el) => {
+        if (el.triggerCharacters && Array.isArray(el.triggerCharacters)) {
+            return el.triggerCharacters.includes(previousChar);
+        }
+    });
 };
 
 
@@ -3922,6 +4022,7 @@ exports.keyboardHandler = new HashHandler(exports.multiSelectCommands);
 /***/ 13188:
 /***/ ((module, exports, __webpack_require__) => {
 
+/* module decorator */ module = __webpack_require__.nmd(module);
 "no use strict";
 
 var lang = __webpack_require__(20124);
@@ -4001,17 +4102,20 @@ exports.setModuleUrl = function(name, subst) {
 var loader = function(moduleName, cb) {
     if (moduleName === "ace/theme/textmate" || moduleName === "./theme/textmate")
         return cb(null, __webpack_require__(93687));
-    return console.error("loader is not configured");
+    if (customLoader)
+        return customLoader(moduleName, cb);
+    console.error("loader is not configured");
 };
-
+var customLoader;
 exports.setLoader = function(cb) {
-    loader = cb;
+    customLoader = cb;
 };
 
 exports.dynamicModules = Object.create(null);
 exports.$loading = {};
+exports.$loaded = {};
 exports.loadModule = function(moduleName, onLoad) {
-    var module, moduleType;
+    var loadedModule, moduleType;
     if (Array.isArray(moduleName)) {
         moduleType = moduleName[0];
         moduleName = moduleName[1];
@@ -4029,6 +4133,7 @@ exports.loadModule = function(moduleName, onLoad) {
 
         var afterLoad = function() {
             loader(moduleName, function(err, module) {
+                if (module) exports.$loaded[moduleName] = module;
                 exports._emit("load.module", {name: moduleName, module: module});
                 var listeners = exports.$loading[moduleName];
                 exports.$loading[moduleName] = null;
@@ -4054,10 +4159,18 @@ exports.loadModule = function(moduleName, onLoad) {
             }
         });
     } else {
+        // backwards compatibility for node and packaged version
         try {
-            module = __webpack_require__(2126)(moduleName);
+            loadedModule = this.$require(moduleName);
         } catch (e) {}
-        load(module);
+        load(loadedModule || exports.$loaded[moduleName]);
+    }
+};
+
+exports.$require = function(moduleName) {
+    if (typeof module.require == "function") {
+        var req = "require";
+        return module[req](moduleName);
     }
 };
 
@@ -4080,14 +4193,14 @@ var reportErrorIfPathIsNotConfigured = function() {
     }
 };
 
-exports.version = "1.17.0";
+exports.version = "1.24.1";
 
 
 
 
 /***/ }),
 
-/***/ 20610:
+/***/ 20449:
 /***/ ((module) => {
 
 /*
@@ -4202,7 +4315,7 @@ module.exports = `
     pointer-events: none;
 }
 
-.ace_gutter-cell, .ace_gutter-cell_svg-icons  {
+.ace_gutter-cell, .ace_gutter-cell_svg-icons {
     position: absolute;
     top: 0;
     left: 0;
@@ -4212,18 +4325,23 @@ module.exports = `
     background-repeat: no-repeat;
 }
 
-.ace_gutter-cell_svg-icons .ace_icon_svg{
+.ace_gutter-cell_svg-icons .ace_gutter_annotation {
     margin-left: -14px;
     float: left;
 }
 
-.ace_gutter-cell.ace_error, .ace_icon.ace_error {
+.ace_gutter-cell .ace_gutter_annotation {
+    margin-left: -19px;
+    float: left;
+}
+
+.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");
     background-repeat: no-repeat;
     background-position: 2px center;
 }
 
-.ace_gutter-cell.ace_warning, .ace_icon.ace_warning {
+.ace_gutter-cell.ace_warning, .ace_icon.ace_warning, .ace_icon.ace_warning_fold {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");
     background-repeat: no-repeat;
     background-position: 2px center;
@@ -4239,16 +4357,25 @@ module.exports = `
 }
 
 .ace_icon_svg.ace_error {
-    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJyZWQiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4KPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgY3k9IjgiIHI9IjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGxpbmUgeDE9IjExIiB5MT0iNSIgeDI9IjUiIHkyPSIxMSIvPgo8bGluZSB4MT0iMTEiIHkxPSIxMSIgeDI9IjUiIHkyPSI1Ii8+CjwvZz4KPC9zdmc+");
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJyZWQiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4KPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgY3k9IjgiIHI9IjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGxpbmUgeDE9IjExIiB5MT0iNSIgeDI9IjUiIHkyPSIxMSIvPgo8bGluZSB4MT0iMTEiIHkxPSIxMSIgeDI9IjUiIHkyPSI1Ii8+CjwvZz4KPC9zdmc+");
     background-color: crimson;
 }
 .ace_icon_svg.ace_warning {
-    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJkYXJrb3JhbmdlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+Cjxwb2x5Z29uIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiIHBvaW50cz0iOCAxIDE1IDE1IDEgMTUgOCAxIi8+CjxyZWN0IHg9IjgiIHk9IjEyIiB3aWR0aD0iMC4wMSIgaGVpZ2h0PSIwLjAxIi8+CjxsaW5lIHgxPSI4IiB5MT0iNiIgeDI9IjgiIHkyPSIxMCIvPgo8L2c+Cjwvc3ZnPg==");
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJkYXJrb3JhbmdlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+Cjxwb2x5Z29uIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiIHBvaW50cz0iOCAxIDE1IDE1IDEgMTUgOCAxIi8+CjxyZWN0IHg9IjgiIHk9IjEyIiB3aWR0aD0iMC4wMSIgaGVpZ2h0PSIwLjAxIi8+CjxsaW5lIHgxPSI4IiB5MT0iNiIgeDI9IjgiIHkyPSIxMCIvPgo8L2c+Cjwvc3ZnPg==");
     background-color: darkorange;
 }
 .ace_icon_svg.ace_info {
-    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJibHVlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CjxjaXJjbGUgZmlsbD0ibm9uZSIgY3g9IjgiIGN5PSI4IiByPSI3IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjxwb2x5bGluZSBwb2ludHM9IjggMTEgOCA4Ii8+Cjxwb2x5bGluZSBwb2ludHM9IjkgOCA2IDgiLz4KPGxpbmUgeDE9IjEwIiB5MT0iMTEiIHgyPSI2IiB5Mj0iMTEiLz4KPHJlY3QgeD0iOCIgeT0iNSIgd2lkdGg9IjAuMDEiIGhlaWdodD0iMC4wMSIvPgo8L2c+Cjwvc3ZnPg==");
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJibHVlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CjxjaXJjbGUgZmlsbD0ibm9uZSIgY3g9IjgiIGN5PSI4IiByPSI3IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjxwb2x5bGluZSBwb2ludHM9IjggMTEgOCA4Ii8+Cjxwb2x5bGluZSBwb2ludHM9IjkgOCA2IDgiLz4KPGxpbmUgeDE9IjEwIiB5MT0iMTEiIHgyPSI2IiB5Mj0iMTEiLz4KPHJlY3QgeD0iOCIgeT0iNSIgd2lkdGg9IjAuMDEiIGhlaWdodD0iMC4wMSIvPgo8L2c+Cjwvc3ZnPg==");
     background-color: royalblue;
+}
+
+.ace_icon_svg.ace_error_fold {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0ibSAxOC45Mjk4NTEsNy44Mjk4MDc2IGMgMC4xNDYzNTMsNi4zMzc0NjA0IC02LjMyMzE0Nyw3Ljc3Nzg0NDQgLTcuNDc3OTEyLDcuNzc3ODQ0NCAtMi4xMDcyNzI2LC0wLjEyODc1IDUuMTE3Njc4LDAuMzU2MjQ5IDUuMDUxNjk4LC03Ljg3MDA2MTggLTAuNjA0NjcyLC04LjAwMzk3MzQ5IC03LjA3NzI3MDYsLTcuNTYzMTE4OSAtNC44NTczLC03LjQzMDM5NTU2IDEuNjA2LC0wLjExNTE0MjI1IDYuODk3NDg1LDEuMjYyNTQ1OTYgNy4yODM1MTQsNy41MjI2MTI5NiB6IiBmaWxsPSJjcmltc29uIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0ibSA4LjExNDc1NjIsMi4wNTI5ODI4IGMgMy4zNDkxNjk4LDAgNi4wNjQxMzI4LDIuNjc2ODYyNyA2LjA2NDEzMjgsNS45Nzg5NTMgMCwzLjMwMjExMjIgLTIuNzE0OTYzLDUuOTc4OTIwMiAtNi4wNjQxMzI4LDUuOTc4OTIwMiAtMy4zNDkxNDczLDAgLTYuMDY0MTc3MiwtMi42NzY4MDggLTYuMDY0MTc3MiwtNS45Nzg5MjAyIDAuMDA1MzksLTMuMjk5ODg2MSAyLjcxNzI2NTYsLTUuOTczNjQwOCA2LjA2NDE3NzIsLTUuOTc4OTUzIHogbSAwLC0xLjczNTgyNzE5IGMgLTQuMzIxNDgzNiwwIC03LjgyNDc0MDM4LDMuNDU0MDE4NDkgLTcuODI0NzQwMzgsNy43MTQ3ODAxOSAwLDQuMjYwNzI4MiAzLjUwMzI1Njc4LDcuNzE0NzQ1MiA3LjgyNDc0MDM4LDcuNzE0NzQ1MiA0LjMyMTQ0OTgsMCA3LjgyNDY5OTgsLTMuNDU0MDE3IDcuODI0Njk5OCwtNy43MTQ3NDUyIDAsLTIuMDQ2MDkxNCAtMC44MjQzOTIsLTQuMDA4MzY3MiAtMi4yOTE3NTYsLTUuNDU1MTc0NiBDIDEyLjE4MDIyNSwxLjEyOTk2NDggMTAuMTkwMDEzLDAuMzE3MTU1NjEgOC4xMTQ3NTYyLDAuMzE3MTU1NjEgWiBNIDYuOTM3NDU2Myw4LjI0MDU5ODUgNC42NzE4Njg1LDEwLjQ4NTg1MiA2LjAwODY4MTQsMTEuODc2NzI4IDguMzE3MDAzNSw5LjYwMDc5MTEgMTAuNjI1MzM3LDExLjg3NjcyOCAxMS45NjIxMzgsMTAuNDg1ODUyIDkuNjk2NTUwOCw4LjI0MDU5ODUgMTEuOTYyMTM4LDYuMDA2ODA2NiAxMC41NzMyNDYsNC42Mzc0MzM1IDguMzE3MDAzNSw2Ljg3MzQyOTcgNi4wNjA3NjA3LDQuNjM3NDMzNSA0LjY3MTg2ODUsNi4wMDY4MDY2IFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_warning_fold {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNC43NzY5IDE0LjczMzdMOC42NTE5MiAyLjQ4MzY5QzguMzI5NDYgMS44Mzg3NyA3LjQwOTEzIDEuODM4NzcgNy4wODY2NyAyLjQ4MzY5TDAuOTYxNjY5IDE0LjczMzdDMC42NzA3NzUgMTUuMzE1NSAxLjA5MzgzIDE2IDEuNzQ0MjkgMTZIMTMuOTk0M0MxNC42NDQ4IDE2IDE1LjA2NzggMTUuMzE1NSAxNC43NzY5IDE0LjczMzdaTTMuMTYwMDcgMTQuMjVMNy44NjkyOSA0LjgzMTU2TDEyLjU3ODUgMTQuMjVIMy4xNjAwN1pNOC43NDQyOSAxMS42MjVWMTMuMzc1SDYuOTk0MjlWMTEuNjI1SDguNzQ0MjlaTTYuOTk0MjkgMTAuNzVWNy4yNUg4Ljc0NDI5VjEwLjc1SDYuOTk0MjlaIiBmaWxsPSIjRUM3MjExIi8+CjxwYXRoIGQ9Ik0xMS4xOTkxIDIuOTUyMzhDMTAuODgwOSAyLjMxNDY3IDEwLjM1MzcgMS44MDUyNiA5LjcwNTUgMS41MDlMMTEuMDQxIDEuMDY5NzhDMTEuNjg4MyAwLjk0OTgxNCAxMi4zMzcgMS4yNzI2MyAxMi42MzE3IDEuODYxNDFMMTcuNjEzNiAxMS44MTYxQzE4LjM1MjcgMTMuMjkyOSAxNy41OTM4IDE1LjA4MDQgMTYuMDE4IDE1LjU3NDVDMTYuNDA0NCAxNC40NTA3IDE2LjMyMzEgMTMuMjE4OCAxNS43OTI0IDEyLjE1NTVMMTEuMTk5MSAyLjk1MjM4WiIgZmlsbD0iI0VDNzIxMSIvPgo8L3N2Zz4=");
+    background-color: darkorange;
 }
 
 .ace_scrollbar {
@@ -4535,21 +4662,19 @@ module.exports = `
     pointer-events: none;
 }
 
+.ace_tooltip.ace_dark {
+    background-color: #636363;
+    color: #fff;
+}
+
 .ace_tooltip:focus {
-    outline: 1px solid black;
+    outline: 1px solid #5E9ED6;
 }
 
-.ace_gutter-tooltip_header {
-    font-weight: bold;
-}
-
-.ace_gutter-tooltip_body {
-    padding-top: 5px;
-}
-
-.ace_gutter-tooltip .ace_icon {
+.ace_icon {
     display: inline-block;
     width: 18px;
+    vertical-align: top;
 }
 
 .ace_icon_svg {
@@ -5375,22 +5500,19 @@ class Document {
         return index + pos.column;
     }
 
+    /**
+     * Splits a string of text on any newline (`\n`) or carriage-return (`\r`) characters.
+     *
+     * @method $split
+     * @param {String} text The text to work with
+     * @returns {String} A String array, with each index containing a piece of the original `text` string.
+     *
+     **/
+    $split(text) {
+        return text.split(/\r\n|\r|\n/);
+    }
 }
 
-/**
- * Splits a string of text on any newline (`\n`) or carriage-return (`\r`) characters.
- *
- * @method $split
- * @param {String} text The text to work with
- * @returns {String} A String array, with each index containing a piece of the original `text` string.
- *
- **/
-// check for IE split bug
-Document.prototype.$split = ("aaa".split(/a/).length === 0) ? function (text) {
-    return text.replace(/\r\n|\r/g, "\n").split("\n");
-} : function (text) {
-    return text.split(/\r\n|\r|\n/);
-};
 Document.prototype.$autoNewLine = "";
 Document.prototype.$newLineMode = "auto";
 
@@ -5947,7 +6069,7 @@ class EditSession {
      * Adds a new marker to the given `Range`. If `inFront` is `true`, a front marker is defined, and the `'changeFrontMarker'` event fires; otherwise, the `'changeBackMarker'` event fires.
      * @param {Range} range Define the range of the marker
      * @param {String} clazz Set the CSS class for the marker
-     * @param {Function | String} type Identify the type of the marker
+     * @param {Function | String} type Identify the renderer type of the marker. If string provided, corresponding built-in renderer is used. Supported string types are "fullLine", "screenLine", "text" or "line". If a Function is provided, that Function is used as renderer.
      * @param {Boolean} inFront Set to `true` to establish a front marker
      *
      * @return {Number} The new marker id
@@ -8759,6 +8881,7 @@ var Range = (__webpack_require__(59082)/* .Range */ .e);
 var FoldLine = (__webpack_require__(74285)/* .FoldLine */ .z);
 var Fold = (__webpack_require__(47899)/* .Fold */ .q);
 var TokenIterator = (__webpack_require__(39216)/* .TokenIterator */ .N);
+var MouseEvent = (__webpack_require__(53489)/* .MouseEvent */ .T);
 
 function Folding() {
     /*
@@ -9342,7 +9465,7 @@ function Folding() {
         if (token && /^comment|string/.test(type)) {
             type = type.match(/comment|string/)[0];
             if (type == "comment")
-                type += "|doc-start";
+                type += "|doc-start|\\.doc";
             var re = new RegExp(type);
             var range = new Range();
             if (dir != 1) {
@@ -9510,7 +9633,9 @@ function Folding() {
     };
 
     this.onFoldWidgetClick = function(row, e) {
-        e = e.domEvent;
+        if (e instanceof MouseEvent)
+            e = e.domEvent;
+
         var options = {
             children: e.shiftKey,
             all: e.ctrlKey || e.metaKey,
@@ -9647,6 +9772,8 @@ var defaultCommands = (__webpack_require__(70883)/* .commands */ .C);
 var config = __webpack_require__(13188);
 var TokenIterator = (__webpack_require__(39216)/* .TokenIterator */ .N);
 var LineWidgets = (__webpack_require__(62269)/* .LineWidgets */ .H);
+var GutterKeyboardHandler = (__webpack_require__(4173)/* .GutterKeyboardHandler */ .K);
+var nls = (__webpack_require__(13188).nls);
 
 var clipboard = __webpack_require__(76311);
 var keys = __webpack_require__(11797);
@@ -12466,13 +12593,14 @@ config.defineOptions(Editor.prototype, "editor", {
         set: function(message) {
             if (!this.$updatePlaceholder) {
                 this.$updatePlaceholder = function() {
-                    var value = this.session && (this.renderer.$composition || this.getValue());
-                    if (value && this.renderer.placeholderNode) {
+                    var hasValue = this.session && (this.renderer.$composition ||
+                         this.session.getLength() > 1 || this.session.getLine(0).length > 0);
+                    if (hasValue && this.renderer.placeholderNode) {
                         this.renderer.off("afterRender", this.$updatePlaceholder);
                         dom.removeCssClass(this.container, "ace_hasPlaceholder");
                         this.renderer.placeholderNode.remove();
                         this.renderer.placeholderNode = null;
-                    } else if (!value && !this.renderer.placeholderNode) {
+                    } else if (!hasValue && !this.renderer.placeholderNode) {
                         this.renderer.on("afterRender", this.$updatePlaceholder);
                         dom.addCssClass(this.container, "ace_hasPlaceholder");
                         var el = dom.createElement("div");
@@ -12480,7 +12608,7 @@ config.defineOptions(Editor.prototype, "editor", {
                         el.textContent = this.$placeholder || "";
                         this.renderer.placeholderNode = el;
                         this.renderer.content.appendChild(this.renderer.placeholderNode);
-                    } else if (!value && this.renderer.placeholderNode) {
+                    } else if (!hasValue && this.renderer.placeholderNode) {
                         this.renderer.placeholderNode.textContent = this.$placeholder || "";
                     }
                 }.bind(this);
@@ -12497,41 +12625,89 @@ config.defineOptions(Editor.prototype, "editor", {
                 bindKey: "Esc",
                 exec: function(editor) {
                     editor.blur();
-                    editor.renderer.content.focus();
+                    editor.renderer.scroller.focus();
                 },
                 readOnly: true
             };
 
             var focusOnEnterKeyup = function (e) {
-                if (e.target == this.renderer.content && e.keyCode === keys['enter']){
-                    e.stopPropagation();
+                if (e.target == this.renderer.scroller && e.keyCode === keys['enter']){
                     e.preventDefault();
+                    var row = this.getCursorPosition().row;
+                    
+                    if (!this.isRowVisible(row))
+                        this.scrollToLine(row, true, true);
+    
                     this.focus();
                 }
             };
 
-            var keyboardFocusClassName = "ace_keyboard-focus";
+            var gutterKeyboardHandler;
 
-            // Prevent focus to be captured when tabbing through the page. When focus is set to the content div, 
-            // press Enter key to give focus to Ace and press Esc to again allow to tab through the page.
+            // If keyboard a11y mode is enabled we:
+            // - Enable keyboard operability gutter.
+            // - Prevent tab-trapping.
+            // - Hide irrelevant elements from assistive technology.
+            // - On Windows, set more lines to the textarea.
             if (value){
+                this.renderer.enableKeyboardAccessibility = true;
+                this.renderer.keyboardFocusClassName = "ace_keyboard-focus";
+
                 this.textInput.getElement().setAttribute("tabindex", -1);
-                this.renderer.content.setAttribute("tabindex", 0);
-                this.renderer.content.classList.add(keyboardFocusClassName);
-                this.renderer.content.setAttribute("aria-label",
-                    "Editor, press Enter key to start editing, press Escape key to exit"
+                // VoiceOver on Mac OS works best with single line in the textarea, the screen readers on
+                // Windows work best with multiple lines in the textarea.
+                this.textInput.setNumberOfExtraLines(useragent.isWin ? 3 : 0);
+                this.renderer.scroller.setAttribute("tabindex", 0);
+                this.renderer.scroller.setAttribute("role", "group");
+                this.renderer.scroller.setAttribute("aria-roledescription", nls("editor"));
+                this.renderer.scroller.classList.add(this.renderer.keyboardFocusClassName);
+                this.renderer.scroller.setAttribute("aria-label",
+                    nls("Editor content, press Enter to start editing, press Escape to exit")
                 );
 
-                this.renderer.content.addEventListener("keyup", focusOnEnterKeyup.bind(this));
+                this.renderer.scroller.addEventListener("keyup", focusOnEnterKeyup.bind(this));
                 this.commands.addCommand(blurCommand);
+
+                this.renderer.$gutter.setAttribute("tabindex", 0);
+                this.renderer.$gutter.setAttribute("aria-hidden", false);
+                this.renderer.$gutter.setAttribute("role", "group");
+                this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor"));
+                this.renderer.$gutter.setAttribute("aria-label",
+                    nls("Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit")
+                );
+                this.renderer.$gutter.classList.add(this.renderer.keyboardFocusClassName);
+
+                this.renderer.content.setAttribute("aria-hidden", true);
+
+                if (!gutterKeyboardHandler)
+                    gutterKeyboardHandler = new GutterKeyboardHandler(this);
+
+                gutterKeyboardHandler.addListener();
             } else {
+                this.renderer.enableKeyboardAccessibility = false;
+
                 this.textInput.getElement().setAttribute("tabindex", 0);
-                this.renderer.content.setAttribute("tabindex", -1);
-                this.renderer.content.classList.remove(keyboardFocusClassName);
-                this.renderer.content.setAttribute("aria-label", "");
+                this.textInput.setNumberOfExtraLines(0);
+                this.renderer.scroller.setAttribute("tabindex", -1);
+                this.renderer.scroller.removeAttribute("role");
+                this.renderer.scroller.removeAttribute("aria-roledescription");
+                this.renderer.scroller.classList.remove(this.renderer.keyboardFocusClassName);
+                this.renderer.scroller.removeAttribute("aria-label");
             
-                this.renderer.content.removeEventListener("keyup", focusOnEnterKeyup.bind(this));
+                this.renderer.scroller.removeEventListener("keyup", focusOnEnterKeyup.bind(this));
                 this.commands.removeCommand(blurCommand);
+
+                this.renderer.content.removeAttribute("aria-hidden");
+
+                this.renderer.$gutter.setAttribute("tabindex", -1);
+                this.renderer.$gutter.setAttribute("aria-hidden", true);
+                this.renderer.$gutter.removeAttribute("role");
+                this.renderer.$gutter.removeAttribute("aria-roledescription");
+                this.renderer.$gutter.removeAttribute("aria-label");
+                this.renderer.$gutter.classList.remove(this.renderer.keyboardFocusClassName);
+
+                if (gutterKeyboardHandler)
+                    gutterKeyboardHandler.removeListener();
             }
         },
         initialValue: false
@@ -12562,6 +12738,7 @@ config.defineOptions(Editor.prototype, "editor", {
     useTextareaForIME: "renderer",
     useResizeObserver: "renderer",
     useSvgGutterIcons: "renderer",
+    showFoldedAnnotations: "renderer",
 
     scrollSpeed: "$mouseHandler",
     dragDelay: "$mouseHandler",
@@ -12623,6 +12800,7 @@ exports.Editor = Editor;
 var LineWidgets = (__webpack_require__(62269)/* .LineWidgets */ .H);
 var dom = __webpack_require__(6359);
 var Range = (__webpack_require__(59082)/* .Range */ .e);
+var nls = (__webpack_require__(13188).nls);
 
 function binarySearch(array, needle, comparator) {
     var first = 0;
@@ -12709,7 +12887,7 @@ exports.showErrorMarker = function(editor, dir) {
         return;
     } else {
         gutterAnno = {
-            text: ["Looks good!"],
+            text: [nls("Looks good!")],
             className: "ace_ok"
         };
     }
@@ -12954,15 +13132,32 @@ var doLiveAutocomplete = function(e) {
         if (hasCompleter && !util.getCompletionPrefix(editor))
             editor.completer.detach();
     }
-    else if (e.command.name === "insertstring") {
-        var prefix = util.getCompletionPrefix(editor);
-        // Only autocomplete if there's a prefix that can be matched
-        if (prefix && !hasCompleter) {
-            var completer = Autocomplete.for(editor);
-            // Disable autoInsert
-            completer.autoInsert = false;
-            completer.showPopup(editor);
+    else if (e.command.name === "insertstring" && !hasCompleter) {
+        lastExecEvent = e;
+        var delay = e.editor.$liveAutocompletionDelay;
+        if (delay) {
+            liveAutocompleteTimer.delay(delay);
+        } else {
+            showLiveAutocomplete(e);
         }
+    }
+};
+
+var lastExecEvent;
+var liveAutocompleteTimer = lang.delayedCall(function () {
+    showLiveAutocomplete(lastExecEvent);
+}, 0);
+
+var showLiveAutocomplete = function(e) {
+    var editor = e.editor;
+    var prefix = util.getCompletionPrefix(editor);
+    // Only autocomplete if there's a prefix that can be matched or previous char is trigger character 
+    var triggerAutocomplete = util.triggerAutocomplete(editor);
+    if ((prefix || triggerAutocomplete) && prefix.length >= editor.$liveAutocompletionThreshold) {
+        var completer = Autocomplete.for(editor);
+        // Set a flag for auto shown
+        completer.autoShown = true;
+        completer.showPopup(editor);
     }
 };
 
@@ -12994,10 +13189,16 @@ var Editor = (__webpack_require__(82880).Editor);
                 // On each change automatically trigger the autocomplete
                 this.commands.on('afterExec', doLiveAutocomplete);
             } else {
-                this.commands.removeListener('afterExec', doLiveAutocomplete);
+                this.commands.off('afterExec', doLiveAutocomplete);
             }
         },
         value: false
+    },
+    liveAutocompletionDelay: {
+        initialValue: 0
+    },
+    liveAutocompletionThreshold: {
+        initialValue: 0
     },
     enableSnippets: {
         set: function(val) {
@@ -13096,6 +13297,7 @@ var supportedModes = {
     Csound_Score: ["sco"],
     CSS:         ["css"],
     Curly:       ["curly"],
+    Cuttlefish:  ["conf"],
     D:           ["d|di"],
     Dart:        ["dart"],
     Diff:        ["diff|patch"],
@@ -13177,6 +13379,7 @@ var supportedModes = {
     Nunjucks:    ["nunjucks|nunjs|nj|njk"],
     ObjectiveC:  ["m|mm"],
     OCaml:       ["ml|mli"],
+    Odin:        ["odin"],
     PartiQL:     ["partiql|pql"],
     Pascal:      ["pas|p"],
     Perl:        ["pl|pm"],
@@ -13286,6 +13489,498 @@ module.exports = {
 
 /***/ }),
 
+/***/ 4173:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+var __webpack_unused_export__;
+
+
+var keys = __webpack_require__(11797);
+var GutterTooltip = (__webpack_require__(956)/* .GutterTooltip */ .w);
+
+class GutterKeyboardHandler {
+    constructor(editor) {
+        this.editor = editor;
+        this.gutterLayer = editor.renderer.$gutterLayer;
+        this.element = editor.renderer.$gutter;
+        this.lines = editor.renderer.$gutterLayer.$lines;
+
+        this.activeRowIndex = null;
+        this.activeLane = null;
+
+        this.annotationTooltip = new GutterTooltip(this.editor);
+    }
+
+    addListener() {
+        this.element.addEventListener("keydown", this.$onGutterKeyDown.bind(this));
+        this.element.addEventListener("focusout", this.$blurGutter.bind(this));
+        this.editor.on("mousewheel", this.$blurGutter.bind(this));
+    }
+
+    removeListener() {
+        this.element.removeEventListener("keydown", this.$onGutterKeyDown.bind(this));
+        this.element.removeEventListener("focusout", this.$blurGutter.bind(this));
+        this.editor.off("mousewheel", this.$blurGutter.bind(this));
+    }
+
+    $onGutterKeyDown(e) {
+        // if the tooltip is open, we only want to respond to commands to close it (like a modal)
+        if (this.annotationTooltip.isOpen) {
+            e.preventDefault();
+
+            if (e.keyCode === keys["escape"])
+                this.annotationTooltip.hideTooltip();
+
+            return;
+        }
+
+        // If focus is on the gutter element, set focus to nearest gutter icon on enter press.
+        if (e.target === this.element) {
+            if (e.keyCode != keys["enter"]) {return;}
+            e.preventDefault();
+
+            // Scroll if the cursor is not currently within the viewport.
+            var row = this.editor.getCursorPosition().row;       
+            if (!this.editor.isRowVisible(row))
+                this.editor.scrollToLine(row, true, true);
+
+            // After scrolling is completed, find the nearest gutter icon and set focus to it.
+            setTimeout(function() {
+                var index = this.$rowToRowIndex(this.gutterLayer.$cursorCell.row);
+                var nearestFoldIndex = this.$findNearestFoldWidget(index);
+                var nearestAnnotationIndex = this.$findNearestAnnotation(index);
+
+                if (nearestFoldIndex === null && nearestAnnotationIndex === null)
+                    return;
+
+                if (nearestFoldIndex === null && nearestAnnotationIndex !== null){
+                    this.activeRowIndex = nearestAnnotationIndex;
+                    this.activeLane = "annotation";
+                    this.$focusAnnotation(this.activeRowIndex);
+                    return;
+                }
+
+                if (nearestFoldIndex !== null && nearestAnnotationIndex === null){
+                    this.activeRowIndex = nearestFoldIndex;
+                    this.activeLane = "fold";
+                    this.$focusFoldWidget(this.activeRowIndex);
+                    return;
+                }
+
+                if (Math.abs(nearestAnnotationIndex - index) < Math.abs(nearestFoldIndex - index)){
+                    this.activeRowIndex = nearestAnnotationIndex;
+                    this.activeLane = "annotation";
+                    this.$focusAnnotation(this.activeRowIndex);
+                    return;
+                } else {
+                    this.activeRowIndex = nearestFoldIndex;
+                    this.activeLane = "fold";
+                    this.$focusFoldWidget(this.activeRowIndex);
+                    return;
+                }
+            }.bind(this), 10);
+            return;
+        } 
+
+        // After here, foucs is on a gutter icon and we want to interact with them.
+        this.$handleGutterKeyboardInteraction(e);
+
+        // Wait until folding is completed and then signal gutterkeydown to the editor.
+        setTimeout(function() {
+            // Signal to the editor that a key is pressed inside the gutter.
+            this.editor._signal("gutterkeydown", new GutterKeyboardEvent(e, this));
+        }.bind(this), 10);
+    }
+
+    $handleGutterKeyboardInteraction(e) {
+        // Prevent tabbing when interacting with the gutter icons.
+        if (e.keyCode === keys["tab"]){
+            e.preventDefault();
+            return;
+        } 
+
+        // If focus is on a gutter icon, set focus to gutter on escape press.
+        if (e.keyCode === keys["escape"]) {
+            e.preventDefault();
+            this.$blurGutter();
+            this.element.focus();
+            this.lane = null;
+            return;
+        }
+
+        if (e.keyCode === keys["up"]) {
+            e.preventDefault();
+  
+            switch (this.activeLane){
+                case "fold":
+                    this.$moveFoldWidgetUp();
+                    break;
+                
+                case "annotation":
+                    this.$moveAnnotationUp();
+                    break;
+            }
+            return;
+        }
+
+        if (e.keyCode === keys["down"]) {
+            e.preventDefault();
+
+            switch (this.activeLane){
+                case "fold":
+                    this.$moveFoldWidgetDown();
+                    break;
+                
+                case "annotation":
+                    this.$moveAnnotationDown();
+                    break;
+            }
+            return;
+        }
+
+        // Try to switch from fold widgets to annotations.
+        if (e.keyCode === keys["left"]){
+            e.preventDefault();
+            this.$switchLane("annotation");
+            return;
+        }
+
+        // Try to switch from annotations to fold widgets.
+        if (e.keyCode === keys["right"]){
+            e.preventDefault();
+            this.$switchLane("fold");
+            return;
+        }
+
+        if (e.keyCode === keys["enter"] || e.keyCode === keys["space"]){
+            e.preventDefault();
+
+            switch (this.activeLane) {
+                case "fold":
+                    if (this.gutterLayer.session.foldWidgets[this.$rowIndexToRow(this.activeRowIndex)] === 'start') {
+                        var rowFoldingWidget = this.$rowIndexToRow(this.activeRowIndex);
+                        this.editor.session.onFoldWidgetClick(this.$rowIndexToRow(this.activeRowIndex), e);
+
+                        // After folding, check that the right fold widget is still in focus.
+                        // If not (e.g. folding close to bottom of doc), put right widget in focus.
+                        setTimeout(function() {
+                            if (this.$rowIndexToRow(this.activeRowIndex) !== rowFoldingWidget){ 
+                                this.$blurFoldWidget(this.activeRowIndex);
+                                this.activeRowIndex = this.$rowToRowIndex(rowFoldingWidget);
+                                this.$focusFoldWidget(this.activeRowIndex);
+                            }
+                        }.bind(this), 10);
+
+                        break;
+                    } else if (this.gutterLayer.session.foldWidgets[this.$rowIndexToRow(this.activeRowIndex)] === 'end') {
+                        /* TO DO: deal with 'end' fold widgets */
+                        break;
+                    }
+                    return; 
+                
+                case "annotation":
+                    var gutterElement = this.lines.cells[this.activeRowIndex].element.childNodes[2];
+                    var rect = gutterElement.getBoundingClientRect();
+                    var style = this.annotationTooltip.getElement().style;
+                    style.left = rect.right + "px";
+                    style.top = rect.bottom + "px";
+                    this.annotationTooltip.showTooltip(this.$rowIndexToRow(this.activeRowIndex));                
+                    break;
+            }
+            return;
+        }   
+    }
+
+    $blurGutter() {
+        if (this.activeRowIndex !== null){
+            switch (this.activeLane){
+                case "fold":
+                    this.$blurFoldWidget(this.activeRowIndex);
+                    break;
+
+                case "annotation":
+                    this.$blurAnnotation(this.activeRowIndex);
+                    break;
+            }
+        }
+
+        if (this.annotationTooltip.isOpen)
+            this.annotationTooltip.hideTooltip();
+
+        return;
+    }
+
+    $isFoldWidgetVisible(index) {
+        var isRowFullyVisible = this.editor.isRowFullyVisible(this.$rowIndexToRow(index));
+        var isIconVisible = this.$getFoldWidget(index).style.display !== "none";
+        return isRowFullyVisible && isIconVisible;
+    }
+
+    $isAnnotationVisible(index) {
+        var isRowFullyVisible = this.editor.isRowFullyVisible(this.$rowIndexToRow(index));
+        var isIconVisible = this.$getAnnotation(index).style.display !== "none";
+        return isRowFullyVisible && isIconVisible;
+    }
+
+    $getFoldWidget(index) {
+        var cell = this.lines.get(index);
+        var element = cell.element;
+        return element.childNodes[1];
+    }
+
+    $getAnnotation(index) {
+        var cell = this.lines.get(index);
+        var element = cell.element;
+        return element.childNodes[2];
+    }
+
+    // Given an index, find the nearest index with a foldwidget
+    $findNearestFoldWidget(index) {
+        // If fold widget exists at index, return index.
+        if (this.$isFoldWidgetVisible(index))
+            return index;
+
+        // else, find the nearest index with fold widget within viewport.
+        var i = 0;
+        while (index - i > 0 || index + i < this.lines.getLength() - 1){
+            i++;
+
+            if (index - i >= 0 && this.$isFoldWidgetVisible(index - i))
+                return index - i;
+
+            if (index + i <= this.lines.getLength() - 1 && this.$isFoldWidgetVisible(index + i))
+                return index + i;
+        }
+
+        // If there are no fold widgets within the viewport, return null.
+        return null;
+    }
+
+    // Given an index, find the nearest index with an annotation.
+    $findNearestAnnotation(index) {
+        // If annotation exists at index, return index.
+        if (this.$isAnnotationVisible(index))
+            return index;
+
+        // else, find the nearest index with annotation within viewport.
+        var i = 0;
+        while (index - i > 0 || index + i < this.lines.getLength() - 1){
+            i++;
+
+            if (index - i >= 0 && this.$isAnnotationVisible(index - i))
+                return index - i;
+
+            if (index + i <= this.lines.getLength() - 1 && this.$isAnnotationVisible(index + i))
+                return index + i;
+        }
+
+        // If there are no annotations within the viewport, return null.
+        return null;
+    }
+
+    $focusFoldWidget(index) {
+        if (index == null)
+            return;
+
+        var foldWidget = this.$getFoldWidget(index);
+
+        foldWidget.classList.add(this.editor.renderer.keyboardFocusClassName);
+        foldWidget.focus();
+    }
+
+    $focusAnnotation(index) {
+        if (index == null)
+            return;
+
+        var annotation = this.$getAnnotation(index);
+
+        annotation.classList.add(this.editor.renderer.keyboardFocusClassName);
+        annotation.focus();
+    }
+
+    $blurFoldWidget(index) {
+        var foldWidget = this.$getFoldWidget(index);
+
+        foldWidget.classList.remove(this.editor.renderer.keyboardFocusClassName);
+        foldWidget.blur();
+    }
+
+    $blurAnnotation(index) {
+        var annotation = this.$getAnnotation(index);
+
+        annotation.classList.remove(this.editor.renderer.keyboardFocusClassName);
+        annotation.blur();
+    }
+
+    $moveFoldWidgetUp() {
+        var index = this.activeRowIndex;
+
+        while (index > 0){
+            index--;
+
+            if (this.$isFoldWidgetVisible(index)){
+                this.$blurFoldWidget(this.activeRowIndex);
+                this.activeRowIndex = index;
+                this.$focusFoldWidget(this.activeRowIndex);
+                return;
+            }
+        }
+        return;
+    }
+
+    $moveFoldWidgetDown() {
+        var index = this.activeRowIndex;
+
+        while (index < this.lines.getLength() - 1){
+            index++;
+
+            if (this.$isFoldWidgetVisible(index)){
+                this.$blurFoldWidget(this.activeRowIndex);
+                this.activeRowIndex = index;
+                this.$focusFoldWidget(this.activeRowIndex);
+                return;
+            }
+        }
+        return;
+    }
+
+    $moveAnnotationUp() {
+        var index = this.activeRowIndex;
+
+        while (index > 0){
+            index--;
+
+            if (this.$isAnnotationVisible(index)){
+                this.$blurAnnotation(this.activeRowIndex);
+                this.activeRowIndex = index;
+                this.$focusAnnotation(this.activeRowIndex);
+                return;
+            }
+        }
+        return;
+    }
+
+    $moveAnnotationDown() {
+        var index = this.activeRowIndex;
+
+        while (index < this.lines.getLength() - 1){
+            index++;
+
+            if (this.$isAnnotationVisible(index)){
+                this.$blurAnnotation(this.activeRowIndex);
+                this.activeRowIndex = index;
+                this.$focusAnnotation(this.activeRowIndex);
+                return;
+            }
+        }
+        return;
+    }
+
+    $switchLane(desinationLane){
+        switch (desinationLane) {
+            case "annotation":
+                if (this.activeLane === "annotation") {break;}
+                var annotationIndex = this.$findNearestAnnotation(this.activeRowIndex);
+                if (annotationIndex == null) {break;}
+
+                this.activeLane = "annotation";
+
+                this.$blurFoldWidget(this.activeRowIndex);
+                this.activeRowIndex = annotationIndex;
+                this.$focusAnnotation(this.activeRowIndex);
+
+                break;
+
+            case "fold": 
+                if (this.activeLane === "fold") {break;}
+                var foldWidgetIndex = this.$findNearestFoldWidget(this.activeRowIndex);
+                if (foldWidgetIndex == null) {break;}
+
+                this.activeLane = "fold";
+
+                this.$blurAnnotation(this.activeRowIndex);
+                this.activeRowIndex = foldWidgetIndex;
+                this.$focusFoldWidget(this.activeRowIndex);
+                
+                break;
+        }
+        return;
+    }
+
+    // Convert row index (viewport space) to row (document space).
+    $rowIndexToRow(index) {
+        var cell = this.lines.get(index);
+        if (cell)
+            return cell.row;
+
+        return null;
+    }
+
+    // Convert row (document space) to row index (viewport space).
+    $rowToRowIndex(row) {
+        for (var i = 0; i < this.lines.getLength(); i++){
+            var cell = this.lines.get(i);
+            if (cell.row == row)
+                return i;
+        }
+
+        return null;
+    }
+}
+
+exports.K = GutterKeyboardHandler;
+
+/*
+ * Custom Ace gutter keyboard event
+ */
+class GutterKeyboardEvent {
+    constructor(domEvent, gutterKeyboardHandler) {
+        this.gutterKeyboardHandler = gutterKeyboardHandler;
+        this.domEvent = domEvent;
+    }
+
+    /**
+     * Returns the key that was presssed.
+     * 
+     * @return {string} the key that was pressed.
+     */
+    getKey() {
+        return keys.keyCodeToString(this.domEvent.keyCode);
+    }
+
+    /**
+     * Returns the row in the gutter that was focused after the keyboard event was handled.
+     * 
+     * @return {number} the key that was pressed.
+     */
+    getRow() {
+        return this.gutterKeyboardHandler.$rowIndexToRow(this.gutterKeyboardHandler.activeRowIndex);
+    }
+
+    /**
+     * Returns whether focus is on the annotation lane after the keyboard event was handled.
+     * 
+     * @return {boolean} true if focus was on the annotation lane after the keyboard event.
+     */
+    isInAnnotationLane() {
+        return this.gutterKeyboardHandler.activeLane === "annotation";
+    }
+
+    /**
+     * Returns whether focus is on the fold lane after the keyboard event was handled.
+     * 
+     * @return {boolean} true if focus was on the fold lane after the keyboard event.
+     */
+    isInFoldLane() {
+        return this.gutterKeyboardHandler.activeLane === "fold";
+    }
+}
+
+__webpack_unused_export__ = GutterKeyboardEvent;
+
+/***/ }),
+
 /***/ 7116:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -13296,25 +13991,20 @@ var keyUtil = __webpack_require__(11797);
 var useragent = __webpack_require__(50618);
 var KEY_MODS = keyUtil.KEY_MODS;
 
-function HashHandler(config, platform) {
-    this.platform = platform || (useragent.isMac ? "mac" : "win");
-    this.commands = {};
-    this.commandKeyBinding = {};
-    this.addCommands(config);
-    this.$singleCommand = true;
-}
+class MultiHashHandler {
+    constructor(config, platform) {
+        this.$init(config, platform, false);
+    }
 
-function MultiHashHandler(config, platform) {
-    HashHandler.call(this, config, platform);
-    this.$singleCommand = false;
-}
+    $init(config, platform, $singleCommand) {
+        this.platform = platform || (useragent.isMac ? "mac" : "win");
+        this.commands = {};
+        this.commandKeyBinding = {};
+        this.addCommands(config);
+        this.$singleCommand = $singleCommand;
+    }
 
-MultiHashHandler.prototype = HashHandler.prototype;
-
-(function() {
-    
-
-    this.addCommand = function(command) {
+    addCommand(command) {
         if (this.commands[command.name])
             this.removeCommand(command);
 
@@ -13322,9 +14012,9 @@ MultiHashHandler.prototype = HashHandler.prototype;
 
         if (command.bindKey)
             this._buildKeyHash(command);
-    };
+    }
 
-    this.removeCommand = function(command, keepCommand) {
+    removeCommand(command, keepCommand) {
         var name = command && (typeof command === 'string' ? command : command.name);
         command = this.commands[name];
         if (!keepCommand)
@@ -13346,9 +14036,9 @@ MultiHashHandler.prototype = HashHandler.prototype;
                 }
             }
         }
-    };
+    }
 
-    this.bindKey = function(key, command, position) {
+    bindKey(key, command, position) {
         if (typeof key == "object" && key) {
             if (position == undefined)
                 position = key.position;
@@ -13376,14 +14066,9 @@ MultiHashHandler.prototype = HashHandler.prototype;
             var id = KEY_MODS[binding.hashId] + binding.key;
             this._addCommandToBinding(chain + id, command, position);
         }, this);
-    };
-    
-    function getPosition(command) {
-        return typeof command == "object" && command.bindKey
-            && command.bindKey.position 
-            || (command.isDefault ? -100 : 0);
     }
-    this._addCommandToBinding = function(keyId, command, position) {
+    
+    _addCommandToBinding(keyId, command, position) {
         var ckb = this.commandKeyBinding, i;
         if (!command) {
             delete ckb[keyId];
@@ -13409,9 +14094,9 @@ MultiHashHandler.prototype = HashHandler.prototype;
             }
             commands.splice(i, 0, command);
         }
-    };
+    }
 
-    this.addCommands = function(commands) {
+    addCommands(commands) {
         commands && Object.keys(commands).forEach(function(name) {
             var command = commands[name];
             if (!command)
@@ -13431,27 +14116,27 @@ MultiHashHandler.prototype = HashHandler.prototype;
 
             this.addCommand(command);
         }, this);
-    };
+    }
 
-    this.removeCommands = function(commands) {
+    removeCommands(commands) {
         Object.keys(commands).forEach(function(name) {
             this.removeCommand(commands[name]);
         }, this);
-    };
+    }
 
-    this.bindKeys = function(keyList) {
+    bindKeys(keyList) {
         Object.keys(keyList).forEach(function(key) {
             this.bindKey(key, keyList[key]);
         }, this);
-    };
+    }
 
-    this._buildKeyHash = function(command) {
+    _buildKeyHash(command) {
         this.bindKey(command.bindKey, command);
-    };
+    }
 
     // accepts keys in the form ctrl+Enter or ctrl-Enter
     // keys without modifiers or shift only 
-    this.parseKeys = function(keys) {
+    parseKeys(keys) {
         var parts = keys.toLowerCase().split(/[\-\+]([\-\+])?/).filter(function(x){return x;});
         var key = parts.pop();
 
@@ -13474,14 +14159,14 @@ MultiHashHandler.prototype = HashHandler.prototype;
             hashId |= modifier;
         }
         return {key: key, hashId: hashId};
-    };
+    }
 
-    this.findKeyCommand = function findKeyCommand(hashId, keyString) {
+    findKeyCommand(hashId, keyString) {
         var key = KEY_MODS[hashId] + keyString;
         return this.commandKeyBinding[key];
-    };
+    }
 
-    this.handleKeyboard = function(data, hashId, keyString, keyCode) {
+    handleKeyboard(data, hashId, keyString, keyCode) {
         if (keyCode < 0) return;
         var key = KEY_MODS[hashId] + keyString;
         var command = this.commandKeyBinding[key];
@@ -13504,13 +14189,33 @@ MultiHashHandler.prototype = HashHandler.prototype;
                 data.$keyChain = ""; // reset keyChain
         }
         return {command: command};
-    };
+    }
     
-    this.getStatusText = function(editor, data) {
+    getStatusText(editor, data) {
         return data.$keyChain || "";
-    };
+    }
 
-}).call(HashHandler.prototype);
+}
+
+function getPosition(command) {
+    return typeof command == "object" && command.bindKey
+        && command.bindKey.position 
+        || (command.isDefault ? -100 : 0);
+}
+
+class HashHandler extends MultiHashHandler {
+    constructor(config, platform) {
+        super(config, platform);
+        this.$singleCommand = true;
+    }
+}
+
+HashHandler.call = function(thisArg, config, platform) {
+    MultiHashHandler.prototype.$init.call(thisArg, config, platform, true);
+};
+MultiHashHandler.call = function(thisArg, config, platform) {
+    MultiHashHandler.prototype.$init.call(thisArg, config, platform, false);
+};
 
 exports.HashHandler = HashHandler;
 exports.MultiHashHandler = MultiHashHandler;
@@ -13655,6 +14360,7 @@ var __webpack_unused_export__;
 
 
 var event = __webpack_require__(17989);
+var nls = (__webpack_require__(13188).nls);
 var useragent = __webpack_require__(50618);
 var dom = __webpack_require__(6359);
 var lang = __webpack_require__(20124);
@@ -13698,11 +14404,27 @@ var TextInput = function(parentNode, host) {
     var lastSelectionStart = 0;
     var lastSelectionEnd = 0;
     var lastRestoreEnd = 0;
+    var rowStart = Number.MAX_SAFE_INTEGER;
+    var rowEnd = Number.MIN_SAFE_INTEGER;
+    var numberOfExtraLines = 0;
     
     // FOCUS
     // ie9 throws error if document.activeElement is accessed too soon
     try { var isFocused = document.activeElement === text; } catch(e) {}
 
+    // Set number of extra lines in textarea, some screenreaders
+    // perform better with extra lines above and below in the textarea.
+    this.setNumberOfExtraLines = function(number) {
+        rowStart = Number.MAX_SAFE_INTEGER;
+        rowEnd =  Number.MIN_SAFE_INTEGER;
+
+        if (number < 0) {
+            numberOfExtraLines = 0;
+            return;
+        }
+        
+        numberOfExtraLines = number;
+    };
     this.setAriaOptions = function(options) {
         if (options.activeDescendant) {
             text.setAttribute("aria-haspopup", "true");
@@ -13715,16 +14437,22 @@ var TextInput = function(parentNode, host) {
         }
         if (options.role) {
             text.setAttribute("role", options.role);
+        }     
+        if (options.setLabel) {
+            text.setAttribute("aria-roledescription", nls("editor"));
+            if(host.session) {
+                var row =  host.session.selection.cursor.row;
+                text.setAttribute("aria-label", nls("Cursor at row $0", [row + 1]));
+            }
         }
     };
-    this.setAriaOptions({role: "textbox"});
+
+    this.setAriaOptions({role: "textbox"}); 
 
     event.addListener(text, "blur", function(e) {
         if (ignoreFocusEvents) return;
         host.onBlur(e);
         isFocused = false;
-        if (isMobile && !isIOS)
-            document.removeEventListener("selectionchange", detectSelectionChange);
     }, host);
     event.addListener(text, "focus", function(e) {
         if (ignoreFocusEvents) return;
@@ -13741,11 +14469,14 @@ var TextInput = function(parentNode, host) {
             setTimeout(resetSelection);
         else
             resetSelection();
-        if (isMobile && !isIOS)
-            document.addEventListener("selectionchange", detectSelectionChange);
     }, host);
     this.$focusScroll = false;
     this.focus = function() {
+        // On focusing on the textarea, read active row number to assistive tech.
+        this.setAriaOptions({
+            setLabel: host.renderer.enableKeyboardAccessibility
+        });
+
         if (tempStyle || HAS_FOCUS_ARGS || this.$focusScroll == "browser")
             return text.focus({ preventScroll: true });
 
@@ -13804,6 +14535,17 @@ var TextInput = function(parentNode, host) {
         resetSelection();
     });
     
+    // Convert from row,column position to the linear position with respect to the current
+    // block of lines in the textarea.
+    var positionToSelection = function(row, column) {
+        var selection = column;
+
+        for (var i = 1; i <= row - rowStart && i < 2*numberOfExtraLines + 1; i++) {
+            selection += host.session.getLine(row - i).length + 1;
+        }
+        return selection;
+    };
+
     var resetSelection = isIOS
     ? function(value) {
         if (!isFocused || (copied && !value) || sendingText) return;
@@ -13840,19 +14582,43 @@ var TextInput = function(parentNode, host) {
             var selection = host.selection;
             var range = selection.getRange();
             var row = selection.cursor.row;
-            selectionStart = range.start.column;
-            selectionEnd = range.end.column;
-            line = host.session.getLine(row);
 
-            if (range.start.row != row) {
-                var prevLine = host.session.getLine(row - 1);
-                selectionStart = range.start.row < row - 1 ? 0 : selectionStart;
+            // We keep 2*numberOfExtraLines + 1 lines in the textarea, if the new active row
+            // is within the current block of lines in the textarea we do nothing. If the new row
+            // is one row above or below the current block, move up or down to the next block of lines.
+            // If the new row is further than 1 row away from the current block grab a new block centered 
+            // around the new row.
+            if (row === rowEnd + 1) {
+                rowStart = rowEnd + 1;
+                rowEnd = rowStart + 2*numberOfExtraLines;
+            } else if (row === rowStart - 1) {
+                rowEnd = rowStart - 1;
+                rowStart = rowEnd - 2*numberOfExtraLines;
+            } else if (row < rowStart - 1 || row > rowEnd + 1) {
+                rowStart = row > numberOfExtraLines ? row - numberOfExtraLines : 0;
+                rowEnd = row > numberOfExtraLines ? row + numberOfExtraLines : 2*numberOfExtraLines;
+            }
+            
+            var lines = [];
+
+            for (var i = rowStart; i <= rowEnd; i++) {
+                lines.push(host.session.getLine(i));
+            }
+            
+            line = lines.join('\n');
+
+            selectionStart = positionToSelection(range.start.row, range.start.column);
+            selectionEnd = positionToSelection(range.end.row, range.end.column);
+            
+            if (range.start.row < rowStart) {
+                var prevLine = host.session.getLine(rowStart - 1);
+                selectionStart = range.start.row < rowStart - 1 ? 0 : selectionStart;
                 selectionEnd += prevLine.length + 1;
                 line = prevLine + "\n" + line;
             }
-            else if (range.end.row != row) {
-                var nextLine = host.session.getLine(row + 1);
-                selectionEnd = range.end.row > row  + 1 ? nextLine.length : selectionEnd;
+            else if (range.end.row > rowEnd) {
+                var nextLine = host.session.getLine(rowEnd + 1);
+                selectionEnd = range.end.row > rowEnd + 1 ? nextLine.length : range.end.column;
                 selectionEnd += line.length + 1;
                 line = line + "\n" + nextLine;
             }
@@ -13876,12 +14642,12 @@ var TextInput = function(parentNode, host) {
                     }
                 }
             }
-        }
-
-        var newValue = line + "\n\n";
-        if (newValue != lastValue) {
-            text.value = lastValue = newValue;
-            lastSelectionStart = lastSelectionEnd = newValue.length;
+        
+            var newValue = line + "\n\n";
+            if (newValue != lastValue) {
+                text.value = lastValue = newValue;
+                lastSelectionStart = lastSelectionEnd = newValue.length;
+            }
         }
         
         // contextmenu on mac may change the selection
@@ -13928,25 +14694,6 @@ var TextInput = function(parentNode, host) {
         }
     };
 
-    function detectSelectionChange(e) {
-        if (!text || !text.parentNode)
-            document.removeEventListener("selectionchange", detectSelectionChange);
-        if (inComposition) return;
-
-        if (text.selectionStart !== text.selectionEnd) return;
-        var startDiff = text.selectionStart - lastSelectionStart;
-        var oldLenght = lastSelectionEnd - lastSelectionStart;
-        if (startDiff > 0) {
-            startDiff = Math.max(startDiff - oldLenght, 1);
-        } else if (startDiff === 0 && oldLenght) {
-            startDiff = -1;
-        }
-        var repeat = Math.abs(startDiff);
-        var key = startDiff > 0 ? KEYS.right : KEYS.left;
-        for (var i = 0; i < repeat; i++) {
-            host.onCommandKey({}, 0, key);
-        }
-    }
 
     var inputHandler = null;
     this.setInputHandler = function(cb) {inputHandler = cb;};
@@ -15029,6 +15776,7 @@ var oop = __webpack_require__(89359);
 var lang = __webpack_require__(20124);
 var EventEmitter = (__webpack_require__(23056).EventEmitter);
 var Lines = (__webpack_require__(55388)/* .Lines */ .x);
+var nls = (__webpack_require__(13188).nls);
 
 class Gutter{
     constructor(parentEl) {
@@ -15303,6 +16051,7 @@ class Gutter{
         var textNode = element.childNodes[0];
         var foldWidget = element.childNodes[1];
         var annotationNode = element.childNodes[2];
+        var annotationIconNode = annotationNode.firstChild;
 
         var firstLineNumber = session.$firstLineNumber;
         
@@ -15314,24 +16063,12 @@ class Gutter{
         
         var lineHeight = config.lineHeight + "px";
 
-        var className;
-        if (this.$useSvgGutterIcons){
-            className = "ace_gutter-cell_svg-icons ";
-
-            if (this.$annotations[row]){
-                annotationNode.className = "ace_icon_svg" + this.$annotations[row].className;
-
-                dom.setStyle(annotationNode.style, "height", lineHeight);
-                dom.setStyle(annotationNode.style, "display", "block");
-            }
-            else {
-                dom.setStyle(annotationNode.style, "display", "none");
-            }
-        }
-        else {
-            className = "ace_gutter-cell ";
-            dom.setStyle(annotationNode.style, "display", "none");
-        }
+        var className = this.$useSvgGutterIcons ? "ace_gutter-cell_svg-icons " : "ace_gutter-cell ";
+        var iconClassName = this.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
+        
+        var rowText = (gutterRenderer
+            ? gutterRenderer.getText(session, row)
+            : row + firstLineNumber).toString();
 
         if (this.$highlightGutterLine) {
             if (row == this.$cursorRow || (fold && row < this.$cursorRow && row >= foldStart &&  this.$cursorRow <= fold.end.row)) {
@@ -15348,10 +16085,8 @@ class Gutter{
             className += breakpoints[row];
         if (decorations[row])
             className += decorations[row];
-        if (this.$annotations[row])
+        if (this.$annotations[row] && row !== foldStart)
             className += this.$annotations[row].className;
-        if (element.className != className)
-            element.className = className;
 
         if (foldWidgets) {
             var c = foldWidgets[row];
@@ -15361,34 +16096,122 @@ class Gutter{
         }
 
         if (c) {
-            var className = "ace_fold-widget ace_" + c;
-            if (c == "start" && row == foldStart && row < fold.end.row)
-                className += " ace_closed";
+            var foldClass = "ace_fold-widget ace_" + c;
+            var isClosedFold = c == "start" && row == foldStart && row < fold.end.row;
+            if (isClosedFold){
+                foldClass += " ace_closed";
+                var foldAnnotationClass = '';
+                var annotationInFold = false;
+
+                for (var i = row + 1; i <= fold.end.row; i++){
+                    if (!this.$annotations[i])
+                        continue;
+
+                    if (this.$annotations[i].className === " ace_error"){
+                        annotationInFold = true;
+                        foldAnnotationClass = " ace_error_fold";
+                        break;
+                    } 
+                    if (this.$annotations[i].className === " ace_warning"){
+                        annotationInFold = true;
+                        foldAnnotationClass = " ace_warning_fold";
+                        continue;
+                    }
+                }
+
+                className += foldAnnotationClass;
+            }
             else
-                className += " ace_open";
-            if (foldWidget.className != className)
-                foldWidget.className = className;
+                foldClass += " ace_open";
+            if (foldWidget.className != foldClass)
+                foldWidget.className = foldClass;
 
             dom.setStyle(foldWidget.style, "height", lineHeight);
             dom.setStyle(foldWidget.style, "display", "inline-block");
+            
+            // Set a11y properties.
+            foldWidget.setAttribute("role", "button");
+            foldWidget.setAttribute("tabindex", "-1");
+            var foldRange = session.getFoldWidgetRange(row);
+
+            // getFoldWidgetRange is optional to be implemented by fold modes, if not available we fall-back.
+            if (foldRange)
+                foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [foldRange.start.row + 1, foldRange.end.row + 1]));
+            else {
+                if (fold)
+                    foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [fold.start.row + 1, fold.end.row + 1]));
+                else
+                    foldWidget.setAttribute("aria-label", nls("Toggle code folding, row $0", [row + 1]));
+            }
+
+            if (isClosedFold) {
+                foldWidget.setAttribute("aria-expanded", "false");
+                foldWidget.setAttribute("title", nls("Unfold code"));
+            }
+            else {
+                foldWidget.setAttribute("aria-expanded", "true");
+                foldWidget.setAttribute("title", nls("Fold code"));
+            }
         } else {
             if (foldWidget) {
                 dom.setStyle(foldWidget.style, "display", "none");
+                foldWidget.setAttribute("tabindex", "0");
+                foldWidget.removeAttribute("role");
+                foldWidget.removeAttribute("aria-label");
             }
         }
-        
-        var text = (gutterRenderer
-            ? gutterRenderer.getText(session, row)
-            : row + firstLineNumber).toString();
-            
-        if (text !== textNode.data) {
-            textNode.data = text;
+
+        if (annotationInFold && this.$showFoldedAnnotations){
+            annotationNode.className = "ace_gutter_annotation";
+            annotationIconNode.className = iconClassName;
+            annotationIconNode.className += foldAnnotationClass;
+
+            dom.setStyle(annotationIconNode.style, "height", lineHeight);
+            dom.setStyle(annotationNode.style, "display", "block");
+            dom.setStyle(annotationNode.style, "height", lineHeight);
+            annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+            annotationNode.setAttribute("tabindex", "-1");
+            annotationNode.setAttribute("role", "button");
         }
-        
+        else if (this.$annotations[row]){
+            annotationNode.className = "ace_gutter_annotation";
+            annotationIconNode.className = iconClassName;
+
+            if (this.$useSvgGutterIcons)
+                annotationIconNode.className += this.$annotations[row].className;
+            else 
+                element.classList.add(this.$annotations[row].className.replace(" ", ""));
+
+            dom.setStyle(annotationIconNode.style, "height", lineHeight);
+            dom.setStyle(annotationNode.style, "display", "block");
+            dom.setStyle(annotationNode.style, "height", lineHeight);
+            annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+            annotationNode.setAttribute("tabindex", "-1");
+            annotationNode.setAttribute("role", "button");
+        }
+        else {
+            dom.setStyle(annotationNode.style, "display", "none");
+            annotationNode.removeAttribute("aria-label");
+            annotationNode.removeAttribute("role");
+            annotationNode.setAttribute("tabindex", "0");
+        }
+        if (rowText !== textNode.data) {
+            textNode.data = rowText;
+        } 
+
+        if (element.className != className)
+            element.className = className;
         dom.setStyle(cell.element.style, "height", this.$lines.computeLineHeight(row, config, session) + "px");
         dom.setStyle(cell.element.style, "top", this.$lines.computeLineTop(row, config, session) + "px");
         
-        cell.text = text;
+        cell.text = rowText;
+
+        // If there are no annotations or fold widgets in the gutter cell, hide it from assistive tech.
+        if (annotationNode.style.display === "none" && foldWidget.style.display === "none")
+            cell.element.setAttribute("aria-hidden", true);
+        else
+            cell.element.setAttribute("aria-hidden", false);
+        
         return cell;
     }
     
@@ -15396,7 +16219,6 @@ class Gutter{
         this.$highlightGutterLine = highlightGutterLine;
     }
     
-
     setShowLineNumbers(show) {
         this.$renderer = !show && {
             getWidth: function() {return 0;},
@@ -15462,6 +16284,9 @@ function onCreateCell(element) {
 
     var annotationNode = dom.createElement("span");
     element.appendChild(annotationNode);
+
+    var annotationIconNode = dom.createElement("span");
+    annotationNode.appendChild(annotationIconNode);
     
     return element;
 }
@@ -15853,7 +16678,7 @@ var dom = __webpack_require__(6359);
 var lang = __webpack_require__(20124);
 var Lines = (__webpack_require__(55388)/* .Lines */ .x);
 var EventEmitter = (__webpack_require__(23056).EventEmitter);
-
+var nls = (__webpack_require__(13188).nls);
 
 class Text {
     constructor(parentEl) {
@@ -16211,8 +17036,10 @@ class Text {
         if (!this.$textToken[token.type]) {
             var classes = "ace_" + token.type.replace(/\./g, " ace_");
             var span = this.dom.createElement("span");
-            if (token.type == "fold")
+            if (token.type == "fold"){
                 span.style.width = (token.value.length * this.config.characterWidth) + "px";
+                span.setAttribute("title", nls("Unfold code"));
+            }
 
             span.className = classes;
             span.appendChild(valueFragment);
@@ -16660,6 +17487,8 @@ function reportError(msg, data) {
     setTimeout(function() { throw e; });
 }
 
+var messages;
+
 class AppConfig {
     constructor() {
         this.$defaultOptions = {};
@@ -16720,6 +17549,23 @@ class AppConfig {
         }, this);
     }
     
+    setMessages(value) {
+        messages = value;
+    }
+    
+    nls(string, params) {
+        if (messages && !messages[string])  {
+            warn("No message found for '" + string + "' in the provided messages, falling back to default English message.");
+        }
+        var translated = messages && messages[string] || string;
+        if (params) {
+            translated = translated.replace(/\$(\$|[\d]+)/g, function(_, name) {
+                if (name == "$") return "$";
+                return params[name];
+            });
+        }
+        return translated;
+    }
 }
 AppConfig.prototype.warn = warn;
 AppConfig.prototype.reportError = reportError;
@@ -18046,7 +18892,7 @@ var Keys = (function() {
     
     (function() {
         var mods = ["cmd", "ctrl", "alt", "shift"];
-        for (var i = Math.pow(2, mods.length); i--;) {            
+        for (var i = Math.pow(2, mods.length); i--;) {
             ret.KEY_MODS[i] = mods.filter(function(x) {
                 return i & ret.KEY_MODS[x];
             }).join("-") + "-";
@@ -18059,6 +18905,8 @@ var Keys = (function() {
     return ret;
 })();
 oop.mixin(exports, Keys);
+
+exports["default"] = exports;
 
 exports.keyCodeToString = function(keyCode) {
     // Language-switching keystroke in Chrome/Linux emits keyCode 0.
@@ -18265,6 +19113,24 @@ exports.delayedCall = function(fcn, defaultTimeout) {
     };
 
     return _self;
+};
+
+exports.supportsLookbehind = function () {
+    try {
+        new RegExp('(?<=.)');
+    } catch (e) {
+        return false;
+    }
+    return true;
+};
+
+exports.supportsUnicodeFlag = function () {
+    try {
+        new RegExp('^.$', 'u');
+    } catch (error) {
+        return false;
+    }
+    return true;
 };
 
 
@@ -18942,8 +19808,10 @@ var getWrapped = function(selection, selected, opening, closing) {
  * @constructor
  * @param {Object} [options] - The options for the Cstyle behaviour object.
  * @param {boolean} [options.braces] - Whether to force braces auto-pairing.
+ * @param {boolean} [options.closeDocComment] - enables automatic insertion of closing tags for documentation comments.
  */
 var CstyleBehaviour = function(options) {
+    options = options || {};
     this.add("braces", "insertion", function(state, action, editor, session, text) {
         var cursor = editor.getCursorPosition();
         var line = session.doc.getLine(cursor.row);
@@ -18954,7 +19822,7 @@ var CstyleBehaviour = function(options) {
             if (selected !== "" && selected !== "{" && editor.getWrapBehavioursEnabled()) {
                 return getWrapped(selection, selected, '{', '}');
             } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
-                if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options && options.braces) {
+                if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options.braces) {
                     CstyleBehaviour.recordAutoInsert(editor, session, "}");
                     return {
                         text: '{}',
@@ -19192,7 +20060,38 @@ var CstyleBehaviour = function(options) {
             }
         }
     });
+    
+    if (options.closeDocComment !== false) {
+        this.add("doc comment end", "insertion", function (state, action, editor, session, text) {
+            if (state === "doc-start" && (text === "\n" || text === "\r\n") && editor.selection.isEmpty()) {
+                var cursor = editor.getCursorPosition();
+                var line = session.doc.getLine(cursor.row);
+                var nextLine = session.doc.getLine(cursor.row + 1);
+                var indent = this.$getIndent(line);
+                if (/\s*\*/.test(nextLine)) {
+                    if (/^\s*\*/.test(line)) {
+                        return {
+                            text: text + indent + "* ",
+                            selection: [1, 3 + indent.length, 1, 3 + indent.length]
+                        };
+                    }
+                    else {
+                        return {
+                            text: text + indent + " * ",
+                            selection: [1, 3 + indent.length, 1, 3 + indent.length]
+                        };
+                    }
 
+                }
+                if (/\/\*\*/.test(line.substring(0, cursor.column))) {
+                    return {
+                        text: text + indent + " * " + text + " " + indent + "*/",
+                        selection: [1, 4 + indent.length, 1, 4 + indent.length]
+                    };
+                }
+            }
+        });
+    }
 };
 
     
@@ -19979,11 +20878,12 @@ exports.K = TextHighlightRules;
 var dom = __webpack_require__(6359);
 var event = __webpack_require__(17989);
 var Tooltip = (__webpack_require__(962)/* .Tooltip */ .u);
+var nls = (__webpack_require__(13188).nls);
 
 function GutterHandler(mouseHandler) {
     var editor = mouseHandler.editor;
     var gutter = editor.renderer.$gutterLayer;
-    var tooltip = new GutterTooltip(editor.container);
+    var tooltip = new GutterTooltip(editor);
 
     mouseHandler.editor.setDefaultHandler("guttermousedown", function(e) {
         if (!editor.isFocused() || e.getButton() != 0)
@@ -20010,14 +20910,10 @@ function GutterHandler(mouseHandler) {
         return e.preventDefault();
     });
 
-
-    var tooltipTimeout, mouseEvent, tooltipAnnotation;
+    var tooltipTimeout, mouseEvent;
 
     function showTooltip() {
         var row = mouseEvent.getDocumentPosition().row;
-        var annotation = gutter.$annotations[row];
-        if (!annotation)
-            return hideTooltip();
 
         var maxRow = editor.session.getLength();
         if (row == maxRow) {
@@ -20027,65 +20923,35 @@ function GutterHandler(mouseHandler) {
                 return hideTooltip();
         }
 
-        var annotationMessages = {error: [], warning: [], info: []};
-        var annotationLabels = {
-            error: {singular: "error", plural: "errors"}, 
-            warning: {singular: "warning", plural: "warnings"},
-            info: {singular: "information message", plural: "information messages"}
-        };
+        tooltip.showTooltip(row);
 
-        var iconClassName = gutter.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
+        if (!tooltip.isOpen)
+            return;
 
-        // Construct the body of the tooltip.
-        for (var i = 0; i < annotation.text.length; i++) {
-            var line = `<span class='ace_${annotation.type[i]} ${iconClassName}' aria-label='${annotationLabels[annotation.type[i]].singular}' role=img> </span> ${annotation.text[i]}`;
-            annotationMessages[annotation.type[i]].push(line);
-        }
-        var tooltipBody = "<div class='ace_gutter-tooltip_body'>";
-        tooltipBody += [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
-        tooltipBody += '</div>';    
-        
-        // Construct the header of the tooltip.
-        var isMoreThanOneAnnotationType = false;
-        var tooltipHeader = "<div class='ace_gutter-tooltip_header'>";
-        for (var i = 0; i < 3; i++){
-            var annotationType = ['error', 'warning', 'info'][i];
-            if (annotationMessages[annotationType].length > 0){
-                var label = annotationMessages[annotationType].length === 1 ? annotationLabels[annotationType].singular : annotationLabels[annotationType].plural;
-                tooltipHeader += `${isMoreThanOneAnnotationType ? ', ' : ''}${annotationMessages[annotationType].length} ${label}`;
-                isMoreThanOneAnnotationType = true;
-            } 
-        }
-        tooltipHeader += "</div>";
-
-        tooltipAnnotation = tooltipHeader + tooltipBody;
-
-        tooltip.setHtml(tooltipAnnotation);
-        tooltip.setClassName("ace_gutter-tooltip");
-        tooltip.$element.setAttribute("aria-live", "polite");
-        
-        tooltip.show();
-        editor._signal("showGutterTooltip", tooltip);
         editor.on("mousewheel", hideTooltip);
 
         if (mouseHandler.$tooltipFollowsMouse) {
             moveTooltip(mouseEvent);
         } else {
-            var gutterElement = mouseEvent.domEvent.target;
-            var rect = gutterElement.getBoundingClientRect();
-            var style = tooltip.getElement().style;
-            style.left = rect.right + "px";
-            style.top = rect.bottom + "px";
+            var gutterRow = mouseEvent.getGutterRow();
+            var gutterCell = gutter.$lines.get(gutterRow);
+            if (gutterCell) {
+                var gutterElement = gutterCell.element.querySelector(".ace_gutter_annotation");
+                var rect = gutterElement.getBoundingClientRect();
+                var style = tooltip.getElement().style;
+                style.left = rect.right + "px";
+                style.top = rect.bottom + "px";
+            } else {
+                moveTooltip(mouseEvent);
+            }
         }
     }
 
     function hideTooltip() {
         if (tooltipTimeout)
             tooltipTimeout = clearTimeout(tooltipTimeout);
-        if (tooltipAnnotation) {
-            tooltip.hide();
-            tooltipAnnotation = null;
-            editor._signal("hideGutterTooltip", tooltip);
+        if (tooltip.isOpen) {
+            tooltip.hideTooltip();
             editor.off("mousewheel", hideTooltip);
         }
     }
@@ -20099,7 +20965,7 @@ function GutterHandler(mouseHandler) {
         if (dom.hasCssClass(target, "ace_fold-widget"))
             return hideTooltip();
 
-        if (tooltipAnnotation && mouseHandler.$tooltipFollowsMouse)
+        if (tooltip.isOpen && mouseHandler.$tooltipFollowsMouse)
             moveTooltip(e);
 
         mouseEvent = e;
@@ -20116,7 +20982,7 @@ function GutterHandler(mouseHandler) {
 
     event.addListener(editor.renderer.$gutter, "mouseout", function(e) {
         mouseEvent = null;
-        if (!tooltipAnnotation || tooltipTimeout)
+        if (!tooltip.isOpen || tooltipTimeout)
             return;
 
         tooltipTimeout = setTimeout(function() {
@@ -20126,9 +20992,17 @@ function GutterHandler(mouseHandler) {
     }, editor);
     
     editor.on("changeSession", hideTooltip);
+    editor.on("input", hideTooltip);
 }
 
+exports.d = GutterHandler;
+
 class GutterTooltip extends Tooltip {
+    constructor(editor) {
+        super(editor.container);
+        this.editor = editor;
+    }
+
     setPosition(x, y) {
         var windowWidth = window.innerWidth || document.documentElement.clientWidth;
         var windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -20144,10 +21018,103 @@ class GutterTooltip extends Tooltip {
         }
         Tooltip.prototype.setPosition.call(this, x, y);
     }
+    
+    static get annotationLabels() { return {
+            error: {singular: nls("error"), plural: nls("errors")},
+            warning: {singular: nls("warning"), plural: nls("warnings")},
+            info: {singular: nls("information message"), plural: nls("information messages")}
+        };
+    }
 
+    showTooltip(row) {
+        var gutter = this.editor.renderer.$gutterLayer;
+        var annotationsInRow = gutter.$annotations[row];
+        var annotation;
+
+        if (annotationsInRow)
+            annotation = {text: Array.from(annotationsInRow.text), type: Array.from(annotationsInRow.type)};
+        else
+            annotation = {text: [], type: []};
+
+        // If the tooltip is for a row which has a closed fold, check whether there are
+        // annotations in the folded lines. If so, add a summary to the list of annotations.
+        var fold = gutter.session.getFoldLine(row);
+        if (fold && gutter.$showFoldedAnnotations){
+            var annotationsInFold = {error: [], warning: [], info: []};
+            var mostSevereAnnotationInFoldType;
+
+            for (var i = row + 1; i <= fold.end.row; i++){
+                if (!gutter.$annotations[i])
+                    continue;
+
+                for (var j = 0; j < gutter.$annotations[i].text.length; j++) {
+                    var annotationType = gutter.$annotations[i].type[j];
+                    annotationsInFold[annotationType].push(gutter.$annotations[i].text[j]);
+
+                    if (annotationType === "error"){
+                        mostSevereAnnotationInFoldType = "error_fold";
+                        continue;
+                    }
+
+                    if (annotationType === "warning"){
+                        mostSevereAnnotationInFoldType = "warning_fold";
+                        continue;
+                    }
+                }
+            }
+           
+            if (mostSevereAnnotationInFoldType === "error_fold" || mostSevereAnnotationInFoldType === "warning_fold"){
+                var summaryFoldedAnnotations = `${GutterTooltip.annotationsToSummaryString(annotationsInFold)} in folded code.`;
+
+                annotation.text.push(summaryFoldedAnnotations);
+                annotation.type.push(mostSevereAnnotationInFoldType);
+            }
+        }
+        
+        if (annotation.text.length === 0)
+            return this.hide();
+
+        var annotationMessages = {error: [], warning: [], info: []};
+        var iconClassName = gutter.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
+
+        // Construct the contents of the tooltip.
+        for (var i = 0; i < annotation.text.length; i++) {
+            var line = `<span class='ace_${annotation.type[i]} ${iconClassName}' aria-label='${GutterTooltip.annotationLabels[annotation.type[i].replace("_fold","")].singular}' role=img> </span> ${annotation.text[i]}`;
+            annotationMessages[annotation.type[i].replace("_fold","")].push(line);
+        }
+        var tooltipContent = [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
+ 
+        this.setHtml(tooltipContent);
+        this.$element.setAttribute("aria-live", "polite");
+        
+        if (!this.isOpen) {
+            this.setTheme(this.editor.renderer.theme);
+            this.setClassName("ace_gutter-tooltip");
+        }
+
+        this.show();
+        this.editor._signal("showGutterTooltip", this);
+    }
+
+    hideTooltip() {
+        this.$element.removeAttribute("aria-live");
+        this.hide();
+        this.editor._signal("hideGutterTooltip", this);
+    }
+
+    static annotationsToSummaryString(annotations) {
+        const summary = [];
+        const annotationTypes = ['error', 'warning', 'info'];
+        for (const annotationType of annotationTypes) {
+            if (!annotations[annotationType].length) continue;
+            const label = annotations[annotationType].length === 1 ? GutterTooltip.annotationLabels[annotationType].singular : GutterTooltip.annotationLabels[annotationType].plural;
+            summary.push(`${annotations[annotationType].length} ${label}`);
+        }
+        return summary.join(", ");
+    }
 }
 
-exports.d = GutterHandler;
+exports.w = GutterTooltip;
 
 
 /***/ }),
@@ -20932,12 +21899,6 @@ class MouseEvent {
 
         this.propagationStopped = false;
         this.defaultPrevented = false;
-
-        this.getAccelKey = useragent.isMac ? function () {
-            return this.domEvent.metaKey;
-        } : function () {
-            return this.domEvent.ctrlKey;
-        };
     }
     
     stopPropagation() {
@@ -20966,6 +21927,18 @@ class MouseEvent {
         
         this.$pos = this.editor.renderer.screenToTextCoordinates(this.clientX, this.clientY);
         return this.$pos;
+    }
+
+    /**
+     * Get the relative position within the gutter.
+     * 
+     * @return {Number} 'row' within the gutter. 
+     */
+    getGutterRow() {
+        var documentRow = this.getDocumentPosition().row;
+        var screenRow = this.editor.session.documentToScreenRow(documentRow, 0);
+        var screenTopRow = this.editor.session.documentToScreenRow(this.editor.renderer.$gutterLayer.$lines.get(0).row, 0);
+        return screenRow - screenTopRow;
     }
     
     /**
@@ -21006,7 +21979,10 @@ class MouseEvent {
     getShiftKey() {
         return this.domEvent.shiftKey;
     }
-    
+
+    getAccelKey() {
+        return useragent.isMac ? this.domEvent.metaKey : this.domEvent.ctrlKey;
+    }
 }
 
 exports.T = MouseEvent;
@@ -22639,10 +23615,8 @@ exports.MultiSelect = MultiSelect;
         set: function(val) {
             MultiSelect(this);
             if (val) {
-                this.on("changeSession", this.$multiselectOnSessionChange);
                 this.on("mousedown", onMouseDown);
             } else {
-                this.off("changeSession", this.$multiselectOnSessionChange);
                 this.off("mousedown", onMouseDown);
             }
         },
@@ -22969,7 +23943,7 @@ class Range {
      * @returns {Number} This method returns one of the following numbers:
      * * `-2`: (B) is in front of (A), and doesn't intersect with (A)
      * * `-1`: (B) begins before (A) but ends inside of (A)
-     * * `0`: (B) is completely inside of (A) OR (A) is completely inside of (B)
+     * * `0`: (B) is completely inside of (A)
      * * `+1`: (B) begins inside of (A) but ends outside of (A)
      * * `+2`: (B) is after (A) and doesn't intersect with (A)
      * * `42`: FTW state: (B) ends in (A) but starts outside of (A)
@@ -24331,27 +25305,34 @@ var Range = (__webpack_require__(59082)/* .Range */ .e);
 class Search {
     /**
      * Creates a new `Search` object. The following search options are available:
-     *
-     * - `needle`: The string or regular expression you're looking for
-     * - `backwards`: Whether to search backwards from where cursor currently is. Defaults to `false`.
-     * - `wrap`: Whether to wrap the search back to the beginning when it hits the end. Defaults to `false`.
-     * - `caseSensitive`: Whether the search ought to be case-sensitive. Defaults to `false`.
-     * - `wholeWord`: Whether the search matches only on whole words. Defaults to `false`.
-     * - `range`: The [[Range]] to search within. Set this to `null` for the whole document
-     * - `regExp`: Whether the search is a regular expression or not. Defaults to `false`.
-     * - `start`: The starting [[Range]] or cursor position to begin the search
-     * - `skipCurrent`: Whether or not to include the current line in the search. Default to `false`.
-     *
+     * @typedef SearchOptions
+     * 
+     * @property {string|RegExp} [needle] - The string or regular expression you're looking for
+     * @property {boolean} [backwards] - Whether to search backwards from where cursor currently is
+     * @property {boolean} [wrap] - Whether to wrap the search back to the beginning when it hits the end
+     * @property {boolean} [caseSensitive] - Whether the search ought to be case-sensitive
+     * @property {boolean} [wholeWord] - Whether the search matches only on whole words
+     * @property {Range|null} [range] - The [[Range]] to search within. Set this to `null` for the whole document
+     * @property {boolean} [regExp] - Whether the search is a regular expression or not
+     * @property {Range|Position} [start] - The starting [[Range]] or cursor position to begin the search
+     * @property {boolean} [skipCurrent] - Whether or not to include the current line in the search
+     * @property {boolean} [$isMultiLine] - true, if needle has \n or \r\n
+     * @property {boolean} [preserveCase]
+     * @property {boolean} [preventScroll]
+     * @property {boolean} [$supportsUnicodeFlag] - internal property, determine if browser supports unicode flag
+     * @property {any} [re]
      **/
+    
     constructor() {
+        /** 
+         * @type {SearchOptions}
+         */
         this.$options = {};
     }
     
     /**
      * Sets the search options via the `options` parameter.
-     * @param {Object} options An object containing all the new search properties
-     *
-     * 
+     * @param {SearchOptions} options An object containing all the new search properties
      * @returns {Search}
      * @chainable
     **/
@@ -24362,7 +25343,7 @@ class Search {
 
     /**
      * [Returns an object containing all the search options.]{: #Search.getOptions}
-     * @returns {Object}
+     * @returns {SearchOptions}
     **/
     getOptions() {
         return lang.copyObject(this.$options);
@@ -24370,19 +25351,18 @@ class Search {
     
     /**
      * Sets the search options via the `options` parameter.
-     * @param {Object} options object containing all the search propertie
+     * @param {SearchOptions} options object containing all the search propertie
      * @related Search.set
     **/
     setOptions(options) {
         this.$options = options;
     }
+
     /**
      * Searches for `options.needle`. If found, this method returns the [[Range `Range`]] where the text first occurs. If `options.backwards` is `true`, the search goes backwards in the session.
      * @param {EditSession} session The session to search with
-     *
-     * 
-     * @returns {Range}
-    **/
+     * @returns {Range|boolean}
+     **/
     find(session) {
         var options = this.$options;
         var iterator = this.$matchIterator(session, options);
@@ -24408,9 +25388,7 @@ class Search {
     /**
      * Searches for all occurrances `options.needle`. If found, this method returns an array of [[Range `Range`s]] where the text first occurs. If `options.backwards` is `true`, the search goes backwards in the session.
      * @param {EditSession} session The session to search with
-     *
-     * 
-     * @returns {[Range]}
+     * @returns {Range[]}
     **/
     findAll(session) {
         var options = this.$options;
@@ -24521,15 +25499,31 @@ class Search {
         return replacement;
     }
 
+    /**
+     * 
+     * @param {SearchOptions} options
+     * @param $disableFakeMultiline
+     * @return {RegExp|boolean|*[]|*}
+     */
     $assembleRegExp(options, $disableFakeMultiline) {
         if (options.needle instanceof RegExp)
             return options.re = options.needle;
-
+        
         var needle = options.needle;
 
         if (!options.needle)
             return options.re = false;
+        
+        if (options.$supportsUnicodeFlag === undefined) {
+            options.$supportsUnicodeFlag = lang.supportsUnicodeFlag();
+        }
 
+        try {
+            new RegExp(needle, "u");
+        } catch (e) {
+            options.$supportsUnicodeFlag = false; //left for backward compatibility with previous versions for cases like /ab\{2}/gu
+        }
+        
         if (!options.regExp)
             needle = lang.escapeRegExp(needle);
 
@@ -24538,6 +25532,10 @@ class Search {
 
         var modifier = options.caseSensitive ? "gm" : "gmi";
 
+        if (options.$supportsUnicodeFlag) {
+            modifier += "u";
+        }
+        
         options.$isMultiLine = !$disableFakeMultiline && /[\n\r]/.test(needle);
         if (options.$isMultiLine)
             return options.re = this.$assembleMultilineRegExp(needle, modifier);
@@ -24677,13 +25675,33 @@ class Search {
 
 }
 
+/**
+ * 
+ * @param {string} needle
+ * @param {SearchOptions} options
+ * @return {string}
+ */
 function addWordBoundary(needle, options) {
-    function wordBoundary(c) {
-        if (/\w/.test(c) || options.regExp) return "\\b";
+    let supportsLookbehind = lang.supportsLookbehind();
+
+    function wordBoundary(c, firstChar = true) {
+        let wordRegExp = supportsLookbehind && options.$supportsUnicodeFlag ? new RegExp("[\\p{L}\\p{N}_]","u") : new RegExp("\\w");
+
+        if (wordRegExp.test(c) || options.regExp) {
+            if (supportsLookbehind && options.$supportsUnicodeFlag) {
+                if (firstChar) return "(?<=^|[^\\p{L}\\p{N}_])";
+                return "(?=[^\\p{L}\\p{N}_]|$)";
+            }
+            return "\\b";
+        }
         return "";
     }
-    return wordBoundary(needle[0]) + needle
-        + wordBoundary(needle[needle.length - 1]);
+
+    let needleArray = Array.from(needle);
+    let firstChar = needleArray[0];
+    let lastChar = needleArray[needleArray.length - 1];
+
+    return wordBoundary(firstChar) + needle + wordBoundary(lastChar, false);
 }
 
 exports.o = Search;
@@ -24699,8 +25717,6 @@ exports.o = Search;
 
 var lang = __webpack_require__(20124);
 var Range = (__webpack_require__(59082)/* .Range */ .e);
-
-var SearchHighlight = 
 
 class SearchHighlight {
     constructor(regExp, clazz, type = "text") {
@@ -24746,7 +25762,7 @@ class SearchHighlight {
         }
     }
 
-};
+}
 
 // needed to prevent long lines from freezing the browser
 SearchHighlight.prototype.MAX_RANGES = 500;
@@ -25773,19 +26789,19 @@ function date(dateFormat) {
     return str.length == 1 ? "0" + str : str;
 }
 
-var SnippetManager = function() {
-    this.snippetMap = {};
-    this.snippetNameMap = {};
-};
+class SnippetManager {
+    constructor() {
+        this.snippetMap = {};
+        this.snippetNameMap = {};
+        this.variables = VARIABLES;
+    }
 
-(function() {
-    oop.implement(this, EventEmitter);
     
-    this.getTokenizer = function() {
+    getTokenizer() {
         return SnippetManager.$tokenizer || this.createTokenizer();
-    };
+    }
     
-    this.createTokenizer = function() {
+    createTokenizer() {
         function TabstopToken(str) {
             str = str.substr(1);
             if (/^\d+$/.test(str))
@@ -25904,15 +26920,15 @@ var SnippetManager = function() {
             ]
         });
         return SnippetManager.$tokenizer;
-    };
+    }
 
-    this.tokenizeTmSnippet = function(str, startState) {
+    tokenizeTmSnippet(str, startState) {
         return this.getTokenizer().getLineTokens(str, startState).tokens.map(function(x) {
             return x.value || x;
         });
-    };
+    }
     
-    this.getVariableValue = function(editor, name, indentation) {
+    getVariableValue(editor, name, indentation) {
         if (/^\d+$/.test(name))
             return (this.variables.__ || {})[name] || "";
         if (/^[A-Z]\d+$/.test(name))
@@ -25925,12 +26941,10 @@ var SnippetManager = function() {
         if (typeof value == "function")
             value = this.variables[name](editor, name, indentation);
         return value == null ? "" : value;
-    };
+    }
     
-    this.variables = VARIABLES;
-
     // returns string formatted according to http://manual.macromates.com/en/regular_expressions#replacement_string_syntax_format_strings
-    this.tmStrFormat = function(str, ch, editor) {
+    tmStrFormat(str, ch, editor) {
         if (!ch.fmt) return str;
         var flag = ch.flag || "";
         var re = ch.guard;
@@ -25968,17 +26982,17 @@ var SnippetManager = function() {
             return fmtParts.join("");
         });
         return formatted;
-    };
+    }
     
-    this.tmFormatFunction = function(str, ch, editor) {
+    tmFormatFunction(str, ch, editor) {
         if (ch.formatFunction == "upcase")
             return str.toUpperCase();
         if (ch.formatFunction == "downcase")
             return str.toLowerCase();
         return str;
-    };
+    }
 
-    this.resolveVariables = function(snippet, editor) {
+    resolveVariables(snippet, editor) {
         var result = [];
         var indentation = "";
         var afterNewLine = true;
@@ -26033,166 +27047,39 @@ var SnippetManager = function() {
                 i = i1;
         }
         return result;
-    };
+    }
 
-    var processSnippetText = function(editor, snippetText, replaceRange) {
-        var cursor = editor.getCursorPosition();
-        var line = editor.session.getLine(cursor.row);
-        var tabString = editor.session.getTabString();
-        var indentString = line.match(/^\s*/)[0];
-        
-        if (cursor.column < indentString.length)
-            indentString = indentString.slice(0, cursor.column);
-
-        snippetText = snippetText.replace(/\r/g, "");
-        var tokens = this.tokenizeTmSnippet(snippetText);
-        tokens = this.resolveVariables(tokens, editor);
-        // indent
-        tokens = tokens.map(function(x) {
-            if (x == "\n")
-                return x + indentString;
-            if (typeof x == "string")
-                return x.replace(/\t/g, tabString);
-            return x;
-        });
-        // tabstop values
-        var tabstops = [];
-        tokens.forEach(function(p, i) {
-            if (typeof p != "object")
-                return;
-            var id = p.tabstopId;
-            var ts = tabstops[id];
-            if (!ts) {
-                ts = tabstops[id] = [];
-                ts.index = id;
-                ts.value = "";
-                ts.parents = {};
-            }
-            if (ts.indexOf(p) !== -1)
-                return;
-            if (p.choices && !ts.choices)
-                ts.choices = p.choices;
-            ts.push(p);
-            var i1 = tokens.indexOf(p, i + 1);
-            if (i1 === -1)
-                return;
-
-            var value = tokens.slice(i + 1, i1);
-            var isNested = value.some(function(t) {return typeof t === "object";});
-            if (isNested && !ts.value) {
-                ts.value = value;
-            } else if (value.length && (!ts.value || typeof ts.value !== "string")) {
-                ts.value = value.join("");
-            }
-        });
-
-        // expand tabstop values
-        tabstops.forEach(function(ts) {ts.length = 0;});
-        var expanding = {};
-        function copyValue(val) {
-            var copy = [];
-            for (var i = 0; i < val.length; i++) {
-                var p = val[i];
-                if (typeof p == "object") {
-                    if (expanding[p.tabstopId])
-                        continue;
-                    var j = val.lastIndexOf(p, i - 1);
-                    p = copy[j] || {tabstopId: p.tabstopId};
-                }
-                copy[i] = p;
-            }
-            return copy;
-        }
-        for (var i = 0; i < tokens.length; i++) {
-            var p = tokens[i];
-            if (typeof p != "object")
-                continue;
-            var id = p.tabstopId;
-            var ts = tabstops[id];
-            var i1 = tokens.indexOf(p, i + 1);
-            if (expanding[id]) {
-                // if reached closing bracket clear expanding state
-                if (expanding[id] === p) {
-                    delete expanding[id];
-                    Object.keys(expanding).forEach(function(parentId) {
-                        ts.parents[parentId] = true;
-                    });
-                }
-                // otherwise just ignore recursive tabstop
-                continue;
-            }
-            expanding[id] = p;
-            var value = ts.value;
-            if (typeof value !== "string")
-                value = copyValue(value);
-            else if (p.fmt)
-                value = this.tmStrFormat(value, p, editor);
-            tokens.splice.apply(tokens, [i + 1, Math.max(0, i1 - i)].concat(value, p));
-
-            if (ts.indexOf(p) === -1)
-                ts.push(p);
-        }
-        
-        // convert to plain text
-        var row = 0, column = 0;
-        var text = "";
-        tokens.forEach(function(t) {
-            if (typeof t === "string") {
-                var lines = t.split("\n");
-                if (lines.length > 1){
-                    column = lines[lines.length - 1].length;
-                    row += lines.length - 1;
-                } else
-                    column += t.length;
-                text += t;
-            } else if (t) {
-                if (!t.start)
-                    t.start = {row: row, column: column};
-                else
-                    t.end = {row: row, column: column};
-            }
-        });
-
-        return {
-            text,
-            tabstops,
-            tokens
-        };
-    };
-
-    this.getDisplayTextForSnippet = function(editor, snippetText) {
+    getDisplayTextForSnippet(editor, snippetText) {
         var processedSnippet = processSnippetText.call(this, editor, snippetText);
         return processedSnippet.text;
-    };
+    }
 
-    this.insertSnippetForSelection = function(editor, snippetText, replaceRange) {
-        var processedSnippet = processSnippetText.call(this, editor, snippetText);
+    insertSnippetForSelection(editor, snippetText, options={}) {
+        var processedSnippet = processSnippetText.call(this, editor, snippetText, options);
         
         var range = editor.getSelectionRange();
-        if (replaceRange && replaceRange.compareRange(range) === 0) {
-            range = replaceRange;
-        }
         var end = editor.session.replace(range, processedSnippet.text);
 
         var tabstopManager = new TabstopManager(editor);
         var selectionId = editor.inVirtualSelectionMode && editor.selection.index;
         tabstopManager.addTabstops(processedSnippet.tabstops, range.start, end, selectionId);
-    };
+    }
     
-    this.insertSnippet = function(editor, snippetText, replaceRange) {
+    insertSnippet(editor, snippetText, options={}) {
         var self = this;
+        
         if (editor.inVirtualSelectionMode)
-            return self.insertSnippetForSelection(editor, snippetText, replaceRange);
+            return self.insertSnippetForSelection(editor, snippetText, options);
         
         editor.forEachSelection(function() {
-            self.insertSnippetForSelection(editor, snippetText, replaceRange);
+            self.insertSnippetForSelection(editor, snippetText, options);
         }, null, {keepOrder: true});
         
         if (editor.tabstopManager)
             editor.tabstopManager.tabNext();
-    };
+    }
 
-    this.$getScope = function(editor) {
+    $getScope(editor) {
         var scope = editor.session.$mode.$id || "";
         scope = scope.split("/").pop();
         if (scope === "html" || scope === "php") {
@@ -26215,9 +27102,9 @@ var SnippetManager = function() {
         }
         
         return scope;
-    };
+    }
 
-    this.getActiveScopes = function(editor) {
+    getActiveScopes(editor) {
         var scope = this.$getScope(editor);
         var scopes = [scope];
         var snippetMap = this.snippetMap;
@@ -26226,9 +27113,9 @@ var SnippetManager = function() {
         }
         scopes.push("_");
         return scopes;
-    };
+    }
 
-    this.expandWithTab = function(editor, options) {
+    expandWithTab(editor, options) {
         var self = this;
         var result = editor.forEachSelection(function() {
             return self.expandSnippetForSelection(editor, options);
@@ -26236,9 +27123,9 @@ var SnippetManager = function() {
         if (result && editor.tabstopManager)
             editor.tabstopManager.tabNext();
         return result;
-    };
+    }
     
-    this.expandSnippetForSelection = function(editor, options) {
+    expandSnippetForSelection(editor, options) {
         var cursor = editor.getCursorPosition();
         var line = editor.session.getLine(cursor.row);
         var before = line.substring(0, cursor.column);
@@ -26267,9 +27154,9 @@ var SnippetManager = function() {
 
         this.variables.M__ = this.variables.T__ = null;
         return true;
-    };
+    }
 
-    this.findMatchingSnippet = function(snippetList, before, after) {
+    findMatchingSnippet(snippetList, before, after) {
         for (var i = snippetList.length; i--;) {
             var s = snippetList[i];
             if (s.startRe && !s.startRe.test(before))
@@ -26285,11 +27172,9 @@ var SnippetManager = function() {
             s.replaceAfter = s.endTriggerRe ? s.endTriggerRe.exec(after)[0] : "";
             return s;
         }
-    };
+    }
 
-    this.snippetMap = {};
-    this.snippetNameMap = {};
-    this.register = function(snippets, scope) {
+    register(snippets, scope) {
         var snippetMap = this.snippetMap;
         var snippetNameMap = this.snippetNameMap;
         var self = this;
@@ -26367,8 +27252,8 @@ var SnippetManager = function() {
         }
         
         this._signal("registerSnippets", {scope: scope});
-    };
-    this.unregister = function(snippets, scope) {
+    }
+    unregister(snippets, scope) {
         var snippetMap = this.snippetMap;
         var snippetNameMap = this.snippetNameMap;
 
@@ -26386,8 +27271,8 @@ var SnippetManager = function() {
             removeSnippet(snippets);
         else if (Array.isArray(snippets))
             snippets.forEach(removeSnippet);
-    };
-    this.parseSnippetFile = function(str) {
+    }
+    parseSnippetFile(str) {
         str = str.replace(/\r/g, "");
         var list = [], snippet = {};
         var re = /^#.*|^({[\s\S]*})\s*$|^(\S+) (.*)$|^((?:\n*\t.*)+)/gm;
@@ -26420,8 +27305,8 @@ var SnippetManager = function() {
             }
         }
         return list;
-    };
-    this.getSnippetByName = function(name, editor) {
+    }
+    getSnippetByName(name, editor) {
         var snippetMap = this.snippetNameMap;
         var snippet;
         this.getActiveScopes(editor).some(function(scope) {
@@ -26431,55 +27316,183 @@ var SnippetManager = function() {
             return !!snippet;
         }, this);
         return snippet;
+    }
+}
+
+oop.implement(SnippetManager.prototype, EventEmitter);
+
+var processSnippetText = function(editor, snippetText, options={}) {
+    var cursor = editor.getCursorPosition();
+    var line = editor.session.getLine(cursor.row);
+    var tabString = editor.session.getTabString();
+    var indentString = line.match(/^\s*/)[0];
+    
+    if (cursor.column < indentString.length)
+        indentString = indentString.slice(0, cursor.column);
+
+    snippetText = snippetText.replace(/\r/g, "");
+    var tokens = this.tokenizeTmSnippet(snippetText);
+    tokens = this.resolveVariables(tokens, editor);
+    // indent
+    tokens = tokens.map(function(x) {
+        if (x == "\n" && !options.excludeExtraIndent)
+            return x + indentString;
+        if (typeof x == "string")
+            return x.replace(/\t/g, tabString);
+        return x;
+    });
+    // tabstop values
+    var tabstops = [];
+    tokens.forEach(function(p, i) {
+        if (typeof p != "object")
+            return;
+        var id = p.tabstopId;
+        var ts = tabstops[id];
+        if (!ts) {
+            ts = tabstops[id] = [];
+            ts.index = id;
+            ts.value = "";
+            ts.parents = {};
+        }
+        if (ts.indexOf(p) !== -1)
+            return;
+        if (p.choices && !ts.choices)
+            ts.choices = p.choices;
+        ts.push(p);
+        var i1 = tokens.indexOf(p, i + 1);
+        if (i1 === -1)
+            return;
+
+        var value = tokens.slice(i + 1, i1);
+        var isNested = value.some(function(t) {return typeof t === "object";});
+        if (isNested && !ts.value) {
+            ts.value = value;
+        } else if (value.length && (!ts.value || typeof ts.value !== "string")) {
+            ts.value = value.join("");
+        }
+    });
+
+    // expand tabstop values
+    tabstops.forEach(function(ts) {ts.length = 0;});
+    var expanding = {};
+    function copyValue(val) {
+        var copy = [];
+        for (var i = 0; i < val.length; i++) {
+            var p = val[i];
+            if (typeof p == "object") {
+                if (expanding[p.tabstopId])
+                    continue;
+                var j = val.lastIndexOf(p, i - 1);
+                p = copy[j] || {tabstopId: p.tabstopId};
+            }
+            copy[i] = p;
+        }
+        return copy;
+    }
+    for (var i = 0; i < tokens.length; i++) {
+        var p = tokens[i];
+        if (typeof p != "object")
+            continue;
+        var id = p.tabstopId;
+        var ts = tabstops[id];
+        var i1 = tokens.indexOf(p, i + 1);
+        if (expanding[id]) {
+            // if reached closing bracket clear expanding state
+            if (expanding[id] === p) {
+                delete expanding[id];
+                Object.keys(expanding).forEach(function(parentId) {
+                    ts.parents[parentId] = true;
+                });
+            }
+            // otherwise just ignore recursive tabstop
+            continue;
+        }
+        expanding[id] = p;
+        var value = ts.value;
+        if (typeof value !== "string")
+            value = copyValue(value);
+        else if (p.fmt)
+            value = this.tmStrFormat(value, p, editor);
+        tokens.splice.apply(tokens, [i + 1, Math.max(0, i1 - i)].concat(value, p));
+
+        if (ts.indexOf(p) === -1)
+            ts.push(p);
+    }
+    
+    // convert to plain text
+    var row = 0, column = 0;
+    var text = "";
+    tokens.forEach(function(t) {
+        if (typeof t === "string") {
+            var lines = t.split("\n");
+            if (lines.length > 1){
+                column = lines[lines.length - 1].length;
+                row += lines.length - 1;
+            } else
+                column += t.length;
+            text += t;
+        } else if (t) {
+            if (!t.start)
+                t.start = {row: row, column: column};
+            else
+                t.end = {row: row, column: column};
+        }
+    });
+
+    return {
+        text,
+        tabstops,
+        tokens
     };
-
-}).call(SnippetManager.prototype);
-
-
-var TabstopManager = function(editor) {
-    if (editor.tabstopManager)
-        return editor.tabstopManager;
-    editor.tabstopManager = this;
-    this.$onChange = this.onChange.bind(this);
-    this.$onChangeSelection = lang.delayedCall(this.onChangeSelection.bind(this)).schedule;
-    this.$onChangeSession = this.onChangeSession.bind(this);
-    this.$onAfterExec = this.onAfterExec.bind(this);
-    this.attach(editor);
 };
-(function() {
-    this.attach = function(editor) {
+
+class TabstopManager {
+    constructor(editor) {
         this.index = 0;
         this.ranges = [];
         this.tabstops = [];
+        if (editor.tabstopManager)
+            return editor.tabstopManager;
+        editor.tabstopManager = this;
+        this.$onChange = this.onChange.bind(this);
+        this.$onChangeSelection = lang.delayedCall(this.onChangeSelection.bind(this)).schedule;
+        this.$onChangeSession = this.onChangeSession.bind(this);
+        this.$onAfterExec = this.onAfterExec.bind(this);
+        this.attach(editor);
+    }
+
+    attach(editor) {
         this.$openTabstops = null;
         this.selectedTabstop = null;
 
         this.editor = editor;
+        this.session = editor.session;
         this.editor.on("change", this.$onChange);
         this.editor.on("changeSelection", this.$onChangeSelection);
         this.editor.on("changeSession", this.$onChangeSession);
         this.editor.commands.on("afterExec", this.$onAfterExec);
         this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
-    };
-    this.detach = function() {
+    }
+    detach() {
         this.tabstops.forEach(this.removeTabstopMarkers, this);
-        this.ranges = null;
-        this.tabstops = null;
+        this.ranges.length = 0;
+        this.tabstops.length = 0;
         this.selectedTabstop = null;
-        this.editor.removeListener("change", this.$onChange);
-        this.editor.removeListener("changeSelection", this.$onChangeSelection);
-        this.editor.removeListener("changeSession", this.$onChangeSession);
-        this.editor.commands.removeListener("afterExec", this.$onAfterExec);
+        this.editor.off("change", this.$onChange);
+        this.editor.off("changeSelection", this.$onChangeSelection);
+        this.editor.off("changeSession", this.$onChangeSession);
+        this.editor.commands.off("afterExec", this.$onAfterExec);
         this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler);
         this.editor.tabstopManager = null;
+        this.session = null;
         this.editor = null;
-    };
+    }
 
-    this.onChange = function(delta) {
+    onChange(delta) {
         var isRemove = delta.action[0] == "r";
         var selectedTabstop = this.selectedTabstop || {};
         var parents = selectedTabstop.parents || {};
-        var tabstops = (this.tabstops || []).slice();
+        var tabstops = this.tabstops.slice();
         for (var i = 0; i < tabstops.length; i++) {
             var ts = tabstops[i];
             var active = ts == selectedTabstop || parents[ts.index];
@@ -26497,16 +27510,16 @@ var TabstopManager = function(editor) {
             }
             ts.rangeList.$onChange(delta);
         }
-        var session = this.editor.session;
+        var session = this.session;
         if (!this.$inChange && isRemove && session.getLength() == 1 && !session.getValue())
             this.detach();
-    };
-    this.updateLinkedFields = function() {
+    }
+    updateLinkedFields() {
         var ts = this.selectedTabstop;
         if (!ts || !ts.hasLinkedRanges || !ts.firstNonLinked)
             return;
         this.$inChange = true;
-        var session = this.editor.session;
+        var session = this.session;
         var text = session.getTextRange(ts.firstNonLinked);
         for (var i = 0; i < ts.length; i++) {
             var range = ts[i];
@@ -26517,12 +27530,12 @@ var TabstopManager = function(editor) {
             session.replace(range, fmt);
         }
         this.$inChange = false;
-    };
-    this.onAfterExec = function(e) {
+    }
+    onAfterExec(e) {
         if (e.command && !e.command.readOnly)
             this.updateLinkedFields();
-    };
-    this.onChangeSelection = function() {
+    }
+    onChangeSelection() {
         if (!this.editor)
             return;
         var lead = this.editor.selection.lead;
@@ -26537,11 +27550,11 @@ var TabstopManager = function(editor) {
                 return;
         }
         this.detach();
-    };
-    this.onChangeSession = function() {
+    }
+    onChangeSession() {
         this.detach();
-    };
-    this.tabNext = function(dir) {
+    }
+    tabNext(dir) {
         var max = this.tabstops.length;
         var index = this.index + (dir || 1);
         index = Math.min(Math.max(index, 1), max);
@@ -26550,8 +27563,8 @@ var TabstopManager = function(editor) {
         this.selectTabstop(index);
         if (index === 0)
             this.detach();
-    };
-    this.selectTabstop = function(index) {
+    }
+    selectTabstop(index) {
         this.$openTabstops = null;
         var ts = this.tabstops[this.index];
         if (ts)
@@ -26579,8 +27592,8 @@ var TabstopManager = function(editor) {
         this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
         if (this.selectedTabstop && this.selectedTabstop.choices)
             this.editor.execCommand("startAutocomplete", {matches: this.selectedTabstop.choices});
-    };
-    this.addTabstops = function(tabstops, start, end) {
+    }
+    addTabstops(tabstops, start, end) {
         var useLink = this.useLink || !this.editor.getOption("enableMultiselect");
         
         if (!this.$openTabstops)
@@ -26636,30 +27649,30 @@ var TabstopManager = function(editor) {
                 arg.push(arg.splice(2, 1)[0]);
             this.tabstops.splice.apply(this.tabstops, arg);
         }
-    };
+    }
 
-    this.addTabstopMarkers = function(ts) {
-        var session = this.editor.session;
+    addTabstopMarkers(ts) {
+        var session = this.session;
         ts.forEach(function(range) {
             if  (!range.markerId)
                 range.markerId = session.addMarker(range, "ace_snippet-marker", "text");
         });
-    };
-    this.removeTabstopMarkers = function(ts) {
-        var session = this.editor.session;
+    }
+    removeTabstopMarkers(ts) {
+        var session = this.session;
         ts.forEach(function(range) {
             session.removeMarker(range.markerId);
             range.markerId = null;
         });
-    };
-    this.removeRange = function(range) {
+    }
+    removeRange(range) {
         var i = range.tabstop.indexOf(range);
         if (i != -1) range.tabstop.splice(i, 1);
         i = this.ranges.indexOf(range);
         if (i != -1) this.ranges.splice(i, 1);
         i = range.tabstop.rangeList.ranges.indexOf(range);
         if (i != -1) range.tabstop.splice(i, 1);
-        this.editor.session.removeMarker(range.markerId);
+        this.session.removeMarker(range.markerId);
         if (!range.tabstop.length) {
             i = this.tabstops.indexOf(range.tabstop);
             if (i != -1)
@@ -26667,26 +27680,26 @@ var TabstopManager = function(editor) {
             if (!this.tabstops.length)
                 this.detach();
         }
-    };
+    }
+}
 
-    this.keyboardHandler = new HashHandler();
-    this.keyboardHandler.bindKeys({
-        "Tab": function(editor) {
-            if (exports.w && exports.w.expandWithTab(editor))
-                return;
-            editor.tabstopManager.tabNext(1);
-            editor.renderer.scrollCursorIntoView();
-        },
-        "Shift-Tab": function(editor) {
-            editor.tabstopManager.tabNext(-1);
-            editor.renderer.scrollCursorIntoView();
-        },
-        "Esc": function(editor) {
-            editor.tabstopManager.detach();
-        }
-    });
-}).call(TabstopManager.prototype);
 
+TabstopManager.prototype.keyboardHandler = new HashHandler();
+TabstopManager.prototype.keyboardHandler.bindKeys({
+    "Tab": function(editor) {
+        if (exports.w && exports.w.expandWithTab(editor))
+            return;
+        editor.tabstopManager.tabNext(1);
+        editor.renderer.scrollCursorIntoView();
+    },
+    "Shift-Tab": function(editor) {
+        editor.tabstopManager.tabNext(-1);
+        editor.renderer.scrollCursorIntoView();
+    },
+    "Esc": function(editor) {
+        editor.tabstopManager.detach();
+    }
+});
 
 
 var movePoint = function(point, diff) {
@@ -26727,7 +27740,7 @@ var Editor = (__webpack_require__(82880).Editor);
 
 /***/ }),
 
-/***/ 45673:
+/***/ 29708:
 /***/ ((module) => {
 
 module.exports = `.ace-tm .ace_gutter {
@@ -26901,7 +27914,7 @@ module.exports = `.ace-tm .ace_gutter {
 
 exports.isDark = false;
 exports.cssClass = "ace-tm";
-exports.cssText = __webpack_require__(45673);
+exports.cssText = __webpack_require__(29708);
 exports.$id = "ace/theme/textmate";
 
 var dom = __webpack_require__(6359);
@@ -27394,9 +28407,11 @@ exports.d = Tokenizer;
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
+var __webpack_unused_export__;
 
 
 var dom = __webpack_require__(6359);
+var Range = (__webpack_require__(59082)/* .Range */ .e);
 
 var CLASSNAME = "ace_tooltip";
 
@@ -27419,7 +28434,7 @@ class Tooltip {
     }
 
     /**
-     * @returns {Element}
+     * @returns {HTMLElement}
      **/
     getElement() {
         return this.$element || this.$init();
@@ -27453,6 +28468,11 @@ class Tooltip {
      **/
     setClassName(className) {
         dom.addCssClass(this.getElement(), className);
+    }
+
+    setTheme(theme) {
+        this.$element.className = CLASSNAME + " " +
+            (theme.isDark? "ace_dark " : "") + (theme.cssClass || "");
     }
 
     /**
@@ -27502,8 +28522,261 @@ class Tooltip {
 
 }
 
+class PopupManager {
+    constructor () {
+        this.popups = [];
+    }
+    
+    addPopup(popup) {
+        this.popups.push(popup);
+        this.updatePopups();
+    }
+
+    removePopup(popup) {
+        const index = this.popups.indexOf(popup);
+        if (index !== -1) {
+            this.popups.splice(index, 1);
+            this.updatePopups();
+        }
+    }
+
+    updatePopups() {
+        this.popups.sort((a, b) => b.priority - a.priority);
+        let visiblepopups = [];
+
+        for (let popup of this.popups) {
+            let shouldDisplay = true;
+            for (let visiblePopup of visiblepopups) {
+                if (this.doPopupsOverlap(visiblePopup, popup)) {
+                    shouldDisplay = false;
+                    break;
+                }
+            }
+            
+            if (shouldDisplay) {
+                visiblepopups.push(popup);
+            } else {
+                popup.hide();
+            }
+        }
+    }
+
+    doPopupsOverlap (popupA, popupB) {
+        const rectA = popupA.getElement().getBoundingClientRect();
+        const rectB = popupB.getElement().getBoundingClientRect();
+
+        return (rectA.left < rectB.right && rectA.right > rectB.left && rectA.top < rectB.bottom && rectA.bottom
+            > rectB.top);
+    }
+}
+
+var popupManager = new PopupManager();
+__webpack_unused_export__ = popupManager;
+
 exports.u = Tooltip;
 
+
+class HoverTooltip extends Tooltip {
+    constructor(parentNode=document.body) {
+        super(parentNode);
+        
+        this.timeout = undefined;
+        this.lastT = 0;
+        this.idleTime = 350;
+        this.lastEvent = undefined;
+        
+        this.onMouseOut = this.onMouseOut.bind(this);
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.waitForHover = this.waitForHover.bind(this);
+        this.hide = this.hide.bind(this);
+        
+        var el = this.getElement();
+        el.style.whiteSpace = "pre-wrap";
+        el.style.pointerEvents = "auto";
+        el.addEventListener("mouseout", this.onMouseOut);
+        el.tabIndex = -1;
+        
+        el.addEventListener("blur", function() {
+            if (!el.contains(document.activeElement)) this.hide();
+        }.bind(this));
+    }
+    
+    addToEditor(editor) {
+        editor.on("mousemove", this.onMouseMove);
+        editor.on("mousedown", this.hide);
+        editor.renderer.getMouseEventTarget().addEventListener("mouseout", this.onMouseOut, true);
+    }
+
+    removeFromEditor(editor) {
+        editor.off("mousemove", this.onMouseMove);
+        editor.off("mousedown", this.hide);
+        editor.renderer.getMouseEventTarget().removeEventListener("mouseout", this.onMouseOut, true);
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
+    }
+
+    onMouseMove(e, editor) {
+        this.lastEvent = e;
+        this.lastT = Date.now();
+        var isMousePressed = editor.$mouseHandler.isMousePressed;
+        if (this.isOpen) {
+            var pos = this.lastEvent && this.lastEvent.getDocumentPosition();
+            if (
+                !this.range 
+                || !this.range.contains(pos.row, pos.column)
+                || isMousePressed
+                || this.isOutsideOfText(this.lastEvent)
+            ) {
+                this.hide();
+            }
+        }
+        if (this.timeout || isMousePressed) return;
+        this.lastEvent = e;
+        this.timeout = setTimeout(this.waitForHover, this.idleTime);
+    }
+    waitForHover() {
+        if (this.timeout) clearTimeout(this.timeout);
+        var dt = Date.now() - this.lastT;
+        if (this.idleTime - dt > 10) {
+            this.timeout = setTimeout(this.waitForHover, this.idleTime - dt);
+            return;
+        }
+        
+        this.timeout = null;
+        if (this.lastEvent && !this.isOutsideOfText(this.lastEvent)) {
+            this.$gatherData(this.lastEvent, this.lastEvent.editor);
+        }
+    }
+
+    isOutsideOfText(e) {
+        var editor = e.editor;
+        var docPos = e.getDocumentPosition();
+        var line = editor.session.getLine(docPos.row);
+        if (docPos.column == line.length) {
+            var screenPos = editor.renderer.pixelToScreenCoordinates(e.clientX, e.clientY);
+            var clippedPos = editor.session.documentToScreenPosition(docPos.row, docPos.column);
+            if (
+                clippedPos.column != screenPos.column
+                || clippedPos.row != screenPos.row
+            ) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    setDataProvider(value) {
+        this.$gatherData = value;
+    }
+    
+    showForRange(editor, range, domNode, startingEvent) {
+        if (startingEvent && startingEvent != this.lastEvent) return;
+        if (this.isOpen && document.activeElement == this.getElement()) return;
+        
+        var renderer = editor.renderer;
+        if (!this.isOpen) {
+            popupManager.addPopup(this);
+            this.$registerCloseEvents();
+            this.setTheme(renderer.theme);
+        }
+        this.isOpen = true;
+        
+        this.addMarker(range, editor.session);
+        this.range = Range.fromPoints(range.start, range.end);
+        
+        var element = this.getElement();
+        element.innerHTML = "";
+        element.appendChild(domNode);
+        element.style.display = "block";
+        
+        var position = renderer.textToScreenCoordinates(range.start.row, range.start.column);
+        var cursorPos = editor.getCursorPosition();
+        
+        var labelHeight = element.clientHeight;
+        var rect = renderer.scroller.getBoundingClientRect();
+
+        var isTopdown = true;
+        if (this.row > cursorPos.row) {
+            // don't obscure cursor
+            isTopdown = true; 
+        } else if (this.row < cursorPos.row) {
+            // don't obscure cursor
+            isTopdown = false;
+        }
+        
+        if (position.pageY - labelHeight + renderer.lineHeight < rect.top) {
+            // not enough space above us
+            isTopdown = true; 
+        } else if (position.pageY + labelHeight > rect.bottom) {
+            isTopdown = false;
+        }
+
+        if (!isTopdown) {
+            position.pageY -= labelHeight; 
+        } else {
+            position.pageY += renderer.lineHeight;
+        }
+
+        element.style.maxWidth = rect.width - (position.pageX - rect.left) + "px";
+
+        this.setPosition(position.pageX, position.pageY);
+    }
+    
+    addMarker(range, session) {
+        if (this.marker) {
+            this.$markerSession.removeMarker(this.marker);
+        }
+        this.$markerSession = session;
+        this.marker = session && session.addMarker(range, "ace_highlight-marker", "text");
+    }
+    
+    hide(e) {
+        if (!e && document.activeElement == this.getElement())
+            return;
+        if (e && e.target && (e.type != "keydown" || e.ctrlKey || e.metaKey) && this.$element.contains(e.target))
+            return;
+        this.lastEvent = null;
+        if (this.timeout) clearTimeout(this.timeout);
+        this.timeout = null;
+        this.addMarker(null);
+        if (this.isOpen) {
+            this.$removeCloseEvents();
+            this.getElement().style.display = "none";
+            this.isOpen = false;
+            popupManager.removePopup(this);
+        }
+    }
+
+    $registerCloseEvents() {
+        window.addEventListener("keydown", this.hide, true);
+        window.addEventListener("mousewheel", this.hide, true);
+        window.addEventListener("mousedown", this.hide, true);
+    }
+
+    $removeCloseEvents() {
+        window.removeEventListener("keydown", this.hide, true);
+        window.removeEventListener("mousewheel", this.hide, true);
+        window.removeEventListener("mousedown", this.hide, true);
+    }
+
+    onMouseOut(e) {
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
+        this.lastEvent = null;
+        if (!this.isOpen) return;
+
+        if (!e.relatedTarget || e.relatedTarget == this.getElement()) return;
+
+        if (e && e.currentTarget.contains(e.relatedTarget)) return;
+        if (!e.relatedTarget.classList.contains("ace_content")) this.hide();
+    }
+}
+
+__webpack_unused_export__ = HoverTooltip;
 
 /***/ }),
 
@@ -28122,7 +29395,7 @@ var VScrollBarCustom = (__webpack_require__(66810)/* .VScrollBar */ .oX);
 var RenderLoop = (__webpack_require__(93081)/* .RenderLoop */ .d);
 var FontMetrics = (__webpack_require__(89506)/* .FontMetrics */ .c);
 var EventEmitter = (__webpack_require__(23056).EventEmitter);
-var editorCss = __webpack_require__(20610);
+var editorCss = __webpack_require__(20449);
 var Decorator = (__webpack_require__(22113)/* .Decorator */ .S);
 
 var useragent = __webpack_require__(50618);
@@ -28569,7 +29842,7 @@ class VirtualRenderer {
     getShowInvisibles() {
         return this.getOption("showInvisibles");
     }
-    getDisplayIndentGuide() {
+    getDisplayIndentGuides() {
         return this.getOption("displayIndentGuides");
     }
 
@@ -28954,7 +30227,9 @@ class VirtualRenderer {
         // horizontal scrolling
         if (changes & this.CHANGE_H_SCROLL) {
             dom.translate(this.content, -this.scrollLeft, -config.offset);
-            this.scroller.className = this.scrollLeft <= 0 ? "ace_scroller" : "ace_scroller ace_scroll-left";
+            this.scroller.className = this.scrollLeft <= 0 ? "ace_scroller " : "ace_scroller ace_scroll-left ";
+            if (this.enableKeyboardAccessibility)
+                this.scroller.className += this.keyboardFocusClassName;
         }
 
         // full
@@ -30015,6 +31290,12 @@ config.defineOptions(VirtualRenderer.prototype, "renderer", {
         },
         initialValue: false
     },
+    showFoldedAnnotations: {
+        set: function(value){
+            this.$gutterLayer.$showFoldedAnnotations = value;
+        },
+        initialValue: false
+    },
     fadeFoldWidgets: {
         set: function(show) {
             dom.setCssClass(this.$gutter, "ace_fade-fold-widgets", show);
@@ -30151,21 +31432,6 @@ exports.WorkerClient = function() {
     this.terminate = function() {};
 };
 
-
-/***/ }),
-
-/***/ 2126:
-/***/ ((module) => {
-
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
-}
-webpackEmptyContext.keys = () => ([]);
-webpackEmptyContext.resolve = webpackEmptyContext;
-webpackEmptyContext.id = 2126;
-module.exports = webpackEmptyContext;
 
 /***/ }),
 
@@ -40952,18 +42218,23 @@ var ThrowTypeError = $gOPD
 	: throwTypeError;
 
 var hasSymbols = __nested_webpack_require_95757__(2636)();
+var hasProto = __nested_webpack_require_95757__(8486)();
 
-var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
+var getProto = Object.getPrototypeOf || (
+	hasProto
+		? function (x) { return x.__proto__; } // eslint-disable-line no-proto
+		: null
+);
 
 var needsEval = {};
 
-var TypedArray = typeof Uint8Array === 'undefined' ? undefined : getProto(Uint8Array);
+var TypedArray = typeof Uint8Array === 'undefined' || !getProto ? undefined : getProto(Uint8Array);
 
 var INTRINSICS = {
 	'%AggregateError%': typeof AggregateError === 'undefined' ? undefined : AggregateError,
 	'%Array%': Array,
 	'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined : ArrayBuffer,
-	'%ArrayIteratorPrototype%': hasSymbols ? getProto([][Symbol.iterator]()) : undefined,
+	'%ArrayIteratorPrototype%': hasSymbols && getProto ? getProto([][Symbol.iterator]()) : undefined,
 	'%AsyncFromSyncIteratorPrototype%': undefined,
 	'%AsyncFunction%': needsEval,
 	'%AsyncGenerator%': needsEval,
@@ -40971,6 +42242,8 @@ var INTRINSICS = {
 	'%AsyncIteratorPrototype%': needsEval,
 	'%Atomics%': typeof Atomics === 'undefined' ? undefined : Atomics,
 	'%BigInt%': typeof BigInt === 'undefined' ? undefined : BigInt,
+	'%BigInt64Array%': typeof BigInt64Array === 'undefined' ? undefined : BigInt64Array,
+	'%BigUint64Array%': typeof BigUint64Array === 'undefined' ? undefined : BigUint64Array,
 	'%Boolean%': Boolean,
 	'%DataView%': typeof DataView === 'undefined' ? undefined : DataView,
 	'%Date%': Date,
@@ -40991,10 +42264,10 @@ var INTRINSICS = {
 	'%Int32Array%': typeof Int32Array === 'undefined' ? undefined : Int32Array,
 	'%isFinite%': isFinite,
 	'%isNaN%': isNaN,
-	'%IteratorPrototype%': hasSymbols ? getProto(getProto([][Symbol.iterator]())) : undefined,
+	'%IteratorPrototype%': hasSymbols && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined,
 	'%JSON%': typeof JSON === 'object' ? JSON : undefined,
 	'%Map%': typeof Map === 'undefined' ? undefined : Map,
-	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols ? undefined : getProto(new Map()[Symbol.iterator]()),
+	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols || !getProto ? undefined : getProto(new Map()[Symbol.iterator]()),
 	'%Math%': Math,
 	'%Number%': Number,
 	'%Object%': Object,
@@ -41007,10 +42280,10 @@ var INTRINSICS = {
 	'%Reflect%': typeof Reflect === 'undefined' ? undefined : Reflect,
 	'%RegExp%': RegExp,
 	'%Set%': typeof Set === 'undefined' ? undefined : Set,
-	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols ? undefined : getProto(new Set()[Symbol.iterator]()),
+	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols || !getProto ? undefined : getProto(new Set()[Symbol.iterator]()),
 	'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined : SharedArrayBuffer,
 	'%String%': String,
-	'%StringIteratorPrototype%': hasSymbols ? getProto(''[Symbol.iterator]()) : undefined,
+	'%StringIteratorPrototype%': hasSymbols && getProto ? getProto(''[Symbol.iterator]()) : undefined,
 	'%Symbol%': hasSymbols ? Symbol : undefined,
 	'%SyntaxError%': $SyntaxError,
 	'%ThrowTypeError%': ThrowTypeError,
@@ -41025,6 +42298,16 @@ var INTRINSICS = {
 	'%WeakRef%': typeof WeakRef === 'undefined' ? undefined : WeakRef,
 	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined : WeakSet
 };
+
+if (getProto) {
+	try {
+		null.error; // eslint-disable-line no-unused-expressions
+	} catch (e) {
+		// https://github.com/tc39/proposal-shadowrealm/pull/384#issuecomment-1364264229
+		var errorProto = getProto(getProto(e));
+		INTRINSICS['%Error.prototype%'] = errorProto;
+	}
+}
 
 var doEval = function doEval(name) {
 	var value;
@@ -41041,7 +42324,7 @@ var doEval = function doEval(name) {
 		}
 	} else if (name === '%AsyncIteratorPrototype%') {
 		var gen = doEval('%AsyncGenerator%');
-		if (gen) {
+		if (gen && getProto) {
 			value = getProto(gen.prototype);
 		}
 	}
@@ -41246,12 +42529,12 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 /***/ }),
 
 /***/ 326:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_108585__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_109194__) => {
 
 "use strict";
 
 
-var GetIntrinsic = __nested_webpack_require_108585__(7286);
+var GetIntrinsic = __nested_webpack_require_109194__(7286);
 
 var $gOPD = GetIntrinsic('%Object.getOwnPropertyDescriptor%', true);
 
@@ -41270,12 +42553,12 @@ module.exports = $gOPD;
 /***/ }),
 
 /***/ 1181:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_108944__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_109553__) => {
 
 "use strict";
 
 
-var GetIntrinsic = __nested_webpack_require_108944__(7286);
+var GetIntrinsic = __nested_webpack_require_109553__(7286);
 
 var $defineProperty = GetIntrinsic('%Object.defineProperty%', true);
 
@@ -41310,14 +42593,33 @@ module.exports = hasPropertyDescriptors;
 
 /***/ }),
 
+/***/ 8486:
+/***/ ((module) => {
+
+"use strict";
+
+
+var test = {
+	foo: {}
+};
+
+var $Object = Object;
+
+module.exports = function hasProto() {
+	return { __proto__: test }.foo === test.foo && !({ __proto__: null } instanceof $Object);
+};
+
+
+/***/ }),
+
 /***/ 2636:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_109857__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_110711__) => {
 
 "use strict";
 
 
 var origSymbol = typeof Symbol !== 'undefined' && Symbol;
-var hasSymbolSham = __nested_webpack_require_109857__(6679);
+var hasSymbolSham = __nested_webpack_require_110711__(6679);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -41382,12 +42684,12 @@ module.exports = function hasSymbols() {
 /***/ }),
 
 /***/ 7226:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_112188__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_113042__) => {
 
 "use strict";
 
 
-var hasSymbols = __nested_webpack_require_112188__(6679);
+var hasSymbols = __nested_webpack_require_113042__(6679);
 
 module.exports = function hasToStringTagShams() {
 	return hasSymbols() && !!Symbol.toStringTag;
@@ -41397,12 +42699,12 @@ module.exports = function hasToStringTagShams() {
 /***/ }),
 
 /***/ 3198:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_112442__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_113296__) => {
 
 "use strict";
 
 
-var bind = __nested_webpack_require_112442__(4090);
+var bind = __nested_webpack_require_113296__(4090);
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
@@ -41444,13 +42746,13 @@ if (typeof Object.create === 'function') {
 /***/ }),
 
 /***/ 2635:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_113467__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_114321__) => {
 
 "use strict";
 
 
-var hasToStringTag = __nested_webpack_require_113467__(7226)();
-var callBound = __nested_webpack_require_113467__(2680);
+var hasToStringTag = __nested_webpack_require_114321__(7226)();
+var callBound = __nested_webpack_require_114321__(2680);
 
 var $toString = callBound('Object.prototype.toString');
 
@@ -41594,7 +42896,7 @@ module.exports = reflectApply
 /***/ }),
 
 /***/ 3138:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_117798__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_118652__) => {
 
 "use strict";
 
@@ -41602,7 +42904,7 @@ module.exports = reflectApply
 var toStr = Object.prototype.toString;
 var fnToStr = Function.prototype.toString;
 var isFnRegex = /^\s*(?:function)?\*/;
-var hasToStringTag = __nested_webpack_require_117798__(7226)();
+var hasToStringTag = __nested_webpack_require_118652__(7226)();
 var getProto = Object.getPrototypeOf;
 var getGeneratorFunc = function () { // eslint-disable-line consistent-return
 	if (!hasToStringTag) {
@@ -41655,17 +42957,17 @@ module.exports = function isNaN(value) {
 /***/ }),
 
 /***/ 4782:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_119054__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_119908__) => {
 
 "use strict";
 
 
-var callBind = __nested_webpack_require_119054__(9429);
-var define = __nested_webpack_require_119054__(4926);
+var callBind = __nested_webpack_require_119908__(9429);
+var define = __nested_webpack_require_119908__(4926);
 
-var implementation = __nested_webpack_require_119054__(7053);
-var getPolyfill = __nested_webpack_require_119054__(755);
-var shim = __nested_webpack_require_119054__(5346);
+var implementation = __nested_webpack_require_119908__(7053);
+var getPolyfill = __nested_webpack_require_119908__(755);
+var shim = __nested_webpack_require_119908__(5346);
 
 var polyfill = callBind(getPolyfill(), Number);
 
@@ -41683,12 +42985,12 @@ module.exports = polyfill;
 /***/ }),
 
 /***/ 755:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_119621__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_120475__) => {
 
 "use strict";
 
 
-var implementation = __nested_webpack_require_119621__(7053);
+var implementation = __nested_webpack_require_120475__(7053);
 
 module.exports = function getPolyfill() {
 	if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN('a')) {
@@ -41701,13 +43003,13 @@ module.exports = function getPolyfill() {
 /***/ }),
 
 /***/ 5346:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_119939__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_120793__) => {
 
 "use strict";
 
 
-var define = __nested_webpack_require_119939__(4926);
-var getPolyfill = __nested_webpack_require_119939__(755);
+var define = __nested_webpack_require_120793__(4926);
+var getPolyfill = __nested_webpack_require_120793__(755);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -41725,68 +43027,15 @@ module.exports = function shimNumberIsNaN() {
 /***/ }),
 
 /***/ 198:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_120420__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_121274__) => {
 
 "use strict";
 
 
-var forEach = __nested_webpack_require_120420__(3243);
-var availableTypedArrays = __nested_webpack_require_120420__(2191);
-var callBound = __nested_webpack_require_120420__(2680);
-
-var $toString = callBound('Object.prototype.toString');
-var hasToStringTag = __nested_webpack_require_120420__(7226)();
-var gOPD = __nested_webpack_require_120420__(326);
-
-var g = typeof globalThis === 'undefined' ? __nested_webpack_require_120420__.g : globalThis;
-var typedArrays = availableTypedArrays();
-
-var $indexOf = callBound('Array.prototype.indexOf', true) || function indexOf(array, value) {
-	for (var i = 0; i < array.length; i += 1) {
-		if (array[i] === value) {
-			return i;
-		}
-	}
-	return -1;
-};
-var $slice = callBound('String.prototype.slice');
-var toStrTags = {};
-var getPrototypeOf = Object.getPrototypeOf; // require('getprototypeof');
-if (hasToStringTag && gOPD && getPrototypeOf) {
-	forEach(typedArrays, function (typedArray) {
-		var arr = new g[typedArray]();
-		if (Symbol.toStringTag in arr) {
-			var proto = getPrototypeOf(arr);
-			var descriptor = gOPD(proto, Symbol.toStringTag);
-			if (!descriptor) {
-				var superProto = getPrototypeOf(proto);
-				descriptor = gOPD(superProto, Symbol.toStringTag);
-			}
-			toStrTags[typedArray] = descriptor.get;
-		}
-	});
-}
-
-var tryTypedArrays = function tryAllTypedArrays(value) {
-	var anyTrue = false;
-	forEach(toStrTags, function (getter, typedArray) {
-		if (!anyTrue) {
-			try {
-				anyTrue = getter.call(value) === typedArray;
-			} catch (e) { /**/ }
-		}
-	});
-	return anyTrue;
-};
+var whichTypedArray = __nested_webpack_require_121274__(2094);
 
 module.exports = function isTypedArray(value) {
-	if (!value || typeof value !== 'object') { return false; }
-	if (!hasToStringTag || !(Symbol.toStringTag in value)) {
-		var tag = $slice($toString(value), 8, -1);
-		return $indexOf(typedArrays, tag) > -1;
-	}
-	if (!gOPD) { return false; }
-	return tryTypedArrays(value);
+	return !!whichTypedArray(value);
 };
 
 
@@ -41820,17 +43069,17 @@ module.exports = function is(a, b) {
 /***/ }),
 
 /***/ 4679:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_122629__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_121853__) => {
 
 "use strict";
 
 
-var define = __nested_webpack_require_122629__(4926);
-var callBind = __nested_webpack_require_122629__(9429);
+var define = __nested_webpack_require_121853__(4926);
+var callBind = __nested_webpack_require_121853__(9429);
 
-var implementation = __nested_webpack_require_122629__(8169);
-var getPolyfill = __nested_webpack_require_122629__(8070);
-var shim = __nested_webpack_require_122629__(191);
+var implementation = __nested_webpack_require_121853__(8169);
+var getPolyfill = __nested_webpack_require_121853__(8070);
+var shim = __nested_webpack_require_121853__(191);
 
 var polyfill = callBind(getPolyfill(), Object);
 
@@ -41846,12 +43095,12 @@ module.exports = polyfill;
 /***/ }),
 
 /***/ 8070:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_123125__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_122349__) => {
 
 "use strict";
 
 
-var implementation = __nested_webpack_require_123125__(8169);
+var implementation = __nested_webpack_require_122349__(8169);
 
 module.exports = function getPolyfill() {
 	return typeof Object.is === 'function' ? Object.is : implementation;
@@ -41861,13 +43110,13 @@ module.exports = function getPolyfill() {
 /***/ }),
 
 /***/ 191:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_123398__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_122622__) => {
 
 "use strict";
 
 
-var getPolyfill = __nested_webpack_require_123398__(8070);
-var define = __nested_webpack_require_123398__(4926);
+var getPolyfill = __nested_webpack_require_122622__(8070);
+var define = __nested_webpack_require_122622__(4926);
 
 module.exports = function shimObjectIs() {
 	var polyfill = getPolyfill();
@@ -41883,7 +43132,7 @@ module.exports = function shimObjectIs() {
 /***/ }),
 
 /***/ 5691:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_123800__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_123024__) => {
 
 "use strict";
 
@@ -41893,7 +43142,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __nested_webpack_require_123800__(801); // eslint-disable-line global-require
+	var isArgs = __nested_webpack_require_123024__(801); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -42013,16 +43262,16 @@ module.exports = keysShim;
 /***/ }),
 
 /***/ 3464:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_127113__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_126337__) => {
 
 "use strict";
 
 
 var slice = Array.prototype.slice;
-var isArgs = __nested_webpack_require_127113__(801);
+var isArgs = __nested_webpack_require_126337__(801);
 
 var origKeys = Object.keys;
-var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __nested_webpack_require_127113__(5691);
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __nested_webpack_require_126337__(5691);
 
 var originalKeys = Object.keys;
 
@@ -42269,9 +43518,9 @@ process.umask = function() { return 0; };
 /***/ }),
 
 /***/ 6006:
-/***/ (function(module, exports, __nested_webpack_require_133954__) {
+/***/ (function(module, exports, __nested_webpack_require_133178__) {
 
-/* provided dependency */ var console = __nested_webpack_require_133954__(3716);
+/* provided dependency */ var console = __nested_webpack_require_133178__(3716);
 var __WEBPACK_AMD_DEFINE_RESULT__;;/*! showdown v 2.1.0 - 21-04-2022 */
 (function(){
 /**
@@ -47416,7 +48665,7 @@ if (true) {
   !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
     'use strict';
     return showdown;
-  }).call(exports, __nested_webpack_require_133954__, exports, module),
+  }).call(exports, __nested_webpack_require_133178__, exports, module),
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 // CommonJS/nodeJS Loader
@@ -47441,7 +48690,7 @@ module.exports = function isBuffer(arg) {
 /***/ }),
 
 /***/ 4895:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_294051__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_293275__) => {
 
 "use strict";
 // Currently in sync with Node.js lib/internal/util/types.js
@@ -47449,10 +48698,10 @@ module.exports = function isBuffer(arg) {
 
 
 
-var isArgumentsObject = __nested_webpack_require_294051__(2635);
-var isGeneratorFunction = __nested_webpack_require_294051__(3138);
-var whichTypedArray = __nested_webpack_require_294051__(2094);
-var isTypedArray = __nested_webpack_require_294051__(198);
+var isArgumentsObject = __nested_webpack_require_293275__(2635);
+var isGeneratorFunction = __nested_webpack_require_293275__(3138);
+var whichTypedArray = __nested_webpack_require_293275__(2094);
+var isTypedArray = __nested_webpack_require_293275__(198);
 
 function uncurryThis(f) {
   return f.call.bind(f);
@@ -47783,10 +49032,10 @@ exports.isAnyArrayBuffer = isAnyArrayBuffer;
 /***/ }),
 
 /***/ 3335:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_302809__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_302033__) => {
 
-/* provided dependency */ var process = __nested_webpack_require_302809__(4406);
-/* provided dependency */ var console = __nested_webpack_require_302809__(3716);
+/* provided dependency */ var process = __nested_webpack_require_302033__(4406);
+/* provided dependency */ var console = __nested_webpack_require_302033__(3716);
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -48253,7 +49502,7 @@ function reduceToSingleString(output, base, braces) {
 
 // NOTE: These type checking functions intentionally don't use `instanceof`
 // because it is fragile and can be easily faked with `Object.create()`.
-exports.types = __nested_webpack_require_302809__(4895);
+exports.types = __nested_webpack_require_302033__(4895);
 
 function isArray(ar) {
   return Array.isArray(ar);
@@ -48334,7 +49583,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __nested_webpack_require_302809__(82);
+exports.isBuffer = __nested_webpack_require_302033__(82);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -48378,7 +49627,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __nested_webpack_require_302809__(1285);
+exports.inherits = __nested_webpack_require_302033__(1285);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -48507,7 +49756,7 @@ exports.callbackify = callbackify;
 /***/ }),
 
 /***/ 1200:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_322733__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_321957__) => {
 
 "use strict";
 /* --------------------------------------------------------------------------------------------
@@ -48516,12 +49765,12 @@ exports.callbackify = callbackify;
  * ----------------------------------------------------------------------------------------- */
 
 
-module.exports = __nested_webpack_require_322733__(5953);
+module.exports = __nested_webpack_require_321957__(5953);
 
 /***/ }),
 
 /***/ 5953:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_323243__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_322467__) {
 
 "use strict";
 
@@ -48545,20 +49794,20 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createMessageConnection = exports.BrowserMessageWriter = exports.BrowserMessageReader = void 0;
-const ril_1 = __nested_webpack_require_323243__(3632);
+const ril_1 = __nested_webpack_require_322467__(3632);
 // Install the browser runtime abstract.
 ril_1.default.install();
-const api_1 = __nested_webpack_require_323243__(5247);
-__exportStar(__nested_webpack_require_323243__(5247), exports);
+const api_1 = __nested_webpack_require_322467__(5247);
+__exportStar(__nested_webpack_require_322467__(5247), exports);
 class BrowserMessageReader extends api_1.AbstractMessageReader {
-    constructor(context) {
+    constructor(port) {
         super();
         this._onData = new api_1.Emitter();
         this._messageListener = (event) => {
             this._onData.fire(event.data);
         };
-        context.addEventListener('error', (event) => this.fireError(event));
-        context.onmessage = this._messageListener;
+        port.addEventListener('error', (event) => this.fireError(event));
+        port.onmessage = this._messageListener;
     }
     listen(callback) {
         return this._onData.event(callback);
@@ -48566,15 +49815,15 @@ class BrowserMessageReader extends api_1.AbstractMessageReader {
 }
 exports.BrowserMessageReader = BrowserMessageReader;
 class BrowserMessageWriter extends api_1.AbstractMessageWriter {
-    constructor(context) {
+    constructor(port) {
         super();
-        this.context = context;
+        this.port = port;
         this.errorCount = 0;
-        context.addEventListener('error', (event) => this.fireError(event));
+        port.addEventListener('error', (event) => this.fireError(event));
     }
     write(msg) {
         try {
-            this.context.postMessage(msg);
+            this.port.postMessage(msg);
             return Promise.resolve();
         }
         catch (error) {
@@ -48600,26 +49849,23 @@ function createMessageConnection(reader, writer, logger, options) {
     return (0, api_1.createMessageConnection)(reader, writer, logger, options);
 }
 exports.createMessageConnection = createMessageConnection;
-//# sourceMappingURL=main.js.map
+
 
 /***/ }),
 
 /***/ 3632:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_326368__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_325536__) => {
 
 "use strict";
-/* provided dependency */ var console = __nested_webpack_require_326368__(3716);
+/* provided dependency */ var console = __nested_webpack_require_325536__(3716);
 
 /* --------------------------------------------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const ral_1 = __nested_webpack_require_326368__(5706);
-const disposable_1 = __nested_webpack_require_326368__(8437);
-const events_1 = __nested_webpack_require_326368__(5165);
-const messageBuffer_1 = __nested_webpack_require_326368__(8652);
-class MessageBuffer extends messageBuffer_1.AbstractMessageBuffer {
+const api_1 = __nested_webpack_require_325536__(5247);
+class MessageBuffer extends api_1.AbstractMessageBuffer {
     constructor(encoding = 'utf-8') {
         super(encoding);
         this.asciiDecoder = new TextDecoder('ascii');
@@ -48654,28 +49900,28 @@ MessageBuffer.emptyBuffer = new Uint8Array(0);
 class ReadableStreamWrapper {
     constructor(socket) {
         this.socket = socket;
-        this._onData = new events_1.Emitter();
+        this._onData = new api_1.Emitter();
         this._messageListener = (event) => {
             const blob = event.data;
             blob.arrayBuffer().then((buffer) => {
                 this._onData.fire(new Uint8Array(buffer));
             }, () => {
-                (0, ral_1.default)().console.error(`Converting blob to array buffer failed.`);
+                (0, api_1.RAL)().console.error(`Converting blob to array buffer failed.`);
             });
         };
         this.socket.addEventListener('message', this._messageListener);
     }
     onClose(listener) {
         this.socket.addEventListener('close', listener);
-        return disposable_1.Disposable.create(() => this.socket.removeEventListener('close', listener));
+        return api_1.Disposable.create(() => this.socket.removeEventListener('close', listener));
     }
     onError(listener) {
         this.socket.addEventListener('error', listener);
-        return disposable_1.Disposable.create(() => this.socket.removeEventListener('error', listener));
+        return api_1.Disposable.create(() => this.socket.removeEventListener('error', listener));
     }
     onEnd(listener) {
         this.socket.addEventListener('end', listener);
-        return disposable_1.Disposable.create(() => this.socket.removeEventListener('end', listener));
+        return api_1.Disposable.create(() => this.socket.removeEventListener('end', listener));
     }
     onData(listener) {
         return this._onData.event(listener);
@@ -48687,15 +49933,15 @@ class WritableStreamWrapper {
     }
     onClose(listener) {
         this.socket.addEventListener('close', listener);
-        return disposable_1.Disposable.create(() => this.socket.removeEventListener('close', listener));
+        return api_1.Disposable.create(() => this.socket.removeEventListener('close', listener));
     }
     onError(listener) {
         this.socket.addEventListener('error', listener);
-        return disposable_1.Disposable.create(() => this.socket.removeEventListener('error', listener));
+        return api_1.Disposable.create(() => this.socket.removeEventListener('error', listener));
     }
     onEnd(listener) {
         this.socket.addEventListener('end', listener);
-        return disposable_1.Disposable.create(() => this.socket.removeEventListener('end', listener));
+        return api_1.Disposable.create(() => this.socket.removeEventListener('end', listener));
     }
     write(data, encoding) {
         if (typeof data === 'string') {
@@ -48763,17 +50009,17 @@ function RIL() {
 }
 (function (RIL) {
     function install() {
-        ral_1.default.install(_ril);
+        api_1.RAL.install(_ril);
     }
     RIL.install = install;
 })(RIL || (RIL = {}));
 exports["default"] = RIL;
-//# sourceMappingURL=ril.js.map
+
 
 /***/ }),
 
 /***/ 5247:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_332416__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_331347__) => {
 
 "use strict";
 
@@ -48783,9 +50029,9 @@ exports["default"] = RIL;
  * ------------------------------------------------------------------------------------------ */
 /// <reference path="../../typings/thenable.d.ts" />
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TraceFormat = exports.TraceValues = exports.Trace = exports.ProgressType = exports.ProgressToken = exports.createMessageConnection = exports.NullLogger = exports.ConnectionOptions = exports.ConnectionStrategy = exports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = exports.ReadableStreamMessageReader = exports.AbstractMessageReader = exports.MessageReader = exports.CancellationToken = exports.CancellationTokenSource = exports.Emitter = exports.Event = exports.Disposable = exports.LRUCache = exports.Touch = exports.LinkedMap = exports.ParameterStructures = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.ErrorCodes = exports.ResponseError = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType0 = exports.RequestType = exports.Message = exports.RAL = void 0;
-exports.CancellationStrategy = exports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = void 0;
-const messages_1 = __nested_webpack_require_332416__(9141);
+exports.ProgressType = exports.ProgressToken = exports.createMessageConnection = exports.NullLogger = exports.ConnectionOptions = exports.ConnectionStrategy = exports.AbstractMessageBuffer = exports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = exports.ReadableStreamMessageReader = exports.AbstractMessageReader = exports.MessageReader = exports.SharedArrayReceiverStrategy = exports.SharedArraySenderStrategy = exports.CancellationToken = exports.CancellationTokenSource = exports.Emitter = exports.Event = exports.Disposable = exports.LRUCache = exports.Touch = exports.LinkedMap = exports.ParameterStructures = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.ErrorCodes = exports.ResponseError = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType0 = exports.RequestType = exports.Message = exports.RAL = void 0;
+exports.MessageStrategy = exports.CancellationStrategy = exports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = exports.TraceFormat = exports.TraceValues = exports.Trace = void 0;
+const messages_1 = __nested_webpack_require_331347__(9141);
 Object.defineProperty(exports, "Message", ({ enumerable: true, get: function () { return messages_1.Message; } }));
 Object.defineProperty(exports, "RequestType", ({ enumerable: true, get: function () { return messages_1.RequestType; } }));
 Object.defineProperty(exports, "RequestType0", ({ enumerable: true, get: function () { return messages_1.RequestType0; } }));
@@ -48812,27 +50058,32 @@ Object.defineProperty(exports, "NotificationType7", ({ enumerable: true, get: fu
 Object.defineProperty(exports, "NotificationType8", ({ enumerable: true, get: function () { return messages_1.NotificationType8; } }));
 Object.defineProperty(exports, "NotificationType9", ({ enumerable: true, get: function () { return messages_1.NotificationType9; } }));
 Object.defineProperty(exports, "ParameterStructures", ({ enumerable: true, get: function () { return messages_1.ParameterStructures; } }));
-const linkedMap_1 = __nested_webpack_require_332416__(7040);
+const linkedMap_1 = __nested_webpack_require_331347__(7040);
 Object.defineProperty(exports, "LinkedMap", ({ enumerable: true, get: function () { return linkedMap_1.LinkedMap; } }));
 Object.defineProperty(exports, "LRUCache", ({ enumerable: true, get: function () { return linkedMap_1.LRUCache; } }));
 Object.defineProperty(exports, "Touch", ({ enumerable: true, get: function () { return linkedMap_1.Touch; } }));
-const disposable_1 = __nested_webpack_require_332416__(8437);
+const disposable_1 = __nested_webpack_require_331347__(8437);
 Object.defineProperty(exports, "Disposable", ({ enumerable: true, get: function () { return disposable_1.Disposable; } }));
-const events_1 = __nested_webpack_require_332416__(5165);
+const events_1 = __nested_webpack_require_331347__(5165);
 Object.defineProperty(exports, "Event", ({ enumerable: true, get: function () { return events_1.Event; } }));
 Object.defineProperty(exports, "Emitter", ({ enumerable: true, get: function () { return events_1.Emitter; } }));
-const cancellation_1 = __nested_webpack_require_332416__(415);
+const cancellation_1 = __nested_webpack_require_331347__(415);
 Object.defineProperty(exports, "CancellationTokenSource", ({ enumerable: true, get: function () { return cancellation_1.CancellationTokenSource; } }));
 Object.defineProperty(exports, "CancellationToken", ({ enumerable: true, get: function () { return cancellation_1.CancellationToken; } }));
-const messageReader_1 = __nested_webpack_require_332416__(451);
+const sharedArrayCancellation_1 = __nested_webpack_require_331347__(178);
+Object.defineProperty(exports, "SharedArraySenderStrategy", ({ enumerable: true, get: function () { return sharedArrayCancellation_1.SharedArraySenderStrategy; } }));
+Object.defineProperty(exports, "SharedArrayReceiverStrategy", ({ enumerable: true, get: function () { return sharedArrayCancellation_1.SharedArrayReceiverStrategy; } }));
+const messageReader_1 = __nested_webpack_require_331347__(451);
 Object.defineProperty(exports, "MessageReader", ({ enumerable: true, get: function () { return messageReader_1.MessageReader; } }));
 Object.defineProperty(exports, "AbstractMessageReader", ({ enumerable: true, get: function () { return messageReader_1.AbstractMessageReader; } }));
 Object.defineProperty(exports, "ReadableStreamMessageReader", ({ enumerable: true, get: function () { return messageReader_1.ReadableStreamMessageReader; } }));
-const messageWriter_1 = __nested_webpack_require_332416__(1251);
+const messageWriter_1 = __nested_webpack_require_331347__(1251);
 Object.defineProperty(exports, "MessageWriter", ({ enumerable: true, get: function () { return messageWriter_1.MessageWriter; } }));
 Object.defineProperty(exports, "AbstractMessageWriter", ({ enumerable: true, get: function () { return messageWriter_1.AbstractMessageWriter; } }));
 Object.defineProperty(exports, "WriteableStreamMessageWriter", ({ enumerable: true, get: function () { return messageWriter_1.WriteableStreamMessageWriter; } }));
-const connection_1 = __nested_webpack_require_332416__(1908);
+const messageBuffer_1 = __nested_webpack_require_331347__(8652);
+Object.defineProperty(exports, "AbstractMessageBuffer", ({ enumerable: true, get: function () { return messageBuffer_1.AbstractMessageBuffer; } }));
+const connection_1 = __nested_webpack_require_331347__(1908);
 Object.defineProperty(exports, "ConnectionStrategy", ({ enumerable: true, get: function () { return connection_1.ConnectionStrategy; } }));
 Object.defineProperty(exports, "ConnectionOptions", ({ enumerable: true, get: function () { return connection_1.ConnectionOptions; } }));
 Object.defineProperty(exports, "NullLogger", ({ enumerable: true, get: function () { return connection_1.NullLogger; } }));
@@ -48849,14 +50100,15 @@ Object.defineProperty(exports, "ConnectionError", ({ enumerable: true, get: func
 Object.defineProperty(exports, "CancellationReceiverStrategy", ({ enumerable: true, get: function () { return connection_1.CancellationReceiverStrategy; } }));
 Object.defineProperty(exports, "CancellationSenderStrategy", ({ enumerable: true, get: function () { return connection_1.CancellationSenderStrategy; } }));
 Object.defineProperty(exports, "CancellationStrategy", ({ enumerable: true, get: function () { return connection_1.CancellationStrategy; } }));
-const ral_1 = __nested_webpack_require_332416__(5706);
+Object.defineProperty(exports, "MessageStrategy", ({ enumerable: true, get: function () { return connection_1.MessageStrategy; } }));
+const ral_1 = __nested_webpack_require_331347__(5706);
 exports.RAL = ral_1.default;
-//# sourceMappingURL=api.js.map
+
 
 /***/ }),
 
 /***/ 415:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_342419__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_342183__) => {
 
 "use strict";
 
@@ -48866,9 +50118,9 @@ exports.RAL = ral_1.default;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CancellationTokenSource = exports.CancellationToken = void 0;
-const ral_1 = __nested_webpack_require_342419__(5706);
-const Is = __nested_webpack_require_342419__(8811);
-const events_1 = __nested_webpack_require_342419__(5165);
+const ral_1 = __nested_webpack_require_342183__(5706);
+const Is = __nested_webpack_require_342183__(8811);
+const events_1 = __nested_webpack_require_342183__(5165);
 var CancellationToken;
 (function (CancellationToken) {
     CancellationToken.None = Object.freeze({
@@ -48955,12 +50207,12 @@ class CancellationTokenSource {
     }
 }
 exports.CancellationTokenSource = CancellationTokenSource;
-//# sourceMappingURL=cancellation.js.map
+
 
 /***/ }),
 
 /***/ 1908:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_345877__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_345601__) => {
 
 "use strict";
 
@@ -48969,13 +50221,13 @@ exports.CancellationTokenSource = CancellationTokenSource;
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createMessageConnection = exports.ConnectionOptions = exports.CancellationStrategy = exports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.ConnectionStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = exports.TraceFormat = exports.TraceValues = exports.Trace = exports.NullLogger = exports.ProgressType = exports.ProgressToken = void 0;
-const ral_1 = __nested_webpack_require_345877__(5706);
-const Is = __nested_webpack_require_345877__(8811);
-const messages_1 = __nested_webpack_require_345877__(9141);
-const linkedMap_1 = __nested_webpack_require_345877__(7040);
-const events_1 = __nested_webpack_require_345877__(5165);
-const cancellation_1 = __nested_webpack_require_345877__(415);
+exports.createMessageConnection = exports.ConnectionOptions = exports.MessageStrategy = exports.CancellationStrategy = exports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.RequestCancellationReceiverStrategy = exports.IdCancellationReceiverStrategy = exports.ConnectionStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = exports.TraceFormat = exports.TraceValues = exports.Trace = exports.NullLogger = exports.ProgressType = exports.ProgressToken = void 0;
+const ral_1 = __nested_webpack_require_345601__(5706);
+const Is = __nested_webpack_require_345601__(8811);
+const messages_1 = __nested_webpack_require_345601__(9141);
+const linkedMap_1 = __nested_webpack_require_345601__(7040);
+const events_1 = __nested_webpack_require_345601__(5165);
+const cancellation_1 = __nested_webpack_require_345601__(415);
 var CancelNotification;
 (function (CancelNotification) {
     CancelNotification.type = new messages_1.NotificationType('$/cancelRequest');
@@ -49130,6 +50382,22 @@ var ConnectionStrategy;
     }
     ConnectionStrategy.is = is;
 })(ConnectionStrategy = exports.ConnectionStrategy || (exports.ConnectionStrategy = {}));
+var IdCancellationReceiverStrategy;
+(function (IdCancellationReceiverStrategy) {
+    function is(value) {
+        const candidate = value;
+        return candidate && (candidate.kind === undefined || candidate.kind === 'id') && Is.func(candidate.createCancellationTokenSource) && (candidate.dispose === undefined || Is.func(candidate.dispose));
+    }
+    IdCancellationReceiverStrategy.is = is;
+})(IdCancellationReceiverStrategy = exports.IdCancellationReceiverStrategy || (exports.IdCancellationReceiverStrategy = {}));
+var RequestCancellationReceiverStrategy;
+(function (RequestCancellationReceiverStrategy) {
+    function is(value) {
+        const candidate = value;
+        return candidate && candidate.kind === 'request' && Is.func(candidate.createCancellationTokenSource) && (candidate.dispose === undefined || Is.func(candidate.dispose));
+    }
+    RequestCancellationReceiverStrategy.is = is;
+})(RequestCancellationReceiverStrategy = exports.RequestCancellationReceiverStrategy || (exports.RequestCancellationReceiverStrategy = {}));
 var CancellationReceiverStrategy;
 (function (CancellationReceiverStrategy) {
     CancellationReceiverStrategy.Message = Object.freeze({
@@ -49138,8 +50406,7 @@ var CancellationReceiverStrategy;
         }
     });
     function is(value) {
-        const candidate = value;
-        return candidate && Is.func(candidate.createCancellationTokenSource);
+        return IdCancellationReceiverStrategy.is(value) || RequestCancellationReceiverStrategy.is(value);
     }
     CancellationReceiverStrategy.is = is;
 })(CancellationReceiverStrategy = exports.CancellationReceiverStrategy || (exports.CancellationReceiverStrategy = {}));
@@ -49169,11 +50436,19 @@ var CancellationStrategy;
     }
     CancellationStrategy.is = is;
 })(CancellationStrategy = exports.CancellationStrategy || (exports.CancellationStrategy = {}));
+var MessageStrategy;
+(function (MessageStrategy) {
+    function is(value) {
+        const candidate = value;
+        return candidate && Is.func(candidate.handleMessage);
+    }
+    MessageStrategy.is = is;
+})(MessageStrategy = exports.MessageStrategy || (exports.MessageStrategy = {}));
 var ConnectionOptions;
 (function (ConnectionOptions) {
     function is(value) {
         const candidate = value;
-        return candidate && (CancellationStrategy.is(candidate.cancellationStrategy) || ConnectionStrategy.is(candidate.connectionStrategy));
+        return candidate && (CancellationStrategy.is(candidate.cancellationStrategy) || ConnectionStrategy.is(candidate.connectionStrategy) || MessageStrategy.is(candidate.messageStrategy));
     }
     ConnectionOptions.is = is;
 })(ConnectionOptions = exports.ConnectionOptions || (exports.ConnectionOptions = {}));
@@ -49276,23 +50551,32 @@ function createMessageConnection(messageReader, messageWriter, _logger, options)
             processMessageQueue();
         });
     }
+    function handleMessage(message) {
+        if (messages_1.Message.isRequest(message)) {
+            handleRequest(message);
+        }
+        else if (messages_1.Message.isNotification(message)) {
+            handleNotification(message);
+        }
+        else if (messages_1.Message.isResponse(message)) {
+            handleResponse(message);
+        }
+        else {
+            handleInvalidMessage(message);
+        }
+    }
     function processMessageQueue() {
         if (messageQueue.size === 0) {
             return;
         }
         const message = messageQueue.shift();
         try {
-            if (messages_1.Message.isRequest(message)) {
-                handleRequest(message);
-            }
-            else if (messages_1.Message.isNotification(message)) {
-                handleNotification(message);
-            }
-            else if (messages_1.Message.isResponse(message)) {
-                handleResponse(message);
+            const messageStrategy = options?.messageStrategy;
+            if (MessageStrategy.is(messageStrategy)) {
+                messageStrategy.handleMessage(message, handleMessage);
             }
             else {
-                handleInvalidMessage(message);
+                handleMessage(message);
             }
         }
         finally {
@@ -49392,7 +50676,9 @@ function createMessageConnection(messageReader, messageWriter, _logger, options)
         const startTime = Date.now();
         if (requestHandler || starRequestHandler) {
             const tokenKey = requestMessage.id ?? String(Date.now()); //
-            const cancellationSource = cancellationStrategy.receiver.createCancellationTokenSource(tokenKey);
+            const cancellationSource = IdCancellationReceiverStrategy.is(cancellationStrategy.receiver)
+                ? cancellationStrategy.receiver.createCancellationTokenSource(tokenKey)
+                : cancellationStrategy.receiver.createCancellationTokenSource(requestMessage);
             if (requestMessage.id !== null && knownCanceledRequests.has(requestMessage.id)) {
                 cancellationSource.cancel();
             }
@@ -49878,7 +51164,10 @@ function createMessageConnection(messageReader, messageWriter, _logger, options)
                 params: messageParams
             };
             traceSendingNotification(notificationMessage);
-            return messageWriter.write(notificationMessage).catch(() => logger.error(`Sending notification failed.`));
+            return messageWriter.write(notificationMessage).catch((error) => {
+                logger.error(`Sending notification failed.`);
+                throw error;
+            });
         },
         onNotification: (type, handler) => {
             throwIfClosedOrDisposed();
@@ -49919,6 +51208,8 @@ function createMessageConnection(messageReader, messageWriter, _logger, options)
             };
         },
         sendProgress: (_type, token, value) => {
+            // This should not await but simple return to ensure that we don't have another
+            // async scheduling. Otherwise one send could overtake another send.
             return connection.sendNotification(ProgressNotification.type, { token, value });
         },
         onUnhandledProgress: unhandledProgressEmitter.event,
@@ -49982,13 +51273,17 @@ function createMessageConnection(messageReader, messageWriter, _logger, options)
                     }
                 });
             }
-            const result = new Promise((resolve, reject) => {
-                const requestMessage = {
-                    jsonrpc: version,
-                    id: id,
-                    method: method,
-                    params: messageParams
-                };
+            const requestMessage = {
+                jsonrpc: version,
+                id: id,
+                method: method,
+                params: messageParams
+            };
+            traceSendingRequest(requestMessage);
+            if (typeof cancellationStrategy.sender.enableCancellation === 'function') {
+                cancellationStrategy.sender.enableCancellation(requestMessage);
+            }
+            return new Promise(async (resolve, reject) => {
                 const resolveWithCleanup = (r) => {
                     resolve(r);
                     cancellationStrategy.sender.cleanup(id);
@@ -49999,21 +51294,18 @@ function createMessageConnection(messageReader, messageWriter, _logger, options)
                     cancellationStrategy.sender.cleanup(id);
                     disposable?.dispose();
                 };
-                let responsePromise = { method: method, timerStart: Date.now(), resolve: resolveWithCleanup, reject: rejectWithCleanup };
-                traceSendingRequest(requestMessage);
+                const responsePromise = { method: method, timerStart: Date.now(), resolve: resolveWithCleanup, reject: rejectWithCleanup };
                 try {
-                    messageWriter.write(requestMessage).catch(() => logger.error(`Sending request failed.`));
-                }
-                catch (e) {
-                    // Writing the message failed. So we need to reject the promise.
-                    responsePromise.reject(new messages_1.ResponseError(messages_1.ErrorCodes.MessageWriteError, e.message ? e.message : 'Unknown reason'));
-                    responsePromise = null;
-                }
-                if (responsePromise) {
+                    await messageWriter.write(requestMessage);
                     responsePromises.set(id, responsePromise);
                 }
+                catch (error) {
+                    logger.error(`Sending request failed.`);
+                    // Writing the message failed. So we need to reject the promise.
+                    responsePromise.reject(new messages_1.ResponseError(messages_1.ErrorCodes.MessageWriteError, error.message ? error.message : 'Unknown reason'));
+                    throw error;
+                }
             });
-            return result;
         },
         onRequest: (type, handler) => {
             throwIfClosedOrDisposed();
@@ -50135,7 +51427,7 @@ function createMessageConnection(messageReader, messageWriter, _logger, options)
     return connection;
 }
 exports.createMessageConnection = createMessageConnection;
-//# sourceMappingURL=connection.js.map
+
 
 /***/ }),
 
@@ -50159,12 +51451,12 @@ var Disposable;
     }
     Disposable.create = create;
 })(Disposable = exports.Disposable || (exports.Disposable = {}));
-//# sourceMappingURL=disposable.js.map
+
 
 /***/ }),
 
 /***/ 5165:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_395766__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_397674__) => {
 
 "use strict";
 
@@ -50174,7 +51466,7 @@ var Disposable;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Emitter = exports.Event = void 0;
-const ral_1 = __nested_webpack_require_395766__(5706);
+const ral_1 = __nested_webpack_require_397674__(5706);
 var Event;
 (function (Event) {
     const _disposable = { dispose() { } };
@@ -50295,7 +51587,7 @@ class Emitter {
 }
 exports.Emitter = Emitter;
 Emitter._noop = function () { };
-//# sourceMappingURL=events.js.map
+
 
 /***/ }),
 
@@ -50338,7 +51630,7 @@ function stringArray(value) {
     return array(value) && value.every(elem => string(elem));
 }
 exports.stringArray = stringArray;
-//# sourceMappingURL=is.js.map
+
 
 /***/ }),
 
@@ -50744,7 +52036,7 @@ class LRUCache extends LinkedMap {
     }
 }
 exports.LRUCache = LRUCache;
-//# sourceMappingURL=linkedMap.js.map
+
 
 /***/ }),
 
@@ -50776,7 +52068,7 @@ class AbstractMessageBuffer {
         this._chunks.push(toAppend);
         this._totalLength += toAppend.byteLength;
     }
-    tryReadHeaders() {
+    tryReadHeaders(lowerCaseKeys = false) {
         if (this._chunks.length === 0) {
             return undefined;
         }
@@ -50842,7 +52134,7 @@ class AbstractMessageBuffer {
             }
             const key = header.substr(0, index);
             const value = header.substr(index + 1).trim();
-            result.set(key, value);
+            result.set(lowerCaseKeys ? key.toLowerCase() : key, value);
         }
         return result;
     }
@@ -50904,12 +52196,12 @@ class AbstractMessageBuffer {
     }
 }
 exports.AbstractMessageBuffer = AbstractMessageBuffer;
-//# sourceMappingURL=messageBuffer.js.map
+
 
 /***/ }),
 
 /***/ 451:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_419383__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_421206__) => {
 
 "use strict";
 
@@ -50919,9 +52211,10 @@ exports.AbstractMessageBuffer = AbstractMessageBuffer;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ReadableStreamMessageReader = exports.AbstractMessageReader = exports.MessageReader = void 0;
-const ral_1 = __nested_webpack_require_419383__(5706);
-const Is = __nested_webpack_require_419383__(8811);
-const events_1 = __nested_webpack_require_419383__(5165);
+const ral_1 = __nested_webpack_require_421206__(5706);
+const Is = __nested_webpack_require_421206__(8811);
+const events_1 = __nested_webpack_require_421206__(5165);
+const semaphore_1 = __nested_webpack_require_421206__(2339);
 var MessageReader;
 (function (MessageReader) {
     function is(value) {
@@ -51019,6 +52312,7 @@ class ReadableStreamMessageReader extends AbstractMessageReader {
         this._partialMessageTimeout = 10000;
         this.nextMessageLength = -1;
         this.messageToken = 0;
+        this.readSemaphore = new semaphore_1.Semaphore(1);
     }
     set partialMessageTimeout(timeout) {
         this._partialMessageTimeout = timeout;
@@ -51042,17 +52336,19 @@ class ReadableStreamMessageReader extends AbstractMessageReader {
         this.buffer.append(data);
         while (true) {
             if (this.nextMessageLength === -1) {
-                const headers = this.buffer.tryReadHeaders();
+                const headers = this.buffer.tryReadHeaders(true);
                 if (!headers) {
                     return;
                 }
-                const contentLength = headers.get('Content-Length');
+                const contentLength = headers.get('content-length');
                 if (!contentLength) {
-                    throw new Error('Header must provide a Content-Length property.');
+                    this.fireError(new Error('Header must provide a Content-Length property.'));
+                    return;
                 }
                 const length = parseInt(contentLength);
                 if (isNaN(length)) {
-                    throw new Error('Content-Length value must be a number.');
+                    this.fireError(new Error('Content-Length value must be a number.'));
+                    return;
                 }
                 this.nextMessageLength = length;
             }
@@ -51064,20 +52360,17 @@ class ReadableStreamMessageReader extends AbstractMessageReader {
             }
             this.clearPartialMessageTimer();
             this.nextMessageLength = -1;
-            let p;
-            if (this.options.contentDecoder !== undefined) {
-                p = this.options.contentDecoder.decode(body);
-            }
-            else {
-                p = Promise.resolve(body);
-            }
-            p.then((value) => {
-                this.options.contentTypeDecoder.decode(value, this.options).then((msg) => {
-                    this.callback(msg);
-                }, (error) => {
-                    this.fireError(error);
-                });
-            }, (error) => {
+            // Make sure that we convert one received message after the
+            // other. Otherwise it could happen that a decoding of a second
+            // smaller message finished before the decoding of a first larger
+            // message and then we would deliver the second message first.
+            this.readSemaphore.lock(async () => {
+                const bytes = this.options.contentDecoder !== undefined
+                    ? await this.options.contentDecoder.decode(body)
+                    : body;
+                const message = await this.options.contentTypeDecoder.decode(bytes, this.options);
+                this.callback(message);
+            }).catch((error) => {
                 this.fireError(error);
             });
         }
@@ -51103,12 +52396,12 @@ class ReadableStreamMessageReader extends AbstractMessageReader {
     }
 }
 exports.ReadableStreamMessageReader = ReadableStreamMessageReader;
-//# sourceMappingURL=messageReader.js.map
+
 
 /***/ }),
 
 /***/ 1251:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_427023__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_429165__) => {
 
 "use strict";
 
@@ -51118,10 +52411,10 @@ exports.ReadableStreamMessageReader = ReadableStreamMessageReader;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = void 0;
-const ral_1 = __nested_webpack_require_427023__(5706);
-const Is = __nested_webpack_require_427023__(8811);
-const semaphore_1 = __nested_webpack_require_427023__(2339);
-const events_1 = __nested_webpack_require_427023__(5165);
+const ral_1 = __nested_webpack_require_429165__(5706);
+const Is = __nested_webpack_require_429165__(8811);
+const semaphore_1 = __nested_webpack_require_429165__(2339);
+const events_1 = __nested_webpack_require_429165__(5165);
 const ContentLength = 'Content-Length: ';
 const CRLF = '\r\n';
 var MessageWriter;
@@ -51226,12 +52519,12 @@ class WriteableStreamMessageWriter extends AbstractMessageWriter {
     }
 }
 exports.WriteableStreamMessageWriter = WriteableStreamMessageWriter;
-//# sourceMappingURL=messageWriter.js.map
+
 
 /***/ }),
 
 /***/ 9141:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_431628__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_433729__) => {
 
 "use strict";
 
@@ -51241,7 +52534,7 @@ exports.WriteableStreamMessageWriter = WriteableStreamMessageWriter;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Message = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType = exports.RequestType0 = exports.AbstractMessageSignature = exports.ParameterStructures = exports.ResponseError = exports.ErrorCodes = void 0;
-const is = __nested_webpack_require_431628__(8811);
+const is = __nested_webpack_require_433729__(8811);
 /**
  * Predefined error codes.
  */
@@ -51540,7 +52833,7 @@ var Message;
     }
     Message.isResponse = isResponse;
 })(Message = exports.Message || (exports.Message = {}));
-//# sourceMappingURL=messages.js.map
+
 
 /***/ }),
 
@@ -51571,12 +52864,12 @@ function RAL() {
     RAL.install = install;
 })(RAL || (RAL = {}));
 exports["default"] = RAL;
-//# sourceMappingURL=ral.js.map
+
 
 /***/ }),
 
 /***/ 2339:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_443088__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_445122__) => {
 
 "use strict";
 
@@ -51586,7 +52879,7 @@ exports["default"] = RAL;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Semaphore = void 0;
-const ral_1 = __nested_webpack_require_443088__(5706);
+const ral_1 = __nested_webpack_require_445122__(5706);
 class Semaphore {
     constructor(capacity = 1) {
         if (capacity <= 0) {
@@ -51647,12 +52940,96 @@ class Semaphore {
     }
 }
 exports.Semaphore = Semaphore;
-//# sourceMappingURL=semaphore.js.map
+
+
+/***/ }),
+
+/***/ 178:
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_447424__) => {
+
+"use strict";
+
+/* --------------------------------------------------------------------------------------------
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ * ------------------------------------------------------------------------------------------ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SharedArrayReceiverStrategy = exports.SharedArraySenderStrategy = void 0;
+const cancellation_1 = __nested_webpack_require_447424__(415);
+var CancellationState;
+(function (CancellationState) {
+    CancellationState.Continue = 0;
+    CancellationState.Cancelled = 1;
+})(CancellationState || (CancellationState = {}));
+class SharedArraySenderStrategy {
+    constructor() {
+        this.buffers = new Map();
+    }
+    enableCancellation(request) {
+        if (request.id === null) {
+            return;
+        }
+        const buffer = new SharedArrayBuffer(4);
+        const data = new Int32Array(buffer, 0, 1);
+        data[0] = CancellationState.Continue;
+        this.buffers.set(request.id, buffer);
+        request.$cancellationData = buffer;
+    }
+    async sendCancellation(_conn, id) {
+        const buffer = this.buffers.get(id);
+        if (buffer === undefined) {
+            return;
+        }
+        const data = new Int32Array(buffer, 0, 1);
+        Atomics.store(data, 0, CancellationState.Cancelled);
+    }
+    cleanup(id) {
+        this.buffers.delete(id);
+    }
+    dispose() {
+        this.buffers.clear();
+    }
+}
+exports.SharedArraySenderStrategy = SharedArraySenderStrategy;
+class SharedArrayBufferCancellationToken {
+    constructor(buffer) {
+        this.data = new Int32Array(buffer, 0, 1);
+    }
+    get isCancellationRequested() {
+        return Atomics.load(this.data, 0) === CancellationState.Cancelled;
+    }
+    get onCancellationRequested() {
+        throw new Error(`Cancellation over SharedArrayBuffer doesn't support cancellation events`);
+    }
+}
+class SharedArrayBufferCancellationTokenSource {
+    constructor(buffer) {
+        this.token = new SharedArrayBufferCancellationToken(buffer);
+    }
+    cancel() {
+    }
+    dispose() {
+    }
+}
+class SharedArrayReceiverStrategy {
+    constructor() {
+        this.kind = 'request';
+    }
+    createCancellationTokenSource(request) {
+        const buffer = request.$cancellationData;
+        if (buffer === undefined) {
+            return new cancellation_1.CancellationTokenSource();
+        }
+        return new SharedArrayBufferCancellationTokenSource(buffer);
+    }
+}
+exports.SharedArrayReceiverStrategy = SharedArrayReceiverStrategy;
+
 
 /***/ }),
 
 /***/ 294:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_445435__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_450167__) {
 
 "use strict";
 
@@ -51676,19 +53053,19 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createProtocolConnection = void 0;
-const browser_1 = __nested_webpack_require_445435__(1200);
-__exportStar(__nested_webpack_require_445435__(1200), exports);
-__exportStar(__nested_webpack_require_445435__(9372), exports);
+const browser_1 = __nested_webpack_require_450167__(1200);
+__exportStar(__nested_webpack_require_450167__(1200), exports);
+__exportStar(__nested_webpack_require_450167__(9372), exports);
 function createProtocolConnection(reader, writer, logger, options) {
     return (0, browser_1.createMessageConnection)(reader, writer, logger, options);
 }
 exports.createProtocolConnection = createProtocolConnection;
-//# sourceMappingURL=main.js.map
+
 
 /***/ }),
 
 /***/ 9372:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_447080__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_451780__) {
 
 "use strict";
 
@@ -51712,11 +53089,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LSPErrorCodes = exports.createProtocolConnection = void 0;
-__exportStar(__nested_webpack_require_447080__(5953), exports);
-__exportStar(__nested_webpack_require_447080__(4767), exports);
-__exportStar(__nested_webpack_require_447080__(8599), exports);
-__exportStar(__nested_webpack_require_447080__(6525), exports);
-var connection_1 = __nested_webpack_require_447080__(2798);
+__exportStar(__nested_webpack_require_451780__(5953), exports);
+__exportStar(__nested_webpack_require_451780__(4767), exports);
+__exportStar(__nested_webpack_require_451780__(8599), exports);
+__exportStar(__nested_webpack_require_451780__(6525), exports);
+var connection_1 = __nested_webpack_require_451780__(2798);
 Object.defineProperty(exports, "createProtocolConnection", ({ enumerable: true, get: function () { return connection_1.createProtocolConnection; } }));
 var LSPErrorCodes;
 (function (LSPErrorCodes) {
@@ -51768,12 +53145,12 @@ var LSPErrorCodes;
     */
     LSPErrorCodes.lspReservedErrorRangeEnd = -32800;
 })(LSPErrorCodes = exports.LSPErrorCodes || (exports.LSPErrorCodes = {}));
-//# sourceMappingURL=api.js.map
+
 
 /***/ }),
 
 /***/ 2798:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_450481__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_455150__) => {
 
 "use strict";
 
@@ -51783,7 +53160,7 @@ var LSPErrorCodes;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createProtocolConnection = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_450481__(5953);
+const vscode_jsonrpc_1 = __nested_webpack_require_455150__(5953);
 function createProtocolConnection(input, output, logger, options) {
     if (vscode_jsonrpc_1.ConnectionStrategy.is(options)) {
         options = { connectionStrategy: options };
@@ -51791,12 +53168,12 @@ function createProtocolConnection(input, output, logger, options) {
     return (0, vscode_jsonrpc_1.createMessageConnection)(input, output, logger, options);
 }
 exports.createProtocolConnection = createProtocolConnection;
-//# sourceMappingURL=connection.js.map
+
 
 /***/ }),
 
 /***/ 8599:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_451475__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_456106__) => {
 
 "use strict";
 
@@ -51806,7 +53183,7 @@ exports.createProtocolConnection = createProtocolConnection;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ProtocolNotificationType = exports.ProtocolNotificationType0 = exports.ProtocolRequestType = exports.ProtocolRequestType0 = exports.RegistrationType = exports.MessageDirection = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_451475__(5953);
+const vscode_jsonrpc_1 = __nested_webpack_require_456106__(5953);
 var MessageDirection;
 (function (MessageDirection) {
     MessageDirection["clientToServer"] = "clientToServer";
@@ -51843,12 +53220,12 @@ class ProtocolNotificationType extends vscode_jsonrpc_1.NotificationType {
     }
 }
 exports.ProtocolNotificationType = ProtocolNotificationType;
-//# sourceMappingURL=messages.js.map
+
 
 /***/ }),
 
 /***/ 4434:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_453539__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_458134__) => {
 
 "use strict";
 
@@ -51858,7 +53235,7 @@ exports.ProtocolNotificationType = ProtocolNotificationType;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CallHierarchyOutgoingCallsRequest = exports.CallHierarchyIncomingCallsRequest = exports.CallHierarchyPrepareRequest = void 0;
-const messages_1 = __nested_webpack_require_453539__(8599);
+const messages_1 = __nested_webpack_require_458134__(8599);
 /**
  * A request to result a `CallHierarchyItem` in a document at a given position.
  * Can be used as an input to an incoming or outgoing call hierarchy.
@@ -51893,12 +53270,12 @@ var CallHierarchyOutgoingCallsRequest;
     CallHierarchyOutgoingCallsRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     CallHierarchyOutgoingCallsRequest.type = new messages_1.ProtocolRequestType(CallHierarchyOutgoingCallsRequest.method);
 })(CallHierarchyOutgoingCallsRequest = exports.CallHierarchyOutgoingCallsRequest || (exports.CallHierarchyOutgoingCallsRequest = {}));
-//# sourceMappingURL=protocol.callHierarchy.js.map
+
 
 /***/ }),
 
 /***/ 7908:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_456211__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_460756__) => {
 
 "use strict";
 
@@ -51908,11 +53285,11 @@ var CallHierarchyOutgoingCallsRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ColorPresentationRequest = exports.DocumentColorRequest = void 0;
-const messages_1 = __nested_webpack_require_456211__(8599);
+const messages_1 = __nested_webpack_require_460756__(8599);
 /**
  * A request to list all color symbols found in a given text document. The request's
- * parameter is of type [DocumentColorParams](#DocumentColorParams) the
- * response is of type [ColorInformation[]](#ColorInformation) or a Thenable
+ * parameter is of type {@link DocumentColorParams} the
+ * response is of type {@link ColorInformation ColorInformation[]} or a Thenable
  * that resolves to such.
  */
 var DocumentColorRequest;
@@ -51923,8 +53300,8 @@ var DocumentColorRequest;
 })(DocumentColorRequest = exports.DocumentColorRequest || (exports.DocumentColorRequest = {}));
 /**
  * A request to list all presentation for a color. The request's
- * parameter is of type [ColorPresentationParams](#ColorPresentationParams) the
- * response is of type [ColorInformation[]](#ColorInformation) or a Thenable
+ * parameter is of type {@link ColorPresentationParams} the
+ * response is of type {@link ColorInformation ColorInformation[]} or a Thenable
  * that resolves to such.
  */
 var ColorPresentationRequest;
@@ -51933,12 +53310,12 @@ var ColorPresentationRequest;
     ColorPresentationRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     ColorPresentationRequest.type = new messages_1.ProtocolRequestType(ColorPresentationRequest.method);
 })(ColorPresentationRequest = exports.ColorPresentationRequest || (exports.ColorPresentationRequest = {}));
-//# sourceMappingURL=protocol.colorProvider.js.map
+
 
 /***/ }),
 
 /***/ 5442:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_458281__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_462748__) => {
 
 "use strict";
 
@@ -51948,7 +53325,7 @@ var ColorPresentationRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ConfigurationRequest = void 0;
-const messages_1 = __nested_webpack_require_458281__(8599);
+const messages_1 = __nested_webpack_require_462748__(8599);
 //---- Get Configuration request ----
 /**
  * The 'workspace/configuration' request is sent from the server to the client to fetch a certain
@@ -51965,12 +53342,12 @@ var ConfigurationRequest;
     ConfigurationRequest.messageDirection = messages_1.MessageDirection.serverToClient;
     ConfigurationRequest.type = new messages_1.ProtocolRequestType(ConfigurationRequest.method);
 })(ConfigurationRequest = exports.ConfigurationRequest || (exports.ConfigurationRequest = {}));
-//# sourceMappingURL=protocol.configuration.js.map
+
 
 /***/ }),
 
 /***/ 7210:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_459884__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_464301__) => {
 
 "use strict";
 
@@ -51980,14 +53357,14 @@ var ConfigurationRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeclarationRequest = void 0;
-const messages_1 = __nested_webpack_require_459884__(8599);
+const messages_1 = __nested_webpack_require_464301__(8599);
 // @ts-ignore: to avoid inlining LocationLink as dynamic import
 let __noDynamicImport;
 /**
  * A request to resolve the type definition locations of a symbol at a given text
  * document position. The request's parameter is of type [TextDocumentPositionParams]
- * (#TextDocumentPositionParams) the response is of type [Declaration](#Declaration)
- * or a typed array of [DeclarationLink](#DeclarationLink) or a Thenable that resolves
+ * (#TextDocumentPositionParams) the response is of type {@link Declaration}
+ * or a typed array of {@link DeclarationLink} or a Thenable that resolves
  * to such.
  */
 var DeclarationRequest;
@@ -51996,12 +53373,12 @@ var DeclarationRequest;
     DeclarationRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     DeclarationRequest.type = new messages_1.ProtocolRequestType(DeclarationRequest.method);
 })(DeclarationRequest = exports.DeclarationRequest || (exports.DeclarationRequest = {}));
-//# sourceMappingURL=protocol.declaration.js.map
+
 
 /***/ }),
 
 /***/ 5692:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_461372__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_465721__) => {
 
 "use strict";
 
@@ -52011,9 +53388,9 @@ var DeclarationRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DiagnosticRefreshRequest = exports.WorkspaceDiagnosticRequest = exports.DocumentDiagnosticRequest = exports.DocumentDiagnosticReportKind = exports.DiagnosticServerCancellationData = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_461372__(5953);
-const Is = __nested_webpack_require_461372__(2523);
-const messages_1 = __nested_webpack_require_461372__(8599);
+const vscode_jsonrpc_1 = __nested_webpack_require_465721__(5953);
+const Is = __nested_webpack_require_465721__(2523);
+const messages_1 = __nested_webpack_require_465721__(8599);
 /**
  * @since 3.17.0
  */
@@ -52075,15 +53452,15 @@ var WorkspaceDiagnosticRequest;
 var DiagnosticRefreshRequest;
 (function (DiagnosticRefreshRequest) {
     DiagnosticRefreshRequest.method = `workspace/diagnostic/refresh`;
-    DiagnosticRefreshRequest.messageDirection = messages_1.MessageDirection.clientToServer;
+    DiagnosticRefreshRequest.messageDirection = messages_1.MessageDirection.serverToClient;
     DiagnosticRefreshRequest.type = new messages_1.ProtocolRequestType0(DiagnosticRefreshRequest.method);
 })(DiagnosticRefreshRequest = exports.DiagnosticRefreshRequest || (exports.DiagnosticRefreshRequest = {}));
-//# sourceMappingURL=protocol.diagnostic.js.map
+
 
 /***/ }),
 
 /***/ 6190:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_464986__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_469288__) => {
 
 "use strict";
 
@@ -52093,7 +53470,7 @@ var DiagnosticRefreshRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WillDeleteFilesRequest = exports.DidDeleteFilesNotification = exports.DidRenameFilesNotification = exports.WillRenameFilesRequest = exports.DidCreateFilesNotification = exports.WillCreateFilesRequest = exports.FileOperationPatternKind = void 0;
-const messages_1 = __nested_webpack_require_464986__(8599);
+const messages_1 = __nested_webpack_require_469288__(8599);
 /**
  * A pattern kind describing if a glob pattern matches a file a folder or
  * both.
@@ -52114,6 +53491,10 @@ var FileOperationPatternKind;
 /**
  * The will create files request is sent from the client to the server before files are actually
  * created as long as the creation is triggered from within the client.
+ *
+ * The request can return a `WorkspaceEdit` which will be applied to workspace before the
+ * files are created. Hence the `WorkspaceEdit` can not manipulate the content of the file
+ * to be created.
  *
  * @since 3.16.0
  */
@@ -52183,12 +53564,12 @@ var WillDeleteFilesRequest;
     WillDeleteFilesRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     WillDeleteFilesRequest.type = new messages_1.ProtocolRequestType(WillDeleteFilesRequest.method);
 })(WillDeleteFilesRequest = exports.WillDeleteFilesRequest || (exports.WillDeleteFilesRequest = {}));
-//# sourceMappingURL=protocol.fileOperations.js.map
+
 
 /***/ }),
 
 /***/ 7029:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_470063__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_474516__) => {
 
 "use strict";
 
@@ -52198,11 +53579,11 @@ var WillDeleteFilesRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FoldingRangeRequest = void 0;
-const messages_1 = __nested_webpack_require_470063__(8599);
+const messages_1 = __nested_webpack_require_474516__(8599);
 /**
  * A request to provide folding ranges in a document. The request's
- * parameter is of type [FoldingRangeParams](#FoldingRangeParams), the
- * response is of type [FoldingRangeList](#FoldingRangeList) or a Thenable
+ * parameter is of type {@link FoldingRangeParams}, the
+ * response is of type {@link FoldingRangeList} or a Thenable
  * that resolves to such.
  */
 var FoldingRangeRequest;
@@ -52211,12 +53592,12 @@ var FoldingRangeRequest;
     FoldingRangeRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     FoldingRangeRequest.type = new messages_1.ProtocolRequestType(FoldingRangeRequest.method);
 })(FoldingRangeRequest = exports.FoldingRangeRequest || (exports.FoldingRangeRequest = {}));
-//# sourceMappingURL=protocol.foldingRange.js.map
+
 
 /***/ }),
 
 /***/ 9380:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_471366__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_475742__) => {
 
 "use strict";
 
@@ -52226,13 +53607,13 @@ var FoldingRangeRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ImplementationRequest = void 0;
-const messages_1 = __nested_webpack_require_471366__(8599);
+const messages_1 = __nested_webpack_require_475742__(8599);
 // @ts-ignore: to avoid inlining LocationLink as dynamic import
 let __noDynamicImport;
 /**
  * A request to resolve the implementation locations of a symbol at a given text
  * document position. The request's parameter is of type [TextDocumentPositionParams]
- * (#TextDocumentPositionParams) the response is of type [Definition](#Definition) or a
+ * (#TextDocumentPositionParams) the response is of type {@link Definition} or a
  * Thenable that resolves to such.
  */
 var ImplementationRequest;
@@ -52241,12 +53622,12 @@ var ImplementationRequest;
     ImplementationRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     ImplementationRequest.type = new messages_1.ProtocolRequestType(ImplementationRequest.method);
 })(ImplementationRequest = exports.ImplementationRequest || (exports.ImplementationRequest = {}));
-//# sourceMappingURL=protocol.implementation.js.map
+
 
 /***/ }),
 
 /***/ 6315:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_472828__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_477146__) => {
 
 "use strict";
 
@@ -52256,11 +53637,11 @@ var ImplementationRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.InlayHintRefreshRequest = exports.InlayHintResolveRequest = exports.InlayHintRequest = void 0;
-const messages_1 = __nested_webpack_require_472828__(8599);
+const messages_1 = __nested_webpack_require_477146__(8599);
 /**
  * A request to provide inlay hints in a document. The request's parameter is of
- * type [InlayHintsParams](#InlayHintsParams), the response is of type
- * [InlayHint[]](#InlayHint[]) or a Thenable that resolves to such.
+ * type {@link InlayHintsParams}, the response is of type
+ * {@link InlayHint InlayHint[]} or a Thenable that resolves to such.
  *
  * @since 3.17.0
  */
@@ -52272,8 +53653,8 @@ var InlayHintRequest;
 })(InlayHintRequest = exports.InlayHintRequest || (exports.InlayHintRequest = {}));
 /**
  * A request to resolve additional properties for an inlay hint.
- * The request's parameter is of type [InlayHint](#InlayHint), the response is
- * of type [InlayHint](#InlayHint) or a Thenable that resolves to such.
+ * The request's parameter is of type {@link InlayHint}, the response is
+ * of type {@link InlayHint} or a Thenable that resolves to such.
  *
  * @since 3.17.0
  */
@@ -52289,15 +53670,15 @@ var InlayHintResolveRequest;
 var InlayHintRefreshRequest;
 (function (InlayHintRefreshRequest) {
     InlayHintRefreshRequest.method = `workspace/inlayHint/refresh`;
-    InlayHintRefreshRequest.messageDirection = messages_1.MessageDirection.clientToServer;
+    InlayHintRefreshRequest.messageDirection = messages_1.MessageDirection.serverToClient;
     InlayHintRefreshRequest.type = new messages_1.ProtocolRequestType0(InlayHintRefreshRequest.method);
 })(InlayHintRefreshRequest = exports.InlayHintRefreshRequest || (exports.InlayHintRefreshRequest = {}));
-//# sourceMappingURL=protocol.inlayHint.js.map
+
 
 /***/ }),
 
 /***/ 7425:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_475291__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_479540__) => {
 
 "use strict";
 
@@ -52307,11 +53688,11 @@ var InlayHintRefreshRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.InlineValueRefreshRequest = exports.InlineValueRequest = void 0;
-const messages_1 = __nested_webpack_require_475291__(8599);
+const messages_1 = __nested_webpack_require_479540__(8599);
 /**
  * A request to provide inline values in a document. The request's parameter is of
- * type [InlineValueParams](#InlineValueParams), the response is of type
- * [InlineValue[]](#InlineValue[]) or a Thenable that resolves to such.
+ * type {@link InlineValueParams}, the response is of type
+ * {@link InlineValue InlineValue[]} or a Thenable that resolves to such.
  *
  * @since 3.17.0
  */
@@ -52327,15 +53708,15 @@ var InlineValueRequest;
 var InlineValueRefreshRequest;
 (function (InlineValueRefreshRequest) {
     InlineValueRefreshRequest.method = `workspace/inlineValue/refresh`;
-    InlineValueRefreshRequest.messageDirection = messages_1.MessageDirection.clientToServer;
+    InlineValueRefreshRequest.messageDirection = messages_1.MessageDirection.serverToClient;
     InlineValueRefreshRequest.type = new messages_1.ProtocolRequestType0(InlineValueRefreshRequest.method);
 })(InlineValueRefreshRequest = exports.InlineValueRefreshRequest || (exports.InlineValueRefreshRequest = {}));
-//# sourceMappingURL=protocol.inlineValue.js.map
+
 
 /***/ }),
 
 /***/ 6525:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_477106__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_481295__) => {
 
 "use strict";
 
@@ -52347,47 +53728,47 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WorkspaceSymbolRequest = exports.CodeActionResolveRequest = exports.CodeActionRequest = exports.DocumentSymbolRequest = exports.DocumentHighlightRequest = exports.ReferencesRequest = exports.DefinitionRequest = exports.SignatureHelpRequest = exports.SignatureHelpTriggerKind = exports.HoverRequest = exports.CompletionResolveRequest = exports.CompletionRequest = exports.CompletionTriggerKind = exports.PublishDiagnosticsNotification = exports.WatchKind = exports.RelativePattern = exports.FileChangeType = exports.DidChangeWatchedFilesNotification = exports.WillSaveTextDocumentWaitUntilRequest = exports.WillSaveTextDocumentNotification = exports.TextDocumentSaveReason = exports.DidSaveTextDocumentNotification = exports.DidCloseTextDocumentNotification = exports.DidChangeTextDocumentNotification = exports.TextDocumentContentChangeEvent = exports.DidOpenTextDocumentNotification = exports.TextDocumentSyncKind = exports.TelemetryEventNotification = exports.LogMessageNotification = exports.ShowMessageRequest = exports.ShowMessageNotification = exports.MessageType = exports.DidChangeConfigurationNotification = exports.ExitNotification = exports.ShutdownRequest = exports.InitializedNotification = exports.InitializeErrorCodes = exports.InitializeRequest = exports.WorkDoneProgressOptions = exports.TextDocumentRegistrationOptions = exports.StaticRegistrationOptions = exports.PositionEncodingKind = exports.FailureHandlingKind = exports.ResourceOperationKind = exports.UnregistrationRequest = exports.RegistrationRequest = exports.DocumentSelector = exports.NotebookCellTextDocumentFilter = exports.NotebookDocumentFilter = exports.TextDocumentFilter = void 0;
 exports.TypeHierarchySubtypesRequest = exports.TypeHierarchyPrepareRequest = exports.MonikerRequest = exports.MonikerKind = exports.UniquenessLevel = exports.WillDeleteFilesRequest = exports.DidDeleteFilesNotification = exports.WillRenameFilesRequest = exports.DidRenameFilesNotification = exports.WillCreateFilesRequest = exports.DidCreateFilesNotification = exports.FileOperationPatternKind = exports.LinkedEditingRangeRequest = exports.ShowDocumentRequest = exports.SemanticTokensRegistrationType = exports.SemanticTokensRefreshRequest = exports.SemanticTokensRangeRequest = exports.SemanticTokensDeltaRequest = exports.SemanticTokensRequest = exports.TokenFormat = exports.CallHierarchyPrepareRequest = exports.CallHierarchyOutgoingCallsRequest = exports.CallHierarchyIncomingCallsRequest = exports.WorkDoneProgressCancelNotification = exports.WorkDoneProgressCreateRequest = exports.WorkDoneProgress = exports.SelectionRangeRequest = exports.DeclarationRequest = exports.FoldingRangeRequest = exports.ColorPresentationRequest = exports.DocumentColorRequest = exports.ConfigurationRequest = exports.DidChangeWorkspaceFoldersNotification = exports.WorkspaceFoldersRequest = exports.TypeDefinitionRequest = exports.ImplementationRequest = exports.ApplyWorkspaceEditRequest = exports.ExecuteCommandRequest = exports.PrepareRenameRequest = exports.RenameRequest = exports.PrepareSupportDefaultBehavior = exports.DocumentOnTypeFormattingRequest = exports.DocumentRangeFormattingRequest = exports.DocumentFormattingRequest = exports.DocumentLinkResolveRequest = exports.DocumentLinkRequest = exports.CodeLensRefreshRequest = exports.CodeLensResolveRequest = exports.CodeLensRequest = exports.WorkspaceSymbolResolveRequest = void 0;
 exports.DidCloseNotebookDocumentNotification = exports.DidSaveNotebookDocumentNotification = exports.DidChangeNotebookDocumentNotification = exports.NotebookCellArrayChange = exports.DidOpenNotebookDocumentNotification = exports.NotebookDocumentSyncRegistrationType = exports.NotebookDocument = exports.NotebookCell = exports.ExecutionSummary = exports.NotebookCellKind = exports.DiagnosticRefreshRequest = exports.WorkspaceDiagnosticRequest = exports.DocumentDiagnosticRequest = exports.DocumentDiagnosticReportKind = exports.DiagnosticServerCancellationData = exports.InlayHintRefreshRequest = exports.InlayHintResolveRequest = exports.InlayHintRequest = exports.InlineValueRefreshRequest = exports.InlineValueRequest = exports.TypeHierarchySupertypesRequest = void 0;
-const messages_1 = __nested_webpack_require_477106__(8599);
-const vscode_languageserver_types_1 = __nested_webpack_require_477106__(4767);
-const Is = __nested_webpack_require_477106__(2523);
-const protocol_implementation_1 = __nested_webpack_require_477106__(9380);
+const messages_1 = __nested_webpack_require_481295__(8599);
+const vscode_languageserver_types_1 = __nested_webpack_require_481295__(4767);
+const Is = __nested_webpack_require_481295__(2523);
+const protocol_implementation_1 = __nested_webpack_require_481295__(9380);
 Object.defineProperty(exports, "ImplementationRequest", ({ enumerable: true, get: function () { return protocol_implementation_1.ImplementationRequest; } }));
-const protocol_typeDefinition_1 = __nested_webpack_require_477106__(8642);
+const protocol_typeDefinition_1 = __nested_webpack_require_481295__(8642);
 Object.defineProperty(exports, "TypeDefinitionRequest", ({ enumerable: true, get: function () { return protocol_typeDefinition_1.TypeDefinitionRequest; } }));
-const protocol_workspaceFolder_1 = __nested_webpack_require_477106__(3402);
+const protocol_workspaceFolder_1 = __nested_webpack_require_481295__(3402);
 Object.defineProperty(exports, "WorkspaceFoldersRequest", ({ enumerable: true, get: function () { return protocol_workspaceFolder_1.WorkspaceFoldersRequest; } }));
 Object.defineProperty(exports, "DidChangeWorkspaceFoldersNotification", ({ enumerable: true, get: function () { return protocol_workspaceFolder_1.DidChangeWorkspaceFoldersNotification; } }));
-const protocol_configuration_1 = __nested_webpack_require_477106__(5442);
+const protocol_configuration_1 = __nested_webpack_require_481295__(5442);
 Object.defineProperty(exports, "ConfigurationRequest", ({ enumerable: true, get: function () { return protocol_configuration_1.ConfigurationRequest; } }));
-const protocol_colorProvider_1 = __nested_webpack_require_477106__(7908);
+const protocol_colorProvider_1 = __nested_webpack_require_481295__(7908);
 Object.defineProperty(exports, "DocumentColorRequest", ({ enumerable: true, get: function () { return protocol_colorProvider_1.DocumentColorRequest; } }));
 Object.defineProperty(exports, "ColorPresentationRequest", ({ enumerable: true, get: function () { return protocol_colorProvider_1.ColorPresentationRequest; } }));
-const protocol_foldingRange_1 = __nested_webpack_require_477106__(7029);
+const protocol_foldingRange_1 = __nested_webpack_require_481295__(7029);
 Object.defineProperty(exports, "FoldingRangeRequest", ({ enumerable: true, get: function () { return protocol_foldingRange_1.FoldingRangeRequest; } }));
-const protocol_declaration_1 = __nested_webpack_require_477106__(7210);
+const protocol_declaration_1 = __nested_webpack_require_481295__(7210);
 Object.defineProperty(exports, "DeclarationRequest", ({ enumerable: true, get: function () { return protocol_declaration_1.DeclarationRequest; } }));
-const protocol_selectionRange_1 = __nested_webpack_require_477106__(2392);
+const protocol_selectionRange_1 = __nested_webpack_require_481295__(2392);
 Object.defineProperty(exports, "SelectionRangeRequest", ({ enumerable: true, get: function () { return protocol_selectionRange_1.SelectionRangeRequest; } }));
-const protocol_progress_1 = __nested_webpack_require_477106__(7895);
+const protocol_progress_1 = __nested_webpack_require_481295__(7895);
 Object.defineProperty(exports, "WorkDoneProgress", ({ enumerable: true, get: function () { return protocol_progress_1.WorkDoneProgress; } }));
 Object.defineProperty(exports, "WorkDoneProgressCreateRequest", ({ enumerable: true, get: function () { return protocol_progress_1.WorkDoneProgressCreateRequest; } }));
 Object.defineProperty(exports, "WorkDoneProgressCancelNotification", ({ enumerable: true, get: function () { return protocol_progress_1.WorkDoneProgressCancelNotification; } }));
-const protocol_callHierarchy_1 = __nested_webpack_require_477106__(4434);
+const protocol_callHierarchy_1 = __nested_webpack_require_481295__(4434);
 Object.defineProperty(exports, "CallHierarchyIncomingCallsRequest", ({ enumerable: true, get: function () { return protocol_callHierarchy_1.CallHierarchyIncomingCallsRequest; } }));
 Object.defineProperty(exports, "CallHierarchyOutgoingCallsRequest", ({ enumerable: true, get: function () { return protocol_callHierarchy_1.CallHierarchyOutgoingCallsRequest; } }));
 Object.defineProperty(exports, "CallHierarchyPrepareRequest", ({ enumerable: true, get: function () { return protocol_callHierarchy_1.CallHierarchyPrepareRequest; } }));
-const protocol_semanticTokens_1 = __nested_webpack_require_477106__(8489);
+const protocol_semanticTokens_1 = __nested_webpack_require_481295__(8489);
 Object.defineProperty(exports, "TokenFormat", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.TokenFormat; } }));
 Object.defineProperty(exports, "SemanticTokensRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRequest; } }));
 Object.defineProperty(exports, "SemanticTokensDeltaRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensDeltaRequest; } }));
 Object.defineProperty(exports, "SemanticTokensRangeRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRangeRequest; } }));
 Object.defineProperty(exports, "SemanticTokensRefreshRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRefreshRequest; } }));
 Object.defineProperty(exports, "SemanticTokensRegistrationType", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRegistrationType; } }));
-const protocol_showDocument_1 = __nested_webpack_require_477106__(1541);
+const protocol_showDocument_1 = __nested_webpack_require_481295__(1541);
 Object.defineProperty(exports, "ShowDocumentRequest", ({ enumerable: true, get: function () { return protocol_showDocument_1.ShowDocumentRequest; } }));
-const protocol_linkedEditingRange_1 = __nested_webpack_require_477106__(527);
+const protocol_linkedEditingRange_1 = __nested_webpack_require_481295__(527);
 Object.defineProperty(exports, "LinkedEditingRangeRequest", ({ enumerable: true, get: function () { return protocol_linkedEditingRange_1.LinkedEditingRangeRequest; } }));
-const protocol_fileOperations_1 = __nested_webpack_require_477106__(6190);
+const protocol_fileOperations_1 = __nested_webpack_require_481295__(6190);
 Object.defineProperty(exports, "FileOperationPatternKind", ({ enumerable: true, get: function () { return protocol_fileOperations_1.FileOperationPatternKind; } }));
 Object.defineProperty(exports, "DidCreateFilesNotification", ({ enumerable: true, get: function () { return protocol_fileOperations_1.DidCreateFilesNotification; } }));
 Object.defineProperty(exports, "WillCreateFilesRequest", ({ enumerable: true, get: function () { return protocol_fileOperations_1.WillCreateFilesRequest; } }));
@@ -52395,28 +53776,28 @@ Object.defineProperty(exports, "DidRenameFilesNotification", ({ enumerable: true
 Object.defineProperty(exports, "WillRenameFilesRequest", ({ enumerable: true, get: function () { return protocol_fileOperations_1.WillRenameFilesRequest; } }));
 Object.defineProperty(exports, "DidDeleteFilesNotification", ({ enumerable: true, get: function () { return protocol_fileOperations_1.DidDeleteFilesNotification; } }));
 Object.defineProperty(exports, "WillDeleteFilesRequest", ({ enumerable: true, get: function () { return protocol_fileOperations_1.WillDeleteFilesRequest; } }));
-const protocol_moniker_1 = __nested_webpack_require_477106__(1964);
+const protocol_moniker_1 = __nested_webpack_require_481295__(1964);
 Object.defineProperty(exports, "UniquenessLevel", ({ enumerable: true, get: function () { return protocol_moniker_1.UniquenessLevel; } }));
 Object.defineProperty(exports, "MonikerKind", ({ enumerable: true, get: function () { return protocol_moniker_1.MonikerKind; } }));
 Object.defineProperty(exports, "MonikerRequest", ({ enumerable: true, get: function () { return protocol_moniker_1.MonikerRequest; } }));
-const protocol_typeHierarchy_1 = __nested_webpack_require_477106__(5318);
+const protocol_typeHierarchy_1 = __nested_webpack_require_481295__(5318);
 Object.defineProperty(exports, "TypeHierarchyPrepareRequest", ({ enumerable: true, get: function () { return protocol_typeHierarchy_1.TypeHierarchyPrepareRequest; } }));
 Object.defineProperty(exports, "TypeHierarchySubtypesRequest", ({ enumerable: true, get: function () { return protocol_typeHierarchy_1.TypeHierarchySubtypesRequest; } }));
 Object.defineProperty(exports, "TypeHierarchySupertypesRequest", ({ enumerable: true, get: function () { return protocol_typeHierarchy_1.TypeHierarchySupertypesRequest; } }));
-const protocol_inlineValue_1 = __nested_webpack_require_477106__(7425);
+const protocol_inlineValue_1 = __nested_webpack_require_481295__(7425);
 Object.defineProperty(exports, "InlineValueRequest", ({ enumerable: true, get: function () { return protocol_inlineValue_1.InlineValueRequest; } }));
 Object.defineProperty(exports, "InlineValueRefreshRequest", ({ enumerable: true, get: function () { return protocol_inlineValue_1.InlineValueRefreshRequest; } }));
-const protocol_inlayHint_1 = __nested_webpack_require_477106__(6315);
+const protocol_inlayHint_1 = __nested_webpack_require_481295__(6315);
 Object.defineProperty(exports, "InlayHintRequest", ({ enumerable: true, get: function () { return protocol_inlayHint_1.InlayHintRequest; } }));
 Object.defineProperty(exports, "InlayHintResolveRequest", ({ enumerable: true, get: function () { return protocol_inlayHint_1.InlayHintResolveRequest; } }));
 Object.defineProperty(exports, "InlayHintRefreshRequest", ({ enumerable: true, get: function () { return protocol_inlayHint_1.InlayHintRefreshRequest; } }));
-const protocol_diagnostic_1 = __nested_webpack_require_477106__(5692);
+const protocol_diagnostic_1 = __nested_webpack_require_481295__(5692);
 Object.defineProperty(exports, "DiagnosticServerCancellationData", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DiagnosticServerCancellationData; } }));
 Object.defineProperty(exports, "DocumentDiagnosticReportKind", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DocumentDiagnosticReportKind; } }));
 Object.defineProperty(exports, "DocumentDiagnosticRequest", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DocumentDiagnosticRequest; } }));
 Object.defineProperty(exports, "WorkspaceDiagnosticRequest", ({ enumerable: true, get: function () { return protocol_diagnostic_1.WorkspaceDiagnosticRequest; } }));
 Object.defineProperty(exports, "DiagnosticRefreshRequest", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DiagnosticRefreshRequest; } }));
-const protocol_notebook_1 = __nested_webpack_require_477106__(4460);
+const protocol_notebook_1 = __nested_webpack_require_481295__(4460);
 Object.defineProperty(exports, "NotebookCellKind", ({ enumerable: true, get: function () { return protocol_notebook_1.NotebookCellKind; } }));
 Object.defineProperty(exports, "ExecutionSummary", ({ enumerable: true, get: function () { return protocol_notebook_1.ExecutionSummary; } }));
 Object.defineProperty(exports, "NotebookCell", ({ enumerable: true, get: function () { return protocol_notebook_1.NotebookCell; } }));
@@ -52431,7 +53812,7 @@ Object.defineProperty(exports, "DidCloseNotebookDocumentNotification", ({ enumer
 let __noDynamicImport;
 /**
  * The TextDocumentFilter namespace provides helper functions to work with
- * [TextDocumentFilter](#TextDocumentFilter) literals.
+ * {@link TextDocumentFilter} literals.
  *
  * @since 3.17.0
  */
@@ -52445,7 +53826,7 @@ var TextDocumentFilter;
 })(TextDocumentFilter = exports.TextDocumentFilter || (exports.TextDocumentFilter = {}));
 /**
  * The NotebookDocumentFilter namespace provides helper functions to work with
- * [NotebookDocumentFilter](#NotebookDocumentFilter) literals.
+ * {@link NotebookDocumentFilter} literals.
  *
  * @since 3.17.0
  */
@@ -52459,7 +53840,7 @@ var NotebookDocumentFilter;
 })(NotebookDocumentFilter = exports.NotebookDocumentFilter || (exports.NotebookDocumentFilter = {}));
 /**
  * The NotebookCellTextDocumentFilter namespace provides helper functions to work with
- * [NotebookCellTextDocumentFilter](#NotebookCellTextDocumentFilter) literals.
+ * {@link NotebookCellTextDocumentFilter} literals.
  *
  * @since 3.17.0
  */
@@ -52475,7 +53856,7 @@ var NotebookCellTextDocumentFilter;
 })(NotebookCellTextDocumentFilter = exports.NotebookCellTextDocumentFilter || (exports.NotebookCellTextDocumentFilter = {}));
 /**
  * The DocumentSelector namespace provides helper functions to work with
- * [DocumentSelector](#DocumentSelector)s.
+ * {@link DocumentSelector}s.
  */
 var DocumentSelector;
 (function (DocumentSelector) {
@@ -52559,7 +53940,7 @@ var FailureHandlingKind;
 var PositionEncodingKind;
 (function (PositionEncodingKind) {
     /**
-     * Character offsets count UTF-8 code units.
+     * Character offsets count UTF-8 code units (e.g. bytes).
      */
     PositionEncodingKind.UTF8 = 'utf-8';
     /**
@@ -52572,7 +53953,7 @@ var PositionEncodingKind;
     /**
      * Character offsets count UTF-32 code units.
      *
-     * Implementation note: these are the same as Unicode code points,
+     * Implementation note: these are the same as Unicode codepoints,
      * so this `PositionEncodingKind` may also be used for an
      * encoding-agnostic representation of character offsets.
      */
@@ -52580,7 +53961,7 @@ var PositionEncodingKind;
 })(PositionEncodingKind = exports.PositionEncodingKind || (exports.PositionEncodingKind = {}));
 /**
  * The StaticRegistrationOptions namespace provides helper functions to work with
- * [StaticRegistrationOptions](#StaticRegistrationOptions) literals.
+ * {@link StaticRegistrationOptions} literals.
  */
 var StaticRegistrationOptions;
 (function (StaticRegistrationOptions) {
@@ -52592,7 +53973,7 @@ var StaticRegistrationOptions;
 })(StaticRegistrationOptions = exports.StaticRegistrationOptions || (exports.StaticRegistrationOptions = {}));
 /**
  * The TextDocumentRegistrationOptions namespace provides helper functions to work with
- * [TextDocumentRegistrationOptions](#TextDocumentRegistrationOptions) literals.
+ * {@link TextDocumentRegistrationOptions} literals.
  */
 var TextDocumentRegistrationOptions;
 (function (TextDocumentRegistrationOptions) {
@@ -52604,7 +53985,7 @@ var TextDocumentRegistrationOptions;
 })(TextDocumentRegistrationOptions = exports.TextDocumentRegistrationOptions || (exports.TextDocumentRegistrationOptions = {}));
 /**
  * The WorkDoneProgressOptions namespace provides helper functions to work with
- * [WorkDoneProgressOptions](#WorkDoneProgressOptions) literals.
+ * {@link WorkDoneProgressOptions} literals.
  */
 var WorkDoneProgressOptions;
 (function (WorkDoneProgressOptions) {
@@ -52622,8 +54003,8 @@ var WorkDoneProgressOptions;
 /**
  * The initialize request is sent from the client to the server.
  * It is sent once as the request after starting up the server.
- * The requests parameter is of type [InitializeParams](#InitializeParams)
- * the response if of type [InitializeResult](#InitializeResult) of a Thenable that
+ * The requests parameter is of type {@link InitializeParams}
+ * the response if of type {@link InitializeResult} of a Thenable that
  * resolves to such.
  */
 var InitializeRequest;
@@ -52976,12 +54357,12 @@ var CompletionTriggerKind;
 })(CompletionTriggerKind = exports.CompletionTriggerKind || (exports.CompletionTriggerKind = {}));
 /**
  * Request to request completion at a given text document position. The request's
- * parameter is of type [TextDocumentPosition](#TextDocumentPosition) the response
- * is of type [CompletionItem[]](#CompletionItem) or [CompletionList](#CompletionList)
+ * parameter is of type {@link TextDocumentPosition} the response
+ * is of type {@link CompletionItem CompletionItem[]} or {@link CompletionList}
  * or a Thenable that resolves to such.
  *
- * The request can delay the computation of the [`detail`](#CompletionItem.detail)
- * and [`documentation`](#CompletionItem.documentation) properties to the `completionItem/resolve`
+ * The request can delay the computation of the {@link CompletionItem.detail `detail`}
+ * and {@link CompletionItem.documentation `documentation`} properties to the `completionItem/resolve`
  * request. However, properties that are needed for the initial sorting and filtering, like `sortText`,
  * `filterText`, `insertText`, and `textEdit`, must not be changed during resolve.
  */
@@ -52993,8 +54374,8 @@ var CompletionRequest;
 })(CompletionRequest = exports.CompletionRequest || (exports.CompletionRequest = {}));
 /**
  * Request to resolve additional information for a given completion item.The request's
- * parameter is of type [CompletionItem](#CompletionItem) the response
- * is of type [CompletionItem](#CompletionItem) or a Thenable that resolves to such.
+ * parameter is of type {@link CompletionItem} the response
+ * is of type {@link CompletionItem} or a Thenable that resolves to such.
  */
 var CompletionResolveRequest;
 (function (CompletionResolveRequest) {
@@ -53004,8 +54385,8 @@ var CompletionResolveRequest;
 })(CompletionResolveRequest = exports.CompletionResolveRequest || (exports.CompletionResolveRequest = {}));
 /**
  * Request to request hover information at a given text document position. The request's
- * parameter is of type [TextDocumentPosition](#TextDocumentPosition) the response is of
- * type [Hover](#Hover) or a Thenable that resolves to such.
+ * parameter is of type {@link TextDocumentPosition} the response is of
+ * type {@link Hover} or a Thenable that resolves to such.
  */
 var HoverRequest;
 (function (HoverRequest) {
@@ -53042,8 +54423,8 @@ var SignatureHelpRequest;
 /**
  * A request to resolve the definition location of a symbol at a given text
  * document position. The request's parameter is of type [TextDocumentPosition]
- * (#TextDocumentPosition) the response is of either type [Definition](#Definition)
- * or a typed array of [DefinitionLink](#DefinitionLink) or a Thenable that resolves
+ * (#TextDocumentPosition) the response is of either type {@link Definition}
+ * or a typed array of {@link DefinitionLink} or a Thenable that resolves
  * to such.
  */
 var DefinitionRequest;
@@ -53055,8 +54436,8 @@ var DefinitionRequest;
 /**
  * A request to resolve project-wide references for the symbol denoted
  * by the given text document position. The request's parameter is of
- * type [ReferenceParams](#ReferenceParams) the response is of type
- * [Location[]](#Location) or a Thenable that resolves to such.
+ * type {@link ReferenceParams} the response is of type
+ * {@link Location Location[]} or a Thenable that resolves to such.
  */
 var ReferencesRequest;
 (function (ReferencesRequest) {
@@ -53065,7 +54446,7 @@ var ReferencesRequest;
     ReferencesRequest.type = new messages_1.ProtocolRequestType(ReferencesRequest.method);
 })(ReferencesRequest = exports.ReferencesRequest || (exports.ReferencesRequest = {}));
 /**
- * Request to resolve a [DocumentHighlight](#DocumentHighlight) for a given
+ * Request to resolve a {@link DocumentHighlight} for a given
  * text document position. The request's parameter is of type [TextDocumentPosition]
  * (#TextDocumentPosition) the request response is of type [DocumentHighlight[]]
  * (#DocumentHighlight) or a Thenable that resolves to such.
@@ -53078,8 +54459,8 @@ var DocumentHighlightRequest;
 })(DocumentHighlightRequest = exports.DocumentHighlightRequest || (exports.DocumentHighlightRequest = {}));
 /**
  * A request to list all symbols found in a given text document. The request's
- * parameter is of type [TextDocumentIdentifier](#TextDocumentIdentifier) the
- * response is of type [SymbolInformation[]](#SymbolInformation) or a Thenable
+ * parameter is of type {@link TextDocumentIdentifier} the
+ * response is of type {@link SymbolInformation SymbolInformation[]} or a Thenable
  * that resolves to such.
  */
 var DocumentSymbolRequest;
@@ -53099,8 +54480,8 @@ var CodeActionRequest;
 })(CodeActionRequest = exports.CodeActionRequest || (exports.CodeActionRequest = {}));
 /**
  * Request to resolve additional information for a given code action.The request's
- * parameter is of type [CodeAction](#CodeAction) the response
- * is of type [CodeAction](#CodeAction) or a Thenable that resolves to such.
+ * parameter is of type {@link CodeAction} the response
+ * is of type {@link CodeAction} or a Thenable that resolves to such.
  */
 var CodeActionResolveRequest;
 (function (CodeActionResolveRequest) {
@@ -53110,8 +54491,8 @@ var CodeActionResolveRequest;
 })(CodeActionResolveRequest = exports.CodeActionResolveRequest || (exports.CodeActionResolveRequest = {}));
 /**
  * A request to list project-wide symbols matching the query string given
- * by the [WorkspaceSymbolParams](#WorkspaceSymbolParams). The response is
- * of type [SymbolInformation[]](#SymbolInformation) or a Thenable that
+ * by the {@link WorkspaceSymbolParams}. The response is
+ * of type {@link SymbolInformation SymbolInformation[]} or a Thenable that
  * resolves to such.
  *
  * @since 3.17.0 - support for WorkspaceSymbol in the returned data. Clients
@@ -53177,8 +54558,8 @@ var DocumentLinkRequest;
 })(DocumentLinkRequest = exports.DocumentLinkRequest || (exports.DocumentLinkRequest = {}));
 /**
  * Request to resolve additional information for a given document link. The request's
- * parameter is of type [DocumentLink](#DocumentLink) the response
- * is of type [DocumentLink](#DocumentLink) or a Thenable that resolves to such.
+ * parameter is of type {@link DocumentLink} the response
+ * is of type {@link DocumentLink} or a Thenable that resolves to such.
  */
 var DocumentLinkResolveRequest;
 (function (DocumentLinkResolveRequest) {
@@ -53261,12 +54642,12 @@ var ApplyWorkspaceEditRequest;
     ApplyWorkspaceEditRequest.messageDirection = messages_1.MessageDirection.serverToClient;
     ApplyWorkspaceEditRequest.type = new messages_1.ProtocolRequestType('workspace/applyEdit');
 })(ApplyWorkspaceEditRequest = exports.ApplyWorkspaceEditRequest || (exports.ApplyWorkspaceEditRequest = {}));
-//# sourceMappingURL=protocol.js.map
+
 
 /***/ }),
 
 /***/ 527:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_532811__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_536648__) => {
 
 "use strict";
 
@@ -53276,7 +54657,7 @@ var ApplyWorkspaceEditRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LinkedEditingRangeRequest = void 0;
-const messages_1 = __nested_webpack_require_532811__(8599);
+const messages_1 = __nested_webpack_require_536648__(8599);
 /**
  * A request to provide ranges that can be edited together.
  *
@@ -53288,12 +54669,12 @@ var LinkedEditingRangeRequest;
     LinkedEditingRangeRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     LinkedEditingRangeRequest.type = new messages_1.ProtocolRequestType(LinkedEditingRangeRequest.method);
 })(LinkedEditingRangeRequest = exports.LinkedEditingRangeRequest || (exports.LinkedEditingRangeRequest = {}));
-//# sourceMappingURL=protocol.linkedEditingRange.js.map
+
 
 /***/ }),
 
 /***/ 1964:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_534026__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_537808__) => {
 
 "use strict";
 
@@ -53303,7 +54684,7 @@ var LinkedEditingRangeRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MonikerRequest = exports.MonikerKind = exports.UniquenessLevel = void 0;
-const messages_1 = __nested_webpack_require_534026__(8599);
+const messages_1 = __nested_webpack_require_537808__(8599);
 /**
  * Moniker uniqueness level to define scope of the moniker.
  *
@@ -53355,8 +54736,8 @@ var MonikerKind;
 })(MonikerKind = exports.MonikerKind || (exports.MonikerKind = {}));
 /**
  * A request to get the moniker of a symbol at a given text document position.
- * The request parameter is of type [TextDocumentPositionParams](#TextDocumentPositionParams).
- * The response is of type [Moniker[]](#Moniker[]) or `null`.
+ * The request parameter is of type {@link TextDocumentPositionParams}.
+ * The response is of type {@link Moniker Moniker[]} or `null`.
  */
 var MonikerRequest;
 (function (MonikerRequest) {
@@ -53364,12 +54745,12 @@ var MonikerRequest;
     MonikerRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     MonikerRequest.type = new messages_1.ProtocolRequestType(MonikerRequest.method);
 })(MonikerRequest = exports.MonikerRequest || (exports.MonikerRequest = {}));
-//# sourceMappingURL=protocol.moniker.js.map
+
 
 /***/ }),
 
 /***/ 4460:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_536716__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_540433__) => {
 
 "use strict";
 
@@ -53379,9 +54760,9 @@ var MonikerRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DidCloseNotebookDocumentNotification = exports.DidSaveNotebookDocumentNotification = exports.DidChangeNotebookDocumentNotification = exports.NotebookCellArrayChange = exports.DidOpenNotebookDocumentNotification = exports.NotebookDocumentSyncRegistrationType = exports.NotebookDocument = exports.NotebookCell = exports.ExecutionSummary = exports.NotebookCellKind = void 0;
-const vscode_languageserver_types_1 = __nested_webpack_require_536716__(4767);
-const Is = __nested_webpack_require_536716__(2523);
-const messages_1 = __nested_webpack_require_536716__(8599);
+const vscode_languageserver_types_1 = __nested_webpack_require_540433__(4767);
+const Is = __nested_webpack_require_540433__(2523);
+const messages_1 = __nested_webpack_require_540433__(8599);
 /**
  * A notebook cell kind.
  *
@@ -53586,12 +54967,12 @@ var DidCloseNotebookDocumentNotification;
     DidCloseNotebookDocumentNotification.type = new messages_1.ProtocolNotificationType(DidCloseNotebookDocumentNotification.method);
     DidCloseNotebookDocumentNotification.registrationMethod = NotebookDocumentSyncRegistrationType.method;
 })(DidCloseNotebookDocumentNotification = exports.DidCloseNotebookDocumentNotification || (exports.DidCloseNotebookDocumentNotification = {}));
-//# sourceMappingURL=protocol.notebook.js.map
+
 
 /***/ }),
 
 /***/ 7895:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_547003__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_550675__) => {
 
 "use strict";
 
@@ -53601,8 +54982,8 @@ var DidCloseNotebookDocumentNotification;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WorkDoneProgressCancelNotification = exports.WorkDoneProgressCreateRequest = exports.WorkDoneProgress = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_547003__(5953);
-const messages_1 = __nested_webpack_require_547003__(8599);
+const vscode_jsonrpc_1 = __nested_webpack_require_550675__(5953);
+const messages_1 = __nested_webpack_require_550675__(8599);
 var WorkDoneProgress;
 (function (WorkDoneProgress) {
     WorkDoneProgress.type = new vscode_jsonrpc_1.ProgressType();
@@ -53631,12 +55012,12 @@ var WorkDoneProgressCancelNotification;
     WorkDoneProgressCancelNotification.messageDirection = messages_1.MessageDirection.clientToServer;
     WorkDoneProgressCancelNotification.type = new messages_1.ProtocolNotificationType(WorkDoneProgressCancelNotification.method);
 })(WorkDoneProgressCancelNotification = exports.WorkDoneProgressCancelNotification || (exports.WorkDoneProgressCancelNotification = {}));
-//# sourceMappingURL=protocol.progress.js.map
+
 
 /***/ }),
 
 /***/ 2392:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_549432__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_553059__) => {
 
 "use strict";
 
@@ -53646,11 +55027,11 @@ var WorkDoneProgressCancelNotification;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SelectionRangeRequest = void 0;
-const messages_1 = __nested_webpack_require_549432__(8599);
+const messages_1 = __nested_webpack_require_553059__(8599);
 /**
  * A request to provide selection ranges in a document. The request's
- * parameter is of type [SelectionRangeParams](#SelectionRangeParams), the
- * response is of type [SelectionRange[]](#SelectionRange[]) or a Thenable
+ * parameter is of type {@link SelectionRangeParams}, the
+ * response is of type {@link SelectionRange SelectionRange[]} or a Thenable
  * that resolves to such.
  */
 var SelectionRangeRequest;
@@ -53659,12 +55040,12 @@ var SelectionRangeRequest;
     SelectionRangeRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     SelectionRangeRequest.type = new messages_1.ProtocolRequestType(SelectionRangeRequest.method);
 })(SelectionRangeRequest = exports.SelectionRangeRequest || (exports.SelectionRangeRequest = {}));
-//# sourceMappingURL=protocol.selectionRange.js.map
+
 
 /***/ }),
 
 /***/ 8489:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_550765__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_554326__) => {
 
 "use strict";
 
@@ -53674,7 +55055,7 @@ var SelectionRangeRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SemanticTokensRefreshRequest = exports.SemanticTokensRangeRequest = exports.SemanticTokensDeltaRequest = exports.SemanticTokensRequest = exports.SemanticTokensRegistrationType = exports.TokenFormat = void 0;
-const messages_1 = __nested_webpack_require_550765__(8599);
+const messages_1 = __nested_webpack_require_554326__(8599);
 //------- 'textDocument/semanticTokens' -----
 var TokenFormat;
 (function (TokenFormat) {
@@ -53721,15 +55102,15 @@ var SemanticTokensRangeRequest;
 var SemanticTokensRefreshRequest;
 (function (SemanticTokensRefreshRequest) {
     SemanticTokensRefreshRequest.method = `workspace/semanticTokens/refresh`;
-    SemanticTokensRefreshRequest.messageDirection = messages_1.MessageDirection.clientToServer;
+    SemanticTokensRefreshRequest.messageDirection = messages_1.MessageDirection.serverToClient;
     SemanticTokensRefreshRequest.type = new messages_1.ProtocolRequestType0(SemanticTokensRefreshRequest.method);
 })(SemanticTokensRefreshRequest = exports.SemanticTokensRefreshRequest || (exports.SemanticTokensRefreshRequest = {}));
-//# sourceMappingURL=protocol.semanticTokens.js.map
+
 
 /***/ }),
 
 /***/ 1541:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_554408__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_557918__) => {
 
 "use strict";
 
@@ -53739,7 +55120,7 @@ var SemanticTokensRefreshRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ShowDocumentRequest = void 0;
-const messages_1 = __nested_webpack_require_554408__(8599);
+const messages_1 = __nested_webpack_require_557918__(8599);
 /**
  * A request to show a document. This request might open an
  * external program depending on the value of the URI to open.
@@ -53754,12 +55135,12 @@ var ShowDocumentRequest;
     ShowDocumentRequest.messageDirection = messages_1.MessageDirection.serverToClient;
     ShowDocumentRequest.type = new messages_1.ProtocolRequestType(ShowDocumentRequest.method);
 })(ShowDocumentRequest = exports.ShowDocumentRequest || (exports.ShowDocumentRequest = {}));
-//# sourceMappingURL=protocol.showDocument.js.map
+
 
 /***/ }),
 
 /***/ 8642:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_555722__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_559183__) => {
 
 "use strict";
 
@@ -53769,13 +55150,13 @@ var ShowDocumentRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TypeDefinitionRequest = void 0;
-const messages_1 = __nested_webpack_require_555722__(8599);
+const messages_1 = __nested_webpack_require_559183__(8599);
 // @ts-ignore: to avoid inlining LocatioLink as dynamic import
 let __noDynamicImport;
 /**
  * A request to resolve the type definition locations of a symbol at a given text
- * document position. The request's parameter is of type [TextDocumentPositioParams]
- * (#TextDocumentPositionParams) the response is of type [Definition](#Definition) or a
+ * document position. The request's parameter is of type [TextDocumentPositionParams]
+ * (#TextDocumentPositionParams) the response is of type {@link Definition} or a
  * Thenable that resolves to such.
  */
 var TypeDefinitionRequest;
@@ -53784,12 +55165,12 @@ var TypeDefinitionRequest;
     TypeDefinitionRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     TypeDefinitionRequest.type = new messages_1.ProtocolRequestType(TypeDefinitionRequest.method);
 })(TypeDefinitionRequest = exports.TypeDefinitionRequest || (exports.TypeDefinitionRequest = {}));
-//# sourceMappingURL=protocol.typeDefinition.js.map
+
 
 /***/ }),
 
 /***/ 5318:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_557183__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_560587__) => {
 
 "use strict";
 
@@ -53799,7 +55180,7 @@ var TypeDefinitionRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TypeHierarchySubtypesRequest = exports.TypeHierarchySupertypesRequest = exports.TypeHierarchyPrepareRequest = void 0;
-const messages_1 = __nested_webpack_require_557183__(8599);
+const messages_1 = __nested_webpack_require_560587__(8599);
 /**
  * A request to result a `TypeHierarchyItem` in a document at a given position.
  * Can be used as an input to a subtypes or supertypes type hierarchy.
@@ -53834,12 +55215,12 @@ var TypeHierarchySubtypesRequest;
     TypeHierarchySubtypesRequest.messageDirection = messages_1.MessageDirection.clientToServer;
     TypeHierarchySubtypesRequest.type = new messages_1.ProtocolRequestType(TypeHierarchySubtypesRequest.method);
 })(TypeHierarchySubtypesRequest = exports.TypeHierarchySubtypesRequest || (exports.TypeHierarchySubtypesRequest = {}));
-//# sourceMappingURL=protocol.typeHierarchy.js.map
+
 
 /***/ }),
 
 /***/ 3402:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_559758__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_563112__) => {
 
 "use strict";
 
@@ -53849,7 +55230,7 @@ var TypeHierarchySubtypesRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DidChangeWorkspaceFoldersNotification = exports.WorkspaceFoldersRequest = void 0;
-const messages_1 = __nested_webpack_require_559758__(8599);
+const messages_1 = __nested_webpack_require_563112__(8599);
 /**
  * The `workspace/workspaceFolders` is sent from the server to the client to fetch the open workspace folders.
  */
@@ -53869,7 +55250,7 @@ var DidChangeWorkspaceFoldersNotification;
     DidChangeWorkspaceFoldersNotification.messageDirection = messages_1.MessageDirection.clientToServer;
     DidChangeWorkspaceFoldersNotification.type = new messages_1.ProtocolNotificationType(DidChangeWorkspaceFoldersNotification.method);
 })(DidChangeWorkspaceFoldersNotification = exports.DidChangeWorkspaceFoldersNotification || (exports.DidChangeWorkspaceFoldersNotification = {}));
-//# sourceMappingURL=protocol.workspaceFolder.js.map
+
 
 /***/ }),
 
@@ -53923,91 +55304,91 @@ function objectLiteral(value) {
     return value !== null && typeof value === 'object';
 }
 exports.objectLiteral = objectLiteral;
-//# sourceMappingURL=is.js.map
+
 
 /***/ }),
 
 /***/ 4767:
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_563684__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_566956__) => {
 
 "use strict";
-__nested_webpack_require_563684__.r(__nested_webpack_exports__);
-/* harmony export */ __nested_webpack_require_563684__.d(__nested_webpack_exports__, {
-/* harmony export */   "AnnotatedTextEdit": () => (/* binding */ AnnotatedTextEdit),
-/* harmony export */   "ChangeAnnotation": () => (/* binding */ ChangeAnnotation),
-/* harmony export */   "ChangeAnnotationIdentifier": () => (/* binding */ ChangeAnnotationIdentifier),
-/* harmony export */   "CodeAction": () => (/* binding */ CodeAction),
-/* harmony export */   "CodeActionContext": () => (/* binding */ CodeActionContext),
-/* harmony export */   "CodeActionKind": () => (/* binding */ CodeActionKind),
-/* harmony export */   "CodeActionTriggerKind": () => (/* binding */ CodeActionTriggerKind),
-/* harmony export */   "CodeDescription": () => (/* binding */ CodeDescription),
-/* harmony export */   "CodeLens": () => (/* binding */ CodeLens),
-/* harmony export */   "Color": () => (/* binding */ Color),
-/* harmony export */   "ColorInformation": () => (/* binding */ ColorInformation),
-/* harmony export */   "ColorPresentation": () => (/* binding */ ColorPresentation),
-/* harmony export */   "Command": () => (/* binding */ Command),
-/* harmony export */   "CompletionItem": () => (/* binding */ CompletionItem),
-/* harmony export */   "CompletionItemKind": () => (/* binding */ CompletionItemKind),
-/* harmony export */   "CompletionItemLabelDetails": () => (/* binding */ CompletionItemLabelDetails),
-/* harmony export */   "CompletionItemTag": () => (/* binding */ CompletionItemTag),
-/* harmony export */   "CompletionList": () => (/* binding */ CompletionList),
-/* harmony export */   "CreateFile": () => (/* binding */ CreateFile),
-/* harmony export */   "DeleteFile": () => (/* binding */ DeleteFile),
-/* harmony export */   "Diagnostic": () => (/* binding */ Diagnostic),
-/* harmony export */   "DiagnosticRelatedInformation": () => (/* binding */ DiagnosticRelatedInformation),
-/* harmony export */   "DiagnosticSeverity": () => (/* binding */ DiagnosticSeverity),
-/* harmony export */   "DiagnosticTag": () => (/* binding */ DiagnosticTag),
-/* harmony export */   "DocumentHighlight": () => (/* binding */ DocumentHighlight),
-/* harmony export */   "DocumentHighlightKind": () => (/* binding */ DocumentHighlightKind),
-/* harmony export */   "DocumentLink": () => (/* binding */ DocumentLink),
-/* harmony export */   "DocumentSymbol": () => (/* binding */ DocumentSymbol),
-/* harmony export */   "DocumentUri": () => (/* binding */ DocumentUri),
-/* harmony export */   "EOL": () => (/* binding */ EOL),
-/* harmony export */   "FoldingRange": () => (/* binding */ FoldingRange),
-/* harmony export */   "FoldingRangeKind": () => (/* binding */ FoldingRangeKind),
-/* harmony export */   "FormattingOptions": () => (/* binding */ FormattingOptions),
-/* harmony export */   "Hover": () => (/* binding */ Hover),
-/* harmony export */   "InlayHint": () => (/* binding */ InlayHint),
-/* harmony export */   "InlayHintKind": () => (/* binding */ InlayHintKind),
-/* harmony export */   "InlayHintLabelPart": () => (/* binding */ InlayHintLabelPart),
-/* harmony export */   "InlineValueContext": () => (/* binding */ InlineValueContext),
-/* harmony export */   "InlineValueEvaluatableExpression": () => (/* binding */ InlineValueEvaluatableExpression),
-/* harmony export */   "InlineValueText": () => (/* binding */ InlineValueText),
-/* harmony export */   "InlineValueVariableLookup": () => (/* binding */ InlineValueVariableLookup),
-/* harmony export */   "InsertReplaceEdit": () => (/* binding */ InsertReplaceEdit),
-/* harmony export */   "InsertTextFormat": () => (/* binding */ InsertTextFormat),
-/* harmony export */   "InsertTextMode": () => (/* binding */ InsertTextMode),
-/* harmony export */   "Location": () => (/* binding */ Location),
-/* harmony export */   "LocationLink": () => (/* binding */ LocationLink),
-/* harmony export */   "MarkedString": () => (/* binding */ MarkedString),
-/* harmony export */   "MarkupContent": () => (/* binding */ MarkupContent),
-/* harmony export */   "MarkupKind": () => (/* binding */ MarkupKind),
-/* harmony export */   "OptionalVersionedTextDocumentIdentifier": () => (/* binding */ OptionalVersionedTextDocumentIdentifier),
-/* harmony export */   "ParameterInformation": () => (/* binding */ ParameterInformation),
-/* harmony export */   "Position": () => (/* binding */ Position),
-/* harmony export */   "Range": () => (/* binding */ Range),
-/* harmony export */   "RenameFile": () => (/* binding */ RenameFile),
-/* harmony export */   "SelectionRange": () => (/* binding */ SelectionRange),
-/* harmony export */   "SemanticTokenModifiers": () => (/* binding */ SemanticTokenModifiers),
-/* harmony export */   "SemanticTokenTypes": () => (/* binding */ SemanticTokenTypes),
-/* harmony export */   "SemanticTokens": () => (/* binding */ SemanticTokens),
-/* harmony export */   "SignatureInformation": () => (/* binding */ SignatureInformation),
-/* harmony export */   "SymbolInformation": () => (/* binding */ SymbolInformation),
-/* harmony export */   "SymbolKind": () => (/* binding */ SymbolKind),
-/* harmony export */   "SymbolTag": () => (/* binding */ SymbolTag),
-/* harmony export */   "TextDocument": () => (/* binding */ TextDocument),
-/* harmony export */   "TextDocumentEdit": () => (/* binding */ TextDocumentEdit),
-/* harmony export */   "TextDocumentIdentifier": () => (/* binding */ TextDocumentIdentifier),
-/* harmony export */   "TextDocumentItem": () => (/* binding */ TextDocumentItem),
-/* harmony export */   "TextEdit": () => (/* binding */ TextEdit),
-/* harmony export */   "URI": () => (/* binding */ URI),
-/* harmony export */   "VersionedTextDocumentIdentifier": () => (/* binding */ VersionedTextDocumentIdentifier),
-/* harmony export */   "WorkspaceChange": () => (/* binding */ WorkspaceChange),
-/* harmony export */   "WorkspaceEdit": () => (/* binding */ WorkspaceEdit),
-/* harmony export */   "WorkspaceFolder": () => (/* binding */ WorkspaceFolder),
-/* harmony export */   "WorkspaceSymbol": () => (/* binding */ WorkspaceSymbol),
-/* harmony export */   "integer": () => (/* binding */ integer),
-/* harmony export */   "uinteger": () => (/* binding */ uinteger)
+__nested_webpack_require_566956__.r(__nested_webpack_exports__);
+/* harmony export */ __nested_webpack_require_566956__.d(__nested_webpack_exports__, {
+/* harmony export */   AnnotatedTextEdit: () => (/* binding */ AnnotatedTextEdit),
+/* harmony export */   ChangeAnnotation: () => (/* binding */ ChangeAnnotation),
+/* harmony export */   ChangeAnnotationIdentifier: () => (/* binding */ ChangeAnnotationIdentifier),
+/* harmony export */   CodeAction: () => (/* binding */ CodeAction),
+/* harmony export */   CodeActionContext: () => (/* binding */ CodeActionContext),
+/* harmony export */   CodeActionKind: () => (/* binding */ CodeActionKind),
+/* harmony export */   CodeActionTriggerKind: () => (/* binding */ CodeActionTriggerKind),
+/* harmony export */   CodeDescription: () => (/* binding */ CodeDescription),
+/* harmony export */   CodeLens: () => (/* binding */ CodeLens),
+/* harmony export */   Color: () => (/* binding */ Color),
+/* harmony export */   ColorInformation: () => (/* binding */ ColorInformation),
+/* harmony export */   ColorPresentation: () => (/* binding */ ColorPresentation),
+/* harmony export */   Command: () => (/* binding */ Command),
+/* harmony export */   CompletionItem: () => (/* binding */ CompletionItem),
+/* harmony export */   CompletionItemKind: () => (/* binding */ CompletionItemKind),
+/* harmony export */   CompletionItemLabelDetails: () => (/* binding */ CompletionItemLabelDetails),
+/* harmony export */   CompletionItemTag: () => (/* binding */ CompletionItemTag),
+/* harmony export */   CompletionList: () => (/* binding */ CompletionList),
+/* harmony export */   CreateFile: () => (/* binding */ CreateFile),
+/* harmony export */   DeleteFile: () => (/* binding */ DeleteFile),
+/* harmony export */   Diagnostic: () => (/* binding */ Diagnostic),
+/* harmony export */   DiagnosticRelatedInformation: () => (/* binding */ DiagnosticRelatedInformation),
+/* harmony export */   DiagnosticSeverity: () => (/* binding */ DiagnosticSeverity),
+/* harmony export */   DiagnosticTag: () => (/* binding */ DiagnosticTag),
+/* harmony export */   DocumentHighlight: () => (/* binding */ DocumentHighlight),
+/* harmony export */   DocumentHighlightKind: () => (/* binding */ DocumentHighlightKind),
+/* harmony export */   DocumentLink: () => (/* binding */ DocumentLink),
+/* harmony export */   DocumentSymbol: () => (/* binding */ DocumentSymbol),
+/* harmony export */   DocumentUri: () => (/* binding */ DocumentUri),
+/* harmony export */   EOL: () => (/* binding */ EOL),
+/* harmony export */   FoldingRange: () => (/* binding */ FoldingRange),
+/* harmony export */   FoldingRangeKind: () => (/* binding */ FoldingRangeKind),
+/* harmony export */   FormattingOptions: () => (/* binding */ FormattingOptions),
+/* harmony export */   Hover: () => (/* binding */ Hover),
+/* harmony export */   InlayHint: () => (/* binding */ InlayHint),
+/* harmony export */   InlayHintKind: () => (/* binding */ InlayHintKind),
+/* harmony export */   InlayHintLabelPart: () => (/* binding */ InlayHintLabelPart),
+/* harmony export */   InlineValueContext: () => (/* binding */ InlineValueContext),
+/* harmony export */   InlineValueEvaluatableExpression: () => (/* binding */ InlineValueEvaluatableExpression),
+/* harmony export */   InlineValueText: () => (/* binding */ InlineValueText),
+/* harmony export */   InlineValueVariableLookup: () => (/* binding */ InlineValueVariableLookup),
+/* harmony export */   InsertReplaceEdit: () => (/* binding */ InsertReplaceEdit),
+/* harmony export */   InsertTextFormat: () => (/* binding */ InsertTextFormat),
+/* harmony export */   InsertTextMode: () => (/* binding */ InsertTextMode),
+/* harmony export */   Location: () => (/* binding */ Location),
+/* harmony export */   LocationLink: () => (/* binding */ LocationLink),
+/* harmony export */   MarkedString: () => (/* binding */ MarkedString),
+/* harmony export */   MarkupContent: () => (/* binding */ MarkupContent),
+/* harmony export */   MarkupKind: () => (/* binding */ MarkupKind),
+/* harmony export */   OptionalVersionedTextDocumentIdentifier: () => (/* binding */ OptionalVersionedTextDocumentIdentifier),
+/* harmony export */   ParameterInformation: () => (/* binding */ ParameterInformation),
+/* harmony export */   Position: () => (/* binding */ Position),
+/* harmony export */   Range: () => (/* binding */ Range),
+/* harmony export */   RenameFile: () => (/* binding */ RenameFile),
+/* harmony export */   SelectionRange: () => (/* binding */ SelectionRange),
+/* harmony export */   SemanticTokenModifiers: () => (/* binding */ SemanticTokenModifiers),
+/* harmony export */   SemanticTokenTypes: () => (/* binding */ SemanticTokenTypes),
+/* harmony export */   SemanticTokens: () => (/* binding */ SemanticTokens),
+/* harmony export */   SignatureInformation: () => (/* binding */ SignatureInformation),
+/* harmony export */   SymbolInformation: () => (/* binding */ SymbolInformation),
+/* harmony export */   SymbolKind: () => (/* binding */ SymbolKind),
+/* harmony export */   SymbolTag: () => (/* binding */ SymbolTag),
+/* harmony export */   TextDocument: () => (/* binding */ TextDocument),
+/* harmony export */   TextDocumentEdit: () => (/* binding */ TextDocumentEdit),
+/* harmony export */   TextDocumentIdentifier: () => (/* binding */ TextDocumentIdentifier),
+/* harmony export */   TextDocumentItem: () => (/* binding */ TextDocumentItem),
+/* harmony export */   TextEdit: () => (/* binding */ TextEdit),
+/* harmony export */   URI: () => (/* binding */ URI),
+/* harmony export */   VersionedTextDocumentIdentifier: () => (/* binding */ VersionedTextDocumentIdentifier),
+/* harmony export */   WorkspaceChange: () => (/* binding */ WorkspaceChange),
+/* harmony export */   WorkspaceEdit: () => (/* binding */ WorkspaceEdit),
+/* harmony export */   WorkspaceFolder: () => (/* binding */ WorkspaceFolder),
+/* harmony export */   WorkspaceSymbol: () => (/* binding */ WorkspaceSymbol),
+/* harmony export */   integer: () => (/* binding */ integer),
+/* harmony export */   uinteger: () => (/* binding */ uinteger)
 /* harmony export */ });
 /* --------------------------------------------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
@@ -54048,7 +55429,7 @@ var uinteger;
 })(uinteger || (uinteger = {}));
 /**
  * The Position namespace provides helper functions to work with
- * [Position](#Position) literals.
+ * {@link Position} literals.
  */
 var Position;
 (function (Position) {
@@ -54068,7 +55449,7 @@ var Position;
     }
     Position.create = create;
     /**
-     * Checks whether the given literal conforms to the [Position](#Position) interface.
+     * Checks whether the given literal conforms to the {@link Position} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54078,7 +55459,7 @@ var Position;
 })(Position || (Position = {}));
 /**
  * The Range namespace provides helper functions to work with
- * [Range](#Range) literals.
+ * {@link Range} literals.
  */
 var Range;
 (function (Range) {
@@ -54095,7 +55476,7 @@ var Range;
     }
     Range.create = create;
     /**
-     * Checks whether the given literal conforms to the [Range](#Range) interface.
+     * Checks whether the given literal conforms to the {@link Range} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54105,7 +55486,7 @@ var Range;
 })(Range || (Range = {}));
 /**
  * The Location namespace provides helper functions to work with
- * [Location](#Location) literals.
+ * {@link Location} literals.
  */
 var Location;
 (function (Location) {
@@ -54119,7 +55500,7 @@ var Location;
     }
     Location.create = create;
     /**
-     * Checks whether the given literal conforms to the [Location](#Location) interface.
+     * Checks whether the given literal conforms to the {@link Location} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54129,7 +55510,7 @@ var Location;
 })(Location || (Location = {}));
 /**
  * The LocationLink namespace provides helper functions to work with
- * [LocationLink](#LocationLink) literals.
+ * {@link LocationLink} literals.
  */
 var LocationLink;
 (function (LocationLink) {
@@ -54145,7 +55526,7 @@ var LocationLink;
     }
     LocationLink.create = create;
     /**
-     * Checks whether the given literal conforms to the [LocationLink](#LocationLink) interface.
+     * Checks whether the given literal conforms to the {@link LocationLink} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54157,7 +55538,7 @@ var LocationLink;
 })(LocationLink || (LocationLink = {}));
 /**
  * The Color namespace provides helper functions to work with
- * [Color](#Color) literals.
+ * {@link Color} literals.
  */
 var Color;
 (function (Color) {
@@ -54174,7 +55555,7 @@ var Color;
     }
     Color.create = create;
     /**
-     * Checks whether the given literal conforms to the [Color](#Color) interface.
+     * Checks whether the given literal conforms to the {@link Color} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54187,7 +55568,7 @@ var Color;
 })(Color || (Color = {}));
 /**
  * The ColorInformation namespace provides helper functions to work with
- * [ColorInformation](#ColorInformation) literals.
+ * {@link ColorInformation} literals.
  */
 var ColorInformation;
 (function (ColorInformation) {
@@ -54202,7 +55583,7 @@ var ColorInformation;
     }
     ColorInformation.create = create;
     /**
-     * Checks whether the given literal conforms to the [ColorInformation](#ColorInformation) interface.
+     * Checks whether the given literal conforms to the {@link ColorInformation} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54212,7 +55593,7 @@ var ColorInformation;
 })(ColorInformation || (ColorInformation = {}));
 /**
  * The Color namespace provides helper functions to work with
- * [ColorPresentation](#ColorPresentation) literals.
+ * {@link ColorPresentation} literals.
  */
 var ColorPresentation;
 (function (ColorPresentation) {
@@ -54228,7 +55609,7 @@ var ColorPresentation;
     }
     ColorPresentation.create = create;
     /**
-     * Checks whether the given literal conforms to the [ColorInformation](#ColorInformation) interface.
+     * Checks whether the given literal conforms to the {@link ColorInformation} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54258,7 +55639,7 @@ var FoldingRangeKind;
 })(FoldingRangeKind || (FoldingRangeKind = {}));
 /**
  * The folding range namespace provides helper functions to work with
- * [FoldingRange](#FoldingRange) literals.
+ * {@link FoldingRange} literals.
  */
 var FoldingRange;
 (function (FoldingRange) {
@@ -54286,7 +55667,7 @@ var FoldingRange;
     }
     FoldingRange.create = create;
     /**
-     * Checks whether the given literal conforms to the [FoldingRange](#FoldingRange) interface.
+     * Checks whether the given literal conforms to the {@link FoldingRange} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54299,7 +55680,7 @@ var FoldingRange;
 })(FoldingRange || (FoldingRange = {}));
 /**
  * The DiagnosticRelatedInformation namespace provides helper functions to work with
- * [DiagnosticRelatedInformation](#DiagnosticRelatedInformation) literals.
+ * {@link DiagnosticRelatedInformation} literals.
  */
 var DiagnosticRelatedInformation;
 (function (DiagnosticRelatedInformation) {
@@ -54314,7 +55695,7 @@ var DiagnosticRelatedInformation;
     }
     DiagnosticRelatedInformation.create = create;
     /**
-     * Checks whether the given literal conforms to the [DiagnosticRelatedInformation](#DiagnosticRelatedInformation) interface.
+     * Checks whether the given literal conforms to the {@link DiagnosticRelatedInformation} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54380,7 +55761,7 @@ var CodeDescription;
 })(CodeDescription || (CodeDescription = {}));
 /**
  * The Diagnostic namespace provides helper functions to work with
- * [Diagnostic](#Diagnostic) literals.
+ * {@link Diagnostic} literals.
  */
 var Diagnostic;
 (function (Diagnostic) {
@@ -54405,7 +55786,7 @@ var Diagnostic;
     }
     Diagnostic.create = create;
     /**
-     * Checks whether the given literal conforms to the [Diagnostic](#Diagnostic) interface.
+     * Checks whether the given literal conforms to the {@link Diagnostic} interface.
      */
     function is(value) {
         var _a;
@@ -54423,7 +55804,7 @@ var Diagnostic;
 })(Diagnostic || (Diagnostic = {}));
 /**
  * The Command namespace provides helper functions to work with
- * [Command](#Command) literals.
+ * {@link Command} literals.
  */
 var Command;
 (function (Command) {
@@ -54443,7 +55824,7 @@ var Command;
     }
     Command.create = create;
     /**
-     * Checks whether the given literal conforms to the [Command](#Command) interface.
+     * Checks whether the given literal conforms to the {@link Command} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54825,7 +56206,7 @@ var WorkspaceChange = /** @class */ (function () {
     }
     Object.defineProperty(WorkspaceChange.prototype, "edit", {
         /**
-         * Returns the underlying [WorkspaceEdit](#WorkspaceEdit) literal
+         * Returns the underlying {@link WorkspaceEdit} literal
          * use to be returned from a workspace edit operation like rename.
          */
         get: function () {
@@ -54973,7 +56354,7 @@ var WorkspaceChange = /** @class */ (function () {
 
 /**
  * The TextDocumentIdentifier namespace provides helper functions to work with
- * [TextDocumentIdentifier](#TextDocumentIdentifier) literals.
+ * {@link TextDocumentIdentifier} literals.
  */
 var TextDocumentIdentifier;
 (function (TextDocumentIdentifier) {
@@ -54986,7 +56367,7 @@ var TextDocumentIdentifier;
     }
     TextDocumentIdentifier.create = create;
     /**
-     * Checks whether the given literal conforms to the [TextDocumentIdentifier](#TextDocumentIdentifier) interface.
+     * Checks whether the given literal conforms to the {@link TextDocumentIdentifier} interface.
      */
     function is(value) {
         var candidate = value;
@@ -54996,7 +56377,7 @@ var TextDocumentIdentifier;
 })(TextDocumentIdentifier || (TextDocumentIdentifier = {}));
 /**
  * The VersionedTextDocumentIdentifier namespace provides helper functions to work with
- * [VersionedTextDocumentIdentifier](#VersionedTextDocumentIdentifier) literals.
+ * {@link VersionedTextDocumentIdentifier} literals.
  */
 var VersionedTextDocumentIdentifier;
 (function (VersionedTextDocumentIdentifier) {
@@ -55010,7 +56391,7 @@ var VersionedTextDocumentIdentifier;
     }
     VersionedTextDocumentIdentifier.create = create;
     /**
-     * Checks whether the given literal conforms to the [VersionedTextDocumentIdentifier](#VersionedTextDocumentIdentifier) interface.
+     * Checks whether the given literal conforms to the {@link VersionedTextDocumentIdentifier} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55020,7 +56401,7 @@ var VersionedTextDocumentIdentifier;
 })(VersionedTextDocumentIdentifier || (VersionedTextDocumentIdentifier = {}));
 /**
  * The OptionalVersionedTextDocumentIdentifier namespace provides helper functions to work with
- * [OptionalVersionedTextDocumentIdentifier](#OptionalVersionedTextDocumentIdentifier) literals.
+ * {@link OptionalVersionedTextDocumentIdentifier} literals.
  */
 var OptionalVersionedTextDocumentIdentifier;
 (function (OptionalVersionedTextDocumentIdentifier) {
@@ -55034,7 +56415,7 @@ var OptionalVersionedTextDocumentIdentifier;
     }
     OptionalVersionedTextDocumentIdentifier.create = create;
     /**
-     * Checks whether the given literal conforms to the [OptionalVersionedTextDocumentIdentifier](#OptionalVersionedTextDocumentIdentifier) interface.
+     * Checks whether the given literal conforms to the {@link OptionalVersionedTextDocumentIdentifier} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55044,7 +56425,7 @@ var OptionalVersionedTextDocumentIdentifier;
 })(OptionalVersionedTextDocumentIdentifier || (OptionalVersionedTextDocumentIdentifier = {}));
 /**
  * The TextDocumentItem namespace provides helper functions to work with
- * [TextDocumentItem](#TextDocumentItem) literals.
+ * {@link TextDocumentItem} literals.
  */
 var TextDocumentItem;
 (function (TextDocumentItem) {
@@ -55060,7 +56441,7 @@ var TextDocumentItem;
     }
     TextDocumentItem.create = create;
     /**
-     * Checks whether the given literal conforms to the [TextDocumentItem](#TextDocumentItem) interface.
+     * Checks whether the given literal conforms to the {@link TextDocumentItem} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55086,7 +56467,7 @@ var MarkupKind;
      */
     MarkupKind.Markdown = 'markdown';
     /**
-     * Checks whether the given value is a value of the [MarkupKind](#MarkupKind) type.
+     * Checks whether the given value is a value of the {@link MarkupKind} type.
      */
     function is(value) {
         var candidate = value;
@@ -55097,7 +56478,7 @@ var MarkupKind;
 var MarkupContent;
 (function (MarkupContent) {
     /**
-     * Checks whether the given value conforms to the [MarkupContent](#MarkupContent) interface.
+     * Checks whether the given value conforms to the {@link MarkupContent} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55186,7 +56567,7 @@ var InsertReplaceEdit;
     }
     InsertReplaceEdit.create = create;
     /**
-     * Checks whether the given literal conforms to the [InsertReplaceEdit](#InsertReplaceEdit) interface.
+     * Checks whether the given literal conforms to the {@link InsertReplaceEdit} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55274,7 +56655,7 @@ var MarkedString;
     }
     MarkedString.fromPlainText = fromPlainText;
     /**
-     * Checks whether the given value conforms to the [MarkedString](#MarkedString) type.
+     * Checks whether the given value conforms to the {@link MarkedString} type.
      */
     function is(value) {
         var candidate = value;
@@ -55285,7 +56666,7 @@ var MarkedString;
 var Hover;
 (function (Hover) {
     /**
-     * Checks whether the given value conforms to the [Hover](#Hover) interface.
+     * Checks whether the given value conforms to the {@link Hover} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55297,7 +56678,7 @@ var Hover;
 })(Hover || (Hover = {}));
 /**
  * The ParameterInformation namespace provides helper functions to work with
- * [ParameterInformation](#ParameterInformation) literals.
+ * {@link ParameterInformation} literals.
  */
 var ParameterInformation;
 (function (ParameterInformation) {
@@ -55314,7 +56695,7 @@ var ParameterInformation;
 })(ParameterInformation || (ParameterInformation = {}));
 /**
  * The SignatureInformation namespace provides helper functions to work with
- * [SignatureInformation](#SignatureInformation) literals.
+ * {@link SignatureInformation} literals.
  */
 var SignatureInformation;
 (function (SignatureInformation) {
@@ -55357,7 +56738,7 @@ var DocumentHighlightKind;
 })(DocumentHighlightKind || (DocumentHighlightKind = {}));
 /**
  * DocumentHighlight namespace to provide helper functions to work with
- * [DocumentHighlight](#DocumentHighlight) literals.
+ * {@link DocumentHighlight} literals.
  */
 var DocumentHighlight;
 (function (DocumentHighlight) {
@@ -55488,7 +56869,7 @@ var DocumentSymbol;
     }
     DocumentSymbol.create = create;
     /**
-     * Checks whether the given literal conforms to the [DocumentSymbol](#DocumentSymbol) interface.
+     * Checks whether the given literal conforms to the {@link DocumentSymbol} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55596,7 +56977,7 @@ var CodeActionTriggerKind;
 })(CodeActionTriggerKind || (CodeActionTriggerKind = {}));
 /**
  * The CodeActionContext namespace provides helper functions to work with
- * [CodeActionContext](#CodeActionContext) literals.
+ * {@link CodeActionContext} literals.
  */
 var CodeActionContext;
 (function (CodeActionContext) {
@@ -55615,7 +56996,7 @@ var CodeActionContext;
     }
     CodeActionContext.create = create;
     /**
-     * Checks whether the given literal conforms to the [CodeActionContext](#CodeActionContext) interface.
+     * Checks whether the given literal conforms to the {@link CodeActionContext} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55660,7 +57041,7 @@ var CodeAction;
 })(CodeAction || (CodeAction = {}));
 /**
  * The CodeLens namespace provides helper functions to work with
- * [CodeLens](#CodeLens) literals.
+ * {@link CodeLens} literals.
  */
 var CodeLens;
 (function (CodeLens) {
@@ -55676,7 +57057,7 @@ var CodeLens;
     }
     CodeLens.create = create;
     /**
-     * Checks whether the given literal conforms to the [CodeLens](#CodeLens) interface.
+     * Checks whether the given literal conforms to the {@link CodeLens} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55686,7 +57067,7 @@ var CodeLens;
 })(CodeLens || (CodeLens = {}));
 /**
  * The FormattingOptions namespace provides helper functions to work with
- * [FormattingOptions](#FormattingOptions) literals.
+ * {@link FormattingOptions} literals.
  */
 var FormattingOptions;
 (function (FormattingOptions) {
@@ -55698,7 +57079,7 @@ var FormattingOptions;
     }
     FormattingOptions.create = create;
     /**
-     * Checks whether the given literal conforms to the [FormattingOptions](#FormattingOptions) interface.
+     * Checks whether the given literal conforms to the {@link FormattingOptions} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55708,7 +57089,7 @@ var FormattingOptions;
 })(FormattingOptions || (FormattingOptions = {}));
 /**
  * The DocumentLink namespace provides helper functions to work with
- * [DocumentLink](#DocumentLink) literals.
+ * {@link DocumentLink} literals.
  */
 var DocumentLink;
 (function (DocumentLink) {
@@ -55720,7 +57101,7 @@ var DocumentLink;
     }
     DocumentLink.create = create;
     /**
-     * Checks whether the given literal conforms to the [DocumentLink](#DocumentLink) interface.
+     * Checks whether the given literal conforms to the {@link DocumentLink} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55885,7 +57266,7 @@ var InlineValueEvaluatableExpression;
 })(InlineValueEvaluatableExpression || (InlineValueEvaluatableExpression = {}));
 /**
  * The InlineValueContext namespace provides helper functions to work with
- * [InlineValueContext](#InlineValueContext) literals.
+ * {@link InlineValueContext} literals.
  *
  * @since 3.17.0
  */
@@ -55899,7 +57280,7 @@ var InlineValueContext;
     }
     InlineValueContext.create = create;
     /**
-     * Checks whether the given literal conforms to the [InlineValueContext](#InlineValueContext) interface.
+     * Checks whether the given literal conforms to the {@link InlineValueContext} interface.
      */
     function is(value) {
         var candidate = value;
@@ -55990,7 +57371,7 @@ var TextDocument;
     }
     TextDocument.create = create;
     /**
-     * Checks whether the given literal conforms to the [ITextDocument](#ITextDocument) interface.
+     * Checks whether the given literal conforms to the {@link ITextDocument} interface.
      */
     function is(value) {
         var candidate = value;
@@ -56222,62 +57603,96 @@ var Is;
 /***/ }),
 
 /***/ 2094:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_648862__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_651368__) => {
 
 "use strict";
 
 
-var forEach = __nested_webpack_require_648862__(3243);
-var availableTypedArrays = __nested_webpack_require_648862__(2191);
-var callBound = __nested_webpack_require_648862__(2680);
-var gOPD = __nested_webpack_require_648862__(326);
+var forEach = __nested_webpack_require_651368__(3243);
+var availableTypedArrays = __nested_webpack_require_651368__(2191);
+var callBind = __nested_webpack_require_651368__(9429);
+var callBound = __nested_webpack_require_651368__(2680);
+var gOPD = __nested_webpack_require_651368__(326);
 
 var $toString = callBound('Object.prototype.toString');
-var hasToStringTag = __nested_webpack_require_648862__(7226)();
+var hasToStringTag = __nested_webpack_require_651368__(7226)();
 
-var g = typeof globalThis === 'undefined' ? __nested_webpack_require_648862__.g : globalThis;
+var g = typeof globalThis === 'undefined' ? __nested_webpack_require_651368__.g : globalThis;
 var typedArrays = availableTypedArrays();
 
 var $slice = callBound('String.prototype.slice');
-var toStrTags = {};
 var getPrototypeOf = Object.getPrototypeOf; // require('getprototypeof');
+
+var $indexOf = callBound('Array.prototype.indexOf', true) || function indexOf(array, value) {
+	for (var i = 0; i < array.length; i += 1) {
+		if (array[i] === value) {
+			return i;
+		}
+	}
+	return -1;
+};
+var cache = { __proto__: null };
 if (hasToStringTag && gOPD && getPrototypeOf) {
 	forEach(typedArrays, function (typedArray) {
-		if (typeof g[typedArray] === 'function') {
-			var arr = new g[typedArray]();
-			if (Symbol.toStringTag in arr) {
-				var proto = getPrototypeOf(arr);
-				var descriptor = gOPD(proto, Symbol.toStringTag);
-				if (!descriptor) {
-					var superProto = getPrototypeOf(proto);
-					descriptor = gOPD(superProto, Symbol.toStringTag);
-				}
-				toStrTags[typedArray] = descriptor.get;
+		var arr = new g[typedArray]();
+		if (Symbol.toStringTag in arr) {
+			var proto = getPrototypeOf(arr);
+			var descriptor = gOPD(proto, Symbol.toStringTag);
+			if (!descriptor) {
+				var superProto = getPrototypeOf(proto);
+				descriptor = gOPD(superProto, Symbol.toStringTag);
 			}
+			cache['$' + typedArray] = callBind(descriptor.get);
 		}
+	});
+} else {
+	forEach(typedArrays, function (typedArray) {
+		var arr = new g[typedArray]();
+		cache['$' + typedArray] = callBind(arr.slice);
 	});
 }
 
 var tryTypedArrays = function tryAllTypedArrays(value) {
-	var foundName = false;
-	forEach(toStrTags, function (getter, typedArray) {
-		if (!foundName) {
+	var found = false;
+	forEach(cache, function (getter, typedArray) {
+		if (!found) {
 			try {
-				var name = getter.call(value);
-				if (name === typedArray) {
-					foundName = name;
+				if ('$' + getter(value) === typedArray) {
+					found = $slice(typedArray, 1);
 				}
-			} catch (e) {}
+			} catch (e) { /**/ }
 		}
 	});
-	return foundName;
+	return found;
 };
 
-var isTypedArray = __nested_webpack_require_648862__(198);
+var trySlices = function tryAllSlices(value) {
+	var found = false;
+	forEach(cache, function (getter, name) {
+		if (!found) {
+			try {
+				getter(value);
+				found = $slice(name, 1);
+			} catch (e) { /**/ }
+		}
+	});
+	return found;
+};
 
 module.exports = function whichTypedArray(value) {
-	if (!isTypedArray(value)) { return false; }
-	if (!hasToStringTag || !(Symbol.toStringTag in value)) { return $slice($toString(value), 8, -1); }
+	if (!value || typeof value !== 'object') { return false; }
+	if (!hasToStringTag) {
+		var tag = $slice($toString(value), 8, -1);
+		if ($indexOf(typedArrays, tag) > -1) {
+			return tag;
+		}
+		if (tag !== 'Object') {
+			return false;
+		}
+		// node < 0.6 hits here on real Typed Arrays
+		return trySlices(value);
+	}
+	if (!gOPD) { return null; } // unknown engine
 	return tryTypedArrays(value);
 };
 
@@ -56285,7 +57700,7 @@ module.exports = function whichTypedArray(value) {
 /***/ }),
 
 /***/ 2191:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_650596__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_653841__) => {
 
 "use strict";
 
@@ -56304,7 +57719,7 @@ var possibleNames = [
 	'Uint8ClampedArray'
 ];
 
-var g = typeof globalThis === 'undefined' ? __nested_webpack_require_650596__.g : globalThis;
+var g = typeof globalThis === 'undefined' ? __nested_webpack_require_653841__.g : globalThis;
 
 module.exports = function availableTypedArrays() {
 	var out = [];
@@ -56325,7 +57740,7 @@ module.exports = function availableTypedArrays() {
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_651389__(moduleId) {
+/******/ 	function __nested_webpack_require_654634__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -56339,7 +57754,7 @@ module.exports = function availableTypedArrays() {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_651389__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_654634__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -56349,11 +57764,11 @@ module.exports = function availableTypedArrays() {
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_651389__.n = (module) => {
+/******/ 		__nested_webpack_require_654634__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_651389__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_654634__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -56361,9 +57776,9 @@ module.exports = function availableTypedArrays() {
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_651389__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_654634__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_651389__.o(definition, key) && !__nested_webpack_require_651389__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_654634__.o(definition, key) && !__nested_webpack_require_654634__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -56372,7 +57787,7 @@ module.exports = function availableTypedArrays() {
 /******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_651389__.g = (function() {
+/******/ 		__nested_webpack_require_654634__.g = (function() {
 /******/ 			if (typeof globalThis === 'object') return globalThis;
 /******/ 			try {
 /******/ 				return this || new Function('return this')();
@@ -56384,13 +57799,13 @@ module.exports = function availableTypedArrays() {
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_651389__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_654634__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_651389__.r = (exports) => {
+/******/ 		__nested_webpack_require_654634__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -56404,312 +57819,17 @@ var __nested_webpack_exports__ = {};
 (() => {
 "use strict";
 // ESM COMPAT FLAG
-__nested_webpack_require_651389__.r(__nested_webpack_exports__);
+__nested_webpack_require_654634__.r(__nested_webpack_exports__);
 
 // EXPORTS
-__nested_webpack_require_651389__.d(__nested_webpack_exports__, {
-  "LanguageProvider": () => (/* reexport */ LanguageProvider),
-  "MessageController": () => (/* reexport */ MessageController)
+__nested_webpack_require_654634__.d(__nested_webpack_exports__, {
+  LanguageProvider: () => (/* reexport */ LanguageProvider),
+  MessageController: () => (/* reexport */ MessageController)
 });
 
-;// CONCATENATED MODULE: ./ace/tooltip.ts
-
-function _define_property(obj, key, value) {
-    if (key in obj) {
-        Object.defineProperty(obj, key, {
-            value: value,
-            enumerable: true,
-            configurable: true,
-            writable: true
-        });
-    } else {
-        obj[key] = value;
-    }
-    return obj;
-}
-var CLASSNAME = "ace_tooltip";
-//taken from ace-code with small changes
-class Tooltip {
-    $init() {
-        this.$element = document.createElement("div");
-        this.$element.className = "ace_tooltip";
-        this.$element.style.display = "none";
-        this.$parentNode.appendChild(this.$element);
-        return this.$element;
-    }
-    /**
-     * @returns {Element}
-     **/ getElement() {
-        return this.$element || this.$init();
-    }
-    /**
-     * @param {String} text
-     **/ setText(text) {
-        this.getElement().textContent = text;
-    }
-    /**
-     * @param {String} html
-     **/ setHtml(html) {
-        this.getElement().innerHTML = html;
-    }
-    /**
-     * @param {Number} x
-     * @param {Number} y
-     **/ setPosition(x, y) {
-        this.getElement().style.left = x + "px";
-        this.getElement().style.top = y + "px";
-    }
-    /**
-     * @param {String} className
-     **/ setClassName(className) {
-        this.getElement().className += " " + className;
-    }
-    /**
-     * @param {String} text
-     * @param {Number} x
-     * @param {Number} y
-     **/ show(text, x, y) {
-        if (text != null) this.setText(text);
-        if (x != null && y != null) this.setPosition(x, y);
-        if (!this.isOpen) {
-            this.getElement().style.display = "block";
-            this.isOpen = true;
-        }
-    }
-    hide() {
-        if (this.isOpen) {
-            this.getElement().style.display = "none";
-            this.getElement().className = CLASSNAME;
-            this.isOpen = false;
-        }
-    }
-    /**
-     * @returns {Number}
-     **/ getHeight() {
-        return this.getElement().offsetHeight;
-    }
-    /**
-     * @returns {Number}
-     **/ getWidth() {
-        return this.getElement().offsetWidth;
-    }
-    destroy() {
-        this.isOpen = false;
-        if (this.$element && this.$element.parentNode) {
-            this.$element.parentNode.removeChild(this.$element);
-        }
-    }
-    /**
-     * @param {Element} parentNode
-     **/ constructor(parentNode){
-        _define_property(this, "$element", void 0);
-        _define_property(this, "isOpen", void 0);
-        _define_property(this, "$parentNode", void 0);
-        this.isOpen = false;
-        this.$element = null;
-        this.$parentNode = parentNode;
-    }
-}
-
-;// CONCATENATED MODULE: ./components/base-tooltip.ts
-function base_tooltip_define_property(obj, key, value) {
-    if (key in obj) {
-        Object.defineProperty(obj, key, {
-            value: value,
-            enumerable: true,
-            configurable: true,
-            writable: true
-        });
-    } else {
-        obj[key] = value;
-    }
-    return obj;
-}
-
-class BaseTooltip extends Tooltip {
-    $show() {
-        if (!this.$activeEditor) return;
-        let renderer = this.$activeEditor.renderer;
-        let position = renderer.textToScreenCoordinates(this.row, this.column);
-        let cursorPos = this.$activeEditor.getCursorPosition();
-        this.show(null, position.pageX, position.pageY);
-        let labelHeight = this.getElement().getBoundingClientRect().height;
-        let rect = renderer.scroller.getBoundingClientRect();
-        let isTopdown = true;
-        if (this.row > cursorPos.row) // don't obscure cursor
-        isTopdown = true;
-        else if (this.row < cursorPos.row) // don't obscure cursor
-        isTopdown = false;
-        if (position.pageY - labelHeight + renderer.lineHeight < rect.top) // not enough space above us
-        isTopdown = true;
-        else if (position.pageY + labelHeight > rect.bottom) isTopdown = false;
-        if (!isTopdown) position.pageY -= labelHeight;
-        else position.pageY += renderer.lineHeight;
-        this.getElement().style.maxWidth = rect.width - (position.pageX - rect.left) + "px";
-        this.show(null, position.pageX, position.pageY);
-    }
-    getElement() {
-        return super.getElement();
-    }
-    hide() {
-        super.hide();
-    }
-    show(param, pageX, pageY) {
-        super.show(param, pageX, pageY);
-        this.$registerEditorEvents();
-    }
-    setHtml(descriptionText) {
-        super.setHtml(descriptionText);
-    }
-    destroy() {
-        this.$hide();
-        this.getElement().removeEventListener("mouseout", this.onMouseOut);
-    }
-    $registerEditorEvents() {
-        this.$activeEditor.on("change", this.$hide);
-        this.$activeEditor.on("mousewheel", this.$hide);
-        //@ts-ignore
-        this.$activeEditor.on("mousedown", this.$hide);
-    }
-    $removeEditorEvents() {
-        this.$activeEditor.off("change", this.$hide);
-        this.$activeEditor.off("mousewheel", this.$hide);
-        //@ts-ignore
-        this.$activeEditor.off("mousedown", this.$hide);
-    }
-    $inactivateEditor() {
-        var _this_$activeEditor;
-        (_this_$activeEditor = this.$activeEditor) === null || _this_$activeEditor === void 0 ? void 0 : _this_$activeEditor.container.removeEventListener("mouseout", this.onMouseOut);
-        this.$activeEditor = undefined;
-    }
-    $activateEditor(editor) {
-        if (this.$activeEditor == editor) return;
-        this.$inactivateEditor();
-        this.$activeEditor = editor;
-        this.$activeEditor.container.addEventListener("mouseout", this.onMouseOut);
-    }
-    constructor(provider){
-        super(document.body);
-        base_tooltip_define_property(this, "provider", void 0);
-        base_tooltip_define_property(this, "$activeEditor", void 0);
-        base_tooltip_define_property(this, "descriptionText", void 0);
-        base_tooltip_define_property(this, "x", void 0);
-        base_tooltip_define_property(this, "y", void 0);
-        base_tooltip_define_property(this, "$mouseMoveTimer", void 0);
-        base_tooltip_define_property(this, "$showTimer", void 0);
-        base_tooltip_define_property(this, "row", void 0);
-        base_tooltip_define_property(this, "column", void 0);
-        base_tooltip_define_property(this, "$hide", ()=>{
-            clearTimeout(this.$mouseMoveTimer);
-            clearTimeout(this.$showTimer);
-            if (this.isOpen) {
-                this.$removeEditorEvents();
-                this.hide();
-            }
-            this.$inactivateEditor();
-        });
-        base_tooltip_define_property(this, "onMouseOut", (e)=>{
-            clearTimeout(this.$mouseMoveTimer);
-            clearTimeout(this.$showTimer);
-            if (!e.relatedTarget || e.relatedTarget == this.getElement()) return;
-            //@ts-ignore
-            if (e && e.currentTarget.contains(e.relatedTarget)) return;
-            //@ts-ignore
-            if (!e.relatedTarget.classList.contains("ace_content")) this.$hide();
-        });
-        this.provider = provider;
-        //this is for ace-code version < 1.16.0
-        try {
-            Tooltip.call(this, document.body);
-        } catch (e) {}
-        this.getElement().style.pointerEvents = "auto";
-        this.getElement().style.whiteSpace = "pre-wrap";
-        this.getElement().addEventListener("mouseout", this.onMouseOut);
-    }
-}
-
-;// CONCATENATED MODULE: ./components/description-tooltip.ts
-function description_tooltip_define_property(obj, key, value) {
-    if (key in obj) {
-        Object.defineProperty(obj, key, {
-            value: value,
-            enumerable: true,
-            configurable: true,
-            writable: true
-        });
-    } else {
-        obj[key] = value;
-    }
-    return obj;
-}
-
-class DescriptionTooltip extends BaseTooltip {
-    registerEditor(editor) {
-        editor.on("mousemove", this.onMouseMove);
-    }
-    update(editor) {
-        clearTimeout(this.$mouseMoveTimer);
-        clearTimeout(this.$showTimer);
-        if (this.isOpen) {
-            this.doHover();
-        } else {
-            this.$mouseMoveTimer = setTimeout(()=>{
-                this.$activateEditor(editor);
-                this.doHover();
-                this.$mouseMoveTimer = undefined;
-            }, 500);
-        }
-    }
-    constructor(...args){
-        super(...args);
-        description_tooltip_define_property(this, "doHover", ()=>{
-            if (!this.provider.options.functionality.hover) return;
-            let renderer = this.$activeEditor.renderer;
-            let screenCoordinates = renderer.pixelToScreenCoordinates(this.x, this.y);
-            let session = this.$activeEditor.session;
-            let docPos = session.screenToDocumentPosition(screenCoordinates.row, screenCoordinates.column);
-            this.provider.doHover(session, docPos, (hover)=>{
-                var _hover_range, _hover_range1;
-                let descriptionText = hover ? this.provider.getTooltipText(hover) : null;
-                if (!hover || !descriptionText) {
-                    this.hide();
-                    return;
-                }
-                let token = session.getTokenAt(docPos.row, docPos.column + 1);
-                var _hover_range_start_row;
-                let row = (_hover_range_start_row = (_hover_range = hover.range) === null || _hover_range === void 0 ? void 0 : _hover_range.start.row) !== null && _hover_range_start_row !== void 0 ? _hover_range_start_row : docPos.row;
-                var _hover_range_start_column, _ref;
-                let column = (_ref = (_hover_range_start_column = (_hover_range1 = hover.range) === null || _hover_range1 === void 0 ? void 0 : _hover_range1.start.column) !== null && _hover_range_start_column !== void 0 ? _hover_range_start_column : token === null || token === void 0 ? void 0 : token.start) !== null && _ref !== void 0 ? _ref : 0;
-                if (this.descriptionText != descriptionText) {
-                    this.hide();
-                    this.setHtml(descriptionText);
-                    this.descriptionText = descriptionText;
-                } else if (this.row == row && this.column == column && this.isOpen) {
-                    return;
-                }
-                this.row = row;
-                this.column = column;
-                if (this.$mouseMoveTimer) {
-                    this.$show();
-                } else {
-                    this.$showTimer = setTimeout(()=>{
-                        this.$show();
-                        this.$showTimer = undefined;
-                    }, 500);
-                }
-            });
-        });
-        description_tooltip_define_property(this, "onMouseMove", (e)=>{
-            this.x = e.clientX;
-            this.y = e.clientY;
-            this.update(e["editor"]);
-        });
-    }
-}
-
 // EXTERNAL MODULE: ../../node_modules/vscode-languageserver-protocol/lib/browser/main.js
-var main = __nested_webpack_require_651389__(294);
-;// CONCATENATED MODULE: ./utils.ts
+var main = __nested_webpack_require_654634__(294);
+;// CONCATENATED MODULE: ./src/utils.ts
 function mergeObjects(obj1, obj2) {
     if (!obj1) return obj2;
     if (!obj2) return obj1;
@@ -56771,16 +57891,40 @@ function utils_checkValueAgainstRegexpArray(value, regexpArray) {
     return false;
 }
 
-;// CONCATENATED MODULE: ./type-converters/common-converters.ts
+;// CONCATENATED MODULE: ./src/ace/range-singleton.ts
+function _define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+class AceRange {
+    static getConstructor(editor) {
+        if (!AceRange._instance && editor) {
+            AceRange._instance = editor.getSelectionRange().constructor;
+        }
+        return AceRange._instance;
+    }
+}
+_define_property(AceRange, "_instance", void 0);
+
+;// CONCATENATED MODULE: ./src/type-converters/common-converters.ts
+
 
 
 var common_converters_CommonConverter;
 (function(CommonConverter) {
-    function normalizeRanges(completions, editor) {
-        const Range = editor.getSelectionRange().constructor;
+    function normalizeRanges(completions) {
         return completions && completions.map((el)=>{
             if (el["range"]) {
-                el["range"] = toRange(el["range"], Range);
+                el["range"] = toRange(el["range"]);
             }
             return el;
         });
@@ -56790,10 +57934,12 @@ var common_converters_CommonConverter;
         return html.replace(/<a\s/, "<a target='_blank' ");
     }
     CommonConverter.cleanHtml = cleanHtml;
-    function toRange(range, Range) {
+    function toRange(range) {
         if (!range || !range.start || !range.end) {
             return;
         }
+        let Range = AceRange.getConstructor();
+        // @ts-ignore
         return Range.fromPoints(range.start, range.end);
     }
     CommonConverter.toRange = toRange;
@@ -56836,7 +57982,7 @@ var common_converters_CommonConverter;
     CommonConverter.excludeByErrorMessage = excludeByErrorMessage;
 })(common_converters_CommonConverter || (common_converters_CommonConverter = {}));
 
-;// CONCATENATED MODULE: ./message-types.ts
+;// CONCATENATED MODULE: ./src/message-types.ts
 function message_types_define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -57012,9 +58158,9 @@ var MessageType;
 })(MessageType || (MessageType = {}));
 
 // EXTERNAL MODULE: ../../node_modules/events/events.js
-var events = __nested_webpack_require_651389__(2699);
-var events_default = /*#__PURE__*/__nested_webpack_require_651389__.n(events);
-;// CONCATENATED MODULE: ./message-controller.ts
+var events = __nested_webpack_require_654634__(2699);
+var events_default = /*#__PURE__*/__nested_webpack_require_654634__.n(events);
+;// CONCATENATED MODULE: ./src/message-controller.ts
 function message_controller_define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -57069,6 +58215,7 @@ class MessageController extends (events_default()) {
         this.postMessage(new DisposeMessage(sessionId), callback);
     }
     setGlobalOptions(serviceName, options, merge = false) {
+        // @ts-ignore
         this.$worker.postMessage(new GlobalOptionsMessage(serviceName, options, merge));
     }
     provideSignatureHelp(sessionId, position, callback) {
@@ -57102,7 +58249,7 @@ class MessageController extends (events_default()) {
     }
 }
 
-;// CONCATENATED MODULE: ./type-converters/lsp-converters.ts
+;// CONCATENATED MODULE: ./src/type-converters/lsp-converters.ts
 
 
 
@@ -57170,16 +58317,15 @@ function toCompletion(item) {
     let completion = {
         meta: kind,
         caption: item.label,
-        command: command,
-        range: range,
-        value: "",
-        score: undefined,
-        item: item
+        score: undefined
     };
+    completion["command"] = command;
+    completion["range"] = range;
+    completion["item"] = item;
     if (item.insertTextFormat == main.InsertTextFormat.Snippet) {
         completion["snippet"] = text;
     } else {
-        completion["value"] = text;
+        completion["value"] = text !== null && text !== void 0 ? text : "";
     }
     completion["documentation"] = item.documentation; //TODO: this is workaround for services with instant completion
     completion["position"] = item["position"];
@@ -57261,9 +58407,13 @@ function toTooltip(hover) {
     var _hover_find;
     if (!hover) return;
     let content = hover.map((el)=>{
+        if (!el || !el.contents) return;
         if (main.MarkupContent.is(el.contents)) {
             return fromMarkupContent(el.contents);
         } else if (main.MarkedString.is(el.contents)) {
+            if (typeof el.contents === "string") {
+                return el.contents;
+            }
             return "```" + el.contents.value + "```";
         } else {
             let contents = el.contents.map((el)=>{
@@ -57275,9 +58425,13 @@ function toTooltip(hover) {
             });
             return contents.join("\n\n");
         }
-    });
+    }).filter(notEmpty);
+    if (content.length === 0) return;
     //TODO: it could be merged within all ranges in future
-    let lspRange = (_hover_find = hover.find((el)=>el.range)) === null || _hover_find === void 0 ? void 0 : _hover_find.range;
+    let lspRange = (_hover_find = hover.find((el)=>{
+        var _el;
+        return (_el = el) === null || _el === void 0 ? void 0 : _el.range;
+    })) === null || _hover_find === void 0 ? void 0 : _hover_find.range;
     let range;
     if (lspRange) range = toRange(lspRange);
     return {
@@ -57291,9 +58445,12 @@ function toTooltip(hover) {
 function fromSignatureHelp(signatureHelp) {
     if (!signatureHelp) return;
     let content = signatureHelp.map((el)=>{
-        let signatureIndex = (el === null || el === void 0 ? void 0 : el.activeSignature) || 0;
+        var _el, _el1;
+        if (!el) return;
+        let signatureIndex = ((_el = el) === null || _el === void 0 ? void 0 : _el.activeSignature) || 0;
         let activeSignature = el.signatures[signatureIndex];
-        let activeParam = el === null || el === void 0 ? void 0 : el.activeParameter;
+        if (!activeSignature) return;
+        let activeParam = (_el1 = el) === null || _el1 === void 0 ? void 0 : _el1.activeParameter;
         let contents = activeSignature.label;
         if (activeParam != undefined && activeSignature.parameters && activeSignature.parameters[activeParam]) {
             let param = activeSignature.parameters[activeParam].label;
@@ -57311,7 +58468,8 @@ function fromSignatureHelp(signatureHelp) {
         } else {
             return contents;
         }
-    });
+    }).filter(notEmpty);
+    if (content.length === 0) return;
     return {
         content: {
             type: "markdown",
@@ -57344,11 +58502,27 @@ function filterDiagnostics(diagnostics, filterErrors) {
         return el;
     });
 }
+function fromDocumentHighlights(documentHighlights) {
+    return documentHighlights.map(function(el) {
+        let className = el.kind == 2 ? "language_highlight_read" : el.kind == 3 ? "language_highlight_write" : "language_highlight_text";
+        return toMarkerGroupItem(common_converters_CommonConverter.toRange(toRange(el.range)), className);
+    });
+}
+function toMarkerGroupItem(range, className, tooltipText) {
+    let markerGroupItem = {
+        range: range,
+        className: className
+    };
+    if (tooltipText) {
+        markerGroupItem["tooltipText"] = tooltipText;
+    }
+    return markerGroupItem;
+}
 
 // EXTERNAL MODULE: ../../node_modules/showdown/dist/showdown.js
-var showdown = __nested_webpack_require_651389__(6006);
-var showdown_default = /*#__PURE__*/__nested_webpack_require_651389__.n(showdown);
-;// CONCATENATED MODULE: ./cdn-worker.ts
+var showdown = __nested_webpack_require_654634__(6006);
+var showdown_default = /*#__PURE__*/__nested_webpack_require_654634__.n(showdown);
+;// CONCATENATED MODULE: ./src/cdn-worker.ts
 function $workerBlob(script) {
     return new Blob([
         script.toString()
@@ -57544,7 +58718,226 @@ function generateLintersImport(cdnUrl, includeLinters) {
 }()`;
 }
 
-;// CONCATENATED MODULE: ./components/signature-tooltip.ts
+;// CONCATENATED MODULE: ./src/ace/tooltip.ts
+
+function tooltip_define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+var CLASSNAME = "ace_tooltip";
+//taken from ace-code with small changes
+class Tooltip {
+    $init() {
+        this.$element = document.createElement("div");
+        this.$element.className = CLASSNAME;
+        this.$element.style.display = "none";
+        this.$parentNode.appendChild(this.$element);
+        return this.$element;
+    }
+    /**
+     * @returns {HTMLElement}
+     **/ getElement() {
+        return this.$element || this.$init();
+    }
+    /**
+     * @param {String} text
+     **/ setText(text) {
+        this.getElement().textContent = text;
+    }
+    /**
+     * @param {String} html
+     **/ setHtml(html) {
+        this.getElement().innerHTML = html;
+    }
+    /**
+     * @param {Number} x
+     * @param {Number} y
+     **/ setPosition(x, y) {
+        this.getElement().style.left = x + "px";
+        this.getElement().style.top = y + "px";
+    }
+    /**
+     * @param {String} className
+     **/ setClassName(className) {
+        this.getElement().className += " " + className;
+    }
+    setTheme(theme) {
+        this.getElement().className = CLASSNAME + " " + (theme.isDark ? "ace_dark " : "") + (theme.cssClass || "");
+    }
+    /**
+     * @param {String} text
+     * @param {Number} x
+     * @param {Number} y
+     **/ show(text, x, y) {
+        if (text != null) this.setText(text);
+        if (x != null && y != null) this.setPosition(x, y);
+        if (!this.isOpen) {
+            this.getElement().style.display = "block";
+            this.isOpen = true;
+        }
+    }
+    hide() {
+        if (this.isOpen) {
+            this.getElement().style.display = "none";
+            this.getElement().className = CLASSNAME;
+            this.isOpen = false;
+        }
+    }
+    /**
+     * @returns {Number}
+     **/ getHeight() {
+        return this.getElement().offsetHeight;
+    }
+    /**
+     * @returns {Number}
+     **/ getWidth() {
+        return this.getElement().offsetWidth;
+    }
+    destroy() {
+        this.isOpen = false;
+        if (this.$element && this.$element.parentNode) {
+            this.$element.parentNode.removeChild(this.$element);
+        }
+    }
+    /**
+     * @param {Element} parentNode
+     **/ constructor(parentNode){
+        tooltip_define_property(this, "$element", void 0);
+        tooltip_define_property(this, "isOpen", void 0);
+        tooltip_define_property(this, "$parentNode", void 0);
+        this.isOpen = false;
+        this.$element = null;
+        this.$parentNode = parentNode;
+    }
+}
+
+;// CONCATENATED MODULE: ./src/components/base-tooltip.ts
+function base_tooltip_define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+
+class BaseTooltip extends Tooltip {
+    $show() {
+        if (!this.$activeEditor) return;
+        let renderer = this.$activeEditor.renderer;
+        let position = renderer.textToScreenCoordinates(this.row, this.column);
+        let cursorPos = this.$activeEditor.getCursorPosition();
+        this.show(null, position.pageX, position.pageY);
+        let labelHeight = this.getElement().getBoundingClientRect().height;
+        let rect = renderer.scroller.getBoundingClientRect();
+        let isTopdown = true;
+        if (this.row > cursorPos.row) // don't obscure cursor
+        isTopdown = true;
+        else if (this.row < cursorPos.row) // don't obscure cursor
+        isTopdown = false;
+        if (position.pageY - labelHeight + renderer.lineHeight < rect.top) // not enough space above us
+        isTopdown = true;
+        else if (position.pageY + labelHeight > rect.bottom) isTopdown = false;
+        if (!isTopdown) position.pageY -= labelHeight;
+        else position.pageY += renderer.lineHeight;
+        this.getElement().style.maxWidth = rect.width - (position.pageX - rect.left) + "px";
+        this.show(null, position.pageX, position.pageY);
+    }
+    getElement() {
+        return super.getElement();
+    }
+    hide() {
+        super.hide();
+    }
+    show(param, pageX, pageY) {
+        super.show(param, pageX, pageY);
+        this.$registerEditorEvents();
+    }
+    setHtml(descriptionText) {
+        super.setHtml(descriptionText);
+    }
+    destroy() {
+        this.$hide();
+        this.getElement().removeEventListener("mouseout", this.onMouseOut);
+    }
+    $registerEditorEvents() {
+        this.$activeEditor.on("change", this.$hide);
+        this.$activeEditor.on("mousewheel", this.$hide);
+        //@ts-ignore
+        this.$activeEditor.on("mousedown", this.$hide);
+    }
+    $removeEditorEvents() {
+        this.$activeEditor.off("change", this.$hide);
+        this.$activeEditor.off("mousewheel", this.$hide);
+        //@ts-ignore
+        this.$activeEditor.off("mousedown", this.$hide);
+    }
+    $inactivateEditor() {
+        var _this_$activeEditor;
+        (_this_$activeEditor = this.$activeEditor) === null || _this_$activeEditor === void 0 ? void 0 : _this_$activeEditor.container.removeEventListener("mouseout", this.onMouseOut);
+        this.$activeEditor = undefined;
+    }
+    $activateEditor(editor) {
+        if (this.$activeEditor == editor) return;
+        this.$inactivateEditor();
+        this.$activeEditor = editor;
+        this.$activeEditor.container.addEventListener("mouseout", this.onMouseOut);
+    }
+    constructor(provider){
+        super(document.body);
+        base_tooltip_define_property(this, "provider", void 0);
+        base_tooltip_define_property(this, "$activeEditor", void 0);
+        base_tooltip_define_property(this, "descriptionText", void 0);
+        base_tooltip_define_property(this, "x", void 0);
+        base_tooltip_define_property(this, "y", void 0);
+        base_tooltip_define_property(this, "$mouseMoveTimer", void 0);
+        base_tooltip_define_property(this, "$showTimer", void 0);
+        base_tooltip_define_property(this, "row", void 0);
+        base_tooltip_define_property(this, "column", void 0);
+        base_tooltip_define_property(this, "$hide", ()=>{
+            clearTimeout(this.$mouseMoveTimer);
+            clearTimeout(this.$showTimer);
+            if (this.isOpen) {
+                this.$removeEditorEvents();
+                this.hide();
+            }
+            this.$inactivateEditor();
+        });
+        base_tooltip_define_property(this, "onMouseOut", (e)=>{
+            clearTimeout(this.$mouseMoveTimer);
+            clearTimeout(this.$showTimer);
+            if (!e.relatedTarget || e.relatedTarget == this.getElement()) return;
+            //@ts-ignore
+            if (e && e.currentTarget.contains(e.relatedTarget)) return;
+            //@ts-ignore
+            if (!e.relatedTarget.classList.contains("ace_content")) this.$hide();
+        });
+        this.provider = provider;
+        //this is for ace-code version < 1.16.0
+        try {
+            Tooltip.call(this, document.body);
+        } catch (e) {}
+        this.getElement().style.pointerEvents = "auto";
+        this.getElement().style.whiteSpace = "pre-wrap";
+        this.getElement().addEventListener("mouseout", this.onMouseOut);
+    }
+}
+
+;// CONCATENATED MODULE: ./src/components/signature-tooltip.ts
 function signature_tooltip_define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -57585,7 +58978,7 @@ class SignatureTooltip extends BaseTooltip {
             let session = this.$activeEditor.session;
             let docPos = session.screenToDocumentPosition(cursor.row, cursor.column);
             this.provider.provideSignatureHelp(session, docPos, (tooltip)=>{
-                var _tooltip_range, _tooltip_range1;
+                var _tooltip_range, _tooltip_range1, _token;
                 let descriptionText = tooltip ? this.provider.getTooltipText(tooltip) : null;
                 if (!tooltip || !descriptionText) {
                     this.hide();
@@ -57595,7 +58988,7 @@ class SignatureTooltip extends BaseTooltip {
                 var _tooltip_range_start_row;
                 let row = (_tooltip_range_start_row = (_tooltip_range = tooltip.range) === null || _tooltip_range === void 0 ? void 0 : _tooltip_range.start.row) !== null && _tooltip_range_start_row !== void 0 ? _tooltip_range_start_row : docPos.row;
                 var _tooltip_range_start_column, _ref;
-                let column = (_ref = (_tooltip_range_start_column = (_tooltip_range1 = tooltip.range) === null || _tooltip_range1 === void 0 ? void 0 : _tooltip_range1.start.column) !== null && _tooltip_range_start_column !== void 0 ? _tooltip_range_start_column : token === null || token === void 0 ? void 0 : token.start) !== null && _ref !== void 0 ? _ref : 0;
+                let column = (_ref = (_tooltip_range_start_column = (_tooltip_range1 = tooltip.range) === null || _tooltip_range1 === void 0 ? void 0 : _tooltip_range1.start.column) !== null && _tooltip_range_start_column !== void 0 ? _tooltip_range_start_column : (_token = token) === null || _token === void 0 ? void 0 : _token.start) !== null && _ref !== void 0 ? _ref : 0;
                 if (this.descriptionText != descriptionText) {
                     this.hide();
                     this.setHtml(descriptionText);
@@ -57621,7 +59014,350 @@ class SignatureTooltip extends BaseTooltip {
     }
 }
 
-;// CONCATENATED MODULE: ./language-provider.ts
+;// CONCATENATED MODULE: ./src/ace/marker_group.ts
+
+function marker_group_define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+/*
+Potential improvements:
+- use binary search when looking for hover match
+*/ //taken from ace-code with small changes
+class MarkerGroup {
+    /**
+     * Finds the first marker containing pos
+     * @param {Position} pos
+     * @returns Ace.MarkerGroupItem
+     */ getMarkerAtPosition(pos) {
+        return this.markers.find(function(marker) {
+            return marker.range.contains(pos.row, pos.column);
+        });
+    }
+    /**
+     * Comparator for Array.sort function, which sorts marker definitions by their positions
+     *
+     * @param {Ace.MarkerGroupItem} a first marker.
+     * @param {Ace.MarkerGroupItem} b second marker.
+     * @returns {number} negative number if a should be before b, positive number if b should be before a, 0 otherwise.
+     */ markersComparator(a, b) {
+        return a.range.start.row - b.range.start.row;
+    }
+    /**
+     * Sets marker definitions to be rendered. Limits the number of markers at MAX_MARKERS.
+     * @param {Ace.MarkerGroupItem[]} markers an array of marker definitions.
+     */ setMarkers(markers) {
+        this.markers = markers.sort(this.markersComparator).slice(0, this.MAX_MARKERS);
+        this.session._signal("changeBackMarker");
+    }
+    update(html, markerLayer, session, config) {
+        if (!this.markers || !this.markers.length) return;
+        var visibleRangeStartRow = config.firstRow, visibleRangeEndRow = config.lastRow;
+        var foldLine;
+        var markersOnOneLine = 0;
+        var lastRow = 0;
+        for(var i = 0; i < this.markers.length; i++){
+            var marker = this.markers[i];
+            if (marker.range.end.row < visibleRangeStartRow) continue;
+            if (marker.range.start.row > visibleRangeEndRow) continue;
+            if (marker.range.start.row === lastRow) {
+                markersOnOneLine++;
+            } else {
+                lastRow = marker.range.start.row;
+                markersOnOneLine = 0;
+            }
+            // do not render too many markers on one line
+            // because we do not have virtual scroll for horizontal direction
+            if (markersOnOneLine > 200) {
+                continue;
+            }
+            var markerVisibleRange = marker.range.clipRows(visibleRangeStartRow, visibleRangeEndRow);
+            if (markerVisibleRange.start.row === markerVisibleRange.end.row && markerVisibleRange.start.column === markerVisibleRange.end.column) {
+                continue; // visible range is empty
+            }
+            var screenRange = markerVisibleRange.toScreenRange(session);
+            if (screenRange.isEmpty()) {
+                // we are inside a fold
+                foldLine = session.getNextFoldLine(markerVisibleRange.end.row, foldLine);
+                if (foldLine && foldLine.end.row > markerVisibleRange.end.row) {
+                    visibleRangeStartRow = foldLine.end.row;
+                }
+                continue;
+            }
+            if (screenRange.isMultiLine()) {
+                markerLayer.drawTextMarker(html, screenRange, marker.className, config);
+            } else {
+                markerLayer.drawSingleLineMarker(html, screenRange, marker.className, config);
+            }
+        }
+    }
+    constructor(session){
+        marker_group_define_property(this, "markers", void 0);
+        marker_group_define_property(this, "session", void 0);
+        // this caps total amount of markers at 10K
+        marker_group_define_property(this, "MAX_MARKERS", 10000);
+        this.markers = [];
+        this.session = session;
+        session.addDynamicMarker(this);
+    }
+}
+
+;// CONCATENATED MODULE: ./src/ace/popupManager.ts
+//taken from ace-code with small changes
+function popupManager_define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+class PopupManager {
+    addPopup(popup) {
+        this.popups.push(popup);
+        this.updatePopups();
+    }
+    removePopup(popup) {
+        const index = this.popups.indexOf(popup);
+        if (index !== -1) {
+            this.popups.splice(index, 1);
+            this.updatePopups();
+        }
+    }
+    updatePopups() {
+        this.popups.sort((a, b)=>b.priority - a.priority);
+        let visiblepopups = [];
+        for (let popup of this.popups){
+            let shouldDisplay = true;
+            for (let visiblePopup of visiblepopups){
+                if (this.doPopupsOverlap(visiblePopup, popup)) {
+                    shouldDisplay = false;
+                    break;
+                }
+            }
+            if (shouldDisplay) {
+                visiblepopups.push(popup);
+            } else {
+                popup.hide();
+            }
+        }
+    }
+    doPopupsOverlap(popupA, popupB) {
+        const rectA = popupA.getElement().getBoundingClientRect();
+        const rectB = popupB.getElement().getBoundingClientRect();
+        return rectA.left < rectB.right && rectA.right > rectB.left && rectA.top < rectB.bottom && rectA.bottom > rectB.top;
+    }
+    constructor(){
+        popupManager_define_property(this, "popups", void 0);
+        this.popups = [];
+    }
+}
+
+;// CONCATENATED MODULE: ./src/ace/hover-tooltip.ts
+function hover_tooltip_define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+
+
+let popupManager = new PopupManager();
+//taken from ace-code with small changes
+class HoverTooltip extends Tooltip {
+    addToEditor(editor) {
+        editor.on("mousemove", this.onMouseMove);
+        editor.on("mousedown", this.hide);
+        editor.renderer.getMouseEventTarget().addEventListener("mouseout", this.onMouseOut, true);
+    }
+    removeFromEditor(editor) {
+        editor.off("mousemove", this.onMouseMove);
+        editor.off("mousedown", this.hide);
+        editor.renderer.getMouseEventTarget().removeEventListener("mouseout", this.onMouseOut, true);
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
+    }
+    onMouseMove(e, editor) {
+        this.lastEvent = e;
+        this.lastT = Date.now();
+        var isMousePressed = editor.$mouseHandler.isMousePressed;
+        if (this.isOpen) {
+            var pos = this.lastEvent && this.lastEvent.getDocumentPosition();
+            if (!this.range || !this.range.contains(pos.row, pos.column) || isMousePressed || this.isOutsideOfText(this.lastEvent)) {
+                this.hide();
+            }
+        }
+        if (this.timeout || isMousePressed) return;
+        this.lastEvent = e;
+        this.timeout = setTimeout(this.waitForHover, this.idleTime);
+    }
+    waitForHover() {
+        if (this.timeout) clearTimeout(this.timeout);
+        var dt = Date.now() - this.lastT;
+        if (this.idleTime - dt > 10) {
+            this.timeout = setTimeout(this.waitForHover, this.idleTime - dt);
+            return;
+        }
+        this.timeout = null;
+        if (this.lastEvent && !this.isOutsideOfText(this.lastEvent)) {
+            this.$gatherData(this.lastEvent, this.lastEvent.editor);
+        }
+    }
+    isOutsideOfText(e) {
+        var editor = e.editor;
+        var docPos = e.getDocumentPosition();
+        var line = editor.session.getLine(docPos.row);
+        if (docPos.column == line.length) {
+            var screenPos = editor.renderer.pixelToScreenCoordinates(e.clientX, e.clientY);
+            var clippedPos = editor.session.documentToScreenPosition(docPos.row, docPos.column);
+            if (clippedPos.column != screenPos.column || clippedPos.row != screenPos.row) {
+                return true;
+            }
+        }
+        return false;
+    }
+    setDataProvider(value) {
+        this.$gatherData = value;
+    }
+    showForRange(editor, range, domNode, startingEvent) {
+        if (startingEvent && startingEvent != this.lastEvent) return;
+        if (this.isOpen && document.activeElement == this.getElement()) return;
+        var renderer = editor.renderer;
+        if (!this.isOpen) {
+            popupManager.addPopup(this);
+            this.$registerCloseEvents();
+            this.setTheme(renderer.theme);
+        }
+        this.isOpen = true;
+        this.addMarker(range, editor.session);
+        const Range = editor.getSelectionRange().constructor;
+        this.range = Range.fromPoints(range.start, range.end);
+        var element = this.getElement();
+        element.innerHTML = "";
+        element.appendChild(domNode);
+        element.style.display = "block";
+        var position = renderer.textToScreenCoordinates(range.start.row, range.start.column);
+        var cursorPos = editor.getCursorPosition();
+        var labelHeight = element.clientHeight;
+        var rect = renderer.scroller.getBoundingClientRect();
+        var isTopdown = true;
+        if (this.row > cursorPos.row) {
+            // don't obscure cursor
+            isTopdown = true;
+        } else if (this.row < cursorPos.row) {
+            // don't obscure cursor
+            isTopdown = false;
+        }
+        if (position.pageY - labelHeight + renderer.lineHeight < rect.top) {
+            // not enough space above us
+            isTopdown = true;
+        } else if (position.pageY + labelHeight > rect.bottom) {
+            isTopdown = false;
+        }
+        if (!isTopdown) {
+            position.pageY -= labelHeight;
+        } else {
+            position.pageY += renderer.lineHeight;
+        }
+        element.style.maxWidth = rect.width - (position.pageX - rect.left) + "px";
+        this.setPosition(position.pageX, position.pageY);
+    }
+    addMarker(range, session) {
+        if (this.marker) {
+            this.$markerSession.removeMarker(this.marker);
+        }
+        this.$markerSession = session;
+        this.marker = session && session.addMarker(range, "ace_highlight-marker", "text");
+    }
+    hide(e) {
+        if (!e && document.activeElement == this.getElement()) return;
+        if (e && e.target && (e.type != "keydown" || e.ctrlKey || e.metaKey) && this.$element && this.$element.contains(e.target)) return;
+        this.lastEvent = null;
+        if (this.timeout) clearTimeout(this.timeout);
+        this.timeout = null;
+        this.addMarker(null);
+        if (this.isOpen) {
+            this.$removeCloseEvents();
+            this.getElement().style.display = "none";
+            this.isOpen = false;
+            popupManager.removePopup(this);
+        }
+    }
+    $registerCloseEvents() {
+        window.addEventListener("keydown", this.hide, true);
+        window.addEventListener("mousewheel", this.hide, true);
+        window.addEventListener("mousedown", this.hide, true);
+    }
+    $removeCloseEvents() {
+        window.removeEventListener("keydown", this.hide, true);
+        window.removeEventListener("mousewheel", this.hide, true);
+        window.removeEventListener("mousedown", this.hide, true);
+    }
+    onMouseOut(e) {
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
+        this.lastEvent = null;
+        if (!this.isOpen) return;
+        if (!e.relatedTarget || e.relatedTarget == this.getElement()) return;
+        if (e && e.currentTarget.contains(e.relatedTarget)) return;
+        if (!e.relatedTarget.classList.contains("ace_content")) this.hide();
+    }
+    constructor(parentNode = document.body){
+        super(parentNode);
+        hover_tooltip_define_property(this, "$gatherData", void 0);
+        hover_tooltip_define_property(this, "timeout", void 0);
+        hover_tooltip_define_property(this, "idleTime", void 0);
+        hover_tooltip_define_property(this, "lastT", void 0);
+        hover_tooltip_define_property(this, "lastEvent", void 0);
+        hover_tooltip_define_property(this, "range", void 0);
+        hover_tooltip_define_property(this, "row", void 0);
+        hover_tooltip_define_property(this, "marker", void 0);
+        hover_tooltip_define_property(this, "$markerSession", void 0);
+        this.timeout = undefined;
+        this.lastT = 0;
+        this.idleTime = 350;
+        this.lastEvent = undefined;
+        this.onMouseOut = this.onMouseOut.bind(this);
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.waitForHover = this.waitForHover.bind(this);
+        this.hide = this.hide.bind(this);
+        var el = this.getElement();
+        el.style.whiteSpace = "pre-wrap";
+        el.style.pointerEvents = "auto";
+        el.addEventListener("mouseout", this.onMouseOut);
+        el.tabIndex = -1;
+        el.addEventListener("blur", (function() {
+            if (!el.contains(document.activeElement)) this.hide();
+        }).bind(this));
+    }
+}
+
+;// CONCATENATED MODULE: ./src/language-provider.ts
 function language_provider_define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -57635,6 +59371,8 @@ function language_provider_define_property(obj, key, value) {
     }
     return obj;
 }
+
+
 
 
 
@@ -57675,12 +59413,14 @@ class LanguageProvider {
     }
     registerEditor(editor) {
         if (!this.editors.includes(editor)) this.$registerEditor(editor);
-        this.$registerSession(editor.session);
+        this.$registerSession(editor.session, editor);
     }
     $registerEditor(editor) {
         this.editors.push(editor);
+        //init Range singleton
+        AceRange.getConstructor(editor);
         editor.setOption("useWorker", false);
-        editor.on("changeSession", ({ session  })=>this.$registerSession(session));
+        editor.on("changeSession", ({ session })=>this.$registerSession(session, editor));
         if (this.options.functionality.completion) {
             this.$registerCompleters(editor);
         }
@@ -57696,17 +59436,96 @@ class LanguageProvider {
                 if (!$timer) $timer = setTimeout(()=>{
                     let cursor = editor.getCursorPosition();
                     let sessionLanguageProvider = this.$getSessionLanguageProvider(editor.session);
-                    this.$messageController.findDocumentHighlights(this.$getFileName(editor.session), fromPoint(cursor), sessionLanguageProvider.$applyDocumentHiglight);
+                    this.$messageController.findDocumentHighlights(this.$getFileName(editor.session), fromPoint(cursor), sessionLanguageProvider.$applyDocumentHighlight);
                     $timer = undefined;
                 }, 50);
             });
         }
-        this.$descriptionTooltip.registerEditor(editor);
-        this.$signatureTooltip.registerEditor(editor);
+        if (this.options.functionality.hover) {
+            if (!this.$hoverTooltip) {
+                this.$hoverTooltip = new HoverTooltip();
+            }
+            this.$initHoverTooltip(editor);
+        }
+        if (this.options.functionality.signatureHelp) {
+            this.$signatureTooltip.registerEditor(editor);
+        }
         this.setStyle(editor);
     }
+    $initHoverTooltip(editor) {
+        this.$hoverTooltip.setDataProvider((e, editor)=>{
+            let session = editor.session;
+            let docPos = e.getDocumentPosition();
+            this.doHover(session, docPos, (hover)=>{
+                var _this_$getSessionLanguageProvider_state_diagnosticMarkers, _this_$getSessionLanguageProvider_state, _hover, _hover1, _errorMarker;
+                if (!hover) return;
+                var errorMarker = (_this_$getSessionLanguageProvider_state = this.$getSessionLanguageProvider(session).state) === null || _this_$getSessionLanguageProvider_state === void 0 ? void 0 : (_this_$getSessionLanguageProvider_state_diagnosticMarkers = _this_$getSessionLanguageProvider_state.diagnosticMarkers) === null || _this_$getSessionLanguageProvider_state_diagnosticMarkers === void 0 ? void 0 : _this_$getSessionLanguageProvider_state_diagnosticMarkers.getMarkerAtPosition(docPos);
+                if (!errorMarker && !((_hover = hover) === null || _hover === void 0 ? void 0 : _hover.content)) return;
+                var range = ((_hover1 = hover) === null || _hover1 === void 0 ? void 0 : _hover1.range) || ((_errorMarker = errorMarker) === null || _errorMarker === void 0 ? void 0 : _errorMarker.range);
+                const Range = editor.getSelectionRange().constructor;
+                range = range ? Range.fromPoints(range.start, range.end) : session.getWordRange(docPos.row, docPos.column);
+                var hoverNode = hover && document.createElement("div");
+                if (hoverNode) {
+                    // todo render markdown using ace markdown mode
+                    hoverNode.innerHTML = this.getTooltipText(hover);
+                }
+                var domNode = document.createElement('div');
+                if (errorMarker) {
+                    var errorDiv = document.createElement('div');
+                    var errorText = document.createTextNode(errorMarker.tooltipText.trim());
+                    errorDiv.appendChild(errorText);
+                    domNode.appendChild(errorDiv);
+                }
+                if (hoverNode) {
+                    domNode.appendChild(hoverNode);
+                }
+                this.$hoverTooltip.showForRange(editor, range, domNode, e);
+            });
+        });
+        this.$hoverTooltip.addToEditor(editor);
+    }
     setStyle(editor) {
-        editor.renderer["$textLayer"].dom.importCssString(`.ace_tooltip > p {margin: 0;font-size: 12px;} .ace_tooltip > code, .ace_tooltip > * > code {font-style: italic;font-size: 11px;}`, "linters.css");
+        editor.renderer["$textLayer"].dom.importCssString(`.ace_tooltip * {
+    margin: 0;
+    font-size: 12px;
+}
+
+.ace_tooltip code {
+    font-style: italic;
+    font-size: 11px;
+}
+
+.language_highlight_error {
+    position: absolute;
+    border-bottom: dotted 1px #e00404;
+    z-index: 2000;
+    border-radius: 0;
+}
+
+.language_highlight_warning {
+    position: absolute;
+    border-bottom: solid 1px #DDC50F;
+    z-index: 2000;
+    border-radius: 0;
+}
+
+.language_highlight_info {
+    position: absolute;
+    border-bottom: dotted 1px #999;
+    z-index: 2000;
+    border-radius: 0;
+}
+
+.language_highlight_text, .language_highlight_read, .language_highlight_write {
+    position: absolute;
+    box-sizing: border-box;
+    border: solid 1px #888;
+    z-index: 2000;
+}
+
+.language_highlight_write {
+    border: solid 1px #F88;
+}`, "linters.css");
     }
     setSessionOptions(session, options) {
         let sessionLanguageProvider = this.$getSessionLanguageProvider(session);
@@ -57745,7 +59564,7 @@ class LanguageProvider {
                             item.completerId = completer.id;
                             item["fileName"] = fileName;
                         });
-                        callback(null, common_converters_CommonConverter.normalizeRanges(completions, editor));
+                        callback(null, common_converters_CommonConverter.normalizeRanges(completions));
                     });
                 });
             },
@@ -57781,19 +59600,29 @@ class LanguageProvider {
     dispose() {
     // this.$messageController.dispose(this.$fileName);
     }
+    /**
+     * Removes document from all linked services by session id
+     * @param session
+     */ closeDocument(session, callback) {
+        let sessionProvider = this.$getSessionLanguageProvider(session);
+        if (sessionProvider) {
+            sessionProvider.dispose(callback);
+            delete this.$sessionLanguageProviders[session["id"]];
+        }
+    }
     constructor(messageController, options){
         var _this_options, _this_options1;
         language_provider_define_property(this, "activeEditor", void 0);
-        language_provider_define_property(this, "$descriptionTooltip", void 0);
         language_provider_define_property(this, "$signatureTooltip", void 0);
         language_provider_define_property(this, "$messageController", void 0);
         language_provider_define_property(this, "$sessionLanguageProviders", {});
         language_provider_define_property(this, "editors", []);
         language_provider_define_property(this, "options", void 0);
-        language_provider_define_property(this, "$registerSession", (session, options)=>{
+        language_provider_define_property(this, "$hoverTooltip", void 0);
+        language_provider_define_property(this, "$registerSession", (session, editor, options)=>{
             var _this_$sessionLanguageProviders, _session_id;
             var _;
-            (_ = (_this_$sessionLanguageProviders = this.$sessionLanguageProviders)[_session_id = session["id"]]) !== null && _ !== void 0 ? _ : _this_$sessionLanguageProviders[_session_id] = new SessionLanguageProvider(session, this.$messageController, options);
+            (_ = (_this_$sessionLanguageProviders = this.$sessionLanguageProviders)[_session_id = session["id"]]) !== null && _ !== void 0 ? _ : _this_$sessionLanguageProviders[_session_id] = new SessionLanguageProvider(session, editor, this.$messageController, options);
         });
         language_provider_define_property(this, "format", ()=>{
             if (!this.options.functionality.format) return;
@@ -57810,13 +59639,12 @@ class LanguageProvider {
             },
             completionResolve: true,
             format: true,
-            documentHighlights: false,
+            documentHighlights: true,
             signatureHelp: true
         };
         var _markdownConverter;
         (_markdownConverter = (_this_options1 = this.options).markdownConverter) !== null && _markdownConverter !== void 0 ? _markdownConverter : _this_options1.markdownConverter = new (showdown_default()).Converter();
         this.$signatureTooltip = new SignatureTooltip(this);
-        this.$descriptionTooltip = new DescriptionTooltip(this);
     }
 }
 class SessionLanguageProvider {
@@ -57844,7 +59672,10 @@ class SessionLanguageProvider {
         }
         this.$messageController.changeOptions(this.fileName, options);
     }
-    constructor(session, messageController, options){
+    dispose(callback) {
+        this.$messageController.dispose(this.fileName, callback);
+    }
+    constructor(session, editor, messageController, options){
         language_provider_define_property(this, "session", void 0);
         language_provider_define_property(this, "fileName", void 0);
         language_provider_define_property(this, "$messageController", void 0);
@@ -57852,12 +59683,19 @@ class SessionLanguageProvider {
         language_provider_define_property(this, "$isConnected", false);
         language_provider_define_property(this, "$modeIsChanged", false);
         language_provider_define_property(this, "$options", void 0);
+        language_provider_define_property(this, "$servicesCapabilities", void 0);
+        language_provider_define_property(this, "state", {
+            occurrenceMarkers: null,
+            diagnosticMarkers: null
+        });
         language_provider_define_property(this, "extensions", {
             "typescript": "ts",
             "javascript": "js"
         });
-        language_provider_define_property(this, "$connected", ()=>{
+        language_provider_define_property(this, "editor", void 0);
+        language_provider_define_property(this, "$connected", (capabilities)=>{
             this.$isConnected = true;
+            this.setServerCapabilities(capabilities);
             if (this.$modeIsChanged) this.$changeMode();
             if (this.$deltaQueue) this.$sendDeltaQueue();
             if (this.$options) this.setOptions(this.$options);
@@ -57868,7 +59706,33 @@ class SessionLanguageProvider {
                 return;
             }
             this.$deltaQueue = [];
-            this.$messageController.changeMode(this.fileName, this.session.getValue(), this.$mode);
+            this.$messageController.changeMode(this.fileName, this.session.getValue(), this.$mode, this.setServerCapabilities);
+        });
+        language_provider_define_property(this, "setServerCapabilities", (capabilities)=>{
+            //TODO: this need to take into account all capabilities from all services
+            this.$servicesCapabilities = capabilities;
+            if (capabilities && capabilities.some((capability)=>{
+                var _capability_completionProvider, _capability;
+                return (_capability = capability) === null || _capability === void 0 ? void 0 : (_capability_completionProvider = _capability.completionProvider) === null || _capability_completionProvider === void 0 ? void 0 : _capability_completionProvider.triggerCharacters;
+            })) {
+                let completer = this.editor.completers.find((completer)=>completer.id === "lspCompleters");
+                if (completer) {
+                    let allTriggerCharacters = capabilities.reduce((acc, capability)=>{
+                        var _capability_completionProvider;
+                        if ((_capability_completionProvider = capability.completionProvider) === null || _capability_completionProvider === void 0 ? void 0 : _capability_completionProvider.triggerCharacters) {
+                            return [
+                                ...acc,
+                                ...capability.completionProvider.triggerCharacters
+                            ];
+                        }
+                        return acc;
+                    }, []);
+                    allTriggerCharacters = [
+                        ...new Set(allTriggerCharacters)
+                    ];
+                    completer.triggerCharacters = allTriggerCharacters;
+                }
+            }
         });
         language_provider_define_property(this, "$changeListener", (delta)=>{
             this.session.doc["version"]++;
@@ -57885,8 +59749,15 @@ class SessionLanguageProvider {
             if (deltas.length) this.$messageController.change(this.fileName, deltas.map((delta)=>fromAceDelta(delta, this.session.doc.getNewLineCharacter())), this.session.doc, callback);
         });
         language_provider_define_property(this, "$showAnnotations", (diagnostics)=>{
+            this.session.clearAnnotations();
             let annotations = toAnnotations(diagnostics);
-            this.session.setAnnotations(annotations);
+            if (annotations && annotations.length > 0) {
+                this.session.setAnnotations(annotations);
+            }
+            if (!this.state.diagnosticMarkers) {
+                this.state.diagnosticMarkers = new MarkerGroup(this.session);
+            }
+            this.state.diagnosticMarkers.setMarkers(diagnostics.map((el)=>toMarkerGroupItem(common_converters_CommonConverter.toRange(toRange(el.range)), "language_highlight_error", el.message)));
         });
         language_provider_define_property(this, "validate", ()=>{
             this.$messageController.doValidation(this.fileName, this.$showAnnotations);
@@ -57920,11 +59791,15 @@ class SessionLanguageProvider {
                 this.session.replace(toRange(edit.range), edit.newText);
             }
         });
-        language_provider_define_property(this, "$applyDocumentHiglight", (documentHighlights)=>{
-        //TODO: place for your code
+        language_provider_define_property(this, "$applyDocumentHighlight", (documentHighlights)=>{
+            if (!this.state.occurrenceMarkers) {
+                this.state.occurrenceMarkers = new MarkerGroup(this.session);
+            }
+            this.state.occurrenceMarkers.setMarkers(fromDocumentHighlights(documentHighlights));
         });
         this.$messageController = messageController;
         this.session = session;
+        this.editor = editor;
         this.initFileName();
         session.doc["version"] = 0;
         session.doc.on("change", this.$changeListener, true);
@@ -57934,7 +59809,7 @@ class SessionLanguageProvider {
     }
 }
 
-;// CONCATENATED MODULE: ./index.ts
+;// CONCATENATED MODULE: ./src/index.ts
 
 
 
@@ -57961,13 +59836,16 @@ class SessionLanguageProvider {
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -58123,6 +60001,15 @@ class SessionLanguageProvider {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/node module decorator */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nmd = (module) => {
+/******/ 			module.paths = [];
+/******/ 			if (!module.children) module.children = [];
+/******/ 			return module;
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -58416,6 +60303,11 @@ function addMenu(callback) {
 
 ;// CONCATENATED MODULE: ./src/template.ts
 function generateTemplate(js, html, css) {
+    if (useCustomUserCode(html)) {
+        html += `<script>${js}</script>`;
+        html += `<style>${css}</style>`;
+        return html;
+    }
     return `<html>
 <head>
   <style>
@@ -58445,12 +60337,13 @@ function generateTemplate(js, html, css) {
   window.addEventListener("error", e => console.error(e.error));
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.17.0/ace.js"
-></script>
 ${html}
 <script>${js}</script>
 </body>
 </html>`;
+}
+function useCustomUserCode(html) {
+    return /^\s*(?:<html|<doctype)/i.test(html);
 }
 
 // EXTERNAL MODULE: ./node_modules/ace-linters/build/ace-linters.js
@@ -58471,11 +60364,40 @@ var keys_default = /*#__PURE__*/__webpack_require__.n(keys);
 
 let languageProvider;
 function requestDeclarations() {
-    request('ace.d.ts').then(function(response) {
+    let ace = request('ace.d.ts').then(function(response) {
+        return response.responseText;
+    });
+    let aceModes = request('ace-modes.d.ts').then(function(response) {
+        return response.responseText;
+    });
+    let languageProviderDeclaration = request('language-provider.d.ts').then(function(response) {
+        return response.responseText;
+    });
+    let languageServiceDeclaration = request('language-service.d.ts').then(function(response) {
+        return response.responseText;
+    });
+    Promise.all([
+        ace,
+        languageProviderDeclaration,
+        aceModes,
+        languageServiceDeclaration
+    ]).then(function(responses) {
         languageProvider.setGlobalOptions("typescript", {
             extraLibs: {
                 "ace.d.ts": {
-                    content: correctDeclaration(response.responseText),
+                    content: correctAceDeclaration(responses[0]),
+                    version: 1
+                },
+                "language-provider.d.ts": {
+                    content: correctDeclaration(responses[1]),
+                    version: 1
+                },
+                "ace-modes.d.ts": {
+                    content: responses[2],
+                    version: 1
+                },
+                "language-service.d.ts": {
+                    content: correctDeclaration(responses[3]),
                     version: 1
                 }
             },
@@ -58486,31 +60408,11 @@ function requestDeclarations() {
         }, true);
     });
 }
+function correctAceDeclaration(declaration) {
+    return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace").replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}";
+}
 function correctDeclaration(declaration) {
-    return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace").replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}" + `\ndeclare class LanguageProvider {
-    private $activeEditor;
-    private $descriptionTooltip;
-    private readonly $markdownConverter;
-    private readonly $messageController;
-    private $sessionLanguageProviders;
-    private $editors;
-    static fromCdn(cdnUrl: string, options?:ProviderOptions): LanguageProvider;
-    registerEditor(editor: Ace.Editor)
-    setSessionOptions(session: Ace.EditSession, options);
-    setGlobalOptions(serviceName, options, merge?:boolean)
-}\n
-    declare interface ProviderOptions {
-        functionality: {
-            hover: boolean,
-            completion: {
-                overwriteCompleters: boolean    
-            } | false,
-            completionResolve: boolean,
-            format: boolean
-        },
-        markdownConverter?: MarkDownConverter
-    }
-`;
+    return declaration.replaceAll(/^\s*import\s.*$/gm, "").replaceAll(/export\s+/g, "declare ");
 }
 function registerCommands() {
     let menuKb = new hash_handler.HashHandler([
@@ -58805,6 +60707,15 @@ function setSample(path) {
 }
 function restoreSample(path) {
     let storage = JSON.parse(localStorage[path]);
+    if (!storage) {
+        loadSample(path);
+        return;
+    }
+    if (storage["@file@sample.html"]) {
+        var html = JSON.parse(storage["@file@sample.html"]);
+        html.value = addMissingAceScript(html.value);
+        storage["@file@sample.html"] = JSON.stringify(html);
+    }
     tabManager.restoreFrom(storage);
     runSample();
 }
@@ -58826,7 +60737,7 @@ function getTabData() {
 function setTabValues(samples) {
     tabJs.session.setValue(samples[0]);
     tabCSS.session.setValue(samples[1]);
-    tabHTML.session.setValue(samples[2]);
+    tabHTML.session.setValue(addMissingAceScript(samples[2]));
     runSample();
 }
 function loadSample(path) {
@@ -58848,6 +60759,21 @@ function loadSample(path) {
     }, function(err) {
         displayError("");
     });
+}
+/**
+ * Add ace script to html if it is not present, and replace cdnjs url to unpkg. Returns non-changed html if it
+ * contains custom user code with html or doctype.
+ * 
+ * @param html
+ */ function addMissingAceScript(html) {
+    if (useCustomUserCode(html)) {
+        return html;
+    }
+    if (!/script\s+src=["'](.+ace\.js)['"]/.test(html)) {
+        html = '<script src="https://www.unpkg.com/ace-builds@latest/src-noconflict/ace.js"></script>\n' + html;
+    }
+    html = html.replaceAll(/cdnjs\.cloudflare\.com\/ajax\/libs\/ace\/[\d.]+\/([\w-]+)(?:\.min)?/g, "www.unpkg.com/ace-builds@latest/src-noconflict/$1");
+    return html;
 }
 function tabDataIsChanged() {
     previewTab.setTitle("Result*");

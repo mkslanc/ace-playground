@@ -1,6 +1,6 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[9576],{
 
-/***/ 53020:
+/***/ 25073:
 /***/ ((module) => {
 
 module.exports = `.ace-terminal-theme .ace_gutter {
@@ -148,7 +148,7 @@ module.exports = `.ace-terminal-theme .ace_gutter {
 
 exports.isDark = true;
 exports.cssClass = "ace-terminal-theme";
-exports.cssText = __webpack_require__(53020);
+exports.cssText = __webpack_require__(25073);
 
 var dom = __webpack_require__(6359);
 dom.importCssString(exports.cssText, exports.cssClass, false);

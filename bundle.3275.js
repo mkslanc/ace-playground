@@ -371,8 +371,15 @@ var optionGroups = {
         "Use SVG gutter icons": {
             path: "useSvgGutterIcons"
         },
+        "Annotations for folded lines": {
+            path: "showFoldedAnnotations"
+        },
         "Keyboard Accessibility Mode": {
             path: "enableKeyboardAccessibility"
+        },
+        "Gutter tooltip follows mouse": {
+            path: "tooltipFollowsMouse",
+            defaultValue: true
         }
     }
 };
@@ -655,7 +662,8 @@ var themeData = [
     ["Tomorrow Night Bright","tomorrow_night_bright"   ,  "dark"],
     ["Tomorrow Night 80s"   ,"tomorrow_night_eighties" ,  "dark"],
     ["Twilight"             ,"twilight"                ,  "dark"],
-    ["Vibrant Ink"          ,"vibrant_ink"             ,  "dark"]
+    ["Vibrant Ink"          ,"vibrant_ink"             ,  "dark"],
+    ["GitHub Dark"          ,"github_dark"             ,  "dark"]
 ];
 
 

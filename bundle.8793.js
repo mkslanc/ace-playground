@@ -50,10 +50,10 @@ __nested_webpack_require_468__.r(__nested_webpack_exports__);
 
 // EXPORTS
 __nested_webpack_require_468__.d(__nested_webpack_exports__, {
-  "ServiceManager": () => (/* binding */ ServiceManager)
+  ServiceManager: () => (/* binding */ ServiceManager)
 });
 
-;// CONCATENATED MODULE: ./utils.ts
+;// CONCATENATED MODULE: ./src/utils.ts
 function mergeObjects(obj1, obj2) {
     if (!obj1) return obj2;
     if (!obj2) return obj1;
@@ -115,7 +115,7 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
     return false;
 }
 
-;// CONCATENATED MODULE: ./message-types.ts
+;// CONCATENATED MODULE: ./src/message-types.ts
 function _define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -290,7 +290,7 @@ var MessageType;
     MessageType[MessageType["documentHighlight"] = 14] = "documentHighlight";
 })(MessageType || (MessageType = {}));
 
-;// CONCATENATED MODULE: ./services/service-manager.ts
+;// CONCATENATED MODULE: ./src/services/service-manager.ts
 function service_manager_define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -348,10 +348,11 @@ class ServiceManager {
         };
         serviceInstances.forEach((el)=>el.addDocument(documentItem));
         this.$sessionIDToMode[documentIdentifier.uri] = mode;
+        return serviceInstances;
     }
     async changeDocumentMode(documentIdentifier, value, mode, options) {
         this.removeDocument(documentIdentifier);
-        await this.addDocument(documentIdentifier, value, mode, options);
+        return await this.addDocument(documentIdentifier, value, mode, options);
     }
     removeDocument(document) {
         let services = this.getServicesInstances(document.uri);
@@ -494,11 +495,13 @@ class ServiceManager {
                     postMessage["value"] = await doValidation(documentIdentifier, serviceInstances);
                     break;
                 case MessageType.init:
-                    await this.addDocument(documentIdentifier, message.value, message.mode, message.options);
+                    var _this;
+                    postMessage["value"] = (_this = await this.addDocument(documentIdentifier, message.value, message.mode, message.options)) === null || _this === void 0 ? void 0 : _this.map((el)=>el.serviceCapabilities);
                     await doValidation(documentIdentifier);
                     break;
                 case MessageType.changeMode:
-                    await this.changeDocumentMode(documentIdentifier, message.value, message.mode, message.options);
+                    var _this1;
+                    postMessage["value"] = (_this1 = await this.changeDocumentMode(documentIdentifier, message.value, message.mode, message.options)) === null || _this1 === void 0 ? void 0 : _this1.map((el)=>el.serviceCapabilities);
                     await doValidation(documentIdentifier, serviceInstances);
                     break;
                 case MessageType.changeOptions:
@@ -509,6 +512,7 @@ class ServiceManager {
                     break;
                 case MessageType.dispose:
                     this.removeDocument(documentIdentifier);
+                    await doValidation(documentIdentifier, serviceInstances);
                     break;
                 case MessageType.globalOptions:
                     this.setGlobalOptions(message.serviceName, message.options, message.merge);

@@ -1,69 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[1531],{
 
-/***/ 26991:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
-/*global define, require */
-
-/**
- * Get Editor Keyboard Shortcuts
- * @fileOverview Get Editor Keyboard Shortcuts <br />
- * Gets a map of keyboard shortcuts to command names for the current platform.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- */
-
-
-var keys = __webpack_require__(11797);
-
-/**
- * Gets a map of keyboard shortcuts to command names for the current platform.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- * @param {ace.Editor} editor An editor instance.
- * @returns {Array} Returns an array of objects representing the keyboard
- *  shortcuts for the given editor.
- * @example
- * var getKbShortcuts = require('./get_keyboard_shortcuts');
- * console.log(getKbShortcuts(editor));
- * // [
- * //     {'command' : aCommand, 'key' : 'Control-d'},
- * //     {'command' : aCommand, 'key' : 'Control-d'}
- * // ]
- */
-module.exports.getEditorKeybordShortcuts = function(editor) {
-    var KEY_MODS = keys.KEY_MODS;
-    var keybindings = [];
-    var commandMap = {};
-    editor.keyBinding.$handlers.forEach(function(handler) {
-        var ckb = handler.commandKeyBinding;
-        for (var i in ckb) {
-            var key = i.replace(/(^|-)\w/g, function(x) { return x.toUpperCase(); });
-            var commands = ckb[i];
-            if (!Array.isArray(commands))
-                commands = [commands];
-            commands.forEach(function(command) {
-                if (typeof command != "string")
-                    command  = command.name;
-                if (commandMap[command]) {
-                    commandMap[command].key += "|" + key;
-                } else {
-                    commandMap[command] = {key: key, command: command};
-                    keybindings.push(commandMap[command]);
-                }         
-            });
-        }
-    });
-    return keybindings;
-};
-
-
-/***/ }),
-
 /***/ 9613:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -259,9 +195,9 @@ module.exports = `#ace_settingsmenu, #kbshortcutmenu {
 
 
 
+var nls = (__webpack_require__(13188).nls);
 var Range = (__webpack_require__(59082)/* .Range */ .e);
 var dom = __webpack_require__(6359);
-var shortcuts = __webpack_require__(26991);
 var FilteredList= (__webpack_require__(39528)/* .FilteredList */ .Xy);
 var AcePopup = (__webpack_require__(42985).AcePopup);
 var $singleLineEditor = (__webpack_require__(42985).$singleLineEditor);
@@ -309,7 +245,6 @@ function prompt(editor, message, options, callback) {
     if (options.getCompletions) {
         var popup = new AcePopup();
         popup.renderer.setStyle("ace_autocomplete_inline");
-        popup.renderer.setStyle("ace_autocomplete_right");
         popup.container.style.display = "block";
         popup.container.style.maxWidth = "600px";
         popup.container.style.width = "100%";
@@ -513,7 +448,6 @@ prompt.gotoLine = function(editor, callback) {
             editor.renderer.animateScrolling(scrollTop);
         },
         history: function() {
-            var undoManager = editor.session.getUndoManager();
             if (!prompt.gotoLine._history)
                 return [];
             return prompt.gotoLine._history;
@@ -656,13 +590,13 @@ prompt.commands = function(editor, callback) {
             otherCommands = getFilteredCompletions(otherCommands, prefix);
 
             if (recentlyUsedCommands.length && otherCommands.length) {
-                recentlyUsedCommands[0]["message"] = " Recently used";
-                otherCommands[0]["message"] = " Other commands";
+                recentlyUsedCommands[0].message = nls("Recently used");
+                otherCommands[0].message = nls("Other commands");
             }
 
             var completions = recentlyUsedCommands.concat(otherCommands);
             return completions.length > 0 ? completions : [{
-                value: "No matching commands",
+                value: nls("No matching commands"),
                 error: 1
             }];
         }
