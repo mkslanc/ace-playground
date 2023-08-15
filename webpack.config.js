@@ -72,6 +72,15 @@ export default {
                 }, {
                     from: "node_modules/ace-code/ace.d.ts",
                     to: "ace.d.ts"
+                }, {
+                    from: "node_modules/ace-code/ace-modes.d.ts",
+                    to: "ace-modes.d.ts"
+                }, {
+                    from: "node_modules/ace-linters/types/language-provider.d.ts",
+                    to: "language-provider.d.ts"
+                }, {
+                    from: "node_modules/ace-linters/types/types/language-service.d.ts",
+                    to: "language-service.d.ts"
                 }
             ]
         })

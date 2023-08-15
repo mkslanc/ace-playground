@@ -1,4 +1,9 @@
 export function generateTemplate(js, html, css) {
+    if (useCustomUserCode(html)) {
+        html+=`<script>${js}</script>`;
+        html+=`<style>${css}</style>`;
+        return html;
+    }
     return `<html>
 <head>
   <style>
@@ -28,10 +33,12 @@ export function generateTemplate(js, html, css) {
   window.addEventListener("error", e => console.error(e.error));
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.17.0/ace.js"
-></script>
 ${html}
 <script>${js}</script>
 </body>
 </html>`;
+}
+
+export function useCustomUserCode(html: string) {
+    return /^\s*(?:<html|<doctype)/i.test(html);
 }

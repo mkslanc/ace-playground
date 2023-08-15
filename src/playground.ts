@@ -1,7 +1,7 @@
 import {Ace, AceEditor, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
-import {generateTemplate} from "./template";
+import {generateTemplate, useCustomUserCode} from "./template";
 import * as defaultLayout from "./layouts/two-columns-bottom.json";
 import {Tab} from "ace-layout/widgets/tabs/tab";
 import {SAMPLES} from "./samples";
@@ -214,6 +214,15 @@ function setSample(path: string) {
 
 function restoreSample(path) {
     let storage = JSON.parse(localStorage[path]);
+    if (!storage) {
+        loadSample(path);
+        return;
+    }
+    if (storage["@file@sample.html"]) {
+        var html = JSON.parse(storage["@file@sample.html"]);
+        html.value = addMissingAceScript(html.value);
+        storage["@file@sample.html"] = JSON.stringify(html);
+    }
     tabManager.restoreFrom(storage);
     runSample();
 }
@@ -228,9 +237,11 @@ function saveSample() {
 
 export function getTabData() {
     let storage = {};
+
     function saveTabData(tab: Tab<Ace.EditSession>) {
         storage["@file@" + tab.path] = AceEditor.getSessionState(tab);
     }
+
     saveTabData(tabJs);
     saveTabData(tabCSS);
     saveTabData(tabHTML);
@@ -240,7 +251,7 @@ export function getTabData() {
 function setTabValues(samples: [string, string, string]) {
     tabJs.session.setValue(samples[0]);
     tabCSS.session.setValue(samples[1]);
-    tabHTML.session.setValue(samples[2]);
+    tabHTML.session.setValue(addMissingAceScript(samples[2]));
 
     runSample();
 }
@@ -264,6 +275,23 @@ function loadSample(path: string) {
             displayError("");
         }
     );
+}
+
+/**
+ * Add ace script to html if it is not present, and replace cdnjs url to unpkg. Returns non-changed html if it
+ * contains custom user code with html or doctype.
+ * 
+ * @param html
+ */
+function addMissingAceScript(html: string) {
+    if (useCustomUserCode(html)) {
+        return html;
+    }
+    if (!/script\s+src=["'](.+ace\.js)['"]/.test(html)) {
+        html = '<script src="https://www.unpkg.com/ace-builds@latest/src-noconflict/ace.js"></script>\n' + html;
+    }
+    html = html.replaceAll(/cdnjs\.cloudflare\.com\/ajax\/libs\/ace\/[\d.]+\/([\w-]+)(?:\.min)?/g, "www.unpkg.com/ace-builds@latest/src-noconflict/$1");
+    return html;
 }
 
 function tabDataIsChanged() {
