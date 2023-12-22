@@ -72,7 +72,9 @@ var Editor = (__webpack_require__(82880).Editor);
  * - ensures RLE mark removal on line merge, when 'delete' is pressed and cursor stays 
  *   at last position of previous line and when 'backspace' is pressed and cursor  stays at
  *   first position of current line. This is achived by hacking range boundaries on 'remove' operation.
- **/
+ * @param {any} e
+ * @param {Editor} editor
+ */
 function onChangeSelection(e, editor) {
     var lead = editor.getSelection().lead;
     if (editor.session.$bidiHandler.isRtlLine(lead.row)) {
@@ -97,7 +99,9 @@ function onCommandEmitted(commadEvent) {
  * Whenever the document is changed make sure that line break operatin
  * on right-to-left line (like pressing Enter or pasting multi-line text)
  * produces new right-to-left lines
- **/
+ * @param {import("../../ace-internal").Ace.Delta} delta
+ * @param {Editor} editor
+ */
 function onChange(delta, editor) {
     var session = editor.session;
     session.$bidiHandler.currentRow = null;
@@ -109,6 +113,10 @@ function onChange(delta, editor) {
     }
 }
 
+/**
+ * @param {any} e
+ * @param {import("../virtual_renderer").VirtualRenderer} renderer
+ */
 function updateLineDirection(e, renderer) {
     var session = renderer.session;
     var $bidiHandler = session.$bidiHandler;
@@ -128,6 +136,9 @@ function updateLineDirection(e, renderer) {
     });
 }
 
+/**
+ * @param {import("../virtual_renderer").VirtualRenderer} renderer
+ */
 function clearTextLayer(renderer) {
     var lines = renderer.$textLayer.$lines;
     lines.cells.forEach(clear);

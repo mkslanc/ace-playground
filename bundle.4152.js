@@ -178,7 +178,7 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 var oop = __webpack_require__(89359);
 var TextMode = (__webpack_require__(98030).Mode);
-var Tokenizer = (__webpack_require__(60760)/* .Tokenizer */ .d);
+var Tokenizer = (__webpack_require__(60760).Tokenizer);
 var LogtalkHighlightRules = (__webpack_require__(43414)/* .LogtalkHighlightRules */ .B);
 // TODO: pick appropriate fold mode
 var FoldMode = (__webpack_require__(12764)/* .FoldMode */ .Z);

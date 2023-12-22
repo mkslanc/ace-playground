@@ -28,10 +28,11 @@ dom.importCssString(cssText, "settings_menu.css", false);
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @param {Element} contentElement Any element which may be presented inside
+ * @param editor
+ * @param {HTMLElement} contentElement Any element which may be presented inside
  *  a div.
+ * @param [callback]
  */
-
 module.exports.overlayPage = function overlayPage(editor, contentElement, callback) {
     var closer = document.createElement('div');
     var ignoreFocusOut = false;
@@ -172,26 +173,9 @@ module.exports = `#ace_settingsmenu, #kbshortcutmenu {
 
 "use strict";
 /**
- * Prompt plugin is used for getting input from user.
- *
- * @param {Object} editor                   Ouside editor related to this prompt. Will be blurred when prompt is open. 
- * @param {String} message                  Predefined value of prompt input box.
- * @param {Object} options                  Cusomizable options for this prompt. 
- * @param {String} options.name             Prompt name.
- * @param {String} options.$type            Use prompt of specific type (gotoLine|commands|modes or default if empty).
- * @param {[start, end]} options.selection  Defines which part of the predefined value should be highlited.
- * @param {Boolean} options.hasDescription  Set to true if prompt has description below input box.
- * @param {String} options.prompt           Description below input box.
- * @param {String} options.placeholder      Placeholder for value.
- * @param {Object} options.$rules           Specific rules for input like password or regexp.
- * @param {Boolean} options.ignoreFocusOut  Set to true to keep the prompt open when focus moves to another part of the editor.
- * @param {Function} options.getCompletions Function for defining list of options for value.
- * @param {Function} options.getPrefix      Function for defining current value prefix.
- * @param {Function} options.onAccept       Function called when Enter is pressed.
- * @param {Function} options.onInput        Function called when input is added to prompt input box.
- * @param {Function} options.onCancel       Function called when Esc|Shift-Esc is pressed.
- * @param {Function} callback               Function called after done.
- * */
+ * @typedef {import("../editor").Editor} Editor
+ */
+
 
 
 
@@ -202,13 +186,42 @@ var FilteredList= (__webpack_require__(39528)/* .FilteredList */ .Xy);
 var AcePopup = (__webpack_require__(42985).AcePopup);
 var $singleLineEditor = (__webpack_require__(42985).$singleLineEditor);
 var UndoManager = (__webpack_require__(40718)/* .UndoManager */ .H);
-var Tokenizer = (__webpack_require__(60760)/* .Tokenizer */ .d);
+var Tokenizer = (__webpack_require__(60760).Tokenizer);
 var overlayPage = (__webpack_require__(9613).overlayPage);
 var modelist = __webpack_require__(90352);
 var openPrompt;
 
+/**
+ * @typedef PromptOptions
+ * @property {String} name             Prompt name.
+ * @property {String} $type            Use prompt of specific type (gotoLine|commands|modes or default if empty).
+ * @property {[start: number, end: number]} selection  Defines which part of the predefined value should be highlited.
+ * @property {Boolean} hasDescription  Set to true if prompt has description below input box.
+ * @property {String} prompt           Description below input box.
+ * @property {String} placeholder      Placeholder for value.
+ * @property {Object} $rules           Specific rules for input like password or regexp.
+ * @property {Boolean} ignoreFocusOut  Set to true to keep the prompt open when focus moves to another part of the editor.
+ * @property {Function} getCompletions Function for defining list of options for value.
+ * @property {Function} getPrefix      Function for defining current value prefix.
+ * @property {Function} onAccept       Function called when Enter is pressed.
+ * @property {Function} onInput        Function called when input is added to prompt input box.
+ * @property {Function} onCancel       Function called when Esc|Shift-Esc is pressed.
+ * @property {Function} history        Function for defining history list.
+ * @property {number} maxHistoryCount
+ * @property {Function} addToHistory
+ */
+
+/**
+ * Prompt plugin is used for getting input from user.
+ *
+ * @param {Editor} editor                   Ouside editor related to this prompt. Will be blurred when prompt is open.
+ * @param {String | Partial<PromptOptions>} message                  Predefined value of prompt input box.
+ * @param {Partial<PromptOptions>} options                  Cusomizable options for this prompt.
+ * @param {Function} [callback]               Function called after done.
+ * */
 function prompt(editor, message, options, callback) {
     if (typeof message == "object") {
+        // @ts-ignore
         return prompt(editor, "", message, options);
     }
     if (openPrompt) {
@@ -224,6 +237,7 @@ function prompt(editor, message, options, callback) {
     var cmdLine = $singleLineEditor();
     cmdLine.session.setUndoManager(new UndoManager());
 
+    /**@type {any}*/
     var el = dom.buildDom(["div", {class: "ace_prompt_container" + (options.hasDescription ? " input-box-with-description" : "")}]);
     var overlay = overlayPage(editor, el, done);
     el.appendChild(cmdLine.container);
@@ -255,8 +269,8 @@ function prompt(editor, message, options, callback) {
         popup.setRow(-1);
         popup.on("click", function(e) {
             var data = popup.getData(popup.getRow());
-            if (!data.error) {
-                cmdLine.setValue(data.value || data.name || data);
+            if (!data["error"]) {
+                cmdLine.setValue(data.value || data["name"] || data);
                 accept();
                 e.stop();
             }
@@ -275,6 +289,7 @@ function prompt(editor, message, options, callback) {
     }
 
     if (options.hasDescription) {
+        /**@type {any}*/
         var promptTextContainer = dom.buildDom(["div", {class: "ace_prompt_text_container"}]);
         dom.buildDom(options.prompt || "Press 'Enter' to confirm or 'Escape' to cancel", promptTextContainer);
         el.appendChild(promptTextContainer);
@@ -290,7 +305,7 @@ function prompt(editor, message, options, callback) {
             val = cmdLine.getValue();
         }
         var curData = popup ? popup.getData(popup.getRow()) : val;
-        if (curData && !curData.error) {
+        if (curData && !curData["error"]) {
             done();
             options.onAccept && options.onAccept({
                 value: val,
@@ -349,7 +364,7 @@ function prompt(editor, message, options, callback) {
 
     function valueFromRecentList() {
         var current = popup.getData(popup.getRow());
-        if (current && !current.error)
+        if (current && !current["error"])
             return current.value || current.caption || current;
     }
 
@@ -366,6 +381,11 @@ function prompt(editor, message, options, callback) {
     };
 }
 
+/**
+ * 
+ * @param {Editor} editor
+ * @param {Function} [callback]
+ */
 prompt.gotoLine = function(editor, callback) {
     function stringifySelection(selection) {
         if (!Array.isArray(selection))
@@ -391,9 +411,9 @@ prompt.gotoLine = function(editor, callback) {
         selection: [1, Number.MAX_VALUE],
         onAccept: function(data) {
             var value = data.value;
-            var _history = prompt.gotoLine._history;
+            var _history = prompt.gotoLine["_history"];
             if (!_history)
-                prompt.gotoLine._history = _history = [];
+                prompt.gotoLine["_history"] = _history = [];
             if (_history.indexOf(value) != -1)
                 _history.splice(_history.indexOf(value), 1);
             _history.unshift(value);
@@ -448,9 +468,9 @@ prompt.gotoLine = function(editor, callback) {
             editor.renderer.animateScrolling(scrollTop);
         },
         history: function() {
-            if (!prompt.gotoLine._history)
+            if (!prompt.gotoLine["_history"])
                 return [];
-            return prompt.gotoLine._history;
+            return prompt.gotoLine["_history"];
 
         },
         getCompletions: function(cmdLine) {
@@ -473,6 +493,11 @@ prompt.gotoLine = function(editor, callback) {
     });
 };
 
+/**
+ * 
+ * @param {Editor} editor
+ * @param {Function} [callback]
+ */
 prompt.commands = function(editor, callback) {
     function normalizeName(name) {
         return (name || "").replace(/^./, function(x) {
@@ -485,8 +510,8 @@ prompt.commands = function(editor, callback) {
         var commandsByName = [];
         var commandMap = {};
         editor.keyBinding.$handlers.forEach(function(handler) {
-            var platform = handler.platform;
-            var cbn = handler.byName;
+            var platform = handler["platform"];
+            var cbn = handler["byName"];
             for (var i in cbn) {
                 var key = cbn[i].bindKey;
                 if (typeof key !== "string") {
@@ -546,10 +571,10 @@ prompt.commands = function(editor, callback) {
             if (this.maxHistoryCount > 0 && history.length > this.maxHistoryCount) {
                 history.splice(history.length - 1, 1);
             }
-            prompt.commands.history = history;
+            prompt.commands["history"] = history;
         },
         history: function() {
-            return prompt.commands.history || [];
+            return prompt.commands["history"] || [];
         },
         getPrefix: function(cmdLine) {
             var currentPos = cmdLine.getCursorPosition();
@@ -603,7 +628,13 @@ prompt.commands = function(editor, callback) {
     });
 };
 
+/**
+ *
+ * @param {Editor} editor
+ * @param {Function} [callback]
+ */
 prompt.modes = function(editor, callback) {
+    /**@type {any[]}*/
     var modesArray = modelist.modes;
     modesArray = modesArray.map(function(item) {
         return {value: item.caption, mode: item.name};

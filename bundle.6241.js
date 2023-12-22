@@ -143,7 +143,10 @@ function IncrementalSearchKeyboardHandler(iSearch) {
 oop.inherits(IncrementalSearchKeyboardHandler, HashHandler);
 
 (function() {
-
+    /**
+     * @param editor
+     * @this {IncrementalSearchKeyboardHandler & this & {$commandExecHandler}}
+     */
     this.attach = function(editor) {
         var iSearch = this.$iSearch;
         HashHandler.call(this, exports.iSearchCommands, editor.commands.platform);
@@ -160,6 +163,10 @@ oop.inherits(IncrementalSearchKeyboardHandler, HashHandler);
         });
     };
 
+    /**
+     * @this {IncrementalSearchKeyboardHandler & this & {$commandExecHandler}}
+     * @param editor
+     */
     this.detach = function(editor) {
         if (!this.$commandExecHandler) return;
         editor.commands.off('exec', this.$commandExecHandler);
@@ -167,9 +174,17 @@ oop.inherits(IncrementalSearchKeyboardHandler, HashHandler);
     };
 
     var handleKeyboard$super = this.handleKeyboard;
+    /**
+     * @param data
+     * @param hashId
+     * @param key
+     * @param keyCode
+     * @this {IncrementalSearchKeyboardHandler & import("../keyboard/hash_handler").HashHandler}
+     */
     this.handleKeyboard = function(data, hashId, key, keyCode) {
         if (((hashId === 1/*ctrl*/ || hashId === 8/*command*/) && key === 'v')
          || (hashId === 1/*ctrl*/ && key === 'y')) return null;
+        // @ts-ignore
         var cmd = handleKeyboard$super.call(this, data, hashId, key, keyCode);
         if (cmd && cmd.command) { return cmd; }
         if (hashId == -1) {
@@ -246,6 +261,7 @@ oop.inherits(OccurKeyboardHandler, HashHandler);
 
     var handleKeyboard$super = this.handleKeyboard;
     this.handleKeyboard = function(data, hashId, key, keyCode) {
+        // @ts-ignore
         var cmd = handleKeyboard$super.call(this, data, hashId, key, keyCode);
         return (cmd && cmd.command) ? cmd : undefined;
     };
@@ -288,6 +304,9 @@ function isRegExp(obj) {
     return obj instanceof RegExp;
 }
 
+/**
+ * @param {RegExp} re
+ */
 function regExpToObject(re) {
     var string = String(re),
         start = string.indexOf('/'),
@@ -298,6 +317,11 @@ function regExpToObject(re) {
     };
 }
 
+/**
+ * @param {string} string
+ * @param {string} flags
+ * @return {RegExp|string}
+ */
 function stringToRegExp(string, flags) {
     try {
         return new RegExp(string, flags);
@@ -325,7 +349,10 @@ class IncrementalSearch extends Search {
         this.$options = {wrap: false, skipCurrent: false};
         this.$keyboardHandler = new ISearchKbd(this);
     }
-    
+
+    /**
+     * @param {boolean} backwards
+     */
     activate(editor, backwards) {
         this.$editor = editor;
         this.$startPos = this.$currentPos = editor.getCursorPosition();
@@ -340,6 +367,9 @@ class IncrementalSearch extends Search {
         this.statusMessage(true);
     }
 
+    /**
+     * @param {boolean} [reset]
+     */
     deactivate(reset) {
         this.cancelSearch(reset);
         var editor = this.$editor;
@@ -352,6 +382,9 @@ class IncrementalSearch extends Search {
         this.message('');
     }
 
+    /**
+     * @param {Editor} editor
+     */
     selectionFix(editor) {
         // Fix selection bug: When clicked inside the editor
         // editor.selection.$isEmpty is false even if the mouse click did not
@@ -363,6 +396,9 @@ class IncrementalSearch extends Search {
         }
     }
 
+    /**
+     * @param {RegExp} regexp
+     */
     highlight(regexp) {
         var sess = this.$editor.session,
             hl = sess.$isearchHighlight = sess.$isearchHighlight || sess.addDynamicMarker(
@@ -371,6 +407,9 @@ class IncrementalSearch extends Search {
         sess._emit("changeBackMarker"); // force highlight layer redraw
     }
 
+    /**
+     * @param {boolean} [reset]
+     */
     cancelSearch(reset) {
         var e = this.$editor;
         this.$prevNeedle = this.$options.needle;
@@ -385,6 +424,10 @@ class IncrementalSearch extends Search {
         return Range.fromPoints(this.$currentPos, this.$currentPos);
     }
 
+    /**
+     * @param {boolean} moveToNext
+     * @param {Function} needleUpdateFunc
+     */
     highlightAndFindWithNeedle(moveToNext, needleUpdateFunc) {
         if (!this.$editor) return null;
         var options = this.$options;
@@ -417,6 +460,9 @@ class IncrementalSearch extends Search {
         return found;
     }
 
+    /**
+     * @param {string} s
+     */
     addString(s) {
         return this.highlightAndFindWithNeedle(false, function(needle) {
             if (!isRegExp(needle))
@@ -427,6 +473,9 @@ class IncrementalSearch extends Search {
         });
     }
 
+    /**
+     * @param {any} c
+     */
     removeChar(c) {
         return this.highlightAndFindWithNeedle(false, function(needle) {
             if (!isRegExp(needle))
@@ -456,6 +505,9 @@ class IncrementalSearch extends Search {
         return true;
     }
 
+    /**
+     * @param {string} text
+     */
     onPaste(text) {
         this.addString(text);
     }
@@ -1174,6 +1226,11 @@ exports.killRing = {
 
 "use strict";
 
+/**
+ * @typedef {import("./editor").Editor} Editor
+ * @typedef {import("../ace-internal").Ace.Point} Point
+ * @typedef {import("../ace-internal").Ace.SearchOptions} SearchOptions
+ */
 
 var oop = __webpack_require__(89359);
 var Search = (__webpack_require__(46745)/* .Search */ .o);
@@ -1181,12 +1238,9 @@ var EditSession = (__webpack_require__(66480)/* .EditSession */ .m);
 var SearchHighlight = (__webpack_require__(57988)/* .SearchHighlight */ .t);
 
 /**
- * @class Occur
- *
  * Finds all lines matching a search term in the current [[Document
  * `Document`]] and displays them instead of the original `Document`. Keeps
  * track of the mapping between the occur doc and the original doc.
- *
  **/
 class Occur extends Search {
 
@@ -1228,6 +1282,10 @@ class Occur extends Search {
         return true;
     }
 
+    /**
+     * @param {EditSession} sess
+     * @param {RegExp} regexp
+     */
     highlight(sess, regexp) {
         var hl = sess.$occurHighlight = sess.$occurHighlight || sess.addDynamicMarker(
                 new SearchHighlight(null, "ace_occur-highlight", "text"));
@@ -1235,11 +1293,16 @@ class Occur extends Search {
         sess._emit("changeBackMarker"); // force highlight layer redraw
     }
 
+    /**
+     * @param {Editor} editor
+     * @param {Partial<SearchOptions>} options
+     */
     displayOccurContent(editor, options) {
         // this.setSession(session || new EditSession(""))
         this.$originalSession = editor.session;
         var found = this.matchingLines(editor.session, options);
         var lines = found.map(function(foundLine) { return foundLine.content; });
+        /**@type {EditSession}*/
         var occurSession = new EditSession(lines.join('\n'));
         occurSession.$occur = this;
         occurSession.$occurMatchingLines = found;
@@ -1250,6 +1313,9 @@ class Occur extends Search {
         occurSession._emit('changeBackMarker');
     }
 
+    /**
+     * @param {Editor} editor
+     */
     displayOriginalContent(editor) {
         editor.setSession(this.$originalSession);
         this.$originalSession.$useEmacsStyleLineStart = this.$useEmacsStyleLineStart;
@@ -1260,8 +1326,8 @@ class Occur extends Search {
     * the document or the beginning if the doc {row: 0, column: 0} if not
     * found.
     * @param {EditSession} session The occur session
-    * @param {Object} pos The position in the original document
-    * @return {Object} position in occur doc
+    * @param {Point} pos The position in the original document
+    * @return {Point} position in occur doc
     **/
     originalToOccurPosition(session, pos) {
         var lines = session.$occurMatchingLines;
@@ -1278,8 +1344,8 @@ class Occur extends Search {
     * Translates the position from the occur document to the original document
     * or `pos` if not found.
     * @param {EditSession} session The occur session
-    * @param {Object} pos The position in the occur session document
-    * @return {Object} position
+    * @param {Point} pos The position in the occur session document
+    * @return {Point} position
     **/
     occurToOriginalPosition(session, pos) {
         var lines = session.$occurMatchingLines;
@@ -1288,6 +1354,10 @@ class Occur extends Search {
         return {row: lines[pos.row].row, column: pos.column};
     }
 
+    /**
+     * @param {EditSession} session
+     * @param {Partial<SearchOptions>} options
+     */
     matchingLines(session, options) {
         options = oop.mixin({}, options);
         if (!session || !options.needle) return [];

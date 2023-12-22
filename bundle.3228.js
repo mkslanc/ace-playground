@@ -16,45 +16,60 @@
  *  ☭ Hial Atropa!! ☭
  */
 
-    
-    var Editor = (__webpack_require__(82880).Editor);
-    /**
-     * Generates a menu which displays the keyboard shortcuts.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
-     *  ☭ Hial Atropa!! ☭
-     * @param {ace.Editor} editor An instance of the ace editor.
-     */
-    function showKeyboardShortcuts (editor) {
-        // make sure the menu isn't open already.
-        if(!document.getElementById('kbshortcutmenu')) {
-            var overlayPage = (__webpack_require__(9613).overlayPage);
-            var getEditorKeybordShortcuts = (__webpack_require__(26991)/* .getEditorKeybordShortcuts */ .F);
-            var kb = getEditorKeybordShortcuts(editor);
-            var el = document.createElement('div');
-            var commands = kb.reduce(function(previous, current) {
-                return previous + '<div class="ace_optionsMenuEntry"><span class="ace_optionsMenuCommand">' 
-                    + current.command + '</span> : '
-                    + '<span class="ace_optionsMenuKey">' + current.key + '</span></div>';
-            }, '');
 
-            el.id = 'kbshortcutmenu';
-            el.innerHTML = '<h1>Keyboard Shortcuts</h1>' + commands + '</div>';
-            overlayPage(editor, el);
-        }
+
+var Editor = (__webpack_require__(82880).Editor);
+
+/**
+ * Generates a menu which displays the keyboard shortcuts.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @param {Editor} editor An instance of the ace editor.
+ */
+function showKeyboardShortcuts(editor) {
+    // make sure the menu isn't open already.
+    if (!document.getElementById('kbshortcutmenu')) {
+        var overlayPage = (__webpack_require__(9613).overlayPage);
+        var getEditorKeybordShortcuts = (__webpack_require__(26991)/* .getEditorKeybordShortcuts */ .F);
+        var kb = getEditorKeybordShortcuts(editor);
+        var el = document.createElement('div');
+        var commands = kb.reduce(function (previous, current) {
+            return previous + '<div class="ace_optionsMenuEntry"><span class="ace_optionsMenuCommand">'
+                + current.command + '</span> : '
+                + '<span class="ace_optionsMenuKey">' + current.key + '</span></div>';
+        }, '');
+
+        el.id = 'kbshortcutmenu';
+        el.innerHTML = '<h1>Keyboard Shortcuts</h1>' + commands + '</div>';
+        overlayPage(editor, el);
     }
-    module.exports.init = function(editor) {
-        Editor.prototype.showKeyboardShortcuts = function() {
-            showKeyboardShortcuts(this);
-        };
-        editor.commands.addCommands([{
-            name: "showKeyboardShortcuts",
-            bindKey: {win: "Ctrl-Alt-h", mac: "Command-Alt-h"},
-            exec: function(editor, line) {
-                editor.showKeyboardShortcuts();
-            }
-        }]);
+}
+
+/**
+ * @param {Editor} editor
+ */
+module.exports.init = function (editor) {
+    Editor.prototype.showKeyboardShortcuts = function () {
+        showKeyboardShortcuts(this);
     };
+    editor.commands.addCommands([{
+        name: "showKeyboardShortcuts",
+        bindKey: {
+            win: "Ctrl-Alt-h",
+            mac: "Command-Alt-h"
+        },
+        exec:
+            /**
+             * 
+             * @param {Editor} editor
+             * @param [line]
+             */
+            function (editor, line) {
+            editor.showKeyboardShortcuts();
+        }
+    }]);
+};
 
 
 /***/ }),
@@ -76,14 +91,15 @@
  */
 
 
-var keys = __webpack_require__(11797);
+
+/** @type{any} */var keys = __webpack_require__(11797);
 
 /**
  * Gets a map of keyboard shortcuts to command names for the current platform.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @param {ace.Editor} editor An editor instance.
+ * @param {import("../../editor").Editor} editor An editor instance.
  * @returns {Array} Returns an array of objects representing the keyboard
  *  shortcuts for the given editor.
  * @example
@@ -99,7 +115,7 @@ module.exports.F = function(editor) {
     var keybindings = [];
     var commandMap = {};
     editor.keyBinding.$handlers.forEach(function(handler) {
-        var ckb = handler.commandKeyBinding;
+        var ckb = handler["commandKeyBinding"];
         for (var i in ckb) {
             var key = i.replace(/(^|-)\w/g, function(x) { return x.toUpperCase(); });
             var commands = ckb[i];
@@ -151,10 +167,11 @@ dom.importCssString(cssText, "settings_menu.css", false);
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @param {Element} contentElement Any element which may be presented inside
+ * @param editor
+ * @param {HTMLElement} contentElement Any element which may be presented inside
  *  a div.
+ * @param [callback]
  */
-
 module.exports.overlayPage = function overlayPage(editor, contentElement, callback) {
     var closer = document.createElement('div');
     var ignoreFocusOut = false;

@@ -9,7 +9,7 @@ var identifier, LiveScriptMode, keywordend, stringfill;
     var indenter, prototype = extend$((import$(LiveScriptMode, superclass).displayName = 'LiveScriptMode', LiveScriptMode), superclass).prototype, constructor = LiveScriptMode;
     function LiveScriptMode(){
       var that;
-      this.$tokenizer = new (__webpack_require__(60760)/* .Tokenizer */ .d)(LiveScriptMode.Rules);
+      this.$tokenizer = new (__webpack_require__(60760).Tokenizer)(LiveScriptMode.Rules);
       if (that = __webpack_require__(1164)) {
         this.$outdent = new that.MatchingBraceOutdent;
       }

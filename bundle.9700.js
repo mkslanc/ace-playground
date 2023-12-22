@@ -3,6 +3,10 @@
 /***/ 19700:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+/**
+ * @typedef {import("../editor").Editor} Editor
+ * @typedef {import("../../ace-internal").Ace.TooltipCommand} TooltipCommand
+ */
 var Tooltip = (__webpack_require__(962)/* .Tooltip */ .u);
 var EventEmitter = (__webpack_require__(23056).EventEmitter);
 var lang = __webpack_require__(20124);
@@ -52,6 +56,10 @@ var keyDisplayMap = {
  * with mouse, depending on the alwaysShow property.
  */
 class CommandBarTooltip {
+    /**
+     * @param {HTMLElement} parentNode
+     * @param {Partial<import("../../ace-internal").Ace.CommandBarOptions>} [options]
+     */
     constructor(parentNode, options) {
         options = options || {};
         this.parentNode = parentNode;
@@ -87,7 +95,7 @@ class CommandBarTooltip {
      * The commands are added in sequential order. If there is not enough space on the main
      * toolbar, the remaining elements are added to the overflow menu.
      * 
-     * @param {string}            id      
+     * @param {string} id      
      * @param {TooltipCommand} command
      */
     registerCommand(id, command) {
@@ -95,7 +103,11 @@ class CommandBarTooltip {
         if (!registerForMainTooltip && !this.elements[MORE_OPTIONS_BUTTON_ID]) {
             this.$createCommand(MORE_OPTIONS_BUTTON_ID, {
                 name: "···",
-                exec: function() {
+                exec: 
+                /**
+                 * @this {CommandBarTooltip}
+                 */
+                function() {
                     this.$shouldHideMoreOptions = false;
                     this.$setMoreOptionsVisibility(!this.isMoreOptionsShown());
                 }.bind(this),
@@ -130,7 +142,7 @@ class CommandBarTooltip {
      * When true, the tooltip is always displayed while it is attached to an editor.
      * When false, the tooltip is displayed only when the mouse hovers over the active editor line.
      * 
-     * @param {Editor} editor
+     * @param {boolean} alwaysShow
      */
     setAlwaysShow(alwaysShow) {
         this.$alwaysShow = alwaysShow;
@@ -280,6 +292,11 @@ class CommandBarTooltip {
         this.tooltip = this.moreOptions = this.parentNode = null;
     }
 
+    /**
+     * @param {string} id
+     * @param {TooltipCommand} command
+     * @param {boolean} forMainTooltip
+     */
     $createCommand(id, command, forMainTooltip) {
         var parentEl = forMainTooltip ? this.tooltipEl : this.moreOptionsEl;
         var keyParts = [];
@@ -303,6 +320,7 @@ class CommandBarTooltip {
             });
         }
 
+        /**@type {any[]} */
         var buttonNode;
         if (forMainTooltip && command.iconCssClass) {
             //Only support icon button for main tooltip, otherwise fall back to text button
@@ -331,10 +349,15 @@ class CommandBarTooltip {
             }
         }
 
+        // @ts-ignore
         dom.buildDom(['div', { class: [BUTTON_CLASS_NAME, command.cssClass || ""].join(" "), ref: id }, buttonNode], parentEl, this.elements);
         this.commands[id] = command;
-
-        var eventListener = function(e) {
+        
+        var eventListener =
+            /**
+             * @this {CommandBarTooltip}
+             */
+            function(e) {
             if (this.editor) {
                 this.editor.focus();
             }
@@ -354,6 +377,9 @@ class CommandBarTooltip {
         this.$updateElement(id);
     }
 
+    /**
+     * @param {boolean} visible
+     */
     $setMoreOptionsVisibility(visible) {
         if (visible) {
             this.moreOptions.setTheme(this.editor.renderer.theme);
@@ -430,6 +456,9 @@ class CommandBarTooltip {
         }
     }
 
+    /**
+     * @param {boolean} [enableHover]
+     */
     $updateOnHoverHandlers(enableHover) {
         var tooltipEl = this.tooltip.getElement();
         var moreOptionsEl = this.moreOptions.getElement();
@@ -465,7 +494,6 @@ class CommandBarTooltip {
         this.updatePosition();
         this._signal("show");
     }
-    
     $hideTooltip() {
         this.$mouseInTooltip = false;
         if (!this.isShown()) {
@@ -476,6 +504,9 @@ class CommandBarTooltip {
         this._signal("hide");
     }
 
+    /**
+     * @param {string} id
+     */
     $updateElement(id) {
         var command = this.commands[id];
         if (!command) {

@@ -3,6 +3,10 @@
 /***/ 19700:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+/**
+ * @typedef {import("../editor").Editor} Editor
+ * @typedef {import("../../ace-internal").Ace.TooltipCommand} TooltipCommand
+ */
 var Tooltip = (__webpack_require__(962)/* .Tooltip */ .u);
 var EventEmitter = (__webpack_require__(23056).EventEmitter);
 var lang = __webpack_require__(20124);
@@ -52,6 +56,10 @@ var keyDisplayMap = {
  * with mouse, depending on the alwaysShow property.
  */
 class CommandBarTooltip {
+    /**
+     * @param {HTMLElement} parentNode
+     * @param {Partial<import("../../ace-internal").Ace.CommandBarOptions>} [options]
+     */
     constructor(parentNode, options) {
         options = options || {};
         this.parentNode = parentNode;
@@ -87,7 +95,7 @@ class CommandBarTooltip {
      * The commands are added in sequential order. If there is not enough space on the main
      * toolbar, the remaining elements are added to the overflow menu.
      * 
-     * @param {string}            id      
+     * @param {string} id      
      * @param {TooltipCommand} command
      */
     registerCommand(id, command) {
@@ -95,7 +103,11 @@ class CommandBarTooltip {
         if (!registerForMainTooltip && !this.elements[MORE_OPTIONS_BUTTON_ID]) {
             this.$createCommand(MORE_OPTIONS_BUTTON_ID, {
                 name: "···",
-                exec: function() {
+                exec: 
+                /**
+                 * @this {CommandBarTooltip}
+                 */
+                function() {
                     this.$shouldHideMoreOptions = false;
                     this.$setMoreOptionsVisibility(!this.isMoreOptionsShown());
                 }.bind(this),
@@ -130,7 +142,7 @@ class CommandBarTooltip {
      * When true, the tooltip is always displayed while it is attached to an editor.
      * When false, the tooltip is displayed only when the mouse hovers over the active editor line.
      * 
-     * @param {Editor} editor
+     * @param {boolean} alwaysShow
      */
     setAlwaysShow(alwaysShow) {
         this.$alwaysShow = alwaysShow;
@@ -280,6 +292,11 @@ class CommandBarTooltip {
         this.tooltip = this.moreOptions = this.parentNode = null;
     }
 
+    /**
+     * @param {string} id
+     * @param {TooltipCommand} command
+     * @param {boolean} forMainTooltip
+     */
     $createCommand(id, command, forMainTooltip) {
         var parentEl = forMainTooltip ? this.tooltipEl : this.moreOptionsEl;
         var keyParts = [];
@@ -303,6 +320,7 @@ class CommandBarTooltip {
             });
         }
 
+        /**@type {any[]} */
         var buttonNode;
         if (forMainTooltip && command.iconCssClass) {
             //Only support icon button for main tooltip, otherwise fall back to text button
@@ -331,10 +349,15 @@ class CommandBarTooltip {
             }
         }
 
+        // @ts-ignore
         dom.buildDom(['div', { class: [BUTTON_CLASS_NAME, command.cssClass || ""].join(" "), ref: id }, buttonNode], parentEl, this.elements);
         this.commands[id] = command;
-
-        var eventListener = function(e) {
+        
+        var eventListener =
+            /**
+             * @this {CommandBarTooltip}
+             */
+            function(e) {
             if (this.editor) {
                 this.editor.focus();
             }
@@ -354,6 +377,9 @@ class CommandBarTooltip {
         this.$updateElement(id);
     }
 
+    /**
+     * @param {boolean} visible
+     */
     $setMoreOptionsVisibility(visible) {
         if (visible) {
             this.moreOptions.setTheme(this.editor.renderer.theme);
@@ -430,6 +456,9 @@ class CommandBarTooltip {
         }
     }
 
+    /**
+     * @param {boolean} [enableHover]
+     */
     $updateOnHoverHandlers(enableHover) {
         var tooltipEl = this.tooltip.getElement();
         var moreOptionsEl = this.moreOptions.getElement();
@@ -465,7 +494,6 @@ class CommandBarTooltip {
         this.updatePosition();
         this._signal("show");
     }
-    
     $hideTooltip() {
         this.$mouseInTooltip = false;
         if (!this.isShown()) {
@@ -476,6 +504,9 @@ class CommandBarTooltip {
         this._signal("hide");
     }
 
+    /**
+     * @param {string} id
+     */
     $updateElement(id) {
         var command = this.commands[id];
         if (!command) {
@@ -673,6 +704,9 @@ var destroyCompleter = function(e, editor) {
  * There is an inline ghost text renderer and an optional command bar tooltip inside.
  */
 class InlineAutocomplete {
+    /**
+     * @param {Editor} editor
+     */
     constructor(editor) {
         this.editor = editor;
         this.keyboardHandler = new HashHandler(this.commands);
@@ -686,13 +720,20 @@ class InlineAutocomplete {
             this.updateCompletions();
         }.bind(this));
     }
-    
+
+    /**
+     * 
+     * @return {AceInline}
+     */
     getInlineRenderer() {
         if (!this.inlineRenderer)
             this.inlineRenderer = new AceInline();
         return this.inlineRenderer;
     }
 
+    /**
+     * @return {CommandBarTooltip}
+     */
     getInlineTooltip() {
         if (!this.inlineTooltip) {
             this.inlineTooltip = InlineAutocomplete.createInlineTooltip(document.body || document.documentElement);
@@ -703,7 +744,7 @@ class InlineAutocomplete {
 
     /**
      * This function is the entry point to the class. This triggers the gathering of the autocompletion and displaying the results;
-     * @param {CompletionOptions} options
+     * @param {import("../../ace-internal").Ace.CompletionOptions} options
      */
     show(options) {
         this.activated = true;
@@ -758,6 +799,9 @@ class InlineAutocomplete {
         this.detach();
     }
 
+    /**
+     * @param {import("../../ace-internal").Ace.InlineAutocompleteAction} where
+     */
     goTo(where) {
         if (!this.completions || !this.completions.filtered) {
             return;
@@ -786,6 +830,10 @@ class InlineAutocomplete {
         return this.completions.filtered.length;
     }
 
+    /**
+     * @param {number} [index]
+     * @returns {import("../../ace-internal").Ace.Completion | undefined}
+     */
     getData(index) {
         if (index == undefined || index === null) {
             return this.completions.filtered[this.$index];
@@ -802,6 +850,9 @@ class InlineAutocomplete {
         return this.$index >= 0;
     }
 
+    /**
+     * @param {number} value
+     */
     setIndex(value) {
         if (!this.completions || !this.completions.filtered) {
             return;
@@ -813,6 +864,9 @@ class InlineAutocomplete {
         }
     }
 
+    /**
+     * @return {CompletionProvider}
+     */
     getCompletionProvider(initialPosition) {
         if (!this.completionProvider)
             this.completionProvider = new CompletionProvider(initialPosition);
@@ -829,6 +883,9 @@ class InlineAutocomplete {
         }
     }
 
+    /**
+     * @return {any}
+     */
     $updatePrefix() {
         var pos = this.editor.getCursorPosition();
         var prefix = this.editor.session.getTextRange({start: this.base, end: pos});
@@ -839,10 +896,14 @@ class InlineAutocomplete {
         && this.completions.filtered[0].value == prefix
         && !this.completions.filtered[0].snippet)
             return this.detach();
+        //@ts-expect-error TODO: potential wrong arguments
         this.$open(this.editor, prefix);
         return prefix;
     }
 
+    /**
+     * @param {import("../../ace-internal").Ace.CompletionOptions} [options]
+     */
     updateCompletions(options) {
         var prefix = "";
         
@@ -851,6 +912,7 @@ class InlineAutocomplete {
             this.base = this.editor.session.doc.createAnchor(pos.row, pos.column);
             this.base.$insertRight = true;
             this.completions = new FilteredList(options.matches);
+            //@ts-expect-error TODO: potential wrong arguments
             return this.$open(this.editor, "");
         }
 
@@ -863,6 +925,8 @@ class InlineAutocomplete {
         var prefix = util.getCompletionPrefix(this.editor);
         this.base = session.doc.createAnchor(pos.row, pos.column - prefix.length);
         this.base.$insertRight = true;
+
+        // @ts-ignore
         var options = {
             exactMatch: true,
             ignoreCaption: true
@@ -871,22 +935,28 @@ class InlineAutocomplete {
             prefix,
             base: this.base,
             pos
-        }).provideCompletions(this.editor, options, function(err, completions, finished) {
-            var filtered = completions.filtered;
-            var prefix = util.getCompletionPrefix(this.editor);
+            // @ts-ignore
+        }).provideCompletions(this.editor, options,
+            /**
+             * @this {InlineAutocomplete}
+             */
+            function(err, completions, finished) {
+                var filtered = completions.filtered;
+                var prefix = util.getCompletionPrefix(this.editor);
 
-            if (finished) {
-                // No results
-                if (!filtered.length)
-                    return this.detach();
+                if (finished) {
+                    // No results
+                    if (!filtered.length)
+                        return this.detach();
 
-                // One result equals to the prefix
-                if (filtered.length == 1 && filtered[0].value == prefix && !filtered[0].snippet)
-                    return this.detach();
-            }
-            this.completions = completions;
-            this.$open(this.editor, prefix);
-        }.bind(this));
+                    // One result equals to the prefix
+                    if (filtered.length == 1 && filtered[0].value == prefix && !filtered[0].snippet)
+                        return this.detach();
+                }
+                this.completions = completions;
+                //@ts-expect-error TODO: potential wrong arguments
+                this.$open(this.editor, prefix);
+            }.bind(this));
     }
 
     detach() {
@@ -929,8 +999,15 @@ class InlineAutocomplete {
         this.inlineTooltip = this.editor = this.inlineRenderer = null;
     }
 
+    updateDocTooltip(){
+    }
+
 }
 
+/**
+ * 
+ * @type {{[key: string]: import("../../ace-internal").Ace.Command}}
+ */
 InlineAutocomplete.prototype.commands = {
     "Previous": {
         bindKey: "Alt-[",
@@ -950,7 +1027,7 @@ InlineAutocomplete.prototype.commands = {
         bindKey: { win: "Tab|Ctrl-Right", mac: "Tab|Cmd-Right" },
         name: "Accept",
         exec: function(editor) {
-            return editor.completer.insertMatch();
+            return /**@type{InlineAutocomplete}*/(editor.completer).insertMatch();
         }
     },
     "Close": {
@@ -990,6 +1067,10 @@ var completers = [snippetCompleter, textCompleter, keyWordCompleter];
 
 (__webpack_require__(13188).defineOptions)(Editor.prototype, "editor", {
     enableInlineAutocompletion: {
+        /**
+         * @this{Editor}
+         * @param val
+         */
         set: function(val) {
             if (val) {
                 if (!this.completers)
@@ -1010,8 +1091,10 @@ var completers = [snippetCompleter, textCompleter, keyWordCompleter];
  * @returns {CommandBarTooltip}   The command bar tooltip for inline autocomplete
  */
 InlineAutocomplete.createInlineTooltip = function(parentEl) {
+    /**@type {CommandBarTooltip}*/
     var inlineTooltip = new CommandBarTooltip(parentEl);
-    inlineTooltip.registerCommand("Previous", 
+    inlineTooltip.registerCommand("Previous",
+        // @ts-expect-error
         Object.assign({}, InlineAutocomplete.prototype.commands["Previous"], {
             enabled: true,
             type: "button",
@@ -1020,20 +1103,24 @@ InlineAutocomplete.createInlineTooltip = function(parentEl) {
     );
     inlineTooltip.registerCommand("Position", {
         enabled: false,
-        getValue: function(editor) {
-            return editor ? [editor.completer.getIndex() + 1, editor.completer.getLength()].join("/") : "";
+        getValue: function (editor) {
+            return editor ? [/**@type{InlineAutocomplete}*/
+                (editor.completer).getIndex() + 1, /**@type{InlineAutocomplete}*/(editor.completer).getLength()
+            ].join("/") : "";
         },
         type: "text",
         cssClass: "completion_position"
     });
-    inlineTooltip.registerCommand("Next", 
+    inlineTooltip.registerCommand("Next",
+        // @ts-expect-error
         Object.assign({}, InlineAutocomplete.prototype.commands["Next"], {
             enabled: true,
             type: "button",
             iconCssClass: "ace_arrow"
         })
     );
-    inlineTooltip.registerCommand("Accept", 
+    inlineTooltip.registerCommand("Accept",
+        // @ts-expect-error
         Object.assign({}, InlineAutocomplete.prototype.commands["Accept"], {
             enabled: function(editor) {
                 return !!editor && editor.completer.getIndex() >= 0;

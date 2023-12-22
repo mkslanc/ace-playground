@@ -28,10 +28,11 @@ dom.importCssString(cssText, "settings_menu.css", false);
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @param {Element} contentElement Any element which may be presented inside
+ * @param editor
+ * @param {HTMLElement} contentElement Any element which may be presented inside
  *  a div.
+ * @param [callback]
  */
-
 module.exports.overlayPage = function overlayPage(editor, contentElement, callback) {
     var closer = document.createElement('div');
     var ignoreFocusOut = false;
@@ -172,6 +173,9 @@ module.exports = `#ace_settingsmenu, #kbshortcutmenu {
 
 "use strict";
 
+/**
+ * @typedef {import("../editor").Editor} Editor
+ */
 
 __webpack_require__(9613);
 
@@ -385,6 +389,11 @@ var optionGroups = {
 };
 
 class OptionPanel {
+    /**
+     * 
+     * @param {Editor} editor
+     * @param {HTMLElement} [element]
+     */
     constructor(editor, element) {
         this.editor = editor;
         this.container = element || document.createElement("div");
@@ -398,7 +407,8 @@ class OptionPanel {
         if (config.More)
             oop.mixin(optionGroups.More, config.More);
     }
-    
+
+  
     render() {
         this.container.innerHTML = "";
         buildDom(["table", {role: "presentation", id: "controls"}, 
@@ -426,7 +436,11 @@ class OptionPanel {
             return this.renderOption(item.label, item);
         }, this);
     }
-    
+
+    /**
+     * @param {string} key
+     * @param {Object} option
+     */
     renderOptionControl(key, option) {
         var self = this;
         if (Array.isArray(option)) {
@@ -434,6 +448,7 @@ class OptionPanel {
                 return self.renderOptionControl(key, x);
             });
         }
+        /**@type {any}*/
         var control;
         
         var value = self.getOption(option);
@@ -512,7 +527,12 @@ class OptionPanel {
         }
         return control;
     }
-    
+
+    /**
+     * 
+     * @param key
+     * @param option
+     */
     renderOption(key, option) {
         if (option.path && !option.onchange && !this.editor.$options[option.path])
             return;
@@ -525,7 +545,11 @@ class OptionPanel {
             ["label", {for: safeKey, id: safeId}, key]
         ], ["td", control]];
     }
-    
+
+    /**
+     * @param {string | number | Object} option
+     * @param {string | number | boolean} value
+     */
     setOption(option, value) {
         if (typeof option == "string")
             option = this.options[option];
@@ -585,6 +609,7 @@ var themeData = [
     ["Kuroir"],
     ["KatzenMilch"],
     ["SQL Server"           ,"sqlserver"               , "light"],
+    ["CloudEditor"          ,"cloud_editor"            , "light"],
     ["Ambiance"             ,"ambiance"                ,  "dark"],
     ["Chaos"                ,"chaos"                   ,  "dark"],
     ["Clouds Midnight"      ,"clouds_midnight"         ,  "dark"],
@@ -609,7 +634,8 @@ var themeData = [
     ["Tomorrow Night 80s"   ,"tomorrow_night_eighties" ,  "dark"],
     ["Twilight"             ,"twilight"                ,  "dark"],
     ["Vibrant Ink"          ,"vibrant_ink"             ,  "dark"],
-    ["GitHub Dark"          ,"github_dark"             ,  "dark"]
+    ["GitHub Dark"          ,"github_dark"             ,  "dark"],
+    ["CloudEditor Dark"     ,"cloud_editor_dark"       ,  "dark"]
 ];
 
 

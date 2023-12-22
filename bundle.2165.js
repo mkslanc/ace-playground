@@ -8,6 +8,10 @@
 
 var Range = (__webpack_require__(59082)/* .Range */ .e);
 
+/**
+ * @param {import("../editor").Editor} editor
+ * @param {import("../../ace-internal").Ace.HardWrapOptions} options
+ */
 function hardWrap(editor, options) {
     var max = options.column || editor.getOption("printMarginColumn");
     var allowMerge = options.allowMerge != false;
@@ -47,6 +51,11 @@ function hardWrap(editor, options) {
         row++;
     }
 
+    /**
+     * @param {string} line
+     * @param {number} max
+     * @param {number} min
+     */
     function findSpace(line, max, min) {
         if (line.length < max)
             return;

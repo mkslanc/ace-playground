@@ -61,7 +61,11 @@ var dom = __webpack_require__(6359);
 var escapeHTML = (__webpack_require__(20124).escapeHTML);
 
 class Element {
+    /**
+     * @param {string} type
+     */
     constructor(type) {
+        /** @type{string} */this.className;
         this.type = type;
         this.style = {};
         this.textContent = "";
@@ -104,10 +108,10 @@ class Element {
 
 
 var simpleDom = {
-    createTextNode: function(textContent, element) {
+    createTextNode: function(/** @type {string} */ textContent, /** @type {any} */ element) {
         return escapeHTML(textContent);
     },
-    createElement: function(type) {
+    createElement: function(/** @type {string} */ type) {
         return new Element(type);
     },
     createFragment: function() {
@@ -116,12 +120,20 @@ var simpleDom = {
 };
 
 
+/**@type {any}*/
 var SimpleTextLayer = function() {
     this.config = {};
     this.dom = simpleDom;
 };
 SimpleTextLayer.prototype = TextLayer.prototype;
 
+/**
+ * 
+ * @param {HTMLElement} el
+ * @param opts
+ * @param [callback]
+ * @returns {boolean}
+ */
 var highlight = function(el, opts, callback) {
     var m = el.className.match(/lang-(\w+)/);
     var mode = opts.mode || m && ("ace/mode/" + m[1]);
@@ -135,6 +147,7 @@ var highlight = function(el, opts, callback) {
     if (el.firstElementChild) {
         var textLen = 0;
         for (var i = 0; i < el.childNodes.length; i++) {
+            /**@type {any}*/
             var ch = el.childNodes[i];
             if (ch.nodeType == 3) {
                 textLen += ch.data.length;
@@ -150,8 +163,12 @@ var highlight = function(el, opts, callback) {
     }
     
     highlight.render(data, mode, theme, opts.firstLineNumber, !opts.showGutter, function (highlighted) {
-        dom.importCssString(highlighted.css, "ace_highlight");
+        dom.importCssString(highlighted.css, "ace_highlight", true);
         el.innerHTML = highlighted.html;
+        /** 
+         * TODO: check if child exists
+         * @type {any} 
+         */
         var container = el.firstChild.firstChild;
         for (var i = 0; i < nodes.length; i += 2) {
             var pos = highlighted.session.doc.indexToPosition(nodes[i]);
@@ -167,16 +184,16 @@ var highlight = function(el, opts, callback) {
  * Transforms a given input code snippet into HTML using the given mode
  *
  * @param {string} input Code snippet
- * @param {string|mode} mode String specifying the mode to load such as
+ * @param {string|import("../../ace-internal").Ace.SyntaxMode} mode String specifying the mode to load such as
  *  `ace/mode/javascript` or, a mode loaded from `/ace/mode`
  *  (use 'ServerSideHiglighter.getMode').
- * @param {string|theme} theme String specifying the theme to load such as
+ * @param {string} theme String specifying the theme to load such as
  *  `ace/theme/twilight` or, a theme loaded from `/ace/theme`.
  * @param {number} lineStart A number indicating the first line number. Defaults
  *  to 1.
  * @param {boolean} disableGutter Specifies whether or not to disable the gutter.
  *  `true` disables the gutter, `false` enables the gutter. Defaults to `false`.
- * @param {function} callback When specifying the mode or theme as a string,
+ * @param {function} [callback] When specifying the mode or theme as a string,
  *  this method has no return value and you must specify a callback function. The
  *  callback will receive the rendered object containing the properties `html`
  *  and `css`.
@@ -204,9 +221,9 @@ highlight.render = function(input, mode, theme, lineStart, disableGutter, callba
     if (typeof mode == "string") {
         waiting++;
         config.loadModule(['mode', mode], function(m) {
-            if (!modeCache[mode] || modeOptions)
-                modeCache[mode] = new m.Mode(modeOptions);
-            mode = modeCache[mode];
+            if (!modeCache[/**@type{string}*/(mode)] || modeOptions)
+                modeCache[/**@type{string}*/(mode)] = new m.Mode(modeOptions);
+            mode = modeCache[/**@type{string}*/(mode)];
             --waiting || done();
         });
     }
@@ -222,8 +239,10 @@ highlight.render = function(input, mode, theme, lineStart, disableGutter, callba
 /**
  * Transforms a given input code snippet into HTML using the given mode
  * @param {string} input Code snippet
- * @param {mode} mode Mode loaded from /ace/mode (use 'ServerSideHiglighter.getMode')
- * @param {string} r Code snippet
+ * @param {import("../../ace-internal").Ace.SyntaxMode|string} mode Mode loaded from /ace/mode (use 'ServerSideHiglighter.getMode')
+ * @param {any} theme
+ * @param {any} lineStart
+ * @param {boolean} disableGutter
  * @returns {object} An object containing: html, css
  */
 highlight.renderSync = function(input, mode, theme, lineStart, disableGutter) {
@@ -233,6 +252,7 @@ highlight.renderSync = function(input, mode, theme, lineStart, disableGutter) {
     session.setUseWorker(false);
     session.setMode(mode);
 
+    /**@type {TextLayer}*/
     var textLayer = new SimpleTextLayer();
     textLayer.setSession(session);
     Object.keys(textLayer.$tabStrings).forEach(function(k) {
