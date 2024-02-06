@@ -28,6 +28,7 @@ export interface LanguageService {
     getDocumentValue(uri: string): string | undefined;
     provideSignatureHelp(document: lsp.TextDocumentIdentifier, position: lsp.Position): Promise<lsp.SignatureHelp | null>;
     findDocumentHighlights(document: lsp.TextDocumentIdentifier, position: lsp.Position): Promise<lsp.DocumentHighlight[]>;
+    dispose(): Promise<void>;
 }
 interface TooltipContent {
     type: CommonConverter.TooltipType;
@@ -81,7 +82,7 @@ interface ExtraLib {
     version: number;
 }
 export interface TsServiceOptions extends ServiceOptionsWithErrorCodes {
-    compilerOptions?: ts.CompilerOptions;
+    compilerOptions?: ts.CompilerOptions | ts.CompilerOptionsWithoutEnums;
     extraLibs?: {
         [path: string]: ExtraLib;
     };

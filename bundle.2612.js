@@ -1,369 +1,169 @@
-"use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2612],{
 
-/***/ 12764:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 32612:
+/***/ ((module) => {
 
+module.exports = `# module and export all
+snippet mod
+	-module(\${1:\`Filename('', 'my')\`}).
+	
+	-compile([export_all]).
+	
+	start() ->
+	    \${2}
+	
+	stop() ->
+	    ok.
+# define directive
+snippet def
+	-define(\${1:macro}, \${2:body}).\${3}
+# export directive
+snippet exp
+	-export([\${1:function}/\${2:arity}]).
+# include directive
+snippet inc
+	-include("\${1:file}").\${2}
+# behavior directive
+snippet beh
+	-behaviour(\${1:behaviour}).\${2}
+# if expression
+snippet if
+	if
+	    \${1:guard} ->
+	        \${2:body}
+	end
+# case expression
+snippet case
+	case \${1:expression} of
+	    \${2:pattern} ->
+	        \${3:body};
+	end
+# anonymous function
+snippet fun
+	fun (\${1:Parameters}) -> \${2:body} end\${3}
+# try...catch
+snippet try
+	try
+	    \${1}
+	catch
+	    \${2:_:_} -> \${3:got_some_exception}
+	end
+# record directive
+snippet rec
+	-record(\${1:record}, {
+	    \${2:field}=\${3:value}}).\${4}
+# todo comment
+snippet todo
+	%% TODO: \${1}
+## Snippets below (starting with '%') are in EDoc format.
+## See http://www.erlang.org/doc/apps/edoc/chapter.html#id56887 for more details
+# doc comment
+snippet %d
+	%% @doc \${1}
+# end of doc comment
+snippet %e
+	%% @end
+# specification comment
+snippet %s
+	%% @spec \${1}
+# private function marker
+snippet %p
+	%% @private
+# OTP application
+snippet application
+	-module(\${1:\`Filename('', 'my')\`}).
 
+	-behaviour(application).
 
-var oop = __webpack_require__(89359);
-var Range = (__webpack_require__(59082)/* .Range */ .e);
-var BaseFoldMode = (__webpack_require__(15369).FoldMode);
+	-export([start/2, stop/1]).
 
-var FoldMode = exports.Z = function(commentRegex) {
-    if (commentRegex) {
-        this.foldingStartMarker = new RegExp(
-            this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.start)
-        );
-        this.foldingStopMarker = new RegExp(
-            this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.end)
-        );
-    }
-};
-oop.inherits(FoldMode, BaseFoldMode);
+	start(_Type, _StartArgs) ->
+	    case \${2:root_supervisor}:start_link() of
+	        {ok, Pid} ->
+	            {ok, Pid};
+	        Other ->
+		          {error, Other}
+	    end.
 
-(function() {
-    
-    this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/;
-    this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/;
-    this.singleLineBlockCommentRe= /^\s*(\/\*).*\*\/\s*$/;
-    this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/;
-    this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/;
-    
-    //prevent naming conflict with any modes that inherit from cstyle and override this (like csharp)
-    this._getFoldWidgetBase = this.getFoldWidget;
-    
-    /**
-     * Gets fold widget with some non-standard extras:
-     *
-     * @example lineCommentRegionStart
-     *      //#region [optional description]
-     *
-     * @example blockCommentRegionStart
-     *      /*#region [optional description] *[/]
-     *
-     * @example tripleStarFoldingSection
-     *      /*** this folds even though 1 line because it has 3 stars ***[/]
-     * 
-     * @note the pound symbol for region tags is optional
-     */
-    this.getFoldWidget = function(session, foldStyle, row) {
-        var line = session.getLine(row);
-    
-        if (this.singleLineBlockCommentRe.test(line)) {
-            // No widget for single line block comment unless region or triple star
-            if (!this.startRegionRe.test(line) && !this.tripleStarBlockCommentRe.test(line))
-                return "";
-        }
-    
-        var fw = this._getFoldWidgetBase(session, foldStyle, row);
-    
-        if (!fw && this.startRegionRe.test(line))
-            return "start"; // lineCommentRegionStart
-    
-        return fw;
-    };
+	stop(_State) ->
+	    ok.	
+# OTP supervisor
+snippet supervisor
+	-module(\${1:\`Filename('', 'my')\`}).
 
-    this.getFoldWidgetRange = function(session, foldStyle, row, forceMultiline) {
-        var line = session.getLine(row);
-        
-        if (this.startRegionRe.test(line))
-            return this.getCommentRegionBlock(session, line, row);
-        
-        var match = line.match(this.foldingStartMarker);
-        if (match) {
-            var i = match.index;
+	-behaviour(supervisor).
 
-            if (match[1])
-                return this.openingBracketBlock(session, match[1], row, i);
-                
-            var range = session.getCommentFoldRange(row, i + match[0].length, 1);
-            
-            if (range && !range.isMultiLine()) {
-                if (forceMultiline) {
-                    range = this.getSectionRange(session, row);
-                } else if (foldStyle != "all")
-                    range = null;
-            }
-            
-            return range;
-        }
+	%% API
+	-export([start_link/0]).
 
-        if (foldStyle === "markbegin")
-            return;
+	%% Supervisor callbacks
+	-export([init/1]).
 
-        var match = line.match(this.foldingStopMarker);
-        if (match) {
-            var i = match.index + match[0].length;
+	-define(SERVER, ?MODULE).
 
-            if (match[1])
-                return this.closingBracketBlock(session, match[1], row, i);
+	start_link() ->
+	    supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 
-            return session.getCommentFoldRange(row, i, -1);
-        }
-    };
-    
-    this.getSectionRange = function(session, row) {
-        var line = session.getLine(row);
-        var startIndent = line.search(/\S/);
-        var startRow = row;
-        var startColumn = line.length;
-        row = row + 1;
-        var endRow = row;
-        var maxRow = session.getLength();
-        while (++row < maxRow) {
-            line = session.getLine(row);
-            var indent = line.search(/\S/);
-            if (indent === -1)
-                continue;
-            if  (startIndent > indent)
-                break;
-            var subRange = this.getFoldWidgetRange(session, "all", row);
-            
-            if (subRange) {
-                if (subRange.start.row <= startRow) {
-                    break;
-                } else if (subRange.isMultiLine()) {
-                    row = subRange.end.row;
-                } else if (startIndent == indent) {
-                    break;
-                }
-            }
-            endRow = row;
-        }
-        
-        return new Range(startRow, startColumn, endRow, session.getLine(endRow).length);
-    };
-    
-    /**
-     * gets comment region block with end region assumed to be start of comment in any cstyle mode or SQL mode (--) which inherits from this.
-     * There may optionally be a pound symbol before the region/endregion statement
-     */
-    this.getCommentRegionBlock = function(session, line, row) {
-        var startColumn = line.search(/\s*$/);
-        var maxRow = session.getLength();
-        var startRow = row;
-        
-        var re = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/;
-        var depth = 1;
-        while (++row < maxRow) {
-            line = session.getLine(row);
-            var m = re.exec(line);
-            if (!m) continue;
-            if (m[1]) depth--;
-            else depth++;
+	init([]) ->
+	    Server = {\${2:my_server}, {\$2, start_link, []},
+	      permanent, 2000, worker, [\$2]},
+	    Children = [Server],
+	    RestartStrategy = {one_for_one, 0, 1},
+	    {ok, {RestartStrategy, Children}}.
+# OTP gen_server
+snippet gen_server
+	-module(\${1:\`Filename('', 'my')\`}).
 
-            if (!depth) break;
-        }
+	-behaviour(gen_server).
 
-        var endRow = row;
-        if (endRow > startRow) {
-            return new Range(startRow, startColumn, endRow, line.length);
-        }
-    };
+	%% API
+	-export([
+	         start_link/0
+	        ]).
 
-}).call(FoldMode.prototype);
+	%% gen_server callbacks
+	-export([init/1, handle_call/3, handle_cast/2, handle_info/2,
+	         terminate/2, code_change/3]).
 
+	-define(SERVER, ?MODULE).
 
-/***/ }),
+	-record(state, {}).
 
-/***/ 62612:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+	%%%===================================================================
+	%%% API
+	%%%===================================================================
 
-/*
-  THIS FILE WAS AUTOGENERATED BY mode.tmpl.js
-*/
+	start_link() ->
+	    gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
+	%%%===================================================================
+	%%% gen_server callbacks
+	%%%===================================================================
 
+	init([]) ->
+	    {ok, #state{}}.
 
-var oop = __webpack_require__(89359);
-var TextMode = (__webpack_require__(98030).Mode);
-var JSSMHighlightRules = (__webpack_require__(36051)/* .JSSMHighlightRules */ .K);
-// TODO: pick appropriate fold mode
-var FoldMode = (__webpack_require__(12764)/* .FoldMode */ .Z);
+	handle_call(_Request, _From, State) ->
+	    Reply = ok,
+	    {reply, Reply, State}.
 
-var Mode = function() {
-    this.HighlightRules = JSSMHighlightRules;
-    this.foldingRules = new FoldMode();
-};
-oop.inherits(Mode, TextMode);
+	handle_cast(_Msg, State) ->
+	    {noreply, State}.
 
-(function() {
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    // Extra logic goes here.
-    this.$id = "ace/mode/jssm";
-}).call(Mode.prototype);
+	handle_info(_Info, State) ->
+	    {noreply, State}.
 
-exports.Mode = Mode;
+	terminate(_Reason, _State) ->
+	    ok.
 
+	code_change(_OldVsn, State, _Extra) ->
+	    {ok, State}.
 
-/***/ }),
+	%%%===================================================================
+	%%% Internal functions
+	%%%===================================================================
 
-/***/ 36051:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-/* This file was autogenerated from ./jssm.tmLanguage (uuid: ) */
-/****************************************************************************************
- * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
- * fileTypes                                                                            *
- ****************************************************************************************/
-
-
-
-var oop = __webpack_require__(89359);
-var TextHighlightRules = (__webpack_require__(28053)/* .TextHighlightRules */ .K);
-
-var JSSMHighlightRules = function() {
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-
-    this.$rules = {
-        start: [{
-            token: "punctuation.definition.comment.mn",
-            regex: /\/\*/,
-            push: [{
-                token: "punctuation.definition.comment.mn",
-                regex: /\*\//,
-                next: "pop"
-            }, {
-                defaultToken: "comment.block.jssm"
-            }],
-            comment: "block comment"
-        }, {
-            token: "comment.line.jssm",
-            regex: /\/\//,
-            push: [{
-                token: "comment.line.jssm",
-                regex: /$/,
-                next: "pop"
-            }, {
-                defaultToken: "comment.line.jssm"
-            }],
-            comment: "block comment"
-        }, {
-            token: "entity.name.function",
-            regex: /\${/,
-            push: [{
-                token: "entity.name.function",
-                regex: /}/,
-                next: "pop"
-            }, {
-                defaultToken: "keyword.other"
-            }],
-            comment: "js outcalls"
-        }, {
-            token: "constant.numeric",
-            regex: /[0-9]*\.[0-9]*\.[0-9]*/,
-            comment: "semver"
-        }, {
-            token: "constant.language.jssmLanguage",
-            regex: /graph_layout\s*:/,
-            comment: "jssm language tokens"
-        }, {
-            token: "constant.language.jssmLanguage",
-            regex: /machine_name\s*:/,
-            comment: "jssm language tokens"
-        }, {
-            token: "constant.language.jssmLanguage",
-            regex: /machine_version\s*:/,
-            comment: "jssm language tokens"
-        }, {
-            token: "constant.language.jssmLanguage",
-            regex: /jssm_version\s*:/,
-            comment: "jssm language tokens"
-        }, {
-            token: "keyword.control.transition.jssmArrow.legal_legal",
-            regex: /<->/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.legal_none",
-            regex: /<-/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.none_legal",
-            regex: /->/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.main_main",
-            regex: /<=>/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.none_main",
-            regex: /=>/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.main_none",
-            regex: /<=/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.forced_forced",
-            regex: /<~>/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.none_forced",
-            regex: /~>/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.forced_none",
-            regex: /<~/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.legal_main",
-            regex: /<-=>/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.main_legal",
-            regex: /<=->/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.legal_forced",
-            regex: /<-~>/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.forced_legal",
-            regex: /<~->/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.main_forced",
-            regex: /<=~>/,
-            comment: "transitions"
-        }, {
-            token: "keyword.control.transition.jssmArrow.forced_main",
-            regex: /<~=>/,
-            comment: "transitions"
-        }, {
-            token: "constant.numeric.jssmProbability",
-            regex: /[0-9]+%/,
-            comment: "edge probability annotation"
-        }, {
-            token: "constant.character.jssmAction",
-            regex: /\'[^']*\'/,
-            comment: "action annotation"
-        }, {
-            token: "entity.name.tag.jssmLabel.doublequoted",
-            regex: /\"[^"]*\"/,
-            comment: "jssm label annotation"
-        }, {
-            token: "entity.name.tag.jssmLabel.atom",
-            regex: /[a-zA-Z0-9_.+&()#@!?,]/,
-            comment: "jssm label annotation"
-        }]
-    };
-    
-    this.normalizeRules();
-};
-
-JSSMHighlightRules.metaData = {
-    fileTypes: ["jssm", "jssm_state"],
-    name: "JSSM",
-    scopeName: "source.jssm"
-};
-
-
-oop.inherits(JSSMHighlightRules, TextHighlightRules);
-
-exports.K = JSSMHighlightRules;
+`;
 
 
 /***/ })
