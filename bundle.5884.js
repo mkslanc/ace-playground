@@ -1,311 +1,261 @@
-"use strict";
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5884],{
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5884,2178],{
 
 /***/ 45884:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
-var oop = __webpack_require__(21984);
-var TextMode = (__webpack_require__(83736).Mode);
-var AppleScriptHighlightRules = (__webpack_require__(77048)/* .AppleScriptHighlightRules */ .u);
-var FoldMode = (__webpack_require__(11416)/* .FoldMode */ .W);
-
-var Mode = function() {
-    this.HighlightRules = AppleScriptHighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.lineCommentStart = "--";
-    this.blockComment = {start: "(*", end: "*)"};
-    this.$id = "ace/mode/applescript";
-    // Extra logic goes here.
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
+exports.snippetText = __webpack_require__(42178);
+exports.scope = "java";
 
 
 /***/ }),
 
-/***/ 77048:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 42178:
+/***/ ((module) => {
 
-
-
-var oop = __webpack_require__(21984);
-var TextHighlightRules = (__webpack_require__(98176)/* .TextHighlightRules */ .Y);
-
-var AppleScriptHighlightRules = function() {
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-    var keywords = (
-        "about|above|after|against|and|around|as|at|back|before|beginning|" +
-        "behind|below|beneath|beside|between|but|by|considering|" +
-        "contain|contains|continue|copy|div|does|eighth|else|end|equal|" +
-        "equals|error|every|exit|fifth|first|for|fourth|from|front|" +
-        "get|given|global|if|ignoring|in|into|is|it|its|last|local|me|" +
-        "middle|mod|my|ninth|not|of|on|onto|or|over|prop|property|put|ref|" +
-        "reference|repeat|returning|script|second|set|seventh|since|" +
-        "sixth|some|tell|tenth|that|the|then|third|through|thru|" +
-        "timeout|times|to|transaction|try|until|where|while|whose|with|without"
-    );
-
-    var builtinConstants = (
-        "AppleScript|false|linefeed|return|pi|quote|result|space|tab|true"
-    );
-
-    var builtinFunctions = (
-        "activate|beep|count|delay|launch|log|offset|read|round|run|say|" +
-        "summarize|write"
-    );
-
-    var builtinTypes = (
-        "alias|application|boolean|class|constant|date|file|integer|list|" +
-        "number|real|record|string|text|character|characters|contents|day|" +
-        "frontmost|id|item|length|month|name|paragraph|paragraphs|rest|" +
-        "reverse|running|time|version|weekday|word|words|year"
-    );
-
-    var keywordMapper = this.createKeywordMapper({
-        "support.function": builtinFunctions,
-        "constant.language": builtinConstants,
-        "support.type": builtinTypes,
-        "keyword": keywords
-    }, "identifier");
-
-    this.$rules = {
-        "start": [
-            {
-                token: "comment",
-                regex: "--.*$"
-            },
-            {
-                token : "comment", // multi line comment
-                regex : "\\(\\*",
-                next : "comment"
-            },
-            {
-                token: "string",           // " string
-                regex: '".*?"'
-            },
-            {
-                token: "support.type",
-                regex: '\\b(POSIX file|POSIX path|(date|time) string|quoted form)\\b'
-            },
-            {
-                token: "support.function",
-                regex: '\\b(clipboard info|the clipboard|info for|list (disks|folder)|' +
-          'mount volume|path to|(close|open for) access|(get|set) eof|' +
-          'current date|do shell script|get volume settings|random number|' +
-          'set volume|system attribute|system info|time to GMT|' +
-          '(load|run|store) script|scripting components|' +
-          'ASCII (character|number)|localized string|' +
-          'choose (application|color|file|file name|' +
-          'folder|from list|remote application|URL)|' +
-          'display (alert|dialog))\\b|^\\s*return\\b'
-            },
-            {
-                token: "constant.language",
-                regex: '\\b(text item delimiters|current application|missing value)\\b'
-            },
-            {
-                token: "keyword",
-                regex: '\\b(apart from|aside from|instead of|out of|greater than|' +
-          "isn't|(doesn't|does not) (equal|come before|come after|contain)|" +
-          '(greater|less) than( or equal)?|(starts?|ends|begins?) with|' +
-          'contained by|comes (before|after)|a (ref|reference))\\b'
-            },
-            {
-                token: keywordMapper,
-                regex: "[a-zA-Z][a-zA-Z0-9_]*\\b"
-            }
-        ],
-        "comment": [
-            {
-                token: "comment", // closing comment
-                regex: "\\*\\)",
-                next: "start"
-            }, {
-                defaultToken: "comment"
-            }
-        ]
-    };
-
-    this.normalizeRules();
-};
-
-oop.inherits(AppleScriptHighlightRules, TextHighlightRules);
-
-exports.u = AppleScriptHighlightRules;
-
-
-/***/ }),
-
-/***/ 11416:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(21984);
-var Range = (__webpack_require__(82080)/* .Range */ .E);
-var BaseFoldMode = (__webpack_require__(82896).FoldMode);
-
-var FoldMode = exports.W = function(commentRegex) {
-    if (commentRegex) {
-        this.foldingStartMarker = new RegExp(
-            this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.start)
-        );
-        this.foldingStopMarker = new RegExp(
-            this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.end)
-        );
-    }
-};
-oop.inherits(FoldMode, BaseFoldMode);
-
-(function() {
-    
-    this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/;
-    this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/;
-    this.singleLineBlockCommentRe= /^\s*(\/\*).*\*\/\s*$/;
-    this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/;
-    this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/;
-    
-    //prevent naming conflict with any modes that inherit from cstyle and override this (like csharp)
-    this._getFoldWidgetBase = this.getFoldWidget;
-    
-    /**
-     * Gets fold widget with some non-standard extras:
-     *
-     * @example lineCommentRegionStart
-     *      //#region [optional description]
-     *
-     * @example blockCommentRegionStart
-     *      /*#region [optional description] *[/]
-     *
-     * @example tripleStarFoldingSection
-     *      /*** this folds even though 1 line because it has 3 stars ***[/]
-     * 
-     * @note the pound symbol for region tags is optional
-     */
-    this.getFoldWidget = function(session, foldStyle, row) {
-        var line = session.getLine(row);
-    
-        if (this.singleLineBlockCommentRe.test(line)) {
-            // No widget for single line block comment unless region or triple star
-            if (!this.startRegionRe.test(line) && !this.tripleStarBlockCommentRe.test(line))
-                return "";
-        }
-    
-        var fw = this._getFoldWidgetBase(session, foldStyle, row);
-    
-        if (!fw && this.startRegionRe.test(line))
-            return "start"; // lineCommentRegionStart
-    
-        return fw;
-    };
-
-    this.getFoldWidgetRange = function(session, foldStyle, row, forceMultiline) {
-        var line = session.getLine(row);
-        
-        if (this.startRegionRe.test(line))
-            return this.getCommentRegionBlock(session, line, row);
-        
-        var match = line.match(this.foldingStartMarker);
-        if (match) {
-            var i = match.index;
-
-            if (match[1])
-                return this.openingBracketBlock(session, match[1], row, i);
-                
-            var range = session.getCommentFoldRange(row, i + match[0].length, 1);
-            
-            if (range && !range.isMultiLine()) {
-                if (forceMultiline) {
-                    range = this.getSectionRange(session, row);
-                } else if (foldStyle != "all")
-                    range = null;
-            }
-            
-            return range;
-        }
-
-        if (foldStyle === "markbegin")
-            return;
-
-        var match = line.match(this.foldingStopMarker);
-        if (match) {
-            var i = match.index + match[0].length;
-
-            if (match[1])
-                return this.closingBracketBlock(session, match[1], row, i);
-
-            return session.getCommentFoldRange(row, i, -1);
-        }
-    };
-    
-    this.getSectionRange = function(session, row) {
-        var line = session.getLine(row);
-        var startIndent = line.search(/\S/);
-        var startRow = row;
-        var startColumn = line.length;
-        row = row + 1;
-        var endRow = row;
-        var maxRow = session.getLength();
-        while (++row < maxRow) {
-            line = session.getLine(row);
-            var indent = line.search(/\S/);
-            if (indent === -1)
-                continue;
-            if  (startIndent > indent)
-                break;
-            var subRange = this.getFoldWidgetRange(session, "all", row);
-            
-            if (subRange) {
-                if (subRange.start.row <= startRow) {
-                    break;
-                } else if (subRange.isMultiLine()) {
-                    row = subRange.end.row;
-                } else if (startIndent == indent) {
-                    break;
-                }
-            }
-            endRow = row;
-        }
-        
-        return new Range(startRow, startColumn, endRow, session.getLine(endRow).length);
-    };
-    
-    /**
-     * gets comment region block with end region assumed to be start of comment in any cstyle mode or SQL mode (--) which inherits from this.
-     * There may optionally be a pound symbol before the region/endregion statement
-     */
-    this.getCommentRegionBlock = function(session, line, row) {
-        var startColumn = line.search(/\s*$/);
-        var maxRow = session.getLength();
-        var startRow = row;
-        
-        var re = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/;
-        var depth = 1;
-        while (++row < maxRow) {
-            line = session.getLine(row);
-            var m = re.exec(line);
-            if (!m) continue;
-            if (m[1]) depth--;
-            else depth++;
-
-            if (!depth) break;
-        }
-
-        var endRow = row;
-        if (endRow > startRow) {
-            return new Range(startRow, startColumn, endRow, line.length);
-        }
-    };
-
-}).call(FoldMode.prototype);
+module.exports = `## Access Modifiers
+snippet po
+	protected
+snippet pu
+	public
+snippet pr
+	private
+##
+## Annotations
+snippet before
+	@Before
+	static void \${1:intercept}(\${2:args}) { \${3} }
+snippet mm
+	@ManyToMany
+	\${1}
+snippet mo
+	@ManyToOne
+	\${1}
+snippet om
+	@OneToMany\${1:(cascade=CascadeType.ALL)}
+	\${2}
+snippet oo
+	@OneToOne
+	\${1}
+##
+## Basic Java packages and import
+snippet im
+	import
+snippet j.b
+	java.beans.
+snippet j.i
+	java.io.
+snippet j.m
+	java.math.
+snippet j.n
+	java.net.
+snippet j.u
+	java.util.
+##
+## Class
+snippet cl
+	class \${1:\`Filename("", "untitled")\`} \${2}
+snippet in
+	interface \${1:\`Filename("", "untitled")\`} \${2:extends Parent}\${3}
+snippet tc
+	public class \${1:\`Filename()\`} extends \${2:TestCase}
+##
+## Class Enhancements
+snippet ext
+	extends 
+snippet imp
+	implements
+##
+## Comments
+snippet /*
+	/*
+	 * \${1}
+	 */
+##
+## Constants
+snippet co
+	static public final \${1:String} \${2:var} = \${3};\${4}
+snippet cos
+	static public final String \${1:var} = "\${2}";\${3}
+##
+## Control Statements
+snippet case
+	case \${1}:
+		\${2}
+snippet def
+	default:
+		\${2}
+snippet el
+	else
+snippet elif
+	else if (\${1}) \${2}
+snippet if
+	if (\${1}) \${2}
+snippet sw
+	switch (\${1}) {
+		\${2}
+	}
+##
+## Create a Method
+snippet m
+	\${1:void} \${2:method}(\${3}) \${4:throws }\${5}
+##
+## Create a Variable
+snippet v
+	\${1:String} \${2:var}\${3: = null}\${4};\${5}
+##
+## Enhancements to Methods, variables, classes, etc.
+snippet ab
+	abstract
+snippet fi
+	final
+snippet st
+	static
+snippet sy
+	synchronized
+##
+## Error Methods
+snippet err
+	System.err.print("\${1:Message}");
+snippet errf
+	System.err.printf("\${1:Message}", \${2:exception});
+snippet errln
+	System.err.println("\${1:Message}");
+##
+## Exception Handling
+snippet as
+	assert \${1:test} : "\${2:Failure message}";\${3}
+snippet ca
+	catch(\${1:Exception} \${2:e}) \${3}
+snippet thr
+	throw
+snippet ths
+	throws
+snippet try
+	try {
+		\${3}
+	} catch(\${1:Exception} \${2:e}) {
+	}
+snippet tryf
+	try {
+		\${3}
+	} catch(\${1:Exception} \${2:e}) {
+	} finally {
+	}
+##
+## Find Methods
+snippet findall
+	List<\${1:listName}> \${2:items} = \${1}.findAll();\${3}
+snippet findbyid
+	\${1:var} \${2:item} = \${1}.findById(\${3});\${4}
+##
+## Javadocs
+snippet /**
+	/**
+	 * \${1}
+	 */
+snippet @au
+	@author \`system("grep \\\`id -un\\\` /etc/passwd | cut -d \\":\\" -f5 | cut -d \\",\\" -f1")\`
+snippet @br
+	@brief \${1:Description}
+snippet @fi
+	@file \${1:\`Filename()\`}.java
+snippet @pa
+	@param \${1:param}
+snippet @re
+	@return \${1:param}
+##
+## Logger Methods
+snippet debug
+	Logger.debug(\${1:param});\${2}
+snippet error
+	Logger.error(\${1:param});\${2}
+snippet info
+	Logger.info(\${1:param});\${2}
+snippet warn
+	Logger.warn(\${1:param});\${2}
+##
+## Loops
+snippet enfor
+	for (\${1} : \${2}) \${3}
+snippet for
+	for (\${1}; \${2}; \${3}) \${4}
+snippet wh
+	while (\${1}) \${2}
+##
+## Main method
+snippet main
+	public static void main (String[] args) {
+		\${1:/* code */}
+	}
+##
+## Print Methods
+snippet print
+	System.out.print("\${1:Message}");
+snippet printf
+	System.out.printf("\${1:Message}", \${2:args});
+snippet println
+	System.out.println(\${1});
+##
+## Render Methods
+snippet ren
+	render(\${1:param});\${2}
+snippet rena
+	renderArgs.put("\${1}", \${2});\${3}
+snippet renb
+	renderBinary(\${1:param});\${2}
+snippet renj
+	renderJSON(\${1:param});\${2}
+snippet renx
+	renderXml(\${1:param});\${2}
+##
+## Setter and Getter Methods
+snippet set
+	\${1:public} void set\${3:}(\${2:String} \${4:}){
+		this.\$4 = \$4;
+	}
+snippet get
+	\${1:public} \${2:String} get\${3:}(){
+		return this.\${4:};
+	}
+##
+## Terminate Methods or Loops
+snippet re
+	return
+snippet br
+	break;
+##
+## Test Methods
+snippet t
+	public void test\${1:Name}() throws Exception {
+		\${2}
+	}
+snippet test
+	@Test
+	public void test\${1:Name}() throws Exception {
+		\${2}
+	}
+##
+## Utils
+snippet Sc
+	Scanner
+##
+## Miscellaneous
+snippet action
+	public static void \${1:index}(\${2:args}) { \${3} }
+snippet rnf
+	notFound(\${1:param});\${2}
+snippet rnfin
+	notFoundIfNull(\${1:param});\${2}
+snippet rr
+	redirect(\${1:param});\${2}
+snippet ru
+	unauthorized(\${1:param});\${2}
+snippet unless
+	(unless=\${1:param});\${2}
+`;
 
 
 /***/ })

@@ -1,115 +1,98 @@
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8980,656],{
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8980],{
 
-/***/ 38980:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(40656);
-exports.scope = "coffee";
-
-
-/***/ }),
-
-/***/ 40656:
+/***/ 48980:
 /***/ ((module) => {
 
-module.exports = `# Closure loop
-snippet forindo
-	for \${1:name} in \${2:array}
-		do (\$1) ->
-			\${3:// body}
-# Array comprehension
-snippet fora
-	for \${1:name} in \${2:array}
-		\${3:// body...}
-# Object comprehension
-snippet foro
-	for \${1:key}, \${2:value} of \${3:object}
-		\${4:// body...}
-# Range comprehension (inclusive)
-snippet forr
-	for \${1:name} in [\${2:start}..\${3:finish}]
-		\${4:// body...}
-snippet forrb
-	for \${1:name} in [\${2:start}..\${3:finish}] by \${4:step}
-		\${5:// body...}
-# Range comprehension (exclusive)
-snippet forrex
-	for \${1:name} in [\${2:start}...\${3:finish}]
-		\${4:// body...}
-snippet forrexb
-	for \${1:name} in [\${2:start}...\${3:finish}] by \${4:step}
-		\${5:// body...}
-# Function
-snippet fun
-	(\${1:args}) ->
-		\${2:// body...}
-# Function (bound)
-snippet bfun
-	(\${1:args}) =>
-		\${2:// body...}
-# Class
-snippet cla class ..
-	class \${1:\`substitute(Filename(), '\\(_\\|^\\)\\(.\\)', '\\u\\2', 'g')\`}
-		\${2}
-snippet cla class .. constructor: ..
-	class \${1:\`substitute(Filename(), '\\(_\\|^\\)\\(.\\)', '\\u\\2', 'g')\`}
-		constructor: (\${2:args}) ->
-			\${3}
-
-		\${4}
-snippet cla class .. extends ..
-	class \${1:\`substitute(Filename(), '\\(_\\|^\\)\\(.\\)', '\\u\\2', 'g')\`} extends \${2:ParentClass}
-		\${3}
-snippet cla class .. extends .. constructor: ..
-	class \${1:\`substitute(Filename(), '\\(_\\|^\\)\\(.\\)', '\\u\\2', 'g')\`} extends \${2:ParentClass}
-		constructor: (\${3:args}) ->
-			\${4}
-
-		\${5}
-# If
+module.exports = `snippet comm
+	(comment
+	  \${1}
+	  )
+snippet condp
+	(condp \${1:pred} \${2:expr}
+	  \${3})
+snippet def
+	(def \${1})
+snippet defm
+	(defmethod \${1:multifn} "\${2:doc-string}" \${3:dispatch-val} [\${4:args}]
+	  \${5})
+snippet defmm
+	(defmulti \${1:name} "\${2:doc-string}" \${3:dispatch-fn})
+snippet defma
+	(defmacro \${1:name} "\${2:doc-string}" \${3:dispatch-fn})
+snippet defn
+	(defn \${1:name} "\${2:doc-string}" [\${3:arg-list}]
+	  \${4})
+snippet defp
+	(defprotocol \${1:name}
+	  \${2})
+snippet defr
+	(defrecord \${1:name} [\${2:fields}]
+	  \${3:protocol}
+	  \${4})
+snippet deft
+	(deftest \${1:name}
+	    (is (= \${2:assertion})))
+	  \${3})
+snippet is
+	(is (= \${1} \${2}))
+snippet defty
+	(deftype \${1:Name} [\${2:fields}]
+	  \${3:Protocol}
+	  \${4})
+snippet doseq
+	(doseq [\${1:elem} \${2:coll}]
+	  \${3})
+snippet fn
+	(fn [\${1:arg-list}] \${2})
 snippet if
-	if \${1:condition}
-		\${2:// body...}
-# If __ Else
-snippet ife
-	if \${1:condition}
-		\${2:// body...}
-	else
-		\${3:// body...}
-# Else if
-snippet elif
-	else if \${1:condition}
-		\${2:// body...}
-# Ternary If
-snippet ifte
-	if \${1:condition} then \${2:value} else \${3:other}
-# Unless
-snippet unl
-	\${1:action} unless \${2:condition}
-# Switch
-snippet swi
-	switch \${1:object}
-		when \${2:value}
-			\${3:// body...}
-
-# Log
-snippet log
-	console.log \${1}
-# Try __ Catch
-snippet try
-	try
-		\${1}
-	catch \${2:error}
-		\${3}
-# Require
-snippet req
-	\${2:\$1} = require '\${1:sys}'\${3}
-# Export
-snippet exp
-	\${1:root} = exports ? this
+	(if \${1:test-expr}
+	  \${2:then-expr}
+	  \${3:else-expr})
+snippet if-let 
+	(if-let [\${1:result} \${2:test-expr}]
+		(\${3:then-expr} \$1)
+		(\${4:else-expr}))
+snippet imp
+	(:import [\${1:package}])
+	& {:keys [\${1:keys}] :or {\${2:defaults}}}
+snippet let
+	(let [\${1:name} \${2:expr}]
+		\${3})
+snippet letfn
+	(letfn [(\${1:name) [\${2:args}]
+	          \${3})])
+snippet map
+	(map \${1:func} \${2:coll})
+snippet mapl
+	(map #(\${1:lambda}) \${2:coll})
+snippet met
+	(\${1:name} [\${2:this} \${3:args}]
+	  \${4})
+snippet ns
+	(ns \${1:name}
+	  \${2})
+snippet dotimes
+	(dotimes [_ 10]
+	  (time
+	    (dotimes [_ \${1:times}]
+	      \${2})))
+snippet pmethod
+	(\${1:name} [\${2:this} \${3:args}])
+snippet refer
+	(:refer-clojure :exclude [\${1}])
+snippet require
+	(:require [\${1:namespace} :as [\${2}]])
+snippet use
+	(:use [\${1:namespace} :only [\${2}]])
+snippet print
+	(println \${1})
+snippet reduce
+	(reduce \${1:(fn [p n] \${3})} \${2})
+snippet when
+	(when \${1:test} \${2:body})
+snippet when-let
+	(when-let [\${1:result} \${2:test}]
+		\${3:body})
 `;
 
 

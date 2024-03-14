@@ -1,177 +1,186 @@
-"use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8792],{
 
-/***/ 56168:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ 2562:
+/***/ ((module) => {
 
+module.exports = `.ace-one-dark .ace_gutter {
+    background: #282c34;
+    color: #6a6f7a
+}
 
+.ace-one-dark .ace_print-margin {
+    width: 1px;
+    background: #e8e8e8
+}
 
-var oop = __webpack_require__(21984);
-var TextHighlightRules = (__webpack_require__(98176)/* .TextHighlightRules */ .Y);
+.ace-one-dark {
+    background-color: #282c34;
+    color: #abb2bf
+}
 
-var DocCommentHighlightRules = function () {
-    this.$rules = {
-        "start": [
-            {
-                token: "comment.doc.tag",
-                regex: "@\\w+(?=\\s|$)"
-            }, DocCommentHighlightRules.getTagRule(), {
-                defaultToken: "comment.doc",
-                caseInsensitive: true
-            }
-        ]
-    };
-};
+.ace-one-dark .ace_cursor {
+    color: #528bff
+}
 
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+.ace-one-dark .ace_marker-layer .ace_selection {
+    background: #3d4350
+}
 
-DocCommentHighlightRules.getTagRule = function(start) {
-    return {
-        token : "comment.doc.tag.storage.type",
-        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
-    };
-};
+.ace-one-dark.ace_multiselect .ace_selection.ace_start {
+    box-shadow: 0 0 3px 0 #282c34;
+    border-radius: 2px
+}
 
-DocCommentHighlightRules.getStartRule = function(start) {
-    return {
-        token : "comment.doc", // doc comment
-        regex : "\\/\\*(?=\\*)",
-        next  : start
-    };
-};
+.ace-one-dark .ace_marker-layer .ace_step {
+    background: #c6dbae
+}
 
-DocCommentHighlightRules.getEndRule = function (start) {
-    return {
-        token : "comment.doc", // closing comment
-        regex : "\\*\\/",
-        next  : start
-    };
-};
+.ace-one-dark .ace_marker-layer .ace_bracket {
+    margin: -1px 0 0 -1px;
+    border: 1px solid #747369
+}
 
+.ace-one-dark .ace_marker-layer .ace_active-line {
+    background: rgba(76, 87, 103, .19)
+}
 
-exports.y = DocCommentHighlightRules;
+.ace-one-dark .ace_gutter-active-line {
+    background-color: rgba(76, 87, 103, .19)
+}
+
+.ace-one-dark .ace_marker-layer .ace_selected-word {
+    border: 1px solid #3d4350
+}
+
+.ace-one-dark .ace_fold {
+    background-color: #61afef;
+    border-color: #abb2bf
+}
+
+.ace-one-dark .ace_keyword {
+    color: #c678dd
+}
+
+.ace-one-dark .ace_keyword.ace_operator {
+    color: #c678dd
+}
+
+.ace-one-dark .ace_keyword.ace_other.ace_unit {
+    color: #d19a66
+}
+
+.ace-one-dark .ace_constant.ace_language {
+    color: #d19a66
+}
+
+.ace-one-dark .ace_constant.ace_numeric {
+    color: #d19a66
+}
+
+.ace-one-dark .ace_constant.ace_character {
+    color: #56b6c2
+}
+
+.ace-one-dark .ace_constant.ace_other {
+    color: #56b6c2
+}
+
+.ace-one-dark .ace_support.ace_function {
+    color: #61afef
+}
+
+.ace-one-dark .ace_support.ace_constant {
+    color: #d19a66
+}
+
+.ace-one-dark .ace_support.ace_class {
+    color: #e5c07b
+}
+
+.ace-one-dark .ace_support.ace_type {
+    color: #e5c07b
+}
+
+.ace-one-dark .ace_storage {
+    color: #c678dd
+}
+
+.ace-one-dark .ace_storage.ace_type {
+    color: #c678dd
+}
+
+.ace-one-dark .ace_invalid {
+    color: #fff;
+    background-color: #f2777a
+}
+
+.ace-one-dark .ace_invalid.ace_deprecated {
+    color: #272b33;
+    background-color: #d27b53
+}
+
+.ace-one-dark .ace_string {
+    color: #98c379
+}
+
+.ace-one-dark .ace_string.ace_regexp {
+    color: #e06c75
+}
+
+.ace-one-dark .ace_comment {
+    font-style: italic;
+    color: #5c6370
+}
+
+.ace-one-dark .ace_variable {
+    color: #e06c75
+}
+
+.ace-one-dark .ace_variable.ace_parameter {
+    color: #d19a66
+}
+
+.ace-one-dark .ace_meta.ace_tag {
+    color: #e06c75
+}
+
+.ace-one-dark .ace_entity.ace_other.ace_attribute-name {
+    color: #e06c75
+}
+
+.ace-one-dark .ace_entity.ace_name.ace_function {
+    color: #61afef
+}
+
+.ace-one-dark .ace_entity.ace_name.ace_tag {
+    color: #e06c75
+}
+
+.ace-one-dark .ace_markup.ace_heading {
+    color: #98c379
+}
+
+.ace-one-dark .ace_indent-guide {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y
+}
+
+.ace-one-dark .ace_indent-guide-active {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQIW2PQ1dX9zzBz5sz/ABCcBFFentLlAAAAAElFTkSuQmCC) right repeat-y;
+}
+`;
 
 
 /***/ }),
 
-/***/ 8792:
+/***/ 28792:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-
-
-var oop = __webpack_require__(21984);
-var TextMode = (__webpack_require__(83736).Mode);
-var EdifactHighlightRules = (__webpack_require__(12400)/* .EdifactHighlightRules */ .Q);
-
-var Mode = function() {
-   
-    this.HighlightRules = EdifactHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.$id = "ace/mode/edifact";
-    this.snippetFileId = "ace/snippets/edifact";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 12400:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
+exports.isDark = true;
+    exports.cssClass = "ace-one-dark";
+    exports.cssText = __webpack_require__(2562);
     
-    var oop = __webpack_require__(21984);
-    var DocCommentHighlightRules = (__webpack_require__(56168)/* .DocCommentHighlightRules */ .y);
-    var TextHighlightRules = (__webpack_require__(98176)/* .TextHighlightRules */ .Y);
-    
-    var EdifactHighlightRules = function() {
-    
-        var header = (
-            "UNH"
-        );
-        var segment = (
-            "ADR|AGR|AJT|ALC|ALI|APP|APR|ARD|ARR|ASI|ATT|AUT|"+
-            "BAS|BGM|BII|BUS|"+
-            "CAV|CCD|CCI|CDI|CDS|CDV|CED|CIN|CLA|CLI|CMP|CNI|CNT|COD|COM|COT|CPI|CPS|CPT|CST|CTA|CUX|"+
-            "DAM|DFN|DGS|DII|DIM|DLI|DLM|DMS|DOC|DRD|DSG|DSI|DTM|"+
-            "EDT|EFI|ELM|ELU|ELV|EMP|EQA|EQD|EQN|ERC|ERP|EVE|FCA|FII|FNS|FNT|FOR|FSQ|FTX|"+
-            "GDS|GEI|GID|GIN|GIR|GOR|GPO|GRU|HAN|HYN|ICD|IDE|IFD|IHC|IMD|IND|INP|INV|IRQ|"+
-            "LAN|LIN|LOC|MEA|MEM|MKS|MOA|MSG|MTD|NAD|NAT|"+
-            "PAC|PAI|PAS|PCC|PCD|PCI|PDI|PER|PGI|PIA|PNA|POC|PRC|PRI|PRV|PSD|PTY|PYT|"+
-            "QRS|QTY|QUA|QVR|"+
-            "RCS|REL|RFF|RJL|RNG|ROD|RSL|RTE|"+
-            "SAL|SCC|SCD|SEG|SEL|SEQ|SFI|SGP|SGU|SPR|SPS|STA|STC|STG|STS|"+
-            "TAX|TCC|TDT|TEM|TMD|TMP|TOD|TPL|TRU|TSR|"+
-            "UNB|UNZ|UNT|UGH|UGT|UNS|"+
-            "VLI"
-        );
-    
-        var header = (
-            "UNH"
-        );
-    
-        var buildinConstants = ("null|Infinity|NaN|undefined");
-        var langClasses = (
-            ""
-        );
-    
-        var keywords = (
-            "BY|SE|ON|INV|JP|UNOA"
-        );
-    
-        var keywordMapper = this.createKeywordMapper({
-            "variable.language": "this",
-            "keyword": keywords,
-            "entity.name.segment":segment,
-            "entity.name.header":header,
-            "constant.language": buildinConstants,
-            "support.function": langClasses
-        }, "identifier");
-    
-        // regexp must not have capturing parentheses. Use (?:) instead.
-        // regexps are ordered -> the first match is used
-    
-        this.$rules = {
-            "start" : [
-                {
-                    token : "punctuation.operator",
-                    regex : "\\+.\\+"
-                }, {
-                    token : "constant.language.boolean",
-                    regex : "(?:true|false)\\b"
-                }, {
-                    token : keywordMapper,
-                    regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-                }, {
-                    token : "keyword.operator",
-                    regex : "\\+"
-                }, {
-                    token : "punctuation.operator",
-                    regex : "\\:|'"
-                },{
-                    token : "identifier",
-                    regex : "\\:D\\:"
-                }
-            ]
-        };
-    
-        this.embedRules(DocCommentHighlightRules, "doc-",
-            [ DocCommentHighlightRules.getEndRule("start") ]);
-    };
-    
-    EdifactHighlightRules.metaData = { fileTypes: [ 'edi' ],
-          keyEquivalent: '^~E',
-          name: 'Edifact',
-          scopeName: 'source.edifact' };
-    
-    oop.inherits(EdifactHighlightRules, TextHighlightRules);
-    
-    exports.Q = EdifactHighlightRules;
+    var dom = __webpack_require__(71435);
+    dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ })

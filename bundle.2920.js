@@ -1,122 +1,24 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2920],{
 
-/***/ 84580:
+/***/ 2920:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-/*
-* Folding mode for Cabal files (Haskell): allow folding each seaction, including
-* the initial general section.
-*/
 
 
-
-var oop = __webpack_require__(21984);
-var BaseFoldMode = (__webpack_require__(82896).FoldMode);
-var Range = (__webpack_require__(82080)/* .Range */ .E);
-
-var FoldMode = exports.W = function() {};
-oop.inherits(FoldMode, BaseFoldMode);
-
-(function() {
-  /**
-  is the row a heading?
-  */
-  this.isHeading = function (session,row) {
-      var heading = "markup.heading";
-      var token = session.getTokens(row)[0];
-      return row==0 || (token && token.type.lastIndexOf(heading, 0) === 0);
-  };
-
-  this.getFoldWidget = function(session, foldStyle, row) {
-      if (this.isHeading(session,row)){
-        return "start";
-      } else if (foldStyle === "markbeginend" && !(/^\s*$/.test(session.getLine(row)))){
-        var maxRow = session.getLength();
-        while (++row < maxRow) {
-          if (!(/^\s*$/.test(session.getLine(row)))){
-              break;
-          }
-        }
-        if (row==maxRow || this.isHeading(session,row)){
-          return "end";
-        }
-      }
-      return "";
-  };
-
-
-  this.getFoldWidgetRange = function(session, foldStyle, row) {
-      var line = session.getLine(row);
-      var startColumn = line.length;
-      var maxRow = session.getLength();
-      var startRow = row;
-      var endRow = row;
-      // go until next heading
-      if (this.isHeading(session,row)) {
-          while (++row < maxRow) {
-              if (this.isHeading(session,row)){
-                row--;
-                break;
-              }
-          }
-
-          endRow = row;
-          // remove empty lines at end
-          if (endRow > startRow) {
-              while (endRow > startRow && /^\s*$/.test(session.getLine(endRow)))
-                  endRow--;
-          }
-
-          if (endRow > startRow) {
-              var endColumn = session.getLine(endRow).length;
-              return new Range(startRow, startColumn, endRow, endColumn);
-          }
-      // go back to heading
-      } else if (this.getFoldWidget(session, foldStyle, row)==="end"){
-        var endRow = row;
-        var endColumn = session.getLine(endRow).length;
-        while (--row>=0){
-          if (this.isHeading(session,row)){
-            break;
-          }
-        }
-        var line = session.getLine(row);
-        var startColumn = line.length;
-        return new Range(row, startColumn, endRow, endColumn);
-      }
-    };
-
-}).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 72920:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-/**
-* Haskell Cabal files mode (https://www.haskell.org/cabal/users-guide/developing-packages.html)
-**/
-
-
-
-var oop = __webpack_require__(21984);
-var TextMode = (__webpack_require__(83736).Mode);
-var CabalHighlightRules = (__webpack_require__(77600)/* .CabalHighlightRules */ .e);
-var FoldMode = (__webpack_require__(84580)/* .FoldMode */ .W);
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var EiffelHighlightRules = (__webpack_require__(53939)/* .EiffelHighlightRules */ .F);
 
 var Mode = function() {
-    this.HighlightRules = CabalHighlightRules;
-    this.foldingRules = new FoldMode();
+    this.HighlightRules = EiffelHighlightRules;
     this.$behaviour = this.$defaultBehaviour;
 };
 oop.inherits(Mode, TextMode);
 
 (function() {
     this.lineCommentStart = "--";
-    this.blockComment = null;
-    this.$id = "ace/mode/haskell_cabal";
+    this.$id = "ace/mode/eiffel";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
@@ -124,47 +26,113 @@ exports.Mode = Mode;
 
 /***/ }),
 
-/***/ 77600:
+/***/ 53939:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-/**
- * Haskell Cabal files highlighter (https://www.haskell.org/cabal/users-guide/developing-packages.html)
- **/
 
 
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
 
-var oop = __webpack_require__(21984);
-var TextHighlightRules = (__webpack_require__(98176)/* .TextHighlightRules */ .Y);
+var EiffelHighlightRules = function() {
+    var keywords = "across|agent|alias|all|attached|as|assign|attribute|check|" +
+        "class|convert|create|debug|deferred|detachable|do|else|elseif|end|" +
+        "ensure|expanded|export|external|feature|from|frozen|if|inherit|" +
+        "inspect|invariant|like|local|loop|not|note|obsolete|old|once|" +
+        "Precursor|redefine|rename|require|rescue|retry|select|separate|" +
+        "some|then|undefine|until|variant|when";
 
-var CabalHighlightRules = function() {
+    var operatorKeywords = "and|implies|or|xor";
 
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
+    var languageConstants = "Void";
+
+    var booleanConstants = "True|False";
+
+    var languageVariables = "Current|Result";
+
+    var keywordMapper = this.createKeywordMapper({
+        "constant.language": languageConstants,
+        "constant.language.boolean": booleanConstants,
+        "variable.language": languageVariables,
+        "keyword.operator": operatorKeywords,
+        "keyword": keywords
+    }, "identifier", true);
+
+    var simpleString = /(?:[^"%\b\f\v]|%[A-DFHLNQR-V%'"()<>]|%\/(?:0[xX][\da-fA-F](?:_*[\da-fA-F])*|0[cC][0-7](?:_*[0-7])*|0[bB][01](?:_*[01])*|\d(?:_*\d)*)\/)+?/;
+
     this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : "^\\s*--.*$"
+        "start": [{
+                token : "string.quoted.other", // Aligned-verbatim-strings (verbatim option not supported)
+                regex : /"\[/,
+                next: "aligned_verbatim_string"
             }, {
-                token: ["keyword"],
-                regex: /^(\s*\w.*?)(:(?:\s+|$))/
+                token : "string.quoted.other", // Non-aligned-verbatim-strings (verbatim option not supported)
+                regex : /"\{/,
+                next: "non-aligned_verbatim_string"
             }, {
-                token : "constant.numeric", // float
-                regex : /[\d_]+(?:(?:[\.\d_]*)?)/
+                token : "string.quoted.double",
+                regex : /"(?:[^%\b\f\n\r\v]|%[A-DFHLNQR-V%'"()<>]|%\/(?:0[xX][\da-fA-F](?:_*[\da-fA-F])*|0[cC][0-7](?:_*[0-7])*|0[bB][01](?:_*[01])*|\d(?:_*\d)*)\/)*?"/
             }, {
-                token : "constant.language.boolean",
-                regex : "(?:true|false|TRUE|FALSE|True|False|yes|no)\\b"
+                token : "comment.line.double-dash",
+                regex : /--.*/
             }, {
-                token : "markup.heading",
-                regex : /^(\w.*)$/
+                token : "constant.character",
+                regex : /'(?:[^%\b\f\n\r\t\v]|%[A-DFHLNQR-V%'"()<>]|%\/(?:0[xX][\da-fA-F](?:_*[\da-fA-F])*|0[cC][0-7](?:_*[0-7])*|0[bB][01](?:_*[01])*|\d(?:_*\d)*)\/)'/
+            }, {
+                token : "constant.numeric", // hexa | octal | bin
+                regex : /\b0(?:[xX][\da-fA-F](?:_*[\da-fA-F])*|[cC][0-7](?:_*[0-7])*|[bB][01](?:_*[01])*)\b/
+            }, {
+                token : "constant.numeric",
+                regex : /(?:\d(?:_*\d)*)?\.(?:(?:\d(?:_*\d)*)?[eE][+-]?)?\d(?:_*\d)*|\d(?:_*\d)*\.?/
+            }, {
+                token : "paren.lparen",
+                regex : /[\[({]|<<|\|\(/
+            }, {
+                token : "paren.rparen",
+                regex : /[\])}]|>>|\|\)/
+            }, {
+                token : "keyword.operator", // punctuation
+                regex : /:=|->|\.(?=\w)|[;,:?]/
+            }, {
+                token : "keyword.operator",
+                regex : /\\\\|\|\.\.\||\.\.|\/[~\/]?|[><\/]=?|[-+*^=~]/
+            }, {
+                token : function (v) {
+                    var result = keywordMapper(v);
+                    if (result === "identifier" && v === v.toUpperCase()) {
+                        result =  "entity.name.type";
+                    }
+                    return result;
+                },
+                regex : /[a-zA-Z][a-zA-Z\d_]*\b/
+            }, {
+                token : "text",
+                regex : /\s+/
+            }
+        ],
+        "aligned_verbatim_string" : [{
+                token : "string",
+                regex : /]"/,
+                next : "start"
+            }, {
+                token : "string",
+                regex : simpleString
+            }
+        ],
+        "non-aligned_verbatim_string" : [{
+                token : "string.quoted.other",
+                regex : /}"/,
+                next : "start"
+            }, {
+                token : "string.quoted.other",
+                regex : simpleString
             }
         ]};
-
 };
 
-oop.inherits(CabalHighlightRules, TextHighlightRules);
+oop.inherits(EiffelHighlightRules, TextHighlightRules);
 
-exports.e = CabalHighlightRules;
+exports.F = EiffelHighlightRules;
 
 
 /***/ })
