@@ -201,7 +201,7 @@ exports.Mode = Mode;
 
 
 
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
 var keywords = [
     "abstract", "as", "base", "bool",

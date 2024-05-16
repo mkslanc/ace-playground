@@ -7,7 +7,7 @@
 // [WIP]
 
 
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
 function is(token, type) {
     return token.type.lastIndexOf(type + ".xml") > -1;

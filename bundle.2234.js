@@ -9,7 +9,7 @@
 var oop = __webpack_require__(2645);
 var Behaviour = (__webpack_require__(75684)/* .Behaviour */ .Q);
 var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
 var CssBehaviour = function () {
 
@@ -390,6 +390,63 @@ oop.inherits(FoldMode, MixedFoldMode);
 
 /***/ }),
 
+/***/ 90610:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var BaseFoldMode = (__webpack_require__(51358).FoldMode);
+
+var FoldMode = exports.l = function(defaultMode, subModes) {
+    this.defaultMode = defaultMode;
+    this.subModes = subModes;
+};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+
+    this.$getMode = function(state) {
+        if (typeof state != "string") 
+            state = state[0];
+        for (var key in this.subModes) {
+            if (state.indexOf(key) === 0)
+                return this.subModes[key];
+        }
+        return null;
+    };
+    
+    this.$tryMode = function(state, session, foldStyle, row) {
+        var mode = this.$getMode(state);
+        return (mode ? mode.getFoldWidget(session, foldStyle, row) : "");
+    };
+
+    this.getFoldWidget = function(session, foldStyle, row) {
+        return (
+            this.$tryMode(session.getState(row-1), session, foldStyle, row) ||
+            this.$tryMode(session.getState(row), session, foldStyle, row) ||
+            this.defaultMode.getFoldWidget(session, foldStyle, row)
+        );
+    };
+
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var mode = this.$getMode(session.getState(row-1));
+        
+        if (!mode || !mode.getFoldWidget(session, foldStyle, row))
+            mode = this.$getMode(session.getState(row));
+        
+        if (!mode || !mode.getFoldWidget(session, foldStyle, row))
+            mode = this.defaultMode;
+        
+        return mode.getFoldWidgetRange(session, foldStyle, row);
+    };
+
+}).call(FoldMode.prototype);
+
+
+/***/ }),
+
 /***/ 32234:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -477,7 +534,7 @@ exports.Mode = Mode;
 
 
 
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
 var commonAttributes = [
     "accesskey",

@@ -109,7 +109,7 @@ var oop = __webpack_require__(2645);
 var TextMode = (__webpack_require__(49432).Mode);
 var LogiQLHighlightRules = (__webpack_require__(74172)/* .LogiQLHighlightRules */ .Q);
 var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 var Range = (__webpack_require__(91902)/* .Range */ .Q);
 var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
 

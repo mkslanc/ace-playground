@@ -18,14 +18,25 @@ export declare class LanguageProvider {
      * @param {ProviderOptions} options
      */
     static create(worker: Worker, options?: ProviderOptions): LanguageProvider;
+    /**
+     * method to create LanguageProvider from CDN
+     * @param customServices
+     * @param options
+     * @param includeDefaultLinters by default would include all linters
+     */
     static fromCdn(customServices: {
         services: ServiceStruct[];
         serviceManagerCdn: string;
         includeDefaultLinters?: {
-            [name in SupportedServices]: boolean;
-        } | true;
-    }, options?: ProviderOptions): LanguageProvider;
-    static fromCdn(cdnUrl: string, options?: ProviderOptions): LanguageProvider;
+            [name in SupportedServices]?: boolean;
+        } | boolean;
+    }, options?: ProviderOptions, includeDefaultLinters?: {
+        [name in SupportedServices]?: boolean;
+    } | boolean): LanguageProvider;
+    static fromCdn(cdnUrl: string, options?: ProviderOptions, includeDefaultLinters?: {
+        [name in SupportedServices]?: boolean;
+    } | boolean): LanguageProvider;
+    setProviderOptions(options?: ProviderOptions): void;
     private $registerSession;
     private $getSessionLanguageProvider;
     private $getFileName;
@@ -40,6 +51,7 @@ export declare class LanguageProvider {
     provideSignatureHelp(session: Ace.EditSession, position: Ace.Point, callback?: (signatureHelp: Tooltip | undefined) => void): void;
     getTooltipText(hover: Tooltip): string;
     format: () => void;
+    getSemanticTokens(): void;
     doComplete(editor: Ace.Editor, session: Ace.EditSession, callback: (CompletionList: Ace.Completion[] | null) => void): void;
     doResolve(item: Ace.Completion, callback: (completionItem: lsp.CompletionItem | null) => void): void;
     $registerCompleters(editor: Ace.Editor): void;
@@ -47,6 +59,7 @@ export declare class LanguageProvider {
     /**
      * Removes document from all linked services by session id
      * @param session
+     * @param [callback]
      */
     closeDocument(session: Ace.EditSession, callback?: any): void;
 }

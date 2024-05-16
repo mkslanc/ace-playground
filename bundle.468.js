@@ -257,6 +257,7 @@ exports.Mode = Mode;
 /***/ 79255:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+var __webpack_unused_export__;
 
 
 var oop = __webpack_require__(2645);
@@ -426,6 +427,7 @@ var SwiftHighlightRules = function() {
 oop.inherits(SwiftHighlightRules, TextHighlightRules);
 
 exports.G = SwiftHighlightRules;
+__webpack_unused_export__ = SwiftHighlightRules;
 
 
 /***/ })

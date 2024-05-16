@@ -31,7 +31,7 @@ module.exports = `
 }
 
 .ace-cloud_editor_dark .ace_marker-layer .ace_selection {
-    background: #213a70;
+    background: #4376bd;
 }
 
 .ace-cloud_editor_dark.ace_multiselect .ace_selection.ace_start {
@@ -68,7 +68,7 @@ module.exports = `
 }
 
 .ace-cloud_editor_dark .ace_marker-layer .ace_selected-word {
-    border: 1px solid #282c34;
+    border: 1px solid #9bd0f7;
 }
 
 .ace-cloud_editor_dark .ace_fold {

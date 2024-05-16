@@ -9,7 +9,7 @@
 var oop = __webpack_require__(2645);
 var Behaviour = (__webpack_require__(75684)/* .Behaviour */ .Q);
 var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
 var CssBehaviour = function () {
 

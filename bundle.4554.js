@@ -327,7 +327,7 @@ exports.n = DroolsHighlightRules;
 var oop = __webpack_require__(2645);
 var Range = (__webpack_require__(91902)/* .Range */ .Q);
 var BaseFoldMode = (__webpack_require__(51358).FoldMode);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
 var FoldMode = exports.l = function() {};
 oop.inherits(FoldMode, BaseFoldMode);

@@ -298,7 +298,7 @@ oop.inherits(FoldMode, BaseFoldMode);
 var oop = __webpack_require__(2645);
 var BaseFoldMode = (__webpack_require__(51358).FoldMode);
 var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
 
 var FoldMode = exports.l = function () {

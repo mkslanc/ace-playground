@@ -25,7 +25,7 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/asciidoc'
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/asl', () => __webpack_require__.e(/* import() */ 7023).then(__webpack_require__.t.bind(__webpack_require__, 37023, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/assembly_arm32', () => __webpack_require__.e(/* import() */ 4583).then(__webpack_require__.t.bind(__webpack_require__, 64583, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/assembly_x86', () => __webpack_require__.e(/* import() */ 1746).then(__webpack_require__.t.bind(__webpack_require__, 11746, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/astro', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(5120)]).then(__webpack_require__.t.bind(__webpack_require__, 15120, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/astro', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(5120)]).then(__webpack_require__.t.bind(__webpack_require__, 15120, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/autohotkey', () => __webpack_require__.e(/* import() */ 2674).then(__webpack_require__.t.bind(__webpack_require__, 32674, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/batchfile', () => __webpack_require__.e(/* import() */ 8253).then(__webpack_require__.t.bind(__webpack_require__, 18253, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/bibtex', () => __webpack_require__.e(/* import() */ 3989).then(__webpack_require__.t.bind(__webpack_require__, 93989, 19)));
@@ -35,7 +35,7 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/cirru', (
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/clojure', () => __webpack_require__.e(/* import() */ 4335).then(__webpack_require__.t.bind(__webpack_require__, 4335, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/cobol', () => __webpack_require__.e(/* import() */ 3436).then(__webpack_require__.t.bind(__webpack_require__, 83436, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/coffee', () => __webpack_require__.e(/* import() */ 1079).then(__webpack_require__.t.bind(__webpack_require__, 61079, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/coldfusion', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(4341)]).then(__webpack_require__.t.bind(__webpack_require__, 54341, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/coldfusion', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(4341)]).then(__webpack_require__.t.bind(__webpack_require__, 54341, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/crystal', () => __webpack_require__.e(/* import() */ 7465).then(__webpack_require__.t.bind(__webpack_require__, 7465, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/csharp', () => __webpack_require__.e(/* import() */ 4764).then(__webpack_require__.t.bind(__webpack_require__, 54764, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/csound_document', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(3928), __webpack_require__.e(215)]).then(__webpack_require__.t.bind(__webpack_require__, 40215, 19)));
@@ -43,18 +43,18 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/csound_or
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/csound_score', () => __webpack_require__.e(/* import() */ 9858).then(__webpack_require__.t.bind(__webpack_require__, 79858, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/csp', () => __webpack_require__.e(/* import() */ 5409).then(__webpack_require__.t.bind(__webpack_require__, 55409, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/css', () => __webpack_require__.e(/* import() */ 1080).then(__webpack_require__.t.bind(__webpack_require__, 41080, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/curly', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(9430)]).then(__webpack_require__.t.bind(__webpack_require__, 39430, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/curly', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(9430)]).then(__webpack_require__.t.bind(__webpack_require__, 39430, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/cuttlefish', () => __webpack_require__.e(/* import() */ 4186).then(__webpack_require__.t.bind(__webpack_require__, 64186, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/d', () => __webpack_require__.e(/* import() */ 343).then(__webpack_require__.t.bind(__webpack_require__, 343, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/dart', () => __webpack_require__.e(/* import() */ 3006).then(__webpack_require__.t.bind(__webpack_require__, 83006, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/diff', () => __webpack_require__.e(/* import() */ 6104).then(__webpack_require__.t.bind(__webpack_require__, 56104, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/django', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(3332)]).then(__webpack_require__.t.bind(__webpack_require__, 43332, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/django', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(3332)]).then(__webpack_require__.t.bind(__webpack_require__, 43332, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/dockerfile', () => __webpack_require__.e(/* import() */ 1257).then(__webpack_require__.t.bind(__webpack_require__, 31257, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/dot', () => __webpack_require__.e(/* import() */ 1304).then(__webpack_require__.t.bind(__webpack_require__, 51304, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/drools', () => __webpack_require__.e(/* import() */ 4554).then(__webpack_require__.t.bind(__webpack_require__, 34554, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/edifact', () => __webpack_require__.e(/* import() */ 261).then(__webpack_require__.t.bind(__webpack_require__, 50261, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/eiffel', () => __webpack_require__.e(/* import() */ 2920).then(__webpack_require__.t.bind(__webpack_require__, 2920, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/ejs', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(4848), __webpack_require__.e(31)]).then(__webpack_require__.t.bind(__webpack_require__, 30031, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/ejs', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(4848), __webpack_require__.e(31)]).then(__webpack_require__.t.bind(__webpack_require__, 30031, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/elixir', () => __webpack_require__.e(/* import() */ 7692).then(__webpack_require__.t.bind(__webpack_require__, 37692, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/elm', () => __webpack_require__.e(/* import() */ 6135).then(__webpack_require__.t.bind(__webpack_require__, 6135, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/erlang', () => __webpack_require__.e(/* import() */ 3544).then(__webpack_require__.t.bind(__webpack_require__, 33544, 19)));
@@ -68,48 +68,48 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/gcode', (
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/gherkin', () => __webpack_require__.e(/* import() */ 5005).then(__webpack_require__.t.bind(__webpack_require__, 25005, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/gitignore', () => __webpack_require__.e(/* import() */ 297).then(__webpack_require__.t.bind(__webpack_require__, 297, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/glsl', () => __webpack_require__.e(/* import() */ 903).then(__webpack_require__.t.bind(__webpack_require__, 80903, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/gobstones', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3845)]).then(__webpack_require__.t.bind(__webpack_require__, 93845, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/gobstones', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(3845)]).then(__webpack_require__.t.bind(__webpack_require__, 93845, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/golang', () => __webpack_require__.e(/* import() */ 8009).then(__webpack_require__.t.bind(__webpack_require__, 38009, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/graphqlschema', () => __webpack_require__.e(/* import() */ 3105).then(__webpack_require__.t.bind(__webpack_require__, 63105, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/groovy', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(2025)]).then(__webpack_require__.t.bind(__webpack_require__, 32025, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/groovy', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(2025)]).then(__webpack_require__.t.bind(__webpack_require__, 32025, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/haml', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(4848), __webpack_require__.e(2545)]).then(__webpack_require__.t.bind(__webpack_require__, 42545, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/handlebars', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(2527)]).then(__webpack_require__.t.bind(__webpack_require__, 52527, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/handlebars', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(2527)]).then(__webpack_require__.t.bind(__webpack_require__, 52527, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/haskell', () => __webpack_require__.e(/* import() */ 2119).then(__webpack_require__.t.bind(__webpack_require__, 82119, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/haskell_cabal', () => __webpack_require__.e(/* import() */ 5611).then(__webpack_require__.t.bind(__webpack_require__, 85611, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/haxe', () => __webpack_require__.e(/* import() */ 1151).then(__webpack_require__.t.bind(__webpack_require__, 91151, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/hjson', () => __webpack_require__.e(/* import() */ 6929).then(__webpack_require__.t.bind(__webpack_require__, 56929, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/html', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234)]).then(__webpack_require__.t.bind(__webpack_require__, 32234, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/html_elixir', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(562)]).then(__webpack_require__.t.bind(__webpack_require__, 562, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/html_ruby', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(4848), __webpack_require__.e(9261)]).then(__webpack_require__.t.bind(__webpack_require__, 9261, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/html', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234)]).then(__webpack_require__.t.bind(__webpack_require__, 32234, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/html_elixir', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(562)]).then(__webpack_require__.t.bind(__webpack_require__, 562, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/html_ruby', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(4848), __webpack_require__.e(9261)]).then(__webpack_require__.t.bind(__webpack_require__, 9261, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/ini', () => __webpack_require__.e(/* import() */ 5481).then(__webpack_require__.t.bind(__webpack_require__, 95481, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/io', () => __webpack_require__.e(/* import() */ 247).then(__webpack_require__.t.bind(__webpack_require__, 70247, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/ion', () => __webpack_require__.e(/* import() */ 2613).then(__webpack_require__.t.bind(__webpack_require__, 92613, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/jack', () => __webpack_require__.e(/* import() */ 1820).then(__webpack_require__.t.bind(__webpack_require__, 81820, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/jade', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(9681)]).then(__webpack_require__.t.bind(__webpack_require__, 29681, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/java', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(8259)]).then(__webpack_require__.t.bind(__webpack_require__, 38259, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/java', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(8259)]).then(__webpack_require__.t.bind(__webpack_require__, 38259, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/javascript', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388)]).then(__webpack_require__.t.bind(__webpack_require__, 93388, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/jexl', () => __webpack_require__.e(/* import() */ 1770).then(__webpack_require__.t.bind(__webpack_require__, 91770, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/json', () => __webpack_require__.e(/* import() */ 5081).then(__webpack_require__.t.bind(__webpack_require__, 45081, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/json5', () => __webpack_require__.e(/* import() */ 8314).then(__webpack_require__.t.bind(__webpack_require__, 88314, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/jsp', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(9706)]).then(__webpack_require__.t.bind(__webpack_require__, 99706, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/jssm', () => __webpack_require__.e(/* import() */ 5660).then(__webpack_require__.t.bind(__webpack_require__, 65660, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/jsx', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3442)]).then(__webpack_require__.t.bind(__webpack_require__, 93442, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/jsx', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(3442)]).then(__webpack_require__.t.bind(__webpack_require__, 93442, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/julia', () => __webpack_require__.e(/* import() */ 8270).then(__webpack_require__.t.bind(__webpack_require__, 18270, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/kotlin', () => __webpack_require__.e(/* import() */ 3682).then(__webpack_require__.t.bind(__webpack_require__, 63682, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/latex', () => __webpack_require__.e(/* import() */ 8311).then(__webpack_require__.t.bind(__webpack_require__, 88311, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/latte', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(3629)]).then(__webpack_require__.t.bind(__webpack_require__, 43629, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/latte', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(3629)]).then(__webpack_require__.t.bind(__webpack_require__, 43629, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/less', () => __webpack_require__.e(/* import() */ 9686).then(__webpack_require__.t.bind(__webpack_require__, 79686, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/liquid', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(307)]).then(__webpack_require__.t.bind(__webpack_require__, 20307, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/liquid', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(307)]).then(__webpack_require__.t.bind(__webpack_require__, 20307, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/lisp', () => __webpack_require__.e(/* import() */ 111).then(__webpack_require__.t.bind(__webpack_require__, 20111, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/livescript', () => __webpack_require__.e(/* import() */ 4854).then(__webpack_require__.t.bind(__webpack_require__, 34854, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/logiql', () => __webpack_require__.e(/* import() */ 3983).then(__webpack_require__.t.bind(__webpack_require__, 13983, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/logtalk', () => __webpack_require__.e(/* import() */ 5527).then(__webpack_require__.t.bind(__webpack_require__, 65527, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/lsl', () => __webpack_require__.e(/* import() */ 3476).then(__webpack_require__.t.bind(__webpack_require__, 83476, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/lua', () => __webpack_require__.e(/* import() */ 9781).then(__webpack_require__.t.bind(__webpack_require__, 39781, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/luapage', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(8130)]).then(__webpack_require__.t.bind(__webpack_require__, 88130, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/luapage', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(8130)]).then(__webpack_require__.t.bind(__webpack_require__, 88130, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/lucene', () => __webpack_require__.e(/* import() */ 313).then(__webpack_require__.t.bind(__webpack_require__, 10313, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/makefile', () => __webpack_require__.e(/* import() */ 5383).then(__webpack_require__.t.bind(__webpack_require__, 5383, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/markdown', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(5390)]).then(__webpack_require__.t.bind(__webpack_require__, 75390, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/markdown', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(5390)]).then(__webpack_require__.t.bind(__webpack_require__, 75390, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/mask', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(2699)]).then(__webpack_require__.t.bind(__webpack_require__, 92699, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/matlab', () => __webpack_require__.e(/* import() */ 4406).then(__webpack_require__.t.bind(__webpack_require__, 84406, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/maze', () => __webpack_require__.e(/* import() */ 2328).then(__webpack_require__.t.bind(__webpack_require__, 92328, 19)));
@@ -124,7 +124,7 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nginx', (
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nim', () => __webpack_require__.e(/* import() */ 5799).then(__webpack_require__.t.bind(__webpack_require__, 15799, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nix', () => __webpack_require__.e(/* import() */ 4348).then(__webpack_require__.t.bind(__webpack_require__, 64348, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nsis', () => __webpack_require__.e(/* import() */ 1312).then(__webpack_require__.t.bind(__webpack_require__, 31312, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nunjucks', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(1236)]).then(__webpack_require__.t.bind(__webpack_require__, 1236, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/nunjucks', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(1236)]).then(__webpack_require__.t.bind(__webpack_require__, 1236, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/objectivec', () => __webpack_require__.e(/* import() */ 5507).then(__webpack_require__.t.bind(__webpack_require__, 85507, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/ocaml', () => __webpack_require__.e(/* import() */ 4875).then(__webpack_require__.t.bind(__webpack_require__, 54875, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/odin', () => __webpack_require__.e(/* import() */ 1675).then(__webpack_require__.t.bind(__webpack_require__, 91675, 19)));
@@ -132,8 +132,8 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/partiql',
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/pascal', () => __webpack_require__.e(/* import() */ 5143).then(__webpack_require__.t.bind(__webpack_require__, 75143, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/perl', () => __webpack_require__.e(/* import() */ 1934).then(__webpack_require__.t.bind(__webpack_require__, 21934, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/pgsql', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(5440)]).then(__webpack_require__.t.bind(__webpack_require__, 65440, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/php', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(9883)]).then(__webpack_require__.t.bind(__webpack_require__, 99883, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/php_laravel_blade', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(9883), __webpack_require__.e(3212)]).then(__webpack_require__.t.bind(__webpack_require__, 33212, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/php', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(9883)]).then(__webpack_require__.t.bind(__webpack_require__, 99883, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/php_laravel_blade', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(9883), __webpack_require__.e(3212)]).then(__webpack_require__.t.bind(__webpack_require__, 33212, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/pig', () => __webpack_require__.e(/* import() */ 1951).then(__webpack_require__.t.bind(__webpack_require__, 71951, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/plain_text', () => __webpack_require__.e(/* import() */ 7001).then(__webpack_require__.t.bind(__webpack_require__, 57001, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/plsql', () => __webpack_require__.e(/* import() */ 3219).then(__webpack_require__.t.bind(__webpack_require__, 73219, 19)));
@@ -149,11 +149,11 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/python', 
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/qml', () => __webpack_require__.e(/* import() */ 2857).then(__webpack_require__.t.bind(__webpack_require__, 32857, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/r', () => __webpack_require__.e(/* import() */ 3317).then(__webpack_require__.t.bind(__webpack_require__, 13317, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/raku', () => __webpack_require__.e(/* import() */ 9042).then(__webpack_require__.t.bind(__webpack_require__, 39042, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/razor', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(8871)]).then(__webpack_require__.t.bind(__webpack_require__, 78871, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/razor', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(8871)]).then(__webpack_require__.t.bind(__webpack_require__, 78871, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/rdoc', () => __webpack_require__.e(/* import() */ 7787).then(__webpack_require__.t.bind(__webpack_require__, 17787, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/red', () => __webpack_require__.e(/* import() */ 6328).then(__webpack_require__.t.bind(__webpack_require__, 66328, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/redshift', () => __webpack_require__.e(/* import() */ 5074).then(__webpack_require__.t.bind(__webpack_require__, 25074, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/rhtml', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(9748)]).then(__webpack_require__.t.bind(__webpack_require__, 9748, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/rhtml', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(9748)]).then(__webpack_require__.t.bind(__webpack_require__, 9748, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/robot', () => __webpack_require__.e(/* import() */ 571).then(__webpack_require__.t.bind(__webpack_require__, 50571, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/rst', () => __webpack_require__.e(/* import() */ 5262).then(__webpack_require__.t.bind(__webpack_require__, 25262, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/ruby', () => Promise.all(/* import() */[__webpack_require__.e(4848), __webpack_require__.e(1067)]).then(__webpack_require__.t.bind(__webpack_require__, 11067, 19)));
@@ -161,23 +161,23 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/rust', ()
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sac', () => __webpack_require__.e(/* import() */ 4350).then(__webpack_require__.t.bind(__webpack_require__, 64350, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sass', () => __webpack_require__.e(/* import() */ 1525).then(__webpack_require__.t.bind(__webpack_require__, 31525, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/scad', () => __webpack_require__.e(/* import() */ 1092).then(__webpack_require__.t.bind(__webpack_require__, 91092, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/scala', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(8789)]).then(__webpack_require__.t.bind(__webpack_require__, 68789, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/scala', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(8789)]).then(__webpack_require__.t.bind(__webpack_require__, 68789, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/scheme', () => __webpack_require__.e(/* import() */ 3656).then(__webpack_require__.t.bind(__webpack_require__, 53656, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/scrypt', () => __webpack_require__.e(/* import() */ 9660).then(__webpack_require__.t.bind(__webpack_require__, 79660, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/scss', () => __webpack_require__.e(/* import() */ 2007).then(__webpack_require__.t.bind(__webpack_require__, 72007, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sh', () => __webpack_require__.e(/* import() */ 5052).then(__webpack_require__.t.bind(__webpack_require__, 95052, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sjs', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(461)]).then(__webpack_require__.t.bind(__webpack_require__, 30461, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/slim', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(4848), __webpack_require__.e(2561), __webpack_require__.e(1026)]).then(__webpack_require__.t.bind(__webpack_require__, 41026, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/smarty', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(4939)]).then(__webpack_require__.t.bind(__webpack_require__, 14939, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sjs', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(461)]).then(__webpack_require__.t.bind(__webpack_require__, 30461, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/slim', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(4848), __webpack_require__.e(2561), __webpack_require__.e(1026)]).then(__webpack_require__.t.bind(__webpack_require__, 41026, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/smarty', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(4939)]).then(__webpack_require__.t.bind(__webpack_require__, 14939, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/smithy', () => __webpack_require__.e(/* import() */ 2213).then(__webpack_require__.t.bind(__webpack_require__, 22213, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/snippets', () => __webpack_require__.e(/* import() */ 6473).then(__webpack_require__.t.bind(__webpack_require__, 96473, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/soy_template', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(8180)]).then(__webpack_require__.t.bind(__webpack_require__, 95799, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/soy_template', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(8180)]).then(__webpack_require__.t.bind(__webpack_require__, 95799, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/space', () => __webpack_require__.e(/* import() */ 245).then(__webpack_require__.t.bind(__webpack_require__, 10245, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sparql', () => __webpack_require__.e(/* import() */ 8886).then(__webpack_require__.t.bind(__webpack_require__, 38886, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sql', () => __webpack_require__.e(/* import() */ 7447).then(__webpack_require__.t.bind(__webpack_require__, 17447, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/sqlserver', () => __webpack_require__.e(/* import() */ 80).then(__webpack_require__.t.bind(__webpack_require__, 70080, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/stylus', () => __webpack_require__.e(/* import() */ 5241).then(__webpack_require__.t.bind(__webpack_require__, 55241, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/svg', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(5147), __webpack_require__.e(4445)]).then(__webpack_require__.t.bind(__webpack_require__, 14445, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/svg', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(4445)]).then(__webpack_require__.t.bind(__webpack_require__, 14445, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/swift', () => __webpack_require__.e(/* import() */ 468).then(__webpack_require__.t.bind(__webpack_require__, 40468, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/tcl', () => __webpack_require__.e(/* import() */ 7228).then(__webpack_require__.t.bind(__webpack_require__, 47228, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/terraform', () => __webpack_require__.e(/* import() */ 5131).then(__webpack_require__.t.bind(__webpack_require__, 25131, 19)));
@@ -185,18 +185,18 @@ _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/tex', () 
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/text', () => Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 49432, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/textile', () => __webpack_require__.e(/* import() */ 6314).then(__webpack_require__.t.bind(__webpack_require__, 56314, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/toml', () => __webpack_require__.e(/* import() */ 3571).then(__webpack_require__.t.bind(__webpack_require__, 63571, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/tsx', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(2656)]).then(__webpack_require__.t.bind(__webpack_require__, 72656, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/tsx', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(2656)]).then(__webpack_require__.t.bind(__webpack_require__, 72656, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/turtle', () => __webpack_require__.e(/* import() */ 9433).then(__webpack_require__.t.bind(__webpack_require__, 89433, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/twig', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(5858)]).then(__webpack_require__.t.bind(__webpack_require__, 45858, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/typescript', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(532)]).then(__webpack_require__.t.bind(__webpack_require__, 50532, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/twig', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(5858)]).then(__webpack_require__.t.bind(__webpack_require__, 45858, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/typescript', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(532)]).then(__webpack_require__.t.bind(__webpack_require__, 50532, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/vala', () => __webpack_require__.e(/* import() */ 1905).then(__webpack_require__.t.bind(__webpack_require__, 41905, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/vbscript', () => __webpack_require__.e(/* import() */ 2956).then(__webpack_require__.t.bind(__webpack_require__, 92956, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/velocity', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(540)]).then(__webpack_require__.t.bind(__webpack_require__, 540, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/velocity', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(540)]).then(__webpack_require__.t.bind(__webpack_require__, 540, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/verilog', () => __webpack_require__.e(/* import() */ 4741).then(__webpack_require__.t.bind(__webpack_require__, 84741, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/vhdl', () => __webpack_require__.e(/* import() */ 5941).then(__webpack_require__.t.bind(__webpack_require__, 95941, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/visualforce', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(5392)]).then(__webpack_require__.t.bind(__webpack_require__, 95392, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/vue', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(413), __webpack_require__.e(5147), __webpack_require__.e(2234), __webpack_require__.e(2561), __webpack_require__.e(7171)]).then(__webpack_require__.t.bind(__webpack_require__, 47171, 19)));
-_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/wollok', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(843)]).then(__webpack_require__.t.bind(__webpack_require__, 843, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/visualforce', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(5392)]).then(__webpack_require__.t.bind(__webpack_require__, 95392, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/vue', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(413), __webpack_require__.e(2234), __webpack_require__.e(2561), __webpack_require__.e(7171)]).then(__webpack_require__.t.bind(__webpack_require__, 47171, 19)));
+_src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/wollok', () => Promise.all(/* import() */[__webpack_require__.e(5903), __webpack_require__.e(3388), __webpack_require__.e(843)]).then(__webpack_require__.t.bind(__webpack_require__, 843, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/xml', () => __webpack_require__.e(/* import() */ 9846).then(__webpack_require__.t.bind(__webpack_require__, 49846, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/yaml', () => __webpack_require__.e(/* import() */ 8176).then(__webpack_require__.t.bind(__webpack_require__, 48176, 19)));
 _src_ace__WEBPACK_IMPORTED_MODULE_0__.config.setModuleLoader('ace/mode/zeek', () => __webpack_require__.e(/* import() */ 5178).then(__webpack_require__.t.bind(__webpack_require__, 15178, 19)));
@@ -887,7 +887,7 @@ class Autocomplete {
     }
 
     static get completionsForLoading() { return [{
-            caption: config.nls("Loading..."),
+            caption: config.nls("autocomplete.loading", "Loading..."),
             value: ""
         }];
     }
@@ -1128,8 +1128,6 @@ class Autocomplete {
             if (this.tooltipNode) {
                 this.updateDocTooltip();
             }
-        } else if (keepPopupPosition && !prefix) {
-            this.detach();
         }
         this.changeTimer.cancel();
         this.observeLayoutChanges();
@@ -1199,7 +1197,7 @@ class Autocomplete {
     }
 
     mousewheelListener(e) {
-        if (!this.popup.isMouseOver)
+        if (this.popup && !this.popup.isMouseOver)
             this.detach();
     }
 
@@ -1342,7 +1340,8 @@ class Autocomplete {
                             ];
                             this.completions = new FilteredList(completionsForEmpty);
                             this.openPopup(this.editor, prefix, keepPopupPosition);
-                        this.popup.renderer.setStyle("ace_loading", false);
+                            this.popup.renderer.setStyle("ace_loading", false);
+                            this.popup.renderer.setStyle("ace_empty-message", true);
                             return;
                         }
                         return this.detach();
@@ -1366,6 +1365,7 @@ class Autocomplete {
 
                 this.openPopup(this.editor, prefix, keepPopupPosition);
 
+            this.popup.renderer.setStyle("ace_empty-message", false);
             this.popup.renderer.setStyle("ace_loading", !finished);
         }.bind(this));
 
@@ -1516,6 +1516,12 @@ Autocomplete.prototype.commands = {
             editor.completer.goTo("down");
         else
             return result;
+    },
+    "Backspace": function(editor) {
+        editor.execCommand("backspace");
+        var prefix = util.getCompletionPrefix(editor);
+        if (!prefix && editor.completer)
+            editor.completer.detach();
     },
 
     "PageUp": function(editor) { editor.completer.popup.gotoPageUp(); },
@@ -2091,8 +2097,8 @@ class AcePopup {
 
         // Set aria attributes for the popup
         popup.renderer.$textLayer.element.setAttribute("role", popupAriaRole);
-        popup.renderer.$textLayer.element.setAttribute("aria-roledescription", nls("Autocomplete suggestions"));
-        popup.renderer.$textLayer.element.setAttribute("aria-label", nls("Autocomplete suggestions"));
+        popup.renderer.$textLayer.element.setAttribute("aria-roledescription", nls("autocomplete.popup.aria-roledescription", "Autocomplete suggestions"));
+        popup.renderer.$textLayer.element.setAttribute("aria-label", nls("autocomplete.popup.aria-label", "Autocomplete suggestions"));
         popup.renderer.textarea.setAttribute("aria-hidden", "true");
 
         popup.setOption("displayIndentGuides", false);
@@ -2181,7 +2187,7 @@ class AcePopup {
                 t.element.setAttribute("aria-activedescendant", ariaId);
                 el.setAttribute("aria-activedescendant", ariaId);
                 selected.setAttribute("role", optionAriaRole);
-                selected.setAttribute("aria-roledescription", nls("item"));
+                selected.setAttribute("aria-roledescription", nls("autocomplete.popup.item.aria-roledescription", "item"));
                 selected.setAttribute("aria-label", popup.getData(row).caption || popup.getData(row).value);
                 selected.setAttribute("aria-setsize", popup.data.length);
                 selected.setAttribute("aria-posinset", row + 1);
@@ -2505,7 +2511,6 @@ dom.importCssString(`
 .ace_autocomplete .ace_line .ace_ {
     flex: 0 1 auto;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
 }
 .ace_autocomplete .ace_completion-spacer {
@@ -2606,6 +2611,10 @@ exports.getCompletions = function (editor, session, pos, prefix, callback) {
 "use strict";
 
 
+/**
+ * @typedef {import("../editor").Editor} Editor
+ */
+
 exports.parForEach = function(array, fn, callback) {
     var completed = 0;
     var arLength = array.length;
@@ -2665,14 +2674,18 @@ exports.getCompletionPrefix = function (editor) {
     return prefix || this.retrievePrecedingIdentifier(line, pos.column);
 };
 
-exports.triggerAutocomplete = function (editor) {
-    var pos = editor.getCursorPosition();
-    var line = editor.session.getLine(pos.row);
-    var column = (pos.column === 0) ? 0 : pos.column - 1;
-    var previousChar = line[column];
-    return editor.completers.some((el) => {
-        if (el.triggerCharacters && Array.isArray(el.triggerCharacters)) {
-            return el.triggerCharacters.includes(previousChar);
+/**
+ * @param {Editor} editor
+ * @param {string} [previousChar] if not provided, it falls back to the preceding character in the editor
+ * @returns {boolean} whether autocomplete should be triggered
+ */
+exports.triggerAutocomplete = function (editor, previousChar) {
+    var previousChar = previousChar == null
+        ? editor.session.getPrecedingCharacter()
+        : previousChar;
+    return editor.completers.some((completer) => {
+        if (completer.triggerCharacters && Array.isArray(completer.triggerCharacters)) {
+            return completer.triggerCharacters.includes(previousChar);
         }
     });
 };
@@ -4645,7 +4658,7 @@ var reportErrorIfPathIsNotConfigured = function() {
     }
 };
 
-exports.version = "1.32.7";
+exports.version = "1.33.2";
 
 
 
@@ -5313,7 +5326,19 @@ module.exports = `
 .ace_ghost_text {
     opacity: 0.5;
     font-style: italic;
+}
+
+.ace_ghost_text > div {
     white-space: pre;
+}
+
+.ghost_text_line_wrapped::after {
+    content: "↩";
+    position: absolute;
+}
+
+.ace_lineWidgetContainer.ace_ghost_text {
+    margin: 0px 4px
 }
 
 .ace_screenreader-only {
@@ -8396,6 +8421,20 @@ class EditSession {
         };
     }
 
+    /**
+     * @returns {string} the last character preceding the cursor in the editor
+     */
+    getPrecedingCharacter() {
+        var pos = this.selection.getCursor();
+
+        if (pos.column === 0) {
+            return pos.row === 0 ? "" : this.doc.getNewLineCharacter();
+        }
+
+        var currentLine = this.getLine(pos.row);
+        return currentLine[pos.column - 1];
+    }
+
     destroy() {
         if (!this.destroyed) {
             this.bgTokenizer.setDocument(null);
@@ -8647,7 +8686,7 @@ exports.f = EditSession;
  * @typedef {import("../edit_session").EditSession} EditSession
  * @typedef {import("../edit_session").Point} Point
  */
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 var Range = (__webpack_require__(91902)/* .Range */ .Q);
 
 function BracketMatch() {
@@ -8959,6 +8998,12 @@ function BracketMatch() {
         var foundOpenTagEnd = false;
         do {
             prevToken = token;
+            if (prevToken.type.indexOf('tag-close') !== -1 && !foundOpenTagEnd) {
+                var openTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(),
+                    iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1
+                ); //Range for `>`
+                foundOpenTagEnd = true;
+            }
             token = iterator.stepForward();
             if (token) {
                 if (token.value === '>' && !foundOpenTagEnd) {
@@ -8986,7 +9031,9 @@ function BracketMatch() {
                                     iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(),
                                     iterator.getCurrentTokenColumn() + token.value.length
                                 );
-                                token = iterator.stepForward();
+                                if (token.type.indexOf('tag-close') === -1) {
+                                    token = iterator.stepForward();
+                                }
                                 if (token && token.value === '>') {
                                     var closeTagEnd = new Range(iterator.getCurrentTokenRow(),
                                         iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(),
@@ -9050,7 +9097,10 @@ function BracketMatch() {
         var closeTagName = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(),
             iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + token.value.length
         );
-        token = iterator.stepForward();
+
+        if (token.type.indexOf('tag-close') === -1) {
+            token = iterator.stepForward();
+        }
         if (!token || token.value !== ">") return;
         var closeTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(),
             iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1
@@ -9578,7 +9628,7 @@ exports.M = FoldLine;
 var Range = (__webpack_require__(91902)/* .Range */ .Q);
 var FoldLine = (__webpack_require__(70649)/* .FoldLine */ .M);
 var Fold = (__webpack_require__(45816)/* .Fold */ .a);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 var MouseEvent = (__webpack_require__(85519)/* .MouseEvent */ .C);
 
 /**
@@ -10641,7 +10691,7 @@ var EventEmitter = (__webpack_require__(87366).EventEmitter);
 var CommandManager = (__webpack_require__(63379).CommandManager);
 var defaultCommands = (__webpack_require__(21604)/* .commands */ .P);
 var config = __webpack_require__(76321);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 var LineWidgets = (__webpack_require__(90563)/* .LineWidgets */ .G);
 var GutterKeyboardHandler = (__webpack_require__(45545)/* .GutterKeyboardHandler */ .S);
 var nls = (__webpack_require__(76321).nls);
@@ -11139,7 +11189,12 @@ class Editor {
 
                 if (token && /\b(?:tag-open|tag-name)/.test(token.type)) {
                     var tagNamesRanges = session.getMatchingTags(pos);
-                    if (tagNamesRanges) ranges = [tagNamesRanges.openTagName, tagNamesRanges.closeTagName];
+                    if (tagNamesRanges) {
+                        ranges = [
+                            tagNamesRanges.openTagName.isEmpty() ? tagNamesRanges.openTag : tagNamesRanges.openTagName,
+                            tagNamesRanges.closeTagName.isEmpty() ? tagNamesRanges.closeTag : tagNamesRanges.closeTagName
+                        ];
+                    }
                 }
             }
             if (!ranges && session.$mode.getMatching)
@@ -13563,10 +13618,10 @@ config.defineOptions(Editor.prototype, "editor", {
                 this.textInput.setNumberOfExtraLines(useragent.isWin ? 3 : 0);
                 this.renderer.scroller.setAttribute("tabindex", 0);
                 this.renderer.scroller.setAttribute("role", "group");
-                this.renderer.scroller.setAttribute("aria-roledescription", nls("editor"));
+                this.renderer.scroller.setAttribute("aria-roledescription", nls("editor.scroller.aria-roledescription", "editor"));
                 this.renderer.scroller.classList.add(this.renderer.keyboardFocusClassName);
                 this.renderer.scroller.setAttribute("aria-label",
-                    nls("Editor content, press Enter to start editing, press Escape to exit")
+                    nls("editor.scroller.aria-label", "Editor content, press Enter to start editing, press Escape to exit")
                 );
 
                 this.renderer.scroller.addEventListener("keyup", focusOnEnterKeyup.bind(this));
@@ -13575,9 +13630,9 @@ config.defineOptions(Editor.prototype, "editor", {
                 this.renderer.$gutter.setAttribute("tabindex", 0);
                 this.renderer.$gutter.setAttribute("aria-hidden", false);
                 this.renderer.$gutter.setAttribute("role", "group");
-                this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor"));
+                this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor.gutter.aria-roledescription", "editor"));
                 this.renderer.$gutter.setAttribute("aria-label",
-                    nls("Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit")
+                    nls("editor.gutter.aria-label", "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit")
                 );
                 this.renderer.$gutter.classList.add(this.renderer.keyboardFocusClassName);
 
@@ -13799,7 +13854,7 @@ exports.showErrorMarker = function(editor, dir) {
         return;
     } else {
         gutterAnno = {
-            text: [nls("Looks good!")],
+            text: [nls("error-marker.good-state", "Looks good!")],
             className: "ace_ok"
         };
     }
@@ -14067,7 +14122,8 @@ var showLiveAutocomplete = function(e) {
     var editor = e.editor;
     var prefix = util.getCompletionPrefix(editor);
     // Only autocomplete if there's a prefix that can be matched or previous char is trigger character 
-    var triggerAutocomplete = util.triggerAutocomplete(editor);
+    var previousChar = e.args;
+    var triggerAutocomplete = util.triggerAutocomplete(editor, previousChar);
     if (prefix && prefix.length >= editor.$liveAutocompletionThreshold || triggerAutocomplete) {
         var completer = Autocomplete.for(editor);
         // Set a flag for auto shown
@@ -15489,10 +15545,10 @@ TextInput= function(parentNode, host) {
             text.setAttribute("role", options.role);
         }     
         if (options.setLabel) {
-            text.setAttribute("aria-roledescription", nls("editor"));
+            text.setAttribute("aria-roledescription", nls("text-input.aria-roledescription", "editor"));
             if(host.session) {
                 var row =  host.session.selection.cursor.row;
-                text.setAttribute("aria-label", nls("Cursor at row $0", [row + 1]));
+                text.setAttribute("aria-label", nls("text-input.aria-label", "Cursor at row $0", [row + 1]));
             }
         }
     };
@@ -17281,21 +17337,21 @@ class Gutter{
 
             // getFoldWidgetRange is optional to be implemented by fold modes, if not available we fall-back.
             if (foldRange)
-                foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [foldRange.start.row + 1, foldRange.end.row + 1]));
+                foldWidget.setAttribute("aria-label", nls("gutter.code-folding.range.aria-label", "Toggle code folding, rows $0 through $1", [foldRange.start.row + 1, foldRange.end.row + 1]));
             else {
                 if (fold)
-                    foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [fold.start.row + 1, fold.end.row + 1]));
+                    foldWidget.setAttribute("aria-label", nls("gutter.code-folding.closed.aria-label", "Toggle code folding, rows $0 through $1", [fold.start.row + 1, fold.end.row + 1]));
                 else
-                    foldWidget.setAttribute("aria-label", nls("Toggle code folding, row $0", [row + 1]));
+                    foldWidget.setAttribute("aria-label", nls("gutter.code-folding.open.aria-label", "Toggle code folding, row $0", [row + 1]));
             }
 
             if (isClosedFold) {
                 foldWidget.setAttribute("aria-expanded", "false");
-                foldWidget.setAttribute("title", nls("Unfold code"));
+                foldWidget.setAttribute("title", nls("gutter.code-folding.closed.title", "Unfold code"));
             }
             else {
                 foldWidget.setAttribute("aria-expanded", "true");
-                foldWidget.setAttribute("title", nls("Fold code"));
+                foldWidget.setAttribute("title", nls("gutter.code-folding.open.title", "Fold code"));
             }
         } else {
             if (foldWidget) {
@@ -17314,7 +17370,17 @@ class Gutter{
             dom.setStyle(annotationIconNode.style, "height", lineHeight);
             dom.setStyle(annotationNode.style, "display", "block");
             dom.setStyle(annotationNode.style, "height", lineHeight);
-            annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+            var ariaLabel;
+            switch(foldAnnotationClass) {
+                case " ace_error_fold":
+                    ariaLabel = nls("gutter.annotation.aria-label.error", "Read annotations row $0", [rowText]);
+                    break;
+
+                case " ace_warning_fold":
+                    ariaLabel = nls("gutter.annotation.aria-label.warning", "Read annotations row $0", [rowText]);
+                    break;
+            }
+            annotationNode.setAttribute("aria-label", ariaLabel);
             annotationNode.setAttribute("tabindex", "-1");
             annotationNode.setAttribute("role", "button");
         }
@@ -17330,7 +17396,21 @@ class Gutter{
             dom.setStyle(annotationIconNode.style, "height", lineHeight);
             dom.setStyle(annotationNode.style, "display", "block");
             dom.setStyle(annotationNode.style, "height", lineHeight);
-            annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+            var ariaLabel;
+            switch(this.$annotations[row].className) {
+                case " ace_error":
+                    ariaLabel = nls("gutter.annotation.aria-label.error", "Read annotations row $0", [rowText]);
+                    break;
+
+                case " ace_warning":
+                    ariaLabel = nls("gutter.annotation.aria-label.warning", "Read annotations row $0", [rowText]);
+                    break;
+
+                case " ace_info":
+                    ariaLabel = nls("gutter.annotation.aria-label.info", "Read annotations row $0", [rowText]);
+                    break;
+            }
+            annotationNode.setAttribute("aria-label", ariaLabel);
             annotationNode.setAttribute("tabindex", "-1");
             annotationNode.setAttribute("role", "button");
         }
@@ -18347,7 +18427,7 @@ class Text {
             var span = this.dom.createElement("span");
             if (token.type == "fold"){
                 span.style.width = (token.value.length * this.config.characterWidth) + "px";
-                span.setAttribute("title", nls("Unfold code"));
+                span.setAttribute("title", nls("inline-fold.closed.title", "Unfold code"));
             }
 
             span.className = classes;
@@ -18747,6 +18827,7 @@ exports.t = function(tokenType) {
 var oop = __webpack_require__(2645);
 var EventEmitter = (__webpack_require__(87366).EventEmitter);
 const reportError = (__webpack_require__(53092)/* .reportError */ .N);
+const defaultEnglishMessages = (__webpack_require__(63816)/* .defaultEnglishMessages */ .q);
 
 var optionsProvider = {
     setOptions: function(optList) {
@@ -18806,8 +18887,9 @@ var messages;
 
 class AppConfig {
     constructor() {
-        this.$defaultOptions = {};
-    }
+            this.$defaultOptions = {};
+            messages = defaultEnglishMessages;
+        }
     
     /**
      * @param {Object} obj
@@ -18887,14 +18969,19 @@ class AppConfig {
     }
 
     /**
-     * @param {string} string
+     * @param {string} key
+     * @param {string} defaultString
      * @param {{ [x: string]: any; }} [params]
      */
-    nls(string, params) {
-        if (messages && !messages[string])  {
-            warn("No message found for '" + string + "' in the provided messages, falling back to default English message.");
-        }
-        var translated = messages && messages[string] || string;
+    nls(key, defaultString, params) {
+        if (!messages[key])  {
+            warn("No message found for the key '" + key + "' in the provided messages, trying to find a translation for the default string '" + defaultString + "'.");
+            if (!messages[defaultString]) {
+                warn("No message found for the default string '" + defaultString + "' in the provided messages. Falling back to the default English message.");
+            }
+        } 
+
+        var translated = messages[key] || messages[defaultString] || defaultString;
         if (params) {
             translated = translated.replace(/\$(\$|[\d]+)/g, function(_, name) {
                 if (name == "$") return "$";
@@ -19324,6 +19411,56 @@ exports.deepCopy = function deepCopy(obj) {
     return copy;
 };
 
+
+/***/ }),
+
+/***/ 63816:
+/***/ ((__unused_webpack_module, exports) => {
+
+var defaultEnglishMessages = {
+    "autocomplete.popup.aria-roledescription": "Autocomplete suggestions",
+    "autocomplete.popup.aria-label": "Autocomplete suggestions",
+    "autocomplete.popup.item.aria-roledescription": "item",
+    "autocomplete.loading": "Loading...",
+    "editor.scroller.aria-roledescription": "editor",
+    "editor.scroller.aria-label": "Editor content, press Enter to start editing, press Escape to exit",
+    "editor.gutter.aria-roledescription": "editor",
+    "editor.gutter.aria-label": "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit",
+    "error-marker.good-state": "Looks good!",
+    "prompt.recently-used": "Recently used",
+    "prompt.other-commands": "Other commands",
+    "prompt.no-matching-commands": "No matching commands",
+    "search-box.find.placeholder": "Search for",
+    "search-box.find-all.text": "All",
+    "search-box.replace.placeholder": "Replace with",
+    "search-box.replace-next.text": "Replace",
+    "search-box.replace-all.text": "All",
+    "search-box.toggle-replace.title": "Toggle Replace mode",
+    "search-box.toggle-regexp.title": "RegExp Search",
+    "search-box.toggle-case.title": "CaseSensitive Search",
+    "search-box.toggle-whole-word.title": "Whole Word Search",
+    "search-box.toggle-in-selection.title": "Search In Selection",
+    "search-box.search-counter": "$0 of $1",
+    "text-input.aria-roledescription": "editor",
+    "text-input.aria-label": "Cursor at row $0",
+    "gutter.code-folding.range.aria-label": "Toggle code folding, rows $0 through $1",
+    "gutter.code-folding.closed.aria-label": "Toggle code folding, rows $0 through $1",
+    "gutter.code-folding.open.aria-label": "Toggle code folding, row $0",
+    "gutter.code-folding.closed.title": "Unfold code",
+    "gutter.code-folding.open.title": "Fold code",
+    "gutter.annotation.aria-label.error": "Error, read annotations row $0",
+    "gutter.annotation.aria-label.warning": "Warning, read annotations row $0",
+    "gutter.annotation.aria-label.info": "Info, read annotations row $0",
+    "inline-fold.closed.title": "Unfold code",
+    "gutter-tooltip.aria-label.error.singular": "error",
+    "gutter-tooltip.aria-label.error.plural": "errors",
+    "gutter-tooltip.aria-label.warning.singular": "warning",
+    "gutter-tooltip.aria-label.warning.plural": "warnings",
+    "gutter-tooltip.aria-label.info.singular": "information message",
+    "gutter-tooltip.aria-label.info.plural": "information messages"
+}
+
+exports.q = defaultEnglishMessages;
 
 /***/ }),
 
@@ -19918,6 +20055,10 @@ exports.getModifierString = function(e) {
 function normalizeCommandKeys(callback, e, keyCode) {
     var hashId = getModifierHash(e);
 
+    if (!keyCode && e.code) {
+        keyCode = keys.$codeToKeyCode[e.code] || keyCode;
+    }
+
     if (!useragent.isMac && pressedKeys) {
         if (e.getModifierState && (e.getModifierState("OS") || e.getModifierState("Win")))
             hashId |= 8;
@@ -20206,157 +20347,156 @@ exports.EventEmitter = EventEmitter;
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-/*! @license
-==========================================================================
-SproutCore -- JavaScript Application Framework
-copyright 2006-2009, Sprout Systems Inc., Apple Inc. and contributors.
-
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the "Software"),
-to deal in the Software without restriction, including without limitation
-the rights to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
-
-SproutCore and the SproutCore logo are trademarks of Sprout Systems, Inc.
-
-For more information about SproutCore, visit http://www.sproutcore.com
-
-
-==========================================================================
-@license */
-
-// Most of the following code is taken from SproutCore with a few changes.
-
 
 
 var oop = __webpack_require__(2645);
 
-/*
- * Helper functions and hashes for key handling.
- */
-var Keys = (function() {
-    var ret = {
-        MODIFIER_KEYS: {
-            16: 'Shift', 17: 'Ctrl', 18: 'Alt', 224: 'Meta',
-            91: 'MetaLeft', 92: 'MetaRight', 93: 'ContextMenu'
-        },
 
-        KEY_MODS: {
-            "ctrl": 1, "alt": 2, "option" : 2, "shift": 4,
-            "super": 8, "meta": 8, "command": 8, "cmd": 8, 
-            "control": 1
-        },
+var Keys = {
+    MODIFIER_KEYS: {
+        16: 'Shift', 17: 'Ctrl', 18: 'Alt', 224: 'Meta',
+        91: 'MetaLeft', 92: 'MetaRight', 93: 'ContextMenu'
+    },
 
-        FUNCTION_KEYS : {
-            8  : "Backspace",
-            9  : "Tab",
-            13 : "Return",
-            19 : "Pause",
-            27 : "Esc",
-            32 : "Space",
-            33 : "PageUp",
-            34 : "PageDown",
-            35 : "End",
-            36 : "Home",
-            37 : "Left",
-            38 : "Up",
-            39 : "Right",
-            40 : "Down",
-            44 : "Print",
-            45 : "Insert",
-            46 : "Delete",
-            96 : "Numpad0",
-            97 : "Numpad1",
-            98 : "Numpad2",
-            99 : "Numpad3",
-            100: "Numpad4",
-            101: "Numpad5",
-            102: "Numpad6",
-            103: "Numpad7",
-            104: "Numpad8",
-            105: "Numpad9",
-            '-13': "NumpadEnter",
-            112: "F1",
-            113: "F2",
-            114: "F3",
-            115: "F4",
-            116: "F5",
-            117: "F6",
-            118: "F7",
-            119: "F8",
-            120: "F9",
-            121: "F10",
-            122: "F11",
-            123: "F12",
-            144: "Numlock",
-            145: "Scrolllock"
-        },
+    KEY_MODS: {
+        "ctrl": 1, "alt": 2, "option" : 2, "shift": 4,
+        "super": 8, "meta": 8, "command": 8, "cmd": 8, 
+        "control": 1
+    },
 
-        PRINTABLE_KEYS: {
-           32: ' ',  48: '0',  49: '1',  50: '2',  51: '3',  52: '4', 53:  '5',
-           54: '6',  55: '7',  56: '8',  57: '9',  59: ';',  61: '=', 65:  'a',
-           66: 'b',  67: 'c',  68: 'd',  69: 'e',  70: 'f',  71: 'g', 72:  'h',
-           73: 'i',  74: 'j',  75: 'k',  76: 'l',  77: 'm',  78: 'n', 79:  'o',
-           80: 'p',  81: 'q',  82: 'r',  83: 's',  84: 't',  85: 'u', 86:  'v',
-           87: 'w',  88: 'x',  89: 'y',  90: 'z', 107: '+', 109: '-', 110: '.',
-          186: ';', 187: '=', 188: ',', 189: '-', 190: '.', 191: '/', 192: '`',
-          219: '[', 220: '\\',221: ']', 222: "'", 111: '/', 106: '*'
-        }
-    };
+    FUNCTION_KEYS : {
+        8  : "Backspace",
+        9  : "Tab",
+        13 : "Return",
+        19 : "Pause",
+        27 : "Esc",
+        32 : "Space",
+        33 : "PageUp",
+        34 : "PageDown",
+        35 : "End",
+        36 : "Home",
+        37 : "Left",
+        38 : "Up",
+        39 : "Right",
+        40 : "Down",
+        44 : "Print",
+        45 : "Insert",
+        46 : "Delete",
+        '-13': "NumpadEnter",
+        144: "Numlock",
+        145: "Scrolllock"
+    },
 
-    // workaround for firefox bug
-    ret.PRINTABLE_KEYS[173] = '-';
-
-    // A reverse map of FUNCTION_KEYS
-    var name, i;
-    for (i in ret.FUNCTION_KEYS) {
-        name = ret.FUNCTION_KEYS[i].toLowerCase();
-        ret[name] = parseInt(i, 10);
+    PRINTABLE_KEYS: {
+        32: ' ',  59: ';',  61: '=', 107: '+', 109: '-', 110: '.',
+        186: ';', 187: '=', 188: ',', 189: '-', 190: '.', 191: '/', 192: '`',
+        219: '[', 220: '\\',221: ']', 222: "'", 111: '/', 106: '*'
     }
+};
 
-    // A reverse map of PRINTABLE_KEYS
-    for (i in ret.PRINTABLE_KEYS) {
-        name = ret.PRINTABLE_KEYS[i].toLowerCase();
-        ret[name] = parseInt(i, 10);
+var codeToKeyCode = {
+    Command: 224,
+    Backspace: 8,
+    Tab: 9,
+    Return: 13,
+    Enter: 13,
+    Pause: 19,
+    Escape: 27,
+    PageUp: 33,
+    PageDown: 34,
+    End: 35,
+    Home: 36,
+    Insert: 45,
+    Delete: 46,
+    ArrowLeft: 37,
+    ArrowUp: 38,
+    ArrowRight: 39,
+    ArrowDown: 40,
+    // special keys
+    Backquote: 192,
+    Minus: 189,
+    Equal: 187,
+    BracketLeft: 219,
+    Backslash: 220,
+    BracketRight: 221,
+    Semicolon: 186,
+    Quote: 222,
+    Comma: 188,
+    Period: 190,
+    Slash: 191,
+    Space: 32,
+    NumpadAdd: 107,
+    NumpadDecimal: 110,
+    NumpadSubtract: 109,
+    NumpadDivide: 111,
+    NumpadMultiply: 106
+};
+for (var i = 0; i < 10; i++) {
+    codeToKeyCode["Digit" + i] = 48 + i;
+    codeToKeyCode["Numpad" + i] = 96 + i;
+    Keys.PRINTABLE_KEYS[48 + i] = "" + i;
+    Keys.FUNCTION_KEYS[96 + i] = "Numpad" + i;
+}
+for (var i = 65; i < 91; i++) {
+    var chr = String.fromCharCode(i + 32);
+    codeToKeyCode["Key" + chr.toUpperCase()] = i;
+    Keys.PRINTABLE_KEYS[i] = chr;
+}
+for (var i = 1; i < 13; i++) {
+    codeToKeyCode["F" + i] = 111 + i;
+    Keys.FUNCTION_KEYS[111 + i] = "F" + i;
+}
+var modifiers = { 
+    Shift: 16,
+    Control: 17,
+    Alt: 18,
+    Meta: 224
+};
+for (var mod in modifiers) {
+    codeToKeyCode[mod] = codeToKeyCode[mod + "Left"]
+        = codeToKeyCode[mod + "Right"] = modifiers[mod];
+}
+exports.$codeToKeyCode = codeToKeyCode;
+
+// workaround for firefox bug
+Keys.PRINTABLE_KEYS[173] = '-';
+
+// A reverse map of FUNCTION_KEYS
+for (var j in Keys.FUNCTION_KEYS) {
+    var name = Keys.FUNCTION_KEYS[j].toLowerCase();
+    Keys[name] = parseInt(j, 10);
+}
+
+// A reverse map of PRINTABLE_KEYS
+for (var j in Keys.PRINTABLE_KEYS) {
+    var name = Keys.PRINTABLE_KEYS[j].toLowerCase();
+    Keys[name] = parseInt(j, 10);
+}
+
+// Add the MODIFIER_KEYS, FUNCTION_KEYS and PRINTABLE_KEYS to the KEY
+// variables as well.
+oop.mixin(Keys, Keys.MODIFIER_KEYS);
+oop.mixin(Keys, Keys.PRINTABLE_KEYS);
+oop.mixin(Keys, Keys.FUNCTION_KEYS);
+
+// aliases
+Keys.enter = Keys["return"];
+Keys.escape = Keys.esc;
+Keys.del = Keys["delete"];
+
+(function() {
+    var mods = ["cmd", "ctrl", "alt", "shift"];
+    for (var i = Math.pow(2, mods.length); i--;) {
+        Keys.KEY_MODS[i] = mods.filter(function(x) {
+            return i & Keys.KEY_MODS[x];
+        }).join("-") + "-";
     }
-
-    // Add the MODIFIER_KEYS, FUNCTION_KEYS and PRINTABLE_KEYS to the KEY
-    // variables as well.
-    oop.mixin(ret, ret.MODIFIER_KEYS);
-    oop.mixin(ret, ret.PRINTABLE_KEYS);
-    oop.mixin(ret, ret.FUNCTION_KEYS);
-
-    // aliases
-    ret.enter = ret["return"];
-    ret.escape = ret.esc;
-    ret.del = ret["delete"];
-    
-    (function() {
-        var mods = ["cmd", "ctrl", "alt", "shift"];
-        for (var i = Math.pow(2, mods.length); i--;) {
-            ret.KEY_MODS[i] = mods.filter(function(x) {
-                return i & ret.KEY_MODS[x];
-            }).join("-") + "-";
-        }
-    })();
-
-    ret.KEY_MODS[0] = "";
-    ret.KEY_MODS[-1] = "input-";
-
-    return ret;
 })();
+
+Keys.KEY_MODS[0] = "";
+Keys.KEY_MODS[-1] = "input-";
+
+
 oop.mixin(exports, Keys);
 
 exports["default"] = exports;
@@ -21181,6 +21321,7 @@ class LineWidgets {
 
         renderer.$cursorLayer.config = config;
         for (var i = first; i <= last; i++) {
+            /**@type{LineWidget}*/
             var w = lineWidgets[i];
             if (!w || !w.el) continue;
             if (w.hidden) {
@@ -21317,7 +21458,7 @@ exports.Q = Behaviour;
 
 var oop = __webpack_require__(2645);
 var Behaviour = (__webpack_require__(75684)/* .Behaviour */ .Q);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 var lang = __webpack_require__(39955);
 
 var SAFE_INSERT_IN_TOKENS =
@@ -21378,8 +21519,22 @@ CstyleBehaviour = function(options) {
             initContext(editor);
             var selection = editor.getSelectionRange();
             var selected = session.doc.getTextRange(selection);
+            var token = session.getTokenAt(cursor.row, cursor.column);
             if (selected !== "" && selected !== "{" && editor.getWrapBehavioursEnabled()) {
                 return getWrapped(selection, selected, '{', '}');
+            }
+            else if (token && /(?:string)\.quasi|\.xml/.test(token.type)) {
+                let excludeTokens = [
+                    /tag\-(?:open|name)/, /attribute\-name/
+                ];
+                if (excludeTokens.some((el) => el.test(token.type)) || /(string)\.quasi/.test(token.type)
+                    && token.value[cursor.column - token.start - 1] !== '$') return;
+
+                CstyleBehaviour.recordAutoInsert(editor, session, "}");
+                return {
+                    text: '{}',
+                    selection: [1, 1]
+                };
             } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
                 if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options.braces) {
                     CstyleBehaviour.recordAutoInsert(editor, session, "}");
@@ -21848,7 +22003,7 @@ var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r
 var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
 var unicode = __webpack_require__(6672);
 var lang = __webpack_require__(39955);
-var TokenIterator = (__webpack_require__(99339)/* .TokenIterator */ .E);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 var Range = (__webpack_require__(91902)/* .Range */ .Q);
 
 var Mode; 
@@ -22642,9 +22797,18 @@ class GutterTooltip extends Tooltip {
     }
     
     static get annotationLabels() { return {
-            error: {singular: nls("error"), plural: nls("errors")},
-            warning: {singular: nls("warning"), plural: nls("warnings")},
-            info: {singular: nls("information message"), plural: nls("information messages")}
+            error: {
+                singular: nls("gutter-tooltip.aria-label.error.singular", "error"), 
+                plural: nls("gutter-tooltip.aria-label.error.plural", "errors")
+            },
+            warning: {
+                singular: nls("gutter-tooltip.aria-label.warning.singular", "warning"), 
+                plural: nls("gutter-tooltip.aria-label.warning.plural", "warnings")
+            },
+            info: {
+                singular: nls("gutter-tooltip.aria-label.info.singular", "information message"), 
+                plural: nls("gutter-tooltip.aria-label.info.plural", "information messages")
+            }
         };
     }
 
@@ -24913,9 +25077,9 @@ var Editor = (__webpack_require__(27258).Editor);
 
     /** 
      * Executes a command for each selection range.
-     * @param {Object} cmd The command to execute
+     * @param {any} cmd The command to execute
      * @param {String} [args] Any arguments for the command
-     * @param {Object} [options]
+     * @param {Object|true} [options]
      * @this {Editor}
      **/ 
     this.forEachSelection = function(cmd, args, options) {
@@ -30008,7 +30172,7 @@ class TokenIterator {
     
 }
 
-exports.E = TokenIterator;
+exports.TokenIterator = TokenIterator;
 
 
 /***/ }),
@@ -33282,9 +33446,10 @@ class VirtualRenderer {
         var insertPosition = position || { row: cursor.row, column: cursor.column };
 
         this.removeGhostText();
-
-        var textLines = text.split("\n");
-        this.addToken(textLines[0], "ghost_text", insertPosition.row, insertPosition.column);
+        
+        var textChunks = this.$calculateWrappedTextChunks(text, insertPosition);
+        this.addToken(textChunks[0].text, "ghost_text", insertPosition.row, insertPosition.column);
+        
         this.$ghostText = {
             text: text,
             position: {
@@ -33292,9 +33457,13 @@ class VirtualRenderer {
                 column: insertPosition. column
             }
         };
-        if (textLines.length > 1) {
+        if (textChunks.length > 1) {
+            var divs = textChunks.slice(1).map(el => {
+                return `<div${el.wrapped ? ' class="ghost_text_line_wrapped"': ""}>${el.text}</div>`;
+            });
+            
             this.$ghostTextWidget = {
-                text: textLines.slice(1).join("\n"),
+                html: divs.join(""),
                 row: insertPosition.row,
                 column: insertPosition.column,
                 className: "ace_ghost_text"
@@ -33305,22 +33474,58 @@ class VirtualRenderer {
             var pixelPosition = this.$cursorLayer.getPixelPosition(insertPosition, true);
             var el = this.container;
             var height = el.getBoundingClientRect().height;
-            var ghostTextHeight = textLines.length * this.lineHeight;
-            var fitsY = ghostTextHeight < height - pixelPosition.top;
+            var ghostTextHeight = textChunks.length * this.lineHeight;
+            var fitsY = ghostTextHeight < (height - pixelPosition.top);
 
             // If it fits, no action needed
             if (fitsY) return;
             
             // If it can fully fit in the screen, scroll down until it fits on the screen
-            // if it cannot fully fit, scroll so that the cursor is at the top of the screen
-            // to fit as much as possible.
+            // if it cannot fully fit, scroll so that the row with the cursor
+            // is at the top of the screen.
             if (ghostTextHeight < height) {
-                this.scrollBy(0, (textLines.length - 1) * this.lineHeight);
+                this.scrollBy(0, (textChunks.length - 1) * this.lineHeight);
             } else {
-                this.scrollBy(0, pixelPosition.top);
+                this.scrollToRow(insertPosition.row);
             }   
         }
         
+    }
+
+    /**
+     * Calculates and organizes text into wrapped chunks. Initially splits the text by newline characters, 
+     * then further processes each line based on display tokens and session settings for tab size and wrapping limits.
+     *
+     * @param {string} text
+     * @param {Point} position
+     * @return {{text: string, wrapped: boolean}[]}
+     */
+    $calculateWrappedTextChunks(text, position) {
+        var availableWidth = this.$size.scrollerWidth - this.$padding * 2;
+        var limit = Math.floor(availableWidth / this.characterWidth) - 2;
+        limit = limit <= 0 ? 60 : limit; // this is a hack to prevent the editor from crashing when the window is too small
+
+        var textLines = text.split(/\r?\n/);
+        var textChunks = [];
+        for (var i = 0; i < textLines.length; i++) {
+            var displayTokens = this.session.$getDisplayTokens(textLines[i], position.column);
+            var wrapSplits = this.session.$computeWrapSplits(displayTokens, limit, this.session.$tabSize);
+
+            if (wrapSplits.length > 0) {
+                var start = 0;
+                wrapSplits.push(textLines[i].length);
+
+                for (var j = 0; j < wrapSplits.length; j++) {
+                    let textSlice = textLines[i].slice(start, wrapSplits[j]);
+                    textChunks.push({text: textSlice, wrapped: true});
+                    start = wrapSplits[j];
+                }
+            }
+            else {
+                textChunks.push({text: textLines[i], wrapped: false});
+            }
+        }
+        return textChunks;
     }
 
     removeGhostText() {
@@ -60367,6 +60572,7 @@ function message_types_define_property(obj, key, value) {
 class BaseMessage {
     constructor(sessionId){
         message_types_define_property(this, "sessionId", void 0);
+        message_types_define_property(this, "version", void 0);
         this.sessionId = sessionId;
     }
 }
@@ -60512,6 +60718,14 @@ class DocumentHighlightMessage extends BaseMessage {
         this.value = value;
     }
 }
+class GetSemanticTokensMessage extends BaseMessage {
+    constructor(sessionId, value){
+        super(sessionId);
+        message_types_define_property(this, "type", MessageType.getSemanticTokens);
+        message_types_define_property(this, "value", void 0);
+        this.value = value;
+    }
+}
 var MessageType;
 (function(MessageType) {
     MessageType[MessageType["init"] = 0] = "init";
@@ -60530,6 +60744,8 @@ var MessageType;
     MessageType[MessageType["signatureHelp"] = 13] = "signatureHelp";
     MessageType[MessageType["documentHighlight"] = 14] = "documentHighlight";
     MessageType[MessageType["dispose"] = 15] = "dispose";
+    MessageType[MessageType["capabilitiesChange"] = 16] = "capabilitiesChange";
+    MessageType[MessageType["getSemanticTokens"] = 17] = "getSemanticTokens";
 })(MessageType || (MessageType = {}));
 
 // EXTERNAL MODULE: ../../node_modules/events/events.js
@@ -60552,9 +60768,11 @@ function message_controller_define_property(obj, key, value) {
 
 
 class MessageController extends (events_default()) {
-    init(sessionId, document, mode, options, initCallback, validationCallback) {
-        this.on(MessageType.validate.toString() + "-" + sessionId, validationCallback);
-        this.postMessage(new InitMessage(sessionId, document.getValue(), document["version"], mode, options), initCallback);
+    init(sessionId, document, mode, options, callbacks) {
+        this.on(MessageType.validate.toString() + "-" + sessionId, callbacks.validationCallback); //TODO: need off
+        // somewhere
+        this.on(MessageType.capabilitiesChange.toString() + "-" + sessionId, callbacks.changeCapabilitiesCallback);
+        this.postMessage(new InitMessage(sessionId, document.getValue(), document["version"], mode, options), callbacks.initCallback);
     }
     doValidation(sessionId, callback) {
         this.postMessage(new ValidateMessage(sessionId), callback);
@@ -60605,6 +60823,9 @@ class MessageController extends (events_default()) {
     configureFeatures(serviceName, features) {
         this.$worker.postMessage(new ConfigureFeaturesMessage(serviceName, features));
     }
+    getSemanticTokens(sessionId, range, callback) {
+        this.postMessage(new GetSemanticTokensMessage(sessionId, range), callback);
+    }
     postMessage(message, callback) {
         if (callback) {
             let eventName = message.type.toString() + "-" + message.sessionId;
@@ -60627,7 +60848,7 @@ class MessageController extends (events_default()) {
     }
 }
 
-;// CONCATENATED MODULE: ./src/type-converters/lsp-converters.ts
+;// CONCATENATED MODULE: ./src/type-converters/lsp/lsp-converters.ts
 
 
 
@@ -60924,7 +61145,10 @@ function createWorkerBlob(cdnUrl, services) {
         type: "application/javascript"
     });
 }
-function createWorker(source, includeLinters = true) {
+function createWorker(source, includeLinters) {
+    if (includeLinters === undefined) {
+        includeLinters = true;
+    }
     if (typeof Worker == "undefined") return {
         postMessage: function() {},
         terminate: function() {}
@@ -60946,7 +61170,7 @@ function createWorker(source, includeLinters = true) {
     // calling URL.revokeObjectURL before worker is terminated breaks it on IE Edge
     return new Worker(blobURL);
 }
-function getServices(includeLinters = true) {
+function getServices(includeLinters) {
     const allServices = [
         {
             name: "json",
@@ -61009,7 +61233,7 @@ function getServices(includeLinters = true) {
             modes: "php"
         },
         {
-            name: "javascript",
+            name: "eslint",
             script: "javascript-service.js",
             className: "JavascriptService",
             modes: "javascript"
@@ -61021,12 +61245,18 @@ function getServices(includeLinters = true) {
             modes: "python"
         }
     ];
-    if (includeLinters === true) {
+    if (includeLinters === true || includeLinters === undefined) {
         return allServices;
     } else if (includeLinters === false) {
         return [];
     }
-    return allServices.filter((service)=>includeLinters[service.name]);
+    if (includeLinters.javascript) {
+        includeLinters.eslint = includeLinters.javascript;
+        delete includeLinters.javascript;
+    }
+    return allServices.filter((service)=>{
+        return includeLinters[service.name];
+    });
 }
 
 ;// CONCATENATED MODULE: ./src/ace/tooltip.ts
@@ -61668,6 +61898,238 @@ class HoverTooltip extends Tooltip {
     }
 }
 
+;// CONCATENATED MODULE: ./src/type-converters/lsp/semantic-tokens.ts
+function semantic_tokens_define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+function decodeModifiers(modifierFlag, tokenModifiersLegend) {
+    const modifiers = [];
+    for(let i = 0; i < tokenModifiersLegend.length; i++){
+        if (modifierFlag & 1 << i) {
+            modifiers.push(tokenModifiersLegend[i]);
+        }
+    }
+    return modifiers;
+}
+function parseSemanticTokens(tokens, tokenTypes, tokenModifiersLegend) {
+    if (tokens.length % 5 !== 0) {
+        return;
+    }
+    const decodedTokens = [];
+    let line = 0;
+    let startColumn = 0;
+    for(let i = 0; i < tokens.length; i += 5){
+        line += tokens[i];
+        if (tokens[i] === 0) {
+            startColumn += tokens[i + 1];
+        } else {
+            startColumn = tokens[i + 1];
+        }
+        const length = tokens[i + 2];
+        const tokenTypeIndex = tokens[i + 3];
+        const tokenModifierFlag = tokens[i + 4];
+        const tokenType = tokenTypes[tokenTypeIndex];
+        const tokenModifiers = decodeModifiers(tokenModifierFlag, tokenModifiersLegend);
+        decodedTokens.push({
+            row: line,
+            startColumn: startColumn,
+            length,
+            type: toAceTokenType(tokenType, tokenModifiers)
+        });
+    }
+    return new DecodedSemanticTokens(decodedTokens);
+}
+function toAceTokenType(tokenType, tokenModifiers) {
+    let modifiers = "";
+    let type = tokenType;
+    if (tokenModifiers.length > 0) {
+        modifiers = "." + tokenModifiers.join(".");
+    }
+    switch(tokenType){
+        case "class":
+            type = "entity.name.type.class";
+            break;
+        case "struct":
+            type = "storage.type.struct";
+            break;
+        case "enum":
+            type = "entity.name.type.enum";
+            break;
+        case "interface":
+            type = "entity.name.type.interface";
+            break;
+        case "namespace":
+            type = "entity.name.namespace";
+            break;
+        case "typeParameter":
+            break;
+        case "type":
+            type = "entity.name.type";
+            break;
+        case "parameter":
+            type = "variable.parameter";
+            break;
+        case "variable":
+            type = "entity.name.variable";
+            break;
+        case "enumMember":
+            type = "variable.other.enummember";
+            break;
+        case "property":
+            type = "variable.other.property";
+            break;
+        case "function":
+            type = "entity.name.function";
+            break;
+        case "method":
+            type = "entity.name.function.member";
+            break;
+        case "event":
+            type = "variable.other.event";
+            break;
+    }
+    return type + modifiers;
+}
+function mergeTokens(aceTokens, decodedTokens) {
+    let mergedTokens = [];
+    let currentCharIndex = 0; // Keeps track of the character index across Ace tokens
+    let aceTokenIndex = 0; // Index within the aceTokens array
+    decodedTokens.forEach((semanticToken)=>{
+        let semanticStart = semanticToken.startColumn;
+        let semanticEnd = semanticStart + semanticToken.length;
+        // Process leading Ace tokens that don't overlap with the semantic token
+        while(aceTokenIndex < aceTokens.length && currentCharIndex + aceTokens[aceTokenIndex].value.length <= semanticStart){
+            mergedTokens.push(aceTokens[aceTokenIndex]);
+            currentCharIndex += aceTokens[aceTokenIndex].value.length;
+            aceTokenIndex++;
+        }
+        // Process overlapping Ace tokens
+        while(aceTokenIndex < aceTokens.length && currentCharIndex < semanticEnd){
+            let aceToken = aceTokens[aceTokenIndex];
+            let aceTokenEnd = currentCharIndex + aceToken.value.length;
+            let overlapStart = Math.max(currentCharIndex, semanticStart);
+            let overlapEnd = Math.min(aceTokenEnd, semanticEnd);
+            if (currentCharIndex < semanticStart) {
+                // Part of Ace token is before semantic token; add this part to mergedTokens
+                let beforeSemantic = {
+                    ...aceToken,
+                    value: aceToken.value.substring(0, semanticStart - currentCharIndex)
+                };
+                mergedTokens.push(beforeSemantic);
+            }
+            // Middle part (overlapped by semantic token)
+            let middle = {
+                type: semanticToken.type,
+                value: aceToken.value.substring(overlapStart - currentCharIndex, overlapEnd - currentCharIndex)
+            };
+            mergedTokens.push(middle);
+            if (aceTokenEnd > semanticEnd) {
+                // If Ace token extends beyond the semantic token, prepare the remaining part for future processing
+                let afterSemantic = {
+                    ...aceToken,
+                    value: aceToken.value.substring(semanticEnd - currentCharIndex)
+                };
+                // Add the afterSemantic as a new token to process in subsequent iterations
+                currentCharIndex = semanticEnd; // Update currentCharIndex to reflect the start of afterSemantic
+                aceTokens.splice(aceTokenIndex, 1, afterSemantic); // Replace the current token with afterSemantic for correct processing in the next iteration
+                break; // Move to the next semantic token without incrementing aceTokenIndex
+            }
+            // If the entire Ace token is covered by the semantic token, proceed to the next Ace token
+            currentCharIndex = aceTokenEnd;
+            aceTokenIndex++;
+        }
+    });
+    // Add remaining Ace tokens that were not overlapped by any semantic tokens
+    while(aceTokenIndex < aceTokens.length){
+        mergedTokens.push(aceTokens[aceTokenIndex]);
+        aceTokenIndex++;
+    }
+    return mergedTokens;
+}
+class DecodedSemanticTokens {
+    getByRow(row) {
+        return this.tokens.filter((token)=>token.row === row);
+    }
+    sortTokens(tokens) {
+        return tokens.sort((a, b)=>{
+            if (a.row === b.row) {
+                return a.startColumn - b.startColumn;
+            }
+            return a.row - b.row;
+        });
+    }
+    constructor(tokens){
+        semantic_tokens_define_property(this, "tokens", void 0);
+        this.tokens = this.sortTokens(tokens);
+    }
+}
+//vscode-languageserver
+class SemanticTokensBuilder {
+    initialize() {
+        this._id = Date.now();
+        this._prevLine = 0;
+        this._prevChar = 0;
+        this._data = [];
+        this._dataLen = 0;
+    }
+    push(line, char, length, tokenType, tokenModifiers) {
+        let pushLine = line;
+        let pushChar = char;
+        if (this._dataLen > 0) {
+            pushLine -= this._prevLine;
+            if (pushLine === 0) {
+                pushChar -= this._prevChar;
+            }
+        }
+        this._data[this._dataLen++] = pushLine;
+        this._data[this._dataLen++] = pushChar;
+        this._data[this._dataLen++] = length;
+        this._data[this._dataLen++] = tokenType;
+        this._data[this._dataLen++] = tokenModifiers;
+        this._prevLine = line;
+        this._prevChar = char;
+    }
+    get id() {
+        return this._id.toString();
+    }
+    previousResult(id) {
+        if (this.id === id) {
+            this._prevData = this._data;
+        }
+        this.initialize();
+    }
+    build() {
+        this._prevData = undefined;
+        return {
+            resultId: this.id,
+            data: this._data
+        };
+    }
+    canBuildEdits() {
+        return this._prevData !== undefined;
+    }
+    constructor(){
+        semantic_tokens_define_property(this, "_id", void 0);
+        semantic_tokens_define_property(this, "_prevLine", void 0);
+        semantic_tokens_define_property(this, "_prevChar", void 0);
+        semantic_tokens_define_property(this, "_data", void 0);
+        semantic_tokens_define_property(this, "_dataLen", void 0);
+        semantic_tokens_define_property(this, "_prevData", void 0);
+        this._prevData = undefined;
+        this.initialize();
+    }
+}
+
 ;// CONCATENATED MODULE: ./src/language-provider.ts
 function language_provider_define_property(obj, key, value) {
     if (key in obj) {
@@ -61691,6 +62153,7 @@ function language_provider_define_property(obj, key, value) {
 
 
 
+
 class LanguageProvider {
     /**
      *  Creates LanguageProvider using our transport protocol with ability to register different services on same
@@ -61702,7 +62165,7 @@ class LanguageProvider {
         messageController = new MessageController(worker);
         return new LanguageProvider(messageController, options);
     }
-    static fromCdn(source, options) {
+    static fromCdn(source, options, includeDefaultLinters) {
         let messageController;
         let worker;
         if (typeof source === "string") {
@@ -61712,18 +62175,43 @@ class LanguageProvider {
             if (source[source.length - 1] == "/") {
                 source = source.substring(0, source.length - 1);
             }
-            worker = createWorker(source);
+            worker = createWorker(source, includeDefaultLinters);
         } else {
             if (source.includeDefaultLinters == undefined) {
                 source.includeDefaultLinters = true;
             }
+            var _source_includeDefaultLinters;
             worker = createWorker({
                 services: source.services,
                 serviceManagerCdn: source.serviceManagerCdn
-            }, source.includeDefaultLinters);
+            }, (_source_includeDefaultLinters = source.includeDefaultLinters) !== null && _source_includeDefaultLinters !== void 0 ? _source_includeDefaultLinters : includeDefaultLinters);
         }
         messageController = new MessageController(worker);
         return new LanguageProvider(messageController, options);
+    }
+    setProviderOptions(options) {
+        var _this_options;
+        const defaultFunctionalities = {
+            hover: true,
+            completion: {
+                overwriteCompleters: true
+            },
+            completionResolve: true,
+            format: true,
+            documentHighlights: true,
+            signatureHelp: true,
+            semanticTokens: false
+        };
+        this.options = options !== null && options !== void 0 ? options : {};
+        this.options.functionality = typeof this.options.functionality === 'object' ? this.options.functionality : {};
+        Object.entries(defaultFunctionalities).forEach(([key, value])=>{
+            // Check if the functionality has not been defined in the provided options
+            if (this.options.functionality[key] === undefined) {
+                // If not, set it to its default value
+                this.options.functionality[key] = value;
+            }
+        });
+        (_this_options = this.options).markdownConverter || (_this_options.markdownConverter = new (showdown_default()).Converter());
     }
     $getSessionLanguageProvider(session) {
         return this.$sessionLanguageProviders[session["id"]];
@@ -61867,6 +62355,11 @@ class LanguageProvider {
     getTooltipText(hover) {
         return hover.content.type === "markdown" ? common_converters_CommonConverter.cleanHtml(this.options.markdownConverter.makeHtml(hover.content.text)) : hover.content.text;
     }
+    getSemanticTokens() {
+        if (!this.options.functionality.semanticTokens) return;
+        let sessionLanguageProvider = this.$getSessionLanguageProvider(this.activeEditor.session);
+        sessionLanguageProvider.getSemanticTokens();
+    }
     doComplete(editor, session, callback) {
         let cursor = editor.getCursorPosition();
         this.$messageController.doComplete(this.$getFileName(session), fromPoint(cursor), (completions)=>completions && callback(toCompletions(completions)));
@@ -61929,6 +62422,7 @@ class LanguageProvider {
     /**
      * Removes document from all linked services by session id
      * @param session
+     * @param [callback]
      */ closeDocument(session, callback) {
         let sessionProvider = this.$getSessionLanguageProvider(session);
         if (sessionProvider) {
@@ -61937,7 +62431,6 @@ class LanguageProvider {
         }
     }
     constructor(messageController, options){
-        var _this_options, _this_options1;
         language_provider_define_property(this, "activeEditor", void 0);
         language_provider_define_property(this, "$messageController", void 0);
         language_provider_define_property(this, "$signatureTooltip", void 0);
@@ -61948,7 +62441,7 @@ class LanguageProvider {
         language_provider_define_property(this, "$registerSession", (session, editor, options)=>{
             var _this_$sessionLanguageProviders, _session_id;
             var _;
-            (_ = (_this_$sessionLanguageProviders = this.$sessionLanguageProviders)[_session_id = session["id"]]) !== null && _ !== void 0 ? _ : _this_$sessionLanguageProviders[_session_id] = new SessionLanguageProvider(session, editor, this.$messageController, options);
+            (_ = (_this_$sessionLanguageProviders = this.$sessionLanguageProviders)[_session_id = session["id"]]) !== null && _ !== void 0 ? _ : _this_$sessionLanguageProviders[_session_id] = new SessionLanguageProvider(this, session, editor, this.$messageController, options);
         });
         language_provider_define_property(this, "format", ()=>{
             if (!this.options.functionality.format) return;
@@ -61956,24 +62449,36 @@ class LanguageProvider {
             sessionLanguageProvider.$sendDeltaQueue(sessionLanguageProvider.format);
         });
         this.$messageController = messageController;
-        this.options = options !== null && options !== void 0 ? options : {};
-        var _functionality;
-        (_functionality = (_this_options = this.options).functionality) !== null && _functionality !== void 0 ? _functionality : _this_options.functionality = {
-            hover: true,
-            completion: {
-                overwriteCompleters: true
-            },
-            completionResolve: true,
-            format: true,
-            documentHighlights: true,
-            signatureHelp: true
-        };
-        var _markdownConverter;
-        (_markdownConverter = (_this_options1 = this.options).markdownConverter) !== null && _markdownConverter !== void 0 ? _markdownConverter : _this_options1.markdownConverter = new (showdown_default()).Converter();
+        this.setProviderOptions(options);
         this.$signatureTooltip = new SignatureTooltip(this);
     }
 }
 class SessionLanguageProvider {
+    addSemanticTokenSupport(session) {
+        let bgTokenizer = session.bgTokenizer;
+        session.setSemanticTokens = (tokens)=>{
+            bgTokenizer.semanticTokens = tokens;
+        };
+        bgTokenizer.$tokenizeRow = (row)=>{
+            var line = bgTokenizer.doc.getLine(row);
+            var state = bgTokenizer.states[row - 1];
+            var data = bgTokenizer.tokenizer.getLineTokens(line, state, row);
+            if (bgTokenizer.states[row] + "" !== data.state + "") {
+                bgTokenizer.states[row] = data.state;
+                bgTokenizer.lines[row + 1] = null;
+                if (bgTokenizer.currentLine > row + 1) bgTokenizer.currentLine = row + 1;
+            } else if (bgTokenizer.currentLine == row) {
+                bgTokenizer.currentLine = row + 1;
+            }
+            if (bgTokenizer.semanticTokens) {
+                let decodedTokens = bgTokenizer.semanticTokens.getByRow(row);
+                if (decodedTokens) {
+                    data.tokens = mergeTokens(data.tokens, decodedTokens);
+                }
+            }
+            return bgTokenizer.lines[row] = data.tokens;
+        };
+    }
     initFileName() {
         this.fileName = this.session["id"] + "." + this.$extension;
     }
@@ -61998,10 +62503,46 @@ class SessionLanguageProvider {
         }
         this.$messageController.changeOptions(this.fileName, options);
     }
+    getSemanticTokens() {
+        if (!this.$provider.options.functionality.semanticTokens) return;
+        //TODO: improve this 
+        let lastRow = this.editor.renderer.getLastVisibleRow();
+        let visibleRange = {
+            start: {
+                row: this.editor.renderer.getFirstVisibleRow(),
+                column: 0
+            },
+            end: {
+                row: lastRow + 1,
+                column: this.session.getLine(lastRow).length
+            }
+        };
+        this.$messageController.getSemanticTokens(this.fileName, fromRange(visibleRange), (tokens)=>{
+            if (!tokens) {
+                return;
+            }
+            let decodedTokens = parseSemanticTokens(tokens.data, this.semanticTokensLegend.tokenTypes, this.semanticTokensLegend.tokenModifiers);
+            this.session.setSemanticTokens(decodedTokens);
+            let bgTokenizer = this.session.bgTokenizer;
+            bgTokenizer.running = setTimeout(()=>{
+                var _bgTokenizer_semanticTokens, _bgTokenizer, _bgTokenizer_semanticTokens1, _bgTokenizer1;
+                if (((_bgTokenizer = bgTokenizer) === null || _bgTokenizer === void 0 ? void 0 : (_bgTokenizer_semanticTokens = _bgTokenizer.semanticTokens) === null || _bgTokenizer_semanticTokens === void 0 ? void 0 : _bgTokenizer_semanticTokens.tokens) && ((_bgTokenizer1 = bgTokenizer) === null || _bgTokenizer1 === void 0 ? void 0 : (_bgTokenizer_semanticTokens1 = _bgTokenizer1.semanticTokens) === null || _bgTokenizer_semanticTokens1 === void 0 ? void 0 : _bgTokenizer_semanticTokens1.tokens.length) > 0) {
+                    var _bgTokenizer_semanticTokens2, _bgTokenizer2;
+                    let startRow = (_bgTokenizer2 = bgTokenizer) === null || _bgTokenizer2 === void 0 ? void 0 : (_bgTokenizer_semanticTokens2 = _bgTokenizer2.semanticTokens) === null || _bgTokenizer_semanticTokens2 === void 0 ? void 0 : _bgTokenizer_semanticTokens2.tokens[0].row;
+                    bgTokenizer.currentLine = startRow;
+                    bgTokenizer.lines = bgTokenizer.lines.slice(0, startRow - 1);
+                } else {
+                    bgTokenizer.currentLine = 0;
+                    bgTokenizer.lines = [];
+                }
+                bgTokenizer.$worker();
+            }, 20);
+        });
+    }
     closeDocument(callback) {
         this.$messageController.closeDocument(this.fileName, callback);
     }
-    constructor(session, editor, messageController, options){
+    constructor(provider, session, editor, messageController, options){
         language_provider_define_property(this, "session", void 0);
         language_provider_define_property(this, "fileName", void 0);
         language_provider_define_property(this, "$messageController", void 0);
@@ -62019,6 +62560,8 @@ class SessionLanguageProvider {
             "javascript": "js"
         });
         language_provider_define_property(this, "editor", void 0);
+        language_provider_define_property(this, "semanticTokensLegend", void 0);
+        language_provider_define_property(this, "$provider", void 0);
         language_provider_define_property(this, "$connected", (capabilities)=>{
             this.$isConnected = true;
             // @ts-ignore
@@ -62033,39 +62576,56 @@ class SessionLanguageProvider {
                 return;
             }
             this.$deltaQueue = [];
+            this.session.clearAnnotations();
+            if (this.state.diagnosticMarkers) {
+                this.state.diagnosticMarkers.setMarkers([]);
+            }
+            this.session.setSemanticTokens(undefined); //clear all semantic tokens
             this.$messageController.changeMode(this.fileName, this.session.getValue(), this.$mode, this.setServerCapabilities);
         });
         language_provider_define_property(this, "setServerCapabilities", (capabilities)=>{
-            //TODO: this need to take into account all capabilities from all services
-            this.$servicesCapabilities = capabilities;
-            if (capabilities && capabilities.some((capability)=>{
+            if (!capabilities) return;
+            this.$servicesCapabilities = {
+                ...capabilities
+            };
+            let hasTriggerChars = Object.values(capabilities).some((capability)=>{
                 var _capability_completionProvider, _capability;
                 return (_capability = capability) === null || _capability === void 0 ? void 0 : (_capability_completionProvider = _capability.completionProvider) === null || _capability_completionProvider === void 0 ? void 0 : _capability_completionProvider.triggerCharacters;
-            })) {
+            });
+            if (hasTriggerChars) {
                 let completer = this.editor.completers.find((completer)=>completer.id === "lspCompleters");
                 if (completer) {
-                    let allTriggerCharacters = capabilities.reduce((acc, capability)=>{
-                        var _capability_completionProvider;
-                        if ((_capability_completionProvider = capability.completionProvider) === null || _capability_completionProvider === void 0 ? void 0 : _capability_completionProvider.triggerCharacters) {
-                            return [
-                                ...acc,
-                                ...capability.completionProvider.triggerCharacters
-                            ];
+                    let allTriggerCharacters = [];
+                    Object.values(capabilities).forEach((capability)=>{
+                        var _capability_completionProvider, _capability;
+                        if ((_capability = capability) === null || _capability === void 0 ? void 0 : (_capability_completionProvider = _capability.completionProvider) === null || _capability_completionProvider === void 0 ? void 0 : _capability_completionProvider.triggerCharacters) {
+                            allTriggerCharacters.push(...capability.completionProvider.triggerCharacters);
                         }
-                        return acc;
-                    }, []);
+                    });
                     allTriggerCharacters = [
                         ...new Set(allTriggerCharacters)
                     ];
                     completer.triggerCharacters = allTriggerCharacters;
                 }
             }
+            let hasSemanticTokensProvider = Object.values(capabilities).some((capability)=>{
+                var _capability;
+                if ((_capability = capability) === null || _capability === void 0 ? void 0 : _capability.semanticTokensProvider) {
+                    this.semanticTokensLegend = capability.semanticTokensProvider.legend;
+                    return true;
+                }
+            });
+            if (hasSemanticTokensProvider) {
+                this.getSemanticTokens();
+            }
         });
         language_provider_define_property(this, "$changeListener", (delta)=>{
             this.session.doc["version"]++;
             if (!this.$deltaQueue) {
                 this.$deltaQueue = [];
-                setTimeout(this.$sendDeltaQueue, 0);
+                setTimeout(()=>this.$sendDeltaQueue(()=>{
+                        this.getSemanticTokens();
+                    }), 0);
             }
             this.$deltaQueue.push(delta);
         });
@@ -62118,6 +62678,7 @@ class SessionLanguageProvider {
             }
         });
         language_provider_define_property(this, "$applyFormat", (edits)=>{
+            edits !== null && edits !== void 0 ? edits : edits = [];
             for (let edit of edits.reverse()){
                 this.session.replace(toRange(edit.range), edit.newText);
             }
@@ -62130,15 +62691,25 @@ class SessionLanguageProvider {
                 this.state.occurrenceMarkers.setMarkers(fromDocumentHighlights(documentHighlights));
             }
         });
+        this.$provider = provider;
         this.$messageController = messageController;
         this.session = session;
         this.editor = editor;
         this.initFileName();
         session.doc["version"] = 1;
         session.doc.on("change", this.$changeListener, true);
+        this.addSemanticTokenSupport(session); //TODO: ?
         // @ts-ignore
         session.on("changeMode", this.$changeMode);
-        this.$messageController.init(this.fileName, session.doc, this.$mode, options, this.$connected, this.$showAnnotations);
+        if (this.$provider.options.functionality.semanticTokens) {
+            session.on("changeScrollTop", ()=>this.getSemanticTokens());
+        }
+        let initCallbacks = {
+            "initCallback": this.$connected,
+            "validationCallback": this.$showAnnotations,
+            "changeCapabilitiesCallback": this.setServerCapabilities
+        };
+        this.$messageController.init(this.fileName, session.doc, this.$mode, options, initCallbacks);
     }
 }
 
