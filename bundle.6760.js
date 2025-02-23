@@ -13,13 +13,13 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 6002:
+/***/ 2032:
 /***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_529__) => {
 
 /* harmony export */ __nested_webpack_require_529__.d(__nested_webpack_exports__, {
-/* harmony export */   Cs: () => (/* binding */ MessageType)
+/* harmony export */   Go: () => (/* binding */ MessageType)
 /* harmony export */ });
-/* unused harmony exports BaseMessage, InitMessage, FormatMessage, CompleteMessage, ResolveCompletionMessage, HoverMessage, ValidateMessage, ChangeMessage, DeltasMessage, ChangeModeMessage, ChangeOptionsMessage, CloseDocumentMessage, DisposeMessage, GlobalOptionsMessage, ConfigureFeaturesMessage, SignatureHelpMessage, DocumentHighlightMessage, GetSemanticTokensMessage */
+/* unused harmony exports BaseMessage, InitMessage, FormatMessage, CompleteMessage, ResolveCompletionMessage, HoverMessage, ValidateMessage, ChangeMessage, DeltasMessage, ChangeModeMessage, ChangeOptionsMessage, CloseDocumentMessage, CloseConnectionMessage, GlobalOptionsMessage, ConfigureFeaturesMessage, SignatureHelpMessage, DocumentHighlightMessage, GetSemanticTokensMessage, GetCodeActionsMessage, SetWorkspaceMessage, ExecuteCommandMessage, AppliedEditMessage, RenameDocumentMessage */
 function _define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -34,15 +34,19 @@ function _define_property(obj, key, value) {
     return obj;
 }
 class BaseMessage {
-    constructor(sessionId){
+    constructor(documentIdentifier, callbackId){
         _define_property(this, "sessionId", void 0);
+        _define_property(this, "documentUri", void 0);
         _define_property(this, "version", void 0);
-        this.sessionId = sessionId;
+        _define_property(this, "callbackId", void 0);
+        this.sessionId = documentIdentifier.sessionId;
+        this.documentUri = documentIdentifier.documentUri;
+        this.callbackId = callbackId;
     }
 }
-class InitMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value, version, mode, options){
-        super(sessionId);
+class InitMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value, version, mode, options){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.init);
         _define_property(this, "mode", void 0);
         _define_property(this, "options", void 0);
@@ -54,9 +58,9 @@ class InitMessage extends (/* unused pure expression or super */ null && (0)) {
         this.value = value;
     }
 }
-class FormatMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value, format){
-        super(sessionId);
+class FormatMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value, format){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.format);
         _define_property(this, "value", void 0);
         _define_property(this, "format", void 0);
@@ -64,39 +68,39 @@ class FormatMessage extends (/* unused pure expression or super */ null && (0)) 
         this.format = format;
     }
 }
-class CompleteMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value){
-        super(sessionId);
+class CompleteMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.complete);
         _define_property(this, "value", void 0);
         this.value = value;
     }
 }
-class ResolveCompletionMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value){
-        super(sessionId);
+class ResolveCompletionMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.resolveCompletion);
         _define_property(this, "value", void 0);
         this.value = value;
     }
 }
-class HoverMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value){
-        super(sessionId);
+class HoverMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.hover);
         _define_property(this, "value", void 0);
         this.value = value;
     }
 }
-class ValidateMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId){
-        super(sessionId);
+class ValidateMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.validate);
     }
 }
-class ChangeMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value, version){
-        super(sessionId);
+class ChangeMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value, version){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.change);
         _define_property(this, "value", void 0);
         _define_property(this, "version", void 0);
@@ -104,9 +108,9 @@ class ChangeMessage extends (/* unused pure expression or super */ null && (0)) 
         this.version = version;
     }
 }
-class DeltasMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value, version){
-        super(sessionId);
+class DeltasMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value, version){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.applyDelta);
         _define_property(this, "value", void 0);
         _define_property(this, "version", void 0);
@@ -114,19 +118,21 @@ class DeltasMessage extends (/* unused pure expression or super */ null && (0)) 
         this.version = version;
     }
 }
-class ChangeModeMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value, mode){
-        super(sessionId);
+class ChangeModeMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value, version, mode){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.changeMode);
         _define_property(this, "mode", void 0);
         _define_property(this, "value", void 0);
+        _define_property(this, "version", void 0);
         this.value = value;
         this.mode = mode;
+        this.version = version;
     }
 }
-class ChangeOptionsMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, options, merge = false){
-        super(sessionId);
+class ChangeOptionsMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, options, merge = false){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.changeOptions);
         _define_property(this, "options", void 0);
         _define_property(this, "merge", void 0);
@@ -134,16 +140,17 @@ class ChangeOptionsMessage extends (/* unused pure expression or super */ null &
         this.merge = merge;
     }
 }
-class CloseDocumentMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId){
-        super(sessionId);
+class CloseDocumentMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.closeDocument);
     }
 }
-class DisposeMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(){
-        super("");
-        _define_property(this, "type", MessageType.dispose);
+class CloseConnectionMessage {
+    constructor(callbackId){
+        _define_property(this, "type", MessageType.closeConnection);
+        _define_property(this, "callbackId", void 0);
+        this.callbackId = callbackId;
     }
 }
 class GlobalOptionsMessage {
@@ -166,28 +173,79 @@ class ConfigureFeaturesMessage {
         this.options = options;
     }
 }
-class SignatureHelpMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value){
-        super(sessionId);
+class SignatureHelpMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.signatureHelp);
         _define_property(this, "value", void 0);
         this.value = value;
     }
 }
-class DocumentHighlightMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value){
-        super(sessionId);
+class DocumentHighlightMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.documentHighlight);
         _define_property(this, "value", void 0);
         this.value = value;
     }
 }
-class GetSemanticTokensMessage extends (/* unused pure expression or super */ null && (0)) {
-    constructor(sessionId, value){
-        super(sessionId);
+class GetSemanticTokensMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value){
+        super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.getSemanticTokens);
         _define_property(this, "value", void 0);
         this.value = value;
+    }
+}
+class GetCodeActionsMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value, context){
+        super(documentIdentifier, callbackId);
+        _define_property(this, "type", MessageType.getCodeActions);
+        _define_property(this, "value", void 0);
+        _define_property(this, "context", void 0);
+        this.value = value;
+        this.context = context;
+    }
+}
+class SetWorkspaceMessage {
+    constructor(value){
+        _define_property(this, "type", MessageType.setWorkspace);
+        _define_property(this, "value", void 0);
+        this.value = value;
+    }
+}
+class ExecuteCommandMessage {
+    constructor(serviceName, callbackId, command, args){
+        _define_property(this, "callbackId", void 0);
+        _define_property(this, "serviceName", void 0);
+        _define_property(this, "type", MessageType.executeCommand);
+        _define_property(this, "value", void 0);
+        _define_property(this, "args", void 0);
+        this.serviceName = serviceName;
+        this.callbackId = callbackId;
+        this.value = command;
+        this.args = args;
+    }
+}
+class AppliedEditMessage {
+    constructor(value, serviceName, callbackId){
+        _define_property(this, "callbackId", void 0);
+        _define_property(this, "serviceName", void 0);
+        _define_property(this, "type", MessageType.appliedEdit);
+        _define_property(this, "value", void 0);
+        this.serviceName = serviceName;
+        this.callbackId = callbackId;
+        this.value = value;
+    }
+}
+class RenameDocumentMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value, version){
+        super(documentIdentifier, callbackId);
+        _define_property(this, "type", MessageType.renameDocument);
+        _define_property(this, "value", void 0);
+        _define_property(this, "version", void 0);
+        this.value = value;
+        this.version = version;
     }
 }
 var MessageType;
@@ -207,22 +265,29 @@ var MessageType;
     MessageType[MessageType["configureFeatures"] = 12] = "configureFeatures";
     MessageType[MessageType["signatureHelp"] = 13] = "signatureHelp";
     MessageType[MessageType["documentHighlight"] = 14] = "documentHighlight";
-    MessageType[MessageType["dispose"] = 15] = "dispose";
+    MessageType[MessageType["closeConnection"] = 15] = "closeConnection";
     MessageType[MessageType["capabilitiesChange"] = 16] = "capabilitiesChange";
     MessageType[MessageType["getSemanticTokens"] = 17] = "getSemanticTokens";
+    MessageType[MessageType["getCodeActions"] = 18] = "getCodeActions";
+    MessageType[MessageType["executeCommand"] = 19] = "executeCommand";
+    MessageType[MessageType["applyEdit"] = 20] = "applyEdit";
+    MessageType[MessageType["appliedEdit"] = 21] = "appliedEdit";
+    MessageType[MessageType["setWorkspace"] = 22] = "setWorkspace";
+    MessageType[MessageType["renameDocument"] = 23] = "renameDocument";
 })(MessageType || (MessageType = {}));
 
 
 /***/ }),
 
-/***/ 6297:
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_8699__) => {
+/***/ 7770:
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_11415__) => {
 
-/* harmony export */ __nested_webpack_require_8699__.d(__nested_webpack_exports__, {
-/* harmony export */   Dw: () => (/* binding */ notEmpty),
-/* harmony export */   PM: () => (/* binding */ mergeObjects)
+/* harmony export */ __nested_webpack_require_11415__.d(__nested_webpack_exports__, {
+/* harmony export */   rL: () => (/* binding */ mergeObjects),
+/* harmony export */   z2: () => (/* binding */ notEmpty)
 /* harmony export */ });
-/* unused harmony exports mergeRanges, checkValueAgainstRegexpArray */
+/* unused harmony exports mergeRanges, checkValueAgainstRegexpArray, convertToUri */
+
 function mergeObjects(obj1, obj2, excludeUndefined = false) {
     if (!obj1) return obj2;
     if (!obj2) return obj1;
@@ -291,6 +356,13 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
     }
     return false;
 }
+function convertToUri(filePath) {
+    //already URI
+    if (filePath.startsWith("file:///")) {
+        return filePath;
+    }
+    return URI.file(filePath).toString();
+}
 
 
 /***/ })
@@ -301,7 +373,7 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_11471__(moduleId) {
+/******/ 	function __nested_webpack_require_14372__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -315,7 +387,7 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_11471__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14372__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -325,9 +397,9 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_11471__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_14372__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_11471__.o(definition, key) && !__nested_webpack_require_11471__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_14372__.o(definition, key) && !__nested_webpack_require_14372__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -336,13 +408,13 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_11471__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_14372__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_11471__.r = (exports) => {
+/******/ 		__nested_webpack_require_14372__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -352,14 +424,12 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-__nested_webpack_require_11471__.r(__nested_webpack_exports__);
-/* harmony export */ __nested_webpack_require_11471__.d(__nested_webpack_exports__, {
+__nested_webpack_require_14372__.r(__nested_webpack_exports__);
+/* harmony export */ __nested_webpack_require_14372__.d(__nested_webpack_exports__, {
 /* harmony export */   ServiceManager: () => (/* binding */ ServiceManager)
 /* harmony export */ });
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_11471__(6297);
-/* harmony import */ var _message_types__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_11471__(6002);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14372__(7770);
+/* harmony import */ var _message_types__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14372__(2032);
 function _define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -386,24 +456,28 @@ class ServiceManager {
             }, {});
         }
     }
-    async aggregateFeatureResponses(serviceInstances, feature, methodName, documentIdentifier, value) {
+    async aggregateFeatureResponses(serviceInstances, feature, methodName, documentIdentifier, attrs) {
         return (await Promise.all(this.filterByFeature(serviceInstances, feature).map(async (service)=>{
-            return service[methodName](documentIdentifier, value);
-        }))).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .Dw);
+            if (Array.isArray(attrs)) {
+                return service[methodName](documentIdentifier, ...attrs);
+            } else {
+                return service[methodName](documentIdentifier, attrs);
+            }
+        }))).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .z2);
     }
-    applyOptionsToServices(serviceInstances, sessionID, options) {
+    applyOptionsToServices(serviceInstances, documentUri, options) {
         serviceInstances.forEach((service)=>{
-            service.setOptions(sessionID, options);
+            service.setOptions(documentUri, options);
         });
     }
-    async disposeAll() {
+    async closeAllConnections() {
         var services = this.$services;
         for(let serviceName in services){
             var _services_serviceName_serviceInstance, _services_serviceName;
-            await ((_services_serviceName = services[serviceName]) === null || _services_serviceName === void 0 ? void 0 : (_services_serviceName_serviceInstance = _services_serviceName.serviceInstance) === null || _services_serviceName_serviceInstance === void 0 ? void 0 : _services_serviceName_serviceInstance.dispose());
+            await ((_services_serviceName = services[serviceName]) === null || _services_serviceName === void 0 ? void 0 : (_services_serviceName_serviceInstance = _services_serviceName.serviceInstance) === null || _services_serviceName_serviceInstance === void 0 ? void 0 : _services_serviceName_serviceInstance.closeConnection());
         }
     }
-    static async $initServiceInstance(service, ctx) {
+    static async $initServiceInstance(service, ctx, workspaceUri) {
         let module;
         if ('type' in service) {
             if ([
@@ -411,7 +485,7 @@ class ServiceManager {
                 "webworker"
             ].includes(service.type)) {
                 module = await service.module();
-                service.serviceInstance = new module["LanguageClient"](service, ctx);
+                service.serviceInstance = new module["LanguageClient"](service, ctx, workspaceUri);
             } else throw "Unknown service type";
         } else {
             module = await service.module();
@@ -438,7 +512,7 @@ class ServiceManager {
         let service = this.$services[serviceName];
         if (!service.serviceInstance) {
             if (!this.serviceInitPromises[service.id]) {
-                this.serviceInitPromises[service.id] = ServiceManager.$initServiceInstance(service, this.ctx).then((instance)=>{
+                this.serviceInitPromises[service.id] = ServiceManager.$initServiceInstance(service, this.ctx, this.workspaceUri).then((instance)=>{
                     service.serviceInstance = instance;
                     service.serviceInstance.serviceName = serviceName;
                     delete this.serviceInitPromises[service.id]; // Clean up
@@ -456,14 +530,22 @@ class ServiceManager {
     setGlobalOptions(serviceName, options, merge = false) {
         let service = this.$services[serviceName];
         if (!service) return;
-        service.options = merge ? (0,_utils__WEBPACK_IMPORTED_MODULE_1__/* .mergeObjects */ .PM)(options, service.options) : options;
+        service.options = merge ? (0,_utils__WEBPACK_IMPORTED_MODULE_1__/* .mergeObjects */ .rL)(options, service.options) : options;
         if (service.serviceInstance) {
             service.serviceInstance.setGlobalOptions(service.options);
         }
     }
+    setWorkspace(workspaceUri) {
+        this.workspaceUri = workspaceUri;
+        Object.values(this.$services).forEach((service)=>{
+            var _service_serviceInstance;
+            (_service_serviceInstance = service.serviceInstance) === null || _service_serviceInstance === void 0 ? void 0 : _service_serviceInstance.setWorkspace(this.workspaceUri);
+        });
+    }
     async addDocument(documentIdentifier, documentValue, mode, options) {
         if (!mode || !/^ace\/mode\//.test(mode)) return;
         mode = mode.replace("ace/mode/", "");
+        mode = mode.replace(/golang$/, "go");
         let services = await this.$getServicesInstancesByMode(mode);
         if (Object.keys(services).length === 0) return;
         let documentItem = {
@@ -476,6 +558,14 @@ class ServiceManager {
         this.$sessionIDToMode[documentIdentifier.uri] = mode;
         return services;
     }
+    async renameDocument(documentIdentifier, newDocumentUri) {
+        let services = this.getServicesInstances(documentIdentifier.uri);
+        if (services.length > 0) {
+            services.forEach((el)=>el.renameDocument(documentIdentifier, newDocumentUri));
+            this.$sessionIDToMode[newDocumentUri] = this.$sessionIDToMode[documentIdentifier.uri];
+            delete this.$sessionIDToMode[documentIdentifier.uri];
+        }
+    }
     async changeDocumentMode(documentIdentifier, value, mode, options) {
         this.removeDocument(documentIdentifier);
         return await this.addDocument(documentIdentifier, value, mode, options);
@@ -487,11 +577,11 @@ class ServiceManager {
             delete this.$sessionIDToMode[document.uri];
         }
     }
-    getServicesInstances(sessionID) {
-        let mode = this.$sessionIDToMode[sessionID];
+    getServicesInstances(documentUri) {
+        let mode = this.$sessionIDToMode[documentUri];
         if (!mode) return []; //TODO:
         let services = this.findServicesByMode(mode);
-        return Object.values(services).map((el)=>el.serviceInstance).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .Dw);
+        return Object.values(services).map((el)=>el.serviceInstance).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .z2);
     }
     filterByFeature(serviceInstances, feature) {
         return serviceInstances.filter((el)=>{
@@ -517,6 +607,10 @@ class ServiceManager {
                     return capabilities.documentHighlightProvider == true;
                 case "semanticTokens":
                     return capabilities.semanticTokensProvider != undefined;
+                case "codeAction":
+                    return capabilities.codeActionProvider != undefined;
+                case "executeCommand":
+                    return capabilities.executeCommandProvider != undefined;
             }
         });
     }
@@ -545,7 +639,7 @@ class ServiceManager {
         this.$services[name].features = features;
     }
     setDefaultFeaturesState(serviceFeatures) {
-        var _features, _features1, _features2, _features3, _features4, _features5, _features6, _features7;
+        var _features, _features1, _features2, _features3, _features4, _features5, _features6, _features7, _features8, _features9;
         let features = serviceFeatures !== null && serviceFeatures !== void 0 ? serviceFeatures : {};
         var _hover;
         (_hover = (_features = features).hover) !== null && _hover !== void 0 ? _hover : _features.hover = true;
@@ -563,6 +657,10 @@ class ServiceManager {
         (_documentHighlight = (_features6 = features).documentHighlight) !== null && _documentHighlight !== void 0 ? _documentHighlight : _features6.documentHighlight = true;
         var _semanticTokens;
         (_semanticTokens = (_features7 = features).semanticTokens) !== null && _semanticTokens !== void 0 ? _semanticTokens : _features7.semanticTokens = true;
+        var _codeAction;
+        (_codeAction = (_features8 = features).codeAction) !== null && _codeAction !== void 0 ? _codeAction : _features8.codeAction = true;
+        var _executeCommand;
+        (_executeCommand = (_features9 = features).executeCommand) !== null && _executeCommand !== void 0 ? _executeCommand : _features9.executeCommand = true;
         return features;
     }
     constructor(ctx){
@@ -570,6 +668,7 @@ class ServiceManager {
         _define_property(this, "serviceInitPromises", {});
         _define_property(this, "$sessionIDToMode", {});
         _define_property(this, "ctx", void 0);
+        _define_property(this, "workspaceUri", void 0);
         this.ctx = ctx;
         let doValidation = async (document, servicesInstances)=>{
             servicesInstances !== null && servicesInstances !== void 0 ? servicesInstances : servicesInstances = this.getServicesInstances(document.uri);
@@ -577,7 +676,7 @@ class ServiceManager {
                 return;
             }
             //this is list of documents linked to services
-            let sessionIDList = Object.keys(servicesInstances[0].documents);
+            let documentUrisList = Object.keys(servicesInstances[0].documents);
             servicesInstances = this.filterByFeature(servicesInstances, "diagnostics");
             servicesInstances = servicesInstances.filter((el)=>{
                 return el.serviceCapabilities.diagnosticProvider;
@@ -586,16 +685,16 @@ class ServiceManager {
                 return;
             }
             let postMessage = {
-                "type": _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.validate
+                "type": _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.validate
             };
-            for (let sessionID of sessionIDList){
+            for (let documentUri of documentUrisList){
                 var _ref;
                 let diagnostics = (_ref = await Promise.all(servicesInstances.map((el)=>{
                     return el.doValidation({
-                        uri: sessionID
+                        uri: documentUri
                     });
                 }))) !== null && _ref !== void 0 ? _ref : [];
-                postMessage["sessionId"] = sessionID;
+                postMessage["documentUri"] = documentUri;
                 postMessage["value"] = diagnostics.flat();
                 ctx.postMessage(postMessage);
             }
@@ -612,33 +711,36 @@ class ServiceManager {
             let message = ev.data;
             var _message_sessionId;
             let sessionID = (_message_sessionId = message["sessionId"]) !== null && _message_sessionId !== void 0 ? _message_sessionId : "";
+            var _message_documentUri;
+            let documentUri = (_message_documentUri = message["documentUri"]) !== null && _message_documentUri !== void 0 ? _message_documentUri : "";
             let version = message["version"];
             let postMessage = {
                 "type": message.type,
-                "sessionId": sessionID
+                "sessionId": sessionID,
+                "callbackId": message["callbackId"]
             };
-            let serviceInstances = this.getServicesInstances(sessionID);
+            let serviceInstances = this.getServicesInstances(documentUri);
             let documentIdentifier = {
-                uri: sessionID,
+                uri: documentUri,
                 version: version
             };
             switch(message.type){
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.format:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.format:
                     serviceInstances = this.filterByFeature(serviceInstances, "format");
                     if (serviceInstances.length > 0) {
                         //we will use only first service to format
                         postMessage["value"] = await serviceInstances[0].format(documentIdentifier, message.value, message.format);
                     }
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.complete:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.complete:
                     postMessage["value"] = (await Promise.all(this.filterByFeature(serviceInstances, "completion").map(async (service)=>{
                         return {
                             completions: await service.doComplete(documentIdentifier, message["value"]),
                             service: service.serviceData.className
                         };
-                    }))).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .Dw);
+                    }))).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .z2);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.resolveCompletion:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.resolveCompletion:
                     var _this_filterByFeature_find;
                     let serviceName = message.value["service"];
                     postMessage["value"] = await ((_this_filterByFeature_find = this.filterByFeature(serviceInstances, "completionResolve").find((service)=>{
@@ -647,72 +749,94 @@ class ServiceManager {
                         }
                     })) === null || _this_filterByFeature_find === void 0 ? void 0 : _this_filterByFeature_find.doResolve(message.value));
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.change:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.change:
                     serviceInstances.forEach((service)=>{
                         service.setValue(documentIdentifier, message["value"]);
                     });
                     await doValidation(documentIdentifier, serviceInstances);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.applyDelta:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.applyDelta:
                     serviceInstances.forEach((service)=>{
                         service.applyDeltas(documentIdentifier, message["value"]);
                     });
                     await doValidation(documentIdentifier, serviceInstances);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.hover:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.hover:
                     postMessage["value"] = await this.aggregateFeatureResponses(serviceInstances, "hover", "doHover", documentIdentifier, message.value);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.validate:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.validate:
                     postMessage["value"] = await doValidation(documentIdentifier, serviceInstances);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.init:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.init:
                     postMessage["value"] = await this.getServicesCapabilitiesAfterCallback(documentIdentifier, message, this.addDocument.bind(this));
                     await doValidation(documentIdentifier);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.changeMode:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.changeMode:
                     postMessage["value"] = await this.getServicesCapabilitiesAfterCallback(documentIdentifier, message, this.changeDocumentMode.bind(this));
                     await doValidation(documentIdentifier);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.changeOptions:
-                    this.applyOptionsToServices(serviceInstances, sessionID, message.options);
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.changeOptions:
+                    this.applyOptionsToServices(serviceInstances, documentUri, message.options);
                     await doValidation(documentIdentifier, serviceInstances);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.closeDocument:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.closeDocument:
                     this.removeDocument(documentIdentifier);
                     await doValidation(documentIdentifier, serviceInstances);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.dispose:
-                    await this.disposeAll();
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.closeConnection:
+                    await this.closeAllConnections();
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.globalOptions:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.globalOptions:
                     this.setGlobalOptions(message.serviceName, message.options, message.merge);
                     await provideValidationForServiceInstance(message.serviceName);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.configureFeatures:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.configureFeatures:
                     this.configureFeatures(message.serviceName, message.options);
                     await provideValidationForServiceInstance(message.serviceName);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.signatureHelp:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.signatureHelp:
                     postMessage["value"] = await this.aggregateFeatureResponses(serviceInstances, "signatureHelp", "provideSignatureHelp", documentIdentifier, message.value);
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.documentHighlight:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.documentHighlight:
                     let highlights = await this.aggregateFeatureResponses(serviceInstances, "documentHighlight", "findDocumentHighlights", documentIdentifier, message.value);
                     postMessage["value"] = highlights.flat();
                     break;
-                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Cs.getSemanticTokens:
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.getSemanticTokens:
                     serviceInstances = this.filterByFeature(serviceInstances, "semanticTokens");
                     if (serviceInstances.length > 0) {
                         //we will use only first service
                         postMessage["value"] = await serviceInstances[0].getSemanticTokens(documentIdentifier, message.value);
                     }
                     break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.getCodeActions:
+                    let value = message.value;
+                    let context = message.context;
+                    postMessage["value"] = (await Promise.all(this.filterByFeature(serviceInstances, "codeAction").map(async (service)=>{
+                        return {
+                            codeActions: await service.getCodeActions(documentIdentifier, value, context),
+                            service: service.serviceName
+                        };
+                    }))).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .z2);
+                    break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.executeCommand:
+                    var _this_$services_message_serviceName_serviceInstance, _this_$services_message_serviceName;
+                    postMessage["value"] = (_this_$services_message_serviceName = this.$services[message.serviceName]) === null || _this_$services_message_serviceName === void 0 ? void 0 : (_this_$services_message_serviceName_serviceInstance = _this_$services_message_serviceName.serviceInstance) === null || _this_$services_message_serviceName_serviceInstance === void 0 ? void 0 : _this_$services_message_serviceName_serviceInstance.executeCommand(message.value, message.args);
+                    break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.appliedEdit:
+                    var _this_$services_message_serviceName_serviceInstance1, _this_$services_message_serviceName1;
+                    postMessage["value"] = (_this_$services_message_serviceName1 = this.$services[message.serviceName]) === null || _this_$services_message_serviceName1 === void 0 ? void 0 : (_this_$services_message_serviceName_serviceInstance1 = _this_$services_message_serviceName1.serviceInstance) === null || _this_$services_message_serviceName_serviceInstance1 === void 0 ? void 0 : _this_$services_message_serviceName_serviceInstance1.sendAppliedResult(message.value, message.callbackId);
+                    break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.setWorkspace:
+                    this.setWorkspace(message.value);
+                    break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.renameDocument:
+                    this.renameDocument(documentIdentifier, message.value);
+                    break;
             }
             ctx.postMessage(postMessage);
         });
     }
 }
-
-})();
 
 /******/ 	return __nested_webpack_exports__;
 /******/ })()

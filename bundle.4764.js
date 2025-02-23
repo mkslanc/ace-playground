@@ -184,7 +184,7 @@ var DocCommentHighlightRules = function () {
                 token: "comment.doc.tag",
                 regex: "@\\w+(?=\\s|$)"
             }, DocCommentHighlightRules.getTagRule(), {
-                defaultToken: "comment.doc",
+                defaultToken: "comment.doc.body",
                 caseInsensitive: true
             }
         ]
@@ -203,7 +203,7 @@ DocCommentHighlightRules.getTagRule = function(start) {
 DocCommentHighlightRules.getStartRule = function(start) {
     return {
         token : "comment.doc", // doc comment
-        regex : "\\/\\*(?=\\*)",
+        regex: /\/\*\*(?!\/)/,
         next  : start
     };
 };

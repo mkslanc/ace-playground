@@ -5,12 +5,12 @@
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
-
 var oop = __webpack_require__(2645);
 var Behaviour = (__webpack_require__(75684)/* .Behaviour */ .Q);
 var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
 var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
+/**@type {(new() => Partial<import("../../../ace-internal").Ace.Behaviour>)}*/
 var CssBehaviour = function () {
 
     this.inherit(CstyleBehaviour);
@@ -506,6 +506,9 @@ var CssHighlightRules = function() {
         }, {
             token : keywordMapper,
             regex : "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*"
+        }, {
+            token: "paren.lparen",
+            regex: "\\{"
         }, {
             caseInsensitive: true
         }],

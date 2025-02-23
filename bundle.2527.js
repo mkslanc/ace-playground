@@ -9,6 +9,7 @@
 var oop = __webpack_require__(2645);
 var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
 
+/**@type {(new() => Partial<import("../../../ace-internal").Ace.Behaviour>)}*/
 var HtmlBehaviour = function () {
 
     XmlBehaviour.call(this);

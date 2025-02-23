@@ -16,7 +16,7 @@ var DocCommentHighlightRules = function () {
                 token: "comment.doc.tag",
                 regex: "@\\w+(?=\\s|$)"
             }, DocCommentHighlightRules.getTagRule(), {
-                defaultToken: "comment.doc",
+                defaultToken: "comment.doc.body",
                 caseInsensitive: true
             }
         ]
@@ -35,7 +35,7 @@ DocCommentHighlightRules.getTagRule = function(start) {
 DocCommentHighlightRules.getStartRule = function(start) {
     return {
         token : "comment.doc", // doc comment
-        regex : "\\/\\*(?=\\*)",
+        regex: /\/\*\*(?!\/)/,
         next  : start
     };
 };
@@ -129,6 +129,7 @@ var Mode = function() {
     JavaScriptMode.call(this);
     this.HighlightRules = JavaHighlightRules;
     this.foldingRules = new JavaFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
 };
 oop.inherits(Mode, JavaScriptMode);
 

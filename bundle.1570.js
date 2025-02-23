@@ -192,8 +192,8 @@ dom.importCssString(searchboxCss, "ace_searchbox", false);
 class SearchBox {
     /**
      * @param {Editor} editor
-     * @param {undefined} [range]
-     * @param {undefined} [showReplaceForm]
+     * @param {never} [range]
+     * @param {never} [showReplaceForm]
      */
     constructor(editor, range, showReplaceForm) {
         /**@type {any}*/
@@ -226,6 +226,7 @@ class SearchBox {
         this.element = div.firstChild;
 
         this.setSession = this.setSession.bind(this);
+        this.$onEditorInput = this.onEditorInput.bind(this);
 
         this.$init();
         this.setEditor(editor);
@@ -241,10 +242,15 @@ class SearchBox {
         /**@type {Editor}*/
         this.editor = editor;
     }
-    
+
     setSession(e) {
         this.searchRange = null;
         this.$syncOptions(true);
+    }
+
+    // Auto update "updateCounter" and "ace_nomatch"
+    onEditorInput() {
+        this.find(false, false, true);
     }
 
     /**
@@ -272,12 +278,12 @@ class SearchBox {
         /**@type {HTMLElement}*/
         this.searchCounter = sb.querySelector(".ace_search_counter");
     }
-    
+
     $init() {
         var sb = this.element;
-        
+
         this.$initElements(sb);
-        
+
         var _this = this;
         event.addListener(sb, "mousedown", function(e) {
             setTimeout(function(){
@@ -304,6 +310,10 @@ class SearchBox {
             }
         });
 
+        /**
+         * @type {{schedule: (timeout?: number) => void}}
+         * @external
+        */
         this.$onChange = lang.delayedCall(function() {
             _this.find(false, false);
         });
@@ -333,6 +343,7 @@ class SearchBox {
 
     /**
      * @param {boolean} [preventScroll]
+     * @external
      */
     $syncOptions(preventScroll) {
         dom.setCssClass(this.replaceOption, "checked", this.searchRange);
@@ -388,11 +399,20 @@ class SearchBox {
             var value = this.searchRange
                 ? editor.session.getTextRange(this.searchRange)
                 : editor.getValue();
-            
+
+            /**
+             * Convert all line ending variations to Unix-style = \n
+             * Windows (\r\n), MacOS Classic (\r), and Unix (\n)
+             */
+            if (editor.$search.$isMultilineSearch(editor.getLastSearchOptions())) {
+                value = value.replace(/\r\n|\r|\n/g, "\n");
+                editor.session.doc.$autoNewLine = "\n";
+            }
+
             var offset = editor.session.doc.positionToIndex(editor.selection.anchor);
             if (this.searchRange)
                 offset -= editor.session.doc.positionToIndex(this.searchRange.start);
-                
+
             var last = regex.lastIndex = 0;
             var m;
             while ((m = regex.exec(value))) {
@@ -418,7 +438,7 @@ class SearchBox {
         this.find(true, true);
     }
     findAll(){
-        var range = this.editor.findAll(this.searchInput.value, {            
+        var range = this.editor.findAll(this.searchInput.value, {
             regExp: this.regExpOption.checked,
             caseSensitive: this.caseSensitiveOption.checked,
             wholeWord: this.wholeWordOption.checked
@@ -433,7 +453,7 @@ class SearchBox {
     replace() {
         if (!this.editor.getReadOnly())
             this.editor.replace(this.replaceInput.value);
-    }    
+    }
     replaceAndFindNext() {
         if (!this.editor.getReadOnly()) {
             this.editor.replace(this.replaceInput.value);
@@ -449,7 +469,8 @@ class SearchBox {
         this.active = false;
         this.setSearchRange(null);
         this.editor.off("changeSession", this.setSession);
-        
+        this.editor.off("input", this.$onEditorInput);
+
         this.element.style.display = "none";
         this.editor.keyBinding.removeKeyboardHandler(this.$closeSearchBarKb);
         this.editor.focus();
@@ -462,17 +483,21 @@ class SearchBox {
     show(value, isReplace) {
         this.active = true;
         this.editor.on("changeSession", this.setSession);
+        this.editor.on("input", this.$onEditorInput);
         this.element.style.display = "";
         this.replaceOption.checked = isReplace;
-        
+
+        if (this.editor.$search.$options.regExp)
+            value = lang.escapeRegExp(value);
+
         if (value)
             this.searchInput.value = value;
-        
+
         this.searchInput.focus();
         this.searchInput.select();
 
         this.editor.keyBinding.addKeyboardHandler(this.$closeSearchBarKb);
-        
+
         this.$syncOptions(true);
     }
 
@@ -579,7 +604,7 @@ SearchBox.prototype.$closeSearchBarKb = $closeSearchBarKb;
 exports.SearchBox = SearchBox;
 
 /**
- * 
+ *
  * @param {Editor} editor
  * @param {boolean} [isReplace]
  */

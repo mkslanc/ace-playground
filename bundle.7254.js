@@ -52,6 +52,11 @@ module.exports = `.ace_static_highlight {
 
 "use strict";
 
+/**
+ * @typedef {import("../../ace-internal").Ace.SyntaxMode} SyntaxMode
+ * @typedef {import("../../ace-internal").Ace.Theme} Theme
+ */
+
 
 var EditSession = (__webpack_require__(33464)/* .EditSession */ .f);
 var TextLayer = (__webpack_require__(10694)/* .Text */ .E);
@@ -128,9 +133,9 @@ var SimpleTextLayer = function() {
 SimpleTextLayer.prototype = TextLayer.prototype;
 
 /**
- * 
+ *
  * @param {HTMLElement} el
- * @param opts
+ * @param {import("../../ace-internal").Ace.StaticHighlightOptions} opts
  * @param [callback]
  * @returns {boolean}
  */
@@ -140,7 +145,7 @@ var highlight = function(el, opts, callback) {
     if (!mode)
         return false;
     var theme = opts.theme || "ace/theme/textmate";
-    
+
     var data = "";
     var nodes = [];
 
@@ -161,13 +166,13 @@ var highlight = function(el, opts, callback) {
         if (opts.trim)
             data = data.trim();
     }
-    
+
     highlight.render(data, mode, theme, opts.firstLineNumber, !opts.showGutter, function (highlighted) {
         dom.importCssString(highlighted.css, "ace_highlight", true);
         el.innerHTML = highlighted.html;
-        /** 
+        /**
          * TODO: check if child exists
-         * @type {any} 
+         * @type {any}
          */
         var container = el.firstChild.firstChild;
         for (var i = 0; i < nodes.length; i += 2) {
@@ -184,10 +189,10 @@ var highlight = function(el, opts, callback) {
  * Transforms a given input code snippet into HTML using the given mode
  *
  * @param {string} input Code snippet
- * @param {string|import("../../ace-internal").Ace.SyntaxMode} mode String specifying the mode to load such as
+ * @param {string | SyntaxMode} mode String specifying the mode to load such as
  *  `ace/mode/javascript` or, a mode loaded from `/ace/mode`
  *  (use 'ServerSideHiglighter.getMode').
- * @param {string} theme String specifying the theme to load such as
+ * @param {string | Theme} theme String specifying the theme to load such as
  *  `ace/theme/twilight` or, a theme loaded from `/ace/theme`.
  * @param {number} lineStart A number indicating the first line number. Defaults
  *  to 1.
@@ -230,7 +235,7 @@ highlight.render = function(input, mode, theme, lineStart, disableGutter, callba
 
     // loads or passes the specified mode module then calls renderer
     function done() {
-        var result = highlight.renderSync(input, mode, theme, lineStart, disableGutter);
+        var result = highlight.renderSync(input, mode, /**@type{Theme}*/(theme), lineStart, disableGutter);
         return callback ? callback(result) : result;
     }
     return --waiting || done();
@@ -239,8 +244,8 @@ highlight.render = function(input, mode, theme, lineStart, disableGutter, callba
 /**
  * Transforms a given input code snippet into HTML using the given mode
  * @param {string} input Code snippet
- * @param {import("../../ace-internal").Ace.SyntaxMode|string} mode Mode loaded from /ace/mode (use 'ServerSideHiglighter.getMode')
- * @param {any} theme
+ * @param {SyntaxMode | string} mode Mode loaded from /ace/mode (use 'ServerSideHiglighter.getMode')
+ * @param {Theme} theme
  * @param {any} lineStart
  * @param {boolean} disableGutter
  * @returns {object} An object containing: html, css
@@ -265,10 +270,10 @@ highlight.renderSync = function(input, mode, theme, lineStart, disableGutter) {
 
     session.setValue(input);
     var length =  session.getLength();
-    
+
     var outerEl = simpleDom.createElement("div");
     outerEl.className = theme.cssClass;
-    
+
     var innerEl = simpleDom.createElement("div");
     innerEl.className = "ace_static_highlight" + (disableGutter ? "" : " ace_show_gutter");
     innerEl.style["counter-reset"] = "ace_line " + (lineStart - 1);
@@ -276,7 +281,7 @@ highlight.renderSync = function(input, mode, theme, lineStart, disableGutter) {
     for (var ix = 0; ix < length; ix++) {
         var lineEl = simpleDom.createElement("div");
         lineEl.className = "ace_line";
-        
+
         if (!disableGutter) {
             var gutterEl = simpleDom.createElement("span");
             gutterEl.className ="ace_gutter ace_gutter-cell";

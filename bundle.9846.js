@@ -14,6 +14,7 @@ function is(token, type) {
     return token && token.type.lastIndexOf(type + ".xml") > -1;
 }
 
+/**@type {(new() => Partial<import("../../../ace-internal").Ace.Behaviour>)}*/
 var XmlBehaviour = function () {
 
     this.add("string_dquotes", "insertion", function (state, action, editor, session, text) {
@@ -97,7 +98,7 @@ var XmlBehaviour = function () {
                     iterator.stepBackward();
                 }
             }
-            
+
             if (/^\s*>/.test(session.getLine(position.row).slice(position.column)))
                 return;
 
@@ -308,13 +309,15 @@ function is(token, type) {
     };
 
     this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var firstTag = this._getFirstTagInLine(session, row);
+        if (!firstTag) {
+            return this.getCommentFoldWidget(session, row) && session.getCommentFoldRange(
+                row, session.getLine(row).length);
+        }
         var tags = session.getMatchingTags({row: row, column: 0});
         if (tags) {
             return new Range(
                 tags.openTag.end.row, tags.openTag.end.column, tags.closeTag.start.row, tags.closeTag.start.column);
-        } else {
-            return this.getCommentFoldWidget(session, row)
-                && session.getCommentFoldRange(row, session.getLine(row).length);
         }
     };
 

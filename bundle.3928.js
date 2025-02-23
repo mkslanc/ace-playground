@@ -2604,7 +2604,7 @@ var LuaHighlightRules = function() {
                     regex : /\]=*\]/,
                     next  : "start"
                 }, {
-                    defaultToken : "comment"
+                    defaultToken: "comment.body"
                 }
             ]
         },

@@ -2,7 +2,7 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3199],{
 
 /***/ 23199:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 const { Tokenizer } = __webpack_require__(32934);
@@ -63,10 +63,7 @@ function tokenize(content, highlightRules) {
     return result;
 }
 
-module.exports = {
-    tokenize
-};
-
+exports.tokenize = tokenize;
 
 /***/ })
 
