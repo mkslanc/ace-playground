@@ -1,7 +1,6 @@
 import {LanguageProvider} from "ace-linters";
 import {request} from "../utils";
-import {AceEditor, Box} from "ace-layout";
-import {LayoutEditor} from "ace-layout/widgets/widget";
+import {AceEditor, Box, LayoutEditor} from "ace-layout";
 import event from "ace-code/src/lib/event";
 import {HashHandler} from "ace-code/src/keyboard/hash_handler";
 import keyUtil from "ace-code/src/lib/keys";
@@ -15,28 +14,28 @@ function requestDeclarations() {
     let aceModes = request('ace-modes.d.ts').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
-    let languageProviderDeclaration = request('language-provider.d.ts').then(function (response: XMLHttpRequest) {
+    let aceModules = request('ace-modules.d.ts').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
-    let languageServiceDeclaration = request('language-service.d.ts').then(function (response: XMLHttpRequest) {
+    let aceLinters = request('ace-linters.d.ts').then(function (response: XMLHttpRequest) {
         return response.responseText;
     });
-    Promise.all([ace, languageProviderDeclaration, aceModes, languageServiceDeclaration]).then(function (responses) {
+    Promise.all([ace, aceModes, aceModules, aceLinters]).then(function (responses) {
         languageProvider.setGlobalOptions("typescript", {
             extraLibs: {
                 "ace.d.ts": {
                     content: correctAceDeclaration(responses[0]),
                     version: 1
                 },
-                "language-provider.d.ts": {
-                    content: correctDeclaration(responses[1]),
+                "ace-modes.d.ts": {
+                    content: responses[1],
                     version: 1
                 },
-                "ace-modes.d.ts": {
+                "ace-modules.d.ts": {
                     content: responses[2],
                     version: 1
                 },
-                "language-service.d.ts": {
+                "ace-linters.d.ts": {
                     content: correctDeclaration(responses[3]),
                     version: 1
                 },
@@ -51,8 +50,11 @@ function requestDeclarations() {
 
 
 function correctAceDeclaration(declaration) {
-    return declaration.replace(/export\s+namespace\s+Ace/, "declare namespace Ace")
-            .replace(/export\s+const\s+version/, "declare namespace ace {\nexport const version") + "}";
+    return declaration + `
+
+declare module ace {
+  export * from "ace-builds";
+}`;
 }
 
 function correctDeclaration(declaration) {
@@ -71,9 +73,9 @@ function registerCommands() {
     ]);
 
     event.addCommandKeyListener(window, function (e, hashId, keyCode) {
-        let keyString = keyUtil.keyCodeToString(keyCode);
+        let keyString = keyUtil["keyCodeToString"](keyCode);
         let command = menuKb.findKeyCommand(hashId, keyString);
-        if (command) {
+        if (command?.exec) {
             command.exec();
             e.preventDefault();
         }

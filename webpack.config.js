@@ -70,17 +70,17 @@ export default {
                     from: "samples/**/*",
                     to: "."
                 }, {
-                    from: "node_modules/ace-code/ace.d.ts",
+                    from: "node_modules/ace-builds/ace.d.ts",
                     to: "ace.d.ts"
                 }, {
-                    from: "node_modules/ace-code/ace-modes.d.ts",
+                    from: "node_modules/ace-builds/ace-modes.d.ts",
                     to: "ace-modes.d.ts"
                 }, {
-                    from: "node_modules/ace-linters/types/language-provider.d.ts",
-                    to: "language-provider.d.ts"
+                    from: "node_modules/ace-builds/types/ace-modules.d.ts",
+                    to: "ace-modules.d.ts"
                 }, {
-                    from: "node_modules/ace-linters/types/types/language-service.d.ts",
-                    to: "language-service.d.ts"
+                    from: "node_modules/ace-linters/types/ace-linters.d.ts",
+                    to: "ace-linters.d.ts"
                 }
             ]
         })
