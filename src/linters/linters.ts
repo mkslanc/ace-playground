@@ -44,7 +44,7 @@ function requestDeclarations() {
                 allowJs: true,
                 checkJs: true
             }
-        }, true);    
+        }, true);
     });
 }
 
