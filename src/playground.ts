@@ -1,12 +1,13 @@
-import {Ace, AceEditor, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
+import {AceEditor, AceLayout, Box, CommandManager, EditorType, MenuToolbar, TabManager} from "ace-layout";
 import {addMenu} from "./menu";
 import {pathToTitle, request} from "./utils";
 import {generateTemplate, useCustomUserCode} from "./template";
 import * as defaultLayout from "./layouts/two-columns-bottom.json";
-import {Tab} from "ace-layout/widgets/tabs/tab";
+import {Tab} from "ace-layout";
 import {SAMPLES} from "./samples";
 import {registerLanguageProvider} from "./linters/linters";
 import {displayError, windowError} from "./error_handler";
+import {Ace} from "ace-code";
 
 let editorBox: Box, exampleBox: Box, consoleBox: Box;
 let currentPath: string | undefined;
@@ -280,7 +281,7 @@ function loadSample(path: string) {
 /**
  * Add ace script to html if it is not present, and replace cdnjs url to unpkg. Returns non-changed html if it
  * contains custom user code with html or doctype.
- * 
+ *
  * @param html
  */
 function addMissingAceScript(html: string) {
@@ -288,7 +289,7 @@ function addMissingAceScript(html: string) {
         return html;
     }
     if (!/script\s+src=["'](.+ace\.js)['"]/.test(html)) {
-        html = '<script src="https://www.unpkg.com/ace-builds@latest/src-noconflict/ace.js"></script>\n' + html;
+        html = '<script src="https://www.unpkg.com/ace-builds@latest/src-noconflict/ace.js" crossorigin="anonymous"></script>\n' + html;
     }
     html = html.replaceAll(/cdnjs\.cloudflare\.com\/ajax\/libs\/ace\/[\d.]+\/([\w-]+)(?:\.min)?/g, "www.unpkg.com/ace-builds@latest/src-noconflict/$1");
     return html;

@@ -1,4 +1,5 @@
-import {Ace, EditorType, TabManager} from "ace-layout";
+import {EditorType, TabManager} from "ace-layout";
+import {Ace} from "ace-code";
 
 function ctorName(obj) {
     let ctor = obj.constructor?.name;
@@ -10,6 +11,7 @@ function ctorName(obj) {
 
 function serialize(val) {
     let seen = new Set;
+
     function inner(val) {
         if (val instanceof Error)
             return {error: val.toString(), stack: val.stack};
@@ -32,10 +34,12 @@ function serialize(val) {
         }
         return result;
     }
+
     return inner(val);
 }
 
-export function windowError (e: MessageEvent) {
+
+export function windowError(e: MessageEvent) {
     let errorData = e.data;
     if (errorData?.type?.startsWith("webpack"))
         return;
@@ -44,7 +48,7 @@ export function windowError (e: MessageEvent) {
         let log = errorData.log;
         errorMessage = errorData.elements.filter((el) => el != null).map((el) => {
             let element = serialize(el);
-            return log + ": " + (log == "error" || log == "warning" ? element.error : element);
+            return log + ": " + (element?.error || element);
         }).join("\n");
     }
 

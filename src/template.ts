@@ -30,7 +30,7 @@ export function generateTemplate(js, html, css) {
   wrapConsole("warn");
   wrapConsole("error");
   
-  window.addEventListener("error", e => console.error(e.error));
+  window.addEventListener("error", e => console.error(e.error || e.message));
 
 </script>
 ${html}
