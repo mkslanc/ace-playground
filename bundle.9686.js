@@ -1,6 +1,50 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[9686],{
 
+/***/ 28670:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        return line.match(/^\s*/)[0];
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+
+
+/***/ }),
+
 /***/ 37028:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -94,6 +138,150 @@ var CssBehaviour = function () {
 oop.inherits(CssBehaviour, CstyleBehaviour);
 
 exports.r = CssBehaviour;
+
+
+/***/ }),
+
+/***/ 41425:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+var CssHighlightRules = __webpack_require__(74275);
+
+var LessHighlightRules = function() {
+
+
+    var keywordList = "@import|@media|@font-face|@keyframes|@-webkit-keyframes|@supports|" + 
+        "@charset|@plugin|@namespace|@document|@page|@viewport|@-ms-viewport|" +
+        "or|and|when|not";
+
+    var keywords = keywordList.split('|');
+
+    var properties = CssHighlightRules.supportType.split('|');
+
+    var keywordMapper = this.createKeywordMapper({
+        "support.constant": CssHighlightRules.supportConstant,
+        "keyword": keywordList,
+        "support.constant.color": CssHighlightRules.supportConstantColor,
+        "support.constant.fonts": CssHighlightRules.supportConstantFonts
+    }, "identifier", true);   
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    var numRe = "\\-?(?:(?:[0-9]+)|(?:[0-9]*\\.[0-9]+))";
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    this.$rules = {
+        "start" : [
+            {
+                token : "comment",
+                regex : "\\/\\/.*$"
+            },
+            {
+                token : "comment", // multi line comment
+                regex : "\\/\\*",
+                next : "comment"
+            }, {
+                token : "string", // single line
+                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+            }, {
+                token : "string", // single line
+                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+            }, {
+                token : ["constant.numeric", "keyword"],
+                regex : "(" + numRe + ")(ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vm|vw|%)"
+            }, {
+                token : "constant.numeric", // hex6 color
+                regex : "#[a-f0-9]{6}"
+            }, {
+                token : "constant.numeric", // hex3 color
+                regex : "#[a-f0-9]{3}"
+            }, {
+                token : "constant.numeric",
+                regex : numRe
+            }, {
+                token : ["support.function", "paren.lparen", "string", "paren.rparen"],
+                regex : "(url)(\\()(.*)(\\))"
+            }, {
+                token : ["support.function", "paren.lparen"],
+                regex : "(:extend|[a-z0-9_\\-]+)(\\()"
+            }, {
+                token : function(value) {
+                    if (keywords.indexOf(value.toLowerCase()) > -1)
+                        return "keyword";
+                    else
+                        return "variable";
+                },
+                regex : "[@\\$][a-z0-9_\\-@\\$]*\\b"
+            }, {
+                token : "variable",
+                regex : "[@\\$]\\{[a-z0-9_\\-@\\$]*\\}"
+            }, {
+                token : function(first, second) {
+                    if(properties.indexOf(first.toLowerCase()) > -1) {
+                        return ["support.type.property", "text"];
+                    }
+                    else {
+                        return ["support.type.unknownProperty", "text"];
+                    }
+                },
+                regex : "([a-z0-9-_]+)(\\s*:)"
+            }, {
+                token : "keyword",
+                regex : "&"   // special case - always treat as keyword
+            }, {
+                token : keywordMapper,
+                regex : "\\-?[@a-z_][@a-z0-9_\\-]*"
+            }, {
+                token: "variable.language",
+                regex: "#[a-z0-9-_]+"
+            }, {
+                token: "variable.language",
+                regex: "\\.[a-z0-9-_]+"
+            }, {
+                token: "variable.language",
+                regex: ":[a-z_][a-z0-9-_]*"
+            }, {
+                token: "constant",
+                regex: "[a-z0-9-_]+"
+            }, {
+                token : "keyword.operator",
+                regex : "<|>|<=|>=|=|!=|-|%|\\+|\\*"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }, {
+                caseInsensitive: true
+            }
+        ],
+        "comment" : [
+            {
+                token : "comment", // closing comment
+                regex : "\\*\\/",
+                next : "start"
+            }, {
+                defaultToken : "comment"
+            }
+        ]
+    };
+    this.normalizeRules();
+};
+
+oop.inherits(LessHighlightRules, TextHighlightRules);
+
+exports.LessHighlightRules = LessHighlightRules;
 
 
 /***/ }),
@@ -494,6 +682,72 @@ exports.CssHighlightRules = CssHighlightRules;
 
 /***/ }),
 
+/***/ 79686:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var LessHighlightRules = (__webpack_require__(41425).LessHighlightRules);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var CssBehaviour = (__webpack_require__(37028)/* .CssBehaviour */ .r);
+var CssCompletions = (__webpack_require__(61952)/* .CssCompletions */ .d);
+
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = LessHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CssBehaviour();
+    this.$completer = new CssCompletions();
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
+    
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        // ignore braces in comments
+        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        var match = line.match(/^.*\{\s*$/);
+        if (match) {
+            indent += tab;
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+    this.getCompletions = function(state, session, pos, prefix) {
+        // CSS completions only work with single (not nested) rulesets
+        return this.$completer.getCompletions("ruleset", session, pos, prefix);
+    };
+
+    this.$id = "ace/mode/less";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -656,260 +910,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 79686:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var LessHighlightRules = (__webpack_require__(41425).LessHighlightRules);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var CssBehaviour = (__webpack_require__(37028)/* .CssBehaviour */ .r);
-var CssCompletions = (__webpack_require__(61952)/* .CssCompletions */ .d);
-
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = LessHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = new CssBehaviour();
-    this.$completer = new CssCompletions();
-    this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        // ignore braces in comments
-        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-
-        var match = line.match(/^.*\{\s*$/);
-        if (match) {
-            indent += tab;
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-
-    this.getCompletions = function(state, session, pos, prefix) {
-        // CSS completions only work with single (not nested) rulesets
-        return this.$completer.getCompletions("ruleset", session, pos, prefix);
-    };
-
-    this.$id = "ace/mode/less";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 41425:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-var CssHighlightRules = __webpack_require__(74275);
-
-var LessHighlightRules = function() {
-
-
-    var keywordList = "@import|@media|@font-face|@keyframes|@-webkit-keyframes|@supports|" + 
-        "@charset|@plugin|@namespace|@document|@page|@viewport|@-ms-viewport|" +
-        "or|and|when|not";
-
-    var keywords = keywordList.split('|');
-
-    var properties = CssHighlightRules.supportType.split('|');
-
-    var keywordMapper = this.createKeywordMapper({
-        "support.constant": CssHighlightRules.supportConstant,
-        "keyword": keywordList,
-        "support.constant.color": CssHighlightRules.supportConstantColor,
-        "support.constant.fonts": CssHighlightRules.supportConstantFonts
-    }, "identifier", true);   
-
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-
-    var numRe = "\\-?(?:(?:[0-9]+)|(?:[0-9]*\\.[0-9]+))";
-
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-
-    this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : "\\/\\/.*$"
-            },
-            {
-                token : "comment", // multi line comment
-                regex : "\\/\\*",
-                next : "comment"
-            }, {
-                token : "string", // single line
-                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-            }, {
-                token : "string", // single line
-                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
-            }, {
-                token : ["constant.numeric", "keyword"],
-                regex : "(" + numRe + ")(ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vm|vw|%)"
-            }, {
-                token : "constant.numeric", // hex6 color
-                regex : "#[a-f0-9]{6}"
-            }, {
-                token : "constant.numeric", // hex3 color
-                regex : "#[a-f0-9]{3}"
-            }, {
-                token : "constant.numeric",
-                regex : numRe
-            }, {
-                token : ["support.function", "paren.lparen", "string", "paren.rparen"],
-                regex : "(url)(\\()(.*)(\\))"
-            }, {
-                token : ["support.function", "paren.lparen"],
-                regex : "(:extend|[a-z0-9_\\-]+)(\\()"
-            }, {
-                token : function(value) {
-                    if (keywords.indexOf(value.toLowerCase()) > -1)
-                        return "keyword";
-                    else
-                        return "variable";
-                },
-                regex : "[@\\$][a-z0-9_\\-@\\$]*\\b"
-            }, {
-                token : "variable",
-                regex : "[@\\$]\\{[a-z0-9_\\-@\\$]*\\}"
-            }, {
-                token : function(first, second) {
-                    if(properties.indexOf(first.toLowerCase()) > -1) {
-                        return ["support.type.property", "text"];
-                    }
-                    else {
-                        return ["support.type.unknownProperty", "text"];
-                    }
-                },
-                regex : "([a-z0-9-_]+)(\\s*:)"
-            }, {
-                token : "keyword",
-                regex : "&"   // special case - always treat as keyword
-            }, {
-                token : keywordMapper,
-                regex : "\\-?[@a-z_][@a-z0-9_\\-]*"
-            }, {
-                token: "variable.language",
-                regex: "#[a-z0-9-_]+"
-            }, {
-                token: "variable.language",
-                regex: "\\.[a-z0-9-_]+"
-            }, {
-                token: "variable.language",
-                regex: ":[a-z_][a-z0-9-_]*"
-            }, {
-                token: "constant",
-                regex: "[a-z0-9-_]+"
-            }, {
-                token : "keyword.operator",
-                regex : "<|>|<=|>=|=|!=|-|%|\\+|\\*"
-            }, {
-                token : "paren.lparen",
-                regex : "[[({]"
-            }, {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "text",
-                regex : "\\s+"
-            }, {
-                caseInsensitive: true
-            }
-        ],
-        "comment" : [
-            {
-                token : "comment", // closing comment
-                regex : "\\*\\/",
-                next : "start"
-            }, {
-                defaultToken : "comment"
-            }
-        ]
-    };
-    this.normalizeRules();
-};
-
-oop.inherits(LessHighlightRules, TextHighlightRules);
-
-exports.LessHighlightRules = LessHighlightRules;
-
-
-/***/ }),
-
-/***/ 28670:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var MatchingBraceOutdent = function() {};
-
-(function() {
-
-    this.checkOutdent = function(line, input) {
-        if (! /^\s+$/.test(line))
-            return false;
-
-        return /^\s*\}/.test(input);
-    };
-
-    this.autoOutdent = function(doc, row) {
-        var line = doc.getLine(row);
-        var match = line.match(/^(\s*\})/);
-
-        if (!match) return 0;
-
-        var column = match[1].length;
-        var openBracePos = doc.findMatchingBracket({row: row, column: column});
-
-        if (!openBracePos || openBracePos.row == row) return 0;
-
-        var indent = this.$getIndent(doc.getLine(openBracePos.row));
-        doc.replace(new Range(row, 0, row, column-1), indent);
-    };
-
-    this.$getIndent = function(line) {
-        return line.match(/^\s*/)[0];
-    };
-
-}).call(MatchingBraceOutdent.prototype);
-
-exports.MatchingBraceOutdent = MatchingBraceOutdent;
 
 
 /***/ })

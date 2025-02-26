@@ -1,33 +1,55 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[307],{
 
-/***/ 45081:
+/***/ 20307:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
 
 var oop = __webpack_require__(2645);
 var TextMode = (__webpack_require__(49432).Mode);
-var HighlightRules = (__webpack_require__(23614)/* .JsonHighlightRules */ .S);
+var HtmlMode = (__webpack_require__(32234).Mode);
+var JavascriptMode = (__webpack_require__(93388).Mode);
+var JsonMode = (__webpack_require__(45081).Mode);
+var CssMode = (__webpack_require__(41080).Mode);
+var LiquidHighlightRules = (__webpack_require__(71336)/* .LiquidHighlightRules */ .k);
 var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-var WorkerClient = (__webpack_require__(28402).WorkerClient);
 
-var Mode = function() {
-    this.HighlightRules = HighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = this.$defaultBehaviour;
-    this.foldingRules = new CStyleFoldMode();
+/* -------------------------------------------- */
+/* FOLDS                                        */
+/* -------------------------------------------- */
+
+var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+/* -------------------------------------------- */
+/* MODE                                         */
+/* -------------------------------------------- */
+
+var Mode = function () {
+
+  JsonMode.call(this);
+  HtmlMode.call(this);
+  CssMode.call(this);
+  JavascriptMode.call(this);
+  this.HighlightRules = LiquidHighlightRules;
+  this.foldingRules = new FoldMode();
+
 };
+
 oop.inherits(Mode, TextMode);
 
-(function() {
+(function () {
 
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    
+    this.blockComment = {start: "<!--", end: "-->"};
+    this.voidElements = new HtmlMode().voidElements;
+
     this.getNextLineIndent = function(state, line, tab) {
         var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        var endState = tokenizedLine.state;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
 
         if (state == "start") {
             var match = line.match(/^.*[\{\(\[]\s*$/);
@@ -47,24 +69,10 @@ oop.inherits(Mode, TextMode);
         this.$outdent.autoOutdent(doc, row);
     };
 
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "ace/mode/json_worker", "JsonWorker");
-        worker.attachToDocument(session.getDocument());
+    this.$id = "ace/mode/liquid";
+    this.snippetFileId = "ace/snippets/liquid";
 
-        worker.on("annotate", function(e) {
-            session.setAnnotations(e.data);
-        });
-
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
-
-        return worker;
-    };
-
-
-    this.$id = "ace/mode/json";
-}).call(Mode.prototype);
+}.call(Mode.prototype));
 
 exports.Mode = Mode;
 
@@ -158,56 +166,34 @@ exports.S = JsonHighlightRules;
 
 /***/ }),
 
-/***/ 20307:
+/***/ 45081:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
 
 var oop = __webpack_require__(2645);
 var TextMode = (__webpack_require__(49432).Mode);
-var HtmlMode = (__webpack_require__(32234).Mode);
-var JavascriptMode = (__webpack_require__(93388).Mode);
-var JsonMode = (__webpack_require__(45081).Mode);
-var CssMode = (__webpack_require__(41080).Mode);
-var LiquidHighlightRules = (__webpack_require__(71336)/* .LiquidHighlightRules */ .k);
+var HighlightRules = (__webpack_require__(23614)/* .JsonHighlightRules */ .S);
 var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+var WorkerClient = (__webpack_require__(28402).WorkerClient);
 
-/* -------------------------------------------- */
-/* FOLDS                                        */
-/* -------------------------------------------- */
-
-var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-/* -------------------------------------------- */
-/* MODE                                         */
-/* -------------------------------------------- */
-
-var Mode = function () {
-
-  JsonMode.call(this);
-  HtmlMode.call(this);
-  CssMode.call(this);
-  JavascriptMode.call(this);
-  this.HighlightRules = LiquidHighlightRules;
-  this.foldingRules = new FoldMode();
-
+var Mode = function() {
+    this.HighlightRules = HighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = this.$defaultBehaviour;
+    this.foldingRules = new CStyleFoldMode();
 };
-
 oop.inherits(Mode, TextMode);
 
-(function () {
+(function() {
 
-    this.blockComment = {start: "<!--", end: "-->"};
-    this.voidElements = new HtmlMode().voidElements;
-
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
+    
     this.getNextLineIndent = function(state, line, tab) {
         var indent = this.$getIndent(line);
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-        var endState = tokenizedLine.state;
-
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
 
         if (state == "start") {
             var match = line.match(/^.*[\{\(\[]\s*$/);
@@ -227,10 +213,24 @@ oop.inherits(Mode, TextMode);
         this.$outdent.autoOutdent(doc, row);
     };
 
-    this.$id = "ace/mode/liquid";
-    this.snippetFileId = "ace/snippets/liquid";
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "ace/mode/json_worker", "JsonWorker");
+        worker.attachToDocument(session.getDocument());
 
-}.call(Mode.prototype));
+        worker.on("annotate", function(e) {
+            session.setAnnotations(e.data);
+        });
+
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
+
+        return worker;
+    };
+
+
+    this.$id = "ace/mode/json";
+}).call(Mode.prototype);
 
 exports.Mode = Mode;
 

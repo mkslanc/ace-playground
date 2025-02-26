@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[585,8173],{
 
-/***/ 90585:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(8173);
-exports.scope = "tcl";
-
-
-/***/ }),
-
 /***/ 8173:
 /***/ ((module) => {
 
@@ -108,6 +96,18 @@ snippet ns
 snippet nsc
 	namespace current
 `;
+
+
+/***/ }),
+
+/***/ 90585:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(8173);
+exports.scope = "tcl";
 
 
 /***/ })

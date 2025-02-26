@@ -1,16 +1,4 @@
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8066,1884],{
-
-/***/ 48066:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(31884);
-exports.scope = "python";
-
-
-/***/ }),
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[1884,8066],{
 
 /***/ 31884:
 /***/ ((module) => {
@@ -174,6 +162,18 @@ snippet getopt
 		elif option in ("-v", "--verbose"):
 			verbose = argument
 `;
+
+
+/***/ }),
+
+/***/ 48066:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(31884);
+exports.scope = "python";
 
 
 /***/ })

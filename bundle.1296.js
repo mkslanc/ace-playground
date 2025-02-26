@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[1296,5454],{
 
-/***/ 81296:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(35454);
-exports.scope = "gobstones";
-
-
-/***/ }),
-
 /***/ 35454:
 /***/ ((module) => {
 
@@ -1720,6 +1708,18 @@ snippet docs (función con parámetros)
 		@TIPO: \${6:...}
 	*/
 `;
+
+
+/***/ }),
+
+/***/ 81296:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(35454);
+exports.scope = "gobstones";
 
 
 /***/ })

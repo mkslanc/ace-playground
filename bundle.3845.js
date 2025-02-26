@@ -1,37 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3845],{
 
-/***/ 93845:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var JavaScriptMode = (__webpack_require__(93388).Mode);
-var GobstonesHighlightRules = (__webpack_require__(37490)/* .GobstonesHighlightRules */ .o);
-
-var Mode = function() {
-    JavaScriptMode.call(this);
-    this.HighlightRules = GobstonesHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, JavaScriptMode);
-
-(function() {
-
-    this.createWorker = function() {
-        return null;
-    };
-
-    this.$id = "ace/mode/gobstones";
-    this.snippetFileId = "ace/snippets/gobstones";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 37490:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -305,6 +274,37 @@ var GobstonesHighlightRules = function() {
 oop.inherits(GobstonesHighlightRules, TextHighlightRules);
 
 exports.o = GobstonesHighlightRules;
+
+
+/***/ }),
+
+/***/ 93845:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var JavaScriptMode = (__webpack_require__(93388).Mode);
+var GobstonesHighlightRules = (__webpack_require__(37490)/* .GobstonesHighlightRules */ .o);
+
+var Mode = function() {
+    JavaScriptMode.call(this);
+    this.HighlightRules = GobstonesHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, JavaScriptMode);
+
+(function() {
+
+    this.createWorker = function() {
+        return null;
+    };
+
+    this.$id = "ace/mode/gobstones";
+    this.snippetFileId = "ace/snippets/gobstones";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

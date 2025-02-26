@@ -1,33 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[4583],{
 
-/***/ 64583:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var AssemblyARM32HighlightRules = (__webpack_require__(58292)/* .AssemblyARM32HighlightRules */ .V);
-var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = AssemblyARM32HighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.lineCommentStart = [";"];
-	this.blockComment = {start: "/*", end: "*/"};
-    this.$id = "ace/mode/assembly_arm32";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-/***/ }),
-
 /***/ 58292:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -123,6 +96,33 @@ oop.inherits(AssemblyARM32HighlightRules, TextHighlightRules);
 
 exports.V = AssemblyARM32HighlightRules;
 
+
+/***/ }),
+
+/***/ 64583:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var AssemblyARM32HighlightRules = (__webpack_require__(58292)/* .AssemblyARM32HighlightRules */ .V);
+var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = AssemblyARM32HighlightRules;
+    this.foldingRules = new FoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.lineCommentStart = [";"];
+	this.blockComment = {start: "/*", end: "*/"};
+    this.$id = "ace/mode/assembly_arm32";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 /***/ }),
 

@@ -1,31 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[9723],{
 
-/***/ 59723:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var MediaWikiHighlightRules = (__webpack_require__(55696)/* .MediaWikiHighlightRules */ .o);
-
-var Mode = function() {
-    this.HighlightRules = MediaWikiHighlightRules;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.type = "text";
-    this.blockComment = {start: "<!--", end: "-->"};
-    this.$id = "ace/mode/mediawiki";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 55696:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -591,6 +566,31 @@ MediaWikiHighlightRules.metaData = {
 oop.inherits(MediaWikiHighlightRules, TextHighlightRules);
 
 exports.o = MediaWikiHighlightRules;
+
+
+/***/ }),
+
+/***/ 59723:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var MediaWikiHighlightRules = (__webpack_require__(55696)/* .MediaWikiHighlightRules */ .o);
+
+var Mode = function() {
+    this.HighlightRules = MediaWikiHighlightRules;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.type = "text";
+    this.blockComment = {start: "<!--", end: "-->"};
+    this.$id = "ace/mode/mediawiki";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

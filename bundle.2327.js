@@ -1,18 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2327,3871],{
 
-/***/ 72327:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(53871);
-exports.scope = "velocity";
-exports.includeScopes = ["html", "javascript", "css"];
-
-
-/***/ }),
-
 /***/ 53871:
 /***/ ((module) => {
 
@@ -45,6 +32,19 @@ snippet #import
 snippet #set
 	#set ( \$\${1:var} = \${0} )
 `;
+
+
+/***/ }),
+
+/***/ 72327:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(53871);
+exports.scope = "velocity";
+exports.includeScopes = ["html", "javascript", "css"];
 
 
 /***/ })

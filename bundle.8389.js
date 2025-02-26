@@ -1,127 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8389],{
 
-/***/ 38389:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var BasicHighlightRules = (__webpack_require__(82546)/* .BasicHighlightRules */ .G);
-var FoldMode = (__webpack_require__(37531)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = BasicHighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-    this.indentKeywords = this.foldingRules.indentKeywords;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = ["REM"];
-
-    this.getMatching = function(session, row, column, tokenRange) {
-        if (row == undefined) {
-            var pos = session.selection.lead;
-            column = pos.column;
-            row = pos.row;
-        }
-        if (tokenRange == undefined)
-            tokenRange = true;
-
-        var startToken = session.getTokenAt(row, column);
-        if (startToken) {
-            var val = startToken.value.toLowerCase();
-            if (val in this.indentKeywords)
-                return this.foldingRules.basicBlock(session, row, column, tokenRange);
-        }
-    };
-
-    this.$id = "ace/mode/basic";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 82546:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var BasicHighlightRules = function () {
-
-    var keywordMapper = this.createKeywordMapper({
-        "keyword.control": "FOR|TO|NEXT|GOSUB|RETURN|IF|THEN|ELSE|GOTO|ON|WHILE|WEND|TRON|TROFF",
-        "entity.name": "Auto|Call|Chain|Clear|Close|Common|Cont|Data|MERGE|ALL|Delete|DIM|EDIT|END|ERASE|ERROR|FIELD|"
-            + "GET|INPUT|KILL|LET|LIST|LLIST|LOAD|LSET|RSET|MERGE|NEW|NULL|OPEN|OUT|POKE|PRINT|PUT|RANDOMIZE|READ|"
-            + "RENUM|RESTORE|RESUME|RUN|SAVE|STOP|SWAP|WAIT|WIDTH",
-        "keyword.operator": "Mod|And|Not|Or|Xor|Eqv|Imp",
-        "support.function": "ABS|ASC|ATN|CDBL|CINT|COS|CSNG|CVI|CVS|CVD|EOF|EXP|FIX|FRE|INP|INSTR|INT|LEN|LOC|LOG|LPOS|"
-            + "PEEK|POS|RND|SGN|SIN|SPC|SQR|TAB|TAN|USR|VAL|VARPTR"
-    }, "identifier", true);
-
-    this.$rules = {
-        "start": [
-            {
-                token: "string",
-                regex: /"(?:\\.|[^"\\])*"/
-            },
-            {
-                token: "support.function",
-                regex: /(HEX|CHR|INPUT|LEFT|MID|MKI|MKS|MKD|OCT|RIGHT|SPACE|STR|STRING)\$/
-            }, {
-                token: "entity.name",
-                regex: /(?:DEF\s(?:SEG|USR|FN[a-zA-Z]+)|LINE\sINPUT|L?PRINT#?(?:\sUSING)?|MID\$|ON\sERROR\sGOTO|OPTION\sBASE|WRITE#?|DATE\$|INKEY\$|TIME\$)/
-            }, {
-                token: "variable",
-                regex: /[a-zA-Z][a-zA-Z0-9_]{0,38}[$%!#]?(?=\s*=)/
-            }, {
-                token: "keyword.operator",
-                regex: /\\|=|\^|\*|\/|\+|\-|<|>|-/
-            }, {
-                token: "paren.lparen",
-                regex: /[([]/
-            }, {
-                token: "paren.rparen",
-                regex: /[\)\]]/
-            }, {
-                token: "constant.numeric",
-                regex: /[+-]?\d+(\.\d+)?([ED][+-]?\d+)?(?:[!#])?/
-            }, {
-                token: "constant.numeric", //hexal, octal
-                regex: /&[HO]?[0-9A-F]+/
-            }, {
-                token: "comment",
-                regex: /REM\s+.*$/
-            }, {
-                regex: "\\w+",
-                token: keywordMapper
-            },{
-                token: "punctiation",
-                regex: /[,;]/
-
-            }
-        ]
-
-    };
-    this.normalizeRules();
-};
-
-oop.inherits(BasicHighlightRules, TextHighlightRules);
-
-exports.G = BasicHighlightRules;
-
-
-/***/ }),
-
 /***/ 37531:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -241,6 +120,127 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
+
+
+/***/ }),
+
+/***/ 38389:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var BasicHighlightRules = (__webpack_require__(82546)/* .BasicHighlightRules */ .G);
+var FoldMode = (__webpack_require__(37531)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = BasicHighlightRules;
+    this.foldingRules = new FoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+    this.indentKeywords = this.foldingRules.indentKeywords;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = ["REM"];
+
+    this.getMatching = function(session, row, column, tokenRange) {
+        if (row == undefined) {
+            var pos = session.selection.lead;
+            column = pos.column;
+            row = pos.row;
+        }
+        if (tokenRange == undefined)
+            tokenRange = true;
+
+        var startToken = session.getTokenAt(row, column);
+        if (startToken) {
+            var val = startToken.value.toLowerCase();
+            if (val in this.indentKeywords)
+                return this.foldingRules.basicBlock(session, row, column, tokenRange);
+        }
+    };
+
+    this.$id = "ace/mode/basic";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 82546:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var BasicHighlightRules = function () {
+
+    var keywordMapper = this.createKeywordMapper({
+        "keyword.control": "FOR|TO|NEXT|GOSUB|RETURN|IF|THEN|ELSE|GOTO|ON|WHILE|WEND|TRON|TROFF",
+        "entity.name": "Auto|Call|Chain|Clear|Close|Common|Cont|Data|MERGE|ALL|Delete|DIM|EDIT|END|ERASE|ERROR|FIELD|"
+            + "GET|INPUT|KILL|LET|LIST|LLIST|LOAD|LSET|RSET|MERGE|NEW|NULL|OPEN|OUT|POKE|PRINT|PUT|RANDOMIZE|READ|"
+            + "RENUM|RESTORE|RESUME|RUN|SAVE|STOP|SWAP|WAIT|WIDTH",
+        "keyword.operator": "Mod|And|Not|Or|Xor|Eqv|Imp",
+        "support.function": "ABS|ASC|ATN|CDBL|CINT|COS|CSNG|CVI|CVS|CVD|EOF|EXP|FIX|FRE|INP|INSTR|INT|LEN|LOC|LOG|LPOS|"
+            + "PEEK|POS|RND|SGN|SIN|SPC|SQR|TAB|TAN|USR|VAL|VARPTR"
+    }, "identifier", true);
+
+    this.$rules = {
+        "start": [
+            {
+                token: "string",
+                regex: /"(?:\\.|[^"\\])*"/
+            },
+            {
+                token: "support.function",
+                regex: /(HEX|CHR|INPUT|LEFT|MID|MKI|MKS|MKD|OCT|RIGHT|SPACE|STR|STRING)\$/
+            }, {
+                token: "entity.name",
+                regex: /(?:DEF\s(?:SEG|USR|FN[a-zA-Z]+)|LINE\sINPUT|L?PRINT#?(?:\sUSING)?|MID\$|ON\sERROR\sGOTO|OPTION\sBASE|WRITE#?|DATE\$|INKEY\$|TIME\$)/
+            }, {
+                token: "variable",
+                regex: /[a-zA-Z][a-zA-Z0-9_]{0,38}[$%!#]?(?=\s*=)/
+            }, {
+                token: "keyword.operator",
+                regex: /\\|=|\^|\*|\/|\+|\-|<|>|-/
+            }, {
+                token: "paren.lparen",
+                regex: /[([]/
+            }, {
+                token: "paren.rparen",
+                regex: /[\)\]]/
+            }, {
+                token: "constant.numeric",
+                regex: /[+-]?\d+(\.\d+)?([ED][+-]?\d+)?(?:[!#])?/
+            }, {
+                token: "constant.numeric", //hexal, octal
+                regex: /&[HO]?[0-9A-F]+/
+            }, {
+                token: "comment",
+                regex: /REM\s+.*$/
+            }, {
+                regex: "\\w+",
+                token: keywordMapper
+            },{
+                token: "punctiation",
+                regex: /[,;]/
+
+            }
+        ]
+
+    };
+    this.normalizeRules();
+};
+
+oop.inherits(BasicHighlightRules, TextHighlightRules);
+
+exports.G = BasicHighlightRules;
 
 
 /***/ })

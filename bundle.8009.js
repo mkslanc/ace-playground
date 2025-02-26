@@ -1,5 +1,233 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8009],{
 
+/***/ 4478:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var oop = __webpack_require__(2645);
+    var DocCommentHighlightRules = (__webpack_require__(42124)/* .DocCommentHighlightRules */ .l);
+    var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+    var GolangHighlightRules = function() {
+        var keywords = (
+            "else|break|case|return|goto|if|const|select|" +
+            "continue|struct|default|switch|for|range|" +
+            "func|import|package|chan|defer|fallthrough|go|interface|map|range|" +
+            "select|type|var"
+        );
+        var builtinTypes = (
+            "string|uint8|uint16|uint32|uint64|int8|int16|int32|int64|float32|" +
+            "float64|complex64|complex128|byte|rune|uint|int|uintptr|bool|error"
+        );
+        var builtinFunctions = (
+            "new|close|cap|copy|panic|panicln|print|println|len|make|delete|real|recover|imag|append"
+        );
+        var builtinConstants = ("nil|true|false|iota");
+
+        var keywordMapper = this.createKeywordMapper({
+            "keyword": keywords,
+            "constant.language": builtinConstants,
+            "support.function": builtinFunctions,
+            "support.type": builtinTypes
+        }, "");
+        
+        var stringEscapeRe = "\\\\(?:[0-7]{3}|x\\h{2}|u{4}|U\\h{6}|[abfnrtv'\"\\\\])".replace(/\\h/g, "[a-fA-F\\d]");
+
+        this.$rules = {
+            "start" : [
+                {
+                    token : "comment",
+                    regex : "\\/\\/.*$"
+                },
+                DocCommentHighlightRules.getStartRule("doc-start"),
+                {
+                    token : "comment.start", // multi line comment
+                    regex : "\\/\\*",
+                    next : "comment"
+                }, {
+                    token : "string", // single line
+                    regex : /"(?:[^"\\]|\\.)*?"/
+                }, {
+                    token : "string", // raw
+                    regex : '`',
+                    next : "bqstring"
+                }, {
+                    token : "constant.numeric", // rune
+                    regex : "'(?:[^\\'\uD800-\uDBFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|" + stringEscapeRe.replace('"', '')  + ")'"
+                }, {
+                    token : "constant.numeric", // hex
+                    regex : "0[xX][0-9a-fA-F]+\\b" 
+                }, {
+                    token : "constant.numeric", // float
+                    regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+                }, {
+                    token : ["keyword", "text", "entity.name.function"],
+                    regex : "(func)(\\s+)([a-zA-Z_$][a-zA-Z0-9_$]*)\\b"
+                }, {
+                    token : function(val) {
+                        if (val[val.length - 1] == "(") {
+                            return [{
+                                type: keywordMapper(val.slice(0, -1)) || "support.function",
+                                value: val.slice(0, -1)
+                            }, {
+                                type: "paren.lparen",
+                                value: val.slice(-1)
+                            }];
+                        }
+                        
+                        return keywordMapper(val) || "identifier";
+                    },
+                    regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b\\(?"
+                }, {
+                    token : "keyword.operator",
+                    regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|==|=|!=|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^="
+                }, {
+                    token : "punctuation.operator",
+                    regex : "\\?|\\:|\\,|\\;|\\."
+                }, {
+                    token : "paren.lparen",
+                    regex : "[[({]"
+                }, {
+                    token : "paren.rparen",
+                    regex : "[\\])}]"
+                }, {
+                    token : "text",
+                    regex : "\\s+"
+                }
+            ],
+            "comment" : [
+                {
+                    token : "comment.end",
+                    regex : "\\*\\/",
+                    next : "start"
+                }, {
+                    defaultToken : "comment"
+                }
+            ],
+            "bqstring" : [
+                {
+                    token : "string",
+                    regex : '`',
+                    next : "start"
+                }, {
+                    defaultToken : "string"
+                }
+            ]
+        };
+
+        this.embedRules(DocCommentHighlightRules, "doc-",
+            [ DocCommentHighlightRules.getEndRule("start") ]);
+    };
+    oop.inherits(GolangHighlightRules, TextHighlightRules);
+
+    exports.a = GolangHighlightRules;
+
+
+/***/ }),
+
+/***/ 28670:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        return line.match(/^\s*/)[0];
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+
+
+/***/ }),
+
+/***/ 38009:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var GolangHighlightRules = (__webpack_require__(4478)/* .GolangHighlightRules */ .a);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = GolangHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.foldingRules = new CStyleFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        var endState = tokenizedLine.state;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+        
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        }
+
+        return indent;
+    };//end getNextLineIndent
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+    this.$id = "ace/mode/golang";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 42124:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -217,234 +445,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 38009:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var GolangHighlightRules = (__webpack_require__(4478)/* .GolangHighlightRules */ .a);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = GolangHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.foldingRules = new CStyleFoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-        var endState = tokenizedLine.state;
-
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-        
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[]\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        }
-
-        return indent;
-    };//end getNextLineIndent
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-
-    this.$id = "ace/mode/golang";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 4478:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-var oop = __webpack_require__(2645);
-    var DocCommentHighlightRules = (__webpack_require__(42124)/* .DocCommentHighlightRules */ .l);
-    var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-    var GolangHighlightRules = function() {
-        var keywords = (
-            "else|break|case|return|goto|if|const|select|" +
-            "continue|struct|default|switch|for|range|" +
-            "func|import|package|chan|defer|fallthrough|go|interface|map|range|" +
-            "select|type|var"
-        );
-        var builtinTypes = (
-            "string|uint8|uint16|uint32|uint64|int8|int16|int32|int64|float32|" +
-            "float64|complex64|complex128|byte|rune|uint|int|uintptr|bool|error"
-        );
-        var builtinFunctions = (
-            "new|close|cap|copy|panic|panicln|print|println|len|make|delete|real|recover|imag|append"
-        );
-        var builtinConstants = ("nil|true|false|iota");
-
-        var keywordMapper = this.createKeywordMapper({
-            "keyword": keywords,
-            "constant.language": builtinConstants,
-            "support.function": builtinFunctions,
-            "support.type": builtinTypes
-        }, "");
-        
-        var stringEscapeRe = "\\\\(?:[0-7]{3}|x\\h{2}|u{4}|U\\h{6}|[abfnrtv'\"\\\\])".replace(/\\h/g, "[a-fA-F\\d]");
-
-        this.$rules = {
-            "start" : [
-                {
-                    token : "comment",
-                    regex : "\\/\\/.*$"
-                },
-                DocCommentHighlightRules.getStartRule("doc-start"),
-                {
-                    token : "comment.start", // multi line comment
-                    regex : "\\/\\*",
-                    next : "comment"
-                }, {
-                    token : "string", // single line
-                    regex : /"(?:[^"\\]|\\.)*?"/
-                }, {
-                    token : "string", // raw
-                    regex : '`',
-                    next : "bqstring"
-                }, {
-                    token : "constant.numeric", // rune
-                    regex : "'(?:[^\\'\uD800-\uDBFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|" + stringEscapeRe.replace('"', '')  + ")'"
-                }, {
-                    token : "constant.numeric", // hex
-                    regex : "0[xX][0-9a-fA-F]+\\b" 
-                }, {
-                    token : "constant.numeric", // float
-                    regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-                }, {
-                    token : ["keyword", "text", "entity.name.function"],
-                    regex : "(func)(\\s+)([a-zA-Z_$][a-zA-Z0-9_$]*)\\b"
-                }, {
-                    token : function(val) {
-                        if (val[val.length - 1] == "(") {
-                            return [{
-                                type: keywordMapper(val.slice(0, -1)) || "support.function",
-                                value: val.slice(0, -1)
-                            }, {
-                                type: "paren.lparen",
-                                value: val.slice(-1)
-                            }];
-                        }
-                        
-                        return keywordMapper(val) || "identifier";
-                    },
-                    regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b\\(?"
-                }, {
-                    token : "keyword.operator",
-                    regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|==|=|!=|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^="
-                }, {
-                    token : "punctuation.operator",
-                    regex : "\\?|\\:|\\,|\\;|\\."
-                }, {
-                    token : "paren.lparen",
-                    regex : "[[({]"
-                }, {
-                    token : "paren.rparen",
-                    regex : "[\\])}]"
-                }, {
-                    token : "text",
-                    regex : "\\s+"
-                }
-            ],
-            "comment" : [
-                {
-                    token : "comment.end",
-                    regex : "\\*\\/",
-                    next : "start"
-                }, {
-                    defaultToken : "comment"
-                }
-            ],
-            "bqstring" : [
-                {
-                    token : "string",
-                    regex : '`',
-                    next : "start"
-                }, {
-                    defaultToken : "string"
-                }
-            ]
-        };
-
-        this.embedRules(DocCommentHighlightRules, "doc-",
-            [ DocCommentHighlightRules.getEndRule("start") ]);
-    };
-    oop.inherits(GolangHighlightRules, TextHighlightRules);
-
-    exports.a = GolangHighlightRules;
-
-
-/***/ }),
-
-/***/ 28670:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var MatchingBraceOutdent = function() {};
-
-(function() {
-
-    this.checkOutdent = function(line, input) {
-        if (! /^\s+$/.test(line))
-            return false;
-
-        return /^\s*\}/.test(input);
-    };
-
-    this.autoOutdent = function(doc, row) {
-        var line = doc.getLine(row);
-        var match = line.match(/^(\s*\})/);
-
-        if (!match) return 0;
-
-        var column = match[1].length;
-        var openBracePos = doc.findMatchingBracket({row: row, column: column});
-
-        if (!openBracePos || openBracePos.row == row) return 0;
-
-        var indent = this.$getIndent(doc.getLine(openBracePos.row));
-        doc.replace(new Range(row, 0, row, column-1), indent);
-    };
-
-    this.$getIndent = function(line) {
-        return line.match(/^\s*/)[0];
-    };
-
-}).call(MatchingBraceOutdent.prototype);
-
-exports.MatchingBraceOutdent = MatchingBraceOutdent;
 
 
 /***/ })

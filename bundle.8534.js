@@ -1,207 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8534],{
 
-/***/ 88858:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-var config = __webpack_require__(76321);
-var oop = __webpack_require__(2645);
-var HashHandler = (__webpack_require__(93050).HashHandler);
-var occurStartCommand = (__webpack_require__(2075)/* .occurStartCommand */ .m);
-
-// These commands can be installed in a normal key handler to start iSearch:
-exports.iSearchStartCommands = [{
-    name: "iSearch",
-    bindKey: {win: "Ctrl-F", mac: "Command-F"},
-    exec: function(editor, options) {
-        config.loadModule(["core", "ace/incremental_search"], function(e) {
-            var iSearch = e.iSearch = e.iSearch || new e.IncrementalSearch();
-            iSearch.activate(editor, options.backwards);
-            if (options.jumpToFirstMatch) iSearch.next(options);
-        });
-    },
-    readOnly: true
-}, {
-    name: "iSearchBackwards",
-    exec: function(editor, jumpToNext) { editor.execCommand('iSearch', {backwards: true}); },
-    readOnly: true
-}, {
-    name: "iSearchAndGo",
-    bindKey: {win: "Ctrl-K", mac: "Command-G"},
-    exec: function(editor, jumpToNext) { editor.execCommand('iSearch', {jumpToFirstMatch: true, useCurrentOrPrevSearch: true}); },
-    readOnly: true
-}, {
-    name: "iSearchBackwardsAndGo",
-    bindKey: {win: "Ctrl-Shift-K", mac: "Command-Shift-G"},
-    exec: function(editor) { editor.execCommand('iSearch', {jumpToFirstMatch: true, backwards: true, useCurrentOrPrevSearch: true}); },
-    readOnly: true
-}];
-
-// These commands are only available when incremental search mode is active:
-exports.iSearchCommands = [{
-    name: "restartSearch",
-    bindKey: {win: "Ctrl-F", mac: "Command-F"},
-    exec: function(iSearch) {
-        iSearch.cancelSearch(true);
-    }
-}, {
-    name: "searchForward",
-    bindKey: {win: "Ctrl-S|Ctrl-K", mac: "Ctrl-S|Command-G"},
-    exec: function(iSearch, options) {
-        options.useCurrentOrPrevSearch = true;
-        iSearch.next(options);
-    }
-}, {
-    name: "searchBackward",
-    bindKey: {win: "Ctrl-R|Ctrl-Shift-K", mac: "Ctrl-R|Command-Shift-G"},
-    exec: function(iSearch, options) {
-        options.useCurrentOrPrevSearch = true;
-        options.backwards = true;
-        iSearch.next(options);
-    }
-}, {
-    name: "extendSearchTerm",
-    exec: function(iSearch, string) {
-        iSearch.addString(string);
-    }
-}, {
-    name: "extendSearchTermSpace",
-    bindKey: "space",
-    exec: function(iSearch) { iSearch.addString(' '); }
-}, {
-    name: "shrinkSearchTerm",
-    bindKey: "backspace",
-    exec: function(iSearch) {
-        iSearch.removeChar();
-    }
-}, {
-    name: 'confirmSearch',
-    bindKey: 'return',
-    exec: function(iSearch) { iSearch.deactivate(); }
-}, {
-    name: 'cancelSearch',
-    bindKey: 'esc|Ctrl-G',
-    exec: function(iSearch) { iSearch.deactivate(true); }
-}, {
-    name: 'occurisearch',
-    bindKey: 'Ctrl-O',
-    exec: function(iSearch) {
-        var options = oop.mixin({}, iSearch.$options);
-        iSearch.deactivate();
-        occurStartCommand.exec(iSearch.$editor, options);
-    }
-}, {
-    name: "yankNextWord",
-    bindKey: "Ctrl-w",
-    exec: function(iSearch) {
-        var ed = iSearch.$editor,
-            range = ed.selection.getRangeOfMovements(function(sel) { sel.moveCursorWordRight(); }),
-            string = ed.session.getTextRange(range);
-        iSearch.addString(string);
-    }
-}, {
-    name: "yankNextChar",
-    bindKey: "Ctrl-Alt-y",
-    exec: function(iSearch) {
-        var ed = iSearch.$editor,
-            range = ed.selection.getRangeOfMovements(function(sel) { sel.moveCursorRight(); }),
-            string = ed.session.getTextRange(range);
-        iSearch.addString(string);
-    }
-}, {
-    name: 'recenterTopBottom',
-    bindKey: 'Ctrl-l',
-    exec: function(iSearch) { iSearch.$editor.execCommand('recenterTopBottom'); }
-}, {
-    name: 'selectAllMatches',
-    bindKey: 'Ctrl-space',
-    exec: function(iSearch) {
-        var ed = iSearch.$editor,
-            hl = ed.session.$isearchHighlight,
-            ranges = hl && hl.cache ? hl.cache
-                .reduce(function(ranges, ea) {
-                    return ranges.concat(ea ? ea : []); }, []) : [];
-        iSearch.deactivate(false);
-        ranges.forEach(ed.selection.addRange.bind(ed.selection));
-    }
-}, {
-    name: 'searchAsRegExp',
-    bindKey: 'Alt-r',
-    exec: function(iSearch) {
-        iSearch.convertNeedleToRegExp();
-    }
-}].map(function(cmd) {
-    cmd.readOnly = true;
-    cmd.isIncrementalSearchCommand = true;
-    cmd.scrollIntoView = "animate-cursor";
-    return cmd;
-});
-
-function IncrementalSearchKeyboardHandler(iSearch) {
-    this.$iSearch = iSearch;
-}
-
-oop.inherits(IncrementalSearchKeyboardHandler, HashHandler);
-
-(function() {
-    /**
-     * @param editor
-     * @this {IncrementalSearchKeyboardHandler & this & {$commandExecHandler}}
-     */
-    this.attach = function(editor) {
-        var iSearch = this.$iSearch;
-        HashHandler.call(this, exports.iSearchCommands, editor.commands.platform);
-        this.$commandExecHandler = editor.commands.on('exec', function(e) {
-            if (!e.command.isIncrementalSearchCommand)
-                return iSearch.deactivate();
-            e.stopPropagation();
-            e.preventDefault();
-            var scrollTop = editor.session.getScrollTop();
-            var result = e.command.exec(iSearch, e.args || {});
-            editor.renderer.scrollCursorIntoView(null, 0.5);
-            editor.renderer.animateScrolling(scrollTop);
-            return result;
-        });
-    };
-
-    /**
-     * @this {IncrementalSearchKeyboardHandler & this & {$commandExecHandler}}
-     * @param editor
-     */
-    this.detach = function(editor) {
-        if (!this.$commandExecHandler) return;
-        editor.commands.off('exec', this.$commandExecHandler);
-        delete this.$commandExecHandler;
-    };
-
-    var handleKeyboard$super = this.handleKeyboard;
-    /**
-     * @param data
-     * @param hashId
-     * @param key
-     * @param keyCode
-     * @this {IncrementalSearchKeyboardHandler & import("../keyboard/hash_handler").HashHandler}
-     */
-    this.handleKeyboard = function(data, hashId, key, keyCode) {
-        if (((hashId === 1/*ctrl*/ || hashId === 8/*command*/) && key === 'v')
-         || (hashId === 1/*ctrl*/ && key === 'y')) return null;
-        // @ts-ignore
-        var cmd = handleKeyboard$super.call(this, data, hashId, key, keyCode);
-        if (cmd && cmd.command) { return cmd; }
-        if (hashId == -1) {
-            var extendCmd = this.commands.extendSearchTerm;
-            if (extendCmd) { return {command: extendCmd, args: key}; }
-        }
-        return false;
-    };
-
-}).call(IncrementalSearchKeyboardHandler.prototype);
-
-
-exports.IncrementalSearchKeyboardHandler = IncrementalSearchKeyboardHandler;
-
-
-/***/ }),
-
 /***/ 2075:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -286,317 +84,174 @@ exports.m = occurStartCommand;
 
 /***/ }),
 
-/***/ 98258:
+/***/ 8151:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
+/**
+ * @typedef {import("./editor").Editor} Editor
+ * @typedef {import("../ace-internal").Ace.Point} Point
+ * @typedef {import("../ace-internal").Ace.SearchOptions} SearchOptions
+ */
 
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var oop = __webpack_require__(2645);
 var Search = (__webpack_require__(99427)/* .Search */ .v);
+var EditSession = (__webpack_require__(33464)/* .EditSession */ .f);
 var SearchHighlight = (__webpack_require__(10464)/* .SearchHighlight */ .V);
-var iSearchCommandModule = __webpack_require__(88858);
-var ISearchKbd = iSearchCommandModule.IncrementalSearchKeyboardHandler;
-
-// regexp handling
-
-function isRegExp(obj) {
-    return obj instanceof RegExp;
-}
 
 /**
- * @param {RegExp} re
- */
-function regExpToObject(re) {
-    var string = String(re),
-        start = string.indexOf('/'),
-        flagStart = string.lastIndexOf('/');
-    return {
-        expression: string.slice(start+1, flagStart),
-        flags: string.slice(flagStart+1)
-    };
-}
-
-/**
- * @param {string} string
- * @param {string} flags
- * @return {RegExp|string}
- */
-function stringToRegExp(string, flags) {
-    try {
-        return new RegExp(string, flags);
-    } catch (e) { return string; }
-}
-
-function objectToRegExp(obj) {
-    return stringToRegExp(obj.expression, obj.flags);
-}
-
-/**
- * Implements immediate searching while the user is typing. When incremental
- * search is activated, keystrokes into the editor will be used for composing
- * a search term. Immediately after every keystroke the search is updated:
- * - so-far-matching characters are highlighted
- * - the cursor is moved to the next match
- *
+ * Finds all lines matching a search term in the current [[Document
+ * `Document`]] and displays them instead of the original `Document`. Keeps
+ * track of the mapping between the occur doc and the original doc.
  **/
-class IncrementalSearch extends Search {
-    /**
-     * Creates a new `IncrementalSearch` object.
-     **/
-    constructor() {
-        super();
-        this.$options = {wrap: false, skipCurrent: false};
-        this.$keyboardHandler = new ISearchKbd(this);
-    }
+class Occur extends Search {
 
     /**
-     * @param {boolean} backwards
-     */
-    activate(editor, backwards) {
-        this.$editor = editor;
-        this.$startPos = this.$currentPos = editor.getCursorPosition();
-        this.$options.needle = '';
-        this.$options.backwards = backwards;
-        editor.keyBinding.addKeyboardHandler(this.$keyboardHandler);
-        // we need to completely intercept paste, just registering an event handler does not work
-        this.$originalEditorOnPaste = editor.onPaste;
-        editor.onPaste = this.onPaste.bind(this);
-        this.$mousedownHandler = editor.on('mousedown', this.onMouseDown.bind(this));
-        this.selectionFix(editor);
-        this.statusMessage(true);
-    }
-
-    /**
-     * @param {boolean} [reset]
-     */
-    deactivate(reset) {
-        this.cancelSearch(reset);
-        var editor = this.$editor;
-        editor.keyBinding.removeKeyboardHandler(this.$keyboardHandler);
-        if (this.$mousedownHandler) {
-            editor.off('mousedown', this.$mousedownHandler);
-            delete this.$mousedownHandler;
-        }
-        editor.onPaste = this.$originalEditorOnPaste;
-        this.message('');
-    }
-
-    /**
+     * Enables occur mode. expects that `options.needle` is a search term.
+     * This search term is used to filter out all the lines that include it
+     * and these are then used as the content of a new [[Document
+     * `Document`]]. The current cursor position of editor will be translated
+     * so that the cursor is on the matching row/column as it was before.
      * @param {Editor} editor
-     */
-    selectionFix(editor) {
-        // Fix selection bug: When clicked inside the editor
-        // editor.selection.$isEmpty is false even if the mouse click did not
-        // open a selection. This is interpreted by the move commands to
-        // extend the selection. To only extend the selection when there is
-        // one, we clear it here
-        if (editor.selection.isEmpty() && !editor.session.$emacsMark) {
-            editor.clearSelection();
-        }
+     * @param {Object} options options.needle should be a String
+     * @return {Boolean} Whether occur activation was successful
+     *
+     **/
+    enter(editor, options) {
+        if (!options.needle) return false;
+        var pos = editor.getCursorPosition();
+        this.displayOccurContent(editor, options);
+        var translatedPos = this.originalToOccurPosition(editor.session, pos);
+        editor.moveCursorToPosition(translatedPos);
+        return true;
     }
 
     /**
+     * Disables occur mode. Resets the [[Sessions `EditSession`]] [[Document
+     * `Document`]] back to the original doc. If options.translatePosition is
+     * truthy also maps the [[Editors `Editor`]] cursor position accordingly.
+     * @param {Editor} editor
+     * @param {Object} options options.translatePosition
+     * @return {Boolean} Whether occur deactivation was successful
+     *
+     **/
+    exit(editor, options) {
+        var pos = options.translatePosition && editor.getCursorPosition();
+        var translatedPos = pos && this.occurToOriginalPosition(editor.session, pos);
+        this.displayOriginalContent(editor);
+        if (translatedPos)
+            editor.moveCursorToPosition(translatedPos);
+        return true;
+    }
+
+    /**
+     * @param {EditSession} sess
      * @param {RegExp} regexp
      */
-    highlight(regexp) {
-        var sess = this.$editor.session,
-            hl = sess.$isearchHighlight = sess.$isearchHighlight || sess.addDynamicMarker(
-                new SearchHighlight(null, "ace_isearch-result", "text"));
+    highlight(sess, regexp) {
+        var hl = sess.$occurHighlight = sess.$occurHighlight || sess.addDynamicMarker(
+                new SearchHighlight(null, "ace_occur-highlight", "text"));
         hl.setRegexp(regexp);
         sess._emit("changeBackMarker"); // force highlight layer redraw
     }
 
     /**
-     * @param {boolean} [reset]
+     * @param {Editor} editor
+     * @param {Partial<SearchOptions>} options
      */
-    cancelSearch(reset) {
-        var e = this.$editor;
-        this.$prevNeedle = this.$options.needle;
-        this.$options.needle = '';
-        if (reset) {
-            e.moveCursorToPosition(this.$startPos);
-            this.$currentPos = this.$startPos;
-        } else {
-            e.pushEmacsMark && e.pushEmacsMark(this.$startPos, false);
-        }
-        this.highlight(null);
-        return Range.fromPoints(this.$currentPos, this.$currentPos);
+    displayOccurContent(editor, options) {
+        // this.setSession(session || new EditSession(""))
+        this.$originalSession = editor.session;
+        var found = this.matchingLines(editor.session, options);
+        var lines = found.map(function(foundLine) { return foundLine.content; });
+        /**@type {EditSession}*/
+        var occurSession = new EditSession(lines.join('\n'));
+        occurSession.$occur = this;
+        occurSession.$occurMatchingLines = found;
+        editor.setSession(occurSession);
+        this.$useEmacsStyleLineStart = this.$originalSession.$useEmacsStyleLineStart;
+        occurSession.$useEmacsStyleLineStart = this.$useEmacsStyleLineStart;
+        this.highlight(occurSession, options.re);
+        occurSession._emit('changeBackMarker');
     }
 
     /**
-     * @param {boolean} moveToNext
-     * @param {Function} needleUpdateFunc
+     * @param {Editor} editor
      */
-    highlightAndFindWithNeedle(moveToNext, needleUpdateFunc) {
-        if (!this.$editor) return null;
-        var options = this.$options;
-
-        // get search term
-        if (needleUpdateFunc) {
-            options.needle = needleUpdateFunc.call(this, options.needle || '') || '';
-        }
-        if (options.needle.length === 0) {
-            this.statusMessage(true);
-            return this.cancelSearch(true);
-        }
-
-        // try to find the next occurrence and enable  highlighting marker
-        options.start = this.$currentPos;
-        var session = this.$editor.session,
-            found = this.find(session),
-            shouldSelect = this.$editor.emacsMark ?
-                !!this.$editor.emacsMark() : !this.$editor.selection.isEmpty();
-        if (found) {
-            if (options.backwards) found = Range.fromPoints(found.end, found.start);
-            this.$editor.selection.setRange(Range.fromPoints(shouldSelect ? this.$startPos : found.end, found.end));
-            if (moveToNext) this.$currentPos = found.end;
-            // highlight after cursor move, so selection works properly
-            this.highlight(options.re);
-        }
-
-        this.statusMessage(found);
-
-        return found;
+    displayOriginalContent(editor) {
+        editor.setSession(this.$originalSession);
+        this.$originalSession.$useEmacsStyleLineStart = this.$useEmacsStyleLineStart;
     }
 
     /**
-     * @param {string} s
-     */
-    addString(s) {
-        return this.highlightAndFindWithNeedle(false, function(needle) {
-            if (!isRegExp(needle))
-              return needle + s;
-            var reObj = regExpToObject(needle);
-            reObj.expression += s;
-            return objectToRegExp(reObj);
-        });
-    }
-
-    /**
-     * @param {any} c
-     */
-    removeChar(c) {
-        return this.highlightAndFindWithNeedle(false, function(needle) {
-            if (!isRegExp(needle))
-              return needle.substring(0, needle.length-1);
-            var reObj = regExpToObject(needle);
-            reObj.expression = reObj.expression.substring(0, reObj.expression.length-1);
-            return objectToRegExp(reObj);
-        });
-    }
-
-    next(options) {
-        // try to find the next occurrence of whatever we have searched for
-        // earlier.
-        // options = {[backwards: BOOL], [useCurrentOrPrevSearch: BOOL]}
-        options = options || {};
-        this.$options.backwards = !!options.backwards;
-        this.$currentPos = this.$editor.getCursorPosition();
-        return this.highlightAndFindWithNeedle(true, function(needle) {
-            return options.useCurrentOrPrevSearch && needle.length === 0 ?
-                this.$prevNeedle || '' : needle;
-        });
-    }
-
-    /**
-     * @internal
-     */
-    onMouseDown(evt) {
-        // when mouse interaction happens then we quit incremental search
-        this.deactivate();
-        return true;
-    }
-
-    /**
-     * @param {string} text
-     * @internal
-     */
-    onPaste(text) {
-        this.addString(text);
-    }
-
-    convertNeedleToRegExp() {
-        return this.highlightAndFindWithNeedle(false, function(needle) {
-            return isRegExp(needle) ? needle : stringToRegExp(needle, 'ig');
-        });
-    }
-
-    convertNeedleToString() {
-        return this.highlightAndFindWithNeedle(false, function(needle) {
-            return isRegExp(needle) ? regExpToObject(needle).expression : needle;
-        });
-    }
-
-    statusMessage(found) {
-        var options = this.$options, msg = '';
-        msg += options.backwards ? 'reverse-' : '';
-        msg += 'isearch: ' + options.needle;
-        msg += found ? '' : ' (not found)';
-        this.message(msg);
-    }
-
-    message(msg) {
-        if (this.$editor.showCommandLine) {
-            this.$editor.showCommandLine(msg);
-            this.$editor.focus();
+    * Translates the position from the original document to the occur lines in
+    * the document or the beginning if the doc {row: 0, column: 0} if not
+    * found.
+    * @param {EditSession} session The occur session
+    * @param {Point} pos The position in the original document
+    * @return {Point} position in occur doc
+    **/
+    originalToOccurPosition(session, pos) {
+        var lines = session.$occurMatchingLines;
+        var nullPos = {row: 0, column: 0};
+        if (!lines) return nullPos;
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i].row === pos.row)
+                return {row: i, column: pos.column};
         }
+        return nullPos;
+    }
+
+    /**
+    * Translates the position from the occur document to the original document
+    * or `pos` if not found.
+    * @param {EditSession} session The occur session
+    * @param {Point} pos The position in the occur session document
+    * @return {Point} position
+    **/
+    occurToOriginalPosition(session, pos) {
+        var lines = session.$occurMatchingLines;
+        if (!lines || !lines[pos.row])
+            return pos;
+        return {row: lines[pos.row].row, column: pos.column};
+    }
+
+    /**
+     * @param {EditSession} session
+     * @param {Partial<SearchOptions>} options
+     */
+    matchingLines(session, options) {
+        options = oop.mixin({}, options);
+        if (!session || !options.needle) return [];
+        var search = new Search();
+        search.set(options);
+        return search.findAll(session).reduce(function(lines, range) {
+            var row = range.start.row;
+            var last = lines[lines.length-1];
+            return last && last.row === row ?
+                lines :
+                lines.concat({row: row, content: session.getLine(row)});
+        }, []);
     }
 
 }
-
-exports.IncrementalSearch = IncrementalSearch;
-
-
-/**
- *
- * Config settings for enabling/disabling [[IncrementalSearch `IncrementalSearch`]].
- *
- **/
 
 var dom = __webpack_require__(71435);
-dom.importCssString(`
-.ace_marker-layer .ace_isearch-result {
-  position: absolute;
-  z-index: 6;
-  box-sizing: border-box;
-}
-div.ace_isearch-result {
-  border-radius: 4px;
-  background-color: rgba(255, 200, 0, 0.5);
-  box-shadow: 0 0 4px rgb(255, 200, 0);
-}
-.ace_dark div.ace_isearch-result {
-  background-color: rgb(100, 110, 160);
-  box-shadow: 0 0 4px rgb(80, 90, 140);
-}`, "incremental-search-highlighting", false);
+dom.importCssString(".ace_occur-highlight {\n\
+    border-radius: 4px;\n\
+    background-color: rgba(87, 255, 8, 0.25);\n\
+    position: absolute;\n\
+    z-index: 4;\n\
+    box-sizing: border-box;\n\
+    box-shadow: 0 0 4px rgb(91, 255, 50);\n\
+}\n\
+.ace_dark .ace_occur-highlight {\n\
+    background-color: rgb(80, 140, 85);\n\
+    box-shadow: 0 0 4px rgb(60, 120, 70);\n\
+}\n", "incremental-occur-highlighting", false);
 
-// support for default keyboard handler
-var commands = __webpack_require__(63379);
-(function() {
-    this.setupIncrementalSearch = function(editor, val) {
-        if (this.usesIncrementalSearch == val) return;
-        this.usesIncrementalSearch = val;
-        var iSearchCommands = iSearchCommandModule.iSearchStartCommands;
-        var method = val ? 'addCommands' : 'removeCommands';
-        this[method](iSearchCommands);
-    };
-}).call(commands.CommandManager.prototype);
-
-// incremental search config option
-var Editor = (__webpack_require__(27258).Editor);
-(__webpack_require__(76321).defineOptions)(Editor.prototype, "editor", {
-    useIncrementalSearch: {
-        set: function(val) {
-            this.keyBinding.$handlers.forEach(function(handler) {
-                if (handler.setupIncrementalSearch) {
-                    handler.setupIncrementalSearch(this, val);
-                }
-            });
-            this._emit('incrementalSearchSettingChanged', {isEnabled: val});
-        }
-    }
-});
+exports.D = Occur;
 
 
 /***/ }),
@@ -1233,174 +888,519 @@ exports.killRing = {
 
 /***/ }),
 
-/***/ 8151:
+/***/ 88858:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var config = __webpack_require__(76321);
+var oop = __webpack_require__(2645);
+var HashHandler = (__webpack_require__(93050).HashHandler);
+var occurStartCommand = (__webpack_require__(2075)/* .occurStartCommand */ .m);
+
+// These commands can be installed in a normal key handler to start iSearch:
+exports.iSearchStartCommands = [{
+    name: "iSearch",
+    bindKey: {win: "Ctrl-F", mac: "Command-F"},
+    exec: function(editor, options) {
+        config.loadModule(["core", "ace/incremental_search"], function(e) {
+            var iSearch = e.iSearch = e.iSearch || new e.IncrementalSearch();
+            iSearch.activate(editor, options.backwards);
+            if (options.jumpToFirstMatch) iSearch.next(options);
+        });
+    },
+    readOnly: true
+}, {
+    name: "iSearchBackwards",
+    exec: function(editor, jumpToNext) { editor.execCommand('iSearch', {backwards: true}); },
+    readOnly: true
+}, {
+    name: "iSearchAndGo",
+    bindKey: {win: "Ctrl-K", mac: "Command-G"},
+    exec: function(editor, jumpToNext) { editor.execCommand('iSearch', {jumpToFirstMatch: true, useCurrentOrPrevSearch: true}); },
+    readOnly: true
+}, {
+    name: "iSearchBackwardsAndGo",
+    bindKey: {win: "Ctrl-Shift-K", mac: "Command-Shift-G"},
+    exec: function(editor) { editor.execCommand('iSearch', {jumpToFirstMatch: true, backwards: true, useCurrentOrPrevSearch: true}); },
+    readOnly: true
+}];
+
+// These commands are only available when incremental search mode is active:
+exports.iSearchCommands = [{
+    name: "restartSearch",
+    bindKey: {win: "Ctrl-F", mac: "Command-F"},
+    exec: function(iSearch) {
+        iSearch.cancelSearch(true);
+    }
+}, {
+    name: "searchForward",
+    bindKey: {win: "Ctrl-S|Ctrl-K", mac: "Ctrl-S|Command-G"},
+    exec: function(iSearch, options) {
+        options.useCurrentOrPrevSearch = true;
+        iSearch.next(options);
+    }
+}, {
+    name: "searchBackward",
+    bindKey: {win: "Ctrl-R|Ctrl-Shift-K", mac: "Ctrl-R|Command-Shift-G"},
+    exec: function(iSearch, options) {
+        options.useCurrentOrPrevSearch = true;
+        options.backwards = true;
+        iSearch.next(options);
+    }
+}, {
+    name: "extendSearchTerm",
+    exec: function(iSearch, string) {
+        iSearch.addString(string);
+    }
+}, {
+    name: "extendSearchTermSpace",
+    bindKey: "space",
+    exec: function(iSearch) { iSearch.addString(' '); }
+}, {
+    name: "shrinkSearchTerm",
+    bindKey: "backspace",
+    exec: function(iSearch) {
+        iSearch.removeChar();
+    }
+}, {
+    name: 'confirmSearch',
+    bindKey: 'return',
+    exec: function(iSearch) { iSearch.deactivate(); }
+}, {
+    name: 'cancelSearch',
+    bindKey: 'esc|Ctrl-G',
+    exec: function(iSearch) { iSearch.deactivate(true); }
+}, {
+    name: 'occurisearch',
+    bindKey: 'Ctrl-O',
+    exec: function(iSearch) {
+        var options = oop.mixin({}, iSearch.$options);
+        iSearch.deactivate();
+        occurStartCommand.exec(iSearch.$editor, options);
+    }
+}, {
+    name: "yankNextWord",
+    bindKey: "Ctrl-w",
+    exec: function(iSearch) {
+        var ed = iSearch.$editor,
+            range = ed.selection.getRangeOfMovements(function(sel) { sel.moveCursorWordRight(); }),
+            string = ed.session.getTextRange(range);
+        iSearch.addString(string);
+    }
+}, {
+    name: "yankNextChar",
+    bindKey: "Ctrl-Alt-y",
+    exec: function(iSearch) {
+        var ed = iSearch.$editor,
+            range = ed.selection.getRangeOfMovements(function(sel) { sel.moveCursorRight(); }),
+            string = ed.session.getTextRange(range);
+        iSearch.addString(string);
+    }
+}, {
+    name: 'recenterTopBottom',
+    bindKey: 'Ctrl-l',
+    exec: function(iSearch) { iSearch.$editor.execCommand('recenterTopBottom'); }
+}, {
+    name: 'selectAllMatches',
+    bindKey: 'Ctrl-space',
+    exec: function(iSearch) {
+        var ed = iSearch.$editor,
+            hl = ed.session.$isearchHighlight,
+            ranges = hl && hl.cache ? hl.cache
+                .reduce(function(ranges, ea) {
+                    return ranges.concat(ea ? ea : []); }, []) : [];
+        iSearch.deactivate(false);
+        ranges.forEach(ed.selection.addRange.bind(ed.selection));
+    }
+}, {
+    name: 'searchAsRegExp',
+    bindKey: 'Alt-r',
+    exec: function(iSearch) {
+        iSearch.convertNeedleToRegExp();
+    }
+}].map(function(cmd) {
+    cmd.readOnly = true;
+    cmd.isIncrementalSearchCommand = true;
+    cmd.scrollIntoView = "animate-cursor";
+    return cmd;
+});
+
+function IncrementalSearchKeyboardHandler(iSearch) {
+    this.$iSearch = iSearch;
+}
+
+oop.inherits(IncrementalSearchKeyboardHandler, HashHandler);
+
+(function() {
+    /**
+     * @param editor
+     * @this {IncrementalSearchKeyboardHandler & this & {$commandExecHandler}}
+     */
+    this.attach = function(editor) {
+        var iSearch = this.$iSearch;
+        HashHandler.call(this, exports.iSearchCommands, editor.commands.platform);
+        this.$commandExecHandler = editor.commands.on('exec', function(e) {
+            if (!e.command.isIncrementalSearchCommand)
+                return iSearch.deactivate();
+            e.stopPropagation();
+            e.preventDefault();
+            var scrollTop = editor.session.getScrollTop();
+            var result = e.command.exec(iSearch, e.args || {});
+            editor.renderer.scrollCursorIntoView(null, 0.5);
+            editor.renderer.animateScrolling(scrollTop);
+            return result;
+        });
+    };
+
+    /**
+     * @this {IncrementalSearchKeyboardHandler & this & {$commandExecHandler}}
+     * @param editor
+     */
+    this.detach = function(editor) {
+        if (!this.$commandExecHandler) return;
+        editor.commands.off('exec', this.$commandExecHandler);
+        delete this.$commandExecHandler;
+    };
+
+    var handleKeyboard$super = this.handleKeyboard;
+    /**
+     * @param data
+     * @param hashId
+     * @param key
+     * @param keyCode
+     * @this {IncrementalSearchKeyboardHandler & import("../keyboard/hash_handler").HashHandler}
+     */
+    this.handleKeyboard = function(data, hashId, key, keyCode) {
+        if (((hashId === 1/*ctrl*/ || hashId === 8/*command*/) && key === 'v')
+         || (hashId === 1/*ctrl*/ && key === 'y')) return null;
+        // @ts-ignore
+        var cmd = handleKeyboard$super.call(this, data, hashId, key, keyCode);
+        if (cmd && cmd.command) { return cmd; }
+        if (hashId == -1) {
+            var extendCmd = this.commands.extendSearchTerm;
+            if (extendCmd) { return {command: extendCmd, args: key}; }
+        }
+        return false;
+    };
+
+}).call(IncrementalSearchKeyboardHandler.prototype);
+
+
+exports.IncrementalSearchKeyboardHandler = IncrementalSearchKeyboardHandler;
+
+
+/***/ }),
+
+/***/ 98258:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-/**
- * @typedef {import("./editor").Editor} Editor
- * @typedef {import("../ace-internal").Ace.Point} Point
- * @typedef {import("../ace-internal").Ace.SearchOptions} SearchOptions
- */
 
-var oop = __webpack_require__(2645);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
 var Search = (__webpack_require__(99427)/* .Search */ .v);
-var EditSession = (__webpack_require__(33464)/* .EditSession */ .f);
 var SearchHighlight = (__webpack_require__(10464)/* .SearchHighlight */ .V);
+var iSearchCommandModule = __webpack_require__(88858);
+var ISearchKbd = iSearchCommandModule.IncrementalSearchKeyboardHandler;
+
+// regexp handling
+
+function isRegExp(obj) {
+    return obj instanceof RegExp;
+}
 
 /**
- * Finds all lines matching a search term in the current [[Document
- * `Document`]] and displays them instead of the original `Document`. Keeps
- * track of the mapping between the occur doc and the original doc.
+ * @param {RegExp} re
+ */
+function regExpToObject(re) {
+    var string = String(re),
+        start = string.indexOf('/'),
+        flagStart = string.lastIndexOf('/');
+    return {
+        expression: string.slice(start+1, flagStart),
+        flags: string.slice(flagStart+1)
+    };
+}
+
+/**
+ * @param {string} string
+ * @param {string} flags
+ * @return {RegExp|string}
+ */
+function stringToRegExp(string, flags) {
+    try {
+        return new RegExp(string, flags);
+    } catch (e) { return string; }
+}
+
+function objectToRegExp(obj) {
+    return stringToRegExp(obj.expression, obj.flags);
+}
+
+/**
+ * Implements immediate searching while the user is typing. When incremental
+ * search is activated, keystrokes into the editor will be used for composing
+ * a search term. Immediately after every keystroke the search is updated:
+ * - so-far-matching characters are highlighted
+ * - the cursor is moved to the next match
+ *
  **/
-class Occur extends Search {
-
+class IncrementalSearch extends Search {
     /**
-     * Enables occur mode. expects that `options.needle` is a search term.
-     * This search term is used to filter out all the lines that include it
-     * and these are then used as the content of a new [[Document
-     * `Document`]]. The current cursor position of editor will be translated
-     * so that the cursor is on the matching row/column as it was before.
-     * @param {Editor} editor
-     * @param {Object} options options.needle should be a String
-     * @return {Boolean} Whether occur activation was successful
-     *
+     * Creates a new `IncrementalSearch` object.
      **/
-    enter(editor, options) {
-        if (!options.needle) return false;
-        var pos = editor.getCursorPosition();
-        this.displayOccurContent(editor, options);
-        var translatedPos = this.originalToOccurPosition(editor.session, pos);
-        editor.moveCursorToPosition(translatedPos);
-        return true;
+    constructor() {
+        super();
+        this.$options = {wrap: false, skipCurrent: false};
+        this.$keyboardHandler = new ISearchKbd(this);
     }
 
     /**
-     * Disables occur mode. Resets the [[Sessions `EditSession`]] [[Document
-     * `Document`]] back to the original doc. If options.translatePosition is
-     * truthy also maps the [[Editors `Editor`]] cursor position accordingly.
-     * @param {Editor} editor
-     * @param {Object} options options.translatePosition
-     * @return {Boolean} Whether occur deactivation was successful
-     *
-     **/
-    exit(editor, options) {
-        var pos = options.translatePosition && editor.getCursorPosition();
-        var translatedPos = pos && this.occurToOriginalPosition(editor.session, pos);
-        this.displayOriginalContent(editor);
-        if (translatedPos)
-            editor.moveCursorToPosition(translatedPos);
-        return true;
+     * @param {boolean} backwards
+     */
+    activate(editor, backwards) {
+        this.$editor = editor;
+        this.$startPos = this.$currentPos = editor.getCursorPosition();
+        this.$options.needle = '';
+        this.$options.backwards = backwards;
+        editor.keyBinding.addKeyboardHandler(this.$keyboardHandler);
+        // we need to completely intercept paste, just registering an event handler does not work
+        this.$originalEditorOnPaste = editor.onPaste;
+        editor.onPaste = this.onPaste.bind(this);
+        this.$mousedownHandler = editor.on('mousedown', this.onMouseDown.bind(this));
+        this.selectionFix(editor);
+        this.statusMessage(true);
     }
 
     /**
-     * @param {EditSession} sess
+     * @param {boolean} [reset]
+     */
+    deactivate(reset) {
+        this.cancelSearch(reset);
+        var editor = this.$editor;
+        editor.keyBinding.removeKeyboardHandler(this.$keyboardHandler);
+        if (this.$mousedownHandler) {
+            editor.off('mousedown', this.$mousedownHandler);
+            delete this.$mousedownHandler;
+        }
+        editor.onPaste = this.$originalEditorOnPaste;
+        this.message('');
+    }
+
+    /**
+     * @param {Editor} editor
+     */
+    selectionFix(editor) {
+        // Fix selection bug: When clicked inside the editor
+        // editor.selection.$isEmpty is false even if the mouse click did not
+        // open a selection. This is interpreted by the move commands to
+        // extend the selection. To only extend the selection when there is
+        // one, we clear it here
+        if (editor.selection.isEmpty() && !editor.session.$emacsMark) {
+            editor.clearSelection();
+        }
+    }
+
+    /**
      * @param {RegExp} regexp
      */
-    highlight(sess, regexp) {
-        var hl = sess.$occurHighlight = sess.$occurHighlight || sess.addDynamicMarker(
-                new SearchHighlight(null, "ace_occur-highlight", "text"));
+    highlight(regexp) {
+        var sess = this.$editor.session,
+            hl = sess.$isearchHighlight = sess.$isearchHighlight || sess.addDynamicMarker(
+                new SearchHighlight(null, "ace_isearch-result", "text"));
         hl.setRegexp(regexp);
         sess._emit("changeBackMarker"); // force highlight layer redraw
     }
 
     /**
-     * @param {Editor} editor
-     * @param {Partial<SearchOptions>} options
+     * @param {boolean} [reset]
      */
-    displayOccurContent(editor, options) {
-        // this.setSession(session || new EditSession(""))
-        this.$originalSession = editor.session;
-        var found = this.matchingLines(editor.session, options);
-        var lines = found.map(function(foundLine) { return foundLine.content; });
-        /**@type {EditSession}*/
-        var occurSession = new EditSession(lines.join('\n'));
-        occurSession.$occur = this;
-        occurSession.$occurMatchingLines = found;
-        editor.setSession(occurSession);
-        this.$useEmacsStyleLineStart = this.$originalSession.$useEmacsStyleLineStart;
-        occurSession.$useEmacsStyleLineStart = this.$useEmacsStyleLineStart;
-        this.highlight(occurSession, options.re);
-        occurSession._emit('changeBackMarker');
-    }
-
-    /**
-     * @param {Editor} editor
-     */
-    displayOriginalContent(editor) {
-        editor.setSession(this.$originalSession);
-        this.$originalSession.$useEmacsStyleLineStart = this.$useEmacsStyleLineStart;
-    }
-
-    /**
-    * Translates the position from the original document to the occur lines in
-    * the document or the beginning if the doc {row: 0, column: 0} if not
-    * found.
-    * @param {EditSession} session The occur session
-    * @param {Point} pos The position in the original document
-    * @return {Point} position in occur doc
-    **/
-    originalToOccurPosition(session, pos) {
-        var lines = session.$occurMatchingLines;
-        var nullPos = {row: 0, column: 0};
-        if (!lines) return nullPos;
-        for (var i = 0; i < lines.length; i++) {
-            if (lines[i].row === pos.row)
-                return {row: i, column: pos.column};
+    cancelSearch(reset) {
+        var e = this.$editor;
+        this.$prevNeedle = this.$options.needle;
+        this.$options.needle = '';
+        if (reset) {
+            e.moveCursorToPosition(this.$startPos);
+            this.$currentPos = this.$startPos;
+        } else {
+            e.pushEmacsMark && e.pushEmacsMark(this.$startPos, false);
         }
-        return nullPos;
+        this.highlight(null);
+        return Range.fromPoints(this.$currentPos, this.$currentPos);
     }
 
     /**
-    * Translates the position from the occur document to the original document
-    * or `pos` if not found.
-    * @param {EditSession} session The occur session
-    * @param {Point} pos The position in the occur session document
-    * @return {Point} position
-    **/
-    occurToOriginalPosition(session, pos) {
-        var lines = session.$occurMatchingLines;
-        if (!lines || !lines[pos.row])
-            return pos;
-        return {row: lines[pos.row].row, column: pos.column};
-    }
-
-    /**
-     * @param {EditSession} session
-     * @param {Partial<SearchOptions>} options
+     * @param {boolean} moveToNext
+     * @param {Function} needleUpdateFunc
      */
-    matchingLines(session, options) {
-        options = oop.mixin({}, options);
-        if (!session || !options.needle) return [];
-        var search = new Search();
-        search.set(options);
-        return search.findAll(session).reduce(function(lines, range) {
-            var row = range.start.row;
-            var last = lines[lines.length-1];
-            return last && last.row === row ?
-                lines :
-                lines.concat({row: row, content: session.getLine(row)});
-        }, []);
+    highlightAndFindWithNeedle(moveToNext, needleUpdateFunc) {
+        if (!this.$editor) return null;
+        var options = this.$options;
+
+        // get search term
+        if (needleUpdateFunc) {
+            options.needle = needleUpdateFunc.call(this, options.needle || '') || '';
+        }
+        if (options.needle.length === 0) {
+            this.statusMessage(true);
+            return this.cancelSearch(true);
+        }
+
+        // try to find the next occurrence and enable  highlighting marker
+        options.start = this.$currentPos;
+        var session = this.$editor.session,
+            found = this.find(session),
+            shouldSelect = this.$editor.emacsMark ?
+                !!this.$editor.emacsMark() : !this.$editor.selection.isEmpty();
+        if (found) {
+            if (options.backwards) found = Range.fromPoints(found.end, found.start);
+            this.$editor.selection.setRange(Range.fromPoints(shouldSelect ? this.$startPos : found.end, found.end));
+            if (moveToNext) this.$currentPos = found.end;
+            // highlight after cursor move, so selection works properly
+            this.highlight(options.re);
+        }
+
+        this.statusMessage(found);
+
+        return found;
+    }
+
+    /**
+     * @param {string} s
+     */
+    addString(s) {
+        return this.highlightAndFindWithNeedle(false, function(needle) {
+            if (!isRegExp(needle))
+              return needle + s;
+            var reObj = regExpToObject(needle);
+            reObj.expression += s;
+            return objectToRegExp(reObj);
+        });
+    }
+
+    /**
+     * @param {any} c
+     */
+    removeChar(c) {
+        return this.highlightAndFindWithNeedle(false, function(needle) {
+            if (!isRegExp(needle))
+              return needle.substring(0, needle.length-1);
+            var reObj = regExpToObject(needle);
+            reObj.expression = reObj.expression.substring(0, reObj.expression.length-1);
+            return objectToRegExp(reObj);
+        });
+    }
+
+    next(options) {
+        // try to find the next occurrence of whatever we have searched for
+        // earlier.
+        // options = {[backwards: BOOL], [useCurrentOrPrevSearch: BOOL]}
+        options = options || {};
+        this.$options.backwards = !!options.backwards;
+        this.$currentPos = this.$editor.getCursorPosition();
+        return this.highlightAndFindWithNeedle(true, function(needle) {
+            return options.useCurrentOrPrevSearch && needle.length === 0 ?
+                this.$prevNeedle || '' : needle;
+        });
+    }
+
+    /**
+     * @internal
+     */
+    onMouseDown(evt) {
+        // when mouse interaction happens then we quit incremental search
+        this.deactivate();
+        return true;
+    }
+
+    /**
+     * @param {string} text
+     * @internal
+     */
+    onPaste(text) {
+        this.addString(text);
+    }
+
+    convertNeedleToRegExp() {
+        return this.highlightAndFindWithNeedle(false, function(needle) {
+            return isRegExp(needle) ? needle : stringToRegExp(needle, 'ig');
+        });
+    }
+
+    convertNeedleToString() {
+        return this.highlightAndFindWithNeedle(false, function(needle) {
+            return isRegExp(needle) ? regExpToObject(needle).expression : needle;
+        });
+    }
+
+    statusMessage(found) {
+        var options = this.$options, msg = '';
+        msg += options.backwards ? 'reverse-' : '';
+        msg += 'isearch: ' + options.needle;
+        msg += found ? '' : ' (not found)';
+        this.message(msg);
+    }
+
+    message(msg) {
+        if (this.$editor.showCommandLine) {
+            this.$editor.showCommandLine(msg);
+            this.$editor.focus();
+        }
     }
 
 }
 
-var dom = __webpack_require__(71435);
-dom.importCssString(".ace_occur-highlight {\n\
-    border-radius: 4px;\n\
-    background-color: rgba(87, 255, 8, 0.25);\n\
-    position: absolute;\n\
-    z-index: 4;\n\
-    box-sizing: border-box;\n\
-    box-shadow: 0 0 4px rgb(91, 255, 50);\n\
-}\n\
-.ace_dark .ace_occur-highlight {\n\
-    background-color: rgb(80, 140, 85);\n\
-    box-shadow: 0 0 4px rgb(60, 120, 70);\n\
-}\n", "incremental-occur-highlighting", false);
+exports.IncrementalSearch = IncrementalSearch;
 
-exports.D = Occur;
+
+/**
+ *
+ * Config settings for enabling/disabling [[IncrementalSearch `IncrementalSearch`]].
+ *
+ **/
+
+var dom = __webpack_require__(71435);
+dom.importCssString(`
+.ace_marker-layer .ace_isearch-result {
+  position: absolute;
+  z-index: 6;
+  box-sizing: border-box;
+}
+div.ace_isearch-result {
+  border-radius: 4px;
+  background-color: rgba(255, 200, 0, 0.5);
+  box-shadow: 0 0 4px rgb(255, 200, 0);
+}
+.ace_dark div.ace_isearch-result {
+  background-color: rgb(100, 110, 160);
+  box-shadow: 0 0 4px rgb(80, 90, 140);
+}`, "incremental-search-highlighting", false);
+
+// support for default keyboard handler
+var commands = __webpack_require__(63379);
+(function() {
+    this.setupIncrementalSearch = function(editor, val) {
+        if (this.usesIncrementalSearch == val) return;
+        this.usesIncrementalSearch = val;
+        var iSearchCommands = iSearchCommandModule.iSearchStartCommands;
+        var method = val ? 'addCommands' : 'removeCommands';
+        this[method](iSearchCommands);
+    };
+}).call(commands.CommandManager.prototype);
+
+// incremental search config option
+var Editor = (__webpack_require__(27258).Editor);
+(__webpack_require__(76321).defineOptions)(Editor.prototype, "editor", {
+    useIncrementalSearch: {
+        set: function(val) {
+            this.keyBinding.$handlers.forEach(function(handler) {
+                if (handler.setupIncrementalSearch) {
+                    handler.setupIncrementalSearch(this, val);
+                }
+            });
+            this._emit('incrementalSearchSettingChanged', {isEnabled: val});
+        }
+    }
+});
 
 
 /***/ })

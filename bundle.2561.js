@@ -1,6 +1,183 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2561],{
 
+/***/ 23124:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var lang = __webpack_require__(39955);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+var CssHighlightRules = __webpack_require__(74275);
+
+var ScssHighlightRules = function() {
+    
+    var properties = lang.arrayToMap(CssHighlightRules.supportType.split("|"));
+
+    var functions = lang.arrayToMap(
+        ("hsl|hsla|rgb|rgba|url|attr|counter|counters|abs|adjust_color|adjust_hue|" +
+         "alpha|join|blue|ceil|change_color|comparable|complement|darken|desaturate|" + 
+         "floor|grayscale|green|hue|if|invert|join|length|lighten|lightness|mix|" + 
+         "nth|opacify|opacity|percentage|quote|red|round|saturate|saturation|" +
+         "scale_color|transparentize|type_of|unit|unitless|unquote").split("|")
+    );
+
+    var constants = lang.arrayToMap(CssHighlightRules.supportConstant.split("|"));
+
+    var colors = lang.arrayToMap(CssHighlightRules.supportConstantColor.split("|"));
+    
+    var keywords = lang.arrayToMap(
+        ("@mixin|@extend|@include|@import|@media|@debug|@warn|@if|@for|@each|@while|@else|@font-face|@-webkit-keyframes|if|and|!default|module|def|end|declare").split("|")
+    );
+    
+    var tags = lang.arrayToMap(
+        ("a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdo|" + 
+         "big|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|" + 
+         "command|datalist|dd|del|details|dfn|dir|div|dl|dt|em|embed|fieldset|" + 
+         "figcaption|figure|font|footer|form|frame|frameset|h1|h2|h3|h4|h5|h6|head|" + 
+         "header|hgroup|hr|html|i|iframe|img|input|ins|keygen|kbd|label|legend|li|" + 
+         "link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|" + 
+         "option|output|p|param|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|" + 
+         "small|source|span|strike|strong|style|sub|summary|sup|table|tbody|td|" + 
+         "textarea|tfoot|th|thead|time|title|tr|tt|u|ul|var|video|wbr|xmp").split("|")
+    );
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    var numRe = "\\-?(?:(?:[0-9]+)|(?:[0-9]*\\.[0-9]+))";
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    this.$rules = {
+        "start" : [
+            {
+                token : "comment",
+                regex : "\\/\\/.*$"
+            },
+            {
+                token : "comment", // multi line comment
+                regex : "\\/\\*",
+                next : "comment"
+            }, {
+                token : "string", // single line
+                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+            }, {
+                token : "string", // multi line string start
+                regex : '["].*\\\\$',
+                next : "qqstring"
+            }, {
+                token : "string", // single line
+                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+            }, {
+                token : "string", // multi line string start
+                regex : "['].*\\\\$",
+                next : "qstring"
+            }, {
+                token : "constant.numeric",
+                regex : numRe + "(?:ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vmax|vmin|vm|vw|%)"
+            }, {
+                token : "constant.numeric", // hex6 color
+                regex : "#[a-f0-9]{6}"
+            }, {
+                token : "constant.numeric", // hex3 color
+                regex : "#[a-f0-9]{3}"
+            }, {
+                token : "constant.numeric",
+                regex : numRe
+            }, {
+                token : ["support.function", "string", "support.function"],
+                regex : "(url\\()(.*)(\\))"
+            }, {
+                token : function(value) {
+                    if (properties.hasOwnProperty(value.toLowerCase()))
+                        return "support.type";
+                    if (keywords.hasOwnProperty(value))
+                        return "keyword";
+                    else if (constants.hasOwnProperty(value))
+                        return "constant.language";
+                    else if (functions.hasOwnProperty(value))
+                        return "support.function";
+                    else if (colors.hasOwnProperty(value.toLowerCase()))
+                        return "support.constant.color";
+                    else if (tags.hasOwnProperty(value.toLowerCase()))
+                        return "variable.language";
+                    else
+                        return "text";
+                },
+                regex : "\\-?[@a-z_][@a-z0-9_\\-]*"
+            }, {
+                token : "variable",
+                regex : "[a-z_\\-$][a-z0-9_\\-$]*\\b"
+            }, {
+                token: "variable.language",
+                regex: "#[a-z0-9-_]+"
+            }, {
+                token: "variable.language",
+                regex: "\\.[a-z0-9-_]+"
+            }, {
+                token: "variable.language",
+                regex: ":[a-z0-9-_]+"
+            }, {
+                token: "constant",
+                regex: "[a-z0-9-_]+"
+            }, {
+                token : "keyword.operator",
+                regex : "<|>|<=|>=|==|!=|-|%|#|\\+|\\$|\\+|\\*"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }, {
+                caseInsensitive: true
+            }
+        ],
+        "comment" : [
+            {
+                token : "comment", // closing comment
+                regex : "\\*\\/",
+                next : "start"
+            }, {
+                defaultToken : "comment"
+            }
+        ],
+        "qqstring" : [
+            {
+                token : "string",
+                regex : '(?:(?:\\\\.)|(?:[^"\\\\]))*?"',
+                next : "start"
+            }, {
+                token : "string",
+                regex : '.+'
+            }
+        ],
+        "qstring" : [
+            {
+                token : "string",
+                regex : "(?:(?:\\\\.)|(?:[^'\\\\]))*?'",
+                next : "start"
+            }, {
+                token : "string",
+                regex : '.+'
+            }
+        ]
+    };
+};
+
+oop.inherits(ScssHighlightRules, TextHighlightRules);
+
+exports.ScssHighlightRules = ScssHighlightRules;
+
+
+/***/ }),
+
 /***/ 28068:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -352,432 +529,6 @@ exports.LessHighlightRules = LessHighlightRules;
 
 /***/ }),
 
-/***/ 98137:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var modes = (__webpack_require__(76321).$modes);
-
-var oop = __webpack_require__(2645);
-var lang = __webpack_require__(39955);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-var HtmlHighlightRules = (__webpack_require__(10413).HtmlHighlightRules);
-
-var escaped = function(ch) {
-    return "(?:[^" + lang.escapeRegExp(ch) + "\\\\]|\\\\.)*";
-};
-
-var MarkdownHighlightRules = function() {
-    HtmlHighlightRules.call(this);
-    // regexp must not have capturing parentheses
-    // regexps are ordered -> the first match is used
-    var codeBlockStartRule = {
-        token : "support.function",
-        regex : /^\s*(```+[^`]*|~~~+[^~]*)$/,
-        onMatch: function(value, state, stack, line) {
-            var m = value.match(/^(\s*)([`~]+)(.*)/);
-            var language = /[\w-]+|$/.exec(m[3])[0];
-            // TODO lazy-load modes
-            if (!modes[language])
-                language = "";
-            stack.unshift("githubblock", [], [m[1], m[2], language], state);
-            return this.token;
-        },
-        next  : "githubblock"
-    };
-    var codeBlockRules = [{
-        token : "support.function",
-        regex : ".*",
-        onMatch: function(value, state, stack, line) {
-            var embedState = stack[1];
-            var indent = stack[2][0];
-            var endMarker = stack[2][1];
-            var language = stack[2][2];
-            
-            var m = /^(\s*)(`+|~+)\s*$/.exec(value);
-            if (
-                m && m[1].length < indent.length + 3
-                && m[2].length >= endMarker.length && m[2][0] == endMarker[0]
-            ) {
-                stack.splice(0, 3);
-                this.next = stack.shift();
-                return this.token;
-            }
-            this.next = "";
-            if (language && modes[language]) {
-                var data = modes[language].getTokenizer().getLineTokens(value, embedState.slice(0));
-                stack[1] = data.state;
-                return data.tokens;
-            }
-            return this.token;
-        }
-    }];
-
-    this.$rules["start"].unshift({
-        token : "empty_line",
-        regex : '^$',
-        next: "allowBlock"
-    }, { // h1
-        token: "markup.heading.1",
-        regex: "^=+(?=\\s*$)"
-    }, { // h2
-        token: "markup.heading.2",
-        regex: "^\\-+(?=\\s*$)"
-    }, {
-        token : function(value) {
-            return "markup.heading." + value.length;
-        },
-        regex : /^#{1,6}(?=\s|$)/,
-        next : "header"
-    },
-    codeBlockStartRule,
-    { // block quote
-        token : "string.blockquote",
-        regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
-        next  : "blockquote"
-    }, { // HR * - _
-        token : "constant",
-        regex : "^ {0,3}(?:(?:\\* ?){3,}|(?:\\- ?){3,}|(?:\\_ ?){3,})\\s*$",
-        next: "allowBlock"
-    }, { // list
-        token : "markup.list",
-        regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
-        next  : "listblock-start"
-    }, {
-        include : "basic"
-    });
-
-    this.addRules({
-        "basic" : [{
-            token : "constant.language.escape",
-            regex : /\\[\\`*_{}\[\]()#+\-.!]/
-        }, { // code span `
-            token : "support.function",
-            regex : "(`+)(.*?[^`])(\\1)"
-        }, { // reference
-            token : ["text", "constant", "text", "url", "string", "text"],
-            regex : "^([ ]{0,3}\\[)([^\\]]+)(\\]:\\s*)([^ ]+)(\\s*(?:[\"][^\"]+[\"])?(\\s*))$"
-        }, { // link by reference
-            token : ["text", "string", "text", "constant", "text"],
-            regex : "(\\[)(" + escaped("]") + ")(\\]\\s*\\[)("+ escaped("]") + ")(\\])"
-        }, { // link by url
-            token : ["text", "string", "text", "markup.underline", "string", "text"],
-            regex : "(\\!?\\[)(" +                                        // [
-                    escaped("]") +                                    // link text or alt text
-                    ")(\\]\\()"+                                      // ](
-                    '((?:[^\\)\\s\\\\]|\\\\.|\\s(?=[^"]))*)' +        // href or image
-                    '(\\s*"' +  escaped('"') + '"\\s*)?' +            // "title"
-                    "(\\))"                                           // )
-        }, { // strong ** __
-            token : "string.strong",
-            regex : "([*]{2}|[_]{2}(?=\\S))(.*?\\S[*_]*)(\\1)"
-        }, { // emphasis * _
-            token : "string.emphasis",
-            regex : "([*]|[_](?=\\S))(.*?\\S[*_]*)(\\1)"
-        }, { //
-            token : ["text", "url", "text"],
-            regex : "(<)("+
-                      "(?:https?|ftp|dict):[^'\">\\s]+"+
-                      "|"+
-                      "(?:mailto:)?[-.\\w]+\\@[-a-z0-9]+(?:\\.[-a-z0-9]+)*\\.[a-z]+"+
-                    ")(>)"
-        }],
-
-        // code block
-        "allowBlock": [
-            {token : "support.function", regex : "^ {4}.+", next : "allowBlock"},
-            {token : "empty_line", regex : '^$', next: "allowBlock"},
-            {token : "empty", regex : "", next : "start"}
-        ],
-
-        "header" : [{
-            regex: "$",
-            next : "start"
-        }, {
-            include: "basic"
-        }, {
-            defaultToken : "heading"
-        } ],
-
-        "listblock-start" : [{
-            token : "support.variable",
-            regex : /(?:\[[ x]\])?/,
-            next  : "listblock"
-        }],
-
-        "listblock" : [ { // Lists only escape on completely blank lines.
-            token : "empty_line",
-            regex : "^$",
-            next  : "start"
-        }, { // list
-            token : "markup.list",
-            regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
-            next  : "listblock-start"
-        }, {
-            include : "basic", noEscape: true
-        },
-        codeBlockStartRule,
-        {
-            defaultToken : "list" //do not use markup.list to allow stling leading `*` differntly
-        } ],
-
-        "blockquote" : [ { // Blockquotes only escape on blank lines.
-            token : "empty_line",
-            regex : "^\\s*$",
-            next  : "start"
-        }, { // block quote
-            token : "string.blockquote",
-            regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
-            next  : "blockquote"
-        }, {
-            include : "basic", noEscape: true
-        }, {
-            defaultToken : "string.blockquote"
-        } ],
-
-        "githubblock" : codeBlockRules
-    });
-
-    this.normalizeRules();
-};
-oop.inherits(MarkdownHighlightRules, TextHighlightRules);
-
-exports.R = MarkdownHighlightRules;
-
-
-/***/ }),
-
-/***/ 96930:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var lang = __webpack_require__(39955);
-var ScssHighlightRules = (__webpack_require__(23124).ScssHighlightRules);
-
-var SassHighlightRules = function() {
-    ScssHighlightRules.call(this);
-    var start = this.$rules.start;
-    if (start[1].token == "comment") {
-        start.splice(1, 1, {
-            onMatch: function(value, currentState, stack) {
-                stack.unshift(this.next, -1, value.length - 2, currentState);
-                return "comment";
-            },
-            regex: /^\s*\/\*/,
-            next: "comment"
-        }, {
-            token: "error.invalid",
-            regex: "/\\*|[{;}]"
-        }, {
-            token: "support.type",
-            regex: /^\s*:[\w\-]+\s/
-        });
-        
-        this.$rules.comment = [
-            {regex: /^\s*/, onMatch: function(value, currentState, stack) {
-                if (stack[1] === -1)
-                    stack[1] = Math.max(stack[2], value.length - 1);
-                if (value.length <= stack[1]) {
-                    /*shift3x*/stack.shift();stack.shift();stack.shift();
-                    this.next = stack.shift();
-                    return "text";
-                } else {
-                    this.next = "";
-                    return "comment";
-                }
-            }, next: "start"},
-            {defaultToken: "comment"}
-        ];
-    }
-};
-
-oop.inherits(SassHighlightRules, ScssHighlightRules);
-
-exports.SassHighlightRules = SassHighlightRules;
-
-
-/***/ }),
-
-/***/ 23124:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var lang = __webpack_require__(39955);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-var CssHighlightRules = __webpack_require__(74275);
-
-var ScssHighlightRules = function() {
-    
-    var properties = lang.arrayToMap(CssHighlightRules.supportType.split("|"));
-
-    var functions = lang.arrayToMap(
-        ("hsl|hsla|rgb|rgba|url|attr|counter|counters|abs|adjust_color|adjust_hue|" +
-         "alpha|join|blue|ceil|change_color|comparable|complement|darken|desaturate|" + 
-         "floor|grayscale|green|hue|if|invert|join|length|lighten|lightness|mix|" + 
-         "nth|opacify|opacity|percentage|quote|red|round|saturate|saturation|" +
-         "scale_color|transparentize|type_of|unit|unitless|unquote").split("|")
-    );
-
-    var constants = lang.arrayToMap(CssHighlightRules.supportConstant.split("|"));
-
-    var colors = lang.arrayToMap(CssHighlightRules.supportConstantColor.split("|"));
-    
-    var keywords = lang.arrayToMap(
-        ("@mixin|@extend|@include|@import|@media|@debug|@warn|@if|@for|@each|@while|@else|@font-face|@-webkit-keyframes|if|and|!default|module|def|end|declare").split("|")
-    );
-    
-    var tags = lang.arrayToMap(
-        ("a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdo|" + 
-         "big|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|" + 
-         "command|datalist|dd|del|details|dfn|dir|div|dl|dt|em|embed|fieldset|" + 
-         "figcaption|figure|font|footer|form|frame|frameset|h1|h2|h3|h4|h5|h6|head|" + 
-         "header|hgroup|hr|html|i|iframe|img|input|ins|keygen|kbd|label|legend|li|" + 
-         "link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|" + 
-         "option|output|p|param|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|" + 
-         "small|source|span|strike|strong|style|sub|summary|sup|table|tbody|td|" + 
-         "textarea|tfoot|th|thead|time|title|tr|tt|u|ul|var|video|wbr|xmp").split("|")
-    );
-
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-
-    var numRe = "\\-?(?:(?:[0-9]+)|(?:[0-9]*\\.[0-9]+))";
-
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-
-    this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : "\\/\\/.*$"
-            },
-            {
-                token : "comment", // multi line comment
-                regex : "\\/\\*",
-                next : "comment"
-            }, {
-                token : "string", // single line
-                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-            }, {
-                token : "string", // multi line string start
-                regex : '["].*\\\\$',
-                next : "qqstring"
-            }, {
-                token : "string", // single line
-                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
-            }, {
-                token : "string", // multi line string start
-                regex : "['].*\\\\$",
-                next : "qstring"
-            }, {
-                token : "constant.numeric",
-                regex : numRe + "(?:ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vmax|vmin|vm|vw|%)"
-            }, {
-                token : "constant.numeric", // hex6 color
-                regex : "#[a-f0-9]{6}"
-            }, {
-                token : "constant.numeric", // hex3 color
-                regex : "#[a-f0-9]{3}"
-            }, {
-                token : "constant.numeric",
-                regex : numRe
-            }, {
-                token : ["support.function", "string", "support.function"],
-                regex : "(url\\()(.*)(\\))"
-            }, {
-                token : function(value) {
-                    if (properties.hasOwnProperty(value.toLowerCase()))
-                        return "support.type";
-                    if (keywords.hasOwnProperty(value))
-                        return "keyword";
-                    else if (constants.hasOwnProperty(value))
-                        return "constant.language";
-                    else if (functions.hasOwnProperty(value))
-                        return "support.function";
-                    else if (colors.hasOwnProperty(value.toLowerCase()))
-                        return "support.constant.color";
-                    else if (tags.hasOwnProperty(value.toLowerCase()))
-                        return "variable.language";
-                    else
-                        return "text";
-                },
-                regex : "\\-?[@a-z_][@a-z0-9_\\-]*"
-            }, {
-                token : "variable",
-                regex : "[a-z_\\-$][a-z0-9_\\-$]*\\b"
-            }, {
-                token: "variable.language",
-                regex: "#[a-z0-9-_]+"
-            }, {
-                token: "variable.language",
-                regex: "\\.[a-z0-9-_]+"
-            }, {
-                token: "variable.language",
-                regex: ":[a-z0-9-_]+"
-            }, {
-                token: "constant",
-                regex: "[a-z0-9-_]+"
-            }, {
-                token : "keyword.operator",
-                regex : "<|>|<=|>=|==|!=|-|%|#|\\+|\\$|\\+|\\*"
-            }, {
-                token : "paren.lparen",
-                regex : "[[({]"
-            }, {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "text",
-                regex : "\\s+"
-            }, {
-                caseInsensitive: true
-            }
-        ],
-        "comment" : [
-            {
-                token : "comment", // closing comment
-                regex : "\\*\\/",
-                next : "start"
-            }, {
-                defaultToken : "comment"
-            }
-        ],
-        "qqstring" : [
-            {
-                token : "string",
-                regex : '(?:(?:\\\\.)|(?:[^"\\\\]))*?"',
-                next : "start"
-            }, {
-                token : "string",
-                regex : '.+'
-            }
-        ],
-        "qstring" : [
-            {
-                token : "string",
-                regex : "(?:(?:\\\\.)|(?:[^'\\\\]))*?'",
-                next : "start"
-            }, {
-                token : "string",
-                regex : '.+'
-            }
-        ]
-    };
-};
-
-oop.inherits(ScssHighlightRules, TextHighlightRules);
-
-exports.ScssHighlightRules = ScssHighlightRules;
-
-
-/***/ }),
-
 /***/ 95253:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -984,6 +735,255 @@ var SlimHighlightRules = function() {
 oop.inherits(SlimHighlightRules, TextHighlightRules);
 
 exports.SlimHighlightRules = SlimHighlightRules;
+
+
+/***/ }),
+
+/***/ 96930:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var lang = __webpack_require__(39955);
+var ScssHighlightRules = (__webpack_require__(23124).ScssHighlightRules);
+
+var SassHighlightRules = function() {
+    ScssHighlightRules.call(this);
+    var start = this.$rules.start;
+    if (start[1].token == "comment") {
+        start.splice(1, 1, {
+            onMatch: function(value, currentState, stack) {
+                stack.unshift(this.next, -1, value.length - 2, currentState);
+                return "comment";
+            },
+            regex: /^\s*\/\*/,
+            next: "comment"
+        }, {
+            token: "error.invalid",
+            regex: "/\\*|[{;}]"
+        }, {
+            token: "support.type",
+            regex: /^\s*:[\w\-]+\s/
+        });
+        
+        this.$rules.comment = [
+            {regex: /^\s*/, onMatch: function(value, currentState, stack) {
+                if (stack[1] === -1)
+                    stack[1] = Math.max(stack[2], value.length - 1);
+                if (value.length <= stack[1]) {
+                    /*shift3x*/stack.shift();stack.shift();stack.shift();
+                    this.next = stack.shift();
+                    return "text";
+                } else {
+                    this.next = "";
+                    return "comment";
+                }
+            }, next: "start"},
+            {defaultToken: "comment"}
+        ];
+    }
+};
+
+oop.inherits(SassHighlightRules, ScssHighlightRules);
+
+exports.SassHighlightRules = SassHighlightRules;
+
+
+/***/ }),
+
+/***/ 98137:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var modes = (__webpack_require__(76321).$modes);
+
+var oop = __webpack_require__(2645);
+var lang = __webpack_require__(39955);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+var HtmlHighlightRules = (__webpack_require__(10413).HtmlHighlightRules);
+
+var escaped = function(ch) {
+    return "(?:[^" + lang.escapeRegExp(ch) + "\\\\]|\\\\.)*";
+};
+
+var MarkdownHighlightRules = function() {
+    HtmlHighlightRules.call(this);
+    // regexp must not have capturing parentheses
+    // regexps are ordered -> the first match is used
+    var codeBlockStartRule = {
+        token : "support.function",
+        regex : /^\s*(```+[^`]*|~~~+[^~]*)$/,
+        onMatch: function(value, state, stack, line) {
+            var m = value.match(/^(\s*)([`~]+)(.*)/);
+            var language = /[\w-]+|$/.exec(m[3])[0];
+            // TODO lazy-load modes
+            if (!modes[language])
+                language = "";
+            stack.unshift("githubblock", [], [m[1], m[2], language], state);
+            return this.token;
+        },
+        next  : "githubblock"
+    };
+    var codeBlockRules = [{
+        token : "support.function",
+        regex : ".*",
+        onMatch: function(value, state, stack, line) {
+            var embedState = stack[1];
+            var indent = stack[2][0];
+            var endMarker = stack[2][1];
+            var language = stack[2][2];
+            
+            var m = /^(\s*)(`+|~+)\s*$/.exec(value);
+            if (
+                m && m[1].length < indent.length + 3
+                && m[2].length >= endMarker.length && m[2][0] == endMarker[0]
+            ) {
+                stack.splice(0, 3);
+                this.next = stack.shift();
+                return this.token;
+            }
+            this.next = "";
+            if (language && modes[language]) {
+                var data = modes[language].getTokenizer().getLineTokens(value, embedState.slice(0));
+                stack[1] = data.state;
+                return data.tokens;
+            }
+            return this.token;
+        }
+    }];
+
+    this.$rules["start"].unshift({
+        token : "empty_line",
+        regex : '^$',
+        next: "allowBlock"
+    }, { // h1
+        token: "markup.heading.1",
+        regex: "^=+(?=\\s*$)"
+    }, { // h2
+        token: "markup.heading.2",
+        regex: "^\\-+(?=\\s*$)"
+    }, {
+        token : function(value) {
+            return "markup.heading." + value.length;
+        },
+        regex : /^#{1,6}(?=\s|$)/,
+        next : "header"
+    },
+    codeBlockStartRule,
+    { // block quote
+        token : "string.blockquote",
+        regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
+        next  : "blockquote"
+    }, { // HR * - _
+        token : "constant",
+        regex : "^ {0,3}(?:(?:\\* ?){3,}|(?:\\- ?){3,}|(?:\\_ ?){3,})\\s*$",
+        next: "allowBlock"
+    }, { // list
+        token : "markup.list",
+        regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
+        next  : "listblock-start"
+    }, {
+        include : "basic"
+    });
+
+    this.addRules({
+        "basic" : [{
+            token : "constant.language.escape",
+            regex : /\\[\\`*_{}\[\]()#+\-.!]/
+        }, { // code span `
+            token : "support.function",
+            regex : "(`+)(.*?[^`])(\\1)"
+        }, { // reference
+            token : ["text", "constant", "text", "url", "string", "text"],
+            regex : "^([ ]{0,3}\\[)([^\\]]+)(\\]:\\s*)([^ ]+)(\\s*(?:[\"][^\"]+[\"])?(\\s*))$"
+        }, { // link by reference
+            token : ["text", "string", "text", "constant", "text"],
+            regex : "(\\[)(" + escaped("]") + ")(\\]\\s*\\[)("+ escaped("]") + ")(\\])"
+        }, { // link by url
+            token : ["text", "string", "text", "markup.underline", "string", "text"],
+            regex : "(\\!?\\[)(" +                                        // [
+                    escaped("]") +                                    // link text or alt text
+                    ")(\\]\\()"+                                      // ](
+                    '((?:[^\\)\\s\\\\]|\\\\.|\\s(?=[^"]))*)' +        // href or image
+                    '(\\s*"' +  escaped('"') + '"\\s*)?' +            // "title"
+                    "(\\))"                                           // )
+        }, { // strong ** __
+            token : "string.strong",
+            regex : "([*]{2}|[_]{2}(?=\\S))(.*?\\S[*_]*)(\\1)"
+        }, { // emphasis * _
+            token : "string.emphasis",
+            regex : "([*]|[_](?=\\S))(.*?\\S[*_]*)(\\1)"
+        }, { //
+            token : ["text", "url", "text"],
+            regex : "(<)("+
+                      "(?:https?|ftp|dict):[^'\">\\s]+"+
+                      "|"+
+                      "(?:mailto:)?[-.\\w]+\\@[-a-z0-9]+(?:\\.[-a-z0-9]+)*\\.[a-z]+"+
+                    ")(>)"
+        }],
+
+        // code block
+        "allowBlock": [
+            {token : "support.function", regex : "^ {4}.+", next : "allowBlock"},
+            {token : "empty_line", regex : '^$', next: "allowBlock"},
+            {token : "empty", regex : "", next : "start"}
+        ],
+
+        "header" : [{
+            regex: "$",
+            next : "start"
+        }, {
+            include: "basic"
+        }, {
+            defaultToken : "heading"
+        } ],
+
+        "listblock-start" : [{
+            token : "support.variable",
+            regex : /(?:\[[ x]\])?/,
+            next  : "listblock"
+        }],
+
+        "listblock" : [ { // Lists only escape on completely blank lines.
+            token : "empty_line",
+            regex : "^$",
+            next  : "start"
+        }, { // list
+            token : "markup.list",
+            regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
+            next  : "listblock-start"
+        }, {
+            include : "basic", noEscape: true
+        },
+        codeBlockStartRule,
+        {
+            defaultToken : "list" //do not use markup.list to allow stling leading `*` differntly
+        } ],
+
+        "blockquote" : [ { // Blockquotes only escape on blank lines.
+            token : "empty_line",
+            regex : "^\\s*$",
+            next  : "start"
+        }, { // block quote
+            token : "string.blockquote",
+            regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
+            next  : "blockquote"
+        }, {
+            include : "basic", noEscape: true
+        }, {
+            defaultToken : "string.blockquote"
+        } ],
+
+        "githubblock" : codeBlockRules
+    });
+
+    this.normalizeRules();
+};
+oop.inherits(MarkdownHighlightRules, TextHighlightRules);
+
+exports.R = MarkdownHighlightRules;
 
 
 /***/ })

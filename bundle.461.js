@@ -1,36 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[461],{
 
-/***/ 30461:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-var oop = __webpack_require__(2645);
-var JSMode = (__webpack_require__(93388).Mode);
-var SJSHighlightRules = (__webpack_require__(8317)/* .SJSHighlightRules */ .w);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = SJSHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = this.$defaultBehaviour;
-    this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, JSMode);
-(function() {
-    // disable jshint
-    this.createWorker = function(session) {
-        return null;
-    };
-    this.$id = "ace/mode/sjs";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 8317:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -235,6 +205,36 @@ var SJSHighlightRules = function() {
 oop.inherits(SJSHighlightRules, TextHighlightRules);
 
 exports.w = SJSHighlightRules;
+
+
+/***/ }),
+
+/***/ 30461:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var oop = __webpack_require__(2645);
+var JSMode = (__webpack_require__(93388).Mode);
+var SJSHighlightRules = (__webpack_require__(8317)/* .SJSHighlightRules */ .w);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = SJSHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = this.$defaultBehaviour;
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, JSMode);
+(function() {
+    // disable jshint
+    this.createWorker = function(session) {
+        return null;
+    };
+    this.$id = "ace/mode/sjs";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

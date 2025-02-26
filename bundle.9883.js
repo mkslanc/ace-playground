@@ -1,329 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[9883],{
 
-/***/ 42124:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var DocCommentHighlightRules = function () {
-    this.$rules = {
-        "start": [
-            {
-                token: "comment.doc.tag",
-                regex: "@\\w+(?=\\s|$)"
-            }, DocCommentHighlightRules.getTagRule(), {
-                defaultToken: "comment.doc.body",
-                caseInsensitive: true
-            }
-        ]
-    };
-};
-
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
-
-DocCommentHighlightRules.getTagRule = function(start) {
-    return {
-        token : "comment.doc.tag.storage.type",
-        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
-    };
-};
-
-DocCommentHighlightRules.getStartRule = function(start) {
-    return {
-        token : "comment.doc", // doc comment
-        regex: /\/\*\*(?!\/)/,
-        next  : start
-    };
-};
-
-DocCommentHighlightRules.getEndRule = function (start) {
-    return {
-        token : "comment.doc", // closing comment
-        regex : "\\*\\/",
-        next  : start
-    };
-};
-
-
-exports.l = DocCommentHighlightRules;
-
-
-/***/ }),
-
-/***/ 79581:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var CstyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var TokenIterator = (__webpack_require__(99339).TokenIterator);
-
-
-var FoldMode = exports.l = function () {
-};
-
-oop.inherits(FoldMode, CstyleFoldMode);
-
-(function () {
-    this.getFoldWidgetRangeBase = this.getFoldWidgetRange;
-    this.getFoldWidgetBase = this.getFoldWidget;
-    
-    this.indentKeywords = {
-        "if": 1,
-        "while": 1,
-        "for": 1,
-        "foreach": 1,
-        "switch": 1,
-        "else": 0,
-        "elseif": 0,
-        "endif": -1,
-        "endwhile": -1,
-        "endfor": -1,
-        "endforeach": -1,
-        "endswitch": -1
-    };
-
-    this.foldingStartMarkerPhp = /(?:\s|^)(if|else|elseif|while|for|foreach|switch).*\:/i;
-    this.foldingStopMarkerPhp = /(?:\s|^)(endif|endwhile|endfor|endforeach|endswitch)\;/i;
-
-    this.getFoldWidgetRange = function (session, foldStyle, row) {
-        var line = session.doc.getLine(row);
-        var match = this.foldingStartMarkerPhp.exec(line);
-        if (match) {
-            return this.phpBlock(session, row, match.index + 2);
-        }
-
-        var match = this.foldingStopMarkerPhp.exec(line);
-        if (match) {
-            return this.phpBlock(session, row, match.index + 2);
-        }
-        return this.getFoldWidgetRangeBase(session, foldStyle, row);
-    };
-
-
-    // must return "" if there's no fold, to enable caching
-    this.getFoldWidget = function (session, foldStyle, row) {
-        var line = session.getLine(row);
-        var isStart = this.foldingStartMarkerPhp.test(line);
-        var isEnd = this.foldingStopMarkerPhp.test(line);
-        if (isStart && !isEnd) {
-            var match = this.foldingStartMarkerPhp.exec(line);
-            var keyword = match && match[1].toLowerCase();
-            if (keyword) {
-                var type = session.getTokenAt(row, match.index + 2).type;
-                if (type == "keyword") {
-                    return "start";
-                }
-            }
-        }
-        if (isEnd && foldStyle === "markbeginend") {
-            var match = this.foldingStopMarkerPhp.exec(line);
-            var keyword = match && match[1].toLowerCase();
-            if (keyword) {
-                var type = session.getTokenAt(row, match.index + 2).type;
-                if (type == "keyword") {
-                    return "end";
-                }
-            }
-        }
-        return this.getFoldWidgetBase(session, foldStyle, row);
-    };
-
-    this.phpBlock = function (session, row, column, tokenRange) {
-        var stream = new TokenIterator(session, row, column);
-
-        var token = stream.getCurrentToken();
-        if (!token || token.type != "keyword") return;
-
-        var val = token.value;
-        var stack = [val];
-        var dir = this.indentKeywords[val];
-
-        if (val === "else" || val === "elseif") {
-            dir = 1;
-        }
-
-        if (!dir) return;
-
-        var startColumn = dir === -1 ? stream.getCurrentTokenColumn() : session.getLine(row).length;
-        var startRow = row;
-
-        stream.step = dir === -1 ? stream.stepBackward : stream.stepForward;
-        while (token = stream.step()) {
-            if (token.type !== "keyword") continue;
-            var level = dir * this.indentKeywords[token.value];
-
-            if (level > 0) {
-                stack.unshift(token.value);
-            }
-            else if (level <= 0) {
-                stack.shift();
-                if (!stack.length) break;
-                if (level === 0) stack.unshift(token.value);
-            }
-        }
-
-        if (!token) return null;
-
-        if (tokenRange) return stream.getCurrentTokenRange();
-
-        var row = stream.getCurrentTokenRow();
-        if (dir === -1) return new Range(
-            row, session.getLine(row).length, startRow, startColumn); else return new Range(
-            startRow, startColumn, row, stream.getCurrentTokenColumn());
-    };
-
-}).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 99883:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var PhpHighlightRules = (__webpack_require__(40368)/* .PhpHighlightRules */ ._);
-var PhpLangHighlightRules = (__webpack_require__(40368)/* .PhpLangHighlightRules */ .i);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var WorkerClient = (__webpack_require__(28402).WorkerClient);
-var PhpCompletions = (__webpack_require__(16151)/* .PhpCompletions */ ._);
-var PhpFoldMode = (__webpack_require__(79581)/* .FoldMode */ .l);
-var unicode = __webpack_require__(6672);
-var MixedFoldMode = (__webpack_require__(90610)/* .FoldMode */ .l);
-var HtmlFoldMode = (__webpack_require__(6944).FoldMode);
-var CstyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-var HtmlMode = (__webpack_require__(32234).Mode);
-var JavaScriptMode = (__webpack_require__(93388).Mode);
-var CssMode = (__webpack_require__(41080).Mode);
-
-var PhpMode = function(opts) {
-    this.HighlightRules = PhpLangHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = this.$defaultBehaviour;
-    this.$completer = new PhpCompletions();
-    this.foldingRules = new MixedFoldMode(new HtmlFoldMode(), {
-        "js-": new CstyleFoldMode(),
-        "css-": new CstyleFoldMode(),
-        "php-": new PhpFoldMode()
-    });
-};
-oop.inherits(PhpMode, TextMode);
-
-(function() {
-
-    this.tokenRe = new RegExp("^[" + unicode.wordChars + "_]+", "g");
-    this.nonTokenRe = new RegExp("^(?:[^" + unicode.wordChars + "_]|\\s])+", "g");
-
-    this.lineCommentStart = ["//", "#"];
-    this.blockComment = {start: "/*", end: "*/"};
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-        var endState = tokenizedLine.state;
-
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[:]\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        } else if (state == "doc-start") {
-            if (endState != "doc-start") {
-                return "";
-            }
-            var match = line.match(/^\s*(\/?)\*/);
-            if (match) {
-                if (match[1]) {
-                    indent += " ";
-                }
-                indent += "* ";
-            }
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-
-    this.getCompletions = function(state, session, pos, prefix) {
-        return this.$completer.getCompletions(state, session, pos, prefix);
-    };
-
-    this.$id = "ace/mode/php-inline";
-}).call(PhpMode.prototype);
-
-var Mode = function(opts) {
-    if (opts && opts.inline) {
-        var mode = new PhpMode();
-        mode.createWorker = this.createWorker;
-        mode.inlinePhp = true;
-        return mode;
-    }
-    HtmlMode.call(this);
-    this.HighlightRules = PhpHighlightRules;
-    this.createModeDelegates({
-        "js-": JavaScriptMode,
-        "css-": CssMode,
-        "php-": PhpMode
-    });
-    this.foldingRules = new MixedFoldMode(new HtmlFoldMode(), {
-        "js-": new CstyleFoldMode(),
-        "css-": new CstyleFoldMode(),
-        "php-": new PhpFoldMode()
-    });
-};
-oop.inherits(Mode, HtmlMode);
-
-(function() {
-
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "ace/mode/php_worker", "PhpWorker");
-        worker.attachToDocument(session.getDocument());
-
-        if (this.inlinePhp)
-            worker.call("setOptions", [{inline: true}]);
-
-        worker.on("annotate", function(e) {
-            session.setAnnotations(e.data);
-        });
-
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
-
-        return worker;
-    };
-
-    this.$id = "ace/mode/php";
-    this.snippetFileId = "ace/snippets/php";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 16151:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -11866,6 +11543,329 @@ oop.inherits(PhpHighlightRules, HtmlHighlightRules);
 
 exports._ = PhpHighlightRules;
 exports.i = PhpLangHighlightRules;
+
+
+/***/ }),
+
+/***/ 42124:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var DocCommentHighlightRules = function () {
+    this.$rules = {
+        "start": [
+            {
+                token: "comment.doc.tag",
+                regex: "@\\w+(?=\\s|$)"
+            }, DocCommentHighlightRules.getTagRule(), {
+                defaultToken: "comment.doc.body",
+                caseInsensitive: true
+            }
+        ]
+    };
+};
+
+oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+
+DocCommentHighlightRules.getTagRule = function(start) {
+    return {
+        token : "comment.doc.tag.storage.type",
+        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
+    };
+};
+
+DocCommentHighlightRules.getStartRule = function(start) {
+    return {
+        token : "comment.doc", // doc comment
+        regex: /\/\*\*(?!\/)/,
+        next  : start
+    };
+};
+
+DocCommentHighlightRules.getEndRule = function (start) {
+    return {
+        token : "comment.doc", // closing comment
+        regex : "\\*\\/",
+        next  : start
+    };
+};
+
+
+exports.l = DocCommentHighlightRules;
+
+
+/***/ }),
+
+/***/ 79581:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var CstyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
+
+
+var FoldMode = exports.l = function () {
+};
+
+oop.inherits(FoldMode, CstyleFoldMode);
+
+(function () {
+    this.getFoldWidgetRangeBase = this.getFoldWidgetRange;
+    this.getFoldWidgetBase = this.getFoldWidget;
+    
+    this.indentKeywords = {
+        "if": 1,
+        "while": 1,
+        "for": 1,
+        "foreach": 1,
+        "switch": 1,
+        "else": 0,
+        "elseif": 0,
+        "endif": -1,
+        "endwhile": -1,
+        "endfor": -1,
+        "endforeach": -1,
+        "endswitch": -1
+    };
+
+    this.foldingStartMarkerPhp = /(?:\s|^)(if|else|elseif|while|for|foreach|switch).*\:/i;
+    this.foldingStopMarkerPhp = /(?:\s|^)(endif|endwhile|endfor|endforeach|endswitch)\;/i;
+
+    this.getFoldWidgetRange = function (session, foldStyle, row) {
+        var line = session.doc.getLine(row);
+        var match = this.foldingStartMarkerPhp.exec(line);
+        if (match) {
+            return this.phpBlock(session, row, match.index + 2);
+        }
+
+        var match = this.foldingStopMarkerPhp.exec(line);
+        if (match) {
+            return this.phpBlock(session, row, match.index + 2);
+        }
+        return this.getFoldWidgetRangeBase(session, foldStyle, row);
+    };
+
+
+    // must return "" if there's no fold, to enable caching
+    this.getFoldWidget = function (session, foldStyle, row) {
+        var line = session.getLine(row);
+        var isStart = this.foldingStartMarkerPhp.test(line);
+        var isEnd = this.foldingStopMarkerPhp.test(line);
+        if (isStart && !isEnd) {
+            var match = this.foldingStartMarkerPhp.exec(line);
+            var keyword = match && match[1].toLowerCase();
+            if (keyword) {
+                var type = session.getTokenAt(row, match.index + 2).type;
+                if (type == "keyword") {
+                    return "start";
+                }
+            }
+        }
+        if (isEnd && foldStyle === "markbeginend") {
+            var match = this.foldingStopMarkerPhp.exec(line);
+            var keyword = match && match[1].toLowerCase();
+            if (keyword) {
+                var type = session.getTokenAt(row, match.index + 2).type;
+                if (type == "keyword") {
+                    return "end";
+                }
+            }
+        }
+        return this.getFoldWidgetBase(session, foldStyle, row);
+    };
+
+    this.phpBlock = function (session, row, column, tokenRange) {
+        var stream = new TokenIterator(session, row, column);
+
+        var token = stream.getCurrentToken();
+        if (!token || token.type != "keyword") return;
+
+        var val = token.value;
+        var stack = [val];
+        var dir = this.indentKeywords[val];
+
+        if (val === "else" || val === "elseif") {
+            dir = 1;
+        }
+
+        if (!dir) return;
+
+        var startColumn = dir === -1 ? stream.getCurrentTokenColumn() : session.getLine(row).length;
+        var startRow = row;
+
+        stream.step = dir === -1 ? stream.stepBackward : stream.stepForward;
+        while (token = stream.step()) {
+            if (token.type !== "keyword") continue;
+            var level = dir * this.indentKeywords[token.value];
+
+            if (level > 0) {
+                stack.unshift(token.value);
+            }
+            else if (level <= 0) {
+                stack.shift();
+                if (!stack.length) break;
+                if (level === 0) stack.unshift(token.value);
+            }
+        }
+
+        if (!token) return null;
+
+        if (tokenRange) return stream.getCurrentTokenRange();
+
+        var row = stream.getCurrentTokenRow();
+        if (dir === -1) return new Range(
+            row, session.getLine(row).length, startRow, startColumn); else return new Range(
+            startRow, startColumn, row, stream.getCurrentTokenColumn());
+    };
+
+}).call(FoldMode.prototype);
+
+
+/***/ }),
+
+/***/ 99883:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var PhpHighlightRules = (__webpack_require__(40368)/* .PhpHighlightRules */ ._);
+var PhpLangHighlightRules = (__webpack_require__(40368)/* .PhpLangHighlightRules */ .i);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var WorkerClient = (__webpack_require__(28402).WorkerClient);
+var PhpCompletions = (__webpack_require__(16151)/* .PhpCompletions */ ._);
+var PhpFoldMode = (__webpack_require__(79581)/* .FoldMode */ .l);
+var unicode = __webpack_require__(6672);
+var MixedFoldMode = (__webpack_require__(90610)/* .FoldMode */ .l);
+var HtmlFoldMode = (__webpack_require__(6944).FoldMode);
+var CstyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+var HtmlMode = (__webpack_require__(32234).Mode);
+var JavaScriptMode = (__webpack_require__(93388).Mode);
+var CssMode = (__webpack_require__(41080).Mode);
+
+var PhpMode = function(opts) {
+    this.HighlightRules = PhpLangHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = this.$defaultBehaviour;
+    this.$completer = new PhpCompletions();
+    this.foldingRules = new MixedFoldMode(new HtmlFoldMode(), {
+        "js-": new CstyleFoldMode(),
+        "css-": new CstyleFoldMode(),
+        "php-": new PhpFoldMode()
+    });
+};
+oop.inherits(PhpMode, TextMode);
+
+(function() {
+
+    this.tokenRe = new RegExp("^[" + unicode.wordChars + "_]+", "g");
+    this.nonTokenRe = new RegExp("^(?:[^" + unicode.wordChars + "_]|\\s])+", "g");
+
+    this.lineCommentStart = ["//", "#"];
+    this.blockComment = {start: "/*", end: "*/"};
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        var endState = tokenizedLine.state;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[:]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        } else if (state == "doc-start") {
+            if (endState != "doc-start") {
+                return "";
+            }
+            var match = line.match(/^\s*(\/?)\*/);
+            if (match) {
+                if (match[1]) {
+                    indent += " ";
+                }
+                indent += "* ";
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+    this.getCompletions = function(state, session, pos, prefix) {
+        return this.$completer.getCompletions(state, session, pos, prefix);
+    };
+
+    this.$id = "ace/mode/php-inline";
+}).call(PhpMode.prototype);
+
+var Mode = function(opts) {
+    if (opts && opts.inline) {
+        var mode = new PhpMode();
+        mode.createWorker = this.createWorker;
+        mode.inlinePhp = true;
+        return mode;
+    }
+    HtmlMode.call(this);
+    this.HighlightRules = PhpHighlightRules;
+    this.createModeDelegates({
+        "js-": JavaScriptMode,
+        "css-": CssMode,
+        "php-": PhpMode
+    });
+    this.foldingRules = new MixedFoldMode(new HtmlFoldMode(), {
+        "js-": new CstyleFoldMode(),
+        "css-": new CstyleFoldMode(),
+        "php-": new PhpFoldMode()
+    });
+};
+oop.inherits(Mode, HtmlMode);
+
+(function() {
+
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "ace/mode/php_worker", "PhpWorker");
+        worker.attachToDocument(session.getDocument());
+
+        if (this.inlinePhp)
+            worker.call("setOptions", [{inline: true}]);
+
+        worker.on("annotate", function(e) {
+            session.setAnnotations(e.data);
+        });
+
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
+
+        return worker;
+    };
+
+    this.$id = "ace/mode/php";
+    this.snippetFileId = "ace/snippets/php";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

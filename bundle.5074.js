@@ -1,179 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5074],{
 
-/***/ 42124:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var DocCommentHighlightRules = function () {
-    this.$rules = {
-        "start": [
-            {
-                token: "comment.doc.tag",
-                regex: "@\\w+(?=\\s|$)"
-            }, DocCommentHighlightRules.getTagRule(), {
-                defaultToken: "comment.doc.body",
-                caseInsensitive: true
-            }
-        ]
-    };
-};
-
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
-
-DocCommentHighlightRules.getTagRule = function(start) {
-    return {
-        token : "comment.doc.tag.storage.type",
-        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
-    };
-};
-
-DocCommentHighlightRules.getStartRule = function(start) {
-    return {
-        token : "comment.doc", // doc comment
-        regex: /\/\*\*(?!\/)/,
-        next  : start
-    };
-};
-
-DocCommentHighlightRules.getEndRule = function (start) {
-    return {
-        token : "comment.doc", // closing comment
-        regex : "\\*\\/",
-        next  : start
-    };
-};
-
-
-exports.l = DocCommentHighlightRules;
-
-
-/***/ }),
-
-/***/ 23614:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var JsonHighlightRules = function() {
-
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-    this.$rules = {
-        "start" : [
-            {
-                token : "variable", // single line
-                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]\\s*(?=:)'
-            }, {
-                token : "string", // single line
-                regex : '"',
-                next  : "string"
-            }, {
-                token : "constant.numeric", // hex
-                regex : "0[xX][0-9a-fA-F]+\\b"
-            }, {
-                token : "constant.numeric", // float
-                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-            }, {
-                token : "constant.language.boolean",
-                regex : "(?:true|false)\\b"
-            }, {
-                token : "text", // single quoted strings are not allowed
-                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
-            }, {
-                token : "comment", // comments are not allowed, but who cares?
-                regex : "\\/\\/.*$"
-            }, {
-                token : "comment.start", // comments are not allowed, but who cares?
-                regex : "\\/\\*",
-                next  : "comment"
-            }, {
-                token : "paren.lparen",
-                regex : "[[({]"
-            }, {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "punctuation.operator",
-                regex : /[,]/
-            }, {
-                token : "text",
-                regex : "\\s+"
-            }
-        ],
-        "string" : [
-            {
-                token : "constant.language.escape",
-                regex : /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|["\\\/bfnrt])/
-            }, {
-                token : "string",
-                regex : '"|$',
-                next  : "start"
-            }, {
-                defaultToken : "string"
-            }
-        ],
-        "comment" : [
-            {
-                token : "comment.end", // comments are not allowed, but who cares?
-                regex : "\\*\\/",
-                next  : "start"
-            }, {
-                defaultToken: "comment"
-            }
-        ]
-    };
-    
-};
-
-oop.inherits(JsonHighlightRules, TextHighlightRules);
-
-exports.S = JsonHighlightRules;
-
-
-/***/ }),
-
-/***/ 25074:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var RedshiftHighlightRules = (__webpack_require__(12133)/* .RedshiftHighlightRules */ .V);
-
-var Mode = function() {
-    this.HighlightRules = RedshiftHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.lineCommentStart = "--";
-    this.blockComment = {start: "/*", end: "*/"};
-
-    this.getNextLineIndent = function(state, line, tab) { 
-        if (state == "start" || state == "keyword.statementEnd") {
-            return "";
-        } else {
-            return this.$getIndent(line); // Keep whatever indent the previous line has
-        }
-    };
-
-    this.$id = "ace/mode/redshift";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 12133:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -374,6 +200,180 @@ var RedshiftHighlightRules = function() {
 oop.inherits(RedshiftHighlightRules, TextHighlightRules);
 
 exports.V = RedshiftHighlightRules;
+
+
+/***/ }),
+
+/***/ 23614:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var JsonHighlightRules = function() {
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+    this.$rules = {
+        "start" : [
+            {
+                token : "variable", // single line
+                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]\\s*(?=:)'
+            }, {
+                token : "string", // single line
+                regex : '"',
+                next  : "string"
+            }, {
+                token : "constant.numeric", // hex
+                regex : "0[xX][0-9a-fA-F]+\\b"
+            }, {
+                token : "constant.numeric", // float
+                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+            }, {
+                token : "constant.language.boolean",
+                regex : "(?:true|false)\\b"
+            }, {
+                token : "text", // single quoted strings are not allowed
+                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+            }, {
+                token : "comment", // comments are not allowed, but who cares?
+                regex : "\\/\\/.*$"
+            }, {
+                token : "comment.start", // comments are not allowed, but who cares?
+                regex : "\\/\\*",
+                next  : "comment"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "punctuation.operator",
+                regex : /[,]/
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }
+        ],
+        "string" : [
+            {
+                token : "constant.language.escape",
+                regex : /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|["\\\/bfnrt])/
+            }, {
+                token : "string",
+                regex : '"|$',
+                next  : "start"
+            }, {
+                defaultToken : "string"
+            }
+        ],
+        "comment" : [
+            {
+                token : "comment.end", // comments are not allowed, but who cares?
+                regex : "\\*\\/",
+                next  : "start"
+            }, {
+                defaultToken: "comment"
+            }
+        ]
+    };
+    
+};
+
+oop.inherits(JsonHighlightRules, TextHighlightRules);
+
+exports.S = JsonHighlightRules;
+
+
+/***/ }),
+
+/***/ 25074:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var RedshiftHighlightRules = (__webpack_require__(12133)/* .RedshiftHighlightRules */ .V);
+
+var Mode = function() {
+    this.HighlightRules = RedshiftHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.lineCommentStart = "--";
+    this.blockComment = {start: "/*", end: "*/"};
+
+    this.getNextLineIndent = function(state, line, tab) { 
+        if (state == "start" || state == "keyword.statementEnd") {
+            return "";
+        } else {
+            return this.$getIndent(line); // Keep whatever indent the previous line has
+        }
+    };
+
+    this.$id = "ace/mode/redshift";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 42124:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var DocCommentHighlightRules = function () {
+    this.$rules = {
+        "start": [
+            {
+                token: "comment.doc.tag",
+                regex: "@\\w+(?=\\s|$)"
+            }, DocCommentHighlightRules.getTagRule(), {
+                defaultToken: "comment.doc.body",
+                caseInsensitive: true
+            }
+        ]
+    };
+};
+
+oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+
+DocCommentHighlightRules.getTagRule = function(start) {
+    return {
+        token : "comment.doc.tag.storage.type",
+        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
+    };
+};
+
+DocCommentHighlightRules.getStartRule = function(start) {
+    return {
+        token : "comment.doc", // doc comment
+        regex: /\/\*\*(?!\/)/,
+        next  : start
+    };
+};
+
+DocCommentHighlightRules.getEndRule = function (start) {
+    return {
+        token : "comment.doc", // closing comment
+        regex : "\\*\\/",
+        next  : start
+    };
+};
+
+
+exports.l = DocCommentHighlightRules;
 
 
 /***/ })

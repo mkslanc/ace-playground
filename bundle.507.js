@@ -1,5 +1,18 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[507],{
 
+/***/ 507:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+exports.isDark = true;
+exports.cssClass = "ace-monokai";
+exports.cssText = __webpack_require__(93561);
+
+var dom = __webpack_require__(71435);
+dom.importCssString(exports.cssText, exports.cssClass, false);
+
+
+/***/ }),
+
 /***/ 93561:
 /***/ ((module) => {
 
@@ -129,19 +142,6 @@ module.exports = `.ace-monokai .ace_gutter {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQIW2PQ1dX9zzBz5sz/ABCcBFFentLlAAAAAElFTkSuQmCC) right repeat-y;
 }
 `;
-
-
-/***/ }),
-
-/***/ 507:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-exports.isDark = true;
-exports.cssClass = "ace-monokai";
-exports.cssText = __webpack_require__(93561);
-
-var dom = __webpack_require__(71435);
-dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ })

@@ -1,5 +1,18 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[983],{
 
+/***/ 30983:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+exports.isDark = false;
+exports.cssClass = "ace-clouds";
+exports.cssText = __webpack_require__(70765);
+
+var dom = __webpack_require__(71435);
+dom.importCssString(exports.cssText, exports.cssClass, false);
+
+
+/***/ }),
+
 /***/ 70765:
 /***/ ((module) => {
 
@@ -119,19 +132,6 @@ module.exports = `.ace-clouds .ace_gutter {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAZSURBVHjaYvj///9/hivKyv8BAAAA//8DACLqBhbvk+/eAAAAAElFTkSuQmCC") right repeat-y;
 } 
 `;
-
-
-/***/ }),
-
-/***/ 30983:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-exports.isDark = false;
-exports.cssClass = "ace-clouds";
-exports.cssText = __webpack_require__(70765);
-
-var dom = __webpack_require__(71435);
-dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ })

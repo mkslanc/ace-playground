@@ -1,6 +1,73 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[6314],{
 
+/***/ 3453:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var TextileHighlightRules = function() {
+    this.$rules = {
+        "start" : [
+            {
+                token : function(value) {
+                    if (value.charAt(0) == "h")
+                        return "markup.heading." + value.charAt(1);
+                    else
+                        return "markup.heading";
+                },
+                regex : "h1|h2|h3|h4|h5|h6|bq|p|bc|pre",
+                next  : "blocktag"
+            },
+            {
+                token : "keyword",
+                regex : "[\\*]+|[#]+"
+            },
+            {
+                token : "text",
+                regex : ".+"
+            }
+        ],
+        "blocktag" : [
+            {
+                token : "keyword",
+                regex : "\\. ",
+                next  : "start"
+            },
+            {
+                token : "keyword",
+                regex : "\\(",
+                next  : "blocktagproperties"
+            }
+        ],
+        "blocktagproperties" : [
+            {
+                token : "keyword",
+                regex : "\\)",
+                next  : "blocktag"
+            },
+            {
+                token : "string",
+                regex : "[a-zA-Z0-9\\-_]+"
+            },
+            {
+                token : "keyword",
+                regex : "#"
+            }
+        ]
+    };
+};
+
+oop.inherits(TextileHighlightRules, TextHighlightRules);
+
+exports.r = TextileHighlightRules;
+
+
+/***/ }),
+
 /***/ 28670:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -84,73 +151,6 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 3453:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var TextileHighlightRules = function() {
-    this.$rules = {
-        "start" : [
-            {
-                token : function(value) {
-                    if (value.charAt(0) == "h")
-                        return "markup.heading." + value.charAt(1);
-                    else
-                        return "markup.heading";
-                },
-                regex : "h1|h2|h3|h4|h5|h6|bq|p|bc|pre",
-                next  : "blocktag"
-            },
-            {
-                token : "keyword",
-                regex : "[\\*]+|[#]+"
-            },
-            {
-                token : "text",
-                regex : ".+"
-            }
-        ],
-        "blocktag" : [
-            {
-                token : "keyword",
-                regex : "\\. ",
-                next  : "start"
-            },
-            {
-                token : "keyword",
-                regex : "\\(",
-                next  : "blocktagproperties"
-            }
-        ],
-        "blocktagproperties" : [
-            {
-                token : "keyword",
-                regex : "\\)",
-                next  : "blocktag"
-            },
-            {
-                token : "string",
-                regex : "[a-zA-Z0-9\\-_]+"
-            },
-            {
-                token : "keyword",
-                regex : "#"
-            }
-        ]
-    };
-};
-
-oop.inherits(TextileHighlightRules, TextHighlightRules);
-
-exports.r = TextileHighlightRules;
 
 
 /***/ })

@@ -1,6 +1,93 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[245],{
 
+/***/ 10245:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var oop = __webpack_require__(2645);
+// defines the parent mode
+var TextMode = (__webpack_require__(49432).Mode);
+var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
+// defines the language specific highlighters and folding rules
+var SpaceHighlightRules = (__webpack_require__(66914)/* .SpaceHighlightRules */ .C);
+var Mode = function() {
+    // set everything up
+    this.HighlightRules = SpaceHighlightRules;
+    this.foldingRules = new FoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+(function() {
+    
+    this.$id = "ace/mode/space";
+}).call(Mode.prototype);
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 66914:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var SpaceHighlightRules = function() {
+
+    // Todo: support multiline values that escape the newline with spaces.
+    this.$rules = {
+        "start" : [
+            {
+                token : "empty_line",
+                regex : / */,
+                next : "key"
+            },
+            {
+                token : "empty_line",
+                regex : /$/,
+                next : "key"
+            }
+        ],
+        "key" : [
+            {
+                token : "variable",
+                regex : /\S+/
+            },
+            {
+                token : "empty_line",
+                regex : /$/,
+                next : "start"
+            },{
+                token : "keyword.operator",
+                regex : / /,
+                next  : "value"
+            }
+        ],
+        "value" : [
+            {
+                token : "keyword.operator",
+                regex : /$/,
+                next  : "start"
+            },
+            {
+                token : "string",
+                regex : /[^$]/
+            }
+        ]
+    };
+    
+};
+
+oop.inherits(SpaceHighlightRules, TextHighlightRules);
+
+exports.C = SpaceHighlightRules;
+
+
+/***/ }),
+
 /***/ 69261:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -96,93 +183,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 10245:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-var oop = __webpack_require__(2645);
-// defines the parent mode
-var TextMode = (__webpack_require__(49432).Mode);
-var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
-// defines the language specific highlighters and folding rules
-var SpaceHighlightRules = (__webpack_require__(66914)/* .SpaceHighlightRules */ .C);
-var Mode = function() {
-    // set everything up
-    this.HighlightRules = SpaceHighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-(function() {
-    
-    this.$id = "ace/mode/space";
-}).call(Mode.prototype);
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 66914:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var SpaceHighlightRules = function() {
-
-    // Todo: support multiline values that escape the newline with spaces.
-    this.$rules = {
-        "start" : [
-            {
-                token : "empty_line",
-                regex : / */,
-                next : "key"
-            },
-            {
-                token : "empty_line",
-                regex : /$/,
-                next : "key"
-            }
-        ],
-        "key" : [
-            {
-                token : "variable",
-                regex : /\S+/
-            },
-            {
-                token : "empty_line",
-                regex : /$/,
-                next : "start"
-            },{
-                token : "keyword.operator",
-                regex : / /,
-                next  : "value"
-            }
-        ],
-        "value" : [
-            {
-                token : "keyword.operator",
-                regex : /$/,
-                next  : "start"
-            },
-            {
-                token : "string",
-                regex : /[^$]/
-            }
-        ]
-    };
-    
-};
-
-oop.inherits(SpaceHighlightRules, TextHighlightRules);
-
-exports.C = SpaceHighlightRules;
 
 
 /***/ })

@@ -1,6 +1,26 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[955],{
 
+/***/ 20688:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+
+var CsvHighlightRules = function() {
+    TextHighlightRules.call(this);
+};
+
+oop.inherits(CsvHighlightRules, TextHighlightRules);
+
+exports.I = CsvHighlightRules;
+
+
+/***/ }),
+
 /***/ 30955:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -90,26 +110,6 @@ function tokenizeCsv(line, state, options) {
     return { tokens: result, state: inString ? "string-" + column : "start" };
 
 }
-
-/***/ }),
-
-/***/ 20688:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-
-var CsvHighlightRules = function() {
-    TextHighlightRules.call(this);
-};
-
-oop.inherits(CsvHighlightRules, TextHighlightRules);
-
-exports.I = CsvHighlightRules;
-
 
 /***/ })
 

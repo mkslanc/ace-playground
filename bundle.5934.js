@@ -1,5 +1,45 @@
 "use strict";
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5934,955],{
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[955,5934],{
+
+/***/ 17161:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+
+var TsvHighlightRules = function() {
+    TextHighlightRules.call(this);
+};
+
+oop.inherits(TsvHighlightRules, TextHighlightRules);
+
+exports.N = TsvHighlightRules;
+
+
+/***/ }),
+
+/***/ 20688:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+
+var CsvHighlightRules = function() {
+    TextHighlightRules.call(this);
+};
+
+oop.inherits(CsvHighlightRules, TextHighlightRules);
+
+exports.I = CsvHighlightRules;
+
+
+/***/ }),
 
 /***/ 30955:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
@@ -93,26 +133,6 @@ function tokenizeCsv(line, state, options) {
 
 /***/ }),
 
-/***/ 20688:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-
-var CsvHighlightRules = function() {
-    TextHighlightRules.call(this);
-};
-
-oop.inherits(CsvHighlightRules, TextHighlightRules);
-
-exports.I = CsvHighlightRules;
-
-
-/***/ }),
-
 /***/ 45934:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -132,26 +152,6 @@ var Mode = function(options) {
 };
 
 exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 17161:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-
-var TsvHighlightRules = function() {
-    TextHighlightRules.call(this);
-};
-
-oop.inherits(TsvHighlightRules, TextHighlightRules);
-
-exports.N = TsvHighlightRules;
 
 
 /***/ })

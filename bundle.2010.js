@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2010,8980],{
 
-/***/ 72010:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(48980);
-exports.scope = "clojure";
-
-
-/***/ }),
-
 /***/ 48980:
 /***/ ((module) => {
 
@@ -106,6 +94,18 @@ snippet when-let
 	(when-let [\${1:result} \${2:test}]
 		\${3:body})
 `;
+
+
+/***/ }),
+
+/***/ 72010:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(48980);
+exports.scope = "clojure";
 
 
 /***/ })

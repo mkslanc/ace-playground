@@ -1,30 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3989],{
 
-/***/ 93989:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var BibTeXHighlightRules = (__webpack_require__(35906)/* .BibTeXHighlightRules */ .S);
-var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = BibTeXHighlightRules;
-    this.foldingRules = new FoldMode();
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.$id = "ace/mode/bibtex";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-/***/ }),
-
 /***/ 35906:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -378,6 +354,30 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 }).call(FoldMode.prototype);
 
+
+/***/ }),
+
+/***/ 93989:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var BibTeXHighlightRules = (__webpack_require__(35906)/* .BibTeXHighlightRules */ .S);
+var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = BibTeXHighlightRules;
+    this.foldingRules = new FoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.$id = "ace/mode/bibtex";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 /***/ })
 

@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[4249,9037],{
 
-/***/ 94249:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(79037);
-exports.scope = "c_cpp";
-
-
-/***/ }),
-
 /***/ 79037:
 /***/ ((module) => {
 
@@ -147,6 +135,18 @@ snippet lld
 		\${3:/* code */}
 	}\${4}
 `;
+
+
+/***/ }),
+
+/***/ 94249:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(79037);
+exports.scope = "c_cpp";
 
 
 /***/ })

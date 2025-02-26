@@ -1,6 +1,51 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5611],{
 
+/***/ 63920:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+/**
+ * Haskell Cabal files highlighter (https://www.haskell.org/cabal/users-guide/developing-packages.html)
+ **/
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var CabalHighlightRules = function() {
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+    this.$rules = {
+        "start" : [
+            {
+                token : "comment",
+                regex : "^\\s*--.*$"
+            }, {
+                token: ["keyword"],
+                regex: /^(\s*\w.*?)(:(?:\s+|$))/
+            }, {
+                token : "constant.numeric", // float
+                regex : /[\d_]+(?:(?:[\.\d_]*)?)/
+            }, {
+                token : "constant.language.boolean",
+                regex : "(?:true|false|TRUE|FALSE|True|False|yes|no)\\b"
+            }, {
+                token : "markup.heading",
+                regex : /^(\w.*)$/
+            }
+        ]};
+
+};
+
+oop.inherits(CabalHighlightRules, TextHighlightRules);
+
+exports.L = CabalHighlightRules;
+
+
+/***/ }),
+
 /***/ 76793:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -120,51 +165,6 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 63920:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-/**
- * Haskell Cabal files highlighter (https://www.haskell.org/cabal/users-guide/developing-packages.html)
- **/
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var CabalHighlightRules = function() {
-
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-    this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : "^\\s*--.*$"
-            }, {
-                token: ["keyword"],
-                regex: /^(\s*\w.*?)(:(?:\s+|$))/
-            }, {
-                token : "constant.numeric", // float
-                regex : /[\d_]+(?:(?:[\.\d_]*)?)/
-            }, {
-                token : "constant.language.boolean",
-                regex : "(?:true|false|TRUE|FALSE|True|False|yes|no)\\b"
-            }, {
-                token : "markup.heading",
-                regex : /^(\w.*)$/
-            }
-        ]};
-
-};
-
-oop.inherits(CabalHighlightRules, TextHighlightRules);
-
-exports.L = CabalHighlightRules;
 
 
 /***/ })

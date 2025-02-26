@@ -1,16 +1,4 @@
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[9253,2177],{
-
-/***/ 99253:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(2177);
-exports.scope = "markdown";
-
-
-/***/ }),
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2177,9253],{
 
 /***/ 2177:
 /***/ ((module) => {
@@ -104,6 +92,18 @@ snippet pullquote
 	\${1:text} {" \${2:quote} "} \${3:text}
 	{% endpullquote %}
 `;
+
+
+/***/ }),
+
+/***/ 99253:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(2177);
+exports.scope = "markdown";
 
 
 /***/ })

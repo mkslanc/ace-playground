@@ -1,89 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2025],{
 
-/***/ 42124:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var DocCommentHighlightRules = function () {
-    this.$rules = {
-        "start": [
-            {
-                token: "comment.doc.tag",
-                regex: "@\\w+(?=\\s|$)"
-            }, DocCommentHighlightRules.getTagRule(), {
-                defaultToken: "comment.doc.body",
-                caseInsensitive: true
-            }
-        ]
-    };
-};
-
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
-
-DocCommentHighlightRules.getTagRule = function(start) {
-    return {
-        token : "comment.doc.tag.storage.type",
-        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
-    };
-};
-
-DocCommentHighlightRules.getStartRule = function(start) {
-    return {
-        token : "comment.doc", // doc comment
-        regex: /\/\*\*(?!\/)/,
-        next  : start
-    };
-};
-
-DocCommentHighlightRules.getEndRule = function (start) {
-    return {
-        token : "comment.doc", // closing comment
-        regex : "\\*\\/",
-        next  : start
-    };
-};
-
-
-exports.l = DocCommentHighlightRules;
-
-
-/***/ }),
-
-/***/ 32025:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var JavaScriptMode = (__webpack_require__(93388).Mode);
-var GroovyHighlightRules = (__webpack_require__(18398)/* .GroovyHighlightRules */ .q);
-
-var Mode = function() {
-    JavaScriptMode.call(this);
-    this.HighlightRules = GroovyHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, JavaScriptMode);
-
-(function() {
-
-    this.createWorker = function(session) {
-        return null;
-    };
-
-    this.$id = "ace/mode/groovy";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 18398:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -257,6 +174,89 @@ var GroovyHighlightRules = function() {
 oop.inherits(GroovyHighlightRules, TextHighlightRules);
 
 exports.q = GroovyHighlightRules;
+
+
+/***/ }),
+
+/***/ 32025:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var JavaScriptMode = (__webpack_require__(93388).Mode);
+var GroovyHighlightRules = (__webpack_require__(18398)/* .GroovyHighlightRules */ .q);
+
+var Mode = function() {
+    JavaScriptMode.call(this);
+    this.HighlightRules = GroovyHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, JavaScriptMode);
+
+(function() {
+
+    this.createWorker = function(session) {
+        return null;
+    };
+
+    this.$id = "ace/mode/groovy";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 42124:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var DocCommentHighlightRules = function () {
+    this.$rules = {
+        "start": [
+            {
+                token: "comment.doc.tag",
+                regex: "@\\w+(?=\\s|$)"
+            }, DocCommentHighlightRules.getTagRule(), {
+                defaultToken: "comment.doc.body",
+                caseInsensitive: true
+            }
+        ]
+    };
+};
+
+oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+
+DocCommentHighlightRules.getTagRule = function(start) {
+    return {
+        token : "comment.doc.tag.storage.type",
+        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
+    };
+};
+
+DocCommentHighlightRules.getStartRule = function(start) {
+    return {
+        token : "comment.doc", // doc comment
+        regex: /\/\*\*(?!\/)/,
+        next  : start
+    };
+};
+
+DocCommentHighlightRules.getEndRule = function (start) {
+    return {
+        token : "comment.doc", // closing comment
+        regex : "\\*\\/",
+        next  : start
+    };
+};
+
+
+exports.l = DocCommentHighlightRules;
 
 
 /***/ })

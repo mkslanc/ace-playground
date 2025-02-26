@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[275,7715],{
 
-/***/ 80275:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(47715);
-exports.scope = "tex";
-
-
-/***/ }),
-
 /***/ 47715:
 /***/ ((module) => {
 
@@ -206,6 +194,18 @@ snippet frac
 	\\frac{\${1:num}}{\${2:denom}}
 snippet sum
 	\\sum^{\${1:n}}_{\${2:i=1}}{\${3}}`;
+
+
+/***/ }),
+
+/***/ 80275:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(47715);
+exports.scope = "tex";
 
 
 /***/ })

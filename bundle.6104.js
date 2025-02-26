@@ -1,6 +1,49 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[6104],{
 
+/***/ 55606:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var BaseFoldMode = (__webpack_require__(51358).FoldMode);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var FoldMode = exports.l = function(levels, flag) {
+	this.regExpList = levels;
+	this.flag = flag;
+	this.foldingStartMarker = RegExp("^(" + levels.join("|") + ")", this.flag);
+};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var start = {row: row, column: line.length};
+
+        var regList = this.regExpList;
+        for (var i = 1; i <= regList.length; i++) {
+            var re = RegExp("^(" + regList.slice(0, i).join("|") + ")", this.flag);
+            if (re.test(line))
+                break;
+        }
+
+        for (var l = session.getLength(); ++row < l; ) {
+            line = session.getLine(row);
+            if (re.test(line))
+                break;
+        }
+        if (row == start.row + 1)
+            return;
+        return new Range(start.row, start.column, row - 1, line.length);
+    };
+
+}).call(FoldMode.prototype);
+
+
+/***/ }),
+
 /***/ 56104:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -107,49 +150,6 @@ var DiffHighlightRules = function() {
 oop.inherits(DiffHighlightRules, TextHighlightRules);
 
 exports.l = DiffHighlightRules;
-
-
-/***/ }),
-
-/***/ 55606:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var BaseFoldMode = (__webpack_require__(51358).FoldMode);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var FoldMode = exports.l = function(levels, flag) {
-	this.regExpList = levels;
-	this.flag = flag;
-	this.foldingStartMarker = RegExp("^(" + levels.join("|") + ")", this.flag);
-};
-oop.inherits(FoldMode, BaseFoldMode);
-
-(function() {
-    this.getFoldWidgetRange = function(session, foldStyle, row) {
-        var line = session.getLine(row);
-        var start = {row: row, column: line.length};
-
-        var regList = this.regExpList;
-        for (var i = 1; i <= regList.length; i++) {
-            var re = RegExp("^(" + regList.slice(0, i).join("|") + ")", this.flag);
-            if (re.test(line))
-                break;
-        }
-
-        for (var l = session.getLength(); ++row < l; ) {
-            line = session.getLine(row);
-            if (re.test(line))
-                break;
-        }
-        if (row == start.row + 1)
-            return;
-        return new Range(start.row, start.column, row - 1, line.length);
-    };
-
-}).call(FoldMode.prototype);
 
 
 /***/ })

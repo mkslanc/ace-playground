@@ -1,33 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5941],{
 
-/***/ 95941:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var VHDLHighlightRules = (__webpack_require__(49730)/* .VHDLHighlightRules */ .K);
-
-var Mode = function() {
-    this.HighlightRules = VHDLHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "--";
-
-    this.$id = "ace/mode/vhdl";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 49730:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -117,6 +90,33 @@ var VHDLHighlightRules = function() {
 oop.inherits(VHDLHighlightRules, TextHighlightRules);
 
 exports.K = VHDLHighlightRules;
+
+
+/***/ }),
+
+/***/ 95941:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var VHDLHighlightRules = (__webpack_require__(49730)/* .VHDLHighlightRules */ .K);
+
+var Mode = function() {
+    this.HighlightRules = VHDLHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "--";
+
+    this.$id = "ace/mode/vhdl";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

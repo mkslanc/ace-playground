@@ -54,36 +54,6 @@ exports.l = DocCommentHighlightRules;
 
 /***/ }),
 
-/***/ 68789:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var JavaScriptMode = (__webpack_require__(93388).Mode);
-var ScalaHighlightRules = (__webpack_require__(49682)/* .ScalaHighlightRules */ .U);
-
-var Mode = function() {
-    JavaScriptMode.call(this);
-    this.HighlightRules = ScalaHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, JavaScriptMode);
-
-(function() {
-
-    this.createWorker = function(session) {
-        return null;
-    };
-
-    this.$id = "ace/mode/scala";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 49682:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -250,6 +220,36 @@ var ScalaHighlightRules = function() {
 oop.inherits(ScalaHighlightRules, TextHighlightRules);
 
 exports.U = ScalaHighlightRules;
+
+
+/***/ }),
+
+/***/ 68789:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var JavaScriptMode = (__webpack_require__(93388).Mode);
+var ScalaHighlightRules = (__webpack_require__(49682)/* .ScalaHighlightRules */ .U);
+
+var Mode = function() {
+    JavaScriptMode.call(this);
+    this.HighlightRules = ScalaHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, JavaScriptMode);
+
+(function() {
+
+    this.createWorker = function(session) {
+        return null;
+    };
+
+    this.$id = "ace/mode/scala";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

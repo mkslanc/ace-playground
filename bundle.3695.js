@@ -1,31 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3695],{
 
-/***/ 83695:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-    var oop = __webpack_require__(2645);
-    var TextMode = (__webpack_require__(49432).Mode);
-    var GcodeHighlightRules = (__webpack_require__(1388)/* .GcodeHighlightRules */ .a);
-    var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-    var Mode = function() {
-        this.HighlightRules = GcodeHighlightRules;
-        this.$behaviour = this.$defaultBehaviour;
-    };
-    oop.inherits(Mode, TextMode);
-
-    (function() {
-        this.$id = "ace/mode/gcode";
-    }).call(Mode.prototype);
-
-    exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 1388:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -91,6 +66,31 @@
     oop.inherits(GcodeHighlightRules, TextHighlightRules);
 
     exports.a = GcodeHighlightRules;
+
+
+/***/ }),
+
+/***/ 83695:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+    var oop = __webpack_require__(2645);
+    var TextMode = (__webpack_require__(49432).Mode);
+    var GcodeHighlightRules = (__webpack_require__(1388)/* .GcodeHighlightRules */ .a);
+    var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+    var Mode = function() {
+        this.HighlightRules = GcodeHighlightRules;
+        this.$behaviour = this.$defaultBehaviour;
+    };
+    oop.inherits(Mode, TextMode);
+
+    (function() {
+        this.$id = "ace/mode/gcode";
+    }).call(Mode.prototype);
+
+    exports.Mode = Mode;
 
 
 /***/ })

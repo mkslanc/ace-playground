@@ -1,43 +1,46 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[6679],{
 
-/***/ 66679:
+/***/ 28670:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var C9SearchHighlightRules = (__webpack_require__(37220)/* .C9SearchHighlightRules */ .c);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var C9StyleFoldMode = (__webpack_require__(56749)/* .FoldMode */ .l);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
 
-var Mode = function() {
-    this.HighlightRules = C9SearchHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.foldingRules = new C9StyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
+var MatchingBraceOutdent = function() {};
 
 (function() {
-    
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-        return indent;
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
     };
 
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
     };
 
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
+    this.$getIndent = function(line) {
+        return line.match(/^\s*/)[0];
     };
 
-    this.$id = "ace/mode/c9search";
-}).call(Mode.prototype);
+}).call(MatchingBraceOutdent.prototype);
 
-exports.Mode = Mode;
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
 
 
 /***/ }),
@@ -264,46 +267,43 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 /***/ }),
 
-/***/ 28670:
+/***/ 66679:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var C9SearchHighlightRules = (__webpack_require__(37220)/* .C9SearchHighlightRules */ .c);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var C9StyleFoldMode = (__webpack_require__(56749)/* .FoldMode */ .l);
 
-var MatchingBraceOutdent = function() {};
+var Mode = function() {
+    this.HighlightRules = C9SearchHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.foldingRules = new C9StyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
 
 (function() {
-
-    this.checkOutdent = function(line, input) {
-        if (! /^\s+$/.test(line))
-            return false;
-
-        return /^\s*\}/.test(input);
+    
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+        return indent;
     };
 
-    this.autoOutdent = function(doc, row) {
-        var line = doc.getLine(row);
-        var match = line.match(/^(\s*\})/);
-
-        if (!match) return 0;
-
-        var column = match[1].length;
-        var openBracePos = doc.findMatchingBracket({row: row, column: column});
-
-        if (!openBracePos || openBracePos.row == row) return 0;
-
-        var indent = this.$getIndent(doc.getLine(openBracePos.row));
-        doc.replace(new Range(row, 0, row, column-1), indent);
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
     };
 
-    this.$getIndent = function(line) {
-        return line.match(/^\s*/)[0];
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
     };
 
-}).call(MatchingBraceOutdent.prototype);
+    this.$id = "ace/mode/c9search";
+}).call(Mode.prototype);
 
-exports.MatchingBraceOutdent = MatchingBraceOutdent;
+exports.Mode = Mode;
 
 
 /***/ })

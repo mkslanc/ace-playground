@@ -1,192 +1,90 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[1026],{
 
-/***/ 61079:
+/***/ 11067:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
-var Rules = (__webpack_require__(28068).CoffeeHighlightRules);
-var Outdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var TextMode = (__webpack_require__(49432).Mode);
-var WorkerClient = (__webpack_require__(28402).WorkerClient);
 var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var RubyHighlightRules = (__webpack_require__(54848).RubyHighlightRules);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var FoldMode = (__webpack_require__(50625)/* .FoldMode */ .l);
 
-function Mode() {
-    this.HighlightRules = Rules;
-    this.$outdent = new Outdent();
+var Mode = function() {
+    this.HighlightRules = RubyHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = this.$defaultBehaviour;
     this.foldingRules = new FoldMode();
-}
-
+    this.indentKeywords = this.foldingRules.indentKeywords;
+};
 oop.inherits(Mode, TextMode);
 
 (function() {
-    
-    /*:
-      [({[=:]        # Opening parentheses or brackets
-     |[-=]>          # OR single or double arrow
-     |\b(?:          # OR one of these words:
-       else          #    else
-      |try           # OR try
-      |(?:swi|ca)tch # OR catch, optionally followed by:
-        (?:\s*[$A-Za-z_\x7f-\uffff][$\w\x7f-\uffff]*)?  # a variable
-      |finally       # OR finally
-     ))\s*$          # all as the last thing on a line (allowing trailing space)
-    |                # ---- OR ---- :
-    ^\s*             # a line starting with optional space
-    (else\b\s*)?     # followed by an optional "else"
-    (?:              # followed by one of the following:
-       if            #    if
-      |for           # OR for
-      |while         # OR while
-      |loop          # OR loop
-    )\b              #    (as a word)
-    (?!.*\bthen\b)   # ... but NOT followed by "then" on the line
-    */
-    var indenter = /(?:[({[=:]|[-=]>|\b(?:else|try|(?:swi|ca)tch(?:\s+[$A-Za-z_\x7f-\uffff][$\w\x7f-\uffff]*)?|finally))\s*$|^\s*(else\b\s*)?(?:if|for|while|loop)\b(?!.*\bthen\b)/;
-    
+
+
     this.lineCommentStart = "#";
-    this.blockComment = {start: "###", end: "###"};
-    
+
     this.getNextLineIndent = function(state, line, tab) {
         var indent = this.$getIndent(line);
-        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
-    
-        if (!(tokens.length && tokens[tokens.length - 1].type === 'comment') &&
-            state === 'start' && indenter.test(line))
-            indent += tab;
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+
+        if (tokens.length && tokens[tokens.length - 1].type == "comment") {
+            return indent;
+        }
+
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[]\s*$/);
+            var startingClassOrMethod = line.match(/^\s*(class|def|module)\s.*$/);
+            var startingDoBlock = line.match(/.*do(\s*|\s+\|.*\|\s*)$/);
+            var startingConditional = line.match(/^\s*(if|else|when|elsif|unless|while|for|begin|rescue|ensure)\s*/);
+            if (match || startingClassOrMethod || startingDoBlock || startingConditional) {
+                indent += tab;
+            }
+        }
+
         return indent;
     };
-    
+
     this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-    
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-    
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "ace/mode/coffee_worker", "Worker");
-        worker.attachToDocument(session.getDocument());
-        
-        worker.on("annotate", function(e) {
-            session.setAnnotations(e.data);
-        });
-        
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
-        
-        return worker;
+        return /^\s+(end|else|rescue|ensure)$/.test(line + input) || this.$outdent.checkOutdent(line, input);
     };
 
-    this.$id = "ace/mode/coffee";
-    this.snippetFileId = "ace/snippets/coffee";
+    this.autoOutdent = function(state, session, row) {
+        var line = session.getLine(row);
+        if (/}/.test(line))
+            return this.$outdent.autoOutdent(session, row);
+        var indent = this.$getIndent(line);
+        var prevLine = session.getLine(row - 1);
+        var prevIndent = this.$getIndent(prevLine);
+        var tab = session.getTabString();
+        if (prevIndent.length <= indent.length) {
+            if (indent.slice(-tab.length) == tab)
+                session.remove(new Range(row, indent.length - tab.length, row, indent.length));
+        }
+    };
+
+    this.getMatching = function(session, row, column) {
+        if (row == undefined) {
+            var pos = session.selection.lead;
+            column = pos.column;
+            row = pos.row;
+        }
+
+        var startToken = session.getTokenAt(row, column);
+        if (startToken && startToken.value in this.indentKeywords)
+            return this.foldingRules.rubyBlock(session, row, column, true);
+    };
+
+    this.$id = "ace/mode/ruby";
+    this.snippetFileId = "ace/snippets/ruby";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 69261:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var BaseFoldMode = (__webpack_require__(51358).FoldMode);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var FoldMode = exports.l = function() {};
-oop.inherits(FoldMode, BaseFoldMode);
-
-(function() {
-    this.commentBlock = function(session, row) {
-        var re = /\S/;
-        var line = session.getLine(row);
-        var startLevel = line.search(re);
-        if (startLevel == -1 || line[startLevel] != "#")
-            return;
-
-        var startColumn = line.length;
-        var maxRow = session.getLength();
-        var startRow = row;
-        var endRow = row;
-
-        while (++row < maxRow) {
-            line = session.getLine(row);
-            var level = line.search(re);
-
-            if (level == -1)
-                continue;
-
-            if (line[level] != "#")
-                break;
-
-            endRow = row;
-        }
-
-        if (endRow > startRow) {
-            var endColumn = session.getLine(endRow).length;
-            return new Range(startRow, startColumn, endRow, endColumn);
-        }
-    };
-
-    this.getFoldWidgetRange = function(session, foldStyle, row) {
-        var range = this.indentationBlock(session, row);
-        if (range)
-            return range;
-
-        range = this.commentBlock(session, row);
-        if (range)
-            return range;
-    };
-
-    // must return "" if there's no fold, to enable caching
-    this.getFoldWidget = function(session, foldStyle, row) {
-        var line = session.getLine(row);
-        var indent = line.search(/\S/);
-        var next = session.getLine(row + 1);
-        var prev = session.getLine(row - 1);
-        var prevIndent = prev.search(/\S/);
-        var nextIndent = next.search(/\S/);
-
-        if (indent == -1) {
-            session.foldWidgets[row - 1] = prevIndent!= -1 && prevIndent < nextIndent ? "start" : "";
-            return "";
-        }
-
-        // documentation comments
-        if (prevIndent == -1) {
-            if (indent == nextIndent && line[indent] == "#" && next[indent] == "#") {
-                session.foldWidgets[row - 1] = "";
-                session.foldWidgets[row + 1] = "";
-                return "start";
-            }
-        } else if (prevIndent == indent && line[indent] == "#" && prev[indent] == "#") {
-            if (session.getLine(row - 2).search(/\S/) == -1) {
-                session.foldWidgets[row - 1] = "start";
-                session.foldWidgets[row + 1] = "";
-                return "";
-            }
-        }
-
-        if (prevIndent!= -1 && prevIndent < indent)
-            session.foldWidgets[row - 1] = "start";
-        else
-            session.foldWidgets[row - 1] = "";
-
-        if (indent < nextIndent)
-            return "start";
-        else
-            return "";
-    };
-
-}).call(FoldMode.prototype);
 
 
 /***/ }),
@@ -286,6 +184,119 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
+
+
+/***/ }),
+
+/***/ 31525:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var SassHighlightRules = (__webpack_require__(96930).SassHighlightRules);
+var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = SassHighlightRules;
+    this.foldingRules = new FoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {   
+    this.lineCommentStart = "//";
+    this.$id = "ace/mode/sass";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 41026:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var SlimHighlightRules = (__webpack_require__(95253).SlimHighlightRules);
+
+var Mode = function() {
+    TextMode.call(this);
+    this.HighlightRules = SlimHighlightRules;
+    this.createModeDelegates({
+        javascript: (__webpack_require__(93388).Mode),
+        markdown: (__webpack_require__(75390).Mode),
+        coffee: (__webpack_require__(61079).Mode),
+        scss: (__webpack_require__(72007).Mode),
+        sass: (__webpack_require__(31525).Mode),
+        less: (__webpack_require__(79686).Mode),
+        ruby: (__webpack_require__(11067).Mode),
+        css: (__webpack_require__(41080).Mode)
+    });
+};
+
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.$id = "ace/mode/slim";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 49846:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var lang = __webpack_require__(39955);
+var TextMode = (__webpack_require__(49432).Mode);
+var XmlHighlightRules = (__webpack_require__(54849)/* .XmlHighlightRules */ .l);
+var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
+var XmlFoldMode = (__webpack_require__(79712)/* .FoldMode */ .l);
+var WorkerClient = (__webpack_require__(28402).WorkerClient);
+
+var Mode = function() {
+   this.HighlightRules = XmlHighlightRules;
+   this.$behaviour = new XmlBehaviour();
+   this.foldingRules = new XmlFoldMode();
+};
+
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.voidElements = lang.arrayToMap([]);
+
+    this.blockComment = {start: "<!--", end: "-->"};
+
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "ace/mode/xml_worker", "Worker");
+        worker.attachToDocument(session.getDocument());
+
+        worker.on("error", function(e) {
+            session.setAnnotations(e.data);
+        });
+
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
+
+        return worker;
+    };
+    
+    this.$id = "ace/mode/xml";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ }),
@@ -557,399 +568,6 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 /***/ }),
 
-/***/ 79686:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var LessHighlightRules = (__webpack_require__(41425).LessHighlightRules);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var CssBehaviour = (__webpack_require__(37028)/* .CssBehaviour */ .r);
-var CssCompletions = (__webpack_require__(61952)/* .CssCompletions */ .d);
-
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = LessHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = new CssBehaviour();
-    this.$completer = new CssCompletions();
-    this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        // ignore braces in comments
-        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-
-        var match = line.match(/^.*\{\s*$/);
-        if (match) {
-            indent += tab;
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-
-    this.getCompletions = function(state, session, pos, prefix) {
-        // CSS completions only work with single (not nested) rulesets
-        return this.$completer.getCompletions("ruleset", session, pos, prefix);
-    };
-
-    this.$id = "ace/mode/less";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 75390:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
-var TextMode = (__webpack_require__(49432).Mode);
-var MarkdownHighlightRules = (__webpack_require__(98137)/* .MarkdownHighlightRules */ .R);
-var MarkdownFoldMode = (__webpack_require__(23752)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = MarkdownHighlightRules;
-
-    this.createModeDelegates({
-        javascript: (__webpack_require__(93388).Mode),
-        html: (__webpack_require__(32234).Mode),
-        bash: (__webpack_require__(95052).Mode),
-        sh: (__webpack_require__(95052).Mode),
-        xml: (__webpack_require__(49846).Mode),
-        css: (__webpack_require__(41080).Mode)
-    });
-
-    this.foldingRules = new MarkdownFoldMode();
-    this.$behaviour = new CstyleBehaviour({ braces: true });
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.type = "text";
-    this.blockComment = {start: "<!--", end: "-->"};
-    this.$quotes = {'"': '"', "`": "`"};
-
-    this.getNextLineIndent = function(state, line, tab) {
-        if (state == "listblock") {
-            var match = /^(\s*)(?:([-+*])|(\d+)\.)(\s+)/.exec(line);
-            if (!match)
-                return "";
-            var marker = match[2];
-            if (!marker)
-                marker = parseInt(match[3], 10) + 1 + ".";
-            return match[1] + marker + match[4];
-        } else {
-            return this.$getIndent(line);
-        }
-    };
-    this.$id = "ace/mode/markdown";
-    this.snippetFileId = "ace/snippets/markdown";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 11067:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var RubyHighlightRules = (__webpack_require__(54848).RubyHighlightRules);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var FoldMode = (__webpack_require__(50625)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = RubyHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = this.$defaultBehaviour;
-    this.foldingRules = new FoldMode();
-    this.indentKeywords = this.foldingRules.indentKeywords;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-
-    this.lineCommentStart = "#";
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-
-        if (tokens.length && tokens[tokens.length - 1].type == "comment") {
-            return indent;
-        }
-
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[]\s*$/);
-            var startingClassOrMethod = line.match(/^\s*(class|def|module)\s.*$/);
-            var startingDoBlock = line.match(/.*do(\s*|\s+\|.*\|\s*)$/);
-            var startingConditional = line.match(/^\s*(if|else|when|elsif|unless|while|for|begin|rescue|ensure)\s*/);
-            if (match || startingClassOrMethod || startingDoBlock || startingConditional) {
-                indent += tab;
-            }
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return /^\s+(end|else|rescue|ensure)$/.test(line + input) || this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, session, row) {
-        var line = session.getLine(row);
-        if (/}/.test(line))
-            return this.$outdent.autoOutdent(session, row);
-        var indent = this.$getIndent(line);
-        var prevLine = session.getLine(row - 1);
-        var prevIndent = this.$getIndent(prevLine);
-        var tab = session.getTabString();
-        if (prevIndent.length <= indent.length) {
-            if (indent.slice(-tab.length) == tab)
-                session.remove(new Range(row, indent.length - tab.length, row, indent.length));
-        }
-    };
-
-    this.getMatching = function(session, row, column) {
-        if (row == undefined) {
-            var pos = session.selection.lead;
-            column = pos.column;
-            row = pos.row;
-        }
-
-        var startToken = session.getTokenAt(row, column);
-        if (startToken && startToken.value in this.indentKeywords)
-            return this.foldingRules.rubyBlock(session, row, column, true);
-    };
-
-    this.$id = "ace/mode/ruby";
-    this.snippetFileId = "ace/snippets/ruby";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 31525:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var SassHighlightRules = (__webpack_require__(96930).SassHighlightRules);
-var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = SassHighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {   
-    this.lineCommentStart = "//";
-    this.$id = "ace/mode/sass";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 72007:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var ScssHighlightRules = (__webpack_require__(23124).ScssHighlightRules);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var CssBehaviour = (__webpack_require__(37028)/* .CssBehaviour */ .r);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-var CssCompletions = (__webpack_require__(61952)/* .CssCompletions */ .d);
-
-
-var Mode = function() {
-    this.HighlightRules = ScssHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = new CssBehaviour();
-    this.$completer = new CssCompletions();
-    this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-   
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        // ignore braces in comments
-        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-
-        var match = line.match(/^.*\{\s*$/);
-        if (match) {
-            indent += tab;
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-    
-    this.getCompletions = function(state, session, pos, prefix) {
-        return this.$completer.getCompletions(state, session, pos, prefix);
-    };
-
-
-    this.$id = "ace/mode/scss";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 95052:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var ShHighlightRules = (__webpack_require__(55359).ShHighlightRules);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = ShHighlightRules;
-    this.foldingRules = new CStyleFoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-   
-    this.lineCommentStart = "#";
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[:]\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        }
-
-        return indent;
-    };
-
-    var outdents = {
-        "pass": 1,
-        "return": 1,
-        "raise": 1,
-        "break": 1,
-        "continue": 1
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        if (input !== "\r\n" && input !== "\r" && input !== "\n")
-            return false;
-
-        var tokens = this.getTokenizer().getLineTokens(line.trim(), state).tokens;
-
-        if (!tokens)
-            return false;
-
-        // ignore trailing comments
-        do {
-            var last = tokens.pop();
-        } while (last && (last.type == "comment" || (last.type == "text" && last.value.match(/^\s+$/))));
-
-        if (!last)
-            return false;
-
-        return (last.type == "keyword" && outdents[last.value]);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        // outdenting in sh is slightly different because it always applies
-        // to the next line and only of a new line is inserted
-
-        row += 1;
-        var indent = this.$getIndent(doc.getLine(row));
-        var tab = doc.getTabString();
-        if (indent.slice(-tab.length) == tab)
-            doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
-    };
-
-    this.$id = "ace/mode/sh";
-    this.snippetFileId = "ace/snippets/sh";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 55359:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -1174,35 +792,90 @@ exports.ShHighlightRules = ShHighlightRules;
 
 /***/ }),
 
-/***/ 41026:
+/***/ 61079:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
-var oop = __webpack_require__(2645);
+var Rules = (__webpack_require__(28068).CoffeeHighlightRules);
+var Outdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
 var TextMode = (__webpack_require__(49432).Mode);
-var SlimHighlightRules = (__webpack_require__(95253).SlimHighlightRules);
+var WorkerClient = (__webpack_require__(28402).WorkerClient);
+var oop = __webpack_require__(2645);
 
-var Mode = function() {
-    TextMode.call(this);
-    this.HighlightRules = SlimHighlightRules;
-    this.createModeDelegates({
-        javascript: (__webpack_require__(93388).Mode),
-        markdown: (__webpack_require__(75390).Mode),
-        coffee: (__webpack_require__(61079).Mode),
-        scss: (__webpack_require__(72007).Mode),
-        sass: (__webpack_require__(31525).Mode),
-        less: (__webpack_require__(79686).Mode),
-        ruby: (__webpack_require__(11067).Mode),
-        css: (__webpack_require__(41080).Mode)
-    });
-};
+function Mode() {
+    this.HighlightRules = Rules;
+    this.$outdent = new Outdent();
+    this.foldingRules = new FoldMode();
+}
 
 oop.inherits(Mode, TextMode);
 
 (function() {
+    
+    /*:
+      [({[=:]        # Opening parentheses or brackets
+     |[-=]>          # OR single or double arrow
+     |\b(?:          # OR one of these words:
+       else          #    else
+      |try           # OR try
+      |(?:swi|ca)tch # OR catch, optionally followed by:
+        (?:\s*[$A-Za-z_\x7f-\uffff][$\w\x7f-\uffff]*)?  # a variable
+      |finally       # OR finally
+     ))\s*$          # all as the last thing on a line (allowing trailing space)
+    |                # ---- OR ---- :
+    ^\s*             # a line starting with optional space
+    (else\b\s*)?     # followed by an optional "else"
+    (?:              # followed by one of the following:
+       if            #    if
+      |for           # OR for
+      |while         # OR while
+      |loop          # OR loop
+    )\b              #    (as a word)
+    (?!.*\bthen\b)   # ... but NOT followed by "then" on the line
+    */
+    var indenter = /(?:[({[=:]|[-=]>|\b(?:else|try|(?:swi|ca)tch(?:\s+[$A-Za-z_\x7f-\uffff][$\w\x7f-\uffff]*)?|finally))\s*$|^\s*(else\b\s*)?(?:if|for|while|loop)\b(?!.*\bthen\b)/;
+    
+    this.lineCommentStart = "#";
+    this.blockComment = {start: "###", end: "###"};
+    
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
+    
+        if (!(tokens.length && tokens[tokens.length - 1].type === 'comment') &&
+            state === 'start' && indenter.test(line))
+            indent += tab;
+        return indent;
+    };
+    
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+    
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+    
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "ace/mode/coffee_worker", "Worker");
+        worker.attachToDocument(session.getDocument());
+        
+        worker.on("annotate", function(e) {
+            session.setAnnotations(e.data);
+        });
+        
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
+        
+        return worker;
+    };
 
-    this.$id = "ace/mode/slim";
+    this.$id = "ace/mode/coffee";
+    this.snippetFileId = "ace/snippets/coffee";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
@@ -1210,49 +883,376 @@ exports.Mode = Mode;
 
 /***/ }),
 
-/***/ 49846:
+/***/ 69261:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
 var oop = __webpack_require__(2645);
-var lang = __webpack_require__(39955);
+var BaseFoldMode = (__webpack_require__(51358).FoldMode);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var FoldMode = exports.l = function() {};
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+    this.commentBlock = function(session, row) {
+        var re = /\S/;
+        var line = session.getLine(row);
+        var startLevel = line.search(re);
+        if (startLevel == -1 || line[startLevel] != "#")
+            return;
+
+        var startColumn = line.length;
+        var maxRow = session.getLength();
+        var startRow = row;
+        var endRow = row;
+
+        while (++row < maxRow) {
+            line = session.getLine(row);
+            var level = line.search(re);
+
+            if (level == -1)
+                continue;
+
+            if (line[level] != "#")
+                break;
+
+            endRow = row;
+        }
+
+        if (endRow > startRow) {
+            var endColumn = session.getLine(endRow).length;
+            return new Range(startRow, startColumn, endRow, endColumn);
+        }
+    };
+
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var range = this.indentationBlock(session, row);
+        if (range)
+            return range;
+
+        range = this.commentBlock(session, row);
+        if (range)
+            return range;
+    };
+
+    // must return "" if there's no fold, to enable caching
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var indent = line.search(/\S/);
+        var next = session.getLine(row + 1);
+        var prev = session.getLine(row - 1);
+        var prevIndent = prev.search(/\S/);
+        var nextIndent = next.search(/\S/);
+
+        if (indent == -1) {
+            session.foldWidgets[row - 1] = prevIndent!= -1 && prevIndent < nextIndent ? "start" : "";
+            return "";
+        }
+
+        // documentation comments
+        if (prevIndent == -1) {
+            if (indent == nextIndent && line[indent] == "#" && next[indent] == "#") {
+                session.foldWidgets[row - 1] = "";
+                session.foldWidgets[row + 1] = "";
+                return "start";
+            }
+        } else if (prevIndent == indent && line[indent] == "#" && prev[indent] == "#") {
+            if (session.getLine(row - 2).search(/\S/) == -1) {
+                session.foldWidgets[row - 1] = "start";
+                session.foldWidgets[row + 1] = "";
+                return "";
+            }
+        }
+
+        if (prevIndent!= -1 && prevIndent < indent)
+            session.foldWidgets[row - 1] = "start";
+        else
+            session.foldWidgets[row - 1] = "";
+
+        if (indent < nextIndent)
+            return "start";
+        else
+            return "";
+    };
+
+}).call(FoldMode.prototype);
+
+
+/***/ }),
+
+/***/ 72007:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
 var TextMode = (__webpack_require__(49432).Mode);
-var XmlHighlightRules = (__webpack_require__(54849)/* .XmlHighlightRules */ .l);
-var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
-var XmlFoldMode = (__webpack_require__(79712)/* .FoldMode */ .l);
-var WorkerClient = (__webpack_require__(28402).WorkerClient);
+var ScssHighlightRules = (__webpack_require__(23124).ScssHighlightRules);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var CssBehaviour = (__webpack_require__(37028)/* .CssBehaviour */ .r);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+var CssCompletions = (__webpack_require__(61952)/* .CssCompletions */ .d);
+
 
 var Mode = function() {
-   this.HighlightRules = XmlHighlightRules;
-   this.$behaviour = new XmlBehaviour();
-   this.foldingRules = new XmlFoldMode();
+    this.HighlightRules = ScssHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CssBehaviour();
+    this.$completer = new CssCompletions();
+    this.foldingRules = new CStyleFoldMode();
 };
+oop.inherits(Mode, TextMode);
 
+(function() {
+   
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        // ignore braces in comments
+        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        var match = line.match(/^.*\{\s*$/);
+        if (match) {
+            indent += tab;
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+    
+    this.getCompletions = function(state, session, pos, prefix) {
+        return this.$completer.getCompletions(state, session, pos, prefix);
+    };
+
+
+    this.$id = "ace/mode/scss";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 75390:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
+var TextMode = (__webpack_require__(49432).Mode);
+var MarkdownHighlightRules = (__webpack_require__(98137)/* .MarkdownHighlightRules */ .R);
+var MarkdownFoldMode = (__webpack_require__(23752)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = MarkdownHighlightRules;
+
+    this.createModeDelegates({
+        javascript: (__webpack_require__(93388).Mode),
+        html: (__webpack_require__(32234).Mode),
+        bash: (__webpack_require__(95052).Mode),
+        sh: (__webpack_require__(95052).Mode),
+        xml: (__webpack_require__(49846).Mode),
+        css: (__webpack_require__(41080).Mode)
+    });
+
+    this.foldingRules = new MarkdownFoldMode();
+    this.$behaviour = new CstyleBehaviour({ braces: true });
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.type = "text";
+    this.blockComment = {start: "<!--", end: "-->"};
+    this.$quotes = {'"': '"', "`": "`"};
+
+    this.getNextLineIndent = function(state, line, tab) {
+        if (state == "listblock") {
+            var match = /^(\s*)(?:([-+*])|(\d+)\.)(\s+)/.exec(line);
+            if (!match)
+                return "";
+            var marker = match[2];
+            if (!marker)
+                marker = parseInt(match[3], 10) + 1 + ".";
+            return match[1] + marker + match[4];
+        } else {
+            return this.$getIndent(line);
+        }
+    };
+    this.$id = "ace/mode/markdown";
+    this.snippetFileId = "ace/snippets/markdown";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 79686:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var LessHighlightRules = (__webpack_require__(41425).LessHighlightRules);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var CssBehaviour = (__webpack_require__(37028)/* .CssBehaviour */ .r);
+var CssCompletions = (__webpack_require__(61952)/* .CssCompletions */ .d);
+
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = LessHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new CssBehaviour();
+    this.$completer = new CssCompletions();
+    this.foldingRules = new CStyleFoldMode();
+};
 oop.inherits(Mode, TextMode);
 
 (function() {
 
-    this.voidElements = lang.arrayToMap([]);
-
-    this.blockComment = {start: "<!--", end: "-->"};
-
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "ace/mode/xml_worker", "Worker");
-        worker.attachToDocument(session.getDocument());
-
-        worker.on("error", function(e) {
-            session.setAnnotations(e.data);
-        });
-
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
-
-        return worker;
-    };
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
     
-    this.$id = "ace/mode/xml";
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        // ignore braces in comments
+        var tokens = this.getTokenizer().getLineTokens(line, state).tokens;
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        var match = line.match(/^.*\{\s*$/);
+        if (match) {
+            indent += tab;
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+    this.getCompletions = function(state, session, pos, prefix) {
+        // CSS completions only work with single (not nested) rulesets
+        return this.$completer.getCompletions("ruleset", session, pos, prefix);
+    };
+
+    this.$id = "ace/mode/less";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 95052:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var ShHighlightRules = (__webpack_require__(55359).ShHighlightRules);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = ShHighlightRules;
+    this.foldingRules = new CStyleFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+   
+    this.lineCommentStart = "#";
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[:]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        }
+
+        return indent;
+    };
+
+    var outdents = {
+        "pass": 1,
+        "return": 1,
+        "raise": 1,
+        "break": 1,
+        "continue": 1
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        if (input !== "\r\n" && input !== "\r" && input !== "\n")
+            return false;
+
+        var tokens = this.getTokenizer().getLineTokens(line.trim(), state).tokens;
+
+        if (!tokens)
+            return false;
+
+        // ignore trailing comments
+        do {
+            var last = tokens.pop();
+        } while (last && (last.type == "comment" || (last.type == "text" && last.value.match(/^\s+$/))));
+
+        if (!last)
+            return false;
+
+        return (last.type == "keyword" && outdents[last.value]);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        // outdenting in sh is slightly different because it always applies
+        // to the next line and only of a new line is inserted
+
+        row += 1;
+        var indent = this.$getIndent(doc.getLine(row));
+        var tab = doc.getTabString();
+        if (indent.slice(-tab.length) == tab)
+            doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
+    };
+
+    this.$id = "ace/mode/sh";
+    this.snippetFileId = "ace/snippets/sh";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

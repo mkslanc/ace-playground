@@ -1,6 +1,39 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5799],{
 
+/***/ 15799:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var NimHighlightRules = (__webpack_require__(98116)/* .NimHighlightRules */ .W);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function () {
+    TextMode.call(this);
+    this.HighlightRules = NimHighlightRules;
+    this.foldingRules = new CStyleFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+
+oop.inherits(Mode, TextMode);
+
+
+(function () {
+    this.lineCommentStart = "#";
+    this.blockComment = {start: "#[", end: "]#", nestable: true};
+
+
+    this.$id = "ace/mode/nim";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -163,39 +196,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 15799:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var NimHighlightRules = (__webpack_require__(98116)/* .NimHighlightRules */ .W);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function () {
-    TextMode.call(this);
-    this.HighlightRules = NimHighlightRules;
-    this.foldingRules = new CStyleFoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-
-oop.inherits(Mode, TextMode);
-
-
-(function () {
-    this.lineCommentStart = "#";
-    this.blockComment = {start: "#[", end: "]#", nestable: true};
-
-
-    this.$id = "ace/mode/nim";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
 
 
 /***/ }),

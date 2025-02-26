@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2120,4998],{
 
-/***/ 62120:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(14998);
-exports.scope = "csound_orchestra";
-
-
-/***/ }),
-
 /***/ 14998:
 /***/ ((module) => {
 
@@ -63,6 +51,18 @@ snippet while
 		\${2:/* statements */}
 	od
 `;
+
+
+/***/ }),
+
+/***/ 62120:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(14998);
+exports.scope = "csound_orchestra";
 
 
 /***/ })

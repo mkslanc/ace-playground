@@ -1,35 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[1276],{
 
-/***/ 21276:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var AppleScriptHighlightRules = (__webpack_require__(7567)/* .AppleScriptHighlightRules */ .v);
-var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = AppleScriptHighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.lineCommentStart = "--";
-    this.blockComment = {start: "(*", end: "*)"};
-    this.$id = "ace/mode/applescript";
-    // Extra logic goes here.
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 7567:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -140,6 +111,35 @@ var AppleScriptHighlightRules = function() {
 oop.inherits(AppleScriptHighlightRules, TextHighlightRules);
 
 exports.v = AppleScriptHighlightRules;
+
+
+/***/ }),
+
+/***/ 21276:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var AppleScriptHighlightRules = (__webpack_require__(7567)/* .AppleScriptHighlightRules */ .v);
+var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = AppleScriptHighlightRules;
+    this.foldingRules = new FoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.lineCommentStart = "--";
+    this.blockComment = {start: "(*", end: "*)"};
+    this.$id = "ace/mode/applescript";
+    // Extra logic goes here.
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ }),

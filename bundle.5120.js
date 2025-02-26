@@ -1,6 +1,28 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5120],{
 
+/***/ 13398:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
+
+/**@type {(new() => Partial<import("../../../ace-internal").Ace.Behaviour>)}*/
+var HtmlBehaviour = function () {
+
+    XmlBehaviour.call(this);
+
+};
+
+oop.inherits(HtmlBehaviour, XmlBehaviour);
+
+exports.D = HtmlBehaviour;
+
+
+/***/ }),
+
 /***/ 15120:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -152,28 +174,6 @@ var AstroHighlightRules = function () {
 
 oop.inherits(AstroHighlightRules, HtmlHighlightRules);
 exports.z = AstroHighlightRules;
-
-/***/ }),
-
-/***/ 13398:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
-
-/**@type {(new() => Partial<import("../../../ace-internal").Ace.Behaviour>)}*/
-var HtmlBehaviour = function () {
-
-    XmlBehaviour.call(this);
-
-};
-
-oop.inherits(HtmlBehaviour, XmlBehaviour);
-
-exports.D = HtmlBehaviour;
-
 
 /***/ })
 

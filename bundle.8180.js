@@ -1,32 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8180],{
 
-/***/ 95799:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var HtmlMode = (__webpack_require__(32234).Mode);
-var SoyTemplateHighlightRules = (__webpack_require__(78436)/* .SoyTemplateHighlightRules */ .P);
-
-var Mode = function() {
-    HtmlMode.call(this);
-    this.HighlightRules = SoyTemplateHighlightRules;
-};
-oop.inherits(Mode, HtmlMode);
-
-(function() {
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    this.$id = "ace/mode/soy_template";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 78436:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -353,6 +327,32 @@ SoyTemplateHighlightRules.metaData = { comment: 'SoyTemplate',
 oop.inherits(SoyTemplateHighlightRules, HtmlHighlightRules);
 
 exports.P = SoyTemplateHighlightRules;
+
+
+/***/ }),
+
+/***/ 95799:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var HtmlMode = (__webpack_require__(32234).Mode);
+var SoyTemplateHighlightRules = (__webpack_require__(78436)/* .SoyTemplateHighlightRules */ .P);
+
+var Mode = function() {
+    HtmlMode.call(this);
+    this.HighlightRules = SoyTemplateHighlightRules;
+};
+oop.inherits(Mode, HtmlMode);
+
+(function() {
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
+    this.$id = "ace/mode/soy_template";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

@@ -1,33 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3436],{
 
-/***/ 83436:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var CobolHighlightRules = (__webpack_require__(35583)/* .CobolHighlightRules */ .L);
-
-var Mode = function() {
-    this.HighlightRules = CobolHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "*";
-
-    this.$id = "ace/mode/cobol";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 35583:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -99,6 +72,33 @@ var keywords = "ACCEPT|MERGE|SUM|ADD||MESSAGE|TABLE|ADVANCING|MODE|TAPE|" +
 oop.inherits(CobolHighlightRules, TextHighlightRules);
 
 exports.L = CobolHighlightRules;
+
+
+/***/ }),
+
+/***/ 83436:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var CobolHighlightRules = (__webpack_require__(35583)/* .CobolHighlightRules */ .L);
+
+var Mode = function() {
+    this.HighlightRules = CobolHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "*";
+
+    this.$id = "ace/mode/cobol";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

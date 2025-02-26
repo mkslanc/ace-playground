@@ -1,16 +1,4 @@
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5884,2178],{
-
-/***/ 45884:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(42178);
-exports.scope = "java";
-
-
-/***/ }),
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2178,5884],{
 
 /***/ 42178:
 /***/ ((module) => {
@@ -256,6 +244,18 @@ snippet ru
 snippet unless
 	(unless=\${1:param});\${2}
 `;
+
+
+/***/ }),
+
+/***/ 45884:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(42178);
+exports.scope = "java";
 
 
 /***/ })

@@ -33,34 +33,6 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 /***/ }),
 
-/***/ 50571:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-  
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var RobotHighlightRules = (__webpack_require__(37968)/* .RobotHighlightRules */ .O);
-var FoldMode = (__webpack_require__(3719)/* .FoldMode */ .l);
-
-var Mode = function() {
-  this.HighlightRules = RobotHighlightRules;
-  this.foldingRules = new FoldMode();
-  this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-  this.lineCommentStart = "#";
-  this.$id = "ace/mode/robot";
-  this.snippetFileId = "ace/snippets/robot";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 37968:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -188,6 +160,34 @@ RobotHighlightRules.metadata = {
 oop.inherits(RobotHighlightRules, TextHighlightRules);
 
 exports.O = RobotHighlightRules;
+
+
+/***/ }),
+
+/***/ 50571:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+  
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var RobotHighlightRules = (__webpack_require__(37968)/* .RobotHighlightRules */ .O);
+var FoldMode = (__webpack_require__(3719)/* .FoldMode */ .l);
+
+var Mode = function() {
+  this.HighlightRules = RobotHighlightRules;
+  this.foldingRules = new FoldMode();
+  this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+  this.lineCommentStart = "#";
+  this.$id = "ace/mode/robot";
+  this.snippetFileId = "ace/snippets/robot";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

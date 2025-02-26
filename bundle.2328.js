@@ -1,6 +1,162 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2328],{
 
+/***/ 85171:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var MazeHighlightRules = function() {
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+
+    this.$rules = {
+        start: [{
+            token: "keyword.control",
+            regex: /##|``/,
+            comment: "Wall"
+        }, {
+            token: "entity.name.tag",
+            regex: /\.\./,
+            comment: "Path"
+        }, {
+            token: "keyword.control",
+            regex: /<>/,
+            comment: "Splitter"
+        }, {
+            token: "entity.name.tag",
+            regex: /\*[\*A-Za-z0-9]/,
+            comment: "Signal"
+        }, {
+            token: "constant.numeric",
+            regex: /[0-9]{2}/,
+            comment: "Pause"
+        }, {
+            token: "keyword.control",
+            regex: /\^\^/,
+            comment: "Start"
+        }, {
+            token: "keyword.control",
+            regex: /\(\)/,
+            comment: "Hole"
+        }, {
+            token: "support.function",
+            regex: />>/,
+            comment: "Out"
+        }, {
+            token: "support.function",
+            regex: />\//,
+            comment: "Ln Out"
+        }, {
+            token: "support.function",
+            regex: /<</,
+            comment: "In"
+        }, {
+            token: "keyword.control",
+            regex: /--/,
+            comment: "One use"
+        }, {
+            token: "constant.language",
+            regex: /%[LRUDNlrudn]/,
+            comment: "Direction"
+        }, {
+            token: [
+                "entity.name.function",
+                "keyword.other",
+                "keyword.operator",
+                "keyword.other",
+                "keyword.operator",
+                "constant.numeric",
+                "keyword.operator",
+                "keyword.other",
+                "keyword.operator",
+                "constant.numeric",
+                "string.quoted.double",
+                "string.quoted.single"
+            ],
+            regex: /([A-Za-z][A-Za-z0-9])( *-> *)(?:([-+*\/]=)( *)((?:-)?)([0-9]+)|(=)( *)(?:((?:-)?)([0-9]+)|("[^"]*")|('[^']*')))/,
+            comment: "Assignment function"
+        }, {
+            token: [
+                "entity.name.function",
+                "keyword.other",
+                "keyword.control",
+                "keyword.other",
+                "keyword.operator",
+                "keyword.other",
+                "keyword.operator",
+                "constant.numeric",
+                "entity.name.tag",
+                "keyword.other",
+                "keyword.control",
+                "keyword.other",
+                "constant.language",
+                "keyword.other",
+                "keyword.control",
+                "keyword.other",
+                "constant.language"
+            ],
+            regex: /([A-Za-z][A-Za-z0-9])( *-> *)(IF|if)( *)(?:([<>]=?|==)( *)((?:-)?)([0-9]+)|(\*[\*A-Za-z0-9]))( *)(THEN|then)( *)(%[LRUDNlrudn])(?:( *)(ELSE|else)( *)(%[LRUDNlrudn]))?/,
+            comment: "Equality Function"
+        }, {
+            token: "entity.name.function",
+            regex: /[A-Za-z][A-Za-z0-9]/,
+            comment: "Function cell"
+        }, {
+            token: "comment.line.double-slash",
+            regex: / *\/\/.*/,
+            comment: "Comment"
+        }]
+    };
+
+    this.normalizeRules();
+};
+
+MazeHighlightRules.metaData = {
+    fileTypes: ["mz"],
+    name: "Maze",
+    scopeName: "source.maze"
+};
+
+
+oop.inherits(MazeHighlightRules, TextHighlightRules);
+
+exports.f = MazeHighlightRules;
+
+
+/***/ }),
+
+/***/ 92328:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var MazeHighlightRules = (__webpack_require__(85171)/* .MazeHighlightRules */ .f);
+var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = MazeHighlightRules;
+    this.foldingRules = new FoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.lineCommentStart = "//";
+    this.$id = "ace/mode/maze";
+    this.snippetFileId = "ace/snippets/maze";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -163,162 +319,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 92328:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var MazeHighlightRules = (__webpack_require__(85171)/* .MazeHighlightRules */ .f);
-var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = MazeHighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.lineCommentStart = "//";
-    this.$id = "ace/mode/maze";
-    this.snippetFileId = "ace/snippets/maze";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 85171:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var MazeHighlightRules = function() {
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-
-    this.$rules = {
-        start: [{
-            token: "keyword.control",
-            regex: /##|``/,
-            comment: "Wall"
-        }, {
-            token: "entity.name.tag",
-            regex: /\.\./,
-            comment: "Path"
-        }, {
-            token: "keyword.control",
-            regex: /<>/,
-            comment: "Splitter"
-        }, {
-            token: "entity.name.tag",
-            regex: /\*[\*A-Za-z0-9]/,
-            comment: "Signal"
-        }, {
-            token: "constant.numeric",
-            regex: /[0-9]{2}/,
-            comment: "Pause"
-        }, {
-            token: "keyword.control",
-            regex: /\^\^/,
-            comment: "Start"
-        }, {
-            token: "keyword.control",
-            regex: /\(\)/,
-            comment: "Hole"
-        }, {
-            token: "support.function",
-            regex: />>/,
-            comment: "Out"
-        }, {
-            token: "support.function",
-            regex: />\//,
-            comment: "Ln Out"
-        }, {
-            token: "support.function",
-            regex: /<</,
-            comment: "In"
-        }, {
-            token: "keyword.control",
-            regex: /--/,
-            comment: "One use"
-        }, {
-            token: "constant.language",
-            regex: /%[LRUDNlrudn]/,
-            comment: "Direction"
-        }, {
-            token: [
-                "entity.name.function",
-                "keyword.other",
-                "keyword.operator",
-                "keyword.other",
-                "keyword.operator",
-                "constant.numeric",
-                "keyword.operator",
-                "keyword.other",
-                "keyword.operator",
-                "constant.numeric",
-                "string.quoted.double",
-                "string.quoted.single"
-            ],
-            regex: /([A-Za-z][A-Za-z0-9])( *-> *)(?:([-+*\/]=)( *)((?:-)?)([0-9]+)|(=)( *)(?:((?:-)?)([0-9]+)|("[^"]*")|('[^']*')))/,
-            comment: "Assignment function"
-        }, {
-            token: [
-                "entity.name.function",
-                "keyword.other",
-                "keyword.control",
-                "keyword.other",
-                "keyword.operator",
-                "keyword.other",
-                "keyword.operator",
-                "constant.numeric",
-                "entity.name.tag",
-                "keyword.other",
-                "keyword.control",
-                "keyword.other",
-                "constant.language",
-                "keyword.other",
-                "keyword.control",
-                "keyword.other",
-                "constant.language"
-            ],
-            regex: /([A-Za-z][A-Za-z0-9])( *-> *)(IF|if)( *)(?:([<>]=?|==)( *)((?:-)?)([0-9]+)|(\*[\*A-Za-z0-9]))( *)(THEN|then)( *)(%[LRUDNlrudn])(?:( *)(ELSE|else)( *)(%[LRUDNlrudn]))?/,
-            comment: "Equality Function"
-        }, {
-            token: "entity.name.function",
-            regex: /[A-Za-z][A-Za-z0-9]/,
-            comment: "Function cell"
-        }, {
-            token: "comment.line.double-slash",
-            regex: / *\/\/.*/,
-            comment: "Comment"
-        }]
-    };
-
-    this.normalizeRules();
-};
-
-MazeHighlightRules.metaData = {
-    fileTypes: ["mz"],
-    name: "Maze",
-    scopeName: "source.maze"
-};
-
-
-oop.inherits(MazeHighlightRules, TextHighlightRules);
-
-exports.f = MazeHighlightRules;
 
 
 /***/ })

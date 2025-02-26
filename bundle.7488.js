@@ -1,41 +1,118 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[7488],{
 
-/***/ 87488:
+/***/ 20350:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
 var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var AsciidocHighlightRules = (__webpack_require__(58651)/* .AsciidocHighlightRules */ .b);
-var AsciidocFoldMode = (__webpack_require__(20350)/* .FoldMode */ .l);
+var BaseFoldMode = (__webpack_require__(51358).FoldMode);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
 
-var Mode = function() {
-    this.HighlightRules = AsciidocHighlightRules;
-    
-    this.foldingRules = new AsciidocFoldMode();    
-};
-oop.inherits(Mode, TextMode);
+var FoldMode = exports.l = function() {};
+oop.inherits(FoldMode, BaseFoldMode);
 
 (function() {
-    this.type = "text";
-    this.getNextLineIndent = function(state, line, tab) {
-        if (state == "listblock") {
-            var match = /^((?:.+)?)([-+*][ ]+)/.exec(line);
-            if (match) {
-                return new Array(match[1].length + 1).join(" ") + match[2];
-            } else {
+    this.foldingStartMarker = /^(?:\|={10,}|[\.\/=\-~^+]{4,}\s*$|={1,5} )/;
+    this.singleLineHeadingRe = /^={1,5}(?=\s+\S)/;
+
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        if (!this.foldingStartMarker.test(line))
+            return "";
+
+        if (line[0] == "=") {
+            if (this.singleLineHeadingRe.test(line))
+                return "start";
+            if (session.getLine(row - 1).length != session.getLine(row).length)
                 return "";
+            return "start";
+        }
+        if (session.bgTokenizer.getState(row) == "dissallowDelimitedBlock")
+            return "end";
+        return "start";
+    };
+
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var startColumn = line.length;
+        var maxRow = session.getLength();
+        var startRow = row;
+        var endRow = row;
+        if (!line.match(this.foldingStartMarker))
+            return;
+
+        var token;
+        function getTokenType(row) {
+            token = session.getTokens(row)[0];
+            return token && token.type;
+        }
+
+        var levels = ["=","-","~","^","+"];
+        var heading = "markup.heading";
+        var singleLineHeadingRe = this.singleLineHeadingRe;
+        function getLevel() {
+            var match = token.value.match(singleLineHeadingRe);
+            if (match)
+                return match[0].length;
+            var level = levels.indexOf(token.value[0]) + 1;
+            if (level == 1) {
+                if (session.getLine(row - 1).length != session.getLine(row).length)
+                    return Infinity;
+            }
+            return level;
+        }
+
+        if (getTokenType(row) == heading) {
+            var startHeadingLevel = getLevel();
+            while (++row < maxRow) {
+                if (getTokenType(row) != heading)
+                    continue;
+                var level = getLevel();
+                if (level <= startHeadingLevel)
+                    break;
+            }
+
+            var isSingleLineHeading = token && token.value.match(this.singleLineHeadingRe);
+            endRow = isSingleLineHeading ? row - 1 : row - 2;
+
+            if (endRow > startRow) {
+                while (endRow > startRow && (!getTokenType(endRow) || token.value[0] == "["))
+                    endRow--;
+            }
+
+            if (endRow > startRow) {
+                var endColumn = session.getLine(endRow).length;
+                return new Range(startRow, startColumn, endRow, endColumn);
             }
         } else {
-            return this.$getIndent(line);
+            var state = session.bgTokenizer.getState(row);
+            if (state == "dissallowDelimitedBlock") {
+                while (row -- > 0) {
+                    if (session.bgTokenizer.getState(row).lastIndexOf("Block") == -1)
+                        break;
+                }
+                endRow = row + 1;
+                if (endRow < startRow) {
+                    var endColumn = session.getLine(row).length;
+                    return new Range(endRow, 5, startRow, startColumn - 5);
+                }
+            } else {
+                while (++row < maxRow) {
+                    if (session.bgTokenizer.getState(row) == "dissallowDelimitedBlock")
+                        break;
+                }
+                endRow = row;
+                if (endRow > startRow) {
+                    var endColumn = session.getLine(row).length;
+                    return new Range(startRow, 5, endRow, endColumn - 5);
+                }
+            }
         }
     };
-    this.$id = "ace/mode/asciidoc";
-}).call(Mode.prototype);
 
-exports.Mode = Mode;
+}).call(FoldMode.prototype);
 
 
 /***/ }),
@@ -249,118 +326,41 @@ exports.b = AsciidocHighlightRules;
 
 /***/ }),
 
-/***/ 20350:
+/***/ 87488:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
 var oop = __webpack_require__(2645);
-var BaseFoldMode = (__webpack_require__(51358).FoldMode);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var TextMode = (__webpack_require__(49432).Mode);
+var AsciidocHighlightRules = (__webpack_require__(58651)/* .AsciidocHighlightRules */ .b);
+var AsciidocFoldMode = (__webpack_require__(20350)/* .FoldMode */ .l);
 
-var FoldMode = exports.l = function() {};
-oop.inherits(FoldMode, BaseFoldMode);
+var Mode = function() {
+    this.HighlightRules = AsciidocHighlightRules;
+    
+    this.foldingRules = new AsciidocFoldMode();    
+};
+oop.inherits(Mode, TextMode);
 
 (function() {
-    this.foldingStartMarker = /^(?:\|={10,}|[\.\/=\-~^+]{4,}\s*$|={1,5} )/;
-    this.singleLineHeadingRe = /^={1,5}(?=\s+\S)/;
-
-    this.getFoldWidget = function(session, foldStyle, row) {
-        var line = session.getLine(row);
-        if (!this.foldingStartMarker.test(line))
-            return "";
-
-        if (line[0] == "=") {
-            if (this.singleLineHeadingRe.test(line))
-                return "start";
-            if (session.getLine(row - 1).length != session.getLine(row).length)
+    this.type = "text";
+    this.getNextLineIndent = function(state, line, tab) {
+        if (state == "listblock") {
+            var match = /^((?:.+)?)([-+*][ ]+)/.exec(line);
+            if (match) {
+                return new Array(match[1].length + 1).join(" ") + match[2];
+            } else {
                 return "";
-            return "start";
-        }
-        if (session.bgTokenizer.getState(row) == "dissallowDelimitedBlock")
-            return "end";
-        return "start";
-    };
-
-    this.getFoldWidgetRange = function(session, foldStyle, row) {
-        var line = session.getLine(row);
-        var startColumn = line.length;
-        var maxRow = session.getLength();
-        var startRow = row;
-        var endRow = row;
-        if (!line.match(this.foldingStartMarker))
-            return;
-
-        var token;
-        function getTokenType(row) {
-            token = session.getTokens(row)[0];
-            return token && token.type;
-        }
-
-        var levels = ["=","-","~","^","+"];
-        var heading = "markup.heading";
-        var singleLineHeadingRe = this.singleLineHeadingRe;
-        function getLevel() {
-            var match = token.value.match(singleLineHeadingRe);
-            if (match)
-                return match[0].length;
-            var level = levels.indexOf(token.value[0]) + 1;
-            if (level == 1) {
-                if (session.getLine(row - 1).length != session.getLine(row).length)
-                    return Infinity;
-            }
-            return level;
-        }
-
-        if (getTokenType(row) == heading) {
-            var startHeadingLevel = getLevel();
-            while (++row < maxRow) {
-                if (getTokenType(row) != heading)
-                    continue;
-                var level = getLevel();
-                if (level <= startHeadingLevel)
-                    break;
-            }
-
-            var isSingleLineHeading = token && token.value.match(this.singleLineHeadingRe);
-            endRow = isSingleLineHeading ? row - 1 : row - 2;
-
-            if (endRow > startRow) {
-                while (endRow > startRow && (!getTokenType(endRow) || token.value[0] == "["))
-                    endRow--;
-            }
-
-            if (endRow > startRow) {
-                var endColumn = session.getLine(endRow).length;
-                return new Range(startRow, startColumn, endRow, endColumn);
             }
         } else {
-            var state = session.bgTokenizer.getState(row);
-            if (state == "dissallowDelimitedBlock") {
-                while (row -- > 0) {
-                    if (session.bgTokenizer.getState(row).lastIndexOf("Block") == -1)
-                        break;
-                }
-                endRow = row + 1;
-                if (endRow < startRow) {
-                    var endColumn = session.getLine(row).length;
-                    return new Range(endRow, 5, startRow, startColumn - 5);
-                }
-            } else {
-                while (++row < maxRow) {
-                    if (session.bgTokenizer.getState(row) == "dissallowDelimitedBlock")
-                        break;
-                }
-                endRow = row;
-                if (endRow > startRow) {
-                    var endColumn = session.getLine(row).length;
-                    return new Range(startRow, 5, endRow, endColumn - 5);
-                }
-            }
+            return this.$getIndent(line);
         }
     };
+    this.$id = "ace/mode/asciidoc";
+}).call(Mode.prototype);
 
-}).call(FoldMode.prototype);
+exports.Mode = Mode;
 
 
 /***/ })

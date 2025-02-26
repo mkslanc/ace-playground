@@ -1,6 +1,220 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[1820],{
 
+/***/ 21999:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var JackHighlightRules = function() {
+
+    // regexp must not have capturing parentheses. Use (?:) instead.
+    // regexps are ordered -> the first match is used
+    this.$rules = {
+        "start" : [
+            {
+                token : "string",
+                regex : '"',
+                next  : "string2"
+            }, {
+                token : "string",
+                regex : "'",
+                next  : "string1"
+            }, {
+                token : "constant.numeric", // hex
+                regex: "-?0[xX][0-9a-fA-F]+\\b"
+            }, {
+                token : "constant.numeric", // float
+                regex : "(?:0|[-+]?[1-9][0-9]*)\\b"
+            }, {
+                token : "constant.binary",
+                regex : "<[0-9A-Fa-f][0-9A-Fa-f](\\s+[0-9A-Fa-f][0-9A-Fa-f])*>"
+            }, {
+                token : "constant.language.boolean",
+                regex : "(?:true|false)\\b"
+            }, {
+                token : "constant.language.null",
+                regex : "null\\b"
+            }, {
+                token : "storage.type",
+                regex: "(?:Integer|Boolean|Null|String|Buffer|Tuple|List|Object|Function|Coroutine|Form)\\b"
+            }, {
+                token : "keyword",
+                regex : "(?:return|abort|vars|for|delete|in|is|escape|exec|split|and|if|elif|else|while)\\b"
+            }, {
+                token : "language.builtin",
+                regex : "(?:lines|source|parse|read-stream|interval|substr|parseint|write|print|range|rand|inspect|bind|i-values|i-pairs|i-map|i-filter|i-chunk|i-all\\?|i-any\\?|i-collect|i-zip|i-merge|i-each)\\b"
+            }, {
+                token : "comment",
+                regex : "--.*$"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "storage.form",
+                regex : "@[a-z]+"
+            }, {
+                token : "constant.other.symbol",
+                regex : ':+[a-zA-Z_]([-]?[a-zA-Z0-9_])*[?!]?'
+            }, {
+                token : "variable",
+                regex : '[a-zA-Z_]([-]?[a-zA-Z0-9_])*[?!]?'
+            }, {
+                token : "keyword.operator",
+                regex : "\\|\\||\\^\\^|&&|!=|==|<=|<|>=|>|\\+|-|\\*|\\/|\\^|\\%|\\#|\\!"
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }
+        ],
+        "string1" : [
+            {
+                token : "constant.language.escape",
+                regex : /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|['"\\\/bfnrt])/
+            }, {
+                token : "string",
+                regex : "[^'\\\\]+"
+            }, {
+                token : "string",
+                regex : "'",
+                next  : "start"
+            }, {
+                token : "string",
+                regex : "",
+                next  : "start"
+            }
+        ],
+        "string2" : [
+            {
+                token : "constant.language.escape",
+                regex : /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|['"\\\/bfnrt])/
+            }, {
+                token : "string",
+                regex : '[^"\\\\]+'
+            }, {
+                token : "string",
+                regex : '"',
+                next  : "start"
+            }, {
+                token : "string",
+                regex : "",
+                next  : "start"
+            }
+        ]
+    };
+    
+};
+
+oop.inherits(JackHighlightRules, TextHighlightRules);
+
+exports.X = JackHighlightRules;
+
+
+/***/ }),
+
+/***/ 28670:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        return line.match(/^\s*/)[0];
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+
+
+/***/ }),
+
+/***/ 81820:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var HighlightRules = (__webpack_require__(21999)/* .JackHighlightRules */ .X);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = HighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = this.$defaultBehaviour;
+    this.foldingRules = new CStyleFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "--";
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+
+    this.$id = "ace/mode/jack";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -163,220 +377,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 81820:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var HighlightRules = (__webpack_require__(21999)/* .JackHighlightRules */ .X);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = HighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = this.$defaultBehaviour;
-    this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "--";
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[]\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-
-
-    this.$id = "ace/mode/jack";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 21999:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var JackHighlightRules = function() {
-
-    // regexp must not have capturing parentheses. Use (?:) instead.
-    // regexps are ordered -> the first match is used
-    this.$rules = {
-        "start" : [
-            {
-                token : "string",
-                regex : '"',
-                next  : "string2"
-            }, {
-                token : "string",
-                regex : "'",
-                next  : "string1"
-            }, {
-                token : "constant.numeric", // hex
-                regex: "-?0[xX][0-9a-fA-F]+\\b"
-            }, {
-                token : "constant.numeric", // float
-                regex : "(?:0|[-+]?[1-9][0-9]*)\\b"
-            }, {
-                token : "constant.binary",
-                regex : "<[0-9A-Fa-f][0-9A-Fa-f](\\s+[0-9A-Fa-f][0-9A-Fa-f])*>"
-            }, {
-                token : "constant.language.boolean",
-                regex : "(?:true|false)\\b"
-            }, {
-                token : "constant.language.null",
-                regex : "null\\b"
-            }, {
-                token : "storage.type",
-                regex: "(?:Integer|Boolean|Null|String|Buffer|Tuple|List|Object|Function|Coroutine|Form)\\b"
-            }, {
-                token : "keyword",
-                regex : "(?:return|abort|vars|for|delete|in|is|escape|exec|split|and|if|elif|else|while)\\b"
-            }, {
-                token : "language.builtin",
-                regex : "(?:lines|source|parse|read-stream|interval|substr|parseint|write|print|range|rand|inspect|bind|i-values|i-pairs|i-map|i-filter|i-chunk|i-all\\?|i-any\\?|i-collect|i-zip|i-merge|i-each)\\b"
-            }, {
-                token : "comment",
-                regex : "--.*$"
-            }, {
-                token : "paren.lparen",
-                regex : "[[({]"
-            }, {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "storage.form",
-                regex : "@[a-z]+"
-            }, {
-                token : "constant.other.symbol",
-                regex : ':+[a-zA-Z_]([-]?[a-zA-Z0-9_])*[?!]?'
-            }, {
-                token : "variable",
-                regex : '[a-zA-Z_]([-]?[a-zA-Z0-9_])*[?!]?'
-            }, {
-                token : "keyword.operator",
-                regex : "\\|\\||\\^\\^|&&|!=|==|<=|<|>=|>|\\+|-|\\*|\\/|\\^|\\%|\\#|\\!"
-            }, {
-                token : "text",
-                regex : "\\s+"
-            }
-        ],
-        "string1" : [
-            {
-                token : "constant.language.escape",
-                regex : /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|['"\\\/bfnrt])/
-            }, {
-                token : "string",
-                regex : "[^'\\\\]+"
-            }, {
-                token : "string",
-                regex : "'",
-                next  : "start"
-            }, {
-                token : "string",
-                regex : "",
-                next  : "start"
-            }
-        ],
-        "string2" : [
-            {
-                token : "constant.language.escape",
-                regex : /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|['"\\\/bfnrt])/
-            }, {
-                token : "string",
-                regex : '[^"\\\\]+'
-            }, {
-                token : "string",
-                regex : '"',
-                next  : "start"
-            }, {
-                token : "string",
-                regex : "",
-                next  : "start"
-            }
-        ]
-    };
-    
-};
-
-oop.inherits(JackHighlightRules, TextHighlightRules);
-
-exports.X = JackHighlightRules;
-
-
-/***/ }),
-
-/***/ 28670:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var MatchingBraceOutdent = function() {};
-
-(function() {
-
-    this.checkOutdent = function(line, input) {
-        if (! /^\s+$/.test(line))
-            return false;
-
-        return /^\s*\}/.test(input);
-    };
-
-    this.autoOutdent = function(doc, row) {
-        var line = doc.getLine(row);
-        var match = line.match(/^(\s*\})/);
-
-        if (!match) return 0;
-
-        var column = match[1].length;
-        var openBracePos = doc.findMatchingBracket({row: row, column: column});
-
-        if (!openBracePos || openBracePos.row == row) return 0;
-
-        var indent = this.$getIndent(doc.getLine(openBracePos.row));
-        doc.replace(new Range(row, 0, row, column-1), indent);
-    };
-
-    this.$getIndent = function(line) {
-        return line.match(/^\s*/)[0];
-    };
-
-}).call(MatchingBraceOutdent.prototype);
-
-exports.MatchingBraceOutdent = MatchingBraceOutdent;
 
 
 /***/ })

@@ -1,39 +1,46 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3388],{
 
-/***/ 87232:
+/***/ 28670:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
-var oop = __webpack_require__(2645);
-const {TokenIterator} = __webpack_require__(99339);
-var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
-var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
-var JavaScriptBehaviour = function () {
-    var xmlBehaviours = new XmlBehaviour({closeCurlyBraces: true}).getBehaviours();
-    this.addBehaviours(xmlBehaviours);
-    this.inherit(CstyleBehaviour);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
 
-    this.add("autoclosing-fragment", "insertion", function (state, action, editor, session, text) {
-        if (text == '>') {
-            var position = editor.getSelectionRange().start;
-            var iterator = new TokenIterator(session, position.row, position.column);
-            var token = iterator.getCurrentToken() || iterator.stepBackward();
-            if (!token) return;
-            if (token.value == '<') {
-                return {
-                    text: "></>",
-                    selection: [1, 1]
-                };
-            }
-        }
-    });
-};
+var MatchingBraceOutdent = function() {};
 
-oop.inherits(JavaScriptBehaviour, CstyleBehaviour);
+(function() {
 
-exports.d = JavaScriptBehaviour;
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        return line.match(/^\s*/)[0];
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
 
 
 /***/ }),
@@ -227,6 +234,312 @@ exports.XmlBehaviour = XmlBehaviour;
 
 /***/ }),
 
+/***/ 79712:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var BaseFoldMode = (__webpack_require__(51358).FoldMode);
+
+var FoldMode = exports.l = function(voidElements, optionalEndTags) {
+    BaseFoldMode.call(this);
+    this.voidElements = voidElements || {};
+    this.optionalEndTags = oop.mixin({}, this.voidElements);
+    if (optionalEndTags)
+        oop.mixin(this.optionalEndTags, optionalEndTags);
+    
+};
+oop.inherits(FoldMode, BaseFoldMode);
+
+var Tag = function() {
+    this.tagName = "";
+    this.closing = false;
+    this.selfClosing = false;
+    this.start = {row: 0, column: 0};
+    this.end = {row: 0, column: 0};
+};
+
+function is(token, type) {
+    return token.type.lastIndexOf(type + ".xml") > -1;
+}
+
+(function() {
+
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var tag = this._getFirstTagInLine(session, row);
+
+        if (!tag)
+            return this.getCommentFoldWidget(session, row);
+
+        if (tag.closing || (!tag.tagName && tag.selfClosing))
+            return foldStyle === "markbeginend" ? "end" : "";
+
+        if (!tag.tagName || tag.selfClosing || this.voidElements.hasOwnProperty(tag.tagName.toLowerCase()))
+            return "";
+
+        if (this._findEndTagInLine(session, row, tag.tagName, tag.end.column))
+            return "";
+
+        return "start";
+    };
+    
+    this.getCommentFoldWidget = function(session, row) {
+        if (/comment/.test(session.getState(row)) && /<!-/.test(session.getLine(row)))
+            return "start";
+        return "";
+    };
+
+    /*
+     * returns a first tag (or a fragment) in a line
+     */
+    this._getFirstTagInLine = function(session, row) {
+        var tokens = session.getTokens(row);
+        var tag = new Tag();
+
+        for (var i = 0; i < tokens.length; i++) {
+            var token = tokens[i];
+            if (is(token, "tag-open")) {
+                tag.end.column = tag.start.column + token.value.length;
+                tag.closing = is(token, "end-tag-open");
+                token = tokens[++i];
+                if (!token)
+                    return null;
+                tag.tagName = token.value;
+                if (token.value === "") { //skip empty tag name token for fragment
+                    token = tokens[++i];
+                    if (!token) return null;
+                    tag.tagName = token.value;
+                }
+                tag.end.column += token.value.length;
+                for (i++; i < tokens.length; i++) {
+                    token = tokens[i];
+                    tag.end.column += token.value.length;
+                    if (is(token, "tag-close")) {
+                        tag.selfClosing = token.value == '/>';
+                        break;
+                    }
+                }
+                return tag;
+            } else if (is(token, "tag-close")) {
+                tag.selfClosing = token.value == '/>';
+                return tag;
+            }
+            tag.start.column += token.value.length;
+        }
+
+        return null;
+    };
+
+    this._findEndTagInLine = function(session, row, tagName, startColumn) {
+        var tokens = session.getTokens(row);
+        var column = 0;
+        for (var i = 0; i < tokens.length; i++) {
+            var token = tokens[i];
+            column += token.value.length;
+            if (column < startColumn - 1)
+                continue;
+            if (is(token, "end-tag-open")) {
+                token = tokens[i + 1];
+                if (is(token, "tag-name") && token.value === "") {
+                    token = tokens[i + 2];
+                }
+                if (token && token.value == tagName)
+                    return true;
+            }
+        }
+        return false;
+    };
+
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var firstTag = this._getFirstTagInLine(session, row);
+        if (!firstTag) {
+            return this.getCommentFoldWidget(session, row) && session.getCommentFoldRange(
+                row, session.getLine(row).length);
+        }
+        var tags = session.getMatchingTags({row: row, column: 0});
+        if (tags) {
+            return new Range(
+                tags.openTag.end.row, tags.openTag.end.column, tags.closeTag.start.row, tags.closeTag.start.column);
+        }
+    };
+
+}).call(FoldMode.prototype);
+
+
+/***/ }),
+
+/***/ 87232:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+const {TokenIterator} = __webpack_require__(99339);
+var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
+var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
+var JavaScriptBehaviour = function () {
+    var xmlBehaviours = new XmlBehaviour({closeCurlyBraces: true}).getBehaviours();
+    this.addBehaviours(xmlBehaviours);
+    this.inherit(CstyleBehaviour);
+
+    this.add("autoclosing-fragment", "insertion", function (state, action, editor, session, text) {
+        if (text == '>') {
+            var position = editor.getSelectionRange().start;
+            var iterator = new TokenIterator(session, position.row, position.column);
+            var token = iterator.getCurrentToken() || iterator.stepBackward();
+            if (!token) return;
+            if (token.value == '<') {
+                return {
+                    text: "></>",
+                    selection: [1, 1]
+                };
+            }
+        }
+    });
+};
+
+oop.inherits(JavaScriptBehaviour, CstyleBehaviour);
+
+exports.d = JavaScriptBehaviour;
+
+
+/***/ }),
+
+/***/ 90198:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var XmlFoldMode = (__webpack_require__(79712)/* .FoldMode */ .l);
+var CFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var FoldMode = exports.l = function (commentRegex) {
+    if (commentRegex) {
+        this.foldingStartMarker = new RegExp(
+            this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.start));
+        this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.end));
+    }
+
+    this.xmlFoldMode = new XmlFoldMode();
+};
+oop.inherits(FoldMode, CFoldMode);
+
+(function () {
+
+    this.getFoldWidgetRangeBase = this.getFoldWidgetRange;
+    this.getFoldWidgetBase = this.getFoldWidget;
+
+    this.getFoldWidget = function (session, foldStyle, row) {
+        var fw = this.getFoldWidgetBase(session, foldStyle, row);
+        if (!fw) {
+            return this.xmlFoldMode.getFoldWidget(session, foldStyle, row);
+        }
+        return fw;
+    };
+
+    this.getFoldWidgetRange = function (session, foldStyle, row, forceMultiline) {
+        var range = this.getFoldWidgetRangeBase(session, foldStyle, row, forceMultiline);
+        if (range) return range;
+
+        return this.xmlFoldMode.getFoldWidgetRange(session, foldStyle, row);
+    };
+
+}).call(FoldMode.prototype);
+
+
+/***/ }),
+
+/***/ 93388:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var JavaScriptHighlightRules = (__webpack_require__(15903).JavaScriptHighlightRules);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var WorkerClient = (__webpack_require__(28402).WorkerClient);
+var JavaScriptBehaviour = (__webpack_require__(87232)/* .JavaScriptBehaviour */ .d);
+var JavaScriptFoldMode = (__webpack_require__(90198)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = JavaScriptHighlightRules;
+
+    this.$outdent = new MatchingBraceOutdent();
+    this.$behaviour = new JavaScriptBehaviour();
+    this.foldingRules = new JavaScriptFoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
+    this.$quotes = {'"': '"', "'": "'", "`": "`"};
+    this.$pairQuotesAfter = {
+        "`": /\w/
+    };
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        var endState = tokenizedLine.state;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+
+        if (state == "start" || state == "no_regex") {
+            var match = line.match(/^.*(?:\bcase\b.*:|[\{\(\[])\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        } else if (state == "doc-start") {
+            if (endState == "start" || endState == "no_regex") {
+                return "";
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "ace/mode/javascript_worker", "JavaScriptWorker");
+        worker.attachToDocument(session.getDocument());
+
+        worker.on("annotate", function(results) {
+            session.setAnnotations(results.data);
+        });
+
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
+
+        return worker;
+    };
+
+    this.$id = "ace/mode/javascript";
+    this.snippetFileId = "ace/snippets/javascript";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -389,319 +702,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 90198:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var XmlFoldMode = (__webpack_require__(79712)/* .FoldMode */ .l);
-var CFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var FoldMode = exports.l = function (commentRegex) {
-    if (commentRegex) {
-        this.foldingStartMarker = new RegExp(
-            this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.start));
-        this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.end));
-    }
-
-    this.xmlFoldMode = new XmlFoldMode();
-};
-oop.inherits(FoldMode, CFoldMode);
-
-(function () {
-
-    this.getFoldWidgetRangeBase = this.getFoldWidgetRange;
-    this.getFoldWidgetBase = this.getFoldWidget;
-
-    this.getFoldWidget = function (session, foldStyle, row) {
-        var fw = this.getFoldWidgetBase(session, foldStyle, row);
-        if (!fw) {
-            return this.xmlFoldMode.getFoldWidget(session, foldStyle, row);
-        }
-        return fw;
-    };
-
-    this.getFoldWidgetRange = function (session, foldStyle, row, forceMultiline) {
-        var range = this.getFoldWidgetRangeBase(session, foldStyle, row, forceMultiline);
-        if (range) return range;
-
-        return this.xmlFoldMode.getFoldWidgetRange(session, foldStyle, row);
-    };
-
-}).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 79712:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var BaseFoldMode = (__webpack_require__(51358).FoldMode);
-
-var FoldMode = exports.l = function(voidElements, optionalEndTags) {
-    BaseFoldMode.call(this);
-    this.voidElements = voidElements || {};
-    this.optionalEndTags = oop.mixin({}, this.voidElements);
-    if (optionalEndTags)
-        oop.mixin(this.optionalEndTags, optionalEndTags);
-    
-};
-oop.inherits(FoldMode, BaseFoldMode);
-
-var Tag = function() {
-    this.tagName = "";
-    this.closing = false;
-    this.selfClosing = false;
-    this.start = {row: 0, column: 0};
-    this.end = {row: 0, column: 0};
-};
-
-function is(token, type) {
-    return token.type.lastIndexOf(type + ".xml") > -1;
-}
-
-(function() {
-
-    this.getFoldWidget = function(session, foldStyle, row) {
-        var tag = this._getFirstTagInLine(session, row);
-
-        if (!tag)
-            return this.getCommentFoldWidget(session, row);
-
-        if (tag.closing || (!tag.tagName && tag.selfClosing))
-            return foldStyle === "markbeginend" ? "end" : "";
-
-        if (!tag.tagName || tag.selfClosing || this.voidElements.hasOwnProperty(tag.tagName.toLowerCase()))
-            return "";
-
-        if (this._findEndTagInLine(session, row, tag.tagName, tag.end.column))
-            return "";
-
-        return "start";
-    };
-    
-    this.getCommentFoldWidget = function(session, row) {
-        if (/comment/.test(session.getState(row)) && /<!-/.test(session.getLine(row)))
-            return "start";
-        return "";
-    };
-
-    /*
-     * returns a first tag (or a fragment) in a line
-     */
-    this._getFirstTagInLine = function(session, row) {
-        var tokens = session.getTokens(row);
-        var tag = new Tag();
-
-        for (var i = 0; i < tokens.length; i++) {
-            var token = tokens[i];
-            if (is(token, "tag-open")) {
-                tag.end.column = tag.start.column + token.value.length;
-                tag.closing = is(token, "end-tag-open");
-                token = tokens[++i];
-                if (!token)
-                    return null;
-                tag.tagName = token.value;
-                if (token.value === "") { //skip empty tag name token for fragment
-                    token = tokens[++i];
-                    if (!token) return null;
-                    tag.tagName = token.value;
-                }
-                tag.end.column += token.value.length;
-                for (i++; i < tokens.length; i++) {
-                    token = tokens[i];
-                    tag.end.column += token.value.length;
-                    if (is(token, "tag-close")) {
-                        tag.selfClosing = token.value == '/>';
-                        break;
-                    }
-                }
-                return tag;
-            } else if (is(token, "tag-close")) {
-                tag.selfClosing = token.value == '/>';
-                return tag;
-            }
-            tag.start.column += token.value.length;
-        }
-
-        return null;
-    };
-
-    this._findEndTagInLine = function(session, row, tagName, startColumn) {
-        var tokens = session.getTokens(row);
-        var column = 0;
-        for (var i = 0; i < tokens.length; i++) {
-            var token = tokens[i];
-            column += token.value.length;
-            if (column < startColumn - 1)
-                continue;
-            if (is(token, "end-tag-open")) {
-                token = tokens[i + 1];
-                if (is(token, "tag-name") && token.value === "") {
-                    token = tokens[i + 2];
-                }
-                if (token && token.value == tagName)
-                    return true;
-            }
-        }
-        return false;
-    };
-
-    this.getFoldWidgetRange = function(session, foldStyle, row) {
-        var firstTag = this._getFirstTagInLine(session, row);
-        if (!firstTag) {
-            return this.getCommentFoldWidget(session, row) && session.getCommentFoldRange(
-                row, session.getLine(row).length);
-        }
-        var tags = session.getMatchingTags({row: row, column: 0});
-        if (tags) {
-            return new Range(
-                tags.openTag.end.row, tags.openTag.end.column, tags.closeTag.start.row, tags.closeTag.start.column);
-        }
-    };
-
-}).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 93388:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var JavaScriptHighlightRules = (__webpack_require__(15903).JavaScriptHighlightRules);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var WorkerClient = (__webpack_require__(28402).WorkerClient);
-var JavaScriptBehaviour = (__webpack_require__(87232)/* .JavaScriptBehaviour */ .d);
-var JavaScriptFoldMode = (__webpack_require__(90198)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = JavaScriptHighlightRules;
-
-    this.$outdent = new MatchingBraceOutdent();
-    this.$behaviour = new JavaScriptBehaviour();
-    this.foldingRules = new JavaScriptFoldMode();
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    this.$quotes = {'"': '"', "'": "'", "`": "`"};
-    this.$pairQuotesAfter = {
-        "`": /\w/
-    };
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-        var endState = tokenizedLine.state;
-
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-
-        if (state == "start" || state == "no_regex") {
-            var match = line.match(/^.*(?:\bcase\b.*:|[\{\(\[])\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        } else if (state == "doc-start") {
-            if (endState == "start" || endState == "no_regex") {
-                return "";
-            }
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "ace/mode/javascript_worker", "JavaScriptWorker");
-        worker.attachToDocument(session.getDocument());
-
-        worker.on("annotate", function(results) {
-            session.setAnnotations(results.data);
-        });
-
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
-
-        return worker;
-    };
-
-    this.$id = "ace/mode/javascript";
-    this.snippetFileId = "ace/snippets/javascript";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 28670:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var MatchingBraceOutdent = function() {};
-
-(function() {
-
-    this.checkOutdent = function(line, input) {
-        if (! /^\s+$/.test(line))
-            return false;
-
-        return /^\s*\}/.test(input);
-    };
-
-    this.autoOutdent = function(doc, row) {
-        var line = doc.getLine(row);
-        var match = line.match(/^(\s*\})/);
-
-        if (!match) return 0;
-
-        var column = match[1].length;
-        var openBracePos = doc.findMatchingBracket({row: row, column: column});
-
-        if (!openBracePos || openBracePos.row == row) return 0;
-
-        var indent = this.$getIndent(doc.getLine(openBracePos.row));
-        doc.replace(new Range(row, 0, row, column-1), indent);
-    };
-
-    this.$getIndent = function(line) {
-        return line.match(/^\s*/)[0];
-    };
-
-}).call(MatchingBraceOutdent.prototype);
-
-exports.MatchingBraceOutdent = MatchingBraceOutdent;
 
 
 /***/ })

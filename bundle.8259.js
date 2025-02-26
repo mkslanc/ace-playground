@@ -1,153 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8259],{
 
-/***/ 42124:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var DocCommentHighlightRules = function () {
-    this.$rules = {
-        "start": [
-            {
-                token: "comment.doc.tag",
-                regex: "@\\w+(?=\\s|$)"
-            }, DocCommentHighlightRules.getTagRule(), {
-                defaultToken: "comment.doc.body",
-                caseInsensitive: true
-            }
-        ]
-    };
-};
-
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
-
-DocCommentHighlightRules.getTagRule = function(start) {
-    return {
-        token : "comment.doc.tag.storage.type",
-        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
-    };
-};
-
-DocCommentHighlightRules.getStartRule = function(start) {
-    return {
-        token : "comment.doc", // doc comment
-        regex: /\/\*\*(?!\/)/,
-        next  : start
-    };
-};
-
-DocCommentHighlightRules.getEndRule = function (start) {
-    return {
-        token : "comment.doc", // closing comment
-        regex : "\\*\\/",
-        next  : start
-    };
-};
-
-
-exports.l = DocCommentHighlightRules;
-
-
-/***/ }),
-
-/***/ 52649:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var FoldMode = exports.l = function() {};
-oop.inherits(FoldMode, CStyleFoldMode);
-
-(function() {
-    this.importRegex = /^import /;
-    this.getCStyleFoldWidget = this.getFoldWidget;
-    this.getFoldWidget = function(session, foldStyle, row) {
-        if (foldStyle === "markbegin") {
-            var line = session.getLine(row);
-            if (this.importRegex.test(line)) {
-                if (row == 0 || !this.importRegex.test(session.getLine(row - 1)))
-                    return "start";
-            }
-        }
-
-        return this.getCStyleFoldWidget(session, foldStyle, row);
-    };
-    
-    this.getCstyleFoldWidgetRange = this.getFoldWidgetRange;
-    this.getFoldWidgetRange = function(session, foldStyle, row, forceMultiline) {
-        var line = session.getLine(row);
-        var match = line.match(this.importRegex);
-        if (!match || foldStyle !== "markbegin")
-            return this.getCstyleFoldWidgetRange(session, foldStyle, row, forceMultiline);
-
-        var startColumn = match[0].length;
-        var maxRow = session.getLength();
-        var startRow = row;
-        var endRow = row;
-
-        while (++row < maxRow) {
-            var line = session.getLine(row);
-            if (line.match(/^\s*$/))
-                continue;
-
-            if (!line.match(this.importRegex))
-                break;
-
-            endRow = row;
-        }
-
-        if (endRow > startRow) {
-            var endColumn = session.getLine(endRow).length;
-            return new Range(startRow, startColumn, endRow, endColumn);
-        }
-    };
-
-}).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 38259:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var JavaScriptMode = (__webpack_require__(93388).Mode);
-var JavaHighlightRules = (__webpack_require__(12712)/* .JavaHighlightRules */ .m);
-var JavaFoldMode = (__webpack_require__(52649)/* .FoldMode */ .l);
-
-var Mode = function() {
-    JavaScriptMode.call(this);
-    this.HighlightRules = JavaHighlightRules;
-    this.foldingRules = new JavaFoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, JavaScriptMode);
-
-(function() {
-    
-    this.createWorker = function(session) {
-        return null;
-    };
-
-    this.$id = "ace/mode/java";
-    this.snippetFileId = "ace/snippets/java";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 12712:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -427,6 +280,153 @@ var JavaHighlightRules = function() {
 oop.inherits(JavaHighlightRules, TextHighlightRules);
 
 exports.m = JavaHighlightRules;
+
+
+/***/ }),
+
+/***/ 38259:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var JavaScriptMode = (__webpack_require__(93388).Mode);
+var JavaHighlightRules = (__webpack_require__(12712)/* .JavaHighlightRules */ .m);
+var JavaFoldMode = (__webpack_require__(52649)/* .FoldMode */ .l);
+
+var Mode = function() {
+    JavaScriptMode.call(this);
+    this.HighlightRules = JavaHighlightRules;
+    this.foldingRules = new JavaFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, JavaScriptMode);
+
+(function() {
+    
+    this.createWorker = function(session) {
+        return null;
+    };
+
+    this.$id = "ace/mode/java";
+    this.snippetFileId = "ace/snippets/java";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 42124:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var DocCommentHighlightRules = function () {
+    this.$rules = {
+        "start": [
+            {
+                token: "comment.doc.tag",
+                regex: "@\\w+(?=\\s|$)"
+            }, DocCommentHighlightRules.getTagRule(), {
+                defaultToken: "comment.doc.body",
+                caseInsensitive: true
+            }
+        ]
+    };
+};
+
+oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+
+DocCommentHighlightRules.getTagRule = function(start) {
+    return {
+        token : "comment.doc.tag.storage.type",
+        regex : "\\b(?:TODO|FIXME|XXX|HACK)\\b"
+    };
+};
+
+DocCommentHighlightRules.getStartRule = function(start) {
+    return {
+        token : "comment.doc", // doc comment
+        regex: /\/\*\*(?!\/)/,
+        next  : start
+    };
+};
+
+DocCommentHighlightRules.getEndRule = function (start) {
+    return {
+        token : "comment.doc", // closing comment
+        regex : "\\*\\/",
+        next  : start
+    };
+};
+
+
+exports.l = DocCommentHighlightRules;
+
+
+/***/ }),
+
+/***/ 52649:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var FoldMode = exports.l = function() {};
+oop.inherits(FoldMode, CStyleFoldMode);
+
+(function() {
+    this.importRegex = /^import /;
+    this.getCStyleFoldWidget = this.getFoldWidget;
+    this.getFoldWidget = function(session, foldStyle, row) {
+        if (foldStyle === "markbegin") {
+            var line = session.getLine(row);
+            if (this.importRegex.test(line)) {
+                if (row == 0 || !this.importRegex.test(session.getLine(row - 1)))
+                    return "start";
+            }
+        }
+
+        return this.getCStyleFoldWidget(session, foldStyle, row);
+    };
+    
+    this.getCstyleFoldWidgetRange = this.getFoldWidgetRange;
+    this.getFoldWidgetRange = function(session, foldStyle, row, forceMultiline) {
+        var line = session.getLine(row);
+        var match = line.match(this.importRegex);
+        if (!match || foldStyle !== "markbegin")
+            return this.getCstyleFoldWidgetRange(session, foldStyle, row, forceMultiline);
+
+        var startColumn = match[0].length;
+        var maxRow = session.getLength();
+        var startRow = row;
+        var endRow = row;
+
+        while (++row < maxRow) {
+            var line = session.getLine(row);
+            if (line.match(/^\s*$/))
+                continue;
+
+            if (!line.match(this.importRegex))
+                break;
+
+            endRow = row;
+        }
+
+        if (endRow > startRow) {
+            var endColumn = session.getLine(endRow).length;
+            return new Range(startRow, startColumn, endRow, endColumn);
+        }
+    };
+
+}).call(FoldMode.prototype);
 
 
 /***/ })

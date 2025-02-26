@@ -1,16 +1,4 @@
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8780,914],{
-
-/***/ 98780:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(90914);
-exports.scope = "ruby";
-
-
-/***/ }),
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[914,8780],{
 
 /***/ 90914:
 /***/ ((module) => {
@@ -944,6 +932,18 @@ snippet aft
 		\${2}
 	end
 `;
+
+
+/***/ }),
+
+/***/ 98780:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(90914);
+exports.scope = "ruby";
 
 
 /***/ })

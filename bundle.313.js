@@ -1,31 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[313],{
 
-/***/ 10313:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var LuceneHighlightRules = (__webpack_require__(4430)/* .LuceneHighlightRules */ .I);
-
-var Mode = function() {
-    this.HighlightRules = LuceneHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.$id = "ace/mode/lucene";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 4430:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -157,6 +132,31 @@ var LuceneHighlightRules = function() {
 oop.inherits(LuceneHighlightRules, TextHighlightRules);
 
 exports.I = LuceneHighlightRules;
+
+
+/***/ }),
+
+/***/ 10313:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var LuceneHighlightRules = (__webpack_require__(4430)/* .LuceneHighlightRules */ .I);
+
+var Mode = function() {
+    this.HighlightRules = LuceneHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.$id = "ace/mode/lucene";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

@@ -1,6 +1,82 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3105],{
 
+/***/ 38998:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var GraphQLSchemaHighlightRules = function() {
+
+    var keywords = (
+      "type|interface|union|enum|schema|input|implements|extends|scalar"
+    );
+
+    var dataTypes = (
+      "Int|Float|String|ID|Boolean"
+    );
+
+    var keywordMapper = this.createKeywordMapper({
+        "keyword": keywords,
+        "storage.type": dataTypes
+    }, "identifier");
+
+    this.$rules = {
+      "start" : [ {
+        token : "comment",
+        regex : "#.*$"
+      }, {
+        token : "paren.lparen",
+        regex : /[\[({]/,
+        next  : "start"
+      }, {
+        token : "paren.rparen",
+        regex : /[\])}]/
+      }, {
+        token : keywordMapper,
+        regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+      } ]
+    };
+    this.normalizeRules();
+};
+
+oop.inherits(GraphQLSchemaHighlightRules, TextHighlightRules);
+
+exports.i = GraphQLSchemaHighlightRules;
+
+
+/***/ }),
+
+/***/ 63105:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var GraphQLSchemaHighlightRules = (__webpack_require__(38998)/* .GraphQLSchemaHighlightRules */ .i);
+var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = GraphQLSchemaHighlightRules;
+    this.foldingRules = new FoldMode();
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.lineCommentStart = "#";
+    this.$id = "ace/mode/graphqlschema";
+    this.snippetFileId = "ace/snippets/graphqlschema";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -163,82 +239,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 63105:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var GraphQLSchemaHighlightRules = (__webpack_require__(38998)/* .GraphQLSchemaHighlightRules */ .i);
-var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = GraphQLSchemaHighlightRules;
-    this.foldingRules = new FoldMode();
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.lineCommentStart = "#";
-    this.$id = "ace/mode/graphqlschema";
-    this.snippetFileId = "ace/snippets/graphqlschema";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 38998:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var GraphQLSchemaHighlightRules = function() {
-
-    var keywords = (
-      "type|interface|union|enum|schema|input|implements|extends|scalar"
-    );
-
-    var dataTypes = (
-      "Int|Float|String|ID|Boolean"
-    );
-
-    var keywordMapper = this.createKeywordMapper({
-        "keyword": keywords,
-        "storage.type": dataTypes
-    }, "identifier");
-
-    this.$rules = {
-      "start" : [ {
-        token : "comment",
-        regex : "#.*$"
-      }, {
-        token : "paren.lparen",
-        regex : /[\[({]/,
-        next  : "start"
-      }, {
-        token : "paren.rparen",
-        regex : /[\])}]/
-      }, {
-        token : keywordMapper,
-        regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-      } ]
-    };
-    this.normalizeRules();
-};
-
-oop.inherits(GraphQLSchemaHighlightRules, TextHighlightRules);
-
-exports.i = GraphQLSchemaHighlightRules;
 
 
 /***/ })

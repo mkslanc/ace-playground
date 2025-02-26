@@ -1,6 +1,37 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[843],{
 
+/***/ 843:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var JavaScriptMode = (__webpack_require__(93388).Mode);
+var WollokHighlightRules = (__webpack_require__(95120)/* .WollokHighlightRules */ .O);
+
+var Mode = function() {
+    JavaScriptMode.call(this);
+    this.HighlightRules = WollokHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, JavaScriptMode);
+
+(function() {
+    
+    this.createWorker = function(session) {
+        return null;
+    };
+
+    this.$id = "ace/mode/wollok";
+    this.snippetFileId = "ace/snippets/wollok";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 42124:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -50,37 +81,6 @@ DocCommentHighlightRules.getEndRule = function (start) {
 
 
 exports.l = DocCommentHighlightRules;
-
-
-/***/ }),
-
-/***/ 843:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var JavaScriptMode = (__webpack_require__(93388).Mode);
-var WollokHighlightRules = (__webpack_require__(95120)/* .WollokHighlightRules */ .O);
-
-var Mode = function() {
-    JavaScriptMode.call(this);
-    this.HighlightRules = WollokHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, JavaScriptMode);
-
-(function() {
-    
-    this.createWorker = function(session) {
-        return null;
-    };
-
-    this.$id = "ace/mode/wollok";
-    this.snippetFileId = "ace/snippets/wollok";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
 
 
 /***/ }),

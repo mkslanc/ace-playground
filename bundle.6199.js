@@ -1,6 +1,74 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[6199],{
 
+/***/ 44404:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var AdaHighlightRules = function() {
+var keywords = "abort|else|new|return|abs|elsif|not|reverse|abstract|end|null|accept|entry|select|" +
+"access|exception|of|separate|aliased|exit|or|some|all|others|subtype|and|for|out|synchronized|" +
+"array|function|overriding|at|tagged|generic|package|task|begin|goto|pragma|terminate|" +
+"body|private|then|if|procedure|type|case|in|protected|constant|interface|until|" +
+"|is|raise|use|declare|range|delay|limited|record|when|delta|loop|rem|while|digits|renames|with|do|mod|requeue|xor";
+
+    var builtinConstants = (
+        "true|false|null"
+    );
+
+    var builtinFunctions = (
+        "count|min|max|avg|sum|rank|now|coalesce|main"
+    );
+
+    var keywordMapper = this.createKeywordMapper({
+        "support.function": builtinFunctions,
+        "keyword": keywords,
+        "constant.language": builtinConstants
+    }, "identifier", true);
+
+    this.$rules = {
+        "start" : [ {
+            token : "comment",
+            regex : "--.*$"
+        }, {
+            token : "string",           // " string
+            regex : '".*?"'
+        }, {
+            token : "string",           // character
+            regex : "'.'"
+        }, {
+            token : "constant.numeric", // float
+            regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+        }, {
+            token : keywordMapper,
+            regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+        }, {
+            token : "keyword.operator",
+            regex : "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
+        }, {
+            token : "paren.lparen",
+            regex : "[\\(]"
+        }, {
+            token : "paren.rparen",
+            regex : "[\\)]"
+        }, {
+            token : "text",
+            regex : "\\s+"
+        } ]
+    };
+};
+
+oop.inherits(AdaHighlightRules, TextHighlightRules);
+
+exports.O = AdaHighlightRules;
+
+
+/***/ }),
+
 /***/ 76199:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -75,74 +143,6 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 44404:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var AdaHighlightRules = function() {
-var keywords = "abort|else|new|return|abs|elsif|not|reverse|abstract|end|null|accept|entry|select|" +
-"access|exception|of|separate|aliased|exit|or|some|all|others|subtype|and|for|out|synchronized|" +
-"array|function|overriding|at|tagged|generic|package|task|begin|goto|pragma|terminate|" +
-"body|private|then|if|procedure|type|case|in|protected|constant|interface|until|" +
-"|is|raise|use|declare|range|delay|limited|record|when|delta|loop|rem|while|digits|renames|with|do|mod|requeue|xor";
-
-    var builtinConstants = (
-        "true|false|null"
-    );
-
-    var builtinFunctions = (
-        "count|min|max|avg|sum|rank|now|coalesce|main"
-    );
-
-    var keywordMapper = this.createKeywordMapper({
-        "support.function": builtinFunctions,
-        "keyword": keywords,
-        "constant.language": builtinConstants
-    }, "identifier", true);
-
-    this.$rules = {
-        "start" : [ {
-            token : "comment",
-            regex : "--.*$"
-        }, {
-            token : "string",           // " string
-            regex : '".*?"'
-        }, {
-            token : "string",           // character
-            regex : "'.'"
-        }, {
-            token : "constant.numeric", // float
-            regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-        }, {
-            token : keywordMapper,
-            regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-        }, {
-            token : "keyword.operator",
-            regex : "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
-        }, {
-            token : "paren.lparen",
-            regex : "[\\(]"
-        }, {
-            token : "paren.rparen",
-            regex : "[\\)]"
-        }, {
-            token : "text",
-            regex : "\\s+"
-        } ]
-    };
-};
-
-oop.inherits(AdaHighlightRules, TextHighlightRules);
-
-exports.O = AdaHighlightRules;
 
 
 /***/ })

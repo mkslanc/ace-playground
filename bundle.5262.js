@@ -1,32 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5262],{
 
-/***/ 25262:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var RSTHighlightRules = (__webpack_require__(13353)/* .RSTHighlightRules */ .d);
-
-var Mode = function() {
-    this.HighlightRules = RSTHighlightRules;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.type = "text";
-
-    this.$id = "ace/mode/rst";
-    this.snippetFileId = "ace/snippets/rst";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 13353:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -294,6 +268,32 @@ var RSTHighlightRules = function() {
 oop.inherits(RSTHighlightRules, TextHighlightRules);
 
 exports.d = RSTHighlightRules;
+
+
+/***/ }),
+
+/***/ 25262:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var RSTHighlightRules = (__webpack_require__(13353)/* .RSTHighlightRules */ .d);
+
+var Mode = function() {
+    this.HighlightRules = RSTHighlightRules;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.type = "text";
+
+    this.$id = "ace/mode/rst";
+    this.snippetFileId = "ace/snippets/rst";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

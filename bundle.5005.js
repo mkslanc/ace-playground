@@ -1,58 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5005],{
 
-/***/ 25005:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var GherkinHighlightRules = (__webpack_require__(18394)/* .GherkinHighlightRules */ .M);
-
-var Mode = function() {
-    this.HighlightRules = GherkinHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.lineCommentStart = "#";
-    this.$id = "ace/mode/gherkin";
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-        var space2 = "  ";
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-        
-        if(line.match("[ ]*\\|")) {
-            indent += "| ";
-        }
-
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-        
-
-        if (state == "start") {
-            if (line.match("Scenario:|Feature:|Scenario Outline:|Background:")) {
-                indent += space2;
-            } else if(line.match("(Given|Then).+(:)$|Examples:")) {
-                indent += space2;
-            } else if(line.match("\\*.+")) {
-                indent += "* ";
-            } 
-        }
-        
-
-        return indent;
-    };
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 18394:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -173,6 +120,59 @@ var GherkinHighlightRules = function() {
 oop.inherits(GherkinHighlightRules, TextHighlightRules);
 
 exports.M = GherkinHighlightRules;
+
+
+/***/ }),
+
+/***/ 25005:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var GherkinHighlightRules = (__webpack_require__(18394)/* .GherkinHighlightRules */ .M);
+
+var Mode = function() {
+    this.HighlightRules = GherkinHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.lineCommentStart = "#";
+    this.$id = "ace/mode/gherkin";
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+        var space2 = "  ";
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+        
+        if(line.match("[ ]*\\|")) {
+            indent += "| ";
+        }
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+        
+
+        if (state == "start") {
+            if (line.match("Scenario:|Feature:|Scenario Outline:|Background:")) {
+                indent += space2;
+            } else if(line.match("(Given|Then).+(:)$|Examples:")) {
+                indent += space2;
+            } else if(line.match("\\*.+")) {
+                indent += "* ";
+            } 
+        }
+        
+
+        return indent;
+    };
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

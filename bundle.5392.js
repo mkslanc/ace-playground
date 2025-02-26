@@ -1,38 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5392],{
 
-/***/ 95392:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-/* caption: Visualforce; extensions: component,page,vfp */
-
-
-
-var oop = __webpack_require__(2645);
-var HtmlMode = (__webpack_require__(32234).Mode);
-var VisualforceHighlightRules = (__webpack_require__(7355)/* .VisualforceHighlightRules */ .j);
-var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
-var HtmlFoldMode = (__webpack_require__(6944).FoldMode);
-
-function VisualforceMode() {
-    HtmlMode.call(this);
-
-    this.HighlightRules = VisualforceHighlightRules;
-    this.foldingRules = new HtmlFoldMode();
-    this.$behaviour = new XmlBehaviour();
-}
-
-oop.inherits(VisualforceMode, HtmlMode);
-
-VisualforceMode.prototype.emmetConfig = {
-    profile: "xhtml"
-};
-
-exports.Mode = VisualforceMode;
-
-
-/***/ }),
-
 /***/ 7355:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -139,6 +107,38 @@ var VisualforceHighlightRules = function() {
 oop.inherits(VisualforceHighlightRules, HtmlHighlightRules);
 
 exports.j = VisualforceHighlightRules;
+
+
+/***/ }),
+
+/***/ 95392:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+/* caption: Visualforce; extensions: component,page,vfp */
+
+
+
+var oop = __webpack_require__(2645);
+var HtmlMode = (__webpack_require__(32234).Mode);
+var VisualforceHighlightRules = (__webpack_require__(7355)/* .VisualforceHighlightRules */ .j);
+var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
+var HtmlFoldMode = (__webpack_require__(6944).FoldMode);
+
+function VisualforceMode() {
+    HtmlMode.call(this);
+
+    this.HighlightRules = VisualforceHighlightRules;
+    this.foldingRules = new HtmlFoldMode();
+    this.$behaviour = new XmlBehaviour();
+}
+
+oop.inherits(VisualforceMode, HtmlMode);
+
+VisualforceMode.prototype.emmetConfig = {
+    profile: "xhtml"
+};
+
+exports.Mode = VisualforceMode;
 
 
 /***/ })

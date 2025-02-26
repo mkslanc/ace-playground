@@ -1,16 +1,4 @@
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[4876,3650],{
-
-/***/ 74876:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(63650);
-exports.scope = "lua";
-
-
-/***/ }),
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3650,4876],{
 
 /***/ 63650:
 /***/ ((module) => {
@@ -37,6 +25,18 @@ snippet fori
 	   \${4:-- body}
 	end
 `;
+
+
+/***/ }),
+
+/***/ 74876:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(63650);
+exports.scope = "lua";
 
 
 /***/ })

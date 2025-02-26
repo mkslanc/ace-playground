@@ -1,41 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[7161],{
 
-/***/ 67161:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var Rules = (__webpack_require__(2078)/* .AbapHighlightRules */ .Q);
-var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var TextMode = (__webpack_require__(49432).Mode);
-var oop = __webpack_require__(2645);
-
-function Mode() {
-    this.HighlightRules = Rules;
-    this.foldingRules = new FoldMode();
-}
-
-oop.inherits(Mode, TextMode);
-
-(function() {
-    
-    this.lineCommentStart = '"';
-    
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-        return indent;
-    };    
-    
-    this.$id = "ace/mode/abap";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 2078:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -141,6 +106,41 @@ var AbapHighlightRules = function() {
 oop.inherits(AbapHighlightRules, TextHighlightRules);
 
 exports.Q = AbapHighlightRules;
+
+
+/***/ }),
+
+/***/ 67161:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var Rules = (__webpack_require__(2078)/* .AbapHighlightRules */ .Q);
+var FoldMode = (__webpack_require__(69261)/* .FoldMode */ .l);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var TextMode = (__webpack_require__(49432).Mode);
+var oop = __webpack_require__(2645);
+
+function Mode() {
+    this.HighlightRules = Rules;
+    this.foldingRules = new FoldMode();
+}
+
+oop.inherits(Mode, TextMode);
+
+(function() {
+    
+    this.lineCommentStart = '"';
+    
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+        return indent;
+    };    
+    
+    this.$id = "ace/mode/abap";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ }),

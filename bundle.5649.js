@@ -1,5 +1,18 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5649],{
 
+/***/ 35649:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+exports.isDark = true;
+exports.cssClass = "ace-merbivore-soft";
+exports.cssText = __webpack_require__(89875);
+
+var dom = __webpack_require__(71435);
+dom.importCssString(exports.cssText, exports.cssClass, false);
+
+
+/***/ }),
+
 /***/ 89875:
 /***/ ((module) => {
 
@@ -118,19 +131,6 @@ module.exports = `.ace-merbivore-soft .ace_gutter {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQIW2PQ1dX9zzBz5sz/ABCcBFFentLlAAAAAElFTkSuQmCC) right repeat-y;
 }
 `;
-
-
-/***/ }),
-
-/***/ 35649:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-exports.isDark = true;
-exports.cssClass = "ace-merbivore-soft";
-exports.cssText = __webpack_require__(89875);
-
-var dom = __webpack_require__(71435);
-dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ })

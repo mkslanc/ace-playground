@@ -1,40 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[4255],{
 
-/***/ 54255:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-/* caption: Apex; extensions: apex,cls,trigger,tgr */
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var ApexHighlightRules = (__webpack_require__(3180)/* .ApexHighlightRules */ .U);
-var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-function ApexMode() {
-    TextMode.call(this);
-
-    this.HighlightRules = ApexHighlightRules;
-    this.foldingRules = new FoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-}
-
-oop.inherits(ApexMode, TextMode);
-
-ApexMode.prototype.lineCommentStart = "//";
-
-ApexMode.prototype.blockComment = {
-    start: "/*",
-    end: "*/"
-};
-
-exports.Mode = ApexMode;
-
-
-/***/ }),
-
 /***/ 3180:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -319,6 +285,40 @@ DocCommentHighlightRules.getEndRule = function (start) {
 
 
 exports.l = DocCommentHighlightRules;
+
+
+/***/ }),
+
+/***/ 54255:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+/* caption: Apex; extensions: apex,cls,trigger,tgr */
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var ApexHighlightRules = (__webpack_require__(3180)/* .ApexHighlightRules */ .U);
+var FoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+function ApexMode() {
+    TextMode.call(this);
+
+    this.HighlightRules = ApexHighlightRules;
+    this.foldingRules = new FoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+}
+
+oop.inherits(ApexMode, TextMode);
+
+ApexMode.prototype.lineCommentStart = "//";
+
+ApexMode.prototype.blockComment = {
+    start: "/*",
+    end: "*/"
+};
+
+exports.Mode = ApexMode;
 
 
 /***/ }),

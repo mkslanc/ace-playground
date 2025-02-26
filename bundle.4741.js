@@ -1,37 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[4741],{
 
-/***/ 84741:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var VerilogHighlightRules = (__webpack_require__(11458)/* .VerilogHighlightRules */ .k);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var Mode = function() {
-    this.HighlightRules = VerilogHighlightRules;
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    this.$quotes = { '"': '"' };
-
-
-    this.$id = "ace/mode/verilog";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 11458:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -116,6 +85,37 @@ var keywords = "always|and|assign|automatic|begin|buf|bufif0|bufif1|case|casex|c
 oop.inherits(VerilogHighlightRules, TextHighlightRules);
 
 exports.k = VerilogHighlightRules;
+
+
+/***/ }),
+
+/***/ 84741:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var VerilogHighlightRules = (__webpack_require__(11458)/* .VerilogHighlightRules */ .k);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var Mode = function() {
+    this.HighlightRules = VerilogHighlightRules;
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "//";
+    this.blockComment = {start: "/*", end: "*/"};
+    this.$quotes = { '"': '"' };
+
+
+    this.$id = "ace/mode/verilog";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
 
 
 /***/ })

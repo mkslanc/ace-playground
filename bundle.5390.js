@@ -100,341 +100,49 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 /***/ }),
 
-/***/ 75390:
+/***/ 49846:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
-
-var oop = __webpack_require__(2645);
-var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
-var TextMode = (__webpack_require__(49432).Mode);
-var MarkdownHighlightRules = (__webpack_require__(98137)/* .MarkdownHighlightRules */ .R);
-var MarkdownFoldMode = (__webpack_require__(23752)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = MarkdownHighlightRules;
-
-    this.createModeDelegates({
-        javascript: (__webpack_require__(93388).Mode),
-        html: (__webpack_require__(32234).Mode),
-        bash: (__webpack_require__(95052).Mode),
-        sh: (__webpack_require__(95052).Mode),
-        xml: (__webpack_require__(49846).Mode),
-        css: (__webpack_require__(41080).Mode)
-    });
-
-    this.foldingRules = new MarkdownFoldMode();
-    this.$behaviour = new CstyleBehaviour({ braces: true });
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-    this.type = "text";
-    this.blockComment = {start: "<!--", end: "-->"};
-    this.$quotes = {'"': '"', "`": "`"};
-
-    this.getNextLineIndent = function(state, line, tab) {
-        if (state == "listblock") {
-            var match = /^(\s*)(?:([-+*])|(\d+)\.)(\s+)/.exec(line);
-            if (!match)
-                return "";
-            var marker = match[2];
-            if (!marker)
-                marker = parseInt(match[3], 10) + 1 + ".";
-            return match[1] + marker + match[4];
-        } else {
-            return this.$getIndent(line);
-        }
-    };
-    this.$id = "ace/mode/markdown";
-    this.snippetFileId = "ace/snippets/markdown";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 98137:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var modes = (__webpack_require__(76321).$modes);
 
 var oop = __webpack_require__(2645);
 var lang = __webpack_require__(39955);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-var HtmlHighlightRules = (__webpack_require__(10413).HtmlHighlightRules);
-
-var escaped = function(ch) {
-    return "(?:[^" + lang.escapeRegExp(ch) + "\\\\]|\\\\.)*";
-};
-
-var MarkdownHighlightRules = function() {
-    HtmlHighlightRules.call(this);
-    // regexp must not have capturing parentheses
-    // regexps are ordered -> the first match is used
-    var codeBlockStartRule = {
-        token : "support.function",
-        regex : /^\s*(```+[^`]*|~~~+[^~]*)$/,
-        onMatch: function(value, state, stack, line) {
-            var m = value.match(/^(\s*)([`~]+)(.*)/);
-            var language = /[\w-]+|$/.exec(m[3])[0];
-            // TODO lazy-load modes
-            if (!modes[language])
-                language = "";
-            stack.unshift("githubblock", [], [m[1], m[2], language], state);
-            return this.token;
-        },
-        next  : "githubblock"
-    };
-    var codeBlockRules = [{
-        token : "support.function",
-        regex : ".*",
-        onMatch: function(value, state, stack, line) {
-            var embedState = stack[1];
-            var indent = stack[2][0];
-            var endMarker = stack[2][1];
-            var language = stack[2][2];
-            
-            var m = /^(\s*)(`+|~+)\s*$/.exec(value);
-            if (
-                m && m[1].length < indent.length + 3
-                && m[2].length >= endMarker.length && m[2][0] == endMarker[0]
-            ) {
-                stack.splice(0, 3);
-                this.next = stack.shift();
-                return this.token;
-            }
-            this.next = "";
-            if (language && modes[language]) {
-                var data = modes[language].getTokenizer().getLineTokens(value, embedState.slice(0));
-                stack[1] = data.state;
-                return data.tokens;
-            }
-            return this.token;
-        }
-    }];
-
-    this.$rules["start"].unshift({
-        token : "empty_line",
-        regex : '^$',
-        next: "allowBlock"
-    }, { // h1
-        token: "markup.heading.1",
-        regex: "^=+(?=\\s*$)"
-    }, { // h2
-        token: "markup.heading.2",
-        regex: "^\\-+(?=\\s*$)"
-    }, {
-        token : function(value) {
-            return "markup.heading." + value.length;
-        },
-        regex : /^#{1,6}(?=\s|$)/,
-        next : "header"
-    },
-    codeBlockStartRule,
-    { // block quote
-        token : "string.blockquote",
-        regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
-        next  : "blockquote"
-    }, { // HR * - _
-        token : "constant",
-        regex : "^ {0,3}(?:(?:\\* ?){3,}|(?:\\- ?){3,}|(?:\\_ ?){3,})\\s*$",
-        next: "allowBlock"
-    }, { // list
-        token : "markup.list",
-        regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
-        next  : "listblock-start"
-    }, {
-        include : "basic"
-    });
-
-    this.addRules({
-        "basic" : [{
-            token : "constant.language.escape",
-            regex : /\\[\\`*_{}\[\]()#+\-.!]/
-        }, { // code span `
-            token : "support.function",
-            regex : "(`+)(.*?[^`])(\\1)"
-        }, { // reference
-            token : ["text", "constant", "text", "url", "string", "text"],
-            regex : "^([ ]{0,3}\\[)([^\\]]+)(\\]:\\s*)([^ ]+)(\\s*(?:[\"][^\"]+[\"])?(\\s*))$"
-        }, { // link by reference
-            token : ["text", "string", "text", "constant", "text"],
-            regex : "(\\[)(" + escaped("]") + ")(\\]\\s*\\[)("+ escaped("]") + ")(\\])"
-        }, { // link by url
-            token : ["text", "string", "text", "markup.underline", "string", "text"],
-            regex : "(\\!?\\[)(" +                                        // [
-                    escaped("]") +                                    // link text or alt text
-                    ")(\\]\\()"+                                      // ](
-                    '((?:[^\\)\\s\\\\]|\\\\.|\\s(?=[^"]))*)' +        // href or image
-                    '(\\s*"' +  escaped('"') + '"\\s*)?' +            // "title"
-                    "(\\))"                                           // )
-        }, { // strong ** __
-            token : "string.strong",
-            regex : "([*]{2}|[_]{2}(?=\\S))(.*?\\S[*_]*)(\\1)"
-        }, { // emphasis * _
-            token : "string.emphasis",
-            regex : "([*]|[_](?=\\S))(.*?\\S[*_]*)(\\1)"
-        }, { //
-            token : ["text", "url", "text"],
-            regex : "(<)("+
-                      "(?:https?|ftp|dict):[^'\">\\s]+"+
-                      "|"+
-                      "(?:mailto:)?[-.\\w]+\\@[-a-z0-9]+(?:\\.[-a-z0-9]+)*\\.[a-z]+"+
-                    ")(>)"
-        }],
-
-        // code block
-        "allowBlock": [
-            {token : "support.function", regex : "^ {4}.+", next : "allowBlock"},
-            {token : "empty_line", regex : '^$', next: "allowBlock"},
-            {token : "empty", regex : "", next : "start"}
-        ],
-
-        "header" : [{
-            regex: "$",
-            next : "start"
-        }, {
-            include: "basic"
-        }, {
-            defaultToken : "heading"
-        } ],
-
-        "listblock-start" : [{
-            token : "support.variable",
-            regex : /(?:\[[ x]\])?/,
-            next  : "listblock"
-        }],
-
-        "listblock" : [ { // Lists only escape on completely blank lines.
-            token : "empty_line",
-            regex : "^$",
-            next  : "start"
-        }, { // list
-            token : "markup.list",
-            regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
-            next  : "listblock-start"
-        }, {
-            include : "basic", noEscape: true
-        },
-        codeBlockStartRule,
-        {
-            defaultToken : "list" //do not use markup.list to allow stling leading `*` differntly
-        } ],
-
-        "blockquote" : [ { // Blockquotes only escape on blank lines.
-            token : "empty_line",
-            regex : "^\\s*$",
-            next  : "start"
-        }, { // block quote
-            token : "string.blockquote",
-            regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
-            next  : "blockquote"
-        }, {
-            include : "basic", noEscape: true
-        }, {
-            defaultToken : "string.blockquote"
-        } ],
-
-        "githubblock" : codeBlockRules
-    });
-
-    this.normalizeRules();
-};
-oop.inherits(MarkdownHighlightRules, TextHighlightRules);
-
-exports.R = MarkdownHighlightRules;
-
-
-/***/ }),
-
-/***/ 95052:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
 var TextMode = (__webpack_require__(49432).Mode);
-var ShHighlightRules = (__webpack_require__(55359).ShHighlightRules);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+var XmlHighlightRules = (__webpack_require__(54849)/* .XmlHighlightRules */ .l);
+var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
+var XmlFoldMode = (__webpack_require__(79712)/* .FoldMode */ .l);
+var WorkerClient = (__webpack_require__(28402).WorkerClient);
 
 var Mode = function() {
-    this.HighlightRules = ShHighlightRules;
-    this.foldingRules = new CStyleFoldMode();
-    this.$behaviour = this.$defaultBehaviour;
+   this.HighlightRules = XmlHighlightRules;
+   this.$behaviour = new XmlBehaviour();
+   this.foldingRules = new XmlFoldMode();
 };
+
 oop.inherits(Mode, TextMode);
 
 (function() {
 
-   
-    this.lineCommentStart = "#";
+    this.voidElements = lang.arrayToMap([]);
 
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
+    this.blockComment = {start: "<!--", end: "-->"};
 
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
+    this.createWorker = function(session) {
+        var worker = new WorkerClient(["ace"], "ace/mode/xml_worker", "Worker");
+        worker.attachToDocument(session.getDocument());
 
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
+        worker.on("error", function(e) {
+            session.setAnnotations(e.data);
+        });
 
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[:]\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        }
+        worker.on("terminate", function() {
+            session.clearAnnotations();
+        });
 
-        return indent;
+        return worker;
     };
-
-    var outdents = {
-        "pass": 1,
-        "return": 1,
-        "raise": 1,
-        "break": 1,
-        "continue": 1
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        if (input !== "\r\n" && input !== "\r" && input !== "\n")
-            return false;
-
-        var tokens = this.getTokenizer().getLineTokens(line.trim(), state).tokens;
-
-        if (!tokens)
-            return false;
-
-        // ignore trailing comments
-        do {
-            var last = tokens.pop();
-        } while (last && (last.type == "comment" || (last.type == "text" && last.value.match(/^\s+$/))));
-
-        if (!last)
-            return false;
-
-        return (last.type == "keyword" && outdents[last.value]);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        // outdenting in sh is slightly different because it always applies
-        // to the next line and only of a new line is inserted
-
-        row += 1;
-        var indent = this.$getIndent(doc.getLine(row));
-        var tab = doc.getTabString();
-        if (indent.slice(-tab.length) == tab)
-            doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
-    };
-
-    this.$id = "ace/mode/sh";
-    this.snippetFileId = "ace/snippets/sh";
+    
+    this.$id = "ace/mode/xml";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
@@ -666,52 +374,344 @@ exports.ShHighlightRules = ShHighlightRules;
 
 /***/ }),
 
-/***/ 49846:
+/***/ 75390:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
 var oop = __webpack_require__(2645);
-var lang = __webpack_require__(39955);
+var CstyleBehaviour = (__webpack_require__(32589)/* .CstyleBehaviour */ ._);
 var TextMode = (__webpack_require__(49432).Mode);
-var XmlHighlightRules = (__webpack_require__(54849)/* .XmlHighlightRules */ .l);
-var XmlBehaviour = (__webpack_require__(63458).XmlBehaviour);
-var XmlFoldMode = (__webpack_require__(79712)/* .FoldMode */ .l);
-var WorkerClient = (__webpack_require__(28402).WorkerClient);
+var MarkdownHighlightRules = (__webpack_require__(98137)/* .MarkdownHighlightRules */ .R);
+var MarkdownFoldMode = (__webpack_require__(23752)/* .FoldMode */ .l);
 
 var Mode = function() {
-   this.HighlightRules = XmlHighlightRules;
-   this.$behaviour = new XmlBehaviour();
-   this.foldingRules = new XmlFoldMode();
-};
+    this.HighlightRules = MarkdownHighlightRules;
 
+    this.createModeDelegates({
+        javascript: (__webpack_require__(93388).Mode),
+        html: (__webpack_require__(32234).Mode),
+        bash: (__webpack_require__(95052).Mode),
+        sh: (__webpack_require__(95052).Mode),
+        xml: (__webpack_require__(49846).Mode),
+        css: (__webpack_require__(41080).Mode)
+    });
+
+    this.foldingRules = new MarkdownFoldMode();
+    this.$behaviour = new CstyleBehaviour({ braces: true });
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+    this.type = "text";
+    this.blockComment = {start: "<!--", end: "-->"};
+    this.$quotes = {'"': '"', "`": "`"};
+
+    this.getNextLineIndent = function(state, line, tab) {
+        if (state == "listblock") {
+            var match = /^(\s*)(?:([-+*])|(\d+)\.)(\s+)/.exec(line);
+            if (!match)
+                return "";
+            var marker = match[2];
+            if (!marker)
+                marker = parseInt(match[3], 10) + 1 + ".";
+            return match[1] + marker + match[4];
+        } else {
+            return this.$getIndent(line);
+        }
+    };
+    this.$id = "ace/mode/markdown";
+    this.snippetFileId = "ace/snippets/markdown";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 95052:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var ShHighlightRules = (__webpack_require__(55359).ShHighlightRules);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = ShHighlightRules;
+    this.foldingRules = new CStyleFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
 oop.inherits(Mode, TextMode);
 
 (function() {
 
-    this.voidElements = lang.arrayToMap([]);
+   
+    this.lineCommentStart = "#";
 
-    this.blockComment = {start: "<!--", end: "-->"};
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
 
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "ace/mode/xml_worker", "Worker");
-        worker.attachToDocument(session.getDocument());
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
 
-        worker.on("error", function(e) {
-            session.setAnnotations(e.data);
-        });
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
 
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[:]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        }
 
-        return worker;
+        return indent;
     };
-    
-    this.$id = "ace/mode/xml";
+
+    var outdents = {
+        "pass": 1,
+        "return": 1,
+        "raise": 1,
+        "break": 1,
+        "continue": 1
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        if (input !== "\r\n" && input !== "\r" && input !== "\n")
+            return false;
+
+        var tokens = this.getTokenizer().getLineTokens(line.trim(), state).tokens;
+
+        if (!tokens)
+            return false;
+
+        // ignore trailing comments
+        do {
+            var last = tokens.pop();
+        } while (last && (last.type == "comment" || (last.type == "text" && last.value.match(/^\s+$/))));
+
+        if (!last)
+            return false;
+
+        return (last.type == "keyword" && outdents[last.value]);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        // outdenting in sh is slightly different because it always applies
+        // to the next line and only of a new line is inserted
+
+        row += 1;
+        var indent = this.$getIndent(doc.getLine(row));
+        var tab = doc.getTabString();
+        if (indent.slice(-tab.length) == tab)
+            doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
+    };
+
+    this.$id = "ace/mode/sh";
+    this.snippetFileId = "ace/snippets/sh";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 98137:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var modes = (__webpack_require__(76321).$modes);
+
+var oop = __webpack_require__(2645);
+var lang = __webpack_require__(39955);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+var HtmlHighlightRules = (__webpack_require__(10413).HtmlHighlightRules);
+
+var escaped = function(ch) {
+    return "(?:[^" + lang.escapeRegExp(ch) + "\\\\]|\\\\.)*";
+};
+
+var MarkdownHighlightRules = function() {
+    HtmlHighlightRules.call(this);
+    // regexp must not have capturing parentheses
+    // regexps are ordered -> the first match is used
+    var codeBlockStartRule = {
+        token : "support.function",
+        regex : /^\s*(```+[^`]*|~~~+[^~]*)$/,
+        onMatch: function(value, state, stack, line) {
+            var m = value.match(/^(\s*)([`~]+)(.*)/);
+            var language = /[\w-]+|$/.exec(m[3])[0];
+            // TODO lazy-load modes
+            if (!modes[language])
+                language = "";
+            stack.unshift("githubblock", [], [m[1], m[2], language], state);
+            return this.token;
+        },
+        next  : "githubblock"
+    };
+    var codeBlockRules = [{
+        token : "support.function",
+        regex : ".*",
+        onMatch: function(value, state, stack, line) {
+            var embedState = stack[1];
+            var indent = stack[2][0];
+            var endMarker = stack[2][1];
+            var language = stack[2][2];
+            
+            var m = /^(\s*)(`+|~+)\s*$/.exec(value);
+            if (
+                m && m[1].length < indent.length + 3
+                && m[2].length >= endMarker.length && m[2][0] == endMarker[0]
+            ) {
+                stack.splice(0, 3);
+                this.next = stack.shift();
+                return this.token;
+            }
+            this.next = "";
+            if (language && modes[language]) {
+                var data = modes[language].getTokenizer().getLineTokens(value, embedState.slice(0));
+                stack[1] = data.state;
+                return data.tokens;
+            }
+            return this.token;
+        }
+    }];
+
+    this.$rules["start"].unshift({
+        token : "empty_line",
+        regex : '^$',
+        next: "allowBlock"
+    }, { // h1
+        token: "markup.heading.1",
+        regex: "^=+(?=\\s*$)"
+    }, { // h2
+        token: "markup.heading.2",
+        regex: "^\\-+(?=\\s*$)"
+    }, {
+        token : function(value) {
+            return "markup.heading." + value.length;
+        },
+        regex : /^#{1,6}(?=\s|$)/,
+        next : "header"
+    },
+    codeBlockStartRule,
+    { // block quote
+        token : "string.blockquote",
+        regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
+        next  : "blockquote"
+    }, { // HR * - _
+        token : "constant",
+        regex : "^ {0,3}(?:(?:\\* ?){3,}|(?:\\- ?){3,}|(?:\\_ ?){3,})\\s*$",
+        next: "allowBlock"
+    }, { // list
+        token : "markup.list",
+        regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
+        next  : "listblock-start"
+    }, {
+        include : "basic"
+    });
+
+    this.addRules({
+        "basic" : [{
+            token : "constant.language.escape",
+            regex : /\\[\\`*_{}\[\]()#+\-.!]/
+        }, { // code span `
+            token : "support.function",
+            regex : "(`+)(.*?[^`])(\\1)"
+        }, { // reference
+            token : ["text", "constant", "text", "url", "string", "text"],
+            regex : "^([ ]{0,3}\\[)([^\\]]+)(\\]:\\s*)([^ ]+)(\\s*(?:[\"][^\"]+[\"])?(\\s*))$"
+        }, { // link by reference
+            token : ["text", "string", "text", "constant", "text"],
+            regex : "(\\[)(" + escaped("]") + ")(\\]\\s*\\[)("+ escaped("]") + ")(\\])"
+        }, { // link by url
+            token : ["text", "string", "text", "markup.underline", "string", "text"],
+            regex : "(\\!?\\[)(" +                                        // [
+                    escaped("]") +                                    // link text or alt text
+                    ")(\\]\\()"+                                      // ](
+                    '((?:[^\\)\\s\\\\]|\\\\.|\\s(?=[^"]))*)' +        // href or image
+                    '(\\s*"' +  escaped('"') + '"\\s*)?' +            // "title"
+                    "(\\))"                                           // )
+        }, { // strong ** __
+            token : "string.strong",
+            regex : "([*]{2}|[_]{2}(?=\\S))(.*?\\S[*_]*)(\\1)"
+        }, { // emphasis * _
+            token : "string.emphasis",
+            regex : "([*]|[_](?=\\S))(.*?\\S[*_]*)(\\1)"
+        }, { //
+            token : ["text", "url", "text"],
+            regex : "(<)("+
+                      "(?:https?|ftp|dict):[^'\">\\s]+"+
+                      "|"+
+                      "(?:mailto:)?[-.\\w]+\\@[-a-z0-9]+(?:\\.[-a-z0-9]+)*\\.[a-z]+"+
+                    ")(>)"
+        }],
+
+        // code block
+        "allowBlock": [
+            {token : "support.function", regex : "^ {4}.+", next : "allowBlock"},
+            {token : "empty_line", regex : '^$', next: "allowBlock"},
+            {token : "empty", regex : "", next : "start"}
+        ],
+
+        "header" : [{
+            regex: "$",
+            next : "start"
+        }, {
+            include: "basic"
+        }, {
+            defaultToken : "heading"
+        } ],
+
+        "listblock-start" : [{
+            token : "support.variable",
+            regex : /(?:\[[ x]\])?/,
+            next  : "listblock"
+        }],
+
+        "listblock" : [ { // Lists only escape on completely blank lines.
+            token : "empty_line",
+            regex : "^$",
+            next  : "start"
+        }, { // list
+            token : "markup.list",
+            regex : "^\\s{0,3}(?:[*+-]|\\d+\\.)\\s+",
+            next  : "listblock-start"
+        }, {
+            include : "basic", noEscape: true
+        },
+        codeBlockStartRule,
+        {
+            defaultToken : "list" //do not use markup.list to allow stling leading `*` differntly
+        } ],
+
+        "blockquote" : [ { // Blockquotes only escape on blank lines.
+            token : "empty_line",
+            regex : "^\\s*$",
+            next  : "start"
+        }, { // block quote
+            token : "string.blockquote",
+            regex : "^\\s*>\\s*(?:[*+-]|\\d+\\.)?\\s+",
+            next  : "blockquote"
+        }, {
+            include : "basic", noEscape: true
+        }, {
+            defaultToken : "string.blockquote"
+        } ],
+
+        "githubblock" : codeBlockRules
+    });
+
+    this.normalizeRules();
+};
+oop.inherits(MarkdownHighlightRules, TextHighlightRules);
+
+exports.R = MarkdownHighlightRules;
 
 
 /***/ })

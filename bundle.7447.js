@@ -1,6 +1,153 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[7447],{
 
+/***/ 17447:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var SqlHighlightRules = (__webpack_require__(86452)/* .SqlHighlightRules */ .W);
+var SqlFoldMode = (__webpack_require__(19437)/* .FoldMode */ .l);
+
+var Mode = function() {
+    this.HighlightRules = SqlHighlightRules;
+    this.foldingRules = new SqlFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "--";
+    this.blockComment = {start: "/*", end: "*/"};
+
+    this.$id = "ace/mode/sql";
+    this.snippetFileId = "ace/snippets/sql";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
+/***/ 19437:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var BaseFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+
+var FoldMode = exports.l = function() {};
+
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+    /** 
+     * Inheriting cstyle folding because it handles the region comment folding 
+     * and special block comment folding appropriately.
+     * 
+     * Cstyle's getCommentRegionBlock() contains the sql comment characters '--' for end region block.
+     */
+    
+
+}).call(FoldMode.prototype);
+
+
+/***/ }),
+
+/***/ 86452:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var SqlHighlightRules = function() {
+
+    var keywords = (
+        "select|insert|update|delete|from|where|and|or|group|by|order|limit|offset|having|as|case|" +
+        "when|then|else|end|type|left|right|join|on|outer|desc|asc|union|create|table|primary|key|if|" +
+        "foreign|not|references|default|null|inner|cross|natural|database|drop|grant|distinct|is|in|" + 
+        "all|alter|any|array|at|authorization|between|both|cast|check|collate|column|commit|constraint|"+
+        "cube|current|current_date|current_time|current_timestamp|current_user|describe|escape|except|" +
+        "exists|external|extract|fetch|filter|for|full|function|global|grouping|intersect|interval|" + 
+        "into|leading|like|local|no|of|only|out|overlaps|partition|position|range|revoke|rollback|rollup|" +
+        "row|rows|session_user|set|some|start|tablesample|time|to|trailing|truncate|unique|unknown|" + 
+        "user|using|values|window|with"
+    );
+
+    var builtinConstants = (
+        "true|false"
+    );
+
+    var builtinFunctions = (
+        "avg|count|first|last|max|min|sum|ucase|lcase|mid|len|round|rank|now|format|" + 
+        "coalesce|ifnull|isnull|nvl"
+    );
+
+    var dataTypes = (
+        "int|numeric|decimal|date|varchar|char|bigint|float|double|bit|binary|text|set|timestamp|" +
+        "money|real|number|integer|string"
+    );
+
+    var keywordMapper = this.createKeywordMapper({
+        "support.function": builtinFunctions,
+        "keyword": keywords,
+        "constant.language": builtinConstants,
+        "storage.type": dataTypes
+    }, "identifier", true);
+
+    this.$rules = {
+        "start" : [ {
+            token : "comment",
+            regex : "--.*$"
+        },  {
+            token : "comment",
+            start : "/\\*",
+            end : "\\*/"
+        }, {
+            token : "string",           // " string
+            regex : '".*?"'
+        }, {
+            token : "string",           // ' string
+            regex : "'.*?'"
+        }, {
+            token : "string",           // ` string (apache drill)
+            regex : "`.*?`"
+        }, {
+            token : "constant.numeric", // float
+            regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+        }, {
+            token : keywordMapper,
+            regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+        }, {
+            token : "keyword.operator",
+            regex : "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
+        }, {
+            token : "paren.lparen",
+            regex : "[\\(]"
+        }, {
+            token : "paren.rparen",
+            regex : "[\\)]"
+        }, {
+            token : "text",
+            regex : "\\s+"
+        } ]
+    };
+    this.normalizeRules();
+};
+
+oop.inherits(SqlHighlightRules, TextHighlightRules);
+
+exports.W = SqlHighlightRules;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -163,153 +310,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 19437:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var BaseFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-
-var FoldMode = exports.l = function() {};
-
-oop.inherits(FoldMode, BaseFoldMode);
-
-(function() {
-    /** 
-     * Inheriting cstyle folding because it handles the region comment folding 
-     * and special block comment folding appropriately.
-     * 
-     * Cstyle's getCommentRegionBlock() contains the sql comment characters '--' for end region block.
-     */
-    
-
-}).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 17447:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var SqlHighlightRules = (__webpack_require__(86452)/* .SqlHighlightRules */ .W);
-var SqlFoldMode = (__webpack_require__(19437)/* .FoldMode */ .l);
-
-var Mode = function() {
-    this.HighlightRules = SqlHighlightRules;
-    this.foldingRules = new SqlFoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "--";
-    this.blockComment = {start: "/*", end: "*/"};
-
-    this.$id = "ace/mode/sql";
-    this.snippetFileId = "ace/snippets/sql";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 86452:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var SqlHighlightRules = function() {
-
-    var keywords = (
-        "select|insert|update|delete|from|where|and|or|group|by|order|limit|offset|having|as|case|" +
-        "when|then|else|end|type|left|right|join|on|outer|desc|asc|union|create|table|primary|key|if|" +
-        "foreign|not|references|default|null|inner|cross|natural|database|drop|grant|distinct|is|in|" + 
-        "all|alter|any|array|at|authorization|between|both|cast|check|collate|column|commit|constraint|"+
-        "cube|current|current_date|current_time|current_timestamp|current_user|describe|escape|except|" +
-        "exists|external|extract|fetch|filter|for|full|function|global|grouping|intersect|interval|" + 
-        "into|leading|like|local|no|of|only|out|overlaps|partition|position|range|revoke|rollback|rollup|" +
-        "row|rows|session_user|set|some|start|tablesample|time|to|trailing|truncate|unique|unknown|" + 
-        "user|using|values|window|with"
-    );
-
-    var builtinConstants = (
-        "true|false"
-    );
-
-    var builtinFunctions = (
-        "avg|count|first|last|max|min|sum|ucase|lcase|mid|len|round|rank|now|format|" + 
-        "coalesce|ifnull|isnull|nvl"
-    );
-
-    var dataTypes = (
-        "int|numeric|decimal|date|varchar|char|bigint|float|double|bit|binary|text|set|timestamp|" +
-        "money|real|number|integer|string"
-    );
-
-    var keywordMapper = this.createKeywordMapper({
-        "support.function": builtinFunctions,
-        "keyword": keywords,
-        "constant.language": builtinConstants,
-        "storage.type": dataTypes
-    }, "identifier", true);
-
-    this.$rules = {
-        "start" : [ {
-            token : "comment",
-            regex : "--.*$"
-        },  {
-            token : "comment",
-            start : "/\\*",
-            end : "\\*/"
-        }, {
-            token : "string",           // " string
-            regex : '".*?"'
-        }, {
-            token : "string",           // ' string
-            regex : "'.*?'"
-        }, {
-            token : "string",           // ` string (apache drill)
-            regex : "`.*?`"
-        }, {
-            token : "constant.numeric", // float
-            regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-        }, {
-            token : keywordMapper,
-            regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-        }, {
-            token : "keyword.operator",
-            regex : "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
-        }, {
-            token : "paren.lparen",
-            regex : "[\\(]"
-        }, {
-            token : "paren.rparen",
-            regex : "[\\)]"
-        }, {
-            token : "text",
-            regex : "\\s+"
-        } ]
-    };
-    this.normalizeRules();
-};
-
-oop.inherits(SqlHighlightRules, TextHighlightRules);
-
-exports.W = SqlHighlightRules;
 
 
 /***/ })

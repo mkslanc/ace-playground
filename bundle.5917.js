@@ -1,33 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[5917],{
 
-/***/ 85917:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-  var oop = __webpack_require__(2645);
-  var TextMode = (__webpack_require__(49432).Mode);
-  var AqlHighlightRules = (__webpack_require__(15914)/* .AqlHighlightRules */ .C);
-
-  var Mode = function() {
-      this.HighlightRules = AqlHighlightRules;
-      this.$behaviour = this.$defaultBehaviour;
-  };
-  oop.inherits(Mode, TextMode);
-
-  (function() {
-
-      this.lineCommentStart = "//";
-
-      this.$id = "ace/mode/aql";
-  }).call(Mode.prototype);
-
-  exports.Mode = Mode;
-
-
-/***/ }),
-
 /***/ 15914:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -112,6 +85,33 @@
   oop.inherits(AqlHighlightRules, TextHighlightRules);
 
   exports.C = AqlHighlightRules;
+
+
+/***/ }),
+
+/***/ 85917:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+  var oop = __webpack_require__(2645);
+  var TextMode = (__webpack_require__(49432).Mode);
+  var AqlHighlightRules = (__webpack_require__(15914)/* .AqlHighlightRules */ .C);
+
+  var Mode = function() {
+      this.HighlightRules = AqlHighlightRules;
+      this.$behaviour = this.$defaultBehaviour;
+  };
+  oop.inherits(Mode, TextMode);
+
+  (function() {
+
+      this.lineCommentStart = "//";
+
+      this.$id = "ace/mode/aql";
+  }).call(Mode.prototype);
+
+  exports.Mode = Mode;
 
 
 /***/ })

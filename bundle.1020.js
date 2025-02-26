@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[1020,3634],{
 
-/***/ 81020:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(73634);
-exports.scope = "wollok";
-
-
-/***/ }),
-
 /***/ 73634:
 /***/ ((module) => {
 
@@ -100,6 +88,18 @@ snippet get
 ## Terminate Methods or Loops
 snippet re
 	return`;
+
+
+/***/ }),
+
+/***/ 81020:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(73634);
+exports.scope = "wollok";
 
 
 /***/ })

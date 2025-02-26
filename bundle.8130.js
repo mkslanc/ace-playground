@@ -1,145 +1,56 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8130,9781],{
 
-/***/ 99231:
+/***/ 7957:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+// LuaPage implements the LuaPage markup as described by the Kepler Project's CGILua
+// documentation: http://keplerproject.github.com/cgilua/manual.html#templates
 
 
 
 var oop = __webpack_require__(2645);
-var BaseFoldMode = (__webpack_require__(51358).FoldMode);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-var TokenIterator = (__webpack_require__(99339).TokenIterator);
+var HtmlHighlightRules = (__webpack_require__(10413).HtmlHighlightRules);
+var LuaHighlightRules = (__webpack_require__(49858)/* .LuaHighlightRules */ .W);
 
+var LuaPageHighlightRules = function() {
+    HtmlHighlightRules.call(this);
 
-var FoldMode = exports.l = function() {};
-
-oop.inherits(FoldMode, BaseFoldMode);
-
-(function() {
-
-    this.foldingStartMarker = /\b(function|then|do|repeat)\b|{\s*$|(\[=*\[)/;
-    this.foldingStopMarker = /\bend\b|^\s*}|\]=*\]/;
-
-    this.getFoldWidget = function(session, foldStyle, row) {
-        var line = session.getLine(row);
-        var isStart = this.foldingStartMarker.test(line);
-        var isEnd = this.foldingStopMarker.test(line);
-
-        if (isStart && !isEnd) {
-            var match = line.match(this.foldingStartMarker);
-            if (match[1] == "then" && /\belseif\b/.test(line))
-                return;
-            if (match[1]) {
-                if (session.getTokenAt(row, match.index + 1).type === "keyword")
-                    return "start";
-            } else if (match[2]) {
-                var type = session.bgTokenizer.getState(row) || "";
-                if (type[0] == "bracketedComment" || type[0] == "bracketedString")
-                    return "start";
-            } else {
-                return "start";
-            }
+    var startRules = [
+        {
+            token: "keyword",
+            regex: "<\\%\\=?",
+            push: "lua-start"
+        }, {
+            token: "keyword",
+            regex: "<\\?lua\\=?",
+            push: "lua-start"
         }
-        if (foldStyle != "markbeginend" || !isEnd || isStart && isEnd)
-            return "";
+    ];
 
-        var match = line.match(this.foldingStopMarker);
-        if (match[0] === "end") {
-            if (session.getTokenAt(row, match.index + 1).type === "keyword")
-                return "end";
-        } else if (match[0][0] === "]") {
-            var type = session.bgTokenizer.getState(row - 1) || "";
-            if (type[0] == "bracketedComment" || type[0] == "bracketedString")
-                return "end";
-        } else
-            return "end";
-    };
-
-    this.getFoldWidgetRange = function(session, foldStyle, row) {
-        var line = session.doc.getLine(row);
-        var match = this.foldingStartMarker.exec(line);
-        if (match) {
-            if (match[1])
-                return this.luaBlock(session, row, match.index + 1);
-
-            if (match[2])
-                return session.getCommentFoldRange(row, match.index + 1);
-
-            return this.openingBracketBlock(session, "{", row, match.index);
+    var endRules = [
+        {
+            token: "keyword",
+            regex: "\\%>",
+            next: "pop"
+        }, {
+            token: "keyword",
+            regex: "\\?>",
+            next: "pop"
         }
+    ];
 
-        var match = this.foldingStopMarker.exec(line);
-        if (match) {
-            if (match[0] === "end") {
-                if (session.getTokenAt(row, match.index + 1).type === "keyword")
-                    return this.luaBlock(session, row, match.index + 1);
-            }
+    this.embedRules(LuaHighlightRules, "lua-", endRules, ["start"]);
 
-            if (match[0][0] === "]")
-                return session.getCommentFoldRange(row, match.index + 1);
+    for (var key in this.$rules)
+        this.$rules[key].unshift.apply(this.$rules[key], startRules);
 
-            return this.closingBracketBlock(session, "}", row, match.index + match[0].length);
-        }
-    };
+    this.normalizeRules();
+};
 
-    this.luaBlock = function(session, row, column, tokenRange) {
-        var stream = new TokenIterator(session, row, column);
-        var indentKeywords = {
-            "function": 1,
-            "do": 1,
-            "then": 1,
-            "elseif": -1,
-            "end": -1,
-            "repeat": 1,
-            "until": -1
-        };
+oop.inherits(LuaPageHighlightRules, HtmlHighlightRules);
 
-        var token = stream.getCurrentToken();
-        if (!token || token.type != "keyword")
-            return;
-
-        var val = token.value;
-        var stack = [val];
-        var dir = indentKeywords[val];
-
-        if (!dir)
-            return;
-
-        var startColumn = dir === -1 ? stream.getCurrentTokenColumn() : session.getLine(row).length;
-        var startRow = row;
-
-        stream.step = dir === -1 ? stream.stepBackward : stream.stepForward;
-        while(token = stream.step()) {
-            if (token.type !== "keyword")
-                continue;
-            var level = dir * indentKeywords[token.value];
-
-            if (level > 0) {
-                stack.unshift(token.value);
-            } else if (level <= 0) {
-                stack.shift();
-                if (!stack.length && token.value != "elseif")
-                    break;
-                if (level === 0)
-                    stack.unshift(token.value);
-            }
-        }
-
-        if (!token)
-            return null;
-
-        if (tokenRange)
-            return stream.getCurrentTokenRange();
-
-        var row = stream.getCurrentTokenRow();
-        if (dir === -1)
-            return new Range(row, session.getLine(row).length, startRow, startColumn);
-        else
-            return new Range(startRow, startColumn, row, stream.getCurrentTokenColumn());
-    };
-
-}).call(FoldMode.prototype);
+exports.v = LuaPageHighlightRules;
 
 
 /***/ }),
@@ -494,56 +405,145 @@ exports.Mode = Mode;
 
 /***/ }),
 
-/***/ 7957:
+/***/ 99231:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-// LuaPage implements the LuaPage markup as described by the Kepler Project's CGILua
-// documentation: http://keplerproject.github.com/cgilua/manual.html#templates
 
 
 
 var oop = __webpack_require__(2645);
-var HtmlHighlightRules = (__webpack_require__(10413).HtmlHighlightRules);
-var LuaHighlightRules = (__webpack_require__(49858)/* .LuaHighlightRules */ .W);
+var BaseFoldMode = (__webpack_require__(51358).FoldMode);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+var TokenIterator = (__webpack_require__(99339).TokenIterator);
 
-var LuaPageHighlightRules = function() {
-    HtmlHighlightRules.call(this);
 
-    var startRules = [
-        {
-            token: "keyword",
-            regex: "<\\%\\=?",
-            push: "lua-start"
-        }, {
-            token: "keyword",
-            regex: "<\\?lua\\=?",
-            push: "lua-start"
+var FoldMode = exports.l = function() {};
+
+oop.inherits(FoldMode, BaseFoldMode);
+
+(function() {
+
+    this.foldingStartMarker = /\b(function|then|do|repeat)\b|{\s*$|(\[=*\[)/;
+    this.foldingStopMarker = /\bend\b|^\s*}|\]=*\]/;
+
+    this.getFoldWidget = function(session, foldStyle, row) {
+        var line = session.getLine(row);
+        var isStart = this.foldingStartMarker.test(line);
+        var isEnd = this.foldingStopMarker.test(line);
+
+        if (isStart && !isEnd) {
+            var match = line.match(this.foldingStartMarker);
+            if (match[1] == "then" && /\belseif\b/.test(line))
+                return;
+            if (match[1]) {
+                if (session.getTokenAt(row, match.index + 1).type === "keyword")
+                    return "start";
+            } else if (match[2]) {
+                var type = session.bgTokenizer.getState(row) || "";
+                if (type[0] == "bracketedComment" || type[0] == "bracketedString")
+                    return "start";
+            } else {
+                return "start";
+            }
         }
-    ];
+        if (foldStyle != "markbeginend" || !isEnd || isStart && isEnd)
+            return "";
 
-    var endRules = [
-        {
-            token: "keyword",
-            regex: "\\%>",
-            next: "pop"
-        }, {
-            token: "keyword",
-            regex: "\\?>",
-            next: "pop"
+        var match = line.match(this.foldingStopMarker);
+        if (match[0] === "end") {
+            if (session.getTokenAt(row, match.index + 1).type === "keyword")
+                return "end";
+        } else if (match[0][0] === "]") {
+            var type = session.bgTokenizer.getState(row - 1) || "";
+            if (type[0] == "bracketedComment" || type[0] == "bracketedString")
+                return "end";
+        } else
+            return "end";
+    };
+
+    this.getFoldWidgetRange = function(session, foldStyle, row) {
+        var line = session.doc.getLine(row);
+        var match = this.foldingStartMarker.exec(line);
+        if (match) {
+            if (match[1])
+                return this.luaBlock(session, row, match.index + 1);
+
+            if (match[2])
+                return session.getCommentFoldRange(row, match.index + 1);
+
+            return this.openingBracketBlock(session, "{", row, match.index);
         }
-    ];
 
-    this.embedRules(LuaHighlightRules, "lua-", endRules, ["start"]);
+        var match = this.foldingStopMarker.exec(line);
+        if (match) {
+            if (match[0] === "end") {
+                if (session.getTokenAt(row, match.index + 1).type === "keyword")
+                    return this.luaBlock(session, row, match.index + 1);
+            }
 
-    for (var key in this.$rules)
-        this.$rules[key].unshift.apply(this.$rules[key], startRules);
+            if (match[0][0] === "]")
+                return session.getCommentFoldRange(row, match.index + 1);
 
-    this.normalizeRules();
-};
+            return this.closingBracketBlock(session, "}", row, match.index + match[0].length);
+        }
+    };
 
-oop.inherits(LuaPageHighlightRules, HtmlHighlightRules);
+    this.luaBlock = function(session, row, column, tokenRange) {
+        var stream = new TokenIterator(session, row, column);
+        var indentKeywords = {
+            "function": 1,
+            "do": 1,
+            "then": 1,
+            "elseif": -1,
+            "end": -1,
+            "repeat": 1,
+            "until": -1
+        };
 
-exports.v = LuaPageHighlightRules;
+        var token = stream.getCurrentToken();
+        if (!token || token.type != "keyword")
+            return;
+
+        var val = token.value;
+        var stack = [val];
+        var dir = indentKeywords[val];
+
+        if (!dir)
+            return;
+
+        var startColumn = dir === -1 ? stream.getCurrentTokenColumn() : session.getLine(row).length;
+        var startRow = row;
+
+        stream.step = dir === -1 ? stream.stepBackward : stream.stepForward;
+        while(token = stream.step()) {
+            if (token.type !== "keyword")
+                continue;
+            var level = dir * indentKeywords[token.value];
+
+            if (level > 0) {
+                stack.unshift(token.value);
+            } else if (level <= 0) {
+                stack.shift();
+                if (!stack.length && token.value != "elseif")
+                    break;
+                if (level === 0)
+                    stack.unshift(token.value);
+            }
+        }
+
+        if (!token)
+            return null;
+
+        if (tokenRange)
+            return stream.getCurrentTokenRange();
+
+        var row = stream.getCurrentTokenRow();
+        if (dir === -1)
+            return new Range(row, session.getLine(row).length, startRow, startColumn);
+        else
+            return new Range(startRow, startColumn, row, stream.getCurrentTokenColumn());
+    };
+
+}).call(FoldMode.prototype);
 
 
 /***/ })

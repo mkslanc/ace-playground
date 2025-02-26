@@ -1,16 +1,4 @@
-(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[6286,3056],{
-
-/***/ 66286:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(13056);
-exports.scope = "haskell";
-
-
-/***/ }),
+(self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3056,6286],{
 
 /***/ 13056:
 /***/ ((module) => {
@@ -98,6 +86,18 @@ snippet where
 	where
 		\${1:fn} = \${2:undefined}
 `;
+
+
+/***/ }),
+
+/***/ 66286:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(13056);
+exports.scope = "haskell";
 
 
 /***/ })

@@ -1,19 +1,6 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[8939],{
 
-/***/ 58939:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-
-
-/**
- * this is experimental, and subject to change, use at your own risk!
- */
-module.exports = __webpack_require__(6751);
-
-
-/***/ }),
-
 /***/ 6751:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -337,6 +324,19 @@ Split = function(container, theme, splits) {
 }).call(Split.prototype);
 
 exports.Split = Split;
+
+
+/***/ }),
+
+/***/ 58939:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+
+
+/**
+ * this is experimental, and subject to change, use at your own risk!
+ */
+module.exports = __webpack_require__(6751);
 
 
 /***/ })

@@ -1,5 +1,18 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[2038],{
 
+/***/ 2038:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+exports.isDark = false;
+exports.cssClass = "ace-sqlserver";
+exports.cssText = __webpack_require__(10900);
+
+var dom = __webpack_require__(71435);
+dom.importCssString(exports.cssText, exports.cssClass, false);
+
+
+/***/ }),
+
 /***/ 10900:
 /***/ ((module) => {
 
@@ -175,19 +188,6 @@ module.exports = `.ace-sqlserver .ace_gutter {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAZSURBVHjaYvj///9/hivKyv8BAAAA//8DACLqBhbvk+/eAAAAAElFTkSuQmCC") right repeat-y;
 } 
 `;
-
-
-/***/ }),
-
-/***/ 2038:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-exports.isDark = false;
-exports.cssClass = "ace-sqlserver";
-exports.cssText = __webpack_require__(10900);
-
-var dom = __webpack_require__(71435);
-dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ })

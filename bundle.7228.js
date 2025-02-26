@@ -1,6 +1,261 @@
 "use strict";
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[7228],{
 
+/***/ 27215:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
+
+var TclHighlightRules = function() {
+
+    //TODO var builtinFunctions = "";
+
+    this.$rules = {
+        "start" : [
+           {
+                token : "comment",
+                regex : "#.*\\\\$",
+                next  : "commentfollow"
+            }, {
+                token : "comment",
+                regex : "#.*$"
+            }, {
+                token : "support.function",
+                regex : '[\\\\]$',
+                next  : "splitlineStart"
+            }, {
+                token : "text",
+                regex : /\\(?:["{}\[\]$\\])/
+            }, {
+                token : "text", // last value before command
+                regex : '^|[^{][;][^}]|[/\r/]',
+                next  : "commandItem"
+            }, {
+                token : "string", // single line
+                regex : '[ ]*["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+            }, {
+                token : "string", // multi line """ string start
+                regex : '[ ]*["]',
+                next  : "qqstring"
+            }, {
+                token : "variable.instance",
+                regex : "[$]",
+                next  : "variable"
+            }, {
+                token : "support.function",
+                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|{\\*}|;|::"
+            }, {
+                token : "identifier",
+                regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+            }, {
+                token : "paren.lparen",
+                regex : "[[{]",
+                next  : "commandItem"
+            }, {
+                token : "paren.lparen",
+                regex : "[(]"
+            },  {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "text",
+                regex : "\\s+"
+            }
+        ],
+        "commandItem" : [
+            {
+                token : "comment",
+                regex : "#.*\\\\$",
+                next  : "commentfollow"
+            }, {
+                token : "comment",
+                regex : "#.*$",
+                next  : "start"
+            }, {
+                token : "string", // single line
+                regex : '[ ]*["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+            }, {
+                token : "variable.instance", 
+                regex : "[$]",
+                next  : "variable"
+            }, {
+                token : "support.function",
+                regex : "(?:[:][:])[a-zA-Z0-9_/]+(?:[:][:])",
+                next  : "commandItem"
+            }, {
+                token : "support.function",
+                regex : "[a-zA-Z0-9_/]+(?:[:][:])",
+                next  : "commandItem"
+            }, {
+                token : "support.function",
+                regex : "(?:[:][:])",
+                next  : "commandItem"
+            }, {
+                token : "paren.rparen",
+                regex : "[\\])}]"
+            }, {
+                token : "paren.lparen",
+                regex : "[[({]"
+            }, {
+                token : "support.function",
+                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|{\\*}|;|::"
+            }, {
+                token : "keyword",
+                regex : "[a-zA-Z0-9_/]+",
+                next  : "start"
+            } ],
+        "commentfollow" : [ 
+            {
+                token : "comment",
+                regex : ".*\\\\$",
+                next  : "commentfollow"
+            }, {
+                token : "comment",
+                regex : '.+',
+                next  : "start"
+        } ],
+        "splitlineStart" : [ 
+            {
+                token : "text",
+                regex : "^.",
+                next  : "start"
+            }],
+        "variable" : [ 
+            {
+                token : "variable.instance", // variable tcl
+                regex : "[a-zA-Z_\\d]+(?:[(][a-zA-Z_\\d]+[)])?",
+                next  : "start"
+            }, {
+                token : "variable.instance", // variable tcl with braces
+                regex : "{?[a-zA-Z_\\d]+}?",
+                next  : "start"
+            }],  
+        "qqstring" : [ {
+            token : "string", // multi line """ string end
+            regex : '(?:[^\\\\]|\\\\.)*?["]',
+            next : "start"
+        }, {
+            token : "string",
+            regex : '.+'
+        } ]
+    };
+};
+
+oop.inherits(TclHighlightRules, TextHighlightRules);
+
+exports.p = TclHighlightRules;
+
+
+/***/ }),
+
+/***/ 28670:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var MatchingBraceOutdent = function() {};
+
+(function() {
+
+    this.checkOutdent = function(line, input) {
+        if (! /^\s+$/.test(line))
+            return false;
+
+        return /^\s*\}/.test(input);
+    };
+
+    this.autoOutdent = function(doc, row) {
+        var line = doc.getLine(row);
+        var match = line.match(/^(\s*\})/);
+
+        if (!match) return 0;
+
+        var column = match[1].length;
+        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+        if (!openBracePos || openBracePos.row == row) return 0;
+
+        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+        doc.replace(new Range(row, 0, row, column-1), indent);
+    };
+
+    this.$getIndent = function(line) {
+        return line.match(/^\s*/)[0];
+    };
+
+}).call(MatchingBraceOutdent.prototype);
+
+exports.MatchingBraceOutdent = MatchingBraceOutdent;
+
+
+/***/ }),
+
+/***/ 47228:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var oop = __webpack_require__(2645);
+var TextMode = (__webpack_require__(49432).Mode);
+var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
+var TclHighlightRules = (__webpack_require__(27215)/* .TclHighlightRules */ .p);
+var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
+var Range = (__webpack_require__(91902)/* .Range */ .Q);
+
+var Mode = function() {
+    this.HighlightRules = TclHighlightRules;
+    this.$outdent = new MatchingBraceOutdent();
+    this.foldingRules = new CStyleFoldMode();
+    this.$behaviour = this.$defaultBehaviour;
+};
+oop.inherits(Mode, TextMode);
+
+(function() {
+
+    this.lineCommentStart = "#";
+
+    this.getNextLineIndent = function(state, line, tab) {
+        var indent = this.$getIndent(line);
+
+        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
+        var tokens = tokenizedLine.tokens;
+
+        if (tokens.length && tokens[tokens.length-1].type == "comment") {
+            return indent;
+        }
+        
+        if (state == "start") {
+            var match = line.match(/^.*[\{\(\[]\s*$/);
+            if (match) {
+                indent += tab;
+            }
+        }
+
+        return indent;
+    };
+
+    this.checkOutdent = function(state, line, input) {
+        return this.$outdent.checkOutdent(line, input);
+    };
+
+    this.autoOutdent = function(state, doc, row) {
+        this.$outdent.autoOutdent(doc, row);
+    };
+
+    this.$id = "ace/mode/tcl";
+    this.snippetFileId = "ace/snippets/tcl";
+}).call(Mode.prototype);
+
+exports.Mode = Mode;
+
+
+/***/ }),
+
 /***/ 93887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -163,261 +418,6 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-
-/***/ }),
-
-/***/ 28670:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var MatchingBraceOutdent = function() {};
-
-(function() {
-
-    this.checkOutdent = function(line, input) {
-        if (! /^\s+$/.test(line))
-            return false;
-
-        return /^\s*\}/.test(input);
-    };
-
-    this.autoOutdent = function(doc, row) {
-        var line = doc.getLine(row);
-        var match = line.match(/^(\s*\})/);
-
-        if (!match) return 0;
-
-        var column = match[1].length;
-        var openBracePos = doc.findMatchingBracket({row: row, column: column});
-
-        if (!openBracePos || openBracePos.row == row) return 0;
-
-        var indent = this.$getIndent(doc.getLine(openBracePos.row));
-        doc.replace(new Range(row, 0, row, column-1), indent);
-    };
-
-    this.$getIndent = function(line) {
-        return line.match(/^\s*/)[0];
-    };
-
-}).call(MatchingBraceOutdent.prototype);
-
-exports.MatchingBraceOutdent = MatchingBraceOutdent;
-
-
-/***/ }),
-
-/***/ 47228:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextMode = (__webpack_require__(49432).Mode);
-var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
-var TclHighlightRules = (__webpack_require__(27215)/* .TclHighlightRules */ .p);
-var MatchingBraceOutdent = (__webpack_require__(28670).MatchingBraceOutdent);
-var Range = (__webpack_require__(91902)/* .Range */ .Q);
-
-var Mode = function() {
-    this.HighlightRules = TclHighlightRules;
-    this.$outdent = new MatchingBraceOutdent();
-    this.foldingRules = new CStyleFoldMode();
-    this.$behaviour = this.$defaultBehaviour;
-};
-oop.inherits(Mode, TextMode);
-
-(function() {
-
-    this.lineCommentStart = "#";
-
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        var tokenizedLine = this.getTokenizer().getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-        
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[]\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        }
-
-        return indent;
-    };
-
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
-    };
-
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-
-    this.$id = "ace/mode/tcl";
-    this.snippetFileId = "ace/snippets/tcl";
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
-
-/***/ }),
-
-/***/ 27215:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var oop = __webpack_require__(2645);
-var TextHighlightRules = (__webpack_require__(16387)/* .TextHighlightRules */ .r);
-
-var TclHighlightRules = function() {
-
-    //TODO var builtinFunctions = "";
-
-    this.$rules = {
-        "start" : [
-           {
-                token : "comment",
-                regex : "#.*\\\\$",
-                next  : "commentfollow"
-            }, {
-                token : "comment",
-                regex : "#.*$"
-            }, {
-                token : "support.function",
-                regex : '[\\\\]$',
-                next  : "splitlineStart"
-            }, {
-                token : "text",
-                regex : /\\(?:["{}\[\]$\\])/
-            }, {
-                token : "text", // last value before command
-                regex : '^|[^{][;][^}]|[/\r/]',
-                next  : "commandItem"
-            }, {
-                token : "string", // single line
-                regex : '[ ]*["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-            }, {
-                token : "string", // multi line """ string start
-                regex : '[ ]*["]',
-                next  : "qqstring"
-            }, {
-                token : "variable.instance",
-                regex : "[$]",
-                next  : "variable"
-            }, {
-                token : "support.function",
-                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|{\\*}|;|::"
-            }, {
-                token : "identifier",
-                regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-            }, {
-                token : "paren.lparen",
-                regex : "[[{]",
-                next  : "commandItem"
-            }, {
-                token : "paren.lparen",
-                regex : "[(]"
-            },  {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "text",
-                regex : "\\s+"
-            }
-        ],
-        "commandItem" : [
-            {
-                token : "comment",
-                regex : "#.*\\\\$",
-                next  : "commentfollow"
-            }, {
-                token : "comment",
-                regex : "#.*$",
-                next  : "start"
-            }, {
-                token : "string", // single line
-                regex : '[ ]*["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-            }, {
-                token : "variable.instance", 
-                regex : "[$]",
-                next  : "variable"
-            }, {
-                token : "support.function",
-                regex : "(?:[:][:])[a-zA-Z0-9_/]+(?:[:][:])",
-                next  : "commandItem"
-            }, {
-                token : "support.function",
-                regex : "[a-zA-Z0-9_/]+(?:[:][:])",
-                next  : "commandItem"
-            }, {
-                token : "support.function",
-                regex : "(?:[:][:])",
-                next  : "commandItem"
-            }, {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "paren.lparen",
-                regex : "[[({]"
-            }, {
-                token : "support.function",
-                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|{\\*}|;|::"
-            }, {
-                token : "keyword",
-                regex : "[a-zA-Z0-9_/]+",
-                next  : "start"
-            } ],
-        "commentfollow" : [ 
-            {
-                token : "comment",
-                regex : ".*\\\\$",
-                next  : "commentfollow"
-            }, {
-                token : "comment",
-                regex : '.+',
-                next  : "start"
-        } ],
-        "splitlineStart" : [ 
-            {
-                token : "text",
-                regex : "^.",
-                next  : "start"
-            }],
-        "variable" : [ 
-            {
-                token : "variable.instance", // variable tcl
-                regex : "[a-zA-Z_\\d]+(?:[(][a-zA-Z_\\d]+[)])?",
-                next  : "start"
-            }, {
-                token : "variable.instance", // variable tcl with braces
-                regex : "{?[a-zA-Z_\\d]+}?",
-                next  : "start"
-            }],  
-        "qqstring" : [ {
-            token : "string", // multi line """ string end
-            regex : '(?:[^\\\\]|\\\\.)*?["]',
-            next : "start"
-        }, {
-            token : "string",
-            regex : '.+'
-        } ]
-    };
-};
-
-oop.inherits(TclHighlightRules, TextHighlightRules);
-
-exports.p = TclHighlightRules;
 
 
 /***/ })

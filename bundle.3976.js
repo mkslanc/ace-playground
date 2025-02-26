@@ -1,17 +1,5 @@
 (self["webpackChunkace_playground"] = self["webpackChunkace_playground"] || []).push([[3976,8582],{
 
-/***/ 63976:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-exports.snippetText = __webpack_require__(38582);
-exports.scope = "graphqlschema";
-
-
-/***/ }),
-
 /***/ 38582:
 /***/ ((module) => {
 
@@ -48,6 +36,18 @@ snippet enum
 		\${2:enum_siblings}
 	}
 `;
+
+
+/***/ }),
+
+/***/ 63976:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.snippetText = __webpack_require__(38582);
+exports.scope = "graphqlschema";
 
 
 /***/ })
