@@ -4,18 +4,30 @@
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
+/**
+ * ## Overlay Page utility
+ *
+ * Provides modal overlay functionality for displaying editor extension interfaces. Creates a full-screen overlay with
+ * configurable backdrop behavior, keyboard navigation (ESC to close), and focus management. Used by various extensions
+ * to display menus, settings panels, and other interactive content over the editor interface.
+ *
+ * **Usage:**
+ * ```javascript
+ * var overlayPage = require('./overlay_page').overlayPage;
+ * var contentElement = document.createElement('div');
+ * contentElement.innerHTML = '<h1>Settings</h1>';
+ *
+ * var overlay = overlayPage(editor, contentElement, function() {
+ *   console.log('Overlay closed');
+ * });
+ * ```
+ *
+ * @module
+ */
+
+
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
 /*global define, require */
-
-/**
- * Overlay Page
- * @fileOverview Overlay Page <br />
- * Generates an overlay for displaying menus. The overlay is an absolutely
- *  positioned div.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- */
 
 
 var dom = __webpack_require__(71435);
@@ -28,10 +40,10 @@ dom.importCssString(cssText, "settings_menu.css", false);
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @param editor
+ * @param {import("../../editor").Editor} editor
  * @param {HTMLElement} contentElement Any element which may be presented inside
  *  a div.
- * @param [callback]
+ * @param {() => void} [callback]
  */
 module.exports.overlayPage = function overlayPage(editor, contentElement, callback) {
     var closer = document.createElement('div');
@@ -173,9 +185,37 @@ module.exports = `#ace_settingsmenu, #kbshortcutmenu {
 
 "use strict";
 /**
- * @typedef {import("../editor").Editor} Editor
+ * ## User Input Prompt extension
+ *
+ * Provides customizable modal prompts for gathering user input with support for autocompletion, validation, and
+ * specialized input types. Includes built-in prompt types for navigation (goto line), command palette, and mode
+ * selection, with extensible architecture for custom prompt implementations.
+ *
+ * **Built-in Prompt Types:**
+ * - `gotoLine`: Navigate to specific line numbers with selection support
+ * - `commands`: Command palette with searchable editor commands and shortcuts
+ * - `modes`: Language mode selector with filtering capabilities
+ *
+ * **Usage:**
+ * ```javascript
+ * // Basic prompt
+ * prompt(editor, "Default value", {
+ *   placeholder: "Enter text...",
+ *   onAccept: (data) => console.log(data.value)
+ * });
+ *
+ * // Built-in prompts
+ * prompt.gotoLine(editor);
+ * prompt.commands(editor);
+ * prompt.modes(editor);
+ * ```
+ *
+ * @module
  */
 
+/**
+ * @typedef {import("../editor").Editor} Editor
+ */
 
 
 
@@ -382,8 +422,9 @@ function prompt(editor, message, options, callback) {
 }
 
 /**
- * 
- * @param {Editor} editor
+ * Displays a "Go to Line" prompt for navigating to specific line and column positions with selection support.
+ *
+ * @param {Editor} editor - The editor instance to navigate within
  * @param {Function} [callback]
  */
 prompt.gotoLine = function(editor, callback) {
@@ -494,8 +535,9 @@ prompt.gotoLine = function(editor, callback) {
 };
 
 /**
- * 
- * @param {Editor} editor
+ * Displays a searchable command palette for executing editor commands with keyboard shortcuts and history.
+ *
+ * @param {Editor} editor - The editor instance to execute commands on
  * @param {Function} [callback]
  */
 prompt.commands = function(editor, callback) {
@@ -629,10 +671,15 @@ prompt.commands = function(editor, callback) {
 };
 
 /**
+ * Shows an interactive prompt containing all available syntax highlighting modes
+ * that can be applied to the editor session. Users can type to filter through the modes list
+ * and select one to change the editor's syntax highlighting mode. The prompt includes real-time
+ * filtering based on mode names and captions.
  *
- * @param {Editor} editor
+ * @param {Editor} editor - The editor instance to change the language mode for
  * @param {Function} [callback]
  */
+
 prompt.modes = function(editor, callback) {
     /**@type {any[]}*/
     var modesArray = modelist.modes;

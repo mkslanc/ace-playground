@@ -2292,15 +2292,13 @@ var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbo
 
 var toStr = Object.prototype.toString;
 var concat = Array.prototype.concat;
-var origDefineProperty = Object.defineProperty;
+var defineDataProperty = __nested_webpack_require_76541__(686);
 
 var isFunction = function (fn) {
 	return typeof fn === 'function' && toStr.call(fn) === '[object Function]';
 };
 
-var hasPropertyDescriptors = __nested_webpack_require_76541__(7239)();
-
-var supportsDescriptors = origDefineProperty && hasPropertyDescriptors;
+var supportsDescriptors = __nested_webpack_require_76541__(7239)();
 
 var defineProperty = function (object, name, value, predicate) {
 	if (name in object) {
@@ -2312,15 +2310,11 @@ var defineProperty = function (object, name, value, predicate) {
 			return;
 		}
 	}
+
 	if (supportsDescriptors) {
-		origDefineProperty(object, name, {
-			configurable: true,
-			enumerable: false,
-			value: value,
-			writable: true
-		});
+		defineDataProperty(object, name, value, true);
 	} else {
-		object[name] = value; // eslint-disable-line no-param-reassign
+		defineDataProperty(object, name, value);
 	}
 };
 
@@ -2343,12 +2337,12 @@ module.exports = defineProperties;
 /***/ }),
 
 /***/ 4940:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_78058__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_77890__) => {
 
 "use strict";
 
 
-var GetIntrinsic = __nested_webpack_require_78058__(528);
+var GetIntrinsic = __nested_webpack_require_77890__(528);
 
 /** @type {import('.')} */
 var $defineProperty = GetIntrinsic('%Object.defineProperty%', true) || false;
@@ -2505,12 +2499,12 @@ module.exports = {
 /***/ }),
 
 /***/ 705:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_80582__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_80414__) => {
 
 "use strict";
 
 
-var isCallable = __nested_webpack_require_80582__(9617);
+var isCallable = __nested_webpack_require_80414__(9617);
 
 var toStr = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -2667,12 +2661,12 @@ module.exports = function bind(that) {
 /***/ }),
 
 /***/ 9138:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_84532__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_84364__) => {
 
 "use strict";
 
 
-var implementation = __nested_webpack_require_84532__(8794);
+var implementation = __nested_webpack_require_84364__(8794);
 
 module.exports = Function.prototype.bind || implementation;
 
@@ -2680,20 +2674,20 @@ module.exports = Function.prototype.bind || implementation;
 /***/ }),
 
 /***/ 528:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_84750__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_84582__) => {
 
 "use strict";
 
 
 var undefined;
 
-var $Error = __nested_webpack_require_84750__(9838);
-var $EvalError = __nested_webpack_require_84750__(6729);
-var $RangeError = __nested_webpack_require_84750__(1155);
-var $ReferenceError = __nested_webpack_require_84750__(4943);
-var $SyntaxError = __nested_webpack_require_84750__(5731);
-var $TypeError = __nested_webpack_require_84750__(3468);
-var $URIError = __nested_webpack_require_84750__(2140);
+var $Error = __nested_webpack_require_84582__(9838);
+var $EvalError = __nested_webpack_require_84582__(6729);
+var $RangeError = __nested_webpack_require_84582__(1155);
+var $ReferenceError = __nested_webpack_require_84582__(4943);
+var $SyntaxError = __nested_webpack_require_84582__(5731);
+var $TypeError = __nested_webpack_require_84582__(3468);
+var $URIError = __nested_webpack_require_84582__(2140);
 
 var $Function = Function;
 
@@ -2733,8 +2727,8 @@ var ThrowTypeError = $gOPD
 	}())
 	: throwTypeError;
 
-var hasSymbols = __nested_webpack_require_84750__(3558)();
-var hasProto = __nested_webpack_require_84750__(6869)();
+var hasSymbols = __nested_webpack_require_84582__(3558)();
+var hasProto = __nested_webpack_require_84582__(6869)();
 
 var getProto = Object.getPrototypeOf || (
 	hasProto
@@ -2906,8 +2900,8 @@ var LEGACY_ALIASES = {
 	'%WeakSetPrototype%': ['WeakSet', 'prototype']
 };
 
-var bind = __nested_webpack_require_84750__(9138);
-var hasOwn = __nested_webpack_require_84750__(8554);
+var bind = __nested_webpack_require_84582__(9138);
+var hasOwn = __nested_webpack_require_84582__(8554);
 var $concat = bind.call(Function.call, Array.prototype.concat);
 var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
 var $replace = bind.call(Function.call, String.prototype.replace);
@@ -3047,12 +3041,12 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 /***/ }),
 
 /***/ 9336:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_98481__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_98313__) => {
 
 "use strict";
 
 
-var GetIntrinsic = __nested_webpack_require_98481__(528);
+var GetIntrinsic = __nested_webpack_require_98313__(528);
 
 var $gOPD = GetIntrinsic('%Object.getOwnPropertyDescriptor%', true);
 
@@ -3071,12 +3065,12 @@ module.exports = $gOPD;
 /***/ }),
 
 /***/ 7239:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_98839__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_98671__) => {
 
 "use strict";
 
 
-var $defineProperty = __nested_webpack_require_98839__(4940);
+var $defineProperty = __nested_webpack_require_98671__(4940);
 
 var hasPropertyDescriptors = function hasPropertyDescriptors() {
 	return !!$defineProperty;
@@ -3120,13 +3114,13 @@ module.exports = function hasProto() {
 /***/ }),
 
 /***/ 3558:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_99763__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_99595__) => {
 
 "use strict";
 
 
 var origSymbol = typeof Symbol !== 'undefined' && Symbol;
-var hasSymbolSham = __nested_webpack_require_99763__(2908);
+var hasSymbolSham = __nested_webpack_require_99595__(2908);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -3191,12 +3185,12 @@ module.exports = function hasSymbols() {
 /***/ }),
 
 /***/ 1913:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_102094__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_101926__) => {
 
 "use strict";
 
 
-var hasSymbols = __nested_webpack_require_102094__(2908);
+var hasSymbols = __nested_webpack_require_101926__(2908);
 
 module.exports = function hasToStringTagShams() {
 	return hasSymbols() && !!Symbol.toStringTag;
@@ -3206,14 +3200,14 @@ module.exports = function hasToStringTagShams() {
 /***/ }),
 
 /***/ 8554:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_102348__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_102180__) => {
 
 "use strict";
 
 
 var call = Function.prototype.call;
 var $hasOwn = Object.prototype.hasOwnProperty;
-var bind = __nested_webpack_require_102348__(9138);
+var bind = __nested_webpack_require_102180__(9138);
 
 /** @type {import('.')} */
 module.exports = bind.call(call, $hasOwn);
@@ -3222,18 +3216,18 @@ module.exports = bind.call(call, $hasOwn);
 /***/ }),
 
 /***/ 3476:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_102650__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_102482__) => {
 
 "use strict";
 var __webpack_unused_export__;
 
 __webpack_unused_export__ = ({ value: true });
 __webpack_unused_export__ = __webpack_unused_export__ = __webpack_unused_export__ = exports.PB = void 0;
-const htmlparser_1 = __nested_webpack_require_102650__(1525);
+const htmlparser_1 = __nested_webpack_require_102482__(1525);
 __webpack_unused_export__ = htmlparser_1.default;
-const reporter_1 = __nested_webpack_require_102650__(9430);
+const reporter_1 = __nested_webpack_require_102482__(9430);
 __webpack_unused_export__ = reporter_1.default;
-const HTMLRules = __nested_webpack_require_102650__(1123);
+const HTMLRules = __nested_webpack_require_102482__(1123);
 __webpack_unused_export__ = HTMLRules;
 class HTMLHintCore {
     constructor() {
@@ -4417,77 +4411,77 @@ exports["default"] = {
 /***/ }),
 
 /***/ 1123:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_192409__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_192241__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.attrNoUnnecessaryWhitespace = exports.tagsCheck = exports.titleRequire = exports.tagnameSpecialChars = exports.tagnameLowercase = exports.emptyTagNotSelfClosed = exports.tagSelfClose = exports.tagPair = exports.styleDisabled = exports.srcNotEmpty = exports.specCharEscape = exports.spaceTabMixedDisabled = exports.scriptDisabled = exports.inputRequiresLabel = exports.inlineStyleDisabled = exports.inlineScriptDisabled = exports.idUnique = exports.idClassValue = exports.idClsasAdDisabled = exports.htmlLangRequire = exports.hrefAbsOrRel = exports.headScriptDisabled = exports.doctypeHTML5 = exports.doctypeFirst = exports.attrWhitespace = exports.attrValueSingleQuotes = exports.attrValueNotEmpty = exports.attrValueDoubleQuotes = exports.attrUnsafeChars = exports.attrNoDuplication = exports.attrSort = exports.attrLowercase = exports.altRequire = void 0;
-var alt_require_1 = __nested_webpack_require_192409__(8502);
+var alt_require_1 = __nested_webpack_require_192241__(8502);
 Object.defineProperty(exports, "altRequire", ({ enumerable: true, get: function () { return alt_require_1.default; } }));
-var attr_lowercase_1 = __nested_webpack_require_192409__(1056);
+var attr_lowercase_1 = __nested_webpack_require_192241__(1056);
 Object.defineProperty(exports, "attrLowercase", ({ enumerable: true, get: function () { return attr_lowercase_1.default; } }));
-var attr_sorted_1 = __nested_webpack_require_192409__(5664);
+var attr_sorted_1 = __nested_webpack_require_192241__(5664);
 Object.defineProperty(exports, "attrSort", ({ enumerable: true, get: function () { return attr_sorted_1.default; } }));
-var attr_no_duplication_1 = __nested_webpack_require_192409__(6211);
+var attr_no_duplication_1 = __nested_webpack_require_192241__(6211);
 Object.defineProperty(exports, "attrNoDuplication", ({ enumerable: true, get: function () { return attr_no_duplication_1.default; } }));
-var attr_unsafe_chars_1 = __nested_webpack_require_192409__(9279);
+var attr_unsafe_chars_1 = __nested_webpack_require_192241__(9279);
 Object.defineProperty(exports, "attrUnsafeChars", ({ enumerable: true, get: function () { return attr_unsafe_chars_1.default; } }));
-var attr_value_double_quotes_1 = __nested_webpack_require_192409__(6328);
+var attr_value_double_quotes_1 = __nested_webpack_require_192241__(6328);
 Object.defineProperty(exports, "attrValueDoubleQuotes", ({ enumerable: true, get: function () { return attr_value_double_quotes_1.default; } }));
-var attr_value_not_empty_1 = __nested_webpack_require_192409__(1824);
+var attr_value_not_empty_1 = __nested_webpack_require_192241__(1824);
 Object.defineProperty(exports, "attrValueNotEmpty", ({ enumerable: true, get: function () { return attr_value_not_empty_1.default; } }));
-var attr_value_single_quotes_1 = __nested_webpack_require_192409__(9987);
+var attr_value_single_quotes_1 = __nested_webpack_require_192241__(9987);
 Object.defineProperty(exports, "attrValueSingleQuotes", ({ enumerable: true, get: function () { return attr_value_single_quotes_1.default; } }));
-var attr_whitespace_1 = __nested_webpack_require_192409__(264);
+var attr_whitespace_1 = __nested_webpack_require_192241__(264);
 Object.defineProperty(exports, "attrWhitespace", ({ enumerable: true, get: function () { return attr_whitespace_1.default; } }));
-var doctype_first_1 = __nested_webpack_require_192409__(2862);
+var doctype_first_1 = __nested_webpack_require_192241__(2862);
 Object.defineProperty(exports, "doctypeFirst", ({ enumerable: true, get: function () { return doctype_first_1.default; } }));
-var doctype_html5_1 = __nested_webpack_require_192409__(4640);
+var doctype_html5_1 = __nested_webpack_require_192241__(4640);
 Object.defineProperty(exports, "doctypeHTML5", ({ enumerable: true, get: function () { return doctype_html5_1.default; } }));
-var head_script_disabled_1 = __nested_webpack_require_192409__(2902);
+var head_script_disabled_1 = __nested_webpack_require_192241__(2902);
 Object.defineProperty(exports, "headScriptDisabled", ({ enumerable: true, get: function () { return head_script_disabled_1.default; } }));
-var href_abs_or_rel_1 = __nested_webpack_require_192409__(2287);
+var href_abs_or_rel_1 = __nested_webpack_require_192241__(2287);
 Object.defineProperty(exports, "hrefAbsOrRel", ({ enumerable: true, get: function () { return href_abs_or_rel_1.default; } }));
-var html_lang_require_1 = __nested_webpack_require_192409__(3329);
+var html_lang_require_1 = __nested_webpack_require_192241__(3329);
 Object.defineProperty(exports, "htmlLangRequire", ({ enumerable: true, get: function () { return html_lang_require_1.default; } }));
-var id_class_ad_disabled_1 = __nested_webpack_require_192409__(7158);
+var id_class_ad_disabled_1 = __nested_webpack_require_192241__(7158);
 Object.defineProperty(exports, "idClsasAdDisabled", ({ enumerable: true, get: function () { return id_class_ad_disabled_1.default; } }));
-var id_class_value_1 = __nested_webpack_require_192409__(8827);
+var id_class_value_1 = __nested_webpack_require_192241__(8827);
 Object.defineProperty(exports, "idClassValue", ({ enumerable: true, get: function () { return id_class_value_1.default; } }));
-var id_unique_1 = __nested_webpack_require_192409__(8364);
+var id_unique_1 = __nested_webpack_require_192241__(8364);
 Object.defineProperty(exports, "idUnique", ({ enumerable: true, get: function () { return id_unique_1.default; } }));
-var inline_script_disabled_1 = __nested_webpack_require_192409__(2429);
+var inline_script_disabled_1 = __nested_webpack_require_192241__(2429);
 Object.defineProperty(exports, "inlineScriptDisabled", ({ enumerable: true, get: function () { return inline_script_disabled_1.default; } }));
-var inline_style_disabled_1 = __nested_webpack_require_192409__(5583);
+var inline_style_disabled_1 = __nested_webpack_require_192241__(5583);
 Object.defineProperty(exports, "inlineStyleDisabled", ({ enumerable: true, get: function () { return inline_style_disabled_1.default; } }));
-var input_requires_label_1 = __nested_webpack_require_192409__(4827);
+var input_requires_label_1 = __nested_webpack_require_192241__(4827);
 Object.defineProperty(exports, "inputRequiresLabel", ({ enumerable: true, get: function () { return input_requires_label_1.default; } }));
-var script_disabled_1 = __nested_webpack_require_192409__(605);
+var script_disabled_1 = __nested_webpack_require_192241__(605);
 Object.defineProperty(exports, "scriptDisabled", ({ enumerable: true, get: function () { return script_disabled_1.default; } }));
-var space_tab_mixed_disabled_1 = __nested_webpack_require_192409__(4098);
+var space_tab_mixed_disabled_1 = __nested_webpack_require_192241__(4098);
 Object.defineProperty(exports, "spaceTabMixedDisabled", ({ enumerable: true, get: function () { return space_tab_mixed_disabled_1.default; } }));
-var spec_char_escape_1 = __nested_webpack_require_192409__(2797);
+var spec_char_escape_1 = __nested_webpack_require_192241__(2797);
 Object.defineProperty(exports, "specCharEscape", ({ enumerable: true, get: function () { return spec_char_escape_1.default; } }));
-var src_not_empty_1 = __nested_webpack_require_192409__(885);
+var src_not_empty_1 = __nested_webpack_require_192241__(885);
 Object.defineProperty(exports, "srcNotEmpty", ({ enumerable: true, get: function () { return src_not_empty_1.default; } }));
-var style_disabled_1 = __nested_webpack_require_192409__(2991);
+var style_disabled_1 = __nested_webpack_require_192241__(2991);
 Object.defineProperty(exports, "styleDisabled", ({ enumerable: true, get: function () { return style_disabled_1.default; } }));
-var tag_pair_1 = __nested_webpack_require_192409__(9276);
+var tag_pair_1 = __nested_webpack_require_192241__(9276);
 Object.defineProperty(exports, "tagPair", ({ enumerable: true, get: function () { return tag_pair_1.default; } }));
-var tag_self_close_1 = __nested_webpack_require_192409__(7599);
+var tag_self_close_1 = __nested_webpack_require_192241__(7599);
 Object.defineProperty(exports, "tagSelfClose", ({ enumerable: true, get: function () { return tag_self_close_1.default; } }));
-var empty_tag_not_self_closed_1 = __nested_webpack_require_192409__(7703);
+var empty_tag_not_self_closed_1 = __nested_webpack_require_192241__(7703);
 Object.defineProperty(exports, "emptyTagNotSelfClosed", ({ enumerable: true, get: function () { return empty_tag_not_self_closed_1.default; } }));
-var tagname_lowercase_1 = __nested_webpack_require_192409__(9680);
+var tagname_lowercase_1 = __nested_webpack_require_192241__(9680);
 Object.defineProperty(exports, "tagnameLowercase", ({ enumerable: true, get: function () { return tagname_lowercase_1.default; } }));
-var tagname_specialchars_1 = __nested_webpack_require_192409__(681);
+var tagname_specialchars_1 = __nested_webpack_require_192241__(681);
 Object.defineProperty(exports, "tagnameSpecialChars", ({ enumerable: true, get: function () { return tagname_specialchars_1.default; } }));
-var title_require_1 = __nested_webpack_require_192409__(4423);
+var title_require_1 = __nested_webpack_require_192241__(4423);
 Object.defineProperty(exports, "titleRequire", ({ enumerable: true, get: function () { return title_require_1.default; } }));
-var tags_check_1 = __nested_webpack_require_192409__(4731);
+var tags_check_1 = __nested_webpack_require_192241__(4731);
 Object.defineProperty(exports, "tagsCheck", ({ enumerable: true, get: function () { return tags_check_1.default; } }));
-var attr_no_unnecessary_whitespace_1 = __nested_webpack_require_192409__(3339);
+var attr_no_unnecessary_whitespace_1 = __nested_webpack_require_192241__(3339);
 Object.defineProperty(exports, "attrNoUnnecessaryWhitespace", ({ enumerable: true, get: function () { return attr_no_unnecessary_whitespace_1.default; } }));
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvY29yZS9ydWxlcy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSw2Q0FBcUQ7QUFBNUMseUdBQUEsT0FBTyxPQUFjO0FBQzlCLG1EQUEyRDtBQUFsRCwrR0FBQSxPQUFPLE9BQWlCO0FBQ2pDLDZDQUFtRDtBQUExQyx1R0FBQSxPQUFPLE9BQVk7QUFDNUIsNkRBQW9FO0FBQTNELHdIQUFBLE9BQU8sT0FBcUI7QUFDckMseURBQWdFO0FBQXZELG9IQUFBLE9BQU8sT0FBbUI7QUFDbkMsdUVBQTZFO0FBQXBFLGlJQUFBLE9BQU8sT0FBeUI7QUFDekMsK0RBQXFFO0FBQTVELHlIQUFBLE9BQU8sT0FBcUI7QUFDckMsdUVBQTZFO0FBQXBFLGlJQUFBLE9BQU8sT0FBeUI7QUFDekMscURBQTZEO0FBQXBELGlIQUFBLE9BQU8sT0FBa0I7QUFDbEMsaURBQXlEO0FBQWhELDZHQUFBLE9BQU8sT0FBZ0I7QUFDaEMsaURBQXlEO0FBQWhELDZHQUFBLE9BQU8sT0FBZ0I7QUFDaEMsK0RBQXNFO0FBQTdELDBIQUFBLE9BQU8sT0FBc0I7QUFDdEMscURBQTJEO0FBQWxELCtHQUFBLE9BQU8sT0FBZ0I7QUFDaEMseURBQWdFO0FBQXZELG9IQUFBLE9BQU8sT0FBbUI7QUFDbkMsK0RBQXFFO0FBQTVELHlIQUFBLE9BQU8sT0FBcUI7QUFDckMsbURBQTBEO0FBQWpELDhHQUFBLE9BQU8sT0FBZ0I7QUFDaEMseUNBQWlEO0FBQXhDLHFHQUFBLE9BQU8sT0FBWTtBQUM1QixtRUFBMEU7QUFBakUsOEhBQUEsT0FBTyxPQUF3QjtBQUN4QyxpRUFBd0U7QUFBL0QsNEhBQUEsT0FBTyxPQUF1QjtBQUN2QywrREFBc0U7QUFBN0QsMEhBQUEsT0FBTyxPQUFzQjtBQUN0QyxxREFBNkQ7QUFBcEQsaUhBQUEsT0FBTyxPQUFrQjtBQUNsQyx1RUFBNkU7QUFBcEUsaUlBQUEsT0FBTyxPQUF5QjtBQUN6Qyx1REFBOEQ7QUFBckQsa0hBQUEsT0FBTyxPQUFrQjtBQUNsQyxpREFBd0Q7QUFBL0MsNEdBQUEsT0FBTyxPQUFlO0FBQy9CLG1EQUEyRDtBQUFsRCwrR0FBQSxPQUFPLE9BQWlCO0FBQ2pDLHVDQUErQztBQUF0QyxtR0FBQSxPQUFPLE9BQVc7QUFDM0IsbURBQTBEO0FBQWpELDhHQUFBLE9BQU8sT0FBZ0I7QUFDaEMseUVBQThFO0FBQXJFLGtJQUFBLE9BQU8sT0FBeUI7QUFDekMseURBQWlFO0FBQXhELHFIQUFBLE9BQU8sT0FBb0I7QUFDcEMsK0RBQXVFO0FBQTlELDJIQUFBLE9BQU8sT0FBdUI7QUFDdkMsaURBQXlEO0FBQWhELDZHQUFBLE9BQU8sT0FBZ0I7QUFDaEMsMkNBQW1EO0FBQTFDLHVHQUFBLE9BQU8sT0FBYTtBQUM3QixtRkFBeUY7QUFBaEYsNklBQUEsT0FBTyxPQUErQiJ9
 
@@ -5084,13 +5078,13 @@ if (typeof Object.create === 'function') {
 /***/ }),
 
 /***/ 5387:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_246913__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_246745__) => {
 
 "use strict";
 
 
-var hasToStringTag = __nested_webpack_require_246913__(1913)();
-var callBound = __nested_webpack_require_246913__(9818);
+var hasToStringTag = __nested_webpack_require_246745__(1913)();
+var callBound = __nested_webpack_require_246745__(9818);
 
 var $toString = callBound('Object.prototype.toString');
 
@@ -5234,7 +5228,7 @@ module.exports = reflectApply
 /***/ }),
 
 /***/ 2625:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_251244__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_251076__) => {
 
 "use strict";
 
@@ -5242,7 +5236,7 @@ module.exports = reflectApply
 var toStr = Object.prototype.toString;
 var fnToStr = Function.prototype.toString;
 var isFnRegex = /^\s*(?:function)?\*/;
-var hasToStringTag = __nested_webpack_require_251244__(1913)();
+var hasToStringTag = __nested_webpack_require_251076__(1913)();
 var getProto = Object.getPrototypeOf;
 var getGeneratorFunc = function () { // eslint-disable-line consistent-return
 	if (!hasToStringTag) {
@@ -5295,17 +5289,17 @@ module.exports = function isNaN(value) {
 /***/ }),
 
 /***/ 7838:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_252500__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_252332__) => {
 
 "use strict";
 
 
-var callBind = __nested_webpack_require_252500__(8498);
-var define = __nested_webpack_require_252500__(1857);
+var callBind = __nested_webpack_require_252332__(8498);
+var define = __nested_webpack_require_252332__(1857);
 
-var implementation = __nested_webpack_require_252500__(8006);
-var getPolyfill = __nested_webpack_require_252500__(1591);
-var shim = __nested_webpack_require_252500__(1641);
+var implementation = __nested_webpack_require_252332__(8006);
+var getPolyfill = __nested_webpack_require_252332__(1591);
+var shim = __nested_webpack_require_252332__(1641);
 
 var polyfill = callBind(getPolyfill(), Number);
 
@@ -5323,12 +5317,12 @@ module.exports = polyfill;
 /***/ }),
 
 /***/ 1591:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_253069__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_252901__) => {
 
 "use strict";
 
 
-var implementation = __nested_webpack_require_253069__(8006);
+var implementation = __nested_webpack_require_252901__(8006);
 
 module.exports = function getPolyfill() {
 	if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN('a')) {
@@ -5341,13 +5335,13 @@ module.exports = function getPolyfill() {
 /***/ }),
 
 /***/ 1641:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_253387__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_253219__) => {
 
 "use strict";
 
 
-var define = __nested_webpack_require_253387__(1857);
-var getPolyfill = __nested_webpack_require_253387__(1591);
+var define = __nested_webpack_require_253219__(1857);
+var getPolyfill = __nested_webpack_require_253219__(1591);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -5365,12 +5359,12 @@ module.exports = function shimNumberIsNaN() {
 /***/ }),
 
 /***/ 5943:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_253870__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_253702__) => {
 
 "use strict";
 
 
-var whichTypedArray = __nested_webpack_require_253870__(2730);
+var whichTypedArray = __nested_webpack_require_253702__(2730);
 
 module.exports = function isTypedArray(value) {
 	return !!whichTypedArray(value);
@@ -5407,17 +5401,17 @@ module.exports = function is(a, b) {
 /***/ }),
 
 /***/ 5968:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_254449__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_254281__) => {
 
 "use strict";
 
 
-var define = __nested_webpack_require_254449__(1857);
-var callBind = __nested_webpack_require_254449__(8498);
+var define = __nested_webpack_require_254281__(1857);
+var callBind = __nested_webpack_require_254281__(8498);
 
-var implementation = __nested_webpack_require_254449__(2372);
-var getPolyfill = __nested_webpack_require_254449__(1937);
-var shim = __nested_webpack_require_254449__(5087);
+var implementation = __nested_webpack_require_254281__(2372);
+var getPolyfill = __nested_webpack_require_254281__(1937);
+var shim = __nested_webpack_require_254281__(5087);
 
 var polyfill = callBind(getPolyfill(), Object);
 
@@ -5433,12 +5427,12 @@ module.exports = polyfill;
 /***/ }),
 
 /***/ 1937:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_254946__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_254778__) => {
 
 "use strict";
 
 
-var implementation = __nested_webpack_require_254946__(2372);
+var implementation = __nested_webpack_require_254778__(2372);
 
 module.exports = function getPolyfill() {
 	return typeof Object.is === 'function' ? Object.is : implementation;
@@ -5448,13 +5442,13 @@ module.exports = function getPolyfill() {
 /***/ }),
 
 /***/ 5087:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_255220__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_255052__) => {
 
 "use strict";
 
 
-var getPolyfill = __nested_webpack_require_255220__(1937);
-var define = __nested_webpack_require_255220__(1857);
+var getPolyfill = __nested_webpack_require_255052__(1937);
+var define = __nested_webpack_require_255052__(1857);
 
 module.exports = function shimObjectIs() {
 	var polyfill = getPolyfill();
@@ -5470,7 +5464,7 @@ module.exports = function shimObjectIs() {
 /***/ }),
 
 /***/ 8160:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_255622__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_255454__) => {
 
 "use strict";
 
@@ -5480,7 +5474,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __nested_webpack_require_255622__(968); // eslint-disable-line global-require
+	var isArgs = __nested_webpack_require_255454__(968); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -5600,16 +5594,16 @@ module.exports = keysShim;
 /***/ }),
 
 /***/ 9228:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_258935__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_258767__) => {
 
 "use strict";
 
 
 var slice = Array.prototype.slice;
-var isArgs = __nested_webpack_require_258935__(968);
+var isArgs = __nested_webpack_require_258767__(968);
 
 var origKeys = Object.keys;
-var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __nested_webpack_require_258935__(8160);
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __nested_webpack_require_258767__(8160);
 
 var originalKeys = Object.keys;
 
@@ -5856,17 +5850,17 @@ process.umask = function() { return 0; };
 /***/ }),
 
 /***/ 6108:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_265785__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_265617__) => {
 
 "use strict";
 
 
-var GetIntrinsic = __nested_webpack_require_265785__(528);
-var define = __nested_webpack_require_265785__(686);
-var hasDescriptors = __nested_webpack_require_265785__(7239)();
-var gOPD = __nested_webpack_require_265785__(9336);
+var GetIntrinsic = __nested_webpack_require_265617__(528);
+var define = __nested_webpack_require_265617__(686);
+var hasDescriptors = __nested_webpack_require_265617__(7239)();
+var gOPD = __nested_webpack_require_265617__(9336);
 
-var $TypeError = __nested_webpack_require_265785__(3468);
+var $TypeError = __nested_webpack_require_265617__(3468);
 var $floor = GetIntrinsic('%Math.floor%');
 
 /** @type {import('.')} */
@@ -5906,16 +5900,16 @@ module.exports = function setFunctionLength(fn, length) {
 /***/ }),
 
 /***/ 2125:
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_267158__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_266990__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_267158__.d(__nested_webpack_exports__, {
+/* harmony export */ __nested_webpack_require_266990__.d(__nested_webpack_exports__, {
 /* harmony export */   BaseService: () => (/* binding */ BaseService)
 /* harmony export */ });
-/* harmony import */ var vscode_languageserver_protocol__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_267158__(5501);
-/* harmony import */ var vscode_languageserver_protocol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_267158__.n(vscode_languageserver_protocol__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_267158__(7770);
-/* harmony import */ var vscode_languageserver_textdocument__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_267158__(8041);
+/* harmony import */ var vscode_languageserver_protocol__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_266990__(5501);
+/* harmony import */ var vscode_languageserver_protocol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nested_webpack_require_266990__.n(vscode_languageserver_protocol__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_266990__(7770);
+/* harmony import */ var vscode_languageserver_textdocument__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_266990__(8041);
 function _define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -5946,7 +5940,13 @@ class BaseService {
         }
     }
     renameDocument(document, newDocumentUri) {
-        this.documents[newDocumentUri] = this.documents[document.uri];
+        const previousDocument = this.getDocument(document.uri);
+        this.addDocument({
+            uri: newDocumentUri,
+            version: previousDocument.version,
+            languageId: previousDocument.languageId,
+            text: previousDocument.getText()
+        });
         this.options[newDocumentUri] = this.options[document.uri];
         this.removeDocument(document);
     }
@@ -5982,6 +5982,9 @@ class BaseService {
         if (document) vscode_languageserver_textdocument__WEBPACK_IMPORTED_MODULE_1__/* .TextDocument */ .V.update(document, deltas, identifier.version);
     }
     async doComplete(document, position) {
+        return null;
+    }
+    async doInlineComplete(document, position) {
         return null;
     }
     async doHover(document, position) {
@@ -6029,6 +6032,12 @@ class BaseService {
         return Promise.resolve(null);
     }
     sendAppliedResult(result, callbackId) {}
+    sendRequest(name, args) {
+        return Promise.resolve(null);
+    }
+    sendResponse(callbackId, args) {
+        return;
+    }
     constructor(mode, workspaceUri){
         _define_property(this, "serviceName", void 0);
         _define_property(this, "mode", void 0);
@@ -6114,6 +6123,14 @@ class BaseService {
                 },
                 codeAction: {
                     dynamicRegistration: true
+                },
+                inlineCompletion: {
+                    dynamicRegistration: true
+                }
+            },
+            window: {
+                showDocument: {
+                    support: true
                 }
             },
             workspace: {
@@ -6133,6 +6150,12 @@ class BaseService {
         });
         this.mode = mode;
         this.workspaceUri = workspaceUri;
+        this.serviceName = "BaseService";
+        this.serviceData = {
+            className: "BaseService",
+            modes: "",
+            module: ()=>{}
+        };
     }
 }
 
@@ -6140,15 +6163,14 @@ class BaseService {
 /***/ }),
 
 /***/ 7770:
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_277187__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_277831__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_277187__.d(__nested_webpack_exports__, {
+/* harmony export */ __nested_webpack_require_277831__.d(__nested_webpack_exports__, {
 /* harmony export */   Tk: () => (/* binding */ checkValueAgainstRegexpArray),
 /* harmony export */   rL: () => (/* binding */ mergeObjects)
 /* harmony export */ });
-/* unused harmony exports notEmpty, mergeRanges, convertToUri */
-
+/* unused harmony exports notEmpty, isEmptyRange, mergeRanges, convertToUri */
 function mergeObjects(obj1, obj2, excludeUndefined = false) {
     if (!obj1) return obj2;
     if (!obj2) return obj1;
@@ -6180,6 +6202,9 @@ function excludeUndefinedValues(obj) {
 function notEmpty(value) {
     return value !== null && value !== undefined;
 }
+function isEmptyRange(range) {
+    return range.start.row === range.end.row && range.start.column === range.end.column;
+}
 //taken with small changes from ace-code
 function mergeRanges(ranges) {
     var list = ranges;
@@ -6192,7 +6217,7 @@ function mergeRanges(ranges) {
         next = list[i];
         var cmp = comparePoints(range.end, next.start);
         if (cmp < 0) continue;
-        if (cmp == 0 && !range.isEmpty() && !next.isEmpty()) continue;
+        if (cmp == 0 && !isEmptyRange(range) && !isEmptyRange(next)) continue;
         if (comparePoints(range.end, next.end) < 0) {
             range.end.row = next.end.row;
             range.end.column = next.end.column;
@@ -6217,12 +6242,32 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
     }
     return false;
 }
-function convertToUri(filePath) {
-    //already URI
-    if (filePath.startsWith("file:///")) {
-        return filePath;
+
+/**
+ * Converts a given file path to a URI format. If the given file path is already a URI,
+ * it normalizes and optionally resolves the path against a workspace URI.
+ *
+ * @param filePath - The file path to convert to a URI. Can be an absolute path or an existing file URI.
+ * @param [joinWorkspaceURI] - Optional flag to determine if the converted URI should be joined with given URI
+ * @param [workspaceUri] - The base workspace URI to resolve against if `joinWorkspaceURI` is true. Required if resolution is needed.
+ * @return {string} - The resulting URI
+ */ function convertToUri(filePath, joinWorkspaceURI = false, workspaceUri) {
+    const isFullUri = filePath.startsWith('file://');
+    const normalizedPath = filePath.replace(/\\/g, "/");
+    let uri;
+    if (isFullUri) {
+        uri = URI.parse(normalizedPath);
+    } else {
+        uri = URI.file(normalizedPath);
     }
-    return URI.file(filePath).toString();
+    if (joinWorkspaceURI && workspaceUri) {
+        if (!workspaceUri.startsWith('file://')) {
+            throw new Error('workspaceUri must be a file:// URI');
+        }
+        const workspaceUriParsed = URI.parse(workspaceUri);
+        uri = Utils.joinPath(workspaceUriParsed, uri.path);
+    }
+    return uri.toString();
 }
 
 
@@ -6241,7 +6286,7 @@ module.exports = function isBuffer(arg) {
 /***/ }),
 
 /***/ 1531:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_280244__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_282080__) => {
 
 "use strict";
 // Currently in sync with Node.js lib/internal/util/types.js
@@ -6249,10 +6294,10 @@ module.exports = function isBuffer(arg) {
 
 
 
-var isArgumentsObject = __nested_webpack_require_280244__(5387);
-var isGeneratorFunction = __nested_webpack_require_280244__(2625);
-var whichTypedArray = __nested_webpack_require_280244__(2730);
-var isTypedArray = __nested_webpack_require_280244__(5943);
+var isArgumentsObject = __nested_webpack_require_282080__(5387);
+var isGeneratorFunction = __nested_webpack_require_282080__(2625);
+var whichTypedArray = __nested_webpack_require_282080__(2730);
+var isTypedArray = __nested_webpack_require_282080__(5943);
 
 function uncurryThis(f) {
   return f.call.bind(f);
@@ -6583,10 +6628,10 @@ exports.isAnyArrayBuffer = isAnyArrayBuffer;
 /***/ }),
 
 /***/ 6827:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_289003__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_290839__) => {
 
-/* provided dependency */ var process = __nested_webpack_require_289003__(9907);
-/* provided dependency */ var console = __nested_webpack_require_289003__(4364);
+/* provided dependency */ var process = __nested_webpack_require_290839__(9907);
+/* provided dependency */ var console = __nested_webpack_require_290839__(4364);
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7053,7 +7098,7 @@ function reduceToSingleString(output, base, braces) {
 
 // NOTE: These type checking functions intentionally don't use `instanceof`
 // because it is fragile and can be easily faked with `Object.create()`.
-exports.types = __nested_webpack_require_289003__(1531);
+exports.types = __nested_webpack_require_290839__(1531);
 
 function isArray(ar) {
   return Array.isArray(ar);
@@ -7134,7 +7179,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __nested_webpack_require_289003__(5272);
+exports.isBuffer = __nested_webpack_require_290839__(5272);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -7178,7 +7223,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __nested_webpack_require_289003__(5615);
+exports.inherits = __nested_webpack_require_290839__(5615);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -7307,7 +7352,7 @@ exports.callbackify = callbackify;
 /***/ }),
 
 /***/ 9208:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_308929__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_310765__) => {
 
 "use strict";
 /* --------------------------------------------------------------------------------------------
@@ -7316,12 +7361,12 @@ exports.callbackify = callbackify;
  * ----------------------------------------------------------------------------------------- */
 
 
-module.exports = __nested_webpack_require_308929__(9110);
+module.exports = __nested_webpack_require_310765__(9110);
 
 /***/ }),
 
 /***/ 9110:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_309439__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_311275__) {
 
 "use strict";
 
@@ -7345,11 +7390,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createMessageConnection = exports.BrowserMessageWriter = exports.BrowserMessageReader = void 0;
-const ril_1 = __nested_webpack_require_309439__(3312);
+const ril_1 = __nested_webpack_require_311275__(3312);
 // Install the browser runtime abstract.
 ril_1.default.install();
-const api_1 = __nested_webpack_require_309439__(7672);
-__exportStar(__nested_webpack_require_309439__(7672), exports);
+const api_1 = __nested_webpack_require_311275__(7672);
+__exportStar(__nested_webpack_require_311275__(7672), exports);
 class BrowserMessageReader extends api_1.AbstractMessageReader {
     constructor(port) {
         super();
@@ -7405,17 +7450,17 @@ exports.createMessageConnection = createMessageConnection;
 /***/ }),
 
 /***/ 3312:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_312508__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_314344__) => {
 
 "use strict";
-/* provided dependency */ var console = __nested_webpack_require_312508__(4364);
+/* provided dependency */ var console = __nested_webpack_require_314344__(4364);
 
 /* --------------------------------------------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const api_1 = __nested_webpack_require_312508__(7672);
+const api_1 = __nested_webpack_require_314344__(7672);
 class MessageBuffer extends api_1.AbstractMessageBuffer {
     constructor(encoding = 'utf-8') {
         super(encoding);
@@ -7570,7 +7615,7 @@ exports["default"] = RIL;
 /***/ }),
 
 /***/ 7672:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_318319__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_320155__) => {
 
 "use strict";
 
@@ -7582,7 +7627,7 @@ exports["default"] = RIL;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ProgressType = exports.ProgressToken = exports.createMessageConnection = exports.NullLogger = exports.ConnectionOptions = exports.ConnectionStrategy = exports.AbstractMessageBuffer = exports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = exports.ReadableStreamMessageReader = exports.AbstractMessageReader = exports.MessageReader = exports.SharedArrayReceiverStrategy = exports.SharedArraySenderStrategy = exports.CancellationToken = exports.CancellationTokenSource = exports.Emitter = exports.Event = exports.Disposable = exports.LRUCache = exports.Touch = exports.LinkedMap = exports.ParameterStructures = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.ErrorCodes = exports.ResponseError = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType0 = exports.RequestType = exports.Message = exports.RAL = void 0;
 exports.MessageStrategy = exports.CancellationStrategy = exports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = exports.TraceFormat = exports.TraceValues = exports.Trace = void 0;
-const messages_1 = __nested_webpack_require_318319__(7162);
+const messages_1 = __nested_webpack_require_320155__(7162);
 Object.defineProperty(exports, "Message", ({ enumerable: true, get: function () { return messages_1.Message; } }));
 Object.defineProperty(exports, "RequestType", ({ enumerable: true, get: function () { return messages_1.RequestType; } }));
 Object.defineProperty(exports, "RequestType0", ({ enumerable: true, get: function () { return messages_1.RequestType0; } }));
@@ -7609,32 +7654,32 @@ Object.defineProperty(exports, "NotificationType7", ({ enumerable: true, get: fu
 Object.defineProperty(exports, "NotificationType8", ({ enumerable: true, get: function () { return messages_1.NotificationType8; } }));
 Object.defineProperty(exports, "NotificationType9", ({ enumerable: true, get: function () { return messages_1.NotificationType9; } }));
 Object.defineProperty(exports, "ParameterStructures", ({ enumerable: true, get: function () { return messages_1.ParameterStructures; } }));
-const linkedMap_1 = __nested_webpack_require_318319__(1109);
+const linkedMap_1 = __nested_webpack_require_320155__(1109);
 Object.defineProperty(exports, "LinkedMap", ({ enumerable: true, get: function () { return linkedMap_1.LinkedMap; } }));
 Object.defineProperty(exports, "LRUCache", ({ enumerable: true, get: function () { return linkedMap_1.LRUCache; } }));
 Object.defineProperty(exports, "Touch", ({ enumerable: true, get: function () { return linkedMap_1.Touch; } }));
-const disposable_1 = __nested_webpack_require_318319__(8844);
+const disposable_1 = __nested_webpack_require_320155__(8844);
 Object.defineProperty(exports, "Disposable", ({ enumerable: true, get: function () { return disposable_1.Disposable; } }));
-const events_1 = __nested_webpack_require_318319__(2479);
+const events_1 = __nested_webpack_require_320155__(2479);
 Object.defineProperty(exports, "Event", ({ enumerable: true, get: function () { return events_1.Event; } }));
 Object.defineProperty(exports, "Emitter", ({ enumerable: true, get: function () { return events_1.Emitter; } }));
-const cancellation_1 = __nested_webpack_require_318319__(6957);
+const cancellation_1 = __nested_webpack_require_320155__(6957);
 Object.defineProperty(exports, "CancellationTokenSource", ({ enumerable: true, get: function () { return cancellation_1.CancellationTokenSource; } }));
 Object.defineProperty(exports, "CancellationToken", ({ enumerable: true, get: function () { return cancellation_1.CancellationToken; } }));
-const sharedArrayCancellation_1 = __nested_webpack_require_318319__(3489);
+const sharedArrayCancellation_1 = __nested_webpack_require_320155__(3489);
 Object.defineProperty(exports, "SharedArraySenderStrategy", ({ enumerable: true, get: function () { return sharedArrayCancellation_1.SharedArraySenderStrategy; } }));
 Object.defineProperty(exports, "SharedArrayReceiverStrategy", ({ enumerable: true, get: function () { return sharedArrayCancellation_1.SharedArrayReceiverStrategy; } }));
-const messageReader_1 = __nested_webpack_require_318319__(656);
+const messageReader_1 = __nested_webpack_require_320155__(656);
 Object.defineProperty(exports, "MessageReader", ({ enumerable: true, get: function () { return messageReader_1.MessageReader; } }));
 Object.defineProperty(exports, "AbstractMessageReader", ({ enumerable: true, get: function () { return messageReader_1.AbstractMessageReader; } }));
 Object.defineProperty(exports, "ReadableStreamMessageReader", ({ enumerable: true, get: function () { return messageReader_1.ReadableStreamMessageReader; } }));
-const messageWriter_1 = __nested_webpack_require_318319__(9036);
+const messageWriter_1 = __nested_webpack_require_320155__(9036);
 Object.defineProperty(exports, "MessageWriter", ({ enumerable: true, get: function () { return messageWriter_1.MessageWriter; } }));
 Object.defineProperty(exports, "AbstractMessageWriter", ({ enumerable: true, get: function () { return messageWriter_1.AbstractMessageWriter; } }));
 Object.defineProperty(exports, "WriteableStreamMessageWriter", ({ enumerable: true, get: function () { return messageWriter_1.WriteableStreamMessageWriter; } }));
-const messageBuffer_1 = __nested_webpack_require_318319__(9805);
+const messageBuffer_1 = __nested_webpack_require_320155__(9805);
 Object.defineProperty(exports, "AbstractMessageBuffer", ({ enumerable: true, get: function () { return messageBuffer_1.AbstractMessageBuffer; } }));
-const connection_1 = __nested_webpack_require_318319__(4054);
+const connection_1 = __nested_webpack_require_320155__(4054);
 Object.defineProperty(exports, "ConnectionStrategy", ({ enumerable: true, get: function () { return connection_1.ConnectionStrategy; } }));
 Object.defineProperty(exports, "ConnectionOptions", ({ enumerable: true, get: function () { return connection_1.ConnectionOptions; } }));
 Object.defineProperty(exports, "NullLogger", ({ enumerable: true, get: function () { return connection_1.NullLogger; } }));
@@ -7652,14 +7697,14 @@ Object.defineProperty(exports, "CancellationReceiverStrategy", ({ enumerable: tr
 Object.defineProperty(exports, "CancellationSenderStrategy", ({ enumerable: true, get: function () { return connection_1.CancellationSenderStrategy; } }));
 Object.defineProperty(exports, "CancellationStrategy", ({ enumerable: true, get: function () { return connection_1.CancellationStrategy; } }));
 Object.defineProperty(exports, "MessageStrategy", ({ enumerable: true, get: function () { return connection_1.MessageStrategy; } }));
-const ral_1 = __nested_webpack_require_318319__(5091);
+const ral_1 = __nested_webpack_require_320155__(5091);
 exports.RAL = ral_1.default;
 
 
 /***/ }),
 
 /***/ 6957:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_329158__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_330994__) => {
 
 "use strict";
 
@@ -7669,9 +7714,9 @@ exports.RAL = ral_1.default;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CancellationTokenSource = exports.CancellationToken = void 0;
-const ral_1 = __nested_webpack_require_329158__(5091);
-const Is = __nested_webpack_require_329158__(6618);
-const events_1 = __nested_webpack_require_329158__(2479);
+const ral_1 = __nested_webpack_require_330994__(5091);
+const Is = __nested_webpack_require_330994__(6618);
+const events_1 = __nested_webpack_require_330994__(2479);
 var CancellationToken;
 (function (CancellationToken) {
     CancellationToken.None = Object.freeze({
@@ -7763,7 +7808,7 @@ exports.CancellationTokenSource = CancellationTokenSource;
 /***/ }),
 
 /***/ 4054:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_332568__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_334404__) => {
 
 "use strict";
 
@@ -7773,12 +7818,12 @@ exports.CancellationTokenSource = CancellationTokenSource;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createMessageConnection = exports.ConnectionOptions = exports.MessageStrategy = exports.CancellationStrategy = exports.CancellationSenderStrategy = exports.CancellationReceiverStrategy = exports.RequestCancellationReceiverStrategy = exports.IdCancellationReceiverStrategy = exports.ConnectionStrategy = exports.ConnectionError = exports.ConnectionErrors = exports.LogTraceNotification = exports.SetTraceNotification = exports.TraceFormat = exports.TraceValues = exports.Trace = exports.NullLogger = exports.ProgressType = exports.ProgressToken = void 0;
-const ral_1 = __nested_webpack_require_332568__(5091);
-const Is = __nested_webpack_require_332568__(6618);
-const messages_1 = __nested_webpack_require_332568__(7162);
-const linkedMap_1 = __nested_webpack_require_332568__(1109);
-const events_1 = __nested_webpack_require_332568__(2479);
-const cancellation_1 = __nested_webpack_require_332568__(6957);
+const ral_1 = __nested_webpack_require_334404__(5091);
+const Is = __nested_webpack_require_334404__(6618);
+const messages_1 = __nested_webpack_require_334404__(7162);
+const linkedMap_1 = __nested_webpack_require_334404__(1109);
+const events_1 = __nested_webpack_require_334404__(2479);
+const cancellation_1 = __nested_webpack_require_334404__(6957);
 var CancelNotification;
 (function (CancelNotification) {
     CancelNotification.type = new messages_1.NotificationType('$/cancelRequest');
@@ -9007,7 +9052,7 @@ var Disposable;
 /***/ }),
 
 /***/ 2479:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_384498__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_386334__) => {
 
 "use strict";
 
@@ -9017,7 +9062,7 @@ var Disposable;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Emitter = exports.Event = void 0;
-const ral_1 = __nested_webpack_require_384498__(5091);
+const ral_1 = __nested_webpack_require_386334__(5091);
 var Event;
 (function (Event) {
     const _disposable = { dispose() { } };
@@ -9752,7 +9797,7 @@ exports.AbstractMessageBuffer = AbstractMessageBuffer;
 /***/ }),
 
 /***/ 656:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_408027__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_409863__) => {
 
 "use strict";
 
@@ -9762,10 +9807,10 @@ exports.AbstractMessageBuffer = AbstractMessageBuffer;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ReadableStreamMessageReader = exports.AbstractMessageReader = exports.MessageReader = void 0;
-const ral_1 = __nested_webpack_require_408027__(5091);
-const Is = __nested_webpack_require_408027__(6618);
-const events_1 = __nested_webpack_require_408027__(2479);
-const semaphore_1 = __nested_webpack_require_408027__(418);
+const ral_1 = __nested_webpack_require_409863__(5091);
+const Is = __nested_webpack_require_409863__(6618);
+const events_1 = __nested_webpack_require_409863__(2479);
+const semaphore_1 = __nested_webpack_require_409863__(418);
 var MessageReader;
 (function (MessageReader) {
     function is(value) {
@@ -9957,7 +10002,7 @@ exports.ReadableStreamMessageReader = ReadableStreamMessageReader;
 /***/ }),
 
 /***/ 9036:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_416303__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_418139__) => {
 
 "use strict";
 
@@ -9967,10 +10012,10 @@ exports.ReadableStreamMessageReader = ReadableStreamMessageReader;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WriteableStreamMessageWriter = exports.AbstractMessageWriter = exports.MessageWriter = void 0;
-const ral_1 = __nested_webpack_require_416303__(5091);
-const Is = __nested_webpack_require_416303__(6618);
-const semaphore_1 = __nested_webpack_require_416303__(418);
-const events_1 = __nested_webpack_require_416303__(2479);
+const ral_1 = __nested_webpack_require_418139__(5091);
+const Is = __nested_webpack_require_418139__(6618);
+const semaphore_1 = __nested_webpack_require_418139__(418);
+const events_1 = __nested_webpack_require_418139__(2479);
 const ContentLength = 'Content-Length: ';
 const CRLF = '\r\n';
 var MessageWriter;
@@ -10080,7 +10125,7 @@ exports.WriteableStreamMessageWriter = WriteableStreamMessageWriter;
 /***/ }),
 
 /***/ 7162:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_420858__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_422694__) => {
 
 "use strict";
 
@@ -10090,7 +10135,7 @@ exports.WriteableStreamMessageWriter = WriteableStreamMessageWriter;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Message = exports.NotificationType9 = exports.NotificationType8 = exports.NotificationType7 = exports.NotificationType6 = exports.NotificationType5 = exports.NotificationType4 = exports.NotificationType3 = exports.NotificationType2 = exports.NotificationType1 = exports.NotificationType0 = exports.NotificationType = exports.RequestType9 = exports.RequestType8 = exports.RequestType7 = exports.RequestType6 = exports.RequestType5 = exports.RequestType4 = exports.RequestType3 = exports.RequestType2 = exports.RequestType1 = exports.RequestType = exports.RequestType0 = exports.AbstractMessageSignature = exports.ParameterStructures = exports.ResponseError = exports.ErrorCodes = void 0;
-const is = __nested_webpack_require_420858__(6618);
+const is = __nested_webpack_require_422694__(6618);
 /**
  * Predefined error codes.
  */
@@ -10425,7 +10470,7 @@ exports["default"] = RAL;
 /***/ }),
 
 /***/ 418:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_432234__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_434070__) => {
 
 "use strict";
 
@@ -10435,7 +10480,7 @@ exports["default"] = RAL;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Semaphore = void 0;
-const ral_1 = __nested_webpack_require_432234__(5091);
+const ral_1 = __nested_webpack_require_434070__(5091);
 class Semaphore {
     constructor(capacity = 1) {
         if (capacity <= 0) {
@@ -10501,7 +10546,7 @@ exports.Semaphore = Semaphore;
 /***/ }),
 
 /***/ 3489:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_434537__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_436373__) => {
 
 "use strict";
 
@@ -10511,7 +10556,7 @@ exports.Semaphore = Semaphore;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SharedArrayReceiverStrategy = exports.SharedArraySenderStrategy = void 0;
-const cancellation_1 = __nested_webpack_require_434537__(6957);
+const cancellation_1 = __nested_webpack_require_436373__(6957);
 var CancellationState;
 (function (CancellationState) {
     CancellationState.Continue = 0;
@@ -10585,7 +10630,7 @@ exports.SharedArrayReceiverStrategy = SharedArrayReceiverStrategy;
 /***/ }),
 
 /***/ 5501:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_437282__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_439118__) {
 
 "use strict";
 
@@ -10609,9 +10654,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createProtocolConnection = void 0;
-const browser_1 = __nested_webpack_require_437282__(9208);
-__exportStar(__nested_webpack_require_437282__(9208), exports);
-__exportStar(__nested_webpack_require_437282__(3147), exports);
+const browser_1 = __nested_webpack_require_439118__(9208);
+__exportStar(__nested_webpack_require_439118__(9208), exports);
+__exportStar(__nested_webpack_require_439118__(3147), exports);
 function createProtocolConnection(reader, writer, logger, options) {
     return (0, browser_1.createMessageConnection)(reader, writer, logger, options);
 }
@@ -10621,7 +10666,7 @@ exports.createProtocolConnection = createProtocolConnection;
 /***/ }),
 
 /***/ 3147:
-/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_438895__) {
+/***/ (function(__unused_webpack_module, exports, __nested_webpack_require_440731__) {
 
 "use strict";
 
@@ -10645,11 +10690,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LSPErrorCodes = exports.createProtocolConnection = void 0;
-__exportStar(__nested_webpack_require_438895__(9110), exports);
-__exportStar(__nested_webpack_require_438895__(2852), exports);
-__exportStar(__nested_webpack_require_438895__(8431), exports);
-__exportStar(__nested_webpack_require_438895__(1815), exports);
-var connection_1 = __nested_webpack_require_438895__(291);
+__exportStar(__nested_webpack_require_440731__(9110), exports);
+__exportStar(__nested_webpack_require_440731__(2852), exports);
+__exportStar(__nested_webpack_require_440731__(8431), exports);
+__exportStar(__nested_webpack_require_440731__(1815), exports);
+var connection_1 = __nested_webpack_require_440731__(291);
 Object.defineProperty(exports, "createProtocolConnection", ({ enumerable: true, get: function () { return connection_1.createProtocolConnection; } }));
 var LSPErrorCodes;
 (function (LSPErrorCodes) {
@@ -10706,7 +10751,7 @@ var LSPErrorCodes;
 /***/ }),
 
 /***/ 291:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_442255__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_444091__) => {
 
 "use strict";
 
@@ -10716,7 +10761,7 @@ var LSPErrorCodes;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createProtocolConnection = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_442255__(9110);
+const vscode_jsonrpc_1 = __nested_webpack_require_444091__(9110);
 function createProtocolConnection(input, output, logger, options) {
     if (vscode_jsonrpc_1.ConnectionStrategy.is(options)) {
         options = { connectionStrategy: options };
@@ -10729,7 +10774,7 @@ exports.createProtocolConnection = createProtocolConnection;
 /***/ }),
 
 /***/ 8431:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_443211__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_445047__) => {
 
 "use strict";
 
@@ -10739,7 +10784,7 @@ exports.createProtocolConnection = createProtocolConnection;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ProtocolNotificationType = exports.ProtocolNotificationType0 = exports.ProtocolRequestType = exports.ProtocolRequestType0 = exports.RegistrationType = exports.MessageDirection = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_443211__(9110);
+const vscode_jsonrpc_1 = __nested_webpack_require_445047__(9110);
 var MessageDirection;
 (function (MessageDirection) {
     MessageDirection["clientToServer"] = "clientToServer";
@@ -10781,7 +10826,7 @@ exports.ProtocolNotificationType = ProtocolNotificationType;
 /***/ }),
 
 /***/ 7602:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_445231__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_447067__) => {
 
 "use strict";
 
@@ -10791,7 +10836,7 @@ exports.ProtocolNotificationType = ProtocolNotificationType;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CallHierarchyOutgoingCallsRequest = exports.CallHierarchyIncomingCallsRequest = exports.CallHierarchyPrepareRequest = void 0;
-const messages_1 = __nested_webpack_require_445231__(8431);
+const messages_1 = __nested_webpack_require_447067__(8431);
 /**
  * A request to result a `CallHierarchyItem` in a document at a given position.
  * Can be used as an input to an incoming or outgoing call hierarchy.
@@ -10831,7 +10876,7 @@ var CallHierarchyOutgoingCallsRequest;
 /***/ }),
 
 /***/ 3747:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_447829__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_449665__) => {
 
 "use strict";
 
@@ -10841,7 +10886,7 @@ var CallHierarchyOutgoingCallsRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ColorPresentationRequest = exports.DocumentColorRequest = void 0;
-const messages_1 = __nested_webpack_require_447829__(8431);
+const messages_1 = __nested_webpack_require_449665__(8431);
 /**
  * A request to list all color symbols found in a given text document. The request's
  * parameter is of type {@link DocumentColorParams} the
@@ -10871,7 +10916,7 @@ var ColorPresentationRequest;
 /***/ }),
 
 /***/ 7639:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_449805__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_451641__) => {
 
 "use strict";
 
@@ -10881,7 +10926,7 @@ var ColorPresentationRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ConfigurationRequest = void 0;
-const messages_1 = __nested_webpack_require_449805__(8431);
+const messages_1 = __nested_webpack_require_451641__(8431);
 //---- Get Configuration request ----
 /**
  * The 'workspace/configuration' request is sent from the server to the client to fetch a certain
@@ -10903,7 +10948,7 @@ var ConfigurationRequest;
 /***/ }),
 
 /***/ 5581:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_451350__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_453186__) => {
 
 "use strict";
 
@@ -10913,7 +10958,7 @@ var ConfigurationRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeclarationRequest = void 0;
-const messages_1 = __nested_webpack_require_451350__(8431);
+const messages_1 = __nested_webpack_require_453186__(8431);
 // @ts-ignore: to avoid inlining LocationLink as dynamic import
 let __noDynamicImport;
 /**
@@ -10933,7 +10978,7 @@ var DeclarationRequest;
 /***/ }),
 
 /***/ 1494:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_452735__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_454571__) => {
 
 "use strict";
 
@@ -10943,9 +10988,9 @@ var DeclarationRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DiagnosticRefreshRequest = exports.WorkspaceDiagnosticRequest = exports.DocumentDiagnosticRequest = exports.DocumentDiagnosticReportKind = exports.DiagnosticServerCancellationData = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_452735__(9110);
-const Is = __nested_webpack_require_452735__(8633);
-const messages_1 = __nested_webpack_require_452735__(8431);
+const vscode_jsonrpc_1 = __nested_webpack_require_454571__(9110);
+const Is = __nested_webpack_require_454571__(8633);
+const messages_1 = __nested_webpack_require_454571__(8431);
 /**
  * @since 3.17.0
  */
@@ -11015,7 +11060,7 @@ var DiagnosticRefreshRequest;
 /***/ }),
 
 /***/ 4781:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_456262__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_458098__) => {
 
 "use strict";
 
@@ -11025,7 +11070,7 @@ var DiagnosticRefreshRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WillDeleteFilesRequest = exports.DidDeleteFilesNotification = exports.DidRenameFilesNotification = exports.WillRenameFilesRequest = exports.DidCreateFilesNotification = exports.WillCreateFilesRequest = exports.FileOperationPatternKind = void 0;
-const messages_1 = __nested_webpack_require_456262__(8431);
+const messages_1 = __nested_webpack_require_458098__(8431);
 /**
  * A pattern kind describing if a glob pattern matches a file a folder or
  * both.
@@ -11124,7 +11169,7 @@ var WillDeleteFilesRequest;
 /***/ }),
 
 /***/ 1203:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_461434__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_463270__) => {
 
 "use strict";
 
@@ -11134,7 +11179,7 @@ var WillDeleteFilesRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FoldingRangeRefreshRequest = exports.FoldingRangeRequest = void 0;
-const messages_1 = __nested_webpack_require_461434__(8431);
+const messages_1 = __nested_webpack_require_463270__(8431);
 /**
  * A request to provide folding ranges in a document. The request's
  * parameter is of type {@link FoldingRangeParams}, the
@@ -11162,7 +11207,7 @@ var FoldingRangeRefreshRequest;
 /***/ }),
 
 /***/ 7287:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_463184__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_465020__) => {
 
 "use strict";
 
@@ -11172,7 +11217,7 @@ var FoldingRangeRefreshRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ImplementationRequest = void 0;
-const messages_1 = __nested_webpack_require_463184__(8431);
+const messages_1 = __nested_webpack_require_465020__(8431);
 // @ts-ignore: to avoid inlining LocationLink as dynamic import
 let __noDynamicImport;
 /**
@@ -11191,7 +11236,7 @@ var ImplementationRequest;
 /***/ }),
 
 /***/ 9383:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_464553__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_466389__) => {
 
 "use strict";
 
@@ -11201,7 +11246,7 @@ var ImplementationRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.InlayHintRefreshRequest = exports.InlayHintResolveRequest = exports.InlayHintRequest = void 0;
-const messages_1 = __nested_webpack_require_464553__(8431);
+const messages_1 = __nested_webpack_require_466389__(8431);
 /**
  * A request to provide inlay hints in a document. The request's parameter is of
  * type {@link InlayHintsParams}, the response is of type
@@ -11242,7 +11287,7 @@ var InlayHintRefreshRequest;
 /***/ }),
 
 /***/ 2322:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_466923__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_468759__) => {
 
 "use strict";
 
@@ -11252,7 +11297,7 @@ var InlayHintRefreshRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.InlineCompletionRequest = void 0;
-const messages_1 = __nested_webpack_require_466923__(8431);
+const messages_1 = __nested_webpack_require_468759__(8431);
 /**
  * A request to provide inline completions in a document. The request's parameter is of
  * type {@link InlineCompletionParams}, the response is of type
@@ -11272,7 +11317,7 @@ var InlineCompletionRequest;
 /***/ }),
 
 /***/ 3491:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_468242__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_470078__) => {
 
 "use strict";
 
@@ -11282,7 +11327,7 @@ var InlineCompletionRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.InlineValueRefreshRequest = exports.InlineValueRequest = void 0;
-const messages_1 = __nested_webpack_require_468242__(8431);
+const messages_1 = __nested_webpack_require_470078__(8431);
 /**
  * A request to provide inline values in a document. The request's parameter is of
  * type {@link InlineValueParams}, the response is of type
@@ -11310,7 +11355,7 @@ var InlineValueRefreshRequest;
 /***/ }),
 
 /***/ 1815:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_469981__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_471817__) => {
 
 "use strict";
 
@@ -11322,48 +11367,48 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WorkspaceSymbolRequest = exports.CodeActionResolveRequest = exports.CodeActionRequest = exports.DocumentSymbolRequest = exports.DocumentHighlightRequest = exports.ReferencesRequest = exports.DefinitionRequest = exports.SignatureHelpRequest = exports.SignatureHelpTriggerKind = exports.HoverRequest = exports.CompletionResolveRequest = exports.CompletionRequest = exports.CompletionTriggerKind = exports.PublishDiagnosticsNotification = exports.WatchKind = exports.RelativePattern = exports.FileChangeType = exports.DidChangeWatchedFilesNotification = exports.WillSaveTextDocumentWaitUntilRequest = exports.WillSaveTextDocumentNotification = exports.TextDocumentSaveReason = exports.DidSaveTextDocumentNotification = exports.DidCloseTextDocumentNotification = exports.DidChangeTextDocumentNotification = exports.TextDocumentContentChangeEvent = exports.DidOpenTextDocumentNotification = exports.TextDocumentSyncKind = exports.TelemetryEventNotification = exports.LogMessageNotification = exports.ShowMessageRequest = exports.ShowMessageNotification = exports.MessageType = exports.DidChangeConfigurationNotification = exports.ExitNotification = exports.ShutdownRequest = exports.InitializedNotification = exports.InitializeErrorCodes = exports.InitializeRequest = exports.WorkDoneProgressOptions = exports.TextDocumentRegistrationOptions = exports.StaticRegistrationOptions = exports.PositionEncodingKind = exports.FailureHandlingKind = exports.ResourceOperationKind = exports.UnregistrationRequest = exports.RegistrationRequest = exports.DocumentSelector = exports.NotebookCellTextDocumentFilter = exports.NotebookDocumentFilter = exports.TextDocumentFilter = void 0;
 exports.MonikerRequest = exports.MonikerKind = exports.UniquenessLevel = exports.WillDeleteFilesRequest = exports.DidDeleteFilesNotification = exports.WillRenameFilesRequest = exports.DidRenameFilesNotification = exports.WillCreateFilesRequest = exports.DidCreateFilesNotification = exports.FileOperationPatternKind = exports.LinkedEditingRangeRequest = exports.ShowDocumentRequest = exports.SemanticTokensRegistrationType = exports.SemanticTokensRefreshRequest = exports.SemanticTokensRangeRequest = exports.SemanticTokensDeltaRequest = exports.SemanticTokensRequest = exports.TokenFormat = exports.CallHierarchyPrepareRequest = exports.CallHierarchyOutgoingCallsRequest = exports.CallHierarchyIncomingCallsRequest = exports.WorkDoneProgressCancelNotification = exports.WorkDoneProgressCreateRequest = exports.WorkDoneProgress = exports.SelectionRangeRequest = exports.DeclarationRequest = exports.FoldingRangeRefreshRequest = exports.FoldingRangeRequest = exports.ColorPresentationRequest = exports.DocumentColorRequest = exports.ConfigurationRequest = exports.DidChangeWorkspaceFoldersNotification = exports.WorkspaceFoldersRequest = exports.TypeDefinitionRequest = exports.ImplementationRequest = exports.ApplyWorkspaceEditRequest = exports.ExecuteCommandRequest = exports.PrepareRenameRequest = exports.RenameRequest = exports.PrepareSupportDefaultBehavior = exports.DocumentOnTypeFormattingRequest = exports.DocumentRangesFormattingRequest = exports.DocumentRangeFormattingRequest = exports.DocumentFormattingRequest = exports.DocumentLinkResolveRequest = exports.DocumentLinkRequest = exports.CodeLensRefreshRequest = exports.CodeLensResolveRequest = exports.CodeLensRequest = exports.WorkspaceSymbolResolveRequest = void 0;
 exports.InlineCompletionRequest = exports.DidCloseNotebookDocumentNotification = exports.DidSaveNotebookDocumentNotification = exports.DidChangeNotebookDocumentNotification = exports.NotebookCellArrayChange = exports.DidOpenNotebookDocumentNotification = exports.NotebookDocumentSyncRegistrationType = exports.NotebookDocument = exports.NotebookCell = exports.ExecutionSummary = exports.NotebookCellKind = exports.DiagnosticRefreshRequest = exports.WorkspaceDiagnosticRequest = exports.DocumentDiagnosticRequest = exports.DocumentDiagnosticReportKind = exports.DiagnosticServerCancellationData = exports.InlayHintRefreshRequest = exports.InlayHintResolveRequest = exports.InlayHintRequest = exports.InlineValueRefreshRequest = exports.InlineValueRequest = exports.TypeHierarchySupertypesRequest = exports.TypeHierarchySubtypesRequest = exports.TypeHierarchyPrepareRequest = void 0;
-const messages_1 = __nested_webpack_require_469981__(8431);
-const vscode_languageserver_types_1 = __nested_webpack_require_469981__(2852);
-const Is = __nested_webpack_require_469981__(8633);
-const protocol_implementation_1 = __nested_webpack_require_469981__(7287);
+const messages_1 = __nested_webpack_require_471817__(8431);
+const vscode_languageserver_types_1 = __nested_webpack_require_471817__(2852);
+const Is = __nested_webpack_require_471817__(8633);
+const protocol_implementation_1 = __nested_webpack_require_471817__(7287);
 Object.defineProperty(exports, "ImplementationRequest", ({ enumerable: true, get: function () { return protocol_implementation_1.ImplementationRequest; } }));
-const protocol_typeDefinition_1 = __nested_webpack_require_469981__(9264);
+const protocol_typeDefinition_1 = __nested_webpack_require_471817__(9264);
 Object.defineProperty(exports, "TypeDefinitionRequest", ({ enumerable: true, get: function () { return protocol_typeDefinition_1.TypeDefinitionRequest; } }));
-const protocol_workspaceFolder_1 = __nested_webpack_require_469981__(6860);
+const protocol_workspaceFolder_1 = __nested_webpack_require_471817__(6860);
 Object.defineProperty(exports, "WorkspaceFoldersRequest", ({ enumerable: true, get: function () { return protocol_workspaceFolder_1.WorkspaceFoldersRequest; } }));
 Object.defineProperty(exports, "DidChangeWorkspaceFoldersNotification", ({ enumerable: true, get: function () { return protocol_workspaceFolder_1.DidChangeWorkspaceFoldersNotification; } }));
-const protocol_configuration_1 = __nested_webpack_require_469981__(7639);
+const protocol_configuration_1 = __nested_webpack_require_471817__(7639);
 Object.defineProperty(exports, "ConfigurationRequest", ({ enumerable: true, get: function () { return protocol_configuration_1.ConfigurationRequest; } }));
-const protocol_colorProvider_1 = __nested_webpack_require_469981__(3747);
+const protocol_colorProvider_1 = __nested_webpack_require_471817__(3747);
 Object.defineProperty(exports, "DocumentColorRequest", ({ enumerable: true, get: function () { return protocol_colorProvider_1.DocumentColorRequest; } }));
 Object.defineProperty(exports, "ColorPresentationRequest", ({ enumerable: true, get: function () { return protocol_colorProvider_1.ColorPresentationRequest; } }));
-const protocol_foldingRange_1 = __nested_webpack_require_469981__(1203);
+const protocol_foldingRange_1 = __nested_webpack_require_471817__(1203);
 Object.defineProperty(exports, "FoldingRangeRequest", ({ enumerable: true, get: function () { return protocol_foldingRange_1.FoldingRangeRequest; } }));
 Object.defineProperty(exports, "FoldingRangeRefreshRequest", ({ enumerable: true, get: function () { return protocol_foldingRange_1.FoldingRangeRefreshRequest; } }));
-const protocol_declaration_1 = __nested_webpack_require_469981__(5581);
+const protocol_declaration_1 = __nested_webpack_require_471817__(5581);
 Object.defineProperty(exports, "DeclarationRequest", ({ enumerable: true, get: function () { return protocol_declaration_1.DeclarationRequest; } }));
-const protocol_selectionRange_1 = __nested_webpack_require_469981__(1530);
+const protocol_selectionRange_1 = __nested_webpack_require_471817__(1530);
 Object.defineProperty(exports, "SelectionRangeRequest", ({ enumerable: true, get: function () { return protocol_selectionRange_1.SelectionRangeRequest; } }));
-const protocol_progress_1 = __nested_webpack_require_469981__(4166);
+const protocol_progress_1 = __nested_webpack_require_471817__(4166);
 Object.defineProperty(exports, "WorkDoneProgress", ({ enumerable: true, get: function () { return protocol_progress_1.WorkDoneProgress; } }));
 Object.defineProperty(exports, "WorkDoneProgressCreateRequest", ({ enumerable: true, get: function () { return protocol_progress_1.WorkDoneProgressCreateRequest; } }));
 Object.defineProperty(exports, "WorkDoneProgressCancelNotification", ({ enumerable: true, get: function () { return protocol_progress_1.WorkDoneProgressCancelNotification; } }));
-const protocol_callHierarchy_1 = __nested_webpack_require_469981__(7602);
+const protocol_callHierarchy_1 = __nested_webpack_require_471817__(7602);
 Object.defineProperty(exports, "CallHierarchyIncomingCallsRequest", ({ enumerable: true, get: function () { return protocol_callHierarchy_1.CallHierarchyIncomingCallsRequest; } }));
 Object.defineProperty(exports, "CallHierarchyOutgoingCallsRequest", ({ enumerable: true, get: function () { return protocol_callHierarchy_1.CallHierarchyOutgoingCallsRequest; } }));
 Object.defineProperty(exports, "CallHierarchyPrepareRequest", ({ enumerable: true, get: function () { return protocol_callHierarchy_1.CallHierarchyPrepareRequest; } }));
-const protocol_semanticTokens_1 = __nested_webpack_require_469981__(2067);
+const protocol_semanticTokens_1 = __nested_webpack_require_471817__(2067);
 Object.defineProperty(exports, "TokenFormat", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.TokenFormat; } }));
 Object.defineProperty(exports, "SemanticTokensRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRequest; } }));
 Object.defineProperty(exports, "SemanticTokensDeltaRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensDeltaRequest; } }));
 Object.defineProperty(exports, "SemanticTokensRangeRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRangeRequest; } }));
 Object.defineProperty(exports, "SemanticTokensRefreshRequest", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRefreshRequest; } }));
 Object.defineProperty(exports, "SemanticTokensRegistrationType", ({ enumerable: true, get: function () { return protocol_semanticTokens_1.SemanticTokensRegistrationType; } }));
-const protocol_showDocument_1 = __nested_webpack_require_469981__(4333);
+const protocol_showDocument_1 = __nested_webpack_require_471817__(4333);
 Object.defineProperty(exports, "ShowDocumentRequest", ({ enumerable: true, get: function () { return protocol_showDocument_1.ShowDocumentRequest; } }));
-const protocol_linkedEditingRange_1 = __nested_webpack_require_469981__(2249);
+const protocol_linkedEditingRange_1 = __nested_webpack_require_471817__(2249);
 Object.defineProperty(exports, "LinkedEditingRangeRequest", ({ enumerable: true, get: function () { return protocol_linkedEditingRange_1.LinkedEditingRangeRequest; } }));
-const protocol_fileOperations_1 = __nested_webpack_require_469981__(4781);
+const protocol_fileOperations_1 = __nested_webpack_require_471817__(4781);
 Object.defineProperty(exports, "FileOperationPatternKind", ({ enumerable: true, get: function () { return protocol_fileOperations_1.FileOperationPatternKind; } }));
 Object.defineProperty(exports, "DidCreateFilesNotification", ({ enumerable: true, get: function () { return protocol_fileOperations_1.DidCreateFilesNotification; } }));
 Object.defineProperty(exports, "WillCreateFilesRequest", ({ enumerable: true, get: function () { return protocol_fileOperations_1.WillCreateFilesRequest; } }));
@@ -11371,28 +11416,28 @@ Object.defineProperty(exports, "DidRenameFilesNotification", ({ enumerable: true
 Object.defineProperty(exports, "WillRenameFilesRequest", ({ enumerable: true, get: function () { return protocol_fileOperations_1.WillRenameFilesRequest; } }));
 Object.defineProperty(exports, "DidDeleteFilesNotification", ({ enumerable: true, get: function () { return protocol_fileOperations_1.DidDeleteFilesNotification; } }));
 Object.defineProperty(exports, "WillDeleteFilesRequest", ({ enumerable: true, get: function () { return protocol_fileOperations_1.WillDeleteFilesRequest; } }));
-const protocol_moniker_1 = __nested_webpack_require_469981__(7684);
+const protocol_moniker_1 = __nested_webpack_require_471817__(7684);
 Object.defineProperty(exports, "UniquenessLevel", ({ enumerable: true, get: function () { return protocol_moniker_1.UniquenessLevel; } }));
 Object.defineProperty(exports, "MonikerKind", ({ enumerable: true, get: function () { return protocol_moniker_1.MonikerKind; } }));
 Object.defineProperty(exports, "MonikerRequest", ({ enumerable: true, get: function () { return protocol_moniker_1.MonikerRequest; } }));
-const protocol_typeHierarchy_1 = __nested_webpack_require_469981__(7062);
+const protocol_typeHierarchy_1 = __nested_webpack_require_471817__(7062);
 Object.defineProperty(exports, "TypeHierarchyPrepareRequest", ({ enumerable: true, get: function () { return protocol_typeHierarchy_1.TypeHierarchyPrepareRequest; } }));
 Object.defineProperty(exports, "TypeHierarchySubtypesRequest", ({ enumerable: true, get: function () { return protocol_typeHierarchy_1.TypeHierarchySubtypesRequest; } }));
 Object.defineProperty(exports, "TypeHierarchySupertypesRequest", ({ enumerable: true, get: function () { return protocol_typeHierarchy_1.TypeHierarchySupertypesRequest; } }));
-const protocol_inlineValue_1 = __nested_webpack_require_469981__(3491);
+const protocol_inlineValue_1 = __nested_webpack_require_471817__(3491);
 Object.defineProperty(exports, "InlineValueRequest", ({ enumerable: true, get: function () { return protocol_inlineValue_1.InlineValueRequest; } }));
 Object.defineProperty(exports, "InlineValueRefreshRequest", ({ enumerable: true, get: function () { return protocol_inlineValue_1.InlineValueRefreshRequest; } }));
-const protocol_inlayHint_1 = __nested_webpack_require_469981__(9383);
+const protocol_inlayHint_1 = __nested_webpack_require_471817__(9383);
 Object.defineProperty(exports, "InlayHintRequest", ({ enumerable: true, get: function () { return protocol_inlayHint_1.InlayHintRequest; } }));
 Object.defineProperty(exports, "InlayHintResolveRequest", ({ enumerable: true, get: function () { return protocol_inlayHint_1.InlayHintResolveRequest; } }));
 Object.defineProperty(exports, "InlayHintRefreshRequest", ({ enumerable: true, get: function () { return protocol_inlayHint_1.InlayHintRefreshRequest; } }));
-const protocol_diagnostic_1 = __nested_webpack_require_469981__(1494);
+const protocol_diagnostic_1 = __nested_webpack_require_471817__(1494);
 Object.defineProperty(exports, "DiagnosticServerCancellationData", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DiagnosticServerCancellationData; } }));
 Object.defineProperty(exports, "DocumentDiagnosticReportKind", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DocumentDiagnosticReportKind; } }));
 Object.defineProperty(exports, "DocumentDiagnosticRequest", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DocumentDiagnosticRequest; } }));
 Object.defineProperty(exports, "WorkspaceDiagnosticRequest", ({ enumerable: true, get: function () { return protocol_diagnostic_1.WorkspaceDiagnosticRequest; } }));
 Object.defineProperty(exports, "DiagnosticRefreshRequest", ({ enumerable: true, get: function () { return protocol_diagnostic_1.DiagnosticRefreshRequest; } }));
-const protocol_notebook_1 = __nested_webpack_require_469981__(4792);
+const protocol_notebook_1 = __nested_webpack_require_471817__(4792);
 Object.defineProperty(exports, "NotebookCellKind", ({ enumerable: true, get: function () { return protocol_notebook_1.NotebookCellKind; } }));
 Object.defineProperty(exports, "ExecutionSummary", ({ enumerable: true, get: function () { return protocol_notebook_1.ExecutionSummary; } }));
 Object.defineProperty(exports, "NotebookCell", ({ enumerable: true, get: function () { return protocol_notebook_1.NotebookCell; } }));
@@ -11403,7 +11448,7 @@ Object.defineProperty(exports, "NotebookCellArrayChange", ({ enumerable: true, g
 Object.defineProperty(exports, "DidChangeNotebookDocumentNotification", ({ enumerable: true, get: function () { return protocol_notebook_1.DidChangeNotebookDocumentNotification; } }));
 Object.defineProperty(exports, "DidSaveNotebookDocumentNotification", ({ enumerable: true, get: function () { return protocol_notebook_1.DidSaveNotebookDocumentNotification; } }));
 Object.defineProperty(exports, "DidCloseNotebookDocumentNotification", ({ enumerable: true, get: function () { return protocol_notebook_1.DidCloseNotebookDocumentNotification; } }));
-const protocol_inlineCompletion_1 = __nested_webpack_require_469981__(2322);
+const protocol_inlineCompletion_1 = __nested_webpack_require_471817__(2322);
 Object.defineProperty(exports, "InlineCompletionRequest", ({ enumerable: true, get: function () { return protocol_inlineCompletion_1.InlineCompletionRequest; } }));
 // @ts-ignore: to avoid inlining LocationLink as dynamic import
 let __noDynamicImport;
@@ -12261,7 +12306,7 @@ var ApplyWorkspaceEditRequest;
 /***/ }),
 
 /***/ 2249:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_525986__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_527822__) => {
 
 "use strict";
 
@@ -12271,7 +12316,7 @@ var ApplyWorkspaceEditRequest;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LinkedEditingRangeRequest = void 0;
-const messages_1 = __nested_webpack_require_525986__(8431);
+const messages_1 = __nested_webpack_require_527822__(8431);
 /**
  * A request to provide ranges that can be edited together.
  *
@@ -12288,7 +12333,7 @@ var LinkedEditingRangeRequest;
 /***/ }),
 
 /***/ 7684:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_527138__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_528974__) => {
 
 "use strict";
 
@@ -12298,7 +12343,7 @@ var LinkedEditingRangeRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MonikerRequest = exports.MonikerKind = exports.UniquenessLevel = void 0;
-const messages_1 = __nested_webpack_require_527138__(8431);
+const messages_1 = __nested_webpack_require_528974__(8431);
 /**
  * Moniker uniqueness level to define scope of the moniker.
  *
@@ -12364,7 +12409,7 @@ var MonikerRequest;
 /***/ }),
 
 /***/ 4792:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_529739__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_531575__) => {
 
 "use strict";
 
@@ -12374,9 +12419,9 @@ var MonikerRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DidCloseNotebookDocumentNotification = exports.DidSaveNotebookDocumentNotification = exports.DidChangeNotebookDocumentNotification = exports.NotebookCellArrayChange = exports.DidOpenNotebookDocumentNotification = exports.NotebookDocumentSyncRegistrationType = exports.NotebookDocument = exports.NotebookCell = exports.ExecutionSummary = exports.NotebookCellKind = void 0;
-const vscode_languageserver_types_1 = __nested_webpack_require_529739__(2852);
-const Is = __nested_webpack_require_529739__(8633);
-const messages_1 = __nested_webpack_require_529739__(8431);
+const vscode_languageserver_types_1 = __nested_webpack_require_531575__(2852);
+const Is = __nested_webpack_require_531575__(8633);
+const messages_1 = __nested_webpack_require_531575__(8431);
 /**
  * A notebook cell kind.
  *
@@ -12586,7 +12631,7 @@ var DidCloseNotebookDocumentNotification;
 /***/ }),
 
 /***/ 4166:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_539901__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_541737__) => {
 
 "use strict";
 
@@ -12596,8 +12641,8 @@ var DidCloseNotebookDocumentNotification;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WorkDoneProgressCancelNotification = exports.WorkDoneProgressCreateRequest = exports.WorkDoneProgress = void 0;
-const vscode_jsonrpc_1 = __nested_webpack_require_539901__(9110);
-const messages_1 = __nested_webpack_require_539901__(8431);
+const vscode_jsonrpc_1 = __nested_webpack_require_541737__(9110);
+const messages_1 = __nested_webpack_require_541737__(8431);
 var WorkDoneProgress;
 (function (WorkDoneProgress) {
     WorkDoneProgress.type = new vscode_jsonrpc_1.ProgressType();
@@ -12631,7 +12676,7 @@ var WorkDoneProgressCancelNotification;
 /***/ }),
 
 /***/ 1530:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_542261__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_544097__) => {
 
 "use strict";
 
@@ -12641,7 +12686,7 @@ var WorkDoneProgressCancelNotification;
  *--------------------------------------------------------------------------------------------*/
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SelectionRangeRequest = void 0;
-const messages_1 = __nested_webpack_require_542261__(8431);
+const messages_1 = __nested_webpack_require_544097__(8431);
 /**
  * A request to provide selection ranges in a document. The request's
  * parameter is of type {@link SelectionRangeParams}, the
@@ -12659,7 +12704,7 @@ var SelectionRangeRequest;
 /***/ }),
 
 /***/ 2067:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_543520__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_545356__) => {
 
 "use strict";
 
@@ -12669,7 +12714,7 @@ var SelectionRangeRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SemanticTokensRefreshRequest = exports.SemanticTokensRangeRequest = exports.SemanticTokensDeltaRequest = exports.SemanticTokensRequest = exports.SemanticTokensRegistrationType = exports.TokenFormat = void 0;
-const messages_1 = __nested_webpack_require_543520__(8431);
+const messages_1 = __nested_webpack_require_545356__(8431);
 //------- 'textDocument/semanticTokens' -----
 var TokenFormat;
 (function (TokenFormat) {
@@ -12724,7 +12769,7 @@ var SemanticTokensRefreshRequest;
 /***/ }),
 
 /***/ 4333:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_547064__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_548900__) => {
 
 "use strict";
 
@@ -12734,7 +12779,7 @@ var SemanticTokensRefreshRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ShowDocumentRequest = void 0;
-const messages_1 = __nested_webpack_require_547064__(8431);
+const messages_1 = __nested_webpack_require_548900__(8431);
 /**
  * A request to show a document. This request might open an
  * external program depending on the value of the URI to open.
@@ -12754,7 +12799,7 @@ var ShowDocumentRequest;
 /***/ }),
 
 /***/ 9264:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_548321__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_550157__) => {
 
 "use strict";
 
@@ -12764,7 +12809,7 @@ var ShowDocumentRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TypeDefinitionRequest = void 0;
-const messages_1 = __nested_webpack_require_548321__(8431);
+const messages_1 = __nested_webpack_require_550157__(8431);
 // @ts-ignore: to avoid inlining LocatioLink as dynamic import
 let __noDynamicImport;
 /**
@@ -12783,7 +12828,7 @@ var TypeDefinitionRequest;
 /***/ }),
 
 /***/ 7062:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_549690__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_551526__) => {
 
 "use strict";
 
@@ -12793,7 +12838,7 @@ var TypeDefinitionRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TypeHierarchySubtypesRequest = exports.TypeHierarchySupertypesRequest = exports.TypeHierarchyPrepareRequest = void 0;
-const messages_1 = __nested_webpack_require_549690__(8431);
+const messages_1 = __nested_webpack_require_551526__(8431);
 /**
  * A request to result a `TypeHierarchyItem` in a document at a given position.
  * Can be used as an input to a subtypes or supertypes type hierarchy.
@@ -12833,7 +12878,7 @@ var TypeHierarchySubtypesRequest;
 /***/ }),
 
 /***/ 6860:
-/***/ ((__unused_webpack_module, exports, __nested_webpack_require_552191__) => {
+/***/ ((__unused_webpack_module, exports, __nested_webpack_require_554027__) => {
 
 "use strict";
 
@@ -12843,7 +12888,7 @@ var TypeHierarchySubtypesRequest;
  * ------------------------------------------------------------------------------------------ */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DidChangeWorkspaceFoldersNotification = exports.WorkspaceFoldersRequest = void 0;
-const messages_1 = __nested_webpack_require_552191__(8431);
+const messages_1 = __nested_webpack_require_554027__(8431);
 /**
  * The `workspace/workspaceFolders` is sent from the server to the client to fetch the open workspace folders.
  */
@@ -12922,21 +12967,21 @@ exports.objectLiteral = objectLiteral;
 /***/ }),
 
 /***/ 2730:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_556007__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_557843__) => {
 
 "use strict";
 
 
-var forEach = __nested_webpack_require_556007__(705);
-var availableTypedArrays = __nested_webpack_require_556007__(4834);
-var callBind = __nested_webpack_require_556007__(8498);
-var callBound = __nested_webpack_require_556007__(9818);
-var gOPD = __nested_webpack_require_556007__(9336);
+var forEach = __nested_webpack_require_557843__(705);
+var availableTypedArrays = __nested_webpack_require_557843__(4834);
+var callBind = __nested_webpack_require_557843__(8498);
+var callBound = __nested_webpack_require_557843__(9818);
+var gOPD = __nested_webpack_require_557843__(9336);
 
 var $toString = callBound('Object.prototype.toString');
-var hasToStringTag = __nested_webpack_require_556007__(1913)();
+var hasToStringTag = __nested_webpack_require_557843__(1913)();
 
-var g = typeof globalThis === 'undefined' ? __nested_webpack_require_556007__.g : globalThis;
+var g = typeof globalThis === 'undefined' ? __nested_webpack_require_557843__.g : globalThis;
 var typedArrays = availableTypedArrays();
 
 var $slice = callBound('String.prototype.slice');
@@ -13019,7 +13064,7 @@ module.exports = function whichTypedArray(value) {
 /***/ }),
 
 /***/ 4834:
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_558480__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_560316__) => {
 
 "use strict";
 
@@ -13038,7 +13083,7 @@ var possibleNames = [
 	'Uint8ClampedArray'
 ];
 
-var g = typeof globalThis === 'undefined' ? __nested_webpack_require_558480__.g : globalThis;
+var g = typeof globalThis === 'undefined' ? __nested_webpack_require_560316__.g : globalThis;
 
 module.exports = function availableTypedArrays() {
 	var out = [];
@@ -13054,10 +13099,10 @@ module.exports = function availableTypedArrays() {
 /***/ }),
 
 /***/ 8041:
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_559133__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_560969__) => {
 
 "use strict";
-/* harmony export */ __nested_webpack_require_559133__.d(__nested_webpack_exports__, {
+/* harmony export */ __nested_webpack_require_560969__.d(__nested_webpack_exports__, {
 /* harmony export */   V: () => (/* binding */ TextDocument)
 /* harmony export */ });
 /* --------------------------------------------------------------------------------------------
@@ -13329,11 +13374,11 @@ function getWellformedEdit(textEdit) {
 /***/ }),
 
 /***/ 2852:
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_569592__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_571428__) => {
 
 "use strict";
-__nested_webpack_require_569592__.r(__nested_webpack_exports__);
-/* harmony export */ __nested_webpack_require_569592__.d(__nested_webpack_exports__, {
+__nested_webpack_require_571428__.r(__nested_webpack_exports__);
+/* harmony export */ __nested_webpack_require_571428__.d(__nested_webpack_exports__, {
 /* harmony export */   AnnotatedTextEdit: () => (/* binding */ AnnotatedTextEdit),
 /* harmony export */   ChangeAnnotation: () => (/* binding */ ChangeAnnotation),
 /* harmony export */   ChangeAnnotationIdentifier: () => (/* binding */ ChangeAnnotationIdentifier),
@@ -15648,7 +15693,7 @@ var Is;
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_653296__(moduleId) {
+/******/ 	function __nested_webpack_require_655132__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -15662,7 +15707,7 @@ var Is;
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_653296__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_655132__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -15672,11 +15717,11 @@ var Is;
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nested_webpack_require_653296__.n = (module) => {
+/******/ 		__nested_webpack_require_655132__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
-/******/ 			__nested_webpack_require_653296__.d(getter, { a: getter });
+/******/ 			__nested_webpack_require_655132__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
@@ -15684,9 +15729,9 @@ var Is;
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_653296__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_655132__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_653296__.o(definition, key) && !__nested_webpack_require_653296__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_655132__.o(definition, key) && !__nested_webpack_require_655132__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -15695,7 +15740,7 @@ var Is;
 /******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_653296__.g = (function() {
+/******/ 		__nested_webpack_require_655132__.g = (function() {
 /******/ 			if (typeof globalThis === 'object') return globalThis;
 /******/ 			try {
 /******/ 				return this || new Function('return this')();
@@ -15707,13 +15752,13 @@ var Is;
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_653296__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_655132__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_653296__.r = (exports) => {
+/******/ 		__nested_webpack_require_655132__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -15727,17 +15772,17 @@ var __nested_webpack_exports__ = {};
 (() => {
 "use strict";
 // ESM COMPAT FLAG
-__nested_webpack_require_653296__.r(__nested_webpack_exports__);
+__nested_webpack_require_655132__.r(__nested_webpack_exports__);
 
 // EXPORTS
-__nested_webpack_require_653296__.d(__nested_webpack_exports__, {
+__nested_webpack_require_655132__.d(__nested_webpack_exports__, {
   HtmlService: () => (/* binding */ HtmlService)
 });
 
 // EXTERNAL MODULE: ./src/services/base-service.ts
-var base_service = __nested_webpack_require_653296__(2125);
+var base_service = __nested_webpack_require_655132__(2125);
 // EXTERNAL MODULE: ../../node_modules/htmlhint/dist/core/core.js
-var core = __nested_webpack_require_653296__(3476);
+var core = __nested_webpack_require_655132__(3476);
 ;// CONCATENATED MODULE: ../../node_modules/@vscode/l10n/dist/browser.js
 // src/browser/reader.ts
 async function readFileFromUri(uri) {
@@ -15774,17 +15819,17 @@ function config(config2) {
       uri = new URL(config2.uri);
     }
     return new Promise((resolve, reject) => {
-      const p = readFileFromUri(uri).then((uriContent) => {
+      readFileFromUri(uri).then((uriContent) => {
         try {
           const content = JSON.parse(uriContent);
           bundle = isBuiltinExtension(content) ? content.contents.bundle : content;
+          resolve();
         } catch (err) {
           reject(err);
         }
       }).catch((err) => {
         reject(err);
       });
-      resolve(p);
     });
   }
 }
@@ -15830,6 +15875,9 @@ function t(...args) {
 }
 var _format2Regexp = /{([^}]+)}/g;
 function format(template, values) {
+  if (Object.keys(values).length === 0) {
+    return template;
+  }
   return template.replace(_format2Regexp, (match, group) => values[group] ?? match);
 }
 function isBuiltinExtension(json) {
@@ -15838,9 +15886,9 @@ function isBuiltinExtension(json) {
 
 
 // EXTERNAL MODULE: ../../node_modules/vscode-languageserver-types/lib/esm/main.js
-var main = __nested_webpack_require_653296__(2852);
+var main = __nested_webpack_require_655132__(2852);
 // EXTERNAL MODULE: ../../node_modules/vscode-languageserver-textdocument/lib/esm/main.js
-var esm_main = __nested_webpack_require_653296__(8041);
+var esm_main = __nested_webpack_require_655132__(8041);
 ;// CONCATENATED MODULE: ../../node_modules/vscode-html-languageservice/lib/esm/htmlLanguageTypes.js
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
@@ -15924,7 +15972,7 @@ var FileType;
 })(FileType || (FileType = {}));
 
 ;// CONCATENATED MODULE: ../../node_modules/vscode-html-languageservice/lib/esm/parser/htmlScanner.js
-/* provided dependency */ var console = __nested_webpack_require_653296__(4364);
+/* provided dependency */ var console = __nested_webpack_require_655132__(4364);
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
@@ -18881,6 +18929,106 @@ function normalizeMarkupContent(input) {
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+const BaselineImages = {
+    BASELINE_LIMITED: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCA1NDAgMzAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxzdHlsZT4KICAgIC5ncmF5LXNoYXBlIHsKICAgICAgZmlsbDogI0M2QzZDNjsgLyogTGlnaHQgbW9kZSAqLwogICAgfQoKICAgIEBtZWRpYSAocHJlZmVycy1jb2xvci1zY2hlbWU6IGRhcmspIHsKICAgICAgLmdyYXktc2hhcGUgewogICAgICAgIGZpbGw6ICM1NjU2NTY7IC8qIERhcmsgbW9kZSAqLwogICAgICB9CiAgICB9CiAgPC9zdHlsZT4KICA8cGF0aCBkPSJNMTUwIDBMMjQwIDkwTDIxMCAxMjBMMTIwIDMwTDE1MCAwWiIgZmlsbD0iI0YwOTQwOSIvPgogIDxwYXRoIGQ9Ik00MjAgMzBMNTQwIDE1MEw0MjAgMjcwTDM5MCAyNDBMNDgwIDE1MEwzOTAgNjBMNDIwIDMwWiIgY2xhc3M9ImdyYXktc2hhcGUiLz4KICA8cGF0aCBkPSJNMzMwIDE4MEwzMDAgMjEwTDM5MCAzMDBMNDIwIDI3MEwzMzAgMTgwWiIgZmlsbD0iI0YwOTQwOSIvPgogIDxwYXRoIGQ9Ik0xMjAgMzBMMTUwIDYwTDYwIDE1MEwxNTAgMjQwTDEyMCAyNzBMMCAxNTBMMTIwIDMwWiIgY2xhc3M9ImdyYXktc2hhcGUiLz4KICA8cGF0aCBkPSJNMzkwIDBMNDIwIDMwTDE1MCAzMDBMMTIwIDI3MEwzOTAgMFoiIGZpbGw9IiNGMDk0MDkiLz4KPC9zdmc+',
+    BASELINE_LOW: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCA1NDAgMzAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxzdHlsZT4KICAgIC5ibHVlLXNoYXBlIHsKICAgICAgZmlsbDogI0E4QzdGQTsgLyogTGlnaHQgbW9kZSAqLwogICAgfQoKICAgIEBtZWRpYSAocHJlZmVycy1jb2xvci1zY2hlbWU6IGRhcmspIHsKICAgICAgLmJsdWUtc2hhcGUgewogICAgICAgIGZpbGw6ICMyRDUwOUU7IC8qIERhcmsgbW9kZSAqLwogICAgICB9CiAgICB9CgogICAgLmRhcmtlci1ibHVlLXNoYXBlIHsKICAgICAgICBmaWxsOiAjMUI2RUYzOwogICAgfQoKICAgIEBtZWRpYSAocHJlZmVycy1jb2xvci1zY2hlbWU6IGRhcmspIHsKICAgICAgICAuZGFya2VyLWJsdWUtc2hhcGUgewogICAgICAgICAgICBmaWxsOiAjNDE4NUZGOwogICAgICAgIH0KICAgIH0KCiAgPC9zdHlsZT4KICA8cGF0aCBkPSJNMTUwIDBMMTgwIDMwTDE1MCA2MEwxMjAgMzBMMTUwIDBaIiBjbGFzcz0iYmx1ZS1zaGFwZSIvPgogIDxwYXRoIGQ9Ik0yMTAgNjBMMjQwIDkwTDIxMCAxMjBMMTgwIDkwTDIxMCA2MFoiIGNsYXNzPSJibHVlLXNoYXBlIi8+CiAgPHBhdGggZD0iTTQ1MCA2MEw0ODAgOTBMNDUwIDEyMEw0MjAgOTBMNDUwIDYwWiIgY2xhc3M9ImJsdWUtc2hhcGUiLz4KICA8cGF0aCBkPSJNNTEwIDEyMEw1NDAgMTUwTDUxMCAxODBMNDgwIDE1MEw1MTAgMTIwWiIgY2xhc3M9ImJsdWUtc2hhcGUiLz4KICA8cGF0aCBkPSJNNDUwIDE4MEw0ODAgMjEwTDQ1MCAyNDBMNDIwIDIxMEw0NTAgMTgwWiIgY2xhc3M9ImJsdWUtc2hhcGUiLz4KICA8cGF0aCBkPSJNMzkwIDI0MEw0MjAgMjcwTDM5MCAzMDBMMzYwIDI3MEwzOTAgMjQwWiIgY2xhc3M9ImJsdWUtc2hhcGUiLz4KICA8cGF0aCBkPSJNMzMwIDE4MEwzNjAgMjEwTDMzMCAyNDBMMzAwIDIxMEwzMzAgMTgwWiIgY2xhc3M9ImJsdWUtc2hhcGUiLz4KICA8cGF0aCBkPSJNOTAgNjBMMTIwIDkwTDkwIDEyMEw2MCA5MEw5MCA2MFoiIGNsYXNzPSJibHVlLXNoYXBlIi8+CiAgPHBhdGggZD0iTTM5MCAwTDQyMCAzMEwxNTAgMzAwTDAgMTUwTDMwIDEyMEwxNTAgMjQwTDM5MCAwWiIgY2xhc3M9ImRhcmtlci1ibHVlLXNoYXBlIi8+Cjwvc3ZnPg==',
+    BASELINE_HIGH: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCA1NDAgMzAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxzdHlsZT4KICAgIC5ncmVlbi1zaGFwZSB7CiAgICAgIGZpbGw6ICNDNEVFRDA7IC8qIExpZ2h0IG1vZGUgKi8KICAgIH0KCiAgICBAbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOiBkYXJrKSB7CiAgICAgIC5ncmVlbi1zaGFwZSB7CiAgICAgICAgZmlsbDogIzEyNTIyNTsgLyogRGFyayBtb2RlICovCiAgICAgIH0KICAgIH0KICA8L3N0eWxlPgogIDxwYXRoIGQ9Ik00MjAgMzBMMzkwIDYwTDQ4MCAxNTBMMzkwIDI0MEwzMzAgMTgwTDMwMCAyMTBMMzkwIDMwMEw1NDAgMTUwTDQyMCAzMFoiIGNsYXNzPSJncmVlbi1zaGFwZSIvPgogIDxwYXRoIGQ9Ik0xNTAgMEwzMCAxMjBMNjAgMTUwTDE1MCA2MEwyMTAgMTIwTDI0MCA5MEwxNTAgMFoiIGNsYXNzPSJncmVlbi1zaGFwZSIvPgogIDxwYXRoIGQ9Ik0zOTAgMEw0MjAgMzBMMTUwIDMwMEwwIDE1MEwzMCAxMjBMMTUwIDI0MEwzOTAgMFoiIGZpbGw9IiMxRUE0NDYiLz4KPC9zdmc+'
+};
+function getEntryBaselineImage(status) {
+    if (!status) {
+        return '';
+    }
+    let baselineImg;
+    switch (status?.baseline) {
+        case 'low':
+            baselineImg = BaselineImages.BASELINE_LOW;
+            break;
+        case 'high':
+            baselineImg = BaselineImages.BASELINE_HIGH;
+            break;
+        default:
+            baselineImg = BaselineImages.BASELINE_LIMITED;
+    }
+    return `![Baseline icon](${baselineImg})`;
+}
+function getEntryBaselineStatus(status, browsers) {
+    if (!status) {
+        return '';
+    }
+    if (status.baseline === false) {
+        const missingBrowsers = getMissingBaselineBrowsers(browsers);
+        let status = `Limited availability across major browsers`;
+        if (missingBrowsers) {
+            status += ` (Not fully implemented in ${missingBrowsers})`;
+        }
+        return status;
+    }
+    const baselineYear = status.baseline_low_date?.split('-')[0];
+    return `${status.baseline === 'low' ? 'Newly' : 'Widely'} available across major browsers (Baseline since ${baselineYear})`;
+}
+const browserNames = {
+    'C': {
+        name: 'Chrome',
+        platform: 'desktop'
+    },
+    'CA': {
+        name: 'Chrome',
+        platform: 'Android'
+    },
+    'E': {
+        name: 'Edge',
+        platform: 'desktop'
+    },
+    'FF': {
+        name: 'Firefox',
+        platform: 'desktop'
+    },
+    'FFA': {
+        name: 'Firefox',
+        platform: 'Android'
+    },
+    'S': {
+        name: 'Safari',
+        platform: 'macOS'
+    },
+    'SM': {
+        name: 'Safari',
+        platform: 'iOS'
+    }
+};
+const shortCompatPattern = /(E|FFA|FF|SM|S|CA|C|IE|O)([\d|\.]+)?/;
+// TODO: Remove "as any" when tsconfig supports es2021+
+const missingBaselineBrowserFormatter = new Intl.ListFormat("en", {
+    style: "long",
+    type: "disjunction",
+});
+/**
+ * Input is like [E12, FF28, FM28, C29, CM29, IE11, O16]
+ * Output is like `Safari`
+ */
+function getMissingBaselineBrowsers(browsers) {
+    if (!browsers) {
+        return '';
+    }
+    const missingBrowsers = new Map(Object.entries(browserNames));
+    for (const shortCompatString of browsers) {
+        const match = shortCompatPattern.exec(shortCompatString);
+        if (!match) {
+            continue;
+        }
+        const browser = match[1];
+        missingBrowsers.delete(browser);
+    }
+    return missingBaselineBrowserFormatter.format(Object.values(Array.from(missingBrowsers.entries()).reduce((browsers, [browserId, browser]) => {
+        if (browser.name in browsers || browserId === 'E') {
+            browsers[browser.name] = browser.name;
+            return browsers;
+        }
+        // distinguish between platforms when applicable 
+        browsers[browser.name] = `${browser.name} on ${browser.platform}`;
+        return browsers;
+    }, {})));
+}
 class dataProvider_HTMLDataProvider {
     isApplicable() {
         return true;
@@ -18966,6 +19114,18 @@ function generateDocumentation(item, settings = {}, doesSupportMarkdown) {
         const normalizedDescription = normalizeMarkupContent(item.description);
         if (normalizedDescription) {
             result.value += normalizedDescription.value;
+        }
+    }
+    if (item.status && settings.documentation !== false) {
+        if (result.value.length) {
+            result.value += `\n\n`;
+        }
+        const baselineStatus = getEntryBaselineStatus(item.status, item.browsers);
+        if (doesSupportMarkdown) {
+            result.value += `${getEntryBaselineImage(item.status)} _${baselineStatus}_`;
+        }
+        else {
+            result.value += baselineStatus;
         }
     }
     if (item.references && item.references.length > 0 && settings.references !== false) {
@@ -19169,7 +19329,6 @@ class HTMLCompletion {
         };
         const completionParticipants = this.completionParticipants;
         const dataProviders = this.dataManager.getDataProviders().filter(p => p.isApplicable(document.languageId) && (!settings || settings[p.getId()] !== false));
-        const voidElements = this.dataManager.getVoidElements(dataProviders);
         const doesSupportMarkdown = this.doesSupportMarkdown();
         const text = document.getText();
         const offset = document.offsetAt(position);
@@ -19180,6 +19339,7 @@ class HTMLCompletion {
         const scanner = createScanner(text, node.start);
         let currentTag = '';
         let currentAttributeName;
+        let voidElements;
         function getReplaceRange(replaceStart, replaceEnd = offset) {
             if (replaceStart > offset) {
                 replaceStart = offset;
@@ -19265,6 +19425,7 @@ class HTMLCompletion {
             if (settings && settings.hideAutoCompleteProposals) {
                 return result;
             }
+            voidElements ?? (voidElements = this.dataManager.getVoidElements(dataProviders));
             if (!this.dataManager.isVoidElement(tag, voidElements)) {
                 const pos = document.positionAt(tagCloseEnd);
                 result.items.push({
@@ -19607,16 +19768,18 @@ class HTMLCompletion {
         }
         const char = document.getText().charAt(offset - 1);
         if (char === '>') {
-            const voidElements = this.dataManager.getVoidElements(document.languageId);
             const node = htmlDocument.findNodeBefore(offset);
-            if (node && node.tag && !this.dataManager.isVoidElement(node.tag, voidElements) && node.start < offset && (!node.endTagStart || node.endTagStart > offset)) {
-                const scanner = createScanner(document.getText(), node.start);
-                let token = scanner.scan();
-                while (token !== TokenType.EOS && scanner.getTokenEnd() <= offset) {
-                    if (token === TokenType.StartTagClose && scanner.getTokenEnd() === offset) {
-                        return `$0</${node.tag}>`;
+            if (node && node.tag && node.start < offset && (!node.endTagStart || node.endTagStart > offset)) {
+                const voidElements = this.dataManager.getVoidElements(document.languageId);
+                if (!this.dataManager.isVoidElement(node.tag, voidElements)) {
+                    const scanner = createScanner(document.getText(), node.start);
+                    let token = scanner.scan();
+                    while (token !== TokenType.EOS && scanner.getTokenEnd() <= offset) {
+                        if (token === TokenType.StartTagClose && scanner.getTokenEnd() === offset) {
+                            return `$0</${node.tag}>`;
+                        }
+                        token = scanner.scan();
                     }
-                    token = scanner.scan();
                 }
             }
         }
@@ -19630,7 +19793,12 @@ class HTMLCompletion {
                 let token = scanner.scan();
                 while (token !== TokenType.EOS && scanner.getTokenEnd() <= offset) {
                     if (token === TokenType.EndTagOpen && scanner.getTokenEnd() === offset) {
-                        return `${node.tag}>`;
+                        if (document.getText().charAt(offset) !== '>') {
+                            return `${node.tag}>`;
+                        }
+                        else {
+                            return node.tag;
+                        }
                     }
                     token = scanner.scan();
                 }
@@ -19946,7 +20114,7 @@ class HTMLHover {
 }
 function trimQuotes(s) {
     if (s.length <= 1) {
-        return s.replace(/['"]/, '');
+        return s.replace(/['"]/, ''); // CodeQL [SM02383] False positive: The string length is at most one, so we don't need the global flag.
     }
     if (s[0] === `'` || s[0] === `"`) {
         s = s.slice(1);
@@ -19972,7 +20140,7 @@ function js_beautify(js_source_text, options) {
 
 ;// CONCATENATED MODULE: ../../node_modules/vscode-html-languageservice/lib/esm/beautify/beautify-css.js
 // copied from js-beautify/js/lib/beautify-css.js
-// version: 1.14.7
+// version: 1.15.4
 /* AUTO-GENERATED. DO NOT MODIFY. */
 /*
 
@@ -20543,10 +20711,10 @@ function Options(options, merge_child_field) {
 
   this.indent_empty_lines = this._get_boolean('indent_empty_lines');
 
-  // valid templating languages ['django', 'erb', 'handlebars', 'php', 'smarty']
-  // For now, 'auto' = all off for javascript, all on for html (and inline javascript).
+  // valid templating languages ['django', 'erb', 'handlebars', 'php', 'smarty', 'angular']
+  // For now, 'auto' = all off for javascript, all except angular on for html (and inline javascript/css).
   // other values ignored
-  this.templating = this._get_selection_list('templating', ['auto', 'none', 'django', 'erb', 'handlebars', 'php', 'smarty'], ['auto']);
+  this.templating = this._get_selection_list('templating', ['auto', 'none', 'angular', 'django', 'erb', 'handlebars', 'php', 'smarty'], ['auto']);
 }
 
 Options.prototype._get_array = function(name, default_value) {
@@ -20943,7 +21111,7 @@ module.exports.Directives = Directives;
 /***/ }),
 /* 14 */,
 /* 15 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_30151__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_30192__) {
 
 /*jshint node:true */
 /*
@@ -20975,8 +21143,8 @@ module.exports.Directives = Directives;
 
 
 
-var Beautifier = (__nested_webpack_require_30151__(16).Beautifier),
-  Options = (__nested_webpack_require_30151__(17).Options);
+var Beautifier = (__nested_webpack_require_30192__(16).Beautifier),
+  Options = (__nested_webpack_require_30192__(17).Options);
 
 function css_beautify(source_text, options) {
   var beautifier = new Beautifier(source_text, options);
@@ -20991,7 +21159,7 @@ module.exports.defaultOptions = function() {
 
 /***/ }),
 /* 16 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_31779__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_31820__) {
 
 /*jshint node:true */
 /*
@@ -21023,10 +21191,10 @@ module.exports.defaultOptions = function() {
 
 
 
-var Options = (__nested_webpack_require_31779__(17).Options);
-var Output = (__nested_webpack_require_31779__(2).Output);
-var InputScanner = (__nested_webpack_require_31779__(8).InputScanner);
-var Directives = (__nested_webpack_require_31779__(13).Directives);
+var Options = (__nested_webpack_require_31820__(17).Options);
+var Output = (__nested_webpack_require_31820__(2).Output);
+var InputScanner = (__nested_webpack_require_31820__(8).InputScanner);
+var Directives = (__nested_webpack_require_31820__(13).Directives);
 
 var directives_core = new Directives(/\/\*/, /\*\//);
 
@@ -21049,18 +21217,18 @@ function Beautifier(source_text, options) {
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
   this.NESTED_AT_RULE = {
-    "@page": true,
-    "@font-face": true,
-    "@keyframes": true,
+    "page": true,
+    "font-face": true,
+    "keyframes": true,
     // also in CONDITIONAL_GROUP_RULE below
-    "@media": true,
-    "@supports": true,
-    "@document": true
+    "media": true,
+    "supports": true,
+    "document": true
   };
   this.CONDITIONAL_GROUP_RULE = {
-    "@media": true,
-    "@supports": true,
-    "@document": true
+    "media": true,
+    "supports": true,
+    "document": true
   };
   this.NON_SEMICOLON_NEWLINE_PROPERTY = [
     "grid-template-areas",
@@ -21188,8 +21356,7 @@ Beautifier.prototype.beautify = function() {
   // label { content: blue }
   var insidePropertyValue = false;
   var enteringConditionalGroup = false;
-  var insideAtExtend = false;
-  var insideAtImport = false;
+  var insideNonNestedAtRule = false;
   var insideScssMap = false;
   var topCharacter = this._ch;
   var insideNonSemiColonValues = false;
@@ -21244,10 +21411,30 @@ Beautifier.prototype.beautify = function() {
 
       // Ensures any new lines following the comment are preserved
       this.eatWhitespace(true);
-    } else if (this._ch === '@' || this._ch === '$') {
+    } else if (this._ch === '$') {
       this.preserveSingleSpace(isAfterSpace);
 
-      // deal with less propery mixins @{...}
+      this.print_string(this._ch);
+
+      // strip trailing space, if present, for hash property checks
+      var variable = this._input.peekUntilAfter(/[: ,;{}()[\]\/='"]/g);
+
+      if (variable.match(/[ :]$/)) {
+        // we have a variable or pseudo-class, add it and insert one space before continuing
+        variable = this.eatString(": ").replace(/\s+$/, '');
+        this.print_string(variable);
+        this._output.space_before_token = true;
+      }
+
+      // might be sass variable
+      if (parenLevel === 0 && variable.indexOf(':') !== -1) {
+        insidePropertyValue = true;
+        this.indent();
+      }
+    } else if (this._ch === '@') {
+      this.preserveSingleSpace(isAfterSpace);
+
+      // deal with less property mixins @{...}
       if (this._input.peek() === '{') {
         this.print_string(this._ch + this.eatString('}'));
       } else {
@@ -21258,29 +21445,26 @@ Beautifier.prototype.beautify = function() {
 
         if (variableOrRule.match(/[ :]$/)) {
           // we have a variable or pseudo-class, add it and insert one space before continuing
-          variableOrRule = this.eatString(": ").replace(/\s$/, '');
+          variableOrRule = this.eatString(": ").replace(/\s+$/, '');
           this.print_string(variableOrRule);
           this._output.space_before_token = true;
         }
 
-        variableOrRule = variableOrRule.replace(/\s$/, '');
+        // might be less variable
+        if (parenLevel === 0 && variableOrRule.indexOf(':') !== -1) {
+          insidePropertyValue = true;
+          this.indent();
 
-        if (variableOrRule === 'extend') {
-          insideAtExtend = true;
-        } else if (variableOrRule === 'import') {
-          insideAtImport = true;
-        }
-
-        // might be a nesting at-rule
-        if (variableOrRule in this.NESTED_AT_RULE) {
+          // might be a nesting at-rule
+        } else if (variableOrRule in this.NESTED_AT_RULE) {
           this._nestedLevel += 1;
           if (variableOrRule in this.CONDITIONAL_GROUP_RULE) {
             enteringConditionalGroup = true;
           }
-          // might be less variable
-        } else if (!insideRule && parenLevel === 0 && variableOrRule.indexOf(':') !== -1) {
-          insidePropertyValue = true;
-          this.indent();
+
+          // might be a non-nested at-rule
+        } else if (parenLevel === 0 && !insidePropertyValue) {
+          insideNonNestedAtRule = true;
         }
       }
     } else if (this._ch === '#' && this._input.peek() === '{') {
@@ -21291,6 +21475,9 @@ Beautifier.prototype.beautify = function() {
         insidePropertyValue = false;
         this.outdent();
       }
+
+      // non nested at rule becomes nested
+      insideNonNestedAtRule = false;
 
       // when entering conditional groups, only rulesets are allowed
       if (enteringConditionalGroup) {
@@ -21332,8 +21519,7 @@ Beautifier.prototype.beautify = function() {
       if (previous_ch === '{') {
         this._output.trim(true);
       }
-      insideAtImport = false;
-      insideAtExtend = false;
+
       if (insidePropertyValue) {
         this.outdent();
         insidePropertyValue = false;
@@ -21367,9 +21553,10 @@ Beautifier.prototype.beautify = function() {
         }
       }
 
-      if ((insideRule || enteringConditionalGroup) && !(this._input.lookBack("&") || this.foundNestedPseudoClass()) && !this._input.lookBack("(") && !insideAtExtend && parenLevel === 0) {
+      if ((insideRule || enteringConditionalGroup) && !(this._input.lookBack("&") || this.foundNestedPseudoClass()) && !this._input.lookBack("(") && !insideNonNestedAtRule && parenLevel === 0) {
         // 'property: value' delimiter
         // which could be in a conditional group query
+
         this.print_string(':');
         if (!insidePropertyValue) {
           insidePropertyValue = true;
@@ -21406,8 +21593,7 @@ Beautifier.prototype.beautify = function() {
           this.outdent();
           insidePropertyValue = false;
         }
-        insideAtExtend = false;
-        insideAtImport = false;
+        insideNonNestedAtRule = false;
         this.print_string(this._ch);
         this.eatWhitespace(true);
 
@@ -21472,7 +21658,7 @@ Beautifier.prototype.beautify = function() {
     } else if (this._ch === ',') {
       this.print_string(this._ch);
       this.eatWhitespace(true);
-      if (this._options.selector_separator_newline && (!insidePropertyValue || insideScssMap) && parenLevel === 0 && !insideAtImport && !insideAtExtend) {
+      if (this._options.selector_separator_newline && (!insidePropertyValue || insideScssMap) && parenLevel === 0 && !insideNonNestedAtRule) {
         this._output.add_new_line();
       } else {
         this._output.space_before_token = true;
@@ -21526,7 +21712,7 @@ module.exports.Beautifier = Beautifier;
 
 /***/ }),
 /* 17 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_49339__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_49930__) {
 
 /*jshint node:true */
 /*
@@ -21558,7 +21744,7 @@ module.exports.Beautifier = Beautifier;
 
 
 
-var BaseOptions = (__nested_webpack_require_49339__(6).Options);
+var BaseOptions = (__nested_webpack_require_49930__(6).Options);
 
 function Options(options) {
   BaseOptions.call(this, options, 'css');
@@ -21593,7 +21779,7 @@ module.exports.Options = Options;
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_51819__(moduleId) {
+/******/ 	function __nested_webpack_require_52410__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -21607,7 +21793,7 @@ module.exports.Options = Options;
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_51819__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_52410__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -21618,7 +21804,7 @@ module.exports.Options = Options;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_51819__(15);
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_52410__(15);
 /******/ 	legacy_beautify_css = __nested_webpack_exports__;
 /******/ 	
 /******/ })()
@@ -21627,7 +21813,7 @@ module.exports.Options = Options;
 var css_beautify = legacy_beautify_css;
 ;// CONCATENATED MODULE: ../../node_modules/vscode-html-languageservice/lib/esm/beautify/beautify-html.js
 // copied from js-beautify/js/lib/beautify-html.js
-// version: 1.14.7
+// version: 1.15.4
 /* AUTO-GENERATED. DO NOT MODIFY. */
 /*
 
@@ -22270,10 +22456,10 @@ function Options(options, merge_child_field) {
 
   this.indent_empty_lines = this._get_boolean('indent_empty_lines');
 
-  // valid templating languages ['django', 'erb', 'handlebars', 'php', 'smarty']
-  // For now, 'auto' = all off for javascript, all on for html (and inline javascript).
+  // valid templating languages ['django', 'erb', 'handlebars', 'php', 'smarty', 'angular']
+  // For now, 'auto' = all off for javascript, all except angular on for html (and inline javascript/css).
   // other values ignored
-  this.templating = this._get_selection_list('templating', ['auto', 'none', 'django', 'erb', 'handlebars', 'php', 'smarty'], ['auto']);
+  this.templating = this._get_selection_list('templating', ['auto', 'none', 'angular', 'django', 'erb', 'handlebars', 'php', 'smarty'], ['auto']);
 }
 
 Options.prototype._get_array = function(name, default_value) {
@@ -22597,7 +22783,7 @@ module.exports.InputScanner = InputScanner;
 
 /***/ }),
 /* 9 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_30403__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_30444__) {
 
 /*jshint node:true */
 /*
@@ -22629,10 +22815,10 @@ module.exports.InputScanner = InputScanner;
 
 
 
-var InputScanner = (__nested_webpack_require_30403__(8).InputScanner);
-var Token = (__nested_webpack_require_30403__(3).Token);
-var TokenStream = (__nested_webpack_require_30403__(10).TokenStream);
-var WhitespacePattern = (__nested_webpack_require_30403__(11).WhitespacePattern);
+var InputScanner = (__nested_webpack_require_30444__(8).InputScanner);
+var Token = (__nested_webpack_require_30444__(3).Token);
+var TokenStream = (__nested_webpack_require_30444__(10).TokenStream);
+var WhitespacePattern = (__nested_webpack_require_30444__(11).WhitespacePattern);
 
 var TOKEN = {
   START: 'TK_START',
@@ -22827,7 +23013,7 @@ module.exports.TokenStream = TokenStream;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_36823__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_36864__) {
 
 /*jshint node:true */
 /*
@@ -22859,7 +23045,7 @@ module.exports.TokenStream = TokenStream;
 
 
 
-var Pattern = (__nested_webpack_require_36823__(12).Pattern);
+var Pattern = (__nested_webpack_require_36864__(12).Pattern);
 
 function WhitespacePattern(input_scanner, parent) {
   Pattern.call(this, input_scanner, parent);
@@ -23106,7 +23292,7 @@ module.exports.Directives = Directives;
 
 /***/ }),
 /* 14 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_45810__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_45851__) {
 
 /*jshint node:true */
 /*
@@ -23138,7 +23324,7 @@ module.exports.Directives = Directives;
 
 
 
-var Pattern = (__nested_webpack_require_45810__(12).Pattern);
+var Pattern = (__nested_webpack_require_45851__(12).Pattern);
 
 
 var template_names = {
@@ -23146,7 +23332,8 @@ var template_names = {
   erb: false,
   handlebars: false,
   php: false,
-  smarty: false
+  smarty: false,
+  angular: false
 };
 
 // This lets templates appear anywhere we would do a readUntil
@@ -23244,6 +23431,10 @@ TemplatablePattern.prototype.__set_templated_pattern = function() {
   if (!this._disabled.handlebars) {
     items.push(this.__patterns.handlebars._starting_pattern.source);
   }
+  if (!this._disabled.angular) {
+    // Handlebars ('{{' and '}}') are also special tokens in Angular)
+    items.push(this.__patterns.handlebars._starting_pattern.source);
+  }
   if (!this._disabled.erb) {
     items.push(this.__patterns.erb._starting_pattern.source);
   }
@@ -23326,7 +23517,7 @@ module.exports.TemplatablePattern = TemplatablePattern;
 /* 16 */,
 /* 17 */,
 /* 18 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_53356__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_53591__) {
 
 /*jshint node:true */
 /*
@@ -23358,8 +23549,8 @@ module.exports.TemplatablePattern = TemplatablePattern;
 
 
 
-var Beautifier = (__nested_webpack_require_53356__(19).Beautifier),
-  Options = (__nested_webpack_require_53356__(20).Options);
+var Beautifier = (__nested_webpack_require_53591__(19).Beautifier),
+  Options = (__nested_webpack_require_53591__(20).Options);
 
 function style_html(html_source, options, js_beautify, css_beautify) {
   var beautifier = new Beautifier(html_source, options, js_beautify, css_beautify);
@@ -23374,7 +23565,7 @@ module.exports.defaultOptions = function() {
 
 /***/ }),
 /* 19 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_55034__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_55269__) {
 
 /*jshint node:true */
 /*
@@ -23406,10 +23597,10 @@ module.exports.defaultOptions = function() {
 
 
 
-var Options = (__nested_webpack_require_55034__(20).Options);
-var Output = (__nested_webpack_require_55034__(2).Output);
-var Tokenizer = (__nested_webpack_require_55034__(21).Tokenizer);
-var TOKEN = (__nested_webpack_require_55034__(21).TOKEN);
+var Options = (__nested_webpack_require_55269__(20).Options);
+var Output = (__nested_webpack_require_55269__(2).Output);
+var Tokenizer = (__nested_webpack_require_55269__(21).Tokenizer);
+var TOKEN = (__nested_webpack_require_55269__(21).TOKEN);
 
 var lineBreak = /\r\n|[\r\n]/;
 var allLineBreaks = /\r\n|[\r\n]/g;
@@ -23487,6 +23678,13 @@ Printer.prototype.print_token = function(token) {
 
 Printer.prototype.indent = function() {
   this.indent_level++;
+};
+
+Printer.prototype.deindent = function() {
+  if (this.indent_level > 0) {
+    this.indent_level--;
+    this._output.set_indent(this.indent_level, this.alignment_size);
+  }
 };
 
 Printer.prototype.get_full_indent = function(level) {
@@ -23662,7 +23860,7 @@ Beautifier.prototype.beautify = function() {
     type: ''
   };
 
-  var last_tag_token = new TagOpenParserToken();
+  var last_tag_token = new TagOpenParserToken(this._options);
 
   var printer = new Printer(this._options, baseIndentString);
   var tokens = new Tokenizer(source_text, this._options).tokenize();
@@ -23674,15 +23872,19 @@ Beautifier.prototype.beautify = function() {
   while (raw_token.type !== TOKEN.EOF) {
 
     if (raw_token.type === TOKEN.TAG_OPEN || raw_token.type === TOKEN.COMMENT) {
-      parser_token = this._handle_tag_open(printer, raw_token, last_tag_token, last_token);
+      parser_token = this._handle_tag_open(printer, raw_token, last_tag_token, last_token, tokens);
       last_tag_token = parser_token;
     } else if ((raw_token.type === TOKEN.ATTRIBUTE || raw_token.type === TOKEN.EQUALS || raw_token.type === TOKEN.VALUE) ||
       (raw_token.type === TOKEN.TEXT && !last_tag_token.tag_complete)) {
-      parser_token = this._handle_inside_tag(printer, raw_token, last_tag_token, tokens);
+      parser_token = this._handle_inside_tag(printer, raw_token, last_tag_token, last_token);
     } else if (raw_token.type === TOKEN.TAG_CLOSE) {
       parser_token = this._handle_tag_close(printer, raw_token, last_tag_token);
     } else if (raw_token.type === TOKEN.TEXT) {
       parser_token = this._handle_text(printer, raw_token, last_tag_token);
+    } else if (raw_token.type === TOKEN.CONTROL_FLOW_OPEN) {
+      parser_token = this._handle_control_flow_open(printer, raw_token);
+    } else if (raw_token.type === TOKEN.CONTROL_FLOW_CLOSE) {
+      parser_token = this._handle_control_flow_close(printer, raw_token);
     } else {
       // This should never happen, but if it does. Print the raw token
       printer.add_raw_token(raw_token);
@@ -23695,6 +23897,38 @@ Beautifier.prototype.beautify = function() {
   var sweet_code = printer._output.get_code(eol);
 
   return sweet_code;
+};
+
+Beautifier.prototype._handle_control_flow_open = function(printer, raw_token) {
+  var parser_token = {
+    text: raw_token.text,
+    type: raw_token.type
+  };
+  printer.set_space_before_token(raw_token.newlines || raw_token.whitespace_before !== '', true);
+  if (raw_token.newlines) {
+    printer.print_preserved_newlines(raw_token);
+  } else {
+    printer.set_space_before_token(raw_token.newlines || raw_token.whitespace_before !== '', true);
+  }
+  printer.print_token(raw_token);
+  printer.indent();
+  return parser_token;
+};
+
+Beautifier.prototype._handle_control_flow_close = function(printer, raw_token) {
+  var parser_token = {
+    text: raw_token.text,
+    type: raw_token.type
+  };
+
+  printer.deindent();
+  if (raw_token.newlines) {
+    printer.print_preserved_newlines(raw_token);
+  } else {
+    printer.set_space_before_token(raw_token.newlines || raw_token.whitespace_before !== '', true);
+  }
+  printer.print_token(raw_token);
+  return parser_token;
 };
 
 Beautifier.prototype._handle_tag_close = function(printer, raw_token, last_tag_token) {
@@ -23735,7 +23969,7 @@ Beautifier.prototype._handle_tag_close = function(printer, raw_token, last_tag_t
   return parser_token;
 };
 
-Beautifier.prototype._handle_inside_tag = function(printer, raw_token, last_tag_token, tokens) {
+Beautifier.prototype._handle_inside_tag = function(printer, raw_token, last_tag_token, last_token) {
   var wrapped = last_tag_token.has_wrapped_attrs;
   var parser_token = {
     text: raw_token.text,
@@ -23756,7 +23990,6 @@ Beautifier.prototype._handle_inside_tag = function(printer, raw_token, last_tag_
   } else {
     if (raw_token.type === TOKEN.ATTRIBUTE) {
       printer.set_space_before_token(true);
-      last_tag_token.attr_count += 1;
     } else if (raw_token.type === TOKEN.EQUALS) { //no space before =
       printer.set_space_before_token(false);
     } else if (raw_token.type === TOKEN.VALUE && raw_token.previous.type === TOKEN.EQUALS) { //no space before value
@@ -23769,29 +24002,15 @@ Beautifier.prototype._handle_inside_tag = function(printer, raw_token, last_tag_
         wrapped = wrapped || raw_token.newlines !== 0;
       }
 
-
-      if (this._is_wrap_attributes_force) {
-        var force_attr_wrap = last_tag_token.attr_count > 1;
-        if (this._is_wrap_attributes_force_expand_multiline && last_tag_token.attr_count === 1) {
-          var is_only_attribute = true;
-          var peek_index = 0;
-          var peek_token;
-          do {
-            peek_token = tokens.peek(peek_index);
-            if (peek_token.type === TOKEN.ATTRIBUTE) {
-              is_only_attribute = false;
-              break;
-            }
-            peek_index += 1;
-          } while (peek_index < 4 && peek_token.type !== TOKEN.EOF && peek_token.type !== TOKEN.TAG_CLOSE);
-
-          force_attr_wrap = !is_only_attribute;
-        }
-
-        if (force_attr_wrap) {
-          printer.print_newline(false);
-          wrapped = true;
-        }
+      // Wrap for 'force' options, and if the number of attributes is at least that specified in 'wrap_attributes_min_attrs':
+      // 1. always wrap the second and beyond attributes
+      // 2. wrap the first attribute only if 'force-expand-multiline' is specified
+      if (this._is_wrap_attributes_force &&
+        last_tag_token.attr_count >= this._options.wrap_attributes_min_attrs &&
+        (last_token.type !== TOKEN.TAG_OPEN || // ie. second attribute and beyond
+          this._is_wrap_attributes_force_expand_multiline)) {
+        printer.print_newline(false);
+        wrapped = true;
       }
     }
     printer.print_token(raw_token);
@@ -23920,12 +24139,12 @@ Beautifier.prototype._print_custom_beatifier_text = function(printer, raw_token,
   }
 };
 
-Beautifier.prototype._handle_tag_open = function(printer, raw_token, last_tag_token, last_token) {
+Beautifier.prototype._handle_tag_open = function(printer, raw_token, last_tag_token, last_token, tokens) {
   var parser_token = this._get_tag_open_token(raw_token);
 
   if ((last_tag_token.is_unformatted || last_tag_token.is_content_unformatted) &&
     !last_tag_token.is_empty_element &&
-    raw_token.type === TOKEN.TAG_OPEN && raw_token.text.indexOf('</') === 0) {
+    raw_token.type === TOKEN.TAG_OPEN && !parser_token.is_start_tag) {
     // End element tags for unformatted or content_unformatted elements
     // are printed raw to keep any newlines inside them exactly the same.
     printer.add_raw_token(raw_token);
@@ -23937,6 +24156,19 @@ Beautifier.prototype._handle_tag_open = function(printer, raw_token, last_tag_to
       printer.set_wrap_point();
     }
     printer.print_token(raw_token);
+  }
+
+  // count the number of attributes
+  if (parser_token.is_start_tag && this._is_wrap_attributes_force) {
+    var peek_index = 0;
+    var peek_token;
+    do {
+      peek_token = tokens.peek(peek_index);
+      if (peek_token.type === TOKEN.ATTRIBUTE) {
+        parser_token.attr_count += 1;
+      }
+      peek_index += 1;
+    } while (peek_token.type !== TOKEN.EOF && peek_token.type !== TOKEN.TAG_CLOSE);
   }
 
   //indent attributes an auto, forced, aligned or forced-align line-wrap
@@ -23951,7 +24183,7 @@ Beautifier.prototype._handle_tag_open = function(printer, raw_token, last_tag_to
   return parser_token;
 };
 
-var TagOpenParserToken = function(parent, raw_token) {
+var TagOpenParserToken = function(options, parent, raw_token) {
   this.parent = parent || null;
   this.text = '';
   this.type = 'TK_TAG_OPEN';
@@ -24018,13 +24250,14 @@ var TagOpenParserToken = function(parent, raw_token) {
     }
 
     // handlebars tags that don't start with # or ^ are single_tags, and so also start and end.
+    // if they start with # or ^, they are still considered single tags if indenting of handlebars is set to false
     this.is_end_tag = this.is_end_tag ||
-      (this.tag_start_char === '{' && (this.text.length < 3 || (/[^#\^]/.test(this.text.charAt(handlebar_starts)))));
+      (this.tag_start_char === '{' && (!options.indent_handlebars || this.text.length < 3 || (/[^#\^]/.test(this.text.charAt(handlebar_starts)))));
   }
 };
 
 Beautifier.prototype._get_tag_open_token = function(raw_token) { //function to get a full tag and parse its type
-  var parser_token = new TagOpenParserToken(this._tag_stack.get_parser_token(), raw_token);
+  var parser_token = new TagOpenParserToken(this._options, this._tag_stack.get_parser_token(), raw_token);
 
   parser_token.alignment_size = this._options.wrap_attributes_indent_size;
 
@@ -24036,7 +24269,7 @@ Beautifier.prototype._get_tag_open_token = function(raw_token) { //function to g
 
   parser_token.is_unformatted = !parser_token.tag_complete && in_array(parser_token.tag_check, this._options.unformatted);
   parser_token.is_content_unformatted = !parser_token.is_empty_element && in_array(parser_token.tag_check, this._options.content_unformatted);
-  parser_token.is_inline_element = in_array(parser_token.tag_name, this._options.inline) || parser_token.tag_name.includes("-") || parser_token.tag_start_char === '{';
+  parser_token.is_inline_element = in_array(parser_token.tag_name, this._options.inline) || (this._options.inline_custom_elements && parser_token.tag_name.includes("-")) || parser_token.tag_start_char === '{';
 
   return parser_token;
 };
@@ -24143,7 +24376,7 @@ Beautifier.prototype._calcluate_parent_multiline = function(printer, parser_toke
 };
 
 //To be used for <p> tag special case:
-var p_closers = ['address', 'article', 'aside', 'blockquote', 'details', 'div', 'dl', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'hr', 'main', 'nav', 'ol', 'p', 'pre', 'section', 'table', 'ul'];
+var p_closers = ['address', 'article', 'aside', 'blockquote', 'details', 'div', 'dl', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'hr', 'main', 'menu', 'nav', 'ol', 'p', 'pre', 'section', 'table', 'ul'];
 var p_parent_excludes = ['a', 'audio', 'del', 'ins', 'map', 'noscript', 'video'];
 
 Beautifier.prototype._do_optional_end_element = function(parser_token) {
@@ -24166,7 +24399,7 @@ Beautifier.prototype._do_optional_end_element = function(parser_token) {
 
   } else if (parser_token.tag_name === 'li') {
     // An li element’s end tag may be omitted if the li element is immediately followed by another li element or if there is no more content in the parent element.
-    result = result || this._tag_stack.try_pop('li', ['ol', 'ul']);
+    result = result || this._tag_stack.try_pop('li', ['ol', 'ul', 'menu']);
 
   } else if (parser_token.tag_name === 'dd' || parser_token.tag_name === 'dt') {
     // A dd element’s end tag may be omitted if the dd element is immediately followed by another dd element or a dt element, or if there is no more content in the parent element.
@@ -24258,7 +24491,7 @@ module.exports.Beautifier = Beautifier;
 
 /***/ }),
 /* 20 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_90937__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_93006__) {
 
 /*jshint node:true */
 /*
@@ -24290,7 +24523,7 @@ module.exports.Beautifier = Beautifier;
 
 
 
-var BaseOptions = (__nested_webpack_require_90937__(6).Options);
+var BaseOptions = (__nested_webpack_require_93006__(6).Options);
 
 function Options(options) {
   BaseOptions.call(this, options, 'html');
@@ -24305,6 +24538,7 @@ function Options(options) {
   this.indent_handlebars = this._get_boolean('indent_handlebars', true);
   this.wrap_attributes = this._get_selection('wrap_attributes',
     ['auto', 'force', 'force-aligned', 'force-expand-multiline', 'aligned-multiple', 'preserve', 'preserve-aligned']);
+  this.wrap_attributes_min_attrs = this._get_number('wrap_attributes_min_attrs', 2);
   this.wrap_attributes_indent_size = this._get_number('wrap_attributes_indent_size', this.indent_size);
   this.extra_liners = this._get_array('extra_liners', ['head', 'body', '/html']);
 
@@ -24322,6 +24556,7 @@ function Options(options) {
     // obsolete inline tags
     'acronym', 'big', 'strike', 'tt'
   ]);
+  this.inline_custom_elements = this._get_boolean('inline_custom_elements', true);
   this.void_elements = this._get_array('void_elements', [
     // HTLM void elements - aka self-closing tags - aka singletons
     // https://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
@@ -24355,7 +24590,7 @@ module.exports.Options = Options;
 
 /***/ }),
 /* 21 */
-/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_95136__) {
+/***/ (function(module, __unused_webpack_exports, __nested_webpack_require_97373__) {
 
 /*jshint node:true */
 /*
@@ -24387,15 +24622,17 @@ module.exports.Options = Options;
 
 
 
-var BaseTokenizer = (__nested_webpack_require_95136__(9).Tokenizer);
-var BASETOKEN = (__nested_webpack_require_95136__(9).TOKEN);
-var Directives = (__nested_webpack_require_95136__(13).Directives);
-var TemplatablePattern = (__nested_webpack_require_95136__(14).TemplatablePattern);
-var Pattern = (__nested_webpack_require_95136__(12).Pattern);
+var BaseTokenizer = (__nested_webpack_require_97373__(9).Tokenizer);
+var BASETOKEN = (__nested_webpack_require_97373__(9).TOKEN);
+var Directives = (__nested_webpack_require_97373__(13).Directives);
+var TemplatablePattern = (__nested_webpack_require_97373__(14).TemplatablePattern);
+var Pattern = (__nested_webpack_require_97373__(12).Pattern);
 
 var TOKEN = {
   TAG_OPEN: 'TK_TAG_OPEN',
   TAG_CLOSE: 'TK_TAG_CLOSE',
+  CONTROL_FLOW_OPEN: 'TK_CONTROL_FLOW_OPEN',
+  CONTROL_FLOW_CLOSE: 'TK_CONTROL_FLOW_CLOSE',
   ATTRIBUTE: 'TK_ATTRIBUTE',
   EQUALS: 'TK_EQUALS',
   VALUE: 'TK_VALUE',
@@ -24420,11 +24657,13 @@ var Tokenizer = function(input_string, options) {
 
   this.__patterns = {
     word: templatable_reader.until(/[\n\r\t <]/),
+    word_control_flow_close_excluded: templatable_reader.until(/[\n\r\t <}]/),
     single_quote: templatable_reader.until_after(/'/),
     double_quote: templatable_reader.until_after(/"/),
     attribute: templatable_reader.until(/[\n\r\t =>]|\/>/),
     element_name: templatable_reader.until(/[\n\r\t >\/]/),
 
+    angular_control_flow_start: pattern_reader.matching(/\@[a-zA-Z]+[^({]*[({]/),
     handlebars_comment: pattern_reader.starting_with(/{{!--/).until_after(/--}}/),
     handlebars: pattern_reader.starting_with(/{{/).until_after(/}}/),
     handlebars_open: pattern_reader.until(/[\n\r\t }]/),
@@ -24438,6 +24677,7 @@ var Tokenizer = function(input_string, options) {
 
   if (this._options.indent_handlebars) {
     this.__patterns.word = this.__patterns.word.exclude('handlebars');
+    this.__patterns.word_control_flow_close_excluded = this.__patterns.word_control_flow_close_excluded.exclude('handlebars');
   }
 
   this._unformatted_content_delimiter = null;
@@ -24456,14 +24696,16 @@ Tokenizer.prototype._is_comment = function(current_token) { // jshint unused:fal
 };
 
 Tokenizer.prototype._is_opening = function(current_token) {
-  return current_token.type === TOKEN.TAG_OPEN;
+  return current_token.type === TOKEN.TAG_OPEN || current_token.type === TOKEN.CONTROL_FLOW_OPEN;
 };
 
 Tokenizer.prototype._is_closing = function(current_token, open_token) {
-  return current_token.type === TOKEN.TAG_CLOSE &&
+  return (current_token.type === TOKEN.TAG_CLOSE &&
     (open_token && (
       ((current_token.text === '>' || current_token.text === '/>') && open_token.text[0] === '<') ||
-      (current_token.text === '}}' && open_token.text[0] === '{' && open_token.text[1] === '{')));
+      (current_token.text === '}}' && open_token.text[0] === '{' && open_token.text[1] === '{')))
+  ) || (current_token.type === TOKEN.CONTROL_FLOW_CLOSE &&
+    (current_token.text === '}' && open_token.text.endsWith('{')));
 };
 
 Tokenizer.prototype._reset = function() {
@@ -24482,8 +24724,10 @@ Tokenizer.prototype._get_next_token = function(previous_token, open_token) { // 
   token = token || this._read_open_handlebars(c, open_token);
   token = token || this._read_attribute(c, previous_token, open_token);
   token = token || this._read_close(c, open_token);
+  token = token || this._read_script_and_style(c, previous_token);
+  token = token || this._read_control_flows(c, open_token);
   token = token || this._read_raw_content(c, previous_token, open_token);
-  token = token || this._read_content_word(c);
+  token = token || this._read_content_word(c, open_token);
   token = token || this._read_comment_or_cdata(c);
   token = token || this._read_processing(c);
   token = token || this._read_open(c, open_token);
@@ -24548,7 +24792,7 @@ Tokenizer.prototype._read_processing = function(c) { // jshint unused:false
 Tokenizer.prototype._read_open = function(c, open_token) {
   var resulting_string = null;
   var token = null;
-  if (!open_token) {
+  if (!open_token || open_token.type === TOKEN.CONTROL_FLOW_OPEN) {
     if (c === '<') {
 
       resulting_string = this._input.next();
@@ -24565,9 +24809,9 @@ Tokenizer.prototype._read_open = function(c, open_token) {
 Tokenizer.prototype._read_open_handlebars = function(c, open_token) {
   var resulting_string = null;
   var token = null;
-  if (!open_token) {
-    if (this._options.indent_handlebars && c === '{' && this._input.peek(1) === '{') {
-      if (this._input.peek(2) === '!') {
+  if (!open_token || open_token.type === TOKEN.CONTROL_FLOW_OPEN) {
+    if ((this._options.templating.includes('angular') || this._options.indent_handlebars) && c === '{' && this._input.peek(1) === '{') {
+      if (this._options.indent_handlebars && this._input.peek(2) === '!') {
         resulting_string = this.__patterns.handlebars_comment.read();
         resulting_string = resulting_string || this.__patterns.handlebars.read();
         token = this._create_token(TOKEN.COMMENT, resulting_string);
@@ -24580,11 +24824,48 @@ Tokenizer.prototype._read_open_handlebars = function(c, open_token) {
   return token;
 };
 
+Tokenizer.prototype._read_control_flows = function(c, open_token) {
+  var resulting_string = '';
+  var token = null;
+  // Only check for control flows if angular templating is set
+  if (!this._options.templating.includes('angular')) {
+    return token;
+  }
+
+  if (c === '@') {
+    resulting_string = this.__patterns.angular_control_flow_start.read();
+    if (resulting_string === '') {
+      return token;
+    }
+
+    var opening_parentheses_count = resulting_string.endsWith('(') ? 1 : 0;
+    var closing_parentheses_count = 0;
+    // The opening brace of the control flow is where the number of opening and closing parentheses equal
+    // e.g. @if({value: true} !== null) { 
+    while (!(resulting_string.endsWith('{') && opening_parentheses_count === closing_parentheses_count)) {
+      var next_char = this._input.next();
+      if (next_char === null) {
+        break;
+      } else if (next_char === '(') {
+        opening_parentheses_count++;
+      } else if (next_char === ')') {
+        closing_parentheses_count++;
+      }
+      resulting_string += next_char;
+    }
+    token = this._create_token(TOKEN.CONTROL_FLOW_OPEN, resulting_string);
+  } else if (c === '}' && open_token && open_token.type === TOKEN.CONTROL_FLOW_OPEN) {
+    resulting_string = this._input.next();
+    token = this._create_token(TOKEN.CONTROL_FLOW_CLOSE, resulting_string);
+  }
+  return token;
+};
+
 
 Tokenizer.prototype._read_close = function(c, open_token) {
   var resulting_string = null;
   var token = null;
-  if (open_token) {
+  if (open_token && open_token.type === TOKEN.TAG_OPEN) {
     if (open_token.text[0] === '<' && (c === '>' || (c === '/' && this._input.peek(1) === '>'))) {
       resulting_string = this._input.next();
       if (c === '/') { //  for close tag "/>"
@@ -24640,7 +24921,6 @@ Tokenizer.prototype._is_content_unformatted = function(tag_name) {
       this._options.unformatted.indexOf(tag_name) !== -1);
 };
 
-
 Tokenizer.prototype._read_raw_content = function(c, previous_token, open_token) { // jshint unused:false
   var resulting_string = '';
   if (open_token && open_token.text[0] === '{') {
@@ -24649,16 +24929,7 @@ Tokenizer.prototype._read_raw_content = function(c, previous_token, open_token) 
     previous_token.opened.text[0] === '<' && previous_token.text[0] !== '/') {
     // ^^ empty tag has no content 
     var tag_name = previous_token.opened.text.substr(1).toLowerCase();
-    if (tag_name === 'script' || tag_name === 'style') {
-      // Script and style tags are allowed to have comments wrapping their content
-      // or just have regular content.
-      var token = this._read_comment_or_cdata(c);
-      if (token) {
-        token.type = TOKEN.TEXT;
-        return token;
-      }
-      resulting_string = this._input.readUntil(new RegExp('</' + tag_name + '[\\n\\r\\t ]*?>', 'ig'));
-    } else if (this._is_content_unformatted(tag_name)) {
+    if (this._is_content_unformatted(tag_name)) {
 
       resulting_string = this._input.readUntil(new RegExp('</' + tag_name + '[\\n\\r\\t ]*?>', 'ig'));
     }
@@ -24671,7 +24942,27 @@ Tokenizer.prototype._read_raw_content = function(c, previous_token, open_token) 
   return null;
 };
 
-Tokenizer.prototype._read_content_word = function(c) {
+Tokenizer.prototype._read_script_and_style = function(c, previous_token) { // jshint unused:false 
+  if (previous_token.type === TOKEN.TAG_CLOSE && previous_token.opened.text[0] === '<' && previous_token.text[0] !== '/') {
+    var tag_name = previous_token.opened.text.substr(1).toLowerCase();
+    if (tag_name === 'script' || tag_name === 'style') {
+      // Script and style tags are allowed to have comments wrapping their content
+      // or just have regular content.
+      var token = this._read_comment_or_cdata(c);
+      if (token) {
+        token.type = TOKEN.TEXT;
+        return token;
+      }
+      var resulting_string = this._input.readUntil(new RegExp('</' + tag_name + '[\\n\\r\\t ]*?>', 'ig'));
+      if (resulting_string) {
+        return this._create_token(TOKEN.TEXT, resulting_string);
+      }
+    }
+  }
+  return null;
+};
+
+Tokenizer.prototype._read_content_word = function(c, open_token) {
   var resulting_string = '';
   if (this._options.unformatted_content_delimiter) {
     if (c === this._options.unformatted_content_delimiter[0]) {
@@ -24680,11 +24971,12 @@ Tokenizer.prototype._read_content_word = function(c) {
   }
 
   if (!resulting_string) {
-    resulting_string = this.__patterns.word.read();
+    resulting_string = (open_token && open_token.type === TOKEN.CONTROL_FLOW_OPEN) ? this.__patterns.word_control_flow_close_excluded.read() : this.__patterns.word.read();
   }
   if (resulting_string) {
     return this._create_token(TOKEN.TEXT, resulting_string);
   }
+  return null;
 };
 
 module.exports.Tokenizer = Tokenizer;
@@ -24698,7 +24990,7 @@ module.exports.TOKEN = TOKEN;
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_107030__(moduleId) {
+/******/ 	function __nested_webpack_require_112128__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -24712,7 +25004,7 @@ module.exports.TOKEN = TOKEN;
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_107030__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_112128__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -24723,7 +25015,7 @@ module.exports.TOKEN = TOKEN;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_107030__(18);
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_112128__(18);
 /******/ 	legacy_beautify_html = __nested_webpack_exports__;
 /******/ 	
 /******/ })()
@@ -24852,7 +25144,10 @@ function getTemplatingFormatOption(options, dflt) {
     if (value === true) {
         return ['auto'];
     }
-    return ['none'];
+    if (value === false || value === dflt || Array.isArray(value) === false) {
+        return ['none'];
+    }
+    return value;
 }
 function computeIndentLevel(content, offset, options) {
     let i = offset;
@@ -24881,8 +25176,8 @@ function isWhitespace(text, offset) {
 }
 
 ;// CONCATENATED MODULE: ../../node_modules/vscode-uri/lib/esm/index.mjs
-/* provided dependency */ var process = __nested_webpack_require_653296__(9907);
-var LIB;(()=>{"use strict";var t={470:t=>{function e(t){if("string"!=typeof t)throw new TypeError("Path must be a string. Received "+JSON.stringify(t))}function r(t,e){for(var r,n="",i=0,o=-1,s=0,h=0;h<=t.length;++h){if(h<t.length)r=t.charCodeAt(h);else{if(47===r)break;r=47}if(47===r){if(o===h-1||1===s);else if(o!==h-1&&2===s){if(n.length<2||2!==i||46!==n.charCodeAt(n.length-1)||46!==n.charCodeAt(n.length-2))if(n.length>2){var a=n.lastIndexOf("/");if(a!==n.length-1){-1===a?(n="",i=0):i=(n=n.slice(0,a)).length-1-n.lastIndexOf("/"),o=h,s=0;continue}}else if(2===n.length||1===n.length){n="",i=0,o=h,s=0;continue}e&&(n.length>0?n+="/..":n="..",i=2)}else n.length>0?n+="/"+t.slice(o+1,h):n=t.slice(o+1,h),i=h-o-1;o=h,s=0}else 46===r&&-1!==s?++s:s=-1}return n}var n={resolve:function(){for(var t,n="",i=!1,o=arguments.length-1;o>=-1&&!i;o--){var s;o>=0?s=arguments[o]:(void 0===t&&(t=process.cwd()),s=t),e(s),0!==s.length&&(n=s+"/"+n,i=47===s.charCodeAt(0))}return n=r(n,!i),i?n.length>0?"/"+n:"/":n.length>0?n:"."},normalize:function(t){if(e(t),0===t.length)return".";var n=47===t.charCodeAt(0),i=47===t.charCodeAt(t.length-1);return 0!==(t=r(t,!n)).length||n||(t="."),t.length>0&&i&&(t+="/"),n?"/"+t:t},isAbsolute:function(t){return e(t),t.length>0&&47===t.charCodeAt(0)},join:function(){if(0===arguments.length)return".";for(var t,r=0;r<arguments.length;++r){var i=arguments[r];e(i),i.length>0&&(void 0===t?t=i:t+="/"+i)}return void 0===t?".":n.normalize(t)},relative:function(t,r){if(e(t),e(r),t===r)return"";if((t=n.resolve(t))===(r=n.resolve(r)))return"";for(var i=1;i<t.length&&47===t.charCodeAt(i);++i);for(var o=t.length,s=o-i,h=1;h<r.length&&47===r.charCodeAt(h);++h);for(var a=r.length-h,c=s<a?s:a,f=-1,u=0;u<=c;++u){if(u===c){if(a>c){if(47===r.charCodeAt(h+u))return r.slice(h+u+1);if(0===u)return r.slice(h+u)}else s>c&&(47===t.charCodeAt(i+u)?f=u:0===u&&(f=0));break}var l=t.charCodeAt(i+u);if(l!==r.charCodeAt(h+u))break;47===l&&(f=u)}var g="";for(u=i+f+1;u<=o;++u)u!==o&&47!==t.charCodeAt(u)||(0===g.length?g+="..":g+="/..");return g.length>0?g+r.slice(h+f):(h+=f,47===r.charCodeAt(h)&&++h,r.slice(h))},_makeLong:function(t){return t},dirname:function(t){if(e(t),0===t.length)return".";for(var r=t.charCodeAt(0),n=47===r,i=-1,o=!0,s=t.length-1;s>=1;--s)if(47===(r=t.charCodeAt(s))){if(!o){i=s;break}}else o=!1;return-1===i?n?"/":".":n&&1===i?"//":t.slice(0,i)},basename:function(t,r){if(void 0!==r&&"string"!=typeof r)throw new TypeError('"ext" argument must be a string');e(t);var n,i=0,o=-1,s=!0;if(void 0!==r&&r.length>0&&r.length<=t.length){if(r.length===t.length&&r===t)return"";var h=r.length-1,a=-1;for(n=t.length-1;n>=0;--n){var c=t.charCodeAt(n);if(47===c){if(!s){i=n+1;break}}else-1===a&&(s=!1,a=n+1),h>=0&&(c===r.charCodeAt(h)?-1==--h&&(o=n):(h=-1,o=a))}return i===o?o=a:-1===o&&(o=t.length),t.slice(i,o)}for(n=t.length-1;n>=0;--n)if(47===t.charCodeAt(n)){if(!s){i=n+1;break}}else-1===o&&(s=!1,o=n+1);return-1===o?"":t.slice(i,o)},extname:function(t){e(t);for(var r=-1,n=0,i=-1,o=!0,s=0,h=t.length-1;h>=0;--h){var a=t.charCodeAt(h);if(47!==a)-1===i&&(o=!1,i=h+1),46===a?-1===r?r=h:1!==s&&(s=1):-1!==r&&(s=-1);else if(!o){n=h+1;break}}return-1===r||-1===i||0===s||1===s&&r===i-1&&r===n+1?"":t.slice(r,i)},format:function(t){if(null===t||"object"!=typeof t)throw new TypeError('The "pathObject" argument must be of type Object. Received type '+typeof t);return function(t,e){var r=e.dir||e.root,n=e.base||(e.name||"")+(e.ext||"");return r?r===e.root?r+n:r+"/"+n:n}(0,t)},parse:function(t){e(t);var r={root:"",dir:"",base:"",ext:"",name:""};if(0===t.length)return r;var n,i=t.charCodeAt(0),o=47===i;o?(r.root="/",n=1):n=0;for(var s=-1,h=0,a=-1,c=!0,f=t.length-1,u=0;f>=n;--f)if(47!==(i=t.charCodeAt(f)))-1===a&&(c=!1,a=f+1),46===i?-1===s?s=f:1!==u&&(u=1):-1!==s&&(u=-1);else if(!c){h=f+1;break}return-1===s||-1===a||0===u||1===u&&s===a-1&&s===h+1?-1!==a&&(r.base=r.name=0===h&&o?t.slice(1,a):t.slice(h,a)):(0===h&&o?(r.name=t.slice(1,s),r.base=t.slice(1,a)):(r.name=t.slice(h,s),r.base=t.slice(h,a)),r.ext=t.slice(s,a)),h>0?r.dir=t.slice(0,h-1):o&&(r.dir="/"),r},sep:"/",delimiter:":",win32:null,posix:null};n.posix=n,t.exports=n}},e={};function r(n){var i=e[n];if(void 0!==i)return i.exports;var o=e[n]={exports:{}};return t[n](o,o.exports,r),o.exports}r.d=(t,e)=>{for(var n in e)r.o(e,n)&&!r.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},r.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),r.r=t=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})};var n={};(()=>{let t;if(r.r(n),r.d(n,{URI:()=>f,Utils:()=>P}),"object"==typeof process)t="win32"===process.platform;else if("object"==typeof navigator){let e=navigator.userAgent;t=e.indexOf("Windows")>=0}const e=/^\w[\w\d+.-]*$/,i=/^\//,o=/^\/\//;function s(t,r){if(!t.scheme&&r)throw new Error(`[UriError]: Scheme is missing: {scheme: "", authority: "${t.authority}", path: "${t.path}", query: "${t.query}", fragment: "${t.fragment}"}`);if(t.scheme&&!e.test(t.scheme))throw new Error("[UriError]: Scheme contains illegal characters.");if(t.path)if(t.authority){if(!i.test(t.path))throw new Error('[UriError]: If a URI contains an authority component, then the path component must either be empty or begin with a slash ("/") character')}else if(o.test(t.path))throw new Error('[UriError]: If a URI does not contain an authority component, then the path cannot begin with two slash characters ("//")')}const h="",a="/",c=/^(([^:/?#]+?):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/;class f{static isUri(t){return t instanceof f||!!t&&"string"==typeof t.authority&&"string"==typeof t.fragment&&"string"==typeof t.path&&"string"==typeof t.query&&"string"==typeof t.scheme&&"string"==typeof t.fsPath&&"function"==typeof t.with&&"function"==typeof t.toString}scheme;authority;path;query;fragment;constructor(t,e,r,n,i,o=!1){"object"==typeof t?(this.scheme=t.scheme||h,this.authority=t.authority||h,this.path=t.path||h,this.query=t.query||h,this.fragment=t.fragment||h):(this.scheme=function(t,e){return t||e?t:"file"}(t,o),this.authority=e||h,this.path=function(t,e){switch(t){case"https":case"http":case"file":e?e[0]!==a&&(e=a+e):e=a}return e}(this.scheme,r||h),this.query=n||h,this.fragment=i||h,s(this,o))}get fsPath(){return m(this,!1)}with(t){if(!t)return this;let{scheme:e,authority:r,path:n,query:i,fragment:o}=t;return void 0===e?e=this.scheme:null===e&&(e=h),void 0===r?r=this.authority:null===r&&(r=h),void 0===n?n=this.path:null===n&&(n=h),void 0===i?i=this.query:null===i&&(i=h),void 0===o?o=this.fragment:null===o&&(o=h),e===this.scheme&&r===this.authority&&n===this.path&&i===this.query&&o===this.fragment?this:new l(e,r,n,i,o)}static parse(t,e=!1){const r=c.exec(t);return r?new l(r[2]||h,C(r[4]||h),C(r[5]||h),C(r[7]||h),C(r[9]||h),e):new l(h,h,h,h,h)}static file(e){let r=h;if(t&&(e=e.replace(/\\/g,a)),e[0]===a&&e[1]===a){const t=e.indexOf(a,2);-1===t?(r=e.substring(2),e=a):(r=e.substring(2,t),e=e.substring(t)||a)}return new l("file",r,e,h,h)}static from(t){const e=new l(t.scheme,t.authority,t.path,t.query,t.fragment);return s(e,!0),e}toString(t=!1){return y(this,t)}toJSON(){return this}static revive(t){if(t){if(t instanceof f)return t;{const e=new l(t);return e._formatted=t.external,e._fsPath=t._sep===u?t.fsPath:null,e}}return t}}const u=t?1:void 0;class l extends f{_formatted=null;_fsPath=null;get fsPath(){return this._fsPath||(this._fsPath=m(this,!1)),this._fsPath}toString(t=!1){return t?y(this,!0):(this._formatted||(this._formatted=y(this,!1)),this._formatted)}toJSON(){const t={$mid:1};return this._fsPath&&(t.fsPath=this._fsPath,t._sep=u),this._formatted&&(t.external=this._formatted),this.path&&(t.path=this.path),this.scheme&&(t.scheme=this.scheme),this.authority&&(t.authority=this.authority),this.query&&(t.query=this.query),this.fragment&&(t.fragment=this.fragment),t}}const g={58:"%3A",47:"%2F",63:"%3F",35:"%23",91:"%5B",93:"%5D",64:"%40",33:"%21",36:"%24",38:"%26",39:"%27",40:"%28",41:"%29",42:"%2A",43:"%2B",44:"%2C",59:"%3B",61:"%3D",32:"%20"};function d(t,e,r){let n,i=-1;for(let o=0;o<t.length;o++){const s=t.charCodeAt(o);if(s>=97&&s<=122||s>=65&&s<=90||s>=48&&s<=57||45===s||46===s||95===s||126===s||e&&47===s||r&&91===s||r&&93===s||r&&58===s)-1!==i&&(n+=encodeURIComponent(t.substring(i,o)),i=-1),void 0!==n&&(n+=t.charAt(o));else{void 0===n&&(n=t.substr(0,o));const e=g[s];void 0!==e?(-1!==i&&(n+=encodeURIComponent(t.substring(i,o)),i=-1),n+=e):-1===i&&(i=o)}}return-1!==i&&(n+=encodeURIComponent(t.substring(i))),void 0!==n?n:t}function p(t){let e;for(let r=0;r<t.length;r++){const n=t.charCodeAt(r);35===n||63===n?(void 0===e&&(e=t.substr(0,r)),e+=g[n]):void 0!==e&&(e+=t[r])}return void 0!==e?e:t}function m(e,r){let n;return n=e.authority&&e.path.length>1&&"file"===e.scheme?`//${e.authority}${e.path}`:47===e.path.charCodeAt(0)&&(e.path.charCodeAt(1)>=65&&e.path.charCodeAt(1)<=90||e.path.charCodeAt(1)>=97&&e.path.charCodeAt(1)<=122)&&58===e.path.charCodeAt(2)?r?e.path.substr(1):e.path[1].toLowerCase()+e.path.substr(2):e.path,t&&(n=n.replace(/\//g,"\\")),n}function y(t,e){const r=e?p:d;let n="",{scheme:i,authority:o,path:s,query:h,fragment:c}=t;if(i&&(n+=i,n+=":"),(o||"file"===i)&&(n+=a,n+=a),o){let t=o.indexOf("@");if(-1!==t){const e=o.substr(0,t);o=o.substr(t+1),t=e.lastIndexOf(":"),-1===t?n+=r(e,!1,!1):(n+=r(e.substr(0,t),!1,!1),n+=":",n+=r(e.substr(t+1),!1,!0)),n+="@"}o=o.toLowerCase(),t=o.lastIndexOf(":"),-1===t?n+=r(o,!1,!0):(n+=r(o.substr(0,t),!1,!0),n+=o.substr(t))}if(s){if(s.length>=3&&47===s.charCodeAt(0)&&58===s.charCodeAt(2)){const t=s.charCodeAt(1);t>=65&&t<=90&&(s=`/${String.fromCharCode(t+32)}:${s.substr(3)}`)}else if(s.length>=2&&58===s.charCodeAt(1)){const t=s.charCodeAt(0);t>=65&&t<=90&&(s=`${String.fromCharCode(t+32)}:${s.substr(2)}`)}n+=r(s,!0,!1)}return h&&(n+="?",n+=r(h,!1,!1)),c&&(n+="#",n+=e?c:d(c,!1,!1)),n}function v(t){try{return decodeURIComponent(t)}catch{return t.length>3?t.substr(0,3)+v(t.substr(3)):t}}const b=/(%[0-9A-Za-z][0-9A-Za-z])+/g;function C(t){return t.match(b)?t.replace(b,(t=>v(t))):t}var A=r(470);const w=A.posix||A,x="/";var P;!function(t){t.joinPath=function(t,...e){return t.with({path:w.join(t.path,...e)})},t.resolvePath=function(t,...e){let r=t.path,n=!1;r[0]!==x&&(r=x+r,n=!0);let i=w.resolve(r,...e);return n&&i[0]===x&&!t.authority&&(i=i.substring(1)),t.with({path:i})},t.dirname=function(t){if(0===t.path.length||t.path===x)return t;let e=w.dirname(t.path);return 1===e.length&&46===e.charCodeAt(0)&&(e=""),t.with({path:e})},t.basename=function(t){return w.basename(t.path)},t.extname=function(t){return w.extname(t.path)}}(P||(P={}))})(),LIB=n})();const{URI: html_service_URI,Utils}=LIB;
+/* provided dependency */ var process = __nested_webpack_require_655132__(9907);
+var LIB;(()=>{"use strict";var t={975:t=>{function e(t){if("string"!=typeof t)throw new TypeError("Path must be a string. Received "+JSON.stringify(t))}function r(t,e){for(var r,n="",i=0,o=-1,s=0,h=0;h<=t.length;++h){if(h<t.length)r=t.charCodeAt(h);else{if(47===r)break;r=47}if(47===r){if(o===h-1||1===s);else if(o!==h-1&&2===s){if(n.length<2||2!==i||46!==n.charCodeAt(n.length-1)||46!==n.charCodeAt(n.length-2))if(n.length>2){var a=n.lastIndexOf("/");if(a!==n.length-1){-1===a?(n="",i=0):i=(n=n.slice(0,a)).length-1-n.lastIndexOf("/"),o=h,s=0;continue}}else if(2===n.length||1===n.length){n="",i=0,o=h,s=0;continue}e&&(n.length>0?n+="/..":n="..",i=2)}else n.length>0?n+="/"+t.slice(o+1,h):n=t.slice(o+1,h),i=h-o-1;o=h,s=0}else 46===r&&-1!==s?++s:s=-1}return n}var n={resolve:function(){for(var t,n="",i=!1,o=arguments.length-1;o>=-1&&!i;o--){var s;o>=0?s=arguments[o]:(void 0===t&&(t=process.cwd()),s=t),e(s),0!==s.length&&(n=s+"/"+n,i=47===s.charCodeAt(0))}return n=r(n,!i),i?n.length>0?"/"+n:"/":n.length>0?n:"."},normalize:function(t){if(e(t),0===t.length)return".";var n=47===t.charCodeAt(0),i=47===t.charCodeAt(t.length-1);return 0!==(t=r(t,!n)).length||n||(t="."),t.length>0&&i&&(t+="/"),n?"/"+t:t},isAbsolute:function(t){return e(t),t.length>0&&47===t.charCodeAt(0)},join:function(){if(0===arguments.length)return".";for(var t,r=0;r<arguments.length;++r){var i=arguments[r];e(i),i.length>0&&(void 0===t?t=i:t+="/"+i)}return void 0===t?".":n.normalize(t)},relative:function(t,r){if(e(t),e(r),t===r)return"";if((t=n.resolve(t))===(r=n.resolve(r)))return"";for(var i=1;i<t.length&&47===t.charCodeAt(i);++i);for(var o=t.length,s=o-i,h=1;h<r.length&&47===r.charCodeAt(h);++h);for(var a=r.length-h,c=s<a?s:a,f=-1,u=0;u<=c;++u){if(u===c){if(a>c){if(47===r.charCodeAt(h+u))return r.slice(h+u+1);if(0===u)return r.slice(h+u)}else s>c&&(47===t.charCodeAt(i+u)?f=u:0===u&&(f=0));break}var l=t.charCodeAt(i+u);if(l!==r.charCodeAt(h+u))break;47===l&&(f=u)}var g="";for(u=i+f+1;u<=o;++u)u!==o&&47!==t.charCodeAt(u)||(0===g.length?g+="..":g+="/..");return g.length>0?g+r.slice(h+f):(h+=f,47===r.charCodeAt(h)&&++h,r.slice(h))},_makeLong:function(t){return t},dirname:function(t){if(e(t),0===t.length)return".";for(var r=t.charCodeAt(0),n=47===r,i=-1,o=!0,s=t.length-1;s>=1;--s)if(47===(r=t.charCodeAt(s))){if(!o){i=s;break}}else o=!1;return-1===i?n?"/":".":n&&1===i?"//":t.slice(0,i)},basename:function(t,r){if(void 0!==r&&"string"!=typeof r)throw new TypeError('"ext" argument must be a string');e(t);var n,i=0,o=-1,s=!0;if(void 0!==r&&r.length>0&&r.length<=t.length){if(r.length===t.length&&r===t)return"";var h=r.length-1,a=-1;for(n=t.length-1;n>=0;--n){var c=t.charCodeAt(n);if(47===c){if(!s){i=n+1;break}}else-1===a&&(s=!1,a=n+1),h>=0&&(c===r.charCodeAt(h)?-1==--h&&(o=n):(h=-1,o=a))}return i===o?o=a:-1===o&&(o=t.length),t.slice(i,o)}for(n=t.length-1;n>=0;--n)if(47===t.charCodeAt(n)){if(!s){i=n+1;break}}else-1===o&&(s=!1,o=n+1);return-1===o?"":t.slice(i,o)},extname:function(t){e(t);for(var r=-1,n=0,i=-1,o=!0,s=0,h=t.length-1;h>=0;--h){var a=t.charCodeAt(h);if(47!==a)-1===i&&(o=!1,i=h+1),46===a?-1===r?r=h:1!==s&&(s=1):-1!==r&&(s=-1);else if(!o){n=h+1;break}}return-1===r||-1===i||0===s||1===s&&r===i-1&&r===n+1?"":t.slice(r,i)},format:function(t){if(null===t||"object"!=typeof t)throw new TypeError('The "pathObject" argument must be of type Object. Received type '+typeof t);return function(t,e){var r=e.dir||e.root,n=e.base||(e.name||"")+(e.ext||"");return r?r===e.root?r+n:r+"/"+n:n}(0,t)},parse:function(t){e(t);var r={root:"",dir:"",base:"",ext:"",name:""};if(0===t.length)return r;var n,i=t.charCodeAt(0),o=47===i;o?(r.root="/",n=1):n=0;for(var s=-1,h=0,a=-1,c=!0,f=t.length-1,u=0;f>=n;--f)if(47!==(i=t.charCodeAt(f)))-1===a&&(c=!1,a=f+1),46===i?-1===s?s=f:1!==u&&(u=1):-1!==s&&(u=-1);else if(!c){h=f+1;break}return-1===s||-1===a||0===u||1===u&&s===a-1&&s===h+1?-1!==a&&(r.base=r.name=0===h&&o?t.slice(1,a):t.slice(h,a)):(0===h&&o?(r.name=t.slice(1,s),r.base=t.slice(1,a)):(r.name=t.slice(h,s),r.base=t.slice(h,a)),r.ext=t.slice(s,a)),h>0?r.dir=t.slice(0,h-1):o&&(r.dir="/"),r},sep:"/",delimiter:":",win32:null,posix:null};n.posix=n,t.exports=n}},e={};function r(n){var i=e[n];if(void 0!==i)return i.exports;var o=e[n]={exports:{}};return t[n](o,o.exports,r),o.exports}r.d=(t,e)=>{for(var n in e)r.o(e,n)&&!r.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},r.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),r.r=t=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})};var n={};let i;if(r.r(n),r.d(n,{URI:()=>l,Utils:()=>I}),"object"==typeof process)i="win32"===process.platform;else if("object"==typeof navigator){let t=navigator.userAgent;i=t.indexOf("Windows")>=0}const o=/^\w[\w\d+.-]*$/,s=/^\//,h=/^\/\//;function a(t,e){if(!t.scheme&&e)throw new Error(`[UriError]: Scheme is missing: {scheme: "", authority: "${t.authority}", path: "${t.path}", query: "${t.query}", fragment: "${t.fragment}"}`);if(t.scheme&&!o.test(t.scheme))throw new Error("[UriError]: Scheme contains illegal characters.");if(t.path)if(t.authority){if(!s.test(t.path))throw new Error('[UriError]: If a URI contains an authority component, then the path component must either be empty or begin with a slash ("/") character')}else if(h.test(t.path))throw new Error('[UriError]: If a URI does not contain an authority component, then the path cannot begin with two slash characters ("//")')}const c="",f="/",u=/^(([^:/?#]+?):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/;class l{static isUri(t){return t instanceof l||!!t&&"string"==typeof t.authority&&"string"==typeof t.fragment&&"string"==typeof t.path&&"string"==typeof t.query&&"string"==typeof t.scheme&&"string"==typeof t.fsPath&&"function"==typeof t.with&&"function"==typeof t.toString}scheme;authority;path;query;fragment;constructor(t,e,r,n,i,o=!1){"object"==typeof t?(this.scheme=t.scheme||c,this.authority=t.authority||c,this.path=t.path||c,this.query=t.query||c,this.fragment=t.fragment||c):(this.scheme=function(t,e){return t||e?t:"file"}(t,o),this.authority=e||c,this.path=function(t,e){switch(t){case"https":case"http":case"file":e?e[0]!==f&&(e=f+e):e=f}return e}(this.scheme,r||c),this.query=n||c,this.fragment=i||c,a(this,o))}get fsPath(){return v(this,!1)}with(t){if(!t)return this;let{scheme:e,authority:r,path:n,query:i,fragment:o}=t;return void 0===e?e=this.scheme:null===e&&(e=c),void 0===r?r=this.authority:null===r&&(r=c),void 0===n?n=this.path:null===n&&(n=c),void 0===i?i=this.query:null===i&&(i=c),void 0===o?o=this.fragment:null===o&&(o=c),e===this.scheme&&r===this.authority&&n===this.path&&i===this.query&&o===this.fragment?this:new d(e,r,n,i,o)}static parse(t,e=!1){const r=u.exec(t);return r?new d(r[2]||c,w(r[4]||c),w(r[5]||c),w(r[7]||c),w(r[9]||c),e):new d(c,c,c,c,c)}static file(t){let e=c;if(i&&(t=t.replace(/\\/g,f)),t[0]===f&&t[1]===f){const r=t.indexOf(f,2);-1===r?(e=t.substring(2),t=f):(e=t.substring(2,r),t=t.substring(r)||f)}return new d("file",e,t,c,c)}static from(t){const e=new d(t.scheme,t.authority,t.path,t.query,t.fragment);return a(e,!0),e}toString(t=!1){return b(this,t)}toJSON(){return this}static revive(t){if(t){if(t instanceof l)return t;{const e=new d(t);return e._formatted=t.external,e._fsPath=t._sep===g?t.fsPath:null,e}}return t}}const g=i?1:void 0;class d extends l{_formatted=null;_fsPath=null;get fsPath(){return this._fsPath||(this._fsPath=v(this,!1)),this._fsPath}toString(t=!1){return t?b(this,!0):(this._formatted||(this._formatted=b(this,!1)),this._formatted)}toJSON(){const t={$mid:1};return this._fsPath&&(t.fsPath=this._fsPath,t._sep=g),this._formatted&&(t.external=this._formatted),this.path&&(t.path=this.path),this.scheme&&(t.scheme=this.scheme),this.authority&&(t.authority=this.authority),this.query&&(t.query=this.query),this.fragment&&(t.fragment=this.fragment),t}}const p={58:"%3A",47:"%2F",63:"%3F",35:"%23",91:"%5B",93:"%5D",64:"%40",33:"%21",36:"%24",38:"%26",39:"%27",40:"%28",41:"%29",42:"%2A",43:"%2B",44:"%2C",59:"%3B",61:"%3D",32:"%20"};function m(t,e,r){let n,i=-1;for(let o=0;o<t.length;o++){const s=t.charCodeAt(o);if(s>=97&&s<=122||s>=65&&s<=90||s>=48&&s<=57||45===s||46===s||95===s||126===s||e&&47===s||r&&91===s||r&&93===s||r&&58===s)-1!==i&&(n+=encodeURIComponent(t.substring(i,o)),i=-1),void 0!==n&&(n+=t.charAt(o));else{void 0===n&&(n=t.substr(0,o));const e=p[s];void 0!==e?(-1!==i&&(n+=encodeURIComponent(t.substring(i,o)),i=-1),n+=e):-1===i&&(i=o)}}return-1!==i&&(n+=encodeURIComponent(t.substring(i))),void 0!==n?n:t}function y(t){let e;for(let r=0;r<t.length;r++){const n=t.charCodeAt(r);35===n||63===n?(void 0===e&&(e=t.substr(0,r)),e+=p[n]):void 0!==e&&(e+=t[r])}return void 0!==e?e:t}function v(t,e){let r;return r=t.authority&&t.path.length>1&&"file"===t.scheme?`//${t.authority}${t.path}`:47===t.path.charCodeAt(0)&&(t.path.charCodeAt(1)>=65&&t.path.charCodeAt(1)<=90||t.path.charCodeAt(1)>=97&&t.path.charCodeAt(1)<=122)&&58===t.path.charCodeAt(2)?e?t.path.substr(1):t.path[1].toLowerCase()+t.path.substr(2):t.path,i&&(r=r.replace(/\//g,"\\")),r}function b(t,e){const r=e?y:m;let n="",{scheme:i,authority:o,path:s,query:h,fragment:a}=t;if(i&&(n+=i,n+=":"),(o||"file"===i)&&(n+=f,n+=f),o){let t=o.indexOf("@");if(-1!==t){const e=o.substr(0,t);o=o.substr(t+1),t=e.lastIndexOf(":"),-1===t?n+=r(e,!1,!1):(n+=r(e.substr(0,t),!1,!1),n+=":",n+=r(e.substr(t+1),!1,!0)),n+="@"}o=o.toLowerCase(),t=o.lastIndexOf(":"),-1===t?n+=r(o,!1,!0):(n+=r(o.substr(0,t),!1,!0),n+=o.substr(t))}if(s){if(s.length>=3&&47===s.charCodeAt(0)&&58===s.charCodeAt(2)){const t=s.charCodeAt(1);t>=65&&t<=90&&(s=`/${String.fromCharCode(t+32)}:${s.substr(3)}`)}else if(s.length>=2&&58===s.charCodeAt(1)){const t=s.charCodeAt(0);t>=65&&t<=90&&(s=`${String.fromCharCode(t+32)}:${s.substr(2)}`)}n+=r(s,!0,!1)}return h&&(n+="?",n+=r(h,!1,!1)),a&&(n+="#",n+=e?a:m(a,!1,!1)),n}function C(t){try{return decodeURIComponent(t)}catch{return t.length>3?t.substr(0,3)+C(t.substr(3)):t}}const A=/(%[0-9A-Za-z][0-9A-Za-z])+/g;function w(t){return t.match(A)?t.replace(A,(t=>C(t))):t}var x=r(975);const P=x.posix||x,_="/";var I;!function(t){t.joinPath=function(t,...e){return t.with({path:P.join(t.path,...e)})},t.resolvePath=function(t,...e){let r=t.path,n=!1;r[0]!==_&&(r=_+r,n=!0);let i=P.resolve(r,...e);return n&&i[0]===_&&!t.authority&&(i=i.substring(1)),t.with({path:i})},t.dirname=function(t){if(0===t.path.length||t.path===_)return t;let e=P.dirname(t.path);return 1===e.length&&46===e.charCodeAt(0)&&(e=""),t.with({path:e})},t.basename=function(t){return P.basename(t.path)},t.extname=function(t){return P.extname(t.path)}}(I||(I={})),LIB=n})();const{URI: html_service_URI,Utils: html_service_Utils}=LIB;
 //# sourceMappingURL=index.mjs.map
 ;// CONCATENATED MODULE: ../../node_modules/vscode-html-languageservice/lib/esm/services/htmlLinks.js
 /*---------------------------------------------------------------------------------------------
@@ -24947,21 +25242,31 @@ function createLink(document, documentContext, attributeValue, startOffset, endO
         endOffset--;
     }
     const workspaceUrl = getWorkspaceUrl(document.uri, tokenContent, documentContext, base);
-    if (!workspaceUrl || !isValidURI(workspaceUrl)) {
+    if (!workspaceUrl) {
         return undefined;
     }
+    const target = validateAndCleanURI(workspaceUrl, document);
     return {
         range: main.Range.create(document.positionAt(startOffset), document.positionAt(endOffset)),
-        target: workspaceUrl
+        target
     };
 }
-function isValidURI(uri) {
+const _hash = '#'.charCodeAt(0);
+function validateAndCleanURI(uriStr, document) {
     try {
-        html_service_URI.parse(uri);
-        return true;
+        let uri = html_service_URI.parse(uriStr);
+        if (uri.scheme === 'file' && uri.query) {
+            // see https://github.com/microsoft/vscode/issues/194577 & https://github.com/microsoft/vscode/issues/206238
+            uri = uri.with({ query: null });
+            uriStr = uri.toString(/* skipEncodig*/ true);
+        }
+        if (uri.scheme === 'file' && uri.fragment && !(uriStr.startsWith(document.uri) && uriStr.charCodeAt(document.uri.length) === _hash)) {
+            return uri.with({ fragment: null }).toString(/* skipEncodig*/ true);
+        }
+        return uriStr;
     }
     catch (e) {
-        return false;
+        return undefined;
     }
 }
 class HTMLDocumentLinks {
@@ -25024,6 +25329,9 @@ class HTMLDocumentLinks {
                     const pos = document.positionAt(offset);
                     link.target = `${localWithHash}${pos.line + 1},${pos.character + 1}`;
                 }
+                else {
+                    link.target = document.uri;
+                }
             }
         }
         return newLinks;
@@ -25082,23 +25390,37 @@ function getTagNameRange(tokenType, document, startOffset) {
 
 function findDocumentSymbols(document, htmlDocument) {
     const symbols = [];
+    const symbols2 = findDocumentSymbols2(document, htmlDocument);
+    for (const symbol of symbols2) {
+        walk(symbol, undefined);
+    }
+    return symbols;
+    function walk(node, parent) {
+        const symbol = main.SymbolInformation.create(node.name, node.kind, node.range, document.uri, parent?.name);
+        symbol.containerName ?? (symbol.containerName = '');
+        symbols.push(symbol);
+        if (node.children) {
+            for (const child of node.children) {
+                walk(child, node);
+            }
+        }
+    }
+}
+function findDocumentSymbols2(document, htmlDocument) {
+    const symbols = [];
     htmlDocument.roots.forEach(node => {
-        provideFileSymbolsInternal(document, node, '', symbols);
+        provideFileSymbolsInternal(document, node, symbols);
     });
     return symbols;
 }
-function provideFileSymbolsInternal(document, node, container, symbols) {
+function provideFileSymbolsInternal(document, node, symbols) {
     const name = nodeToName(node);
-    const location = main.Location.create(document.uri, main.Range.create(document.positionAt(node.start), document.positionAt(node.end)));
-    const symbol = {
-        name: name,
-        location: location,
-        containerName: container,
-        kind: main.SymbolKind.Field
-    };
+    const range = main.Range.create(document.positionAt(node.start), document.positionAt(node.end));
+    const symbol = main.DocumentSymbol.create(name, undefined, main.SymbolKind.Field, range, range);
     symbols.push(symbol);
     node.children.forEach(child => {
-        provideFileSymbolsInternal(document, child, name, symbols);
+        symbol.children ?? (symbol.children = []);
+        provideFileSymbolsInternal(document, child, symbol.children);
     });
 }
 function nodeToName(node) {
@@ -25304,13 +25626,13 @@ class HTMLFolding {
         return result;
     }
     getFoldingRanges(document, context) {
-        const voidElements = this.dataManager.getVoidElements(document.languageId);
         const scanner = createScanner(document.getText());
         let token = scanner.scan();
         const ranges = [];
         const stack = [];
         let lastTagName = null;
         let prevStart = -1;
+        let voidElements;
         function addRange(range) {
             ranges.push(range);
             prevStart = range.startLine;
@@ -25329,7 +25651,11 @@ class HTMLFolding {
                     break;
                 }
                 case TokenType.StartTagClose:
-                    if (!lastTagName || !this.dataManager.isVoidElement(lastTagName, voidElements)) {
+                    if (!lastTagName) {
+                        break;
+                    }
+                    voidElements ?? (voidElements = this.dataManager.getVoidElements(document.languageId));
+                    if (!this.dataManager.isVoidElement(lastTagName, voidElements)) {
                         break;
                     }
                 // fallthrough
@@ -25595,19 +25921,59 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "version",
-                    "description": "Specifies the version of the HTML [Document Type Definition](https://developer.mozilla.org/en-US/docs/Glossary/DTD \"Document Type Definition: In HTML, the doctype is the required \"<!DOCTYPE html>\" preamble found at the top of all documents. Its sole purpose is to prevent a browser from switching into so-called “quirks mode” when rendering a document; that is, the \"<!DOCTYPE html>\" doctype ensures that the browser makes a best-effort attempt at following the relevant specifications, rather than using a different rendering mode that is incompatible with some specifications.\") that governs the current document. This attribute is not needed, because it is redundant with the version information in the document type declaration."
+                    "description": "Specifies the version of the HTML [Document Type Definition](https://developer.mozilla.org/en-US/docs/Glossary/DTD \"Document Type Definition: In HTML, the doctype is the required \"<!DOCTYPE html>\" preamble found at the top of all documents. Its sole purpose is to prevent a browser from switching into so-called “quirks mode” when rendering a document; that is, the \"<!DOCTYPE html>\" doctype ensures that the browser makes a best-effort attempt at following the relevant specifications, rather than using a different rendering mode that is incompatible with some specifications.\") that governs the current document. This attribute is not needed, because it is redundant with the version information in the document type declaration.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "xmlns",
-                    "description": "Specifies the XML Namespace of the document. Default value is `\"http://www.w3.org/1999/xhtml\"`. This is required in documents parsed with XML parsers, and optional in text/html documents."
+                    "description": "Specifies the XML Namespace of the document. Default value is `\"http://www.w3.org/1999/xhtml\"`. This is required in documents parsed with XML parsers, and optional in text/html documents.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/html"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/html"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "head",
@@ -25624,9 +25990,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/head"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/head"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "title",
@@ -25638,9 +26018,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/title"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/title"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "base",
@@ -25655,6 +26049,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The base URL to be used throughout the document for relative URL addresses. If this attribute is specified, this element must come before any other elements with attributes whose values are URLs. Absolute and relative URLs are allowed."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25663,15 +26071,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A name or keyword indicating the default location to display the result when hyperlinks or forms cause navigation, for elements that do not have an explicit target reference. It is a name of, or keyword for, a _browsing context_ (for example: tab, window, or inline frame). The following keywords have special meanings:\n\n*   `_self`: Load the result into the same browsing context as the current one. This value is the default if the attribute is not specified.\n*   `_blank`: Load the result into a new unnamed browsing context.\n*   `_parent`: Load the result into the parent browsing context of the current one. If there is no parent, this option behaves the same way as `_self`.\n*   `_top`: Load the result into the top-level browsing context (that is, the browsing context that is an ancestor of the current one, and has no parent). If there is no parent, this option behaves the same way as `_self`.\n\nIf this attribute is specified, this element must come before any other elements with attributes whose values are URLs."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/base"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/base"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "link",
@@ -25686,6 +26122,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute specifies the [URL](https://developer.mozilla.org/en-US/docs/Glossary/URL \"URL: Uniform Resource Locator (URL) is a text string specifying where a resource can be found on the Internet.\") of the linked resource. A URL can be absolute or relative."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25694,6 +26144,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This enumerated attribute indicates whether [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS \"CORS: CORS (Cross-Origin Resource Sharing) is a system, consisting of transmitting HTTP headers, that determines whether browsers block frontend JavaScript code from accessing responses for cross-origin requests.\") must be used when fetching the resource. [CORS-enabled images](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_Enabled_Image) can be reused in the [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas \"Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations.\") element without being _tainted_. The allowed values are:\n\n`anonymous`\n\nA cross-origin request (i.e. with an [`Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin \"The Origin request header indicates where a fetch originates from. It doesn't include any path information, but only the server name. It is sent with CORS requests, as well as with POST requests. It is similar to the Referer header, but, unlike this header, it doesn't disclose the whole path.\") HTTP header) is performed, but no credential is sent (i.e. no cookie, X.509 certificate, or HTTP Basic authentication). If the server does not give credentials to the origin site (by not setting the [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin \"The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin.\") HTTP header) the image will be tainted and its usage restricted.\n\n`use-credentials`\n\nA cross-origin request (i.e. with an `Origin` HTTP header) is performed along with a credential sent (i.e. a cookie, certificate, and/or HTTP Basic authentication is performed). If the server does not give credentials to the origin site (through [`Access-Control-Allow-Credentials`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials \"The Access-Control-Allow-Credentials response header tells browsers whether to expose the response to frontend JavaScript code when the request's credentials mode (Request.credentials) is \"include\".\") HTTP header), the resource will be _tainted_ and its usage restricted.\n\nIf the attribute is not present, the resource is fetched without a [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS \"CORS: CORS (Cross-Origin Resource Sharing) is a system, consisting of transmitting HTTP headers, that determines whether browsers block frontend JavaScript code from accessing responses for cross-origin requests.\") request (i.e. without sending the `Origin` HTTP header), preventing its non-tainted usage. If invalid, it is handled as if the enumerated keyword **anonymous** was used. See [CORS settings attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for additional information."
+                    },
+                    "browsers": [
+                        "C34",
+                        "CA34",
+                        "E17",
+                        "FF18",
+                        "FFA18",
+                        "S10",
+                        "SM10"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2018-04-30",
+                        "baseline_high_date": "2020-10-30"
                     }
                 },
                 {
@@ -25701,6 +26165,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute names a relationship of the linked document to the current document. The attribute must be a space-separated list of the [link types values](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25708,6 +26186,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute specifies the media that the linked resource applies to. Its value must be a media type / [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_queries). This attribute is mainly useful when linking to external stylesheets — it allows the user agent to pick the best adapted one for the device it runs on.\n\n**Notes:**\n\n*   In HTML 4, this can only be a simple white-space-separated list of media description literals, i.e., [media types and groups](https://developer.mozilla.org/en-US/docs/Web/CSS/@media), where defined and allowed as values for this attribute, such as `print`, `screen`, `aural`, `braille`. HTML5 extended this to any kind of [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_queries), which are a superset of the allowed values of HTML 4.\n*   Browsers not supporting [CSS3 Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_queries) won't necessarily recognize the adequate link; do not forget to set fallback links, the restricted set of media queries defined in HTML 4."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25715,6 +26207,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates the language of the linked resource. It is purely advisory. Allowed values are determined by [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt). Use this attribute only if the [`href`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) attribute is present."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25722,6 +26228,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute is used to define the type of the content linked to. The value of the attribute should be a MIME type such as **text/html**, **text/css**, and so on. The common use of this attribute is to define the type of stylesheet being referenced (such as **text/css**), but given that CSS is the only stylesheet language used on the web, not only is it possible to omit the `type` attribute, but is actually now recommended practice. It is also used on `rel=\"preload\"` link types, to make sure the browser only downloads file types that it supports."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25729,11 +26249,39 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute defines the sizes of the icons for visual media contained in the resource. It must be present only if the [`rel`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel) contains a value of `icon` or a non-standard type such as Apple's `apple-touch-icon`. It may have the following values:\n\n*   `any`, meaning that the icon can be scaled to any size as it is in a vector format, like `image/svg+xml`.\n*   a white-space separated list of sizes, each in the format `_<width in pixels>_x_<height in pixels>_` or `_<width in pixels>_X_<height in pixels>_`. Each of these sizes must be contained in the resource.\n\n**Note:** Most icon formats are only able to store one single icon; therefore most of the time the [`sizes`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-sizes) contains only one entry. MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous; you should definitely use it."
+                    },
+                    "browsers": [
+                        "C80",
+                        "CA80",
+                        "E80",
+                        "FF72",
+                        "FFA79",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "≤2020-07-28",
+                        "baseline_high_date": "≤2023-01-28"
                     }
                 },
                 {
                     "name": "as",
-                    "description": "This attribute is only used when `rel=\"preload\"` or `rel=\"prefetch\"` has been set on the `<link>` element. It specifies the type of content being loaded by the `<link>`, which is necessary for content prioritization, request matching, application of correct [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP), and setting of correct [`Accept`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept \"The Accept request HTTP header advertises which content types, expressed as MIME types, the client is able to understand. Using content negotiation, the server then selects one of the proposals, uses it and informs the client of its choice with the Content-Type response header. Browsers set adequate values for this header depending on the context where the request is done: when fetching a CSS stylesheet a different value is set for the request than when fetching an image, video or a script.\") request header."
+                    "description": "This attribute is only used when `rel=\"preload\"` or `rel=\"prefetch\"` has been set on the `<link>` element. It specifies the type of content being loaded by the `<link>`, which is necessary for content prioritization, request matching, application of correct [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP), and setting of correct [`Accept`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept \"The Accept request HTTP header advertises which content types, expressed as MIME types, the client is able to understand. Using content negotiation, the server then selects one of the proposals, uses it and informs the client of its choice with the Content-Type response header. Browsers set adequate values for this header depending on the context where the request is done: when fetching a CSS stylesheet a different value is set for the request than when fetching an image, video or a script.\") request header.",
+                    "browsers": [
+                        "C50",
+                        "CA50",
+                        "E17",
+                        "FF56",
+                        "FFA56",
+                        "S10",
+                        "SM10"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2018-04-30",
+                        "baseline_high_date": "2020-10-30"
+                    }
                 },
                 {
                     "name": "importance",
@@ -25745,11 +26293,39 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "integrity",
-                    "description": "Contains inline metadata — a base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch. The browser can use this to verify that the fetched resource has been delivered free of unexpected manipulation. See [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)."
+                    "description": "Contains inline metadata — a base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch. The browser can use this to verify that the fetched resource has been delivered free of unexpected manipulation. See [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).",
+                    "browsers": [
+                        "C45",
+                        "CA45",
+                        "E17",
+                        "FF43",
+                        "FFA43",
+                        "S11.1",
+                        "SM11.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2018-04-30",
+                        "baseline_high_date": "2020-10-30"
+                    }
                 },
                 {
                     "name": "referrerpolicy",
-                    "description": "A string indicating which referrer to use when fetching the resource:\n\n*   `no-referrer` means that the [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent.\n*   `no-referrer-when-downgrade` means that no [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will be sent when navigating to an origin without TLS (HTTPS). This is a user agent’s default behavior, if no policy is otherwise specified.\n*   `origin` means that the referrer will be the origin of the page, which is roughly the scheme, the host, and the port.\n*   `origin-when-cross-origin` means that navigating to other origins will be limited to the scheme, the host, and the port, while navigating on the same origin will include the referrer's path.\n*   `unsafe-url` means that the referrer will include the origin and the path (but not the fragment, password, or username). This case is unsafe because it can leak origins and paths from TLS-protected resources to insecure origins."
+                    "description": "A string indicating which referrer to use when fetching the resource:\n\n*   `no-referrer` means that the [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent.\n*   `no-referrer-when-downgrade` means that no [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will be sent when navigating to an origin without TLS (HTTPS). This is a user agent’s default behavior, if no policy is otherwise specified.\n*   `origin` means that the referrer will be the origin of the page, which is roughly the scheme, the host, and the port.\n*   `origin-when-cross-origin` means that navigating to other origins will be limited to the scheme, the host, and the port, while navigating on the same origin will include the referrer's path.\n*   `unsafe-url` means that the referrer will include the origin and the path (but not the fragment, password, or username). This case is unsafe because it can leak origins and paths from TLS-protected resources to insecure origins.",
+                    "browsers": [
+                        "C51",
+                        "CA51",
+                        "E79",
+                        "FF50",
+                        "FFA50",
+                        "S14",
+                        "SM14"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-09-16",
+                        "baseline_high_date": "2023-03-16"
+                    }
                 },
                 {
                     "name": "title",
@@ -25759,9 +26335,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/link"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/link"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "meta",
@@ -25776,6 +26366,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute defines the name of a piece of document-level metadata. It should not be set if one of the attributes [`itemprop`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-itemprop), [`http-equiv`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv) or [`charset`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset) is also set.\n\nThis metadata name is associated with the value contained by the [`content`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content) attribute. The possible values for the name attribute are:\n\n*   `application-name` which defines the name of the application running in the web page.\n    \n    **Note:**\n    \n    *   Browsers may use this to identify the application. It is different from the [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title \"The HTML Title element (<title>) defines the document's title that is shown in a browser's title bar or a page's tab.\") element, which usually contain the application name, but may also contain information like the document name or a status.\n    *   Simple web pages shouldn't define an application-name.\n    \n*   `author` which defines the name of the document's author.\n*   `description` which contains a short and accurate summary of the content of the page. Several browsers, like Firefox and Opera, use this as the default description of bookmarked pages.\n*   `generator` which contains the identifier of the software that generated the page.\n*   `keywords` which contains words relevant to the page's content separated by commas.\n*   `referrer` which controls the [`Referer` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) attached to requests sent from the document:\n    \n    Values for the `content` attribute of `<meta name=\"referrer\">`\n    \n    `no-referrer`\n    \n    Do not send a HTTP `Referrer` header.\n    \n    `origin`\n    \n    Send the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the document.\n    \n    `no-referrer-when-downgrade`\n    \n    Send the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) as a referrer to URLs as secure as the current page, (https→https), but does not send a referrer to less secure URLs (https→http). This is the default behaviour.\n    \n    `origin-when-cross-origin`\n    \n    Send the full URL (stripped of parameters) for same-origin requests, but only send the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) for other cases.\n    \n    `same-origin`\n    \n    A referrer will be sent for [same-site origins](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), but cross-origin requests will contain no referrer information.\n    \n    `strict-origin`\n    \n    Only send the origin of the document as the referrer to a-priori as-much-secure destination (HTTPS->HTTPS), but don't send it to a less secure destination (HTTPS->HTTP).\n    \n    `strict-origin-when-cross-origin`\n    \n    Send a full URL when performing a same-origin request, only send the origin of the document to a-priori as-much-secure destination (HTTPS->HTTPS), and send no header to a less secure destination (HTTPS->HTTP).\n    \n    `unsafe-URL`\n    \n    Send the full URL (stripped of parameters) for same-origin or cross-origin requests.\n    \n    **Notes:**\n    \n    *   Some browsers support the deprecated values of `always`, `default`, and `never` for referrer.\n    *   Dynamically inserting `<meta name=\"referrer\">` (with [`document.write`](https://developer.mozilla.org/en-US/docs/Web/API/Document/write) or [`appendChild`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)) makes the referrer behaviour unpredictable.\n    *   When several conflicting policies are defined, the no-referrer policy is applied.\n    \n\nThis attribute may also have a value taken from the extended list defined on [WHATWG Wiki MetaExtensions page](https://wiki.whatwg.org/wiki/MetaExtensions). Although none have been formally accepted yet, a few commonly used names are:\n\n*   `creator` which defines the name of the creator of the document, such as an organization or institution. If there are more than one, several [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta \"The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.\") elements should be used.\n*   `googlebot`, a synonym of `robots`, is only followed by Googlebot (the indexing crawler for Google).\n*   `publisher` which defines the name of the document's publisher.\n*   `robots` which defines the behaviour that cooperative crawlers, or \"robots\", should use with the page. It is a comma-separated list of the values below:\n    \n    Values for the content of `<meta name=\"robots\">`\n    \n    Value\n    \n    Description\n    \n    Used by\n    \n    `index`\n    \n    Allows the robot to index the page (default).\n    \n    All\n    \n    `noindex`\n    \n    Requests the robot to not index the page.\n    \n    All\n    \n    `follow`\n    \n    Allows the robot to follow the links on the page (default).\n    \n    All\n    \n    `nofollow`\n    \n    Requests the robot to not follow the links on the page.\n    \n    All\n    \n    `none`\n    \n    Equivalent to `noindex, nofollow`\n    \n    [Google](https://support.google.com/webmasters/answer/79812)\n    \n    `noodp`\n    \n    Prevents using the [Open Directory Project](https://www.dmoz.org/) description, if any, as the page description in search engine results.\n    \n    [Google](https://support.google.com/webmasters/answer/35624#nodmoz), [Yahoo](https://help.yahoo.com/kb/search-for-desktop/meta-tags-robotstxt-yahoo-search-sln2213.html#cont5), [Bing](https://www.bing.com/webmaster/help/which-robots-metatags-does-bing-support-5198d240)\n    \n    `noarchive`\n    \n    Requests the search engine not to cache the page content.\n    \n    [Google](https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag#valid-indexing--serving-directives), [Yahoo](https://help.yahoo.com/kb/search-for-desktop/SLN2213.html), [Bing](https://www.bing.com/webmaster/help/which-robots-metatags-does-bing-support-5198d240)\n    \n    `nosnippet`\n    \n    Prevents displaying any description of the page in search engine results.\n    \n    [Google](https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag#valid-indexing--serving-directives), [Bing](https://www.bing.com/webmaster/help/which-robots-metatags-does-bing-support-5198d240)\n    \n    `noimageindex`\n    \n    Requests this page not to appear as the referring page of an indexed image.\n    \n    [Google](https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag#valid-indexing--serving-directives)\n    \n    `nocache`\n    \n    Synonym of `noarchive`.\n    \n    [Bing](https://www.bing.com/webmaster/help/which-robots-metatags-does-bing-support-5198d240)\n    \n    **Notes:**\n    \n    *   Only cooperative robots follow these rules. Do not expect to prevent e-mail harvesters with them.\n    *   The robot still needs to access the page in order to read these rules. To prevent bandwidth consumption, use a _[robots.txt](https://developer.mozilla.org/en-US/docs/Glossary/robots.txt \"robots.txt: Robots.txt is a file which is usually placed in the root of any website. It decides whether crawlers are permitted or forbidden access to the web site.\")_ file.\n    *   If you want to remove a page, `noindex` will work, but only after the robot visits the page again. Ensure that the `robots.txt` file is not preventing revisits.\n    *   Some values are mutually exclusive, like `index` and `noindex`, or `follow` and `nofollow`. In these cases the robot's behaviour is undefined and may vary between them.\n    *   Some crawler robots, like Google, Yahoo and Bing, support the same values for the HTTP header `X-Robots-Tag`; this allows non-HTML documents like images to use these rules.\n    \n*   `slurp`, is a synonym of `robots`, but only for Slurp - the crawler for Yahoo Search.\n*   `viewport`, which gives hints about the size of the initial size of the [viewport](https://developer.mozilla.org/en-US/docs/Glossary/viewport \"viewport: A viewport represents a polygonal (normally rectangular) area in computer graphics that is currently being viewed. In web browser terms, it refers to the part of the document you're viewing which is currently visible in its window (or the screen, if the document is being viewed in full screen mode). Content outside the viewport is not visible onscreen until scrolled into view.\"). Used by mobile devices only.\n    \n    Values for the content of `<meta name=\"viewport\">`\n    \n    Value\n    \n    Possible subvalues\n    \n    Description\n    \n    `width`\n    \n    A positive integer number, or the text `device-width`\n    \n    Defines the pixel width of the viewport that you want the web site to be rendered at.\n    \n    `height`\n    \n    A positive integer, or the text `device-height`\n    \n    Defines the height of the viewport. Not used by any browser.\n    \n    `initial-scale`\n    \n    A positive number between `0.0` and `10.0`\n    \n    Defines the ratio between the device width (`device-width` in portrait mode or `device-height` in landscape mode) and the viewport size.\n    \n    `maximum-scale`\n    \n    A positive number between `0.0` and `10.0`\n    \n    Defines the maximum amount to zoom in. It must be greater or equal to the `minimum-scale` or the behaviour is undefined. Browser settings can ignore this rule and iOS10+ ignores it by default.\n    \n    `minimum-scale`\n    \n    A positive number between `0.0` and `10.0`\n    \n    Defines the minimum zoom level. It must be smaller or equal to the `maximum-scale` or the behaviour is undefined. Browser settings can ignore this rule and iOS10+ ignores it by default.\n    \n    `user-scalable`\n    \n    `yes` or `no`\n    \n    If set to `no`, the user is not able to zoom in the webpage. The default is `yes`. Browser settings can ignore this rule, and iOS10+ ignores it by default.\n    \n    Specification\n    \n    Status\n    \n    Comment\n    \n    [CSS Device Adaptation  \n    The definition of '<meta name=\"viewport\">' in that specification.](https://drafts.csswg.org/css-device-adapt/#viewport-meta)\n    \n    Working Draft\n    \n    Non-normatively describes the Viewport META element\n    \n    See also: [`@viewport`](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport \"The @viewport CSS at-rule lets you configure the viewport through which the document is viewed. It's primarily used for mobile devices, but is also used by desktop browsers that support features like \"snap to edge\" (such as Microsoft Edge).\")\n    \n    **Notes:**\n    \n    *   Though unstandardized, this declaration is respected by most mobile browsers due to de-facto dominance.\n    *   The default values may vary between devices and browsers.\n    *   To learn about this declaration in Firefox for Mobile, see [this article](https://developer.mozilla.org/en-US/docs/Mobile/Viewport_meta_tag \"Mobile/Viewport meta tag\")."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25783,6 +26387,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Defines a pragma directive. The attribute is named `**http-equiv**(alent)` because all the allowed values are names of particular HTTP headers:\n\n*   `\"content-language\"`  \n    Defines the default language of the page. It can be overridden by the [lang](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang) attribute on any element.\n    \n    **Warning:** Do not use this value, as it is obsolete. Prefer the `lang` attribute on the [`<html>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html \"The HTML <html> element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element.\") element.\n    \n*   `\"content-security-policy\"`  \n    Allows page authors to define a [content policy](https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives) for the current page. Content policies mostly specify allowed server origins and script endpoints which help guard against cross-site scripting attacks.\n*   `\"content-type\"`  \n    Defines the [MIME type](https://developer.mozilla.org/en-US/docs/Glossary/MIME_type) of the document, followed by its character encoding. It follows the same syntax as the HTTP `content-type` entity-header field, but as it is inside a HTML page, most values other than `text/html` are impossible. Therefore the valid syntax for its `content` is the string '`text/html`' followed by a character set with the following syntax: '`; charset=_IANAcharset_`', where `IANAcharset` is the _preferred MIME name_ for a character set as [defined by the IANA.](https://www.iana.org/assignments/character-sets)\n    \n    **Warning:** Do not use this value, as it is obsolete. Use the [`charset`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset) attribute on the [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta \"The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.\") element.\n    \n    **Note:** As [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta \"The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.\") can't change documents' types in XHTML or HTML5's XHTML serialization, never set the MIME type to an XHTML MIME type with `<meta>`.\n    \n*   `\"refresh\"`  \n    This instruction specifies:\n    *   The number of seconds until the page should be reloaded - only if the [`content`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content) attribute contains a positive integer.\n    *   The number of seconds until the page should redirect to another - only if the [`content`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content) attribute contains a positive integer followed by the string '`;url=`', and a valid URL.\n*   `\"set-cookie\"`  \n    Defines a [cookie](https://developer.mozilla.org/en-US/docs/cookie) for the page. Its content must follow the syntax defined in the [IETF HTTP Cookie Specification](https://tools.ietf.org/html/draft-ietf-httpstate-cookie-14).\n    \n    **Warning:** Do not use this instruction, as it is obsolete. Use the HTTP header [`Set-Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) instead."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25790,6 +26408,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute contains the value for the [`http-equiv`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv) or [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name) attribute, depending on which is used."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -25797,19 +26429,59 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute declares the page's character encoding. It must contain a [standard IANA MIME name for character encodings](https://www.iana.org/assignments/character-sets). Although the standard doesn't request a specific encoding, it suggests:\n\n*   Authors are encouraged to use [`UTF-8`](https://developer.mozilla.org/en-US/docs/Glossary/UTF-8).\n*   Authors should not use ASCII-incompatible encodings to avoid security risk: browsers not supporting them may interpret harmful content as HTML. This happens with the `JIS_C6226-1983`, `JIS_X0212-1990`, `HZ-GB-2312`, `JOHAB`, the ISO-2022 family and the EBCDIC family.\n\n**Note:** ASCII-incompatible encodings are those that don't map the 8-bit code points `0x20` to `0x7E` to the `0x0020` to `0x007E` Unicode code points)\n\n*   Authors **must not** use `CESU-8`, `UTF-7`, `BOCU-1` and/or `SCSU` as [cross-site scripting](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting) attacks with these encodings have been demonstrated.\n*   Authors should not use `UTF-32` because not all HTML5 encoding algorithms can distinguish it from `UTF-16`.\n\n**Notes:**\n\n*   The declared character encoding must match the one the page was saved with to avoid garbled characters and security holes.\n*   The [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta \"The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.\") element declaring the encoding must be inside the [`<head>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head \"The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheets.\") element and **within the first 1024 bytes** of the HTML as some browsers only look at those bytes before choosing an encoding.\n*   This [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta \"The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.\") element is only one part of the [algorithm to determine a page's character set](https://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#encoding-sniffing-algorithm \"Algorithm charset page\"). The [`Content-Type` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) and any [Byte-Order Marks](https://developer.mozilla.org/en-US/docs/Glossary/Byte-Order_Mark \"The definition of that term (Byte-Order Marks) has not been written yet; please consider contributing it!\") override this element.\n*   It is strongly recommended to define the character encoding. If a page's encoding is undefined, cross-scripting techniques are possible, such as the [`UTF-7` fallback cross-scripting technique](https://code.google.com/p/doctype-mirror/wiki/ArticleUtf7).\n*   The [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta \"The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.\") element with a `charset` attribute is a synonym for the pre-HTML5 `<meta http-equiv=\"Content-Type\" content=\"text/html; charset=_IANAcharset_\">`, where _`IANAcharset`_ contains the value of the equivalent [`charset`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset) attribute. This syntax is still allowed, although no longer recommended."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "scheme",
-                    "description": "This attribute defines the scheme in which metadata is described. A scheme is a context leading to the correct interpretations of the [`content`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content) value, like a format.\n\n**Warning:** Do not use this value, as it is obsolete. There is no replacement as there was no real usage for it."
+                    "description": "This attribute defines the scheme in which metadata is described. A scheme is a context leading to the correct interpretations of the [`content`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content) value, like a format.\n\n**Warning:** Do not use this value, as it is obsolete. There is no replacement as there was no real usage for it.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/meta"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/meta"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "style",
@@ -25823,13 +26495,27 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute defines which media the style should be applied to. Its value is a [media query](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries), which defaults to `all` if the attribute is missing."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "nonce",
                     "description": {
                         "kind": "markdown",
-                        "value": "A cryptographic nonce (number used once) used to whitelist inline styles in a [style-src Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src). The server must generate a unique nonce value each time it transmits a policy. It is critical to provide a nonce that cannot be guessed as bypassing a resource’s policy is otherwise trivial."
+                        "value": "A cryptographic nonce (number used once) used to allow inline styles in a [style-src Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src). The server must generate a unique nonce value each time it transmits a policy. It is critical to provide a nonce that cannot be guessed as bypassing a resource’s policy is otherwise trivial."
                     }
                 },
                 {
@@ -25837,6 +26523,18 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute defines the styling language as a MIME type (charset should not be specified). This attribute is optional and defaults to `text/css` if it is not specified — there is very little reason to include this in modern web documents."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
                     }
                 },
                 {
@@ -25851,9 +26549,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/style"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/style"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "body",
@@ -25947,27 +26659,99 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "alink",
-                    "description": "Color of text for hyperlinks when selected. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property in conjunction with the [`:active`](https://developer.mozilla.org/en-US/docs/Web/CSS/:active \"The :active CSS pseudo-class represents an element (such as a button) that is being activated by the user.\") pseudo-class instead._"
+                    "description": "Color of text for hyperlinks when selected. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property in conjunction with the [`:active`](https://developer.mozilla.org/en-US/docs/Web/CSS/:active \"The :active CSS pseudo-class represents an element (such as a button) that is being activated by the user.\") pseudo-class instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "background",
-                    "description": "URI of a image to use as a background. _This method is non-conforming, use CSS [`background`](https://developer.mozilla.org/en-US/docs/Web/CSS/background \"The background shorthand CSS property sets all background style properties at once, such as color, image, origin and size, or repeat method.\") property on the element instead._"
+                    "description": "URI of a image to use as a background. _This method is non-conforming, use CSS [`background`](https://developer.mozilla.org/en-US/docs/Web/CSS/background \"The background shorthand CSS property sets all background style properties at once, such as color, image, origin and size, or repeat method.\") property on the element instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "bgcolor",
-                    "description": "Background color for the document. _This method is non-conforming, use CSS [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color \"The background-color CSS property sets the background color of an element.\") property on the element instead._"
+                    "description": "Background color for the document. _This method is non-conforming, use CSS [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color \"The background-color CSS property sets the background color of an element.\") property on the element instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "bottommargin",
-                    "description": "The margin of the bottom of the body. _This method is non-conforming, use CSS [`margin-bottom`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom \"The margin-bottom CSS property sets the margin area on the bottom of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._"
+                    "description": "The margin of the bottom of the body. _This method is non-conforming, use CSS [`margin-bottom`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom \"The margin-bottom CSS property sets the margin area on the bottom of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E79",
+                        "FF35",
+                        "FFA35",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "leftmargin",
-                    "description": "The margin of the left of the body. _This method is non-conforming, use CSS [`margin-left`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left \"The margin-left CSS property sets the margin area on the left side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._"
+                    "description": "The margin of the left of the body. _This method is non-conforming, use CSS [`margin-left`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left \"The margin-left CSS property sets the margin area on the left side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E79",
+                        "FF35",
+                        "FFA35",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "link",
-                    "description": "Color of text for unvisited hypertext links. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property in conjunction with the [`:link`](https://developer.mozilla.org/en-US/docs/Web/CSS/:link \"The :link CSS pseudo-class represents an element that has not yet been visited. It matches every unvisited <a>, <area>, or <link> element that has an href attribute.\") pseudo-class instead._"
+                    "description": "Color of text for unvisited hypertext links. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property in conjunction with the [`:link`](https://developer.mozilla.org/en-US/docs/Web/CSS/:link \"The :link CSS pseudo-class represents an element that has not yet been visited. It matches every unvisited <a>, <area>, or <link> element that has an href attribute.\") pseudo-class instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "onblur",
@@ -25999,27 +26783,89 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "rightmargin",
-                    "description": "The margin of the right of the body. _This method is non-conforming, use CSS [`margin-right`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right \"The margin-right CSS property sets the margin area on the right side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._"
+                    "description": "The margin of the right of the body. _This method is non-conforming, use CSS [`margin-right`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right \"The margin-right CSS property sets the margin area on the right side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E79",
+                        "FF35",
+                        "FFA35",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "text",
-                    "description": "Foreground color of text. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property on the element instead._"
+                    "description": "Foreground color of text. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property on the element instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "topmargin",
-                    "description": "The margin of the top of the body. _This method is non-conforming, use CSS [`margin-top`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top \"The margin-top CSS property sets the margin area on the top of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._"
+                    "description": "The margin of the top of the body. _This method is non-conforming, use CSS [`margin-top`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top \"The margin-top CSS property sets the margin area on the top of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") property on the element instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E79",
+                        "FF35",
+                        "FFA35",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "vlink",
-                    "description": "Color of text for visited hypertext links. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property in conjunction with the [`:visited`](https://developer.mozilla.org/en-US/docs/Web/CSS/:visited \"The :visited CSS pseudo-class represents links that the user has already visited. For privacy reasons, the styles that can be modified using this selector are very limited.\") pseudo-class instead._"
+                    "description": "Color of text for visited hypertext links. _This method is non-conforming, use CSS [`color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color \"The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value.\") property in conjunction with the [`:visited`](https://developer.mozilla.org/en-US/docs/Web/CSS/:visited \"The :visited CSS pseudo-class represents links that the user has already visited. For privacy reasons, the styles that can be modified using this selector are very limited.\") pseudo-class instead._",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/body"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/body"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "article",
@@ -26031,9 +26877,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/article"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/article"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "section",
@@ -26045,9 +26905,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/section"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/section"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "nav",
@@ -26059,9 +26933,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/nav"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/nav"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "aside",
@@ -26073,9 +26961,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/aside"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/aside"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "h1",
@@ -26087,9 +26989,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/Heading_Elements"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "h2",
@@ -26101,9 +27017,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/Heading_Elements"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "h3",
@@ -26115,9 +27045,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/Heading_Elements"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "h4",
@@ -26129,9 +27073,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/Heading_Elements"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "h5",
@@ -26143,9 +27101,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/Heading_Elements"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "h6",
@@ -26157,9 +27129,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/Heading_Elements"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "header",
@@ -26171,9 +27157,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/header"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/header"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "footer",
@@ -26185,9 +27185,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/footer"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/footer"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "address",
@@ -26199,9 +27213,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/address"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/address"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "p",
@@ -26213,9 +27241,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/p"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/p"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "hr",
@@ -26227,31 +27269,105 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "align",
-                    "description": "Sets the alignment of the rule on the page. If no value is specified, the default value is `left`."
+                    "description": "Sets the alignment of the rule on the page. If no value is specified, the default value is `left`.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "color",
-                    "description": "Sets the color of the rule through color name or hexadecimal value."
+                    "description": "Sets the color of the rule through color name or hexadecimal value.",
+                    "browsers": [
+                        "C33",
+                        "CA33",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S10.1",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "noshade",
-                    "description": "Sets the rule to have no shading."
+                    "description": "Sets the rule to have no shading.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "size",
-                    "description": "Sets the height, in pixels, of the rule."
+                    "description": "Sets the height, in pixels, of the rule.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "width",
-                    "description": "Sets the length of the rule on the page through a pixel or percentage value."
+                    "description": "Sets the length of the rule on the page through a pixel or percentage value.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/hr"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/hr"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "pre",
@@ -26266,7 +27382,19 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "width",
-                    "description": "Contains the _preferred_ count of characters that a line should have. Though technically still implemented, this attribute has no visual effect; to achieve such an effect, use CSS [`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width \"The width CSS property sets an element's width. By default it sets the width of the content area, but if box-sizing is set to border-box, it sets the width of the border area.\") instead."
+                    "description": "Contains the _preferred_ count of characters that a line should have. Though technically still implemented, this attribute has no visual effect; to achieve such an effect, use CSS [`width`](https://developer.mozilla.org/en-US/docs/Web/CSS/width \"The width CSS property sets an element's width. By default it sets the width of the content area, but if box-sizing is set to border-box, it sets the width of the border area.\") instead.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "wrap",
@@ -26276,9 +27404,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/pre"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/pre"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "blockquote",
@@ -26292,15 +27434,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A URL that designates a source document or message for the information quoted. This attribute is intended to point to information explaining the context or the reference for the quote."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/blockquote"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/blockquote"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "ol",
@@ -26315,6 +27485,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute specifies that the items of the list are specified in reversed order."
+                    },
+                    "browsers": [
+                        "C18",
+                        "CA18",
+                        "E79",
+                        "FF18",
+                        "FFA18",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "≤2020-01-15",
+                        "baseline_high_date": "≤2022-07-15"
                     }
                 },
                 {
@@ -26322,6 +27506,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This integer attribute specifies the start value for numbering the individual list items. Although the ordering type of list elements might be Roman numerals, such as XXXI, or letters, the value of start is always represented as a number. To start numbering elements from the letter \"C\", use `<ol start=\"3\">`.\n\n**Note**: This attribute was deprecated in HTML4, but reintroduced in HTML5."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -26330,19 +27528,59 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Indicates the numbering type:\n\n*   `'a'` indicates lowercase letters,\n*   `'A'` indicates uppercase letters,\n*   `'i'` indicates lowercase Roman numerals,\n*   `'I'` indicates uppercase Roman numerals,\n*   and `'1'` indicates numbers (default).\n\nThe type set is used for the entire list unless a different [`type`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li#attr-type) attribute is used within an enclosed [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li \"The HTML <li> element is used to represent an item in a list. It must be contained in a parent element: an ordered list (<ol>), an unordered list (<ul>), or a menu (<menu>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.\") element.\n\n**Note:** This attribute was deprecated in HTML4, but reintroduced in HTML5.\n\nUnless the value of the list number matters (e.g. in legal or technical documents where items are to be referenced by their number/letter), the CSS [`list-style-type`](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type \"The list-style-type CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.\") property should be used instead."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "compact",
-                    "description": "This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the user agent and it doesn't work in all browsers.\n\n**Warning:** Do not use this attribute, as it has been deprecated: the [`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol \"The HTML <ol> element represents an ordered list of items, typically rendered as a numbered list.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). To give an effect similar to the `compact` attribute, the [CSS](https://developer.mozilla.org/en-US/docs/CSS) property [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height \"The line-height CSS property sets the amount of space used for lines, such as in text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-replaced inline elements, it specifies the height that is used to calculate line box height.\") can be used with a value of `80%`."
+                    "description": "This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the user agent and it doesn't work in all browsers.\n\n**Warning:** Do not use this attribute, as it has been deprecated: the [`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol \"The HTML <ol> element represents an ordered list of items, typically rendered as a numbered list.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). To give an effect similar to the `compact` attribute, the [CSS](https://developer.mozilla.org/en-US/docs/CSS) property [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height \"The line-height CSS property sets the amount of space used for lines, such as in text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-replaced inline elements, it specifies the height that is used to calculate line box height.\") can be used with a value of `80%`.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/ol"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/ol"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "ul",
@@ -26353,15 +27591,41 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "compact",
-                    "description": "This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the user agent and it doesn't work in all browsers.\n\n**Usage note: **Do not use this attribute, as it has been deprecated: the [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul \"The HTML <ul> element represents an unordered list of items, typically rendered as a bulleted list.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). To give a similar effect as the `compact` attribute, the [CSS](https://developer.mozilla.org/en-US/docs/CSS) property [line-height](https://developer.mozilla.org/en-US/docs/CSS/line-height) can be used with a value of `80%`."
+                    "description": "This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the user agent and it doesn't work in all browsers.\n\n**Usage note: **Do not use this attribute, as it has been deprecated: the [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul \"The HTML <ul> element represents an unordered list of items, typically rendered as a bulleted list.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). To give a similar effect as the `compact` attribute, the [CSS](https://developer.mozilla.org/en-US/docs/CSS) property [line-height](https://developer.mozilla.org/en-US/docs/CSS/line-height) can be used with a value of `80%`.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/ul"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/ul"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "li",
@@ -26375,19 +27639,59 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This integer attribute indicates the current ordinal value of the list item as defined by the [`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol \"The HTML <ol> element represents an ordered list of items, typically rendered as a numbered list.\") element. The only allowed value for this attribute is a number, even if the list is displayed with Roman numerals or letters. List items that follow this one continue numbering from the value set. The **value** attribute has no meaning for unordered lists ([`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul \"The HTML <ul> element represents an unordered list of items, typically rendered as a bulleted list.\")) or for menus ([`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu \"The HTML <menu> element represents a group of commands that a user can perform or activate. This includes both list menus, which might appear across the top of a screen, as well as context menus, such as those that might appear underneath a button after it has been clicked.\")).\n\n**Note**: This attribute was deprecated in HTML4, but reintroduced in HTML5.\n\n**Note:** Prior to Gecko 9.0, negative values were incorrectly converted to 0. Starting in Gecko 9.0 all integer values are correctly parsed."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "type",
-                    "description": "This character attribute indicates the numbering type:\n\n*   `a`: lowercase letters\n*   `A`: uppercase letters\n*   `i`: lowercase Roman numerals\n*   `I`: uppercase Roman numerals\n*   `1`: numbers\n\nThis type overrides the one used by its parent [`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol \"The HTML <ol> element represents an ordered list of items, typically rendered as a numbered list.\") element, if any.\n\n**Usage note:** This attribute has been deprecated: use the CSS [`list-style-type`](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type \"The list-style-type CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.\") property instead."
+                    "description": "This character attribute indicates the numbering type:\n\n*   `a`: lowercase letters\n*   `A`: uppercase letters\n*   `i`: lowercase Roman numerals\n*   `I`: uppercase Roman numerals\n*   `1`: numbers\n\nThis type overrides the one used by its parent [`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol \"The HTML <ol> element represents an ordered list of items, typically rendered as a numbered list.\") element, if any.\n\n**Usage note:** This attribute has been deprecated: use the CSS [`list-style-type`](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type \"The list-style-type CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.\") property instead.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/li"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/li"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "dl",
@@ -26399,9 +27703,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/dl"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/dl"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "dt",
@@ -26413,9 +27731,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/dt"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/dt"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "dd",
@@ -26432,9 +27764,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/dd"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/dd"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "figure",
@@ -26446,9 +27792,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/figure"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/figure"
                 }
-            ]
+            ],
+            "browsers": [
+                "C8",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5.1",
+                "SM5"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "figcaption",
@@ -26460,9 +27820,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/figcaption"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/figcaption"
                 }
-            ]
+            ],
+            "browsers": [
+                "C8",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5.1",
+                "SM5"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "main",
@@ -26474,9 +27848,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/main"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/main"
                 }
-            ]
+            ],
+            "browsers": [
+                "C26",
+                "CA26",
+                "E12",
+                "FF21",
+                "FFA21",
+                "S7",
+                "SM7"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "div",
@@ -26488,9 +27876,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/div"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/div"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "a",
@@ -26504,6 +27906,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Contains a URL or a URL fragment that the hyperlink points to.\nA URL fragment is a name preceded by a hash mark (`#`), which specifies an internal target location (an [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id) of an HTML element) within the current document. URLs are not restricted to Web (HTTP)-based documents, but can use any protocol supported by the browser. For example, [`file:`](https://en.wikipedia.org/wiki/File_URI_scheme), `ftp:`, and `mailto:` work in most browsers.\n\n**Note:** You can use `href=\"#top\"` or the empty fragment `href=\"#\"` to link to the top of the current page. [This behavior is specified by HTML5](https://www.w3.org/TR/html5/single-page.html#scroll-to-fragid)."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -26512,6 +27928,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Specifies where to display the linked URL. It is a name of, or keyword for, a _browsing context_: a tab, window, or `<iframe>`. The following keywords have special meanings:\n\n*   `_self`: Load the URL into the same browsing context as the current one. This is the default behavior.\n*   `_blank`: Load the URL into a new browsing context. This is usually a tab, but users can configure browsers to use new windows instead.\n*   `_parent`: Load the URL into the parent browsing context of the current one. If there is no parent, this behaves the same way as `_self`.\n*   `_top`: Load the URL into the top-level browsing context (that is, the \"highest\" browsing context that is an ancestor of the current one, and has no parent). If there is no parent, this behaves the same way as `_self`.\n\n**Note:** When using `target`, consider adding `rel=\"noreferrer\"` to avoid exploitation of the `window.opener` API.\n\n**Note:** Linking to another page using `target=\"_blank\"` will run the new page on the same process as your page. If the new page is executing expensive JS, your page's performance may suffer. To avoid this use `rel=\"noopener\"`."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -26519,6 +27949,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute instructs browsers to download a URL instead of navigating to it, so the user will be prompted to save it as a local file. If the attribute has a value, it is used as the pre-filled file name in the Save prompt (the user can still change the file name if they want). There are no restrictions on allowed values, though `/` and `\\` are converted to underscores. Most file systems limit some punctuation in file names, and browsers will adjust the suggested name accordingly.\n\n**Notes:**\n\n*   This attribute only works for [same-origin URLs](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).\n*   Although HTTP(s) URLs need to be in the same-origin, [`blob:` URLs](https://developer.mozilla.org/en-US/docs/Web/API/URL.createObjectURL) and [`data:` URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are allowed so that content generated by JavaScript, such as pictures created in an image-editor Web app, can be downloaded.\n*   If the HTTP header [`Content-Disposition:`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) gives a different filename than this attribute, the HTTP header takes priority over this attribute.\n*   If `Content-Disposition:` is set to `inline`, Firefox prioritizes `Content-Disposition`, like the filename case, while Chrome prioritizes the `download` attribute."
+                    },
+                    "browsers": [
+                        "C14",
+                        "CA18",
+                        "E18",
+                        "FF20",
+                        "FFA20",
+                        "S10.1",
+                        "SM13"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2019-09-19",
+                        "baseline_high_date": "2022-03-19"
                     }
                 },
                 {
@@ -26526,6 +27970,16 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Contains a space-separated list of URLs to which, when the hyperlink is followed, [`POST`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST \"The HTTP POST method sends data to the server. The type of the body of the request is indicated by the Content-Type header.\") requests with the body `PING` will be sent by the browser (in the background). Typically used for tracking."
+                    },
+                    "browsers": [
+                        "C12",
+                        "CA18",
+                        "E17",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": false
                     }
                 },
                 {
@@ -26533,6 +27987,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -26540,6 +28008,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates the human language of the linked resource. It is purely advisory, with no built-in functionality. Allowed values are determined by [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt \"Tags for Identifying Languages\")."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -26547,19 +28029,61 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Specifies the media type in the form of a [MIME type](https://developer.mozilla.org/en-US/docs/Glossary/MIME_type \"MIME type: A MIME type (now properly called \"media type\", but also sometimes \"content type\") is a string sent along with a file indicating the type of the file (describing the content format, for example, a sound file might be labeled audio/ogg, or an image file image/png).\") for the linked URL. It is purely advisory, with no built-in functionality."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "referrerpolicy",
-                    "description": "Indicates which [referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) to send when fetching the URL:\n\n*   `'no-referrer'` means the `Referer:` header will not be sent.\n*   `'no-referrer-when-downgrade'` means no `Referer:` header will be sent when navigating to an origin without HTTPS. This is the default behavior.\n*   `'origin'` means the referrer will be the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the page, not including information after the domain.\n*   `'origin-when-cross-origin'` meaning that navigations to other origins will be limited to the scheme, the host and the port, while navigations on the same origin will include the referrer's path.\n*   `'strict-origin-when-cross-origin'`\n*   `'unsafe-url'` means the referrer will include the origin and path, but not the fragment, password, or username. This is unsafe because it can leak data from secure URLs to insecure ones."
+                    "description": "Indicates which [referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) to send when fetching the URL:\n\n*   `'no-referrer'` means the `Referer:` header will not be sent.\n*   `'no-referrer-when-downgrade'` means no `Referer:` header will be sent when navigating to an origin without HTTPS. This is the default behavior.\n*   `'origin'` means the referrer will be the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the page, not including information after the domain.\n*   `'origin-when-cross-origin'` meaning that navigations to other origins will be limited to the scheme, the host and the port, while navigations on the same origin will include the referrer's path.\n*   `'strict-origin-when-cross-origin'`\n*   `'unsafe-url'` means the referrer will include the origin and path, but not the fragment, password, or username. This is unsafe because it can leak data from secure URLs to insecure ones.",
+                    "browsers": [
+                        "C51",
+                        "CA51",
+                        "E79",
+                        "FF50",
+                        "FFA50",
+                        "S14",
+                        "SM14"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-09-16",
+                        "baseline_high_date": "2023-03-16"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/a"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/a"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "em",
@@ -26571,9 +28095,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/em"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/em"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "strong",
@@ -26585,9 +28123,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/strong"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/strong"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "small",
@@ -26599,9 +28151,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/small"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/small"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "s",
@@ -26613,9 +28179,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/s"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/s"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "cite",
@@ -26627,9 +28207,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/cite"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/cite"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "q",
@@ -26643,15 +28237,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The value of this attribute is a URL that designates a source document or message for the information quoted. This attribute is intended to point to information explaining the context or the reference for the quote."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/q"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/q"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "dfn",
@@ -26663,9 +28285,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/dfn"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/dfn"
                 }
-            ]
+            ],
+            "browsers": [
+                "C15",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S6",
+                "SM6"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "abbr",
@@ -26677,9 +28313,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/abbr"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/abbr"
                 }
-            ]
+            ],
+            "browsers": [
+                "C2",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "ruby",
@@ -26691,9 +28341,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/ruby"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/ruby"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF38",
+                "FFA38",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "rb",
@@ -26705,7 +28369,7 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/rb"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/rb"
                 }
             ]
         },
@@ -26719,9 +28383,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/rt"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/rt"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF38",
+                "FFA38",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "rp",
@@ -26733,9 +28411,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/rp"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/rp"
                 }
-            ]
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF38",
+                "FFA38",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "time",
@@ -26749,15 +28441,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates the time and/or date of the element and must be in one of the formats described below."
+                    },
+                    "browsers": [
+                        "C62",
+                        "CA62",
+                        "E14",
+                        "FF22",
+                        "FFA22",
+                        "S7",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-10-24",
+                        "baseline_high_date": "2020-04-24"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/time"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/time"
                 }
-            ]
+            ],
+            "browsers": [
+                "C62",
+                "CA62",
+                "E14",
+                "FF22",
+                "FFA22",
+                "S7",
+                "SM4"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2017-10-24",
+                "baseline_high_date": "2020-04-24"
+            }
         },
         {
             "name": "code",
@@ -26769,9 +28489,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/code"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/code"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "var",
@@ -26783,9 +28517,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/var"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/var"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "samp",
@@ -26797,9 +28545,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/samp"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/samp"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "kbd",
@@ -26811,9 +28573,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/kbd"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/kbd"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "sub",
@@ -26825,9 +28601,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/sub"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/sub"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "sup",
@@ -26839,9 +28629,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/sup"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/sup"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "i",
@@ -26853,9 +28657,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/i"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/i"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "b",
@@ -26867,9 +28685,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/b"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/b"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "u",
@@ -26881,9 +28713,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/u"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/u"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "mark",
@@ -26895,9 +28741,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/mark"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/mark"
                 }
-            ]
+            ],
+            "browsers": [
+                "C7",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5.1",
+                "SM5"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "bdi",
@@ -26909,9 +28769,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/bdi"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/bdi"
                 }
-            ]
+            ],
+            "browsers": [
+                "C16",
+                "CA18",
+                "E79",
+                "FF10",
+                "FFA10",
+                "S6",
+                "SM6"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2020-01-15",
+                "baseline_high_date": "2022-07-15"
+            }
         },
         {
             "name": "bdo",
@@ -26928,9 +28802,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/bdo"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/bdo"
                 }
-            ]
+            ],
+            "browsers": [
+                "C15",
+                "CA18",
+                "E12",
+                "FF10",
+                "FFA10",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "span",
@@ -26942,9 +28830,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/span"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/span"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "br",
@@ -26956,15 +28858,41 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "clear",
-                    "description": "Indicates where to begin the next line after the break."
+                    "description": "Indicates where to begin the next line after the break.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/br"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/br"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "wbr",
@@ -26977,9 +28905,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/wbr"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/wbr"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "ins",
@@ -26990,19 +28932,61 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "cite",
-                    "description": "This attribute defines the URI of a resource that explains the change, such as a link to meeting minutes or a ticket in a troubleshooting system."
+                    "description": "This attribute defines the URI of a resource that explains the change, such as a link to meeting minutes or a ticket in a troubleshooting system.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "datetime",
-                    "description": "This attribute indicates the time and date of the change and must be a valid date with an optional time string. If the value cannot be parsed as a date with an optional time string, the element does not have an associated time stamp. For the format of the string without a time, see [Format of a valid date string](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_date_string \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\") in [Date and time formats used in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\"). The format of the string if it includes both date and time is covered in [Format of a valid local date and time string](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_local_date_and_time_string \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\") in [Date and time formats used in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\")."
+                    "description": "This attribute indicates the time and date of the change and must be a valid date with an optional time string. If the value cannot be parsed as a date with an optional time string, the element does not have an associated time stamp. For the format of the string without a time, see [Format of a valid date string](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_date_string \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\") in [Date and time formats used in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\"). The format of the string if it includes both date and time is covered in [Format of a valid local date and time string](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_local_date_and_time_string \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\") in [Date and time formats used in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\").",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/ins"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/ins"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "del",
@@ -27016,6 +29000,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A URI for a resource that explains the change (for example, meeting minutes)."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27023,15 +29021,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates the time and date of the change and must be a valid date string with an optional time. If the value cannot be parsed as a date with an optional time string, the element does not have an associated time stamp. For the format of the string without a time, see [Format of a valid date string](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_date_string \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\") in [Date and time formats used in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\"). The format of the string if it includes both date and time is covered in [Format of a valid local date and time string](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#Format_of_a_valid_local_date_and_time_string \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\") in [Date and time formats used in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats \"Certain HTML elements use date and/or time values. The formats of the strings that specify these are described in this article.\")."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/del"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/del"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "picture",
@@ -27043,9 +29069,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/picture"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/picture"
                 }
-            ]
+            ],
+            "browsers": [
+                "C38",
+                "CA38",
+                "E13",
+                "FF38",
+                "FFA38",
+                "S9.1",
+                "SM9.3"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2016-03-21",
+                "baseline_high_date": "2018-09-21"
+            }
         },
         {
             "name": "img",
@@ -27060,6 +29100,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute defines an alternative text description of the image.\n\n**Note:** Browsers do not always display the image referenced by the element. This is the case for non-graphical browsers (including those used by people with visual impairments), if the user chooses not to display images, or if the browser cannot display the image because it is invalid or an [unsupported type](#Supported_image_formats). In these cases, the browser may replace the image with the text defined in this element's `alt` attribute. You should, for these reasons and others, provide a useful value for `alt` whenever possible.\n\n**Note:** Omitting this attribute altogether indicates that the image is a key part of the content, and no textual equivalent is available. Setting this attribute to an empty string (`alt=\"\"`) indicates that this image is _not_ a key part of the content (decorative), and that non-visual browsers may omit it from rendering."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27067,6 +29121,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The image URL. This attribute is mandatory for the `<img>` element. On browsers supporting `srcset`, `src` is treated like a candidate image with a pixel density descriptor `1x` unless an image with this pixel density descriptor is already defined in `srcset,` or unless `srcset` contains '`w`' descriptors."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27074,6 +29142,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use. Each string is composed of:\n\n1.  a URL to an image,\n2.  optionally, whitespace followed by one of:\n    *   A width descriptor, or a positive integer directly followed by '`w`'. The width descriptor is divided by the source size given in the `sizes` attribute to calculate the effective pixel density.\n    *   A pixel density descriptor, which is a positive floating point number directly followed by '`x`'.\n\nIf no descriptor is specified, the source is assigned the default descriptor: `1x`.\n\nIt is incorrect to mix width descriptors and pixel density descriptors in the same `srcset` attribute. Duplicate descriptors (for instance, two sources in the same `srcset` which are both described with '`2x`') are also invalid.\n\nThe user agent selects any one of the available sources at its discretion. This provides them with significant leeway to tailor their selection based on things like user preferences or bandwidth conditions. See our [Responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) tutorial for an example."
+                    },
+                    "browsers": [
+                        "C34",
+                        "CA34",
+                        "E12",
+                        "FF38",
+                        "FFA38",
+                        "S8",
+                        "SM8"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27082,6 +29164,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This enumerated attribute indicates if the fetching of the related image must be done using CORS or not. [CORS-enabled images](https://developer.mozilla.org/en-US/docs/CORS_Enabled_Image) can be reused in the [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas \"Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations.\") element without being \"[tainted](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image#What_is_a_tainted_canvas).\" The allowed values are:\n`anonymous`\n\nA cross-origin request (i.e., with `Origin:` HTTP header) is performed, but no credential is sent (i.e., no cookie, X.509 certificate, or HTTP Basic authentication). If the server does not give credentials to the origin site (by not setting the [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin \"The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin.\") HTTP header), the image will be tainted and its usage restricted.\n\n`use-credentials`\n\nA cross-origin request (i.e., with the [`Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin \"The Origin request header indicates where a fetch originates from. It doesn't include any path information, but only the server name. It is sent with CORS requests, as well as with POST requests. It is similar to the Referer header, but, unlike this header, it doesn't disclose the whole path.\") HTTP header) performed along with credentials sent (i.e., a cookie, certificate, or HTTP Basic authentication). If the server does not give credentials to the origin site (through the `Access-Control-Allow-Credentials` HTTP header), the image will be tainted and its usage restricted.\n\nIf the attribute is not present, the resource is fetched without a CORS request (i.e., without sending the `Origin` HTTP header), preventing its non-tainted usage in [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas \"Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations.\") elements. If invalid, it is handled as if the `anonymous` value was used. See [CORS settings attributes](https://developer.mozilla.org/en-US/docs/HTML/CORS_settings_attributes) for additional information."
+                    },
+                    "browsers": [
+                        "C13",
+                        "CA18",
+                        "E12",
+                        "FF8",
+                        "FFA8",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27089,6 +29185,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The partial URL (starting with '#') of an [image map](https://developer.mozilla.org/en-US/docs/HTML/Element/map) associated with the element.\n\n**Note:** You cannot use this attribute if the `<img>` element is a descendant of an [`<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a \"The HTML <a> element (or anchor element) creates a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL.\") or [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27097,6 +29207,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates that the image is part of a server-side map. If so, the precise coordinates of a click are sent to the server.\n\n**Note:** This attribute is allowed only if the `<img>` element is a descendant of an [`<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a \"The HTML <a> element (or anchor element) creates a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL.\") element with a valid [`href`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) attribute."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27104,6 +29228,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The intrinsic width of the image in pixels."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27111,6 +29249,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The intrinsic height of the image in pixels."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27119,11 +29271,64 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Provides an image decoding hint to the browser. The allowed values are:\n`sync`\n\nDecode the image synchronously for atomic presentation with other content.\n\n`async`\n\nDecode the image asynchronously to reduce delay in presenting other content.\n\n`auto`\n\nDefault mode, which indicates no preference for the decoding mode. The browser decides what is best for the user."
+                    },
+                    "browsers": [
+                        "C65",
+                        "CA65",
+                        "E79",
+                        "FF63",
+                        "FFA63",
+                        "S11.1",
+                        "SM11.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "≤2020-01-15",
+                        "baseline_high_date": "≤2022-07-15"
                     }
                 },
                 {
                     "name": "loading",
-                    "valueSet": "loading"
+                    "valueSet": "loading",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "Indicates how the browser should load the image."
+                    },
+                    "browsers": [
+                        "C77",
+                        "CA77",
+                        "E79",
+                        "FF75",
+                        "FFA79",
+                        "S15.4",
+                        "SM15.4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2022-03-14",
+                        "baseline_high_date": "2024-09-14"
+                    }
+                },
+                {
+                    "name": "fetchpriority",
+                    "valueSet": "fetchpriority",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "Provides a hint of the relative priority to use when fetching the image."
+                    },
+                    "browsers": [
+                        "C101",
+                        "CA101",
+                        "E101",
+                        "FF132",
+                        "FFA132",
+                        "S17.2",
+                        "SM17.2"
+                    ],
+                    "status": {
+                        "baseline": "low",
+                        "baseline_low_date": "2024-10-29"
+                    }
                 },
                 {
                     "name": "referrerpolicy",
@@ -27131,6 +29336,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A string indicating which referrer to use when fetching the resource:\n\n*   `no-referrer:` The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent.\n*   `no-referrer-when-downgrade:` No `Referer` header will be sent when navigating to an origin without TLS (HTTPS). This is a user agent’s default behavior if no policy is otherwise specified.\n*   `origin:` The `Referer` header will include the page of origin's scheme, the host, and the port.\n*   `origin-when-cross-origin:` Navigating to other origins will limit the included referral data to the scheme, the host and the port, while navigating from the same origin will include the referrer's full path.\n*   `unsafe-url:` The `Referer` header will include the origin and the path, but not the fragment, password, or username. This case is unsafe because it can leak origins and paths from TLS-protected resources to insecure origins."
+                    },
+                    "browsers": [
+                        "C51",
+                        "CA51",
+                        "E79",
+                        "FF50",
+                        "FFA50",
+                        "S14",
+                        "SM14"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-09-16",
+                        "baseline_high_date": "2023-03-16"
                     }
                 },
                 {
@@ -27138,6 +29357,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A list of one or more strings separated by commas indicating a set of source sizes. Each source size consists of:\n\n1.  a media condition. This must be omitted for the last item.\n2.  a source size value.\n\nSource size values specify the intended display size of the image. User agents use the current source size to select one of the sources supplied by the `srcset` attribute, when those sources are described using width ('`w`') descriptors. The selected source size affects the intrinsic size of the image (the image’s display size if no CSS styling is applied). If the `srcset` attribute is absent, or contains no values with a width (`w`) descriptor, then the `sizes` attribute has no effect."
+                    },
+                    "browsers": [
+                        "C38",
+                        "CA38",
+                        "E12",
+                        "FF38",
+                        "FFA38",
+                        "S9.1",
+                        "SM9.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2016-03-21",
+                        "baseline_high_date": "2018-09-21"
                     }
                 },
                 {
@@ -27156,9 +29389,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/img"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/img"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "iframe",
@@ -27172,6 +29419,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The URL of the page to embed. Use a value of `about:blank` to embed an empty page that conforms to the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#Inherited_origins). Also note that programatically removing an `<iframe>`'s src attribute (e.g. via [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute \"The Element method removeAttribute() removes the attribute with the specified name from the element.\")) causes `about:blank` to be loaded in the frame in Firefox (from version 65), Chromium-based browsers, and Safari/iOS."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27179,6 +29440,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Inline HTML to embed, overriding the `src` attribute. If a browser does not support the `srcdoc` attribute, it will fall back to the URL in the `src` attribute."
+                    },
+                    "browsers": [
+                        "C20",
+                        "CA25",
+                        "E79",
+                        "FF25",
+                        "FFA25",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-01-15",
+                        "baseline_high_date": "2022-07-15"
                     }
                 },
                 {
@@ -27186,6 +29461,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A targetable name for the embedded browsing context. This can be used in the `target` attribute of the [`<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a \"The HTML <a> element (or anchor element) creates a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL.\"), [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\"), or [`<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base \"The HTML <base> element specifies the base URL to use for all relative URLs contained within a document. There can be only one <base> element in a document.\") elements; the `formtarget` attribute of the [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") or [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") elements; or the `windowName` parameter in the [`window.open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open \"The Window interface's open() method loads the specified resource into the browsing context (window, <iframe> or tab) with the specified name. If the name doesn't exist, then a new window is opened and the specified resource is loaded into its browsing context.\") method."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27194,6 +29483,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:\n\n*   `allow-forms`: Allows the resource to submit forms. If this keyword is not used, form submission is blocked.\n*   `allow-modals`: Lets the resource [open modal windows](https://html.spec.whatwg.org/multipage/origin.html#sandboxed-modals-flag).\n*   `allow-orientation-lock`: Lets the resource [lock the screen orientation](https://developer.mozilla.org/en-US/docs/Web/API/Screen/lockOrientation).\n*   `allow-pointer-lock`: Lets the resource use the [Pointer Lock API](https://developer.mozilla.org/en-US/docs/WebAPI/Pointer_Lock).\n*   `allow-popups`: Allows popups (such as `window.open()`, `target=\"_blank\"`, or `showModalDialog()`). If this keyword is not used, the popup will silently fail to open.\n*   `allow-popups-to-escape-sandbox`: Lets the sandboxed document open new windows without those windows inheriting the sandboxing. For example, this can safely sandbox an advertisement without forcing the same restrictions upon the page the ad links to.\n*   `allow-presentation`: Lets the resource start a [presentation session](https://developer.mozilla.org/en-US/docs/Web/API/PresentationRequest).\n*   `allow-same-origin`: If this token is not used, the resource is treated as being from a special origin that always fails the [same-origin policy](https://developer.mozilla.org/en-US/docs/Glossary/same-origin_policy \"same-origin policy: The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin.\").\n*   `allow-scripts`: Lets the resource run scripts (but not create popup windows).\n*   `allow-storage-access-by-user-activation` : Lets the resource request access to the parent's storage capabilities with the [Storage Access API](https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API).\n*   `allow-top-navigation`: Lets the resource navigate the top-level browsing context (the one named `_top`).\n*   `allow-top-navigation-by-user-activation`: Lets the resource navigate the top-level browsing context, but only if initiated by a user gesture.\n\n**Notes about sandboxing:**\n\n*   When the embedded document has the same origin as the embedding page, it is **strongly discouraged** to use both `allow-scripts` and `allow-same-origin`, as that lets the embedded document remove the `sandbox` attribute — making it no more secure than not using the `sandbox` attribute at all.\n*   Sandboxing is useless if the attacker can display content outside a sandboxed `iframe` — such as if the viewer opens the frame in a new tab. Such content should be also served from a _separate origin_ to limit potential damage.\n*   The `sandbox` attribute is unsupported in Internet Explorer 9 and earlier."
+                    },
+                    "browsers": [
+                        "C5",
+                        "CA18",
+                        "E12",
+                        "FF17",
+                        "FFA17",
+                        "S5",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27206,6 +29509,17 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Set to `true` if the `<iframe>` can activate fullscreen mode by calling the [`requestFullscreen()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullscreen \"The Element.requestFullscreen() method issues an asynchronous request to make the element be displayed in full-screen mode.\") method.\nThis attribute is considered a legacy attribute and redefined as `allow=\"fullscreen\"`."
+                    },
+                    "browsers": [
+                        "C38",
+                        "CA38",
+                        "E12",
+                        "FF18",
+                        "FFA18",
+                        "S10.1"
+                    ],
+                    "status": {
+                        "baseline": false
                     }
                 },
                 {
@@ -27213,6 +29527,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The width of the frame in CSS pixels. Default is `300`."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27220,23 +29548,75 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The height of the frame in CSS pixels. Default is `150`."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "allow",
-                    "description": "Specifies a [feature policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy) for the `<iframe>`."
+                    "description": "Specifies a [feature policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy) for the `<iframe>`.",
+                    "browsers": [
+                        "C60",
+                        "CA60",
+                        "E79",
+                        "FF74",
+                        "FFA79",
+                        "S11.1",
+                        "SM11.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-07-28",
+                        "baseline_high_date": "2023-01-28"
+                    }
                 },
                 {
                     "name": "allowpaymentrequest",
-                    "description": "Set to `true` if a cross-origin `<iframe>` should be allowed to invoke the [Payment Request API](https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API)."
+                    "description": "Set to `true` if a cross-origin `<iframe>` should be allowed to invoke the [Payment Request API](https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API).",
+                    "browsers": [
+                        "C60",
+                        "CA60",
+                        "E79"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "allowpaymentrequest",
-                    "description": "This attribute is considered a legacy attribute and redefined as `allow=\"payment\"`."
+                    "description": "This attribute is considered a legacy attribute and redefined as `allow=\"payment\"`.",
+                    "browsers": [
+                        "C60",
+                        "CA60",
+                        "E79"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "csp",
-                    "description": "A [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) enforced for the embedded resource. See [`HTMLIFrameElement.csp`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/csp \"The csp property of the HTMLIFrameElement interface specifies the Content Security Policy that an embedded document must agree to enforce upon itself.\") for details."
+                    "description": "A [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) enforced for the embedded resource. See [`HTMLIFrameElement.csp`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/csp \"The csp property of the HTMLIFrameElement interface specifies the Content Security Policy that an embedded document must agree to enforce upon itself.\") for details.",
+                    "browsers": [
+                        "C61",
+                        "CA61",
+                        "E79"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "importance",
@@ -27244,15 +29624,43 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "referrerpolicy",
-                    "description": "Indicates which [referrer](https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer) to send when fetching the frame's resource:\n\n*   `no-referrer`: The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent.\n*   `no-referrer-when-downgrade` (default): The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent to [origin](https://developer.mozilla.org/en-US/docs/Glossary/origin \"origin: Web content's origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.\")s without [TLS](https://developer.mozilla.org/en-US/docs/Glossary/TLS \"TLS: Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is a protocol used by applications to communicate securely across a network, preventing tampering with and eavesdropping on email, web browsing, messaging, and other protocols.\") ([HTTPS](https://developer.mozilla.org/en-US/docs/Glossary/HTTPS \"HTTPS: HTTPS (HTTP Secure) is an encrypted version of the HTTP protocol. It usually uses SSL or TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, for example for banking activities or online shopping.\")).\n*   `origin`: The sent referrer will be limited to the origin of the referring page: its [scheme](https://developer.mozilla.org/en-US/docs/Archive/Mozilla/URIScheme), [host](https://developer.mozilla.org/en-US/docs/Glossary/host \"host: A host is a device connected to the Internet (or a local network). Some hosts called servers offer additional services like serving webpages or storing files and emails.\"), and [port](https://developer.mozilla.org/en-US/docs/Glossary/port \"port: For a computer connected to a network with an IP address, a port is a communication endpoint. Ports are designated by numbers, and below 1024 each port is associated by default with a specific protocol.\").\n*   `origin-when-cross-origin`: The referrer sent to other origins will be limited to the scheme, the host, and the port. Navigations on the same origin will still include the path.\n*   `same-origin`: A referrer will be sent for [same origin](https://developer.mozilla.org/en-US/docs/Glossary/Same-origin_policy \"same origin: The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin.\"), but cross-origin requests will contain no referrer information.\n*   `strict-origin`: Only send the origin of the document as the referrer when the protocol security level stays the same (HTTPS→HTTPS), but don't send it to a less secure destination (HTTPS→HTTP).\n*   `strict-origin-when-cross-origin`: Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).\n*   `unsafe-url`: The referrer will include the origin _and_ the path (but not the [fragment](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hash), [password](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/password), or [username](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/username)). **This value is unsafe**, because it leaks origins and paths from TLS-protected resources to insecure origins."
+                    "description": "Indicates which [referrer](https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer) to send when fetching the frame's resource:\n\n*   `no-referrer`: The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent.\n*   `no-referrer-when-downgrade` (default): The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent to [origin](https://developer.mozilla.org/en-US/docs/Glossary/origin \"origin: Web content's origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.\")s without [TLS](https://developer.mozilla.org/en-US/docs/Glossary/TLS \"TLS: Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is a protocol used by applications to communicate securely across a network, preventing tampering with and eavesdropping on email, web browsing, messaging, and other protocols.\") ([HTTPS](https://developer.mozilla.org/en-US/docs/Glossary/HTTPS \"HTTPS: HTTPS (HTTP Secure) is an encrypted version of the HTTP protocol. It usually uses SSL or TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, for example for banking activities or online shopping.\")).\n*   `origin`: The sent referrer will be limited to the origin of the referring page: its [scheme](https://developer.mozilla.org/en-US/docs/Archive/Mozilla/URIScheme), [host](https://developer.mozilla.org/en-US/docs/Glossary/host \"host: A host is a device connected to the Internet (or a local network). Some hosts called servers offer additional services like serving webpages or storing files and emails.\"), and [port](https://developer.mozilla.org/en-US/docs/Glossary/port \"port: For a computer connected to a network with an IP address, a port is a communication endpoint. Ports are designated by numbers, and below 1024 each port is associated by default with a specific protocol.\").\n*   `origin-when-cross-origin`: The referrer sent to other origins will be limited to the scheme, the host, and the port. Navigations on the same origin will still include the path.\n*   `same-origin`: A referrer will be sent for [same origin](https://developer.mozilla.org/en-US/docs/Glossary/Same-origin_policy \"same origin: The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin.\"), but cross-origin requests will contain no referrer information.\n*   `strict-origin`: Only send the origin of the document as the referrer when the protocol security level stays the same (HTTPS→HTTPS), but don't send it to a less secure destination (HTTPS→HTTP).\n*   `strict-origin-when-cross-origin`: Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).\n*   `unsafe-url`: The referrer will include the origin _and_ the path (but not the [fragment](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hash), [password](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/password), or [username](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/username)). **This value is unsafe**, because it leaks origins and paths from TLS-protected resources to insecure origins.",
+                    "browsers": [
+                        "C51",
+                        "CA51",
+                        "E79",
+                        "FF50",
+                        "FFA50",
+                        "S14",
+                        "SM14"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-09-16",
+                        "baseline_high_date": "2023-03-16"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/iframe"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "embed",
@@ -27267,6 +29675,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The URL of the resource being embedded."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27274,6 +29696,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The MIME type to use to select the plug-in to instantiate."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E79",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-01-15",
+                        "baseline_high_date": "2022-07-15"
                     }
                 },
                 {
@@ -27281,6 +29717,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The displayed width of the resource, in [CSS pixels](https://drafts.csswg.org/css-values/#px). This must be an absolute value; percentages are _not_ allowed."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27288,15 +29738,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The displayed height of the resource, in [CSS pixels](https://drafts.csswg.org/css-values/#px). This must be an absolute value; percentages are _not_ allowed."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/embed"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/embed"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "object",
@@ -27310,6 +29788,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The address of the resource as a valid URL. At least one of **data** and **type** must be defined."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27317,6 +29809,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The [content type](https://developer.mozilla.org/en-US/docs/Glossary/Content_type) of the resource specified by **data**. At least one of **data** and **type** must be defined."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27332,6 +29838,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name of valid browsing context (HTML5), or the name of the control (HTML 4)."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27339,6 +29859,18 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A hash-name reference to a [`<map>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map \"The HTML <map> element is used with <area> elements to define an image map (a clickable link area).\") element; that is a '#' followed by the value of a [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map#attr-name) of a map element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
                     }
                 },
                 {
@@ -27346,6 +29878,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The form element, if any, that the object element is associated with (its _form owner_). The value of the attribute must be an ID of a [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\") element in the same document."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27353,6 +29899,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The width of the display resource, in [CSS pixels](https://drafts.csswg.org/css-values/#px). -- (Absolute values only. [NO percentages](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes))"
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27360,35 +29920,133 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The height of the displayed resource, in [CSS pixels](https://drafts.csswg.org/css-values/#px). -- (Absolute values only. [NO percentages](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes))"
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "archive",
-                    "description": "A space-separated list of URIs for archives of resources for the object."
+                    "description": "A space-separated list of URIs for archives of resources for the object.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "border",
-                    "description": "The width of a border around the control, in pixels."
+                    "description": "The width of a border around the control, in pixels.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "classid",
-                    "description": "The URI of the object's implementation. It can be used together with, or in place of, the **data** attribute."
+                    "description": "The URI of the object's implementation. It can be used together with, or in place of, the **data** attribute.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "codebase",
-                    "description": "The base path used to resolve relative URIs specified by **classid**, **data**, or **archive**. If not specified, the default is the base URI of the current document."
+                    "description": "The base path used to resolve relative URIs specified by **classid**, **data**, or **archive**. If not specified, the default is the base URI of the current document.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "codetype",
-                    "description": "The content type of the data specified by **classid**."
+                    "description": "The content type of the data specified by **classid**.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "declare",
-                    "description": "The presence of this Boolean attribute makes this element a declaration only. The object must be instantiated by a subsequent `<object>` element. In HTML5, repeat the <object> element completely each that that the resource is reused."
+                    "description": "The presence of this Boolean attribute makes this element a declaration only. The object must be instantiated by a subsequent `<object>` element. In HTML5, repeat the <object> element completely each that that the resource is reused.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "standby",
-                    "description": "A message that the browser can show while loading the object's implementation and data."
+                    "description": "A message that the browser can show while loading the object's implementation and data.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "tabindex",
@@ -27398,9 +30056,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/object"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/object"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "param",
@@ -27436,7 +30108,7 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/param"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/param"
                 }
             ]
         },
@@ -27448,18 +30120,74 @@ const webCustomData_htmlData = {
             },
             "attributes": [
                 {
-                    "name": "src"
+                    "name": "src",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "crossorigin",
-                    "valueSet": "xo"
+                    "valueSet": "xo",
+                    "browsers": [
+                        "C33",
+                        "CA33",
+                        "E18",
+                        "FF74",
+                        "FFA79",
+                        "S10",
+                        "SM10"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-07-28",
+                        "baseline_high_date": "2023-01-28"
+                    }
                 },
                 {
-                    "name": "poster"
+                    "name": "poster",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.6",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "preload",
-                    "valueSet": "pl"
+                    "valueSet": "pl",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "autoplay",
@@ -27467,6 +30195,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.\n**Note**: Sites that automatically play audio (or video with an audio track) can be an unpleasant experience for users, so it should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control.\n\nTo disable video autoplay, `autoplay=\"false\"` will not work; the video will autoplay if the attribute is there in the `<video>` tag at all. To remove autoplay the attribute needs to be removed altogether.\n\nIn some browsers (e.g. Chrome 70.0) autoplay is not working if no `muted` attribute is present."
+                    },
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM10"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2016-09-13",
+                        "baseline_high_date": "2019-03-13"
                     }
                 },
                 {
@@ -27474,29 +30216,113 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "loop",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF11",
+                        "FFA14",
+                        "S3.1",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "muted",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C30",
+                        "CA30",
+                        "E12",
+                        "FF11",
+                        "FFA14",
+                        "S5",
+                        "SM4.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "controls",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "width"
+                    "name": "width",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "height"
+                    "name": "height",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/video"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/video"
                 }
-            ]
+            ],
+            "browsers": [
+                "C3",
+                "CA18",
+                "E12",
+                "FF3.5",
+                "FFA4",
+                "S3.1",
+                "SM3"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "audio",
@@ -27510,6 +30336,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The URL of the audio to embed. This is subject to [HTTP access controls](https://developer.mozilla.org/en-US/docs/HTTP_access_control). This is optional; you may instead use the [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source \"The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element.\") element within the audio block to specify the audio to embed."
+                    },
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27518,6 +30358,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This enumerated attribute indicates whether to use CORS to fetch the related image. [CORS-enabled resources](https://developer.mozilla.org/en-US/docs/CORS_Enabled_Image) can be reused in the [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas \"Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations.\") element without being _tainted_. The allowed values are:\n\nanonymous\n\nSends a cross-origin request without a credential. In other words, it sends the `Origin:` HTTP header without a cookie, X.509 certificate, or performing HTTP Basic authentication. If the server does not give credentials to the origin site (by not setting the `Access-Control-Allow-Origin:` HTTP header), the image will be _tainted_, and its usage restricted.\n\nuse-credentials\n\nSends a cross-origin request with a credential. In other words, it sends the `Origin:` HTTP header with a cookie, a certificate, or performing HTTP Basic authentication. If the server does not give credentials to the origin site (through `Access-Control-Allow-Credentials:` HTTP header), the image will be _tainted_ and its usage restricted.\n\nWhen not present, the resource is fetched without a CORS request (i.e. without sending the `Origin:` HTTP header), preventing its non-tainted used in [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas \"Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations.\") elements. If invalid, it is handled as if the enumerated keyword **anonymous** was used. See [CORS settings attributes](https://developer.mozilla.org/en-US/docs/HTML/CORS_settings_attributes) for additional information."
+                    },
+                    "browsers": [
+                        "C33",
+                        "CA33",
+                        "E18",
+                        "FF74",
+                        "FFA79",
+                        "S10",
+                        "SM10"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-07-28",
+                        "baseline_high_date": "2023-01-28"
                     }
                 },
                 {
@@ -27526,6 +30380,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This enumerated attribute is intended to provide a hint to the browser about what the author thinks will lead to the best user experience. It may have one of the following values:\n\n*   `none`: Indicates that the audio should not be preloaded.\n*   `metadata`: Indicates that only audio metadata (e.g. length) is fetched.\n*   `auto`: Indicates that the whole audio file can be downloaded, even if the user is not expected to use it.\n*   _empty string_: A synonym of the `auto` value.\n\nIf not set, `preload`'s default value is browser-defined (i.e. each browser may have its own default value). The spec advises it to be set to `metadata`.\n\n**Usage notes:**\n\n*   The `autoplay` attribute has precedence over `preload`. If `autoplay` is specified, the browser would obviously need to start downloading the audio for playback.\n*   The browser is not forced by the specification to follow the value of this attribute; it is a mere hint."
+                    },
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27534,6 +30402,10 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A Boolean attribute: if specified, the audio will automatically begin playback as soon as it can do so, without waiting for the entire audio file to finish downloading.\n\n**Note**: Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control."
+                    },
+                    "browsers": [],
+                    "status": {
+                        "baseline": false
                     }
                 },
                 {
@@ -27545,6 +30417,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A Boolean attribute: if specified, the audio player will automatically seek back to the start upon reaching the end of the audio."
+                    },
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF11",
+                        "FFA14",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27553,6 +30439,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A Boolean attribute that indicates whether the audio will be initially silenced. Its default value is `false`."
+                    },
+                    "browsers": [
+                        "C15",
+                        "CA18",
+                        "E18",
+                        "FF11",
+                        "FFA14",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "≤2018-10-02",
+                        "baseline_high_date": "≤2021-04-02"
                     }
                 },
                 {
@@ -27561,15 +30461,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If this attribute is present, the browser will offer controls to allow the user to control audio playback, including volume, seeking, and pause/resume playback."
+                    },
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/audio"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/audio"
                 }
-            ]
+            ],
+            "browsers": [
+                "C3",
+                "CA18",
+                "E12",
+                "FF3.5",
+                "FFA4",
+                "S3.1",
+                "SM3"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "source",
@@ -27584,6 +30512,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Required for [`<audio>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio \"The HTML <audio> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.\") and [`<video>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video \"The HTML Video element (<video>) embeds a media player which supports video playback into the document.\"), address of the media resource. The value of this attribute is ignored when the `<source>` element is placed inside a [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture \"The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.\") element."
+                    },
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27591,27 +30533,97 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The MIME-type of the resource, optionally with a `codecs` parameter. See [RFC 4281](https://tools.ietf.org/html/rfc4281) for information about how to specify codecs."
+                    },
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3.1",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "sizes",
-                    "description": "Is a list of source sizes that describes the final rendered width of the image represented by the source. Each source size consists of a comma-separated list of media condition-length pairs. This information is used by the browser to determine, before laying the page out, which image defined in [`srcset`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#attr-srcset) to use.  \nThe `sizes` attribute has an effect only when the [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source \"The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element.\") element is the direct child of a [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture \"The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.\") element."
+                    "description": "Is a list of source sizes that describes the final rendered width of the image represented by the source. Each source size consists of a comma-separated list of media condition-length pairs. This information is used by the browser to determine, before laying the page out, which image defined in [`srcset`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#attr-srcset) to use.  \nThe `sizes` attribute has an effect only when the [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source \"The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element.\") element is the direct child of a [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture \"The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.\") element.",
+                    "browsers": [
+                        "C34",
+                        "CA34",
+                        "E13",
+                        "FF38",
+                        "FFA38",
+                        "S9.1",
+                        "SM9.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2016-03-21",
+                        "baseline_high_date": "2018-09-21"
+                    }
                 },
                 {
                     "name": "srcset",
-                    "description": "A list of one or more strings separated by commas indicating a set of possible images represented by the source for the browser to use. Each string is composed of:\n\n1.  one URL to an image,\n2.  a width descriptor, that is a positive integer directly followed by `'w'`. The default value, if missing, is the infinity.\n3.  a pixel density descriptor, that is a positive floating number directly followed by `'x'`. The default value, if missing, is `1x`.\n\nEach string in the list must have at least a width descriptor or a pixel density descriptor to be valid. Among the list, there must be only one string containing the same tuple of width descriptor and pixel density descriptor.  \nThe browser chooses the most adequate image to display at a given point of time.  \nThe `srcset` attribute has an effect only when the [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source \"The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element.\") element is the direct child of a [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture \"The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.\") element."
+                    "description": "A list of one or more strings separated by commas indicating a set of possible images represented by the source for the browser to use. Each string is composed of:\n\n1.  one URL to an image,\n2.  a width descriptor, that is a positive integer directly followed by `'w'`. The default value, if missing, is the infinity.\n3.  a pixel density descriptor, that is a positive floating number directly followed by `'x'`. The default value, if missing, is `1x`.\n\nEach string in the list must have at least a width descriptor or a pixel density descriptor to be valid. Among the list, there must be only one string containing the same tuple of width descriptor and pixel density descriptor.  \nThe browser chooses the most adequate image to display at a given point of time.  \nThe `srcset` attribute has an effect only when the [`<source>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source \"The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element.\") element is the direct child of a [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture \"The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.\") element.",
+                    "browsers": [
+                        "C34",
+                        "CA34",
+                        "E13",
+                        "FF38",
+                        "FFA38",
+                        "S9.1",
+                        "SM9.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2016-03-21",
+                        "baseline_high_date": "2018-09-21"
+                    }
                 },
                 {
                     "name": "media",
-                    "description": "[Media query](https://developer.mozilla.org/en-US/docs/CSS/Media_queries) of the resource's intended media; this should be used only in a [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture \"The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.\") element."
+                    "description": "[Media query](https://developer.mozilla.org/en-US/docs/CSS/Media_queries) of the resource's intended media; this should be used only in a [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture \"The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios.\") element.",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF15",
+                        "FFA15",
+                        "S3.1",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/source"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/source"
                 }
-            ]
+            ],
+            "browsers": [
+                "C3",
+                "CA18",
+                "E12",
+                "FF3.5",
+                "FFA4",
+                "S3.1",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "track",
@@ -27627,6 +30639,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates that the track should be enabled unless the user's preferences indicate that another track is more appropriate. This may only be used on one `track` element per media element."
+                    },
+                    "browsers": [
+                        "C23",
+                        "CA25",
+                        "E12",
+                        "FF31",
+                        "FFA31",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27635,6 +30661,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "How the text track is meant to be used. If omitted the default kind is `subtitles`. If the attribute is not present, it will use the `subtitles`. If the attribute contains an invalid value, it will use `metadata`. (Versions of Chrome earlier than 52 treated an invalid value as `subtitles`.) The following keywords are allowed:\n\n*   `subtitles`\n    *   Subtitles provide translation of content that cannot be understood by the viewer. For example dialogue or text that is not English in an English language film.\n    *   Subtitles may contain additional content, usually extra background information. For example the text at the beginning of the Star Wars films, or the date, time, and location of a scene.\n*   `captions`\n    *   Closed captions provide a transcription and possibly a translation of audio.\n    *   It may include important non-verbal information such as music cues or sound effects. It may indicate the cue's source (e.g. music, text, character).\n    *   Suitable for users who are deaf or when the sound is muted.\n*   `descriptions`\n    *   Textual description of the video content.\n    *   Suitable for users who are blind or where the video cannot be seen.\n*   `chapters`\n    *   Chapter titles are intended to be used when the user is navigating the media resource.\n*   `metadata`\n    *   Tracks used by scripts. Not visible to the user."
+                    },
+                    "browsers": [
+                        "C23",
+                        "CA25",
+                        "E12",
+                        "FF31",
+                        "FFA31",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27642,6 +30682,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A user-readable title of the text track which is used by the browser when listing available text tracks."
+                    },
+                    "browsers": [
+                        "C23",
+                        "CA25",
+                        "E12",
+                        "FF31",
+                        "FFA31",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -27649,6 +30703,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Address of the track (`.vtt` file). Must be a valid URL. This attribute must be specified and its URL value must have the same origin as the document — unless the [`<audio>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio \"The HTML <audio> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.\") or [`<video>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video \"The HTML Video element (<video>) embeds a media player which supports video playback into the document.\") parent element of the `track` element has a [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) attribute."
+                    },
+                    "browsers": [
+                        "C23",
+                        "CA25",
+                        "E12",
+                        "FF50",
+                        "FFA50",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2016-11-15",
+                        "baseline_high_date": "2019-05-15"
                     }
                 },
                 {
@@ -27656,15 +30724,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Language of the track text data. It must be a valid [BCP 47](https://r12a.github.io/app-subtags/) language tag. If the `kind` attribute is set to `subtitles,` then `srclang` must be defined."
+                    },
+                    "browsers": [
+                        "C23",
+                        "CA25",
+                        "E12",
+                        "FF31",
+                        "FFA31",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/track"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/track"
                 }
-            ]
+            ],
+            "browsers": [
+                "C23",
+                "CA25",
+                "E12",
+                "FF31",
+                "FFA31",
+                "S6",
+                "SM6"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "map",
@@ -27678,15 +30774,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name attribute gives the map a name so that it can be referenced. The attribute must be present and must have a non-empty value with no space characters. The value of the name attribute must not be a compatibility-caseless match for the value of the name attribute of another map element in the same document. If the id attribute is also specified, both attributes must have the same value."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/map"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/map"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "area",
@@ -27697,30 +30821,138 @@ const webCustomData_htmlData = {
             "void": true,
             "attributes": [
                 {
-                    "name": "alt"
+                    "name": "alt",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "coords"
+                    "name": "coords",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "shape",
-                    "valueSet": "sh"
+                    "valueSet": "sh",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "href"
+                    "name": "href",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "target",
-                    "valueSet": "target"
+                    "valueSet": "target",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "download"
+                    "name": "download",
+                    "browsers": [
+                        "C54",
+                        "CA54",
+                        "E12",
+                        "FF20",
+                        "FFA20",
+                        "S10.1",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
+                    }
                 },
                 {
-                    "name": "ping"
+                    "name": "ping",
+                    "browsers": [
+                        "C12",
+                        "CA18",
+                        "E17",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
-                    "name": "rel"
+                    "name": "rel",
+                    "browsers": [
+                        "C16",
+                        "CA18",
+                        "E12",
+                        "FF30",
+                        "FFA30",
+                        "S5",
+                        "SM4.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "hreflang"
@@ -27736,9 +30968,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/area"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/area"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "table",
@@ -27748,19 +30994,57 @@ const webCustomData_htmlData = {
             },
             "attributes": [
                 {
-                    "name": "border"
+                    "name": "border",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "align",
-                    "description": "This enumerated attribute indicates how the table must be aligned inside the containing document. It may have the following values:\n\n*   left: the table is displayed on the left side of the document;\n*   center: the table is displayed in the center of the document;\n*   right: the table is displayed on the right side of the document.\n\n**Usage Note**\n\n*   **Do not use this attribute**, as it has been deprecated. The [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table \"The HTML <table> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). Set [`margin-left`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left \"The margin-left CSS property sets the margin area on the left side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") and [`margin-right`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right \"The margin-right CSS property sets the margin area on the right side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") to `auto` or [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin \"The margin CSS property sets the margin area on all four sides of an element. It is a shorthand for margin-top, margin-right, margin-bottom, and margin-left.\") to `0 auto` to achieve an effect that is similar to the align attribute.\n*   Prior to Firefox 4, Firefox also supported the `middle`, `absmiddle`, and `abscenter` values as synonyms of `center`, in quirks mode only."
+                    "description": "This enumerated attribute indicates how the table must be aligned inside the containing document. It may have the following values:\n\n*   left: the table is displayed on the left side of the document;\n*   center: the table is displayed in the center of the document;\n*   right: the table is displayed on the right side of the document.\n\n**Usage Note**\n\n*   **Do not use this attribute**, as it has been deprecated. The [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table \"The HTML <table> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). Set [`margin-left`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left \"The margin-left CSS property sets the margin area on the left side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") and [`margin-right`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right \"The margin-right CSS property sets the margin area on the right side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.\") to `auto` or [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin \"The margin CSS property sets the margin area on all four sides of an element. It is a shorthand for margin-top, margin-right, margin-bottom, and margin-left.\") to `0 auto` to achieve an effect that is similar to the align attribute.\n*   Prior to Firefox 4, Firefox also supported the `middle`, `absmiddle`, and `abscenter` values as synonyms of `center`, in quirks mode only.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/table"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/table"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "caption",
@@ -27771,15 +31055,41 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "align",
-                    "description": "This enumerated attribute indicates how the caption must be aligned with respect to the table. It may have one of the following values:\n\n`left`\n\nThe caption is displayed to the left of the table.\n\n`top`\n\nThe caption is displayed above the table.\n\n`right`\n\nThe caption is displayed to the right of the table.\n\n`bottom`\n\nThe caption is displayed below the table.\n\n**Usage note:** Do not use this attribute, as it has been deprecated. The [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption \"The HTML Table Caption element (<caption>) specifies the caption (or title) of a table, and if used is always the first child of a <table>.\") element should be styled using the [CSS](https://developer.mozilla.org/en-US/docs/CSS) properties [`caption-side`](https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side \"The caption-side CSS property puts the content of a table's <caption> on the specified side. The values are relative to the writing-mode of the table.\") and [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\")."
+                    "description": "This enumerated attribute indicates how the caption must be aligned with respect to the table. It may have one of the following values:\n\n`left`\n\nThe caption is displayed to the left of the table.\n\n`top`\n\nThe caption is displayed above the table.\n\n`right`\n\nThe caption is displayed to the right of the table.\n\n`bottom`\n\nThe caption is displayed below the table.\n\n**Usage note:** Do not use this attribute, as it has been deprecated. The [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption \"The HTML Table Caption element (<caption>) specifies the caption (or title) of a table, and if used is always the first child of a <table>.\") element should be styled using the [CSS](https://developer.mozilla.org/en-US/docs/CSS) properties [`caption-side`](https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side \"The caption-side CSS property puts the content of a table's <caption> on the specified side. The values are relative to the writing-mode of the table.\") and [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\").",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/caption"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/caption"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "colgroup",
@@ -27789,19 +31099,59 @@ const webCustomData_htmlData = {
             },
             "attributes": [
                 {
-                    "name": "span"
+                    "name": "span",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "align",
-                    "description": "This enumerated attribute specifies how horizontal alignment of each column cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, the `left` value is assumed. The descendant [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col \"The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element.\") elements may override this value using their own [`align`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-align) attribute.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values:\n    *   Do not try to set the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on a selector giving a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup \"The HTML <colgroup> element defines a group of columns within a table.\") element. Because [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td \"The HTML <td> element defines a cell of a table that contains data. It participates in the table model.\") elements are not descendant of the [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup \"The HTML <colgroup> element defines a group of columns within a table.\") element, they won't inherit it.\n    *   If the table doesn't use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, use one `td:nth-child(an+b)` CSS selector per column, where a is the total number of the columns in the table and b is the ordinal position of this column in the table. Only after this selector the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property can be used.\n    *   If the table does use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, the effect can be achieved by combining adequate CSS attribute selectors like `[colspan=n]`, though this is not trivial.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented."
+                    "description": "This enumerated attribute specifies how horizontal alignment of each column cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, the `left` value is assumed. The descendant [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col \"The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element.\") elements may override this value using their own [`align`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-align) attribute.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values:\n    *   Do not try to set the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on a selector giving a [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup \"The HTML <colgroup> element defines a group of columns within a table.\") element. Because [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td \"The HTML <td> element defines a cell of a table that contains data. It participates in the table model.\") elements are not descendant of the [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup \"The HTML <colgroup> element defines a group of columns within a table.\") element, they won't inherit it.\n    *   If the table doesn't use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, use one `td:nth-child(an+b)` CSS selector per column, where a is the total number of the columns in the table and b is the ordinal position of this column in the table. Only after this selector the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property can be used.\n    *   If the table does use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, the effect can be achieved by combining adequate CSS attribute selectors like `[colspan=n]`, though this is not trivial.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/colgroup"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/colgroup"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "col",
@@ -27812,19 +31162,59 @@ const webCustomData_htmlData = {
             "void": true,
             "attributes": [
                 {
-                    "name": "span"
+                    "name": "span",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "align",
-                    "description": "This enumerated attribute specifies how horizontal alignment of each column cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, its value is inherited from the [`align`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup#attr-align) of the [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup \"The HTML <colgroup> element defines a group of columns within a table.\") element this `<col>` element belongs too. If there are none, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values:\n    *   Do not try to set the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on a selector giving a [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col \"The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element.\") element. Because [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td \"The HTML <td> element defines a cell of a table that contains data. It participates in the table model.\") elements are not descendant of the [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col \"The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element.\") element, they won't inherit it.\n    *   If the table doesn't use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, use the `td:nth-child(an+b)` CSS selector. Set `a` to zero and `b` to the position of the column in the table, e.g. `td:nth-child(2) { text-align: right; }` to right-align the second column.\n    *   If the table does use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, the effect can be achieved by combining adequate CSS attribute selectors like `[colspan=n]`, though this is not trivial.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented."
+                    "description": "This enumerated attribute specifies how horizontal alignment of each column cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, its value is inherited from the [`align`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup#attr-align) of the [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup \"The HTML <colgroup> element defines a group of columns within a table.\") element this `<col>` element belongs too. If there are none, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values:\n    *   Do not try to set the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on a selector giving a [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col \"The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element.\") element. Because [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td \"The HTML <td> element defines a cell of a table that contains data. It participates in the table model.\") elements are not descendant of the [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col \"The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element.\") element, they won't inherit it.\n    *   If the table doesn't use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, use the `td:nth-child(an+b)` CSS selector. Set `a` to zero and `b` to the position of the column in the table, e.g. `td:nth-child(2) { text-align: right; }` to right-align the second column.\n    *   If the table does use a [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) attribute, the effect can be achieved by combining adequate CSS attribute selectors like `[colspan=n]`, though this is not trivial.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/col"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/col"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "tbody",
@@ -27835,15 +31225,41 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "align",
-                    "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-charoff) attributes.\n\nIf this attribute is not set, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on it.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented."
+                    "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-charoff) attributes.\n\nIf this attribute is not set, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on it.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/tbody"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/tbody"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "thead",
@@ -27854,15 +31270,41 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "align",
-                    "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on it.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented."
+                    "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on it.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/thead"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/thead"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "tfoot",
@@ -27873,15 +31315,41 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "align",
-                    "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on it.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented."
+                    "description": "This enumerated attribute specifies how horizontal alignment of each cell content will be handled. Possible values are:\n\n*   `left`, aligning the content to the left of the cell\n*   `center`, centering the content in the cell\n*   `right`, aligning the content to the right of the cell\n*   `justify`, inserting spaces into the textual content so that the content is justified in the cell\n*   `char`, aligning the textual content on a special character with a minimal offset, defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nIf this attribute is not set, the `left` value is assumed.\n\n**Note:** Do not use this attribute as it is obsolete (not supported) in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property on it.\n*   To achieve the same effect as the `char` value, in CSS3, you can use the value of the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot#attr-char) as the value of the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property Unimplemented.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/tfoot"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/tfoot"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "tr",
@@ -27892,15 +31360,41 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "align",
-                    "description": "A [`DOMString`](https://developer.mozilla.org/en-US/docs/Web/API/DOMString \"DOMString is a UTF-16 String. As JavaScript already uses such strings, DOMString is mapped directly to a String.\") which specifies how the cell's context should be aligned horizontally within the cells in the row; this is shorthand for using `align` on every cell in the row individually. Possible values are:\n\n`left`\n\nAlign the content of each cell at its left edge.\n\n`center`\n\nCenter the contents of each cell between their left and right edges.\n\n`right`\n\nAlign the content of each cell at its right edge.\n\n`justify`\n\nWiden whitespaces within the text of each cell so that the text fills the full width of each cell (full justification).\n\n`char`\n\nAlign each cell in the row on a specific character (such that each row in the column that is configured this way will horizontally align its cells on that character). This uses the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr#attr-charoff) to establish the alignment character (typically \".\" or \",\" when aligning numerical data) and the number of characters that should follow the alignment character. This alignment type was never widely supported.\n\nIf no value is expressly set for `align`, the parent node's value is inherited.\n\nInstead of using the obsolete `align` attribute, you should instead use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to establish `left`, `center`, `right`, or `justify` alignment for the row's cells. To apply character-based alignment, set the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to the alignment character (such as `\".\"` or `\",\"`)."
+                    "description": "A [`DOMString`](https://developer.mozilla.org/en-US/docs/Web/API/DOMString \"DOMString is a UTF-16 String. As JavaScript already uses such strings, DOMString is mapped directly to a String.\") which specifies how the cell's context should be aligned horizontally within the cells in the row; this is shorthand for using `align` on every cell in the row individually. Possible values are:\n\n`left`\n\nAlign the content of each cell at its left edge.\n\n`center`\n\nCenter the contents of each cell between their left and right edges.\n\n`right`\n\nAlign the content of each cell at its right edge.\n\n`justify`\n\nWiden whitespaces within the text of each cell so that the text fills the full width of each cell (full justification).\n\n`char`\n\nAlign each cell in the row on a specific character (such that each row in the column that is configured this way will horizontally align its cells on that character). This uses the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr#attr-charoff) to establish the alignment character (typically \".\" or \",\" when aligning numerical data) and the number of characters that should follow the alignment character. This alignment type was never widely supported.\n\nIf no value is expressly set for `align`, the parent node's value is inherited.\n\nInstead of using the obsolete `align` attribute, you should instead use the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to establish `left`, `center`, `right`, or `justify` alignment for the row's cells. To apply character-based alignment, set the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to the alignment character (such as `\".\"` or `\",\"`).",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/tr"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/tr"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "td",
@@ -27910,37 +31404,141 @@ const webCustomData_htmlData = {
             },
             "attributes": [
                 {
-                    "name": "colspan"
+                    "name": "colspan",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "rowspan"
+                    "name": "rowspan",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "headers"
+                    "name": "headers",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "abbr",
-                    "description": "This attribute contains a short abbreviated description of the cell's content. Some user-agents, such as speech readers, may present this description before the content itself.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard. Alternatively, you can put the abbreviated description inside the cell and place the long content in the **title** attribute."
+                    "description": "This attribute contains a short abbreviated description of the cell's content. Some user-agents, such as speech readers, may present this description before the content itself.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard. Alternatively, you can put the abbreviated description inside the cell and place the long content in the **title** attribute.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "align",
-                    "description": "This enumerated attribute specifies how the cell content's horizontal alignment will be handled. Possible values are:\n\n*   `left`: The content is aligned to the left of the cell.\n*   `center`: The content is centered in the cell.\n*   `right`: The content is aligned to the right of the cell.\n*   `justify` (with text only): The content is stretched out inside the cell so that it covers its entire width.\n*   `char` (with text only): The content is aligned to a character inside the `<th>` element with minimal offset. This character is defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nThe default value when this attribute is not specified is `left`.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, apply the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to the element.\n*   To achieve the same effect as the `char` value, give the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property the same value you would use for the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-char). Unimplemented in CSS3."
+                    "description": "This enumerated attribute specifies how the cell content's horizontal alignment will be handled. Possible values are:\n\n*   `left`: The content is aligned to the left of the cell.\n*   `center`: The content is centered in the cell.\n*   `right`: The content is aligned to the right of the cell.\n*   `justify` (with text only): The content is stretched out inside the cell so that it covers its entire width.\n*   `char` (with text only): The content is aligned to a character inside the `<th>` element with minimal offset. This character is defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-charoff) attributes Unimplemented (see [bug 2212](https://bugzilla.mozilla.org/show_bug.cgi?id=2212 \"character alignment not implemented (align=char, charoff=, text-align:<string>)\")).\n\nThe default value when this attribute is not specified is `left`.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, apply the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to the element.\n*   To achieve the same effect as the `char` value, give the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property the same value you would use for the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-char). Unimplemented in CSS3.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "axis",
-                    "description": "This attribute contains a list of space-separated strings. Each string is the `id` of a group of cells that this header applies to.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard."
+                    "description": "This attribute contains a list of space-separated strings. Each string is the `id` of a group of cells that this header applies to.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "bgcolor",
-                    "description": "This attribute defines the background color of each cell in a column. It consists of a 6-digit hexadecimal code as defined in [sRGB](https://www.w3.org/Graphics/Color/sRGB) and is prefixed by '#'. This attribute may be used with one of sixteen predefined color strings:\n\n \n\n`black` = \"#000000\"\n\n \n\n`green` = \"#008000\"\n\n \n\n`silver` = \"#C0C0C0\"\n\n \n\n`lime` = \"#00FF00\"\n\n \n\n`gray` = \"#808080\"\n\n \n\n`olive` = \"#808000\"\n\n \n\n`white` = \"#FFFFFF\"\n\n \n\n`yellow` = \"#FFFF00\"\n\n \n\n`maroon` = \"#800000\"\n\n \n\n`navy` = \"#000080\"\n\n \n\n`red` = \"#FF0000\"\n\n \n\n`blue` = \"#0000FF\"\n\n \n\n`purple` = \"#800080\"\n\n \n\n`teal` = \"#008080\"\n\n \n\n`fuchsia` = \"#FF00FF\"\n\n \n\n`aqua` = \"#00FFFF\"\n\n**Note:** Do not use this attribute, as it is non-standard and only implemented in some versions of Microsoft Internet Explorer: The [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td \"The HTML <td> element defines a cell of a table that contains data. It participates in the table model.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). To create a similar effect use the [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color \"The background-color CSS property sets the background color of an element.\") property in [CSS](https://developer.mozilla.org/en-US/docs/CSS) instead."
+                    "description": "This attribute defines the background color of each cell in a column. It consists of a 6-digit hexadecimal code as defined in [sRGB](https://www.w3.org/Graphics/Color/sRGB) and is prefixed by '#'. This attribute may be used with one of sixteen predefined color strings:\n\n \n\n`black` = \"#000000\"\n\n \n\n`green` = \"#008000\"\n\n \n\n`silver` = \"#C0C0C0\"\n\n \n\n`lime` = \"#00FF00\"\n\n \n\n`gray` = \"#808080\"\n\n \n\n`olive` = \"#808000\"\n\n \n\n`white` = \"#FFFFFF\"\n\n \n\n`yellow` = \"#FFFF00\"\n\n \n\n`maroon` = \"#800000\"\n\n \n\n`navy` = \"#000080\"\n\n \n\n`red` = \"#FF0000\"\n\n \n\n`blue` = \"#0000FF\"\n\n \n\n`purple` = \"#800080\"\n\n \n\n`teal` = \"#008080\"\n\n \n\n`fuchsia` = \"#FF00FF\"\n\n \n\n`aqua` = \"#00FFFF\"\n\n**Note:** Do not use this attribute, as it is non-standard and only implemented in some versions of Microsoft Internet Explorer: The [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td \"The HTML <td> element defines a cell of a table that contains data. It participates in the table model.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/CSS). To create a similar effect use the [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color \"The background-color CSS property sets the background color of an element.\") property in [CSS](https://developer.mozilla.org/en-US/docs/CSS) instead.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/td"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/td"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "th",
@@ -27950,17 +31548,73 @@ const webCustomData_htmlData = {
             },
             "attributes": [
                 {
-                    "name": "colspan"
+                    "name": "colspan",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "rowspan"
+                    "name": "rowspan",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "headers"
+                    "name": "headers",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "scope",
-                    "valueSet": "s"
+                    "valueSet": "s",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "sorted"
@@ -27970,27 +31624,91 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute contains a short abbreviated description of the cell's content. Some user-agents, such as speech readers, may present this description before the content itself."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "align",
-                    "description": "This enumerated attribute specifies how the cell content's horizontal alignment will be handled. Possible values are:\n\n*   `left`: The content is aligned to the left of the cell.\n*   `center`: The content is centered in the cell.\n*   `right`: The content is aligned to the right of the cell.\n*   `justify` (with text only): The content is stretched out inside the cell so that it covers its entire width.\n*   `char` (with text only): The content is aligned to a character inside the `<th>` element with minimal offset. This character is defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-charoff) attributes.\n\nThe default value when this attribute is not specified is `left`.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, apply the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to the element.\n*   To achieve the same effect as the `char` value, give the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property the same value you would use for the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-char). Unimplemented in CSS3."
+                    "description": "This enumerated attribute specifies how the cell content's horizontal alignment will be handled. Possible values are:\n\n*   `left`: The content is aligned to the left of the cell.\n*   `center`: The content is centered in the cell.\n*   `right`: The content is aligned to the right of the cell.\n*   `justify` (with text only): The content is stretched out inside the cell so that it covers its entire width.\n*   `char` (with text only): The content is aligned to a character inside the `<th>` element with minimal offset. This character is defined by the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-char) and [`charoff`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-charoff) attributes.\n\nThe default value when this attribute is not specified is `left`.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard.\n\n*   To achieve the same effect as the `left`, `center`, `right` or `justify` values, apply the CSS [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property to the element.\n*   To achieve the same effect as the `char` value, give the [`text-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align \"The text-align CSS property sets the horizontal alignment of an inline or table-cell box. This means it works like vertical-align but in the horizontal direction.\") property the same value you would use for the [`char`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-char). Unimplemented in CSS3.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "axis",
-                    "description": "This attribute contains a list of space-separated strings. Each string is the `id` of a group of cells that this header applies to.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard: use the [`scope`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-scope) attribute instead."
+                    "description": "This attribute contains a list of space-separated strings. Each string is the `id` of a group of cells that this header applies to.\n\n**Note:** Do not use this attribute as it is obsolete in the latest standard: use the [`scope`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-scope) attribute instead.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 },
                 {
                     "name": "bgcolor",
-                    "description": "This attribute defines the background color of each cell in a column. It consists of a 6-digit hexadecimal code as defined in [sRGB](https://www.w3.org/Graphics/Color/sRGB) and is prefixed by '#'. This attribute may be used with one of sixteen predefined color strings:\n\n \n\n`black` = \"#000000\"\n\n \n\n`green` = \"#008000\"\n\n \n\n`silver` = \"#C0C0C0\"\n\n \n\n`lime` = \"#00FF00\"\n\n \n\n`gray` = \"#808080\"\n\n \n\n`olive` = \"#808000\"\n\n \n\n`white` = \"#FFFFFF\"\n\n \n\n`yellow` = \"#FFFF00\"\n\n \n\n`maroon` = \"#800000\"\n\n \n\n`navy` = \"#000080\"\n\n \n\n`red` = \"#FF0000\"\n\n \n\n`blue` = \"#0000FF\"\n\n \n\n`purple` = \"#800080\"\n\n \n\n`teal` = \"#008080\"\n\n \n\n`fuchsia` = \"#FF00FF\"\n\n \n\n`aqua` = \"#00FFFF\"\n\n**Note:** Do not use this attribute, as it is non-standard and only implemented in some versions of Microsoft Internet Explorer: The [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th \"The HTML <th> element defines a cell as header of a group of table cells. The exact nature of this group is defined by the scope and headers attributes.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS). To create a similar effect use the [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color \"The background-color CSS property sets the background color of an element.\") property in [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) instead."
+                    "description": "This attribute defines the background color of each cell in a column. It consists of a 6-digit hexadecimal code as defined in [sRGB](https://www.w3.org/Graphics/Color/sRGB) and is prefixed by '#'. This attribute may be used with one of sixteen predefined color strings:\n\n \n\n`black` = \"#000000\"\n\n \n\n`green` = \"#008000\"\n\n \n\n`silver` = \"#C0C0C0\"\n\n \n\n`lime` = \"#00FF00\"\n\n \n\n`gray` = \"#808080\"\n\n \n\n`olive` = \"#808000\"\n\n \n\n`white` = \"#FFFFFF\"\n\n \n\n`yellow` = \"#FFFF00\"\n\n \n\n`maroon` = \"#800000\"\n\n \n\n`navy` = \"#000080\"\n\n \n\n`red` = \"#FF0000\"\n\n \n\n`blue` = \"#0000FF\"\n\n \n\n`purple` = \"#800080\"\n\n \n\n`teal` = \"#008080\"\n\n \n\n`fuchsia` = \"#FF00FF\"\n\n \n\n`aqua` = \"#00FFFF\"\n\n**Note:** Do not use this attribute, as it is non-standard and only implemented in some versions of Microsoft Internet Explorer: The [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th \"The HTML <th> element defines a cell as header of a group of table cells. The exact nature of this group is defined by the scope and headers attributes.\") element should be styled using [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS). To create a similar effect use the [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color \"The background-color CSS property sets the background color of an element.\") property in [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) instead.",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/th"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/th"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "form",
@@ -28004,6 +31722,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A space- or comma-delimited list of character encodings that the server accepts. The browser uses them in the order in which they are listed. The default value, the reserved string `\"UNKNOWN\"`, indicates the same encoding as that of the document containing the form element.  \nIn previous versions of HTML, the different character encodings could be delimited by spaces or commas. In HTML5, only spaces are allowed as delimiters."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28011,6 +31743,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The URI of a program that processes the form information. This value can be overridden by a [`formaction`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formaction) attribute on a [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") or [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28019,6 +31765,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Indicates whether input elements can by default have their values automatically completed by the browser. This setting can be overridden by an `autocomplete` attribute on an element belonging to the form. Possible values are:\n\n*   `off`: The user must explicitly enter a value into each field for every use, or the document provides its own auto-completion method; the browser does not automatically complete entries.\n*   `on`: The browser can automatically complete values based on values that the user has previously entered in the form.\n\nFor most modern browsers (including Firefox 38+, Google Chrome 34+, IE 11+) setting the autocomplete attribute will not prevent a browser's password manager from asking the user if they want to store login fields (username and password), if the user permits the storage the browser will autofill the login the next time the user visits the page. See [The autocomplete attribute and login fields](https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#The_autocomplete_attribute_and_login_fields).\n**Note:** If you set `autocomplete` to `off` in a form because the document provides its own auto-completion, then you should also set `autocomplete` to `off` for each of the form's `input` elements that the document can auto-complete. For details, see the note regarding Google Chrome in the [Browser Compatibility chart](#compatChart)."
+                    },
+                    "browsers": [
+                        "C14",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28027,6 +31787,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "When the value of the `method` attribute is `post`, enctype is the [MIME type](https://en.wikipedia.org/wiki/Mime_type) of content that is used to submit the form to the server. Possible values are:\n\n*   `application/x-www-form-urlencoded`: The default value if the attribute is not specified.\n*   `multipart/form-data`: The value used for an [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") element with the `type` attribute set to \"file\".\n*   `text/plain`: (HTML5)\n\nThis value can be overridden by a [`formenctype`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formenctype) attribute on a [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") or [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28035,6 +31809,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) method that the browser uses to submit the form. Possible values are:\n\n*   `post`: Corresponds to the HTTP [POST method](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5) ; form data are included in the body of the form and sent to the server.\n*   `get`: Corresponds to the HTTP [GET method](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3); form data are appended to the `action` attribute URI with a '?' as separator, and the resulting URI is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.\n*   `dialog`: Use when the form is inside a [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog \"The HTML <dialog> element represents a dialog box or other interactive component, such as an inspector or window.\") element to close the dialog when submitted.\n\nThis value can be overridden by a [`formmethod`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formmethod) attribute on a [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") or [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28042,6 +31830,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name of the form. In HTML 4, its use is deprecated (`id` should be used instead). It must be unique among the forms in a document and not just an empty string in HTML 5."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28050,6 +31852,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates that the form is not to be validated when submitted. If this attribute is not specified (and therefore the form is validated), this default setting can be overridden by a [`formnovalidate`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formnovalidate) attribute on a [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") or [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") element belonging to the form."
+                    },
+                    "browsers": [
+                        "C10",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S10.1",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
                     }
                 },
                 {
@@ -28058,6 +31874,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A name or keyword indicating where to display the response that is received after submitting the form. In HTML 4, this is the name/keyword for a frame. In HTML5, it is a name/keyword for a _browsing context_ (for example, tab, window, or inline frame). The following keywords have special meanings:\n\n*   `_self`: Load the response into the same HTML 4 frame (or HTML5 browsing context) as the current one. This value is the default if the attribute is not specified.\n*   `_blank`: Load the response into a new unnamed HTML 4 window or HTML5 browsing context.\n*   `_parent`: Load the response into the HTML 4 frameset parent of the current frame, or HTML5 parent browsing context of the current one. If there is no parent, this option behaves the same way as `_self`.\n*   `_top`: HTML 4: Load the response into the full original window, and cancel all other frames. HTML5: Load the response into the top-level browsing context (i.e., the browsing context that is an ancestor of the current one, and has no parent). If there is no parent, this option behaves the same way as `_self`.\n*   _iframename_: The response is displayed in a named [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe \"The HTML Inline Frame element (<iframe>) represents a nested browsing context, embedding another HTML page into the current one.\").\n\nHTML5: This value can be overridden by a [`formtarget`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formtarget) attribute on a [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") or [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28072,9 +31902,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/form"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/form"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "label",
@@ -28095,15 +31939,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id) of a [labelable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#Form_labelable) form-related element in the same document as the `<label>` element. The first element in the document with an `id` matching the value of the `for` attribute is the _labeled control_ for this label element, if it is a labelable element. If it is not labelable then the `for` attribute has no effect. If there are other elements which also match the `id` value, later in the document, they are not considered.\n\n**Note**: A `<label>` element can have both a `for` attribute and a contained control element, as long as the `for` attribute points to the contained control element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/label"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/label"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "input",
@@ -28114,14 +31986,56 @@ const webCustomData_htmlData = {
             "void": true,
             "attributes": [
                 {
-                    "name": "accept"
+                    "name": "accept",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "alt"
+                    "name": "alt",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "autocomplete",
-                    "valueSet": "inputautocomplete"
+                    "valueSet": "inputautocomplete",
+                    "browsers": [
+                        "C14",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "autofocus",
@@ -28129,35 +32043,160 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "checked",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "dirname"
+                    "name": "dirname",
+                    "browsers": [
+                        "C17",
+                        "CA18",
+                        "E79",
+                        "FF116",
+                        "FFA116",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "low",
+                        "baseline_low_date": "2023-08-01"
+                    }
                 },
                 {
                     "name": "disabled",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "form"
+                    "name": "form",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "formaction"
+                    "name": "formaction",
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "formenctype",
-                    "valueSet": "et"
+                    "valueSet": "et",
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "formmethod",
-                    "valueSet": "fm"
+                    "valueSet": "fm",
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "formnovalidate",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "formtarget"
+                    "name": "formtarget",
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "height"
@@ -28167,49 +32206,277 @@ const webCustomData_htmlData = {
                     "valueSet": "im"
                 },
                 {
-                    "name": "list"
+                    "name": "list",
+                    "browsers": [
+                        "C20",
+                        "CA25",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S12.1",
+                        "SM12.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2019-03-25",
+                        "baseline_high_date": "2021-09-25"
+                    }
                 },
                 {
-                    "name": "max"
+                    "name": "max",
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF16",
+                        "FFA16",
+                        "S5",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "maxlength"
+                    "name": "maxlength",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "min"
+                    "name": "min",
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF16",
+                        "FFA16",
+                        "S5",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "minlength"
+                    "name": "minlength",
+                    "browsers": [
+                        "C40",
+                        "CA40",
+                        "E17",
+                        "FF51",
+                        "FFA51",
+                        "S10.1",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2018-04-30",
+                        "baseline_high_date": "2020-10-30"
+                    }
                 },
                 {
                     "name": "multiple",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C2",
+                        "CA18",
+                        "E12",
+                        "FF3.6",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "name"
+                    "name": "name",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "pattern"
+                    "name": "pattern",
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "placeholder"
+                    "name": "placeholder",
+                    "browsers": [
+                        "C3",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
+                },
+                {
+                    "name": "popovertarget",
+                    "browsers": [
+                        "C114",
+                        "CA114",
+                        "E114",
+                        "FF125",
+                        "FFA125",
+                        "S17",
+                        "SM17"
+                    ],
+                    "status": {
+                        "baseline": "low",
+                        "baseline_low_date": "2024-04-16"
+                    }
+                },
+                {
+                    "name": "popovertargetaction",
+                    "browsers": [
+                        "C114",
+                        "CA114",
+                        "E114",
+                        "FF125",
+                        "FFA125",
+                        "S17",
+                        "SM17"
+                    ],
+                    "status": {
+                        "baseline": "low",
+                        "baseline_low_date": "2024-04-16"
+                    }
                 },
                 {
                     "name": "readonly",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "required",
-                    "valueSet": "v"
+                    "valueSet": "v",
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "size"
+                    "name": "size",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "src"
+                    "name": "src",
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S1",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
-                    "name": "step"
+                    "name": "step",
+                    "browsers": [
+                        "C5",
+                        "CA18",
+                        "E12",
+                        "FF16",
+                        "FFA16",
+                        "S5",
+                        "SM4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 },
                 {
                     "name": "type",
@@ -28225,9 +32492,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/input"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/input"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "button",
@@ -28250,6 +32531,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates that the user cannot interact with the button. If this attribute is not specified, the button inherits its setting from the containing element, for example [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset \"The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.\"); if there is no containing element with the **disabled** attribute set, then the button is enabled.\n\nFirefox will, unlike other browsers, by default, [persist the dynamic disabled state](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) of a [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button \"The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality.\") across page loads. Use the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-autocomplete) attribute to control this feature."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28257,6 +32552,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The form element that the button is associated with (its _form owner_). The value of the attribute must be the **id** attribute of a [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\") element in the same document. If this attribute is not specified, the `<button>` element will be associated to an ancestor [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\") element, if one exists. This attribute enables you to associate `<button>` elements to [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\") elements anywhere within a document, not just as descendants of [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\") elements."
+                    },
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E16",
+                        "FF4",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-10-17",
+                        "baseline_high_date": "2020-04-17"
                     }
                 },
                 {
@@ -28264,6 +32573,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The URI of a program that processes the information submitted by the button. If specified, it overrides the [`action`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-action) attribute of the button's form owner."
+                    },
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28272,6 +32595,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If the button is a submit button, this attribute specifies the type of content that is used to submit the form to the server. Possible values are:\n\n*   `application/x-www-form-urlencoded`: The default value if the attribute is not specified.\n*   `multipart/form-data`: Use this value if you are using an [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") element with the [`type`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-type) attribute set to `file`.\n*   `text/plain`\n\nIf this attribute is specified, it overrides the [`enctype`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-enctype) attribute of the button's form owner."
+                    },
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28280,6 +32617,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If the button is a submit button, this attribute specifies the HTTP method that the browser uses to submit the form. Possible values are:\n\n*   `post`: The data from the form are included in the body of the form and sent to the server.\n*   `get`: The data from the form are appended to the **form** attribute URI, with a '?' as a separator, and the resulting URI is sent to the server. Use this method when the form has no side-effects and contains only ASCII characters.\n\nIf specified, this attribute overrides the [`method`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-method) attribute of the button's form owner."
+                    },
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28288,6 +32639,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted. If this attribute is specified, it overrides the [`novalidate`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-novalidate) attribute of the button's form owner."
+                    },
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28295,6 +32660,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If the button is a submit button, this attribute is a name or keyword indicating where to display the response that is received after submitting the form. This is a name of, or keyword for, a _browsing context_ (for example, tab, window, or inline frame). If this attribute is specified, it overrides the [`target`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-target) attribute of the button's form owner. The following keywords have special meanings:\n\n*   `_self`: Load the response into the same browsing context as the current one. This value is the default if the attribute is not specified.\n*   `_blank`: Load the response into a new unnamed browsing context.\n*   `_parent`: Load the response into the parent browsing context of the current one. If there is no parent, this option behaves the same way as `_self`.\n*   `_top`: Load the response into the top-level browsing context (that is, the browsing context that is an ancestor of the current one, and has no parent). If there is no parent, this option behaves the same way as `_self`."
+                    },
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28302,6 +32681,60 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name of the button, which is submitted with the form data."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
+                },
+                {
+                    "name": "popovertarget",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "Turns the button into a popover control button; takes the ID of the popover element to control as its value."
+                    },
+                    "browsers": [
+                        "C114",
+                        "CA114",
+                        "E114",
+                        "FF125",
+                        "FFA125",
+                        "S17",
+                        "SM17"
+                    ],
+                    "status": {
+                        "baseline": "low",
+                        "baseline_low_date": "2024-04-16"
+                    }
+                },
+                {
+                    "name": "popovertargetaction",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "Specifies the action to be performed on a popover element being controlled by the button."
+                    },
+                    "browsers": [
+                        "C114",
+                        "CA114",
+                        "E114",
+                        "FF125",
+                        "FFA125",
+                        "S17",
+                        "SM17"
+                    ],
+                    "status": {
+                        "baseline": "low",
+                        "baseline_low_date": "2024-04-16"
                     }
                 },
                 {
@@ -28310,6 +32743,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The type of the button. Possible values are:\n\n*   `submit`: The button submits the form data to the server. This is the default if the attribute is not specified, or if the attribute is dynamically changed to an empty or invalid value.\n*   `reset`: The button resets all the controls to their initial values.\n*   `button`: The button has no default behavior. It can have client-side scripts associated with the element's events, which are triggered when the events occur."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28317,6 +32764,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The initial value of the button. It defines the value associated with the button which is submitted with the form data. This value is passed to the server in params when the form is submitted."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28327,9 +32788,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/button"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/button"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "select",
@@ -28344,6 +32819,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A [`DOMString`](https://developer.mozilla.org/en-US/docs/Web/API/DOMString \"DOMString is a UTF-16 String. As JavaScript already uses such strings, DOMString is mapped directly to a String.\") providing a hint for a [user agent's](https://developer.mozilla.org/en-US/docs/Glossary/user_agent \"user agent's: A user agent is a computer program representing a person, for example, a browser in a Web context.\") autocomplete feature. See [The HTML autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for a complete list of values and details on how to use autocomplete."
+                    },
+                    "browsers": [
+                        "C66",
+                        "CA66",
+                        "E79",
+                        "FF59",
+                        "FFA59",
+                        "S9.1",
+                        "SM9.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-01-15",
+                        "baseline_high_date": "2022-07-15"
                     }
                 },
                 {
@@ -28360,6 +32849,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates that the user cannot interact with the control. If this attribute is not specified, the control inherits its setting from the containing element, for example `fieldset`; if there is no containing element with the `disabled` attribute set, then the control is enabled."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28367,6 +32870,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute lets you specify the form element to which the select element is associated (that is, its \"form owner\"). If this attribute is specified, its value must be the same as the `id` of a form element in the same document. This enables you to place select elements anywhere within a document, not just as descendants of their form elements."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28375,6 +32892,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates that multiple options can be selected in the list. If it is not specified, then only one option can be selected at a time. When `multiple` is specified, most browsers will show a scrolling list box instead of a single line dropdown."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28382,6 +32913,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute is used to specify the name of the control."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28390,6 +32935,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A Boolean attribute indicating that an option with a non-empty string value must be selected."
+                    },
+                    "browsers": [
+                        "C10",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28397,15 +32956,39 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If the control is presented as a scrolling list box (e.g. when `multiple` is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is 0.\n\n**Note:** According to the HTML5 specification, the default value for size should be 1; however, in practice, this has been found to break some web sites, and no other browser currently does that, so Mozilla has opted to continue to return 0 for the time being with Firefox."
+                    },
+                    "browsers": [
+                        "C1",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S3"
+                    ],
+                    "status": {
+                        "baseline": false
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/select"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/select"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "datalist",
@@ -28417,9 +33000,19 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/datalist"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/datalist"
                 }
-            ]
+            ],
+            "browsers": [
+                "C20",
+                "CA33",
+                "E12",
+                "S12.1",
+                "SM12.2"
+            ],
+            "status": {
+                "baseline": false
+            }
         },
         {
             "name": "optgroup",
@@ -28434,6 +33027,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If this Boolean attribute is set, none of the items in this option group is selectable. Often browsers grey out such control and it won't receive any browsing events, like mouse clicks or focus-related ones."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28441,15 +33048,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name of the group of options, which the browser can use when labeling the options in the user interface. This attribute is mandatory if this element is used."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/optgroup"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/optgroup"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "option",
@@ -28464,6 +33099,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If this Boolean attribute is set, this option is not checkable. Often browsers grey out such control and it won't receive any browsing event, like mouse clicks or focus-related ones. If this attribute is not set, the element can still be disabled if one of its ancestors is a disabled [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup \"The HTML <optgroup> element creates a grouping of options within a <select> element.\") element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28471,6 +33120,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute is text for the label indicating the meaning of the option. If the `label` attribute isn't defined, its value is that of the element text content."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28479,6 +33142,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If present, this Boolean attribute indicates that the option is initially selected. If the `<option>` element is the descendant of a [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select \"The HTML <select> element represents a control that provides a menu of options\") element whose [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-multiple) attribute is not set, only one single `<option>` of this [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select \"The HTML <select> element represents a control that provides a menu of options\") element may have the `selected` attribute."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28486,15 +33163,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The content of this attribute represents the value to be submitted with the form, should this option be selected. If this attribute is omitted, the value is taken from the text content of the option element."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/option"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/option"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "textarea",
@@ -28509,6 +33214,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates whether the value of the control can be automatically completed by the browser. Possible values are:\n\n*   `off`: The user must explicitly enter a value into this field for every use, or the document provides its own auto-completion method; the browser does not automatically complete the entry.\n*   `on`: The browser can automatically complete the value based on values that the user has entered during previous uses.\n\nIf the `autocomplete` attribute is not specified on a `<textarea>` element, then the browser uses the `autocomplete` attribute value of the `<textarea>` element's form owner. The form owner is either the [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\") element that this `<textarea>` element is a descendant of or the form element whose `id` is specified by the `form` attribute of the input element. For more information, see the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-autocomplete) attribute in [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\")."
+                    },
+                    "browsers": [
+                        "C66",
+                        "CA66",
+                        "E79",
+                        "FF59",
+                        "FFA59",
+                        "S9.1",
+                        "SM9.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-01-15",
+                        "baseline_high_date": "2022-07-15"
                     }
                 },
                 {
@@ -28524,10 +33243,37 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The visible width of the text control, in average character widths. If it is specified, it must be a positive integer. If it is not specified, the default value is `20`."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
-                    "name": "dirname"
+                    "name": "dirname",
+                    "browsers": [
+                        "C17",
+                        "CA18",
+                        "E79",
+                        "FF116",
+                        "FFA116",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "low",
+                        "baseline_low_date": "2023-08-01"
+                    }
                 },
                 {
                     "name": "disabled",
@@ -28535,6 +33281,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates that the user cannot interact with the control. If this attribute is not specified, the control inherits its setting from the containing element, for example [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset \"The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.\"); if there is no containing element when the `disabled` attribute is set, the control is enabled."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28542,6 +33302,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The form element that the `<textarea>` element is associated with (its \"form owner\"). The value of the attribute must be the `id` of a form element in the same document. If this attribute is not specified, the `<textarea>` element must be a descendant of a form element. This attribute enables you to place `<textarea>` elements anywhere within a document, not just as descendants of form elements."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28553,6 +33327,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The maximum number of characters (unicode code points) that the user can enter. If this value isn't specified, the user can enter an unlimited number of characters."
+                    },
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM4.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28560,6 +33348,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The minimum number of characters (unicode code points) required that the user should enter."
+                    },
+                    "browsers": [
+                        "C40",
+                        "CA40",
+                        "E17",
+                        "FF51",
+                        "FFA51",
+                        "S10.1",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2018-04-30",
+                        "baseline_high_date": "2020-10-30"
                     }
                 },
                 {
@@ -28567,6 +33369,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name of the control."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28574,6 +33390,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A hint to the user of what can be entered in the control. Carriage returns or line-feeds within the placeholder text must be treated as line breaks when rendering the hint.\n\n**Note:** Placeholders should only be used to show an example of the type of data that should be entered into a form; they are _not_ a substitute for a proper [`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label \"The HTML <label> element represents a caption for an item in a user interface.\") element tied to the input. See [Labels and placeholders](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Labels_and_placeholders \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") in [<input>: The Input (Form Input) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input \"The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\") for a full explanation."
+                    },
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28582,6 +33412,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates that the user cannot modify the value of the control. Unlike the `disabled` attribute, the `readonly` attribute does not prevent the user from clicking or selecting in the control. The value of a read-only control is still submitted with the form."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28590,6 +33434,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute specifies that the user must fill in a value before submitting a form."
+                    },
+                    "browsers": [
+                        "C4",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S5",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28597,6 +33455,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The number of visible text lines for the control."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28605,6 +33477,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Indicates how the control wraps text. Possible values are:\n\n*   `hard`: The browser automatically inserts line breaks (CR+LF) so that each line has no more than the width of the control; the `cols` attribute must also be specified for this to take effect.\n*   `soft`: The browser ensures that all line breaks in the value consist of a CR+LF pair, but does not insert any additional line breaks.\n*   `off` : Like `soft` but changes appearance to `white-space: pre` so line segments exceeding `cols` are not wrapped and the `<textarea>` becomes horizontally scrollable.\n\nIf this attribute is not specified, `soft` is its default value."
+                    },
+                    "browsers": [
+                        "C16",
+                        "CA18",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28613,15 +33499,43 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "spellcheck",
-                    "description": "Specifies whether the `<textarea>` is subject to spell checking by the underlying browser/OS. the value can be:\n\n*   `true`: Indicates that the element needs to have its spelling and grammar checked.\n*   `default` : Indicates that the element is to act according to a default behavior, possibly based on the parent element's own `spellcheck` value.\n*   `false` : Indicates that the element should not be spell checked."
+                    "description": "Specifies whether the `<textarea>` is subject to spell checking by the underlying browser/OS. the value can be:\n\n*   `true`: Indicates that the element needs to have its spelling and grammar checked.\n*   `default` : Indicates that the element is to act according to a default behavior, possibly based on the parent element's own `spellcheck` value.\n*   `false` : Indicates that the element should not be spell checked.",
+                    "browsers": [
+                        "C9",
+                        "CA18",
+                        "E12",
+                        "FF2",
+                        "FFA4",
+                        "S5.1",
+                        "SM5"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/textarea"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/textarea"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "output",
@@ -28635,6 +33549,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "A space-separated list of other elements’ [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)s, indicating that those elements contributed input values to (or otherwise affected) the calculation."
+                    },
+                    "browsers": [
+                        "C10",
+                        "CA18",
+                        "E18",
+                        "FF4",
+                        "FFA4",
+                        "S7",
+                        "SM7"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "≤2018-10-02",
+                        "baseline_high_date": "≤2021-04-02"
                     }
                 },
                 {
@@ -28642,6 +33570,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The [form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) that this element is associated with (its \"form owner\"). The value of the attribute must be an `id` of a form element in the same document. If this attribute is not specified, the output element must be a descendant of a form element. This attribute enables you to place output elements anywhere within a document, not just as descendants of their form elements."
+                    },
+                    "browsers": [
+                        "C10",
+                        "CA18",
+                        "E18",
+                        "FF4",
+                        "FFA4",
+                        "S7",
+                        "SM7"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "≤2018-10-02",
+                        "baseline_high_date": "≤2021-04-02"
                     }
                 },
                 {
@@ -28649,15 +33591,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name of the element, exposed in the [`HTMLFormElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement \"The HTMLFormElement interface represents a <form> element in the DOM; it allows access to and in some cases modification of aspects of the form, as well as access to its component elements.\") API."
+                    },
+                    "browsers": [
+                        "C10",
+                        "CA18",
+                        "E18",
+                        "FF4",
+                        "FFA4",
+                        "S7",
+                        "SM7"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "≤2018-10-02",
+                        "baseline_high_date": "≤2021-04-02"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/output"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/output"
                 }
-            ]
+            ],
+            "browsers": [
+                "C10",
+                "CA18",
+                "E18",
+                "FF4",
+                "FFA4",
+                "S7",
+                "SM7"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "≤2018-10-02",
+                "baseline_high_date": "≤2021-04-02"
+            }
         },
         {
             "name": "progress",
@@ -28671,6 +33641,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute specifies how much of the task that has been completed. It must be a valid floating point number between 0 and `max`, or between 0 and 1 if `max` is omitted. If there is no `value` attribute, the progress bar is indeterminate; this indicates that an activity is ongoing with no indication of how long it is expected to take."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E12",
+                        "FF6",
+                        "FFA6",
+                        "S6",
+                        "SM7"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28678,15 +33662,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute describes how much work the task indicated by the `progress` element requires. The `max` attribute, if present, must have a value greater than zero and be a valid floating point number. The default value is 1."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E12",
+                        "FF6",
+                        "FFA6",
+                        "S6",
+                        "SM7"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/progress"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/progress"
                 }
-            ]
+            ],
+            "browsers": [
+                "C6",
+                "CA18",
+                "E12",
+                "FF6",
+                "FFA6",
+                "S6",
+                "SM7"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "meter",
@@ -28700,6 +33712,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The current numeric value. This must be between the minimum and maximum values (`min` attribute and `max` attribute) if they are specified. If unspecified or malformed, the value is 0. If specified, but not within the range given by the `min` attribute and `max` attribute, the value is equal to the nearest end of the range.\n\n**Usage note:** Unless the `value` attribute is between `0` and `1` (inclusive), the `min` and `max` attributes should define the range so that the `value` attribute's value is within it."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E13",
+                        "FF16",
+                        "FFA16",
+                        "S6",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
                     }
                 },
                 {
@@ -28707,6 +33733,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The lower numeric bound of the measured range. This must be less than the maximum value (`max` attribute), if specified. If unspecified, the minimum value is 0."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E13",
+                        "FF16",
+                        "FFA16",
+                        "S6",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
                     }
                 },
                 {
@@ -28714,6 +33754,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The upper numeric bound of the measured range. This must be greater than the minimum value (`min` attribute), if specified. If unspecified, the maximum value is 1."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E13",
+                        "FF16",
+                        "FFA16",
+                        "S6",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
                     }
                 },
                 {
@@ -28721,6 +33775,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The upper numeric bound of the low end of the measured range. This must be greater than the minimum value (`min` attribute), and it also must be less than the high value and maximum value (`high` attribute and `max` attribute, respectively), if any are specified. If unspecified, or if less than the minimum value, the `low` value is equal to the minimum value."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E13",
+                        "FF16",
+                        "FFA16",
+                        "S6",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
                     }
                 },
                 {
@@ -28728,6 +33796,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The lower numeric bound of the high end of the measured range. This must be less than the maximum value (`max` attribute), and it also must be greater than the low value and minimum value (`low` attribute and **min** attribute, respectively), if any are specified. If unspecified, or if greater than the maximum value, the `high` value is equal to the maximum value."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E13",
+                        "FF16",
+                        "FFA16",
+                        "S6",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
                     }
                 },
                 {
@@ -28735,6 +33817,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates the optimal numeric value. It must be within the range (as defined by the `min` attribute and `max` attribute). When used with the `low` attribute and `high` attribute, it gives an indication where along the range is considered preferable. For example, if it is between the `min` attribute and the `low` attribute, then the lower range is considered preferred."
+                    },
+                    "browsers": [
+                        "C6",
+                        "CA18",
+                        "E13",
+                        "FF16",
+                        "FFA16",
+                        "S6",
+                        "SM10.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-03-27",
+                        "baseline_high_date": "2019-09-27"
                     }
                 },
                 {
@@ -28745,9 +33841,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/meter"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/meter"
                 }
-            ]
+            ],
+            "browsers": [
+                "C6",
+                "CA18",
+                "E13",
+                "FF16",
+                "FFA16",
+                "S6",
+                "SM10.3"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2017-03-27",
+                "baseline_high_date": "2019-09-27"
+            }
         },
         {
             "name": "fieldset",
@@ -28762,6 +33872,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "If this Boolean attribute is set, all form controls that are descendants of the `<fieldset>`, are disabled, meaning they are not editable and won't be submitted along with the `<form>`. They won't receive any browsing events, like mouse clicks or focus-related events. By default browsers display such controls grayed out. Note that form elements inside the [`<legend>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend \"The HTML <legend> element represents a caption for the content of its parent <fieldset>.\") element won't be disabled."
+                    },
+                    "browsers": [
+                        "C20",
+                        "CA25",
+                        "E79",
+                        "FF4",
+                        "FFA4",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-01-15",
+                        "baseline_high_date": "2022-07-15"
                     }
                 },
                 {
@@ -28769,6 +33893,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute takes the value of the `id` attribute of a [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form \"The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server.\") element you want the `<fieldset>` to be part of, even if it is not inside the form."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28776,15 +33914,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The name associated with the group.\n\n**Note**: The caption for the fieldset is given by the first [`<legend>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend \"The HTML <legend> element represents a caption for the content of its parent <fieldset>.\") element nested inside it."
+                    },
+                    "browsers": [
+                        "C19",
+                        "CA25",
+                        "E12",
+                        "FF4",
+                        "FFA4",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/fieldset"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/fieldset"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "legend",
@@ -28796,9 +33962,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/legend"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/legend"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "details",
@@ -28813,15 +33993,43 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute indicates whether or not the details — that is, the contents of the `<details>` element — are currently visible. The default, `false`, means the details are not visible."
+                    },
+                    "browsers": [
+                        "C12",
+                        "CA18",
+                        "E79",
+                        "FF49",
+                        "FFA49",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-01-15",
+                        "baseline_high_date": "2022-07-15"
                     }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/details"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/details"
                 }
-            ]
+            ],
+            "browsers": [
+                "C12",
+                "CA18",
+                "E79",
+                "FF49",
+                "FFA49",
+                "S6",
+                "SM6"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2020-01-15",
+                "baseline_high_date": "2022-07-15"
+            }
         },
         {
             "name": "summary",
@@ -28833,9 +34041,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/summary"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/summary"
                 }
-            ]
+            ],
+            "browsers": [
+                "C12",
+                "CA18",
+                "E79",
+                "FF49",
+                "FFA49",
+                "S6",
+                "SM6"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2020-01-15",
+                "baseline_high_date": "2022-07-15"
+            }
         },
         {
             "name": "dialog",
@@ -28846,15 +34068,43 @@ const webCustomData_htmlData = {
             "attributes": [
                 {
                     "name": "open",
-                    "description": "Indicates that the dialog is active and available for interaction. When the `open` attribute is not set, the dialog shouldn't be shown to the user."
+                    "description": "Indicates that the dialog is active and available for interaction. When the `open` attribute is not set, the dialog shouldn't be shown to the user.",
+                    "browsers": [
+                        "C37",
+                        "CA37",
+                        "E79",
+                        "FF98",
+                        "FFA98",
+                        "S15.4",
+                        "SM15.4"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2022-03-14",
+                        "baseline_high_date": "2024-09-14"
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/dialog"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/dialog"
                 }
-            ]
+            ],
+            "browsers": [
+                "C37",
+                "CA37",
+                "E79",
+                "FF98",
+                "FFA98",
+                "S15.4",
+                "SM15.4"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2022-03-14",
+                "baseline_high_date": "2024-09-14"
+            }
         },
         {
             "name": "script",
@@ -28868,6 +34118,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute specifies the URI of an external script; this can be used as an alternative to embedding a script directly within a document.\n\nIf a `script` element has a `src` attribute specified, it should not have a script embedded inside its tags."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28875,6 +34139,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This attribute indicates the type of script represented. The value of this attribute will be in one of the following categories:\n\n*   **Omitted or a JavaScript MIME type:** For HTML5-compliant browsers this indicates the script is JavaScript. HTML5 specification urges authors to omit the attribute rather than provide a redundant MIME type. In earlier browsers, this identified the scripting language of the embedded or imported (via the `src` attribute) code. JavaScript MIME types are [listed in the specification](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#JavaScript_types).\n*   **`module`:** For HTML5-compliant browsers the code is treated as a JavaScript module. The processing of the script contents is not affected by the `charset` and `defer` attributes. For information on using `module`, see [ES6 in Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/). Code may behave differently when the `module` keyword is used.\n*   **Any other value:** The embedded content is treated as a data block which won't be processed by the browser. Developers must use a valid MIME type that is not a JavaScript MIME type to denote data blocks. The `src` attribute will be ignored.\n\n**Note:** in Firefox you could specify the version of JavaScript contained in a `<script>` element by including a non-standard `version` parameter inside the `type` attribute — for example `type=\"text/javascript;version=1.8\"`. This has been removed in Firefox 59 (see [bug 1428745](https://bugzilla.mozilla.org/show_bug.cgi?id=1428745 \"FIXED: Remove support for version parameter from script loader\"))."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28886,6 +34164,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This is a Boolean attribute indicating that the browser should, if possible, load the script asynchronously.\n\nThis attribute must not be used if the `src` attribute is absent (i.e. for inline scripts). If it is included in this case it will have no effect.\n\nBrowsers usually assume the worst case scenario and load scripts synchronously, (i.e. `async=\"false\"`) during HTML parsing.\n\nDynamically inserted scripts (using [`document.createElement()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement \"In an HTML document, the document.createElement() method creates the HTML element specified by tagName, or an HTMLUnknownElement if tagName isn't recognized.\")) load asynchronously by default, so to turn on synchronous loading (i.e. scripts load in the order they were inserted) set `async=\"false\"`.\n\nSee [Browser compatibility](#Browser_compatibility) for notes on browser support. See also [Async scripts for asm.js](https://developer.mozilla.org/en-US/docs/Games/Techniques/Async_scripts)."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF3.6",
+                        "FFA4",
+                        "S4",
+                        "SM3.2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28894,6 +34186,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded \"/en-US/docs/Web/Events/DOMContentLoaded\").\n\nScripts with the `defer` attribute will prevent the `DOMContentLoaded` event from firing until the script has loaded and finished evaluating.\n\nThis attribute must not be used if the `src` attribute is absent (i.e. for inline scripts), in this case it would have no effect.\n\nTo achieve a similar effect for dynamically inserted scripts use `async=\"false\"` instead. Scripts with the `defer` attribute will execute in the order in which they appear in the document."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF3.5",
+                        "FFA4",
+                        "S3",
+                        "SM2"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28902,26 +34208,82 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "Normal `script` elements pass minimal information to the [`window.onerror`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror \"The onerror property of the GlobalEventHandlers mixin is an EventHandler that processes error events.\") for scripts which do not pass the standard [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS \"CORS: CORS (Cross-Origin Resource Sharing) is a system, consisting of transmitting HTTP headers, that determines whether browsers block frontend JavaScript code from accessing responses for cross-origin requests.\") checks. To allow error logging for sites which use a separate domain for static media, use this attribute. See [CORS settings attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for a more descriptive explanation of its valid arguments."
+                    },
+                    "browsers": [
+                        "C19",
+                        "CA25",
+                        "E14",
+                        "FF14",
+                        "FFA14",
+                        "S6",
+                        "SM6"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2016-08-02",
+                        "baseline_high_date": "2019-02-02"
                     }
                 },
                 {
                     "name": "nonce",
                     "description": {
                         "kind": "markdown",
-                        "value": "A cryptographic nonce (number used once) to whitelist inline scripts in a [script-src Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src). The server must generate a unique nonce value each time it transmits a policy. It is critical to provide a nonce that cannot be guessed as bypassing a resource's policy is otherwise trivial."
+                        "value": "A cryptographic nonce (number used once) to list the allowed inline scripts in a [script-src Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src). The server must generate a unique nonce value each time it transmits a policy. It is critical to provide a nonce that cannot be guessed as bypassing a resource's policy is otherwise trivial."
                     }
                 },
                 {
                     "name": "integrity",
-                    "description": "This attribute contains inline metadata that a user agent can use to verify that a fetched resource has been delivered free of unexpected manipulation. See [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)."
+                    "description": "This attribute contains inline metadata that a user agent can use to verify that a fetched resource has been delivered free of unexpected manipulation. See [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).",
+                    "browsers": [
+                        "C45",
+                        "CA45",
+                        "E17",
+                        "FF43",
+                        "FFA43",
+                        "S11.1",
+                        "SM11.3"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2018-04-30",
+                        "baseline_high_date": "2020-10-30"
+                    }
                 },
                 {
                     "name": "nomodule",
-                    "description": "This Boolean attribute is set to indicate that the script should not be executed in browsers that support [ES2015 modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) — in effect, this can be used to serve fallback scripts to older browsers that do not support modular JavaScript code."
+                    "description": "This Boolean attribute is set to indicate that the script should not be executed in browsers that support [ES2015 modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) — in effect, this can be used to serve fallback scripts to older browsers that do not support modular JavaScript code.",
+                    "browsers": [
+                        "C61",
+                        "CA61",
+                        "E16",
+                        "FF60",
+                        "FFA60",
+                        "S11",
+                        "SM11"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2018-05-09",
+                        "baseline_high_date": "2020-11-09"
+                    }
                 },
                 {
                     "name": "referrerpolicy",
-                    "description": "Indicates which [referrer](https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer) to send when fetching the script, or resources fetched by the script:\n\n*   `no-referrer`: The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent.\n*   `no-referrer-when-downgrade` (default): The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent to [origin](https://developer.mozilla.org/en-US/docs/Glossary/origin \"origin: Web content's origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.\")s without [TLS](https://developer.mozilla.org/en-US/docs/Glossary/TLS \"TLS: Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is a protocol used by applications to communicate securely across a network, preventing tampering with and eavesdropping on email, web browsing, messaging, and other protocols.\") ([HTTPS](https://developer.mozilla.org/en-US/docs/Glossary/HTTPS \"HTTPS: HTTPS (HTTP Secure) is an encrypted version of the HTTP protocol. It usually uses SSL or TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, for example for banking activities or online shopping.\")).\n*   `origin`: The sent referrer will be limited to the origin of the referring page: its [scheme](https://developer.mozilla.org/en-US/docs/Archive/Mozilla/URIScheme), [host](https://developer.mozilla.org/en-US/docs/Glossary/host \"host: A host is a device connected to the Internet (or a local network). Some hosts called servers offer additional services like serving webpages or storing files and emails.\"), and [port](https://developer.mozilla.org/en-US/docs/Glossary/port \"port: For a computer connected to a network with an IP address, a port is a communication endpoint. Ports are designated by numbers, and below 1024 each port is associated by default with a specific protocol.\").\n*   `origin-when-cross-origin`: The referrer sent to other origins will be limited to the scheme, the host, and the port. Navigations on the same origin will still include the path.\n*   `same-origin`: A referrer will be sent for [same origin](https://developer.mozilla.org/en-US/docs/Glossary/Same-origin_policy \"same origin: The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin.\"), but cross-origin requests will contain no referrer information.\n*   `strict-origin`: Only send the origin of the document as the referrer when the protocol security level stays the same (e.g. HTTPS→HTTPS), but don't send it to a less secure destination (e.g. HTTPS→HTTP).\n*   `strict-origin-when-cross-origin`: Send a full URL when performing a same-origin request, but only send the origin when the protocol security level stays the same (e.g.HTTPS→HTTPS), and send no header to a less secure destination (e.g. HTTPS→HTTP).\n*   `unsafe-url`: The referrer will include the origin _and_ the path (but not the [fragment](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hash), [password](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/password), or [username](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/username)). **This value is unsafe**, because it leaks origins and paths from TLS-protected resources to insecure origins.\n\n**Note**: An empty string value (`\"\"`) is both the default value, and a fallback value if `referrerpolicy` is not supported. If `referrerpolicy` is not explicitly specified on the `<script>` element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to `no-referrer-when-downgrade`."
+                    "description": "Indicates which [referrer](https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer) to send when fetching the script, or resources fetched by the script:\n\n*   `no-referrer`: The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent.\n*   `no-referrer-when-downgrade` (default): The [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer \"The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. The Referer header allows servers to identify where people are visiting them from and may use that data for analytics, logging, or optimized caching, for example.\") header will not be sent to [origin](https://developer.mozilla.org/en-US/docs/Glossary/origin \"origin: Web content's origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.\")s without [TLS](https://developer.mozilla.org/en-US/docs/Glossary/TLS \"TLS: Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is a protocol used by applications to communicate securely across a network, preventing tampering with and eavesdropping on email, web browsing, messaging, and other protocols.\") ([HTTPS](https://developer.mozilla.org/en-US/docs/Glossary/HTTPS \"HTTPS: HTTPS (HTTP Secure) is an encrypted version of the HTTP protocol. It usually uses SSL or TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, for example for banking activities or online shopping.\")).\n*   `origin`: The sent referrer will be limited to the origin of the referring page: its [scheme](https://developer.mozilla.org/en-US/docs/Archive/Mozilla/URIScheme), [host](https://developer.mozilla.org/en-US/docs/Glossary/host \"host: A host is a device connected to the Internet (or a local network). Some hosts called servers offer additional services like serving webpages or storing files and emails.\"), and [port](https://developer.mozilla.org/en-US/docs/Glossary/port \"port: For a computer connected to a network with an IP address, a port is a communication endpoint. Ports are designated by numbers, and below 1024 each port is associated by default with a specific protocol.\").\n*   `origin-when-cross-origin`: The referrer sent to other origins will be limited to the scheme, the host, and the port. Navigations on the same origin will still include the path.\n*   `same-origin`: A referrer will be sent for [same origin](https://developer.mozilla.org/en-US/docs/Glossary/Same-origin_policy \"same origin: The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin.\"), but cross-origin requests will contain no referrer information.\n*   `strict-origin`: Only send the origin of the document as the referrer when the protocol security level stays the same (e.g. HTTPS→HTTPS), but don't send it to a less secure destination (e.g. HTTPS→HTTP).\n*   `strict-origin-when-cross-origin`: Send a full URL when performing a same-origin request, but only send the origin when the protocol security level stays the same (e.g.HTTPS→HTTPS), and send no header to a less secure destination (e.g. HTTPS→HTTP).\n*   `unsafe-url`: The referrer will include the origin _and_ the path (but not the [fragment](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hash), [password](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/password), or [username](https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/username)). **This value is unsafe**, because it leaks origins and paths from TLS-protected resources to insecure origins.\n\n**Note**: An empty string value (`\"\"`) is both the default value, and a fallback value if `referrerpolicy` is not supported. If `referrerpolicy` is not explicitly specified on the `<script>` element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to `no-referrer-when-downgrade`.",
+                    "browsers": [
+                        "C70",
+                        "CA70",
+                        "E79",
+                        "FF65",
+                        "FFA65",
+                        "S14",
+                        "SM14"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-09-16",
+                        "baseline_high_date": "2023-03-16"
+                    }
                 },
                 {
                     "name": "text",
@@ -28931,9 +34293,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/script"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/script"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "noscript",
@@ -28945,9 +34321,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/noscript"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/noscript"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "template",
@@ -28959,9 +34349,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/template"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/template"
                 }
-            ]
+            ],
+            "browsers": [
+                "C26",
+                "CA26",
+                "E13",
+                "FF22",
+                "FFA22",
+                "S8",
+                "SM8"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-11-12",
+                "baseline_high_date": "2018-05-12"
+            }
         },
         {
             "name": "canvas",
@@ -28975,6 +34379,20 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The width of the coordinate space in CSS pixels. Defaults to 300."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1.5",
+                        "FFA4",
+                        "S2",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
@@ -28982,19 +34400,315 @@ const webCustomData_htmlData = {
                     "description": {
                         "kind": "markdown",
                         "value": "The height of the coordinate space in CSS pixels. Defaults to 150."
+                    },
+                    "browsers": [
+                        "C1",
+                        "CA18",
+                        "E12",
+                        "FF1.5",
+                        "FFA4",
+                        "S2",
+                        "SM1"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2015-07-29",
+                        "baseline_high_date": "2018-01-29"
                     }
                 },
                 {
                     "name": "moz-opaque",
-                    "description": "Lets the canvas know whether or not translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized [`canvas.getContext('2d', { alpha: false })`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext \"The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported.\") instead."
+                    "description": "Lets the canvas know whether or not translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized [`canvas.getContext('2d', { alpha: false })`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext \"The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported.\") instead.",
+                    "browsers": [
+                        "FF3.5",
+                        "FFA4"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
                 }
             ],
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Element/canvas"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/canvas"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1.5",
+                "FFA4",
+                "S2",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
+        },
+        {
+            "name": "slot",
+            "description": {
+                "kind": "markdown",
+                "value": "The slot element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together."
+            },
+            "attributes": [
+                {
+                    "name": "name",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "The slot's name.\nA **named slot** is a `<slot>` element with a `name` attribute."
+                    },
+                    "browsers": [
+                        "C53",
+                        "CA53",
+                        "E79",
+                        "FF63",
+                        "FFA63",
+                        "S10",
+                        "SM10"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2020-01-15",
+                        "baseline_high_date": "2022-07-15"
+                    }
+                }
+            ],
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/slot"
+                }
+            ],
+            "browsers": [
+                "C53",
+                "CA53",
+                "E79",
+                "FF63",
+                "FFA63",
+                "S10",
+                "SM10"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2020-01-15",
+                "baseline_high_date": "2022-07-15"
+            }
+        },
+        {
+            "name": "data",
+            "description": {
+                "kind": "markdown",
+                "value": "The data element links a given piece of content with a machine-readable translation."
+            },
+            "attributes": [
+                {
+                    "name": "value",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "This attribute specifies the machine-readable translation of the content of the element."
+                    },
+                    "browsers": [
+                        "C62",
+                        "CA62",
+                        "E14",
+                        "FF22",
+                        "FFA22",
+                        "S10",
+                        "SM10"
+                    ],
+                    "status": {
+                        "baseline": "high",
+                        "baseline_low_date": "2017-10-24",
+                        "baseline_high_date": "2020-04-24"
+                    }
+                }
+            ],
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/data"
+                }
+            ],
+            "browsers": [
+                "C62",
+                "CA62",
+                "E14",
+                "FF22",
+                "FFA22",
+                "S10",
+                "SM10"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2017-10-24",
+                "baseline_high_date": "2020-04-24"
+            }
+        },
+        {
+            "name": "hgroup",
+            "description": {
+                "kind": "markdown",
+                "value": "The hgroup element represents a heading and related content. It groups a single h1–h6 element with one or more p."
+            },
+            "attributes": [],
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/hgroup"
+                }
+            ],
+            "browsers": [
+                "C5",
+                "CA18",
+                "E12",
+                "FF4",
+                "FFA4",
+                "S5",
+                "SM4.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
+        },
+        {
+            "name": "menu",
+            "description": {
+                "kind": "markdown",
+                "value": "The menu element represents an unordered list of interactive items."
+            },
+            "attributes": [],
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/menu"
+                }
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S3",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
+        },
+        {
+            "name": "search",
+            "description": {
+                "kind": "markdown",
+                "value": "The search element represents the parts of the document or application with form controls or other content related to performing a search or filtering operation."
+            },
+            "attributes": [],
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/search"
+                }
+            ],
+            "browsers": [
+                "C118",
+                "CA118",
+                "E118",
+                "FF118",
+                "FFA118",
+                "S17",
+                "SM17"
+            ],
+            "status": {
+                "baseline": "low",
+                "baseline_low_date": "2023-10-13"
+            }
+        },
+        {
+            "name": "fencedframe",
+            "description": {
+                "kind": "markdown",
+                "value": "The fencedframe element represents a nested browsing context, embedding another HTML page into the current one."
+            },
+            "attributes": [
+                {
+                    "name": "allow",
+                    "browsers": [
+                        "C115",
+                        "CA115",
+                        "E115"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
+                },
+                {
+                    "name": "height",
+                    "browsers": [
+                        "C115",
+                        "CA115",
+                        "E115"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
+                },
+                {
+                    "name": "width",
+                    "browsers": [
+                        "C115",
+                        "CA115",
+                        "E115"
+                    ],
+                    "status": {
+                        "baseline": false
+                    }
+                }
+            ],
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/fencedframe"
+                }
+            ],
+            "browsers": [
+                "C115",
+                "CA115",
+                "E115"
+            ],
+            "status": {
+                "baseline": false
+            }
+        },
+        {
+            "name": "selectedcontent",
+            "description": {
+                "kind": "markdown",
+                "value": "The selectedcontent element can be used to display the content of the currently selected option element inside of a closed select element."
+            },
+            "attributes": [],
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/selectedcontent"
+                }
+            ],
+            "browsers": [
+                "C134",
+                "CA134",
+                "E134"
+            ],
+            "status": {
+                "baseline": false
+            }
         }
     ],
     "globalAttributes": [
@@ -29007,9 +34721,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/accesskey"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/accesskey"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "autocapitalize",
@@ -29020,9 +34748,67 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/autocapitalize"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/autocapitalize"
                 }
-            ]
+            ],
+            "browsers": [
+                "C43",
+                "CA43",
+                "E79",
+                "FF111",
+                "FFA111",
+                "SM5"
+            ],
+            "status": {
+                "baseline": false
+            }
+        },
+        {
+            "name": "autocorrect",
+            "description": {
+                "kind": "markdown",
+                "value": "Controls whether autocorrection of editable text is enabled for spelling and/or punctuation errors."
+            },
+            "valueSet": "o",
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/autocorrect"
+                }
+            ],
+            "browsers": [
+                "FF136",
+                "FFA136"
+            ],
+            "status": {
+                "baseline": false
+            }
+        },
+        {
+            "name": "autofocus",
+            "description": {
+                "kind": "markdown",
+                "value": "Indicates that an element should be focused on page load, or when the [`<dialog>`](https://developer.mozilla.org/docs/Web/HTML/Element/dialog) that it is part of is displayed."
+            },
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/autofocus"
+                }
+            ],
+            "browsers": [
+                "C79",
+                "CA79",
+                "E79",
+                "FF110",
+                "FFA110",
+                "S15.4",
+                "SM16.4"
+            ],
+            "status": {
+                "baseline": "low",
+                "baseline_low_date": "2023-03-27"
+            }
         },
         {
             "name": "class",
@@ -29033,7 +34819,7 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/class"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/class"
                 }
             ]
         },
@@ -29046,22 +34832,30 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/contenteditable"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/contenteditable"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF3",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "contextmenu",
             "description": {
                 "kind": "markdown",
                 "value": "The `[**id**](#attr-id)` of a [`<menu>`](https://developer.mozilla.org/docs/Web/HTML/Element/menu \"The HTML <menu> element represents a group of commands that a user can perform or activate. This includes both list menus, which might appear across the top of a screen, as well as context menus, such as those that might appear underneath a button after it has been clicked.\") to use as the contextual menu for this element."
-            },
-            "references": [
-                {
-                    "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/contextmenu"
-                }
-            ]
+            }
         },
         {
             "name": "dir",
@@ -29073,7 +34867,7 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/dir"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/dir"
                 }
             ]
         },
@@ -29087,7 +34881,7 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/draggable"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/draggable"
                 }
             ]
         },
@@ -29099,6 +34893,34 @@ const webCustomData_htmlData = {
             }
         },
         {
+            "name": "enterkeyhint",
+            "description": {
+                "kind": "markdown",
+                "value": "An enumerated attribute defining what action label (or icon) to present for the enter key on virtual keyboards."
+            },
+            "valueSet": "enterkeyhint",
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/enterkeyhint"
+                }
+            ],
+            "browsers": [
+                "C77",
+                "CA77",
+                "E79",
+                "FF94",
+                "FFA94",
+                "S13.1",
+                "SM13.4"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2021-11-02",
+                "baseline_high_date": "2024-05-02"
+            }
+        },
+        {
             "name": "exportparts",
             "description": {
                 "kind": "markdown",
@@ -29107,9 +34929,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/exportparts"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/exportparts"
                 }
-            ]
+            ],
+            "browsers": [
+                "C73",
+                "CA73",
+                "E79",
+                "FF72",
+                "FFA79",
+                "S13.1",
+                "SM13.4"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2020-07-28",
+                "baseline_high_date": "2023-01-28"
+            }
         },
         {
             "name": "hidden",
@@ -29121,7 +34957,7 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/hidden"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/hidden"
                 }
             ]
         },
@@ -29134,9 +34970,35 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/id"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/id"
                 }
             ]
+        },
+        {
+            "name": "inert",
+            "description": {
+                "kind": "markdown",
+                "value": "Indicates that the element and all of its flat tree descendants become _inert_. Modal `<dialog>`s generated with [`showModal()`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/showModal) escape inertness, meaning that they don't inherit inertness from their ancestors, but can only be made inert by having the `inert` attribute explicitly set on themselves."
+            },
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/inert"
+                }
+            ],
+            "browsers": [
+                "C102",
+                "CA102",
+                "E102",
+                "FF112",
+                "FFA112",
+                "S15.5",
+                "SM15.5"
+            ],
+            "status": {
+                "baseline": "low",
+                "baseline_low_date": "2023-04-11"
+            }
         },
         {
             "name": "inputmode",
@@ -29147,9 +35009,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/inputmode"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/inputmode"
                 }
-            ]
+            ],
+            "browsers": [
+                "C66",
+                "CA66",
+                "E79",
+                "FF95",
+                "FFA79",
+                "S12.1",
+                "SM12.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2021-12-07",
+                "baseline_high_date": "2024-06-07"
+            }
         },
         {
             "name": "is",
@@ -29160,48 +35036,40 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/is"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/is"
                 }
-            ]
+            ],
+            "browsers": [
+                "C67",
+                "CA67",
+                "E79",
+                "FF63",
+                "FFA63"
+            ],
+            "status": {
+                "baseline": false
+            }
         },
         {
             "name": "itemid",
             "description": {
                 "kind": "markdown",
                 "value": "The unique, global identifier of an item."
-            },
-            "references": [
-                {
-                    "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/itemid"
-                }
-            ]
+            }
         },
         {
             "name": "itemprop",
             "description": {
                 "kind": "markdown",
                 "value": "Used to add properties to an item. Every HTML element may have an `itemprop` attribute specified, where an `itemprop` consists of a name and value pair."
-            },
-            "references": [
-                {
-                    "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/itemprop"
-                }
-            ]
+            }
         },
         {
             "name": "itemref",
             "description": {
                 "kind": "markdown",
                 "value": "Properties that are not descendants of an element with the `itemscope` attribute can be associated with the item using an `itemref`. It provides a list of element ids (not `itemid`s) with additional properties elsewhere in the document."
-            },
-            "references": [
-                {
-                    "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/itemref"
-                }
-            ]
+            }
         },
         {
             "name": "itemscope",
@@ -29209,26 +35077,14 @@ const webCustomData_htmlData = {
                 "kind": "markdown",
                 "value": "`itemscope` (usually) works along with `[itemtype](https://developer.mozilla.org/docs/Web/HTML/Global_attributes#attr-itemtype)` to specify that the HTML contained in a block is about a particular item. `itemscope` creates the Item and defines the scope of the `itemtype` associated with it. `itemtype` is a valid URL of a vocabulary (such as [schema.org](https://schema.org/)) that describes the item and its properties context."
             },
-            "valueSet": "v",
-            "references": [
-                {
-                    "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/itemscope"
-                }
-            ]
+            "valueSet": "v"
         },
         {
             "name": "itemtype",
             "description": {
                 "kind": "markdown",
                 "value": "Specifies the URL of the vocabulary that will be used to define `itemprop`s (item properties) in the data structure. `[itemscope](https://developer.mozilla.org/docs/Web/HTML/Global_attributes#attr-itemscope)` is used to set the scope of where in the data structure the vocabulary set by `itemtype` will be active."
-            },
-            "references": [
-                {
-                    "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/itemtype"
-                }
-            ]
+            }
         },
         {
             "name": "lang",
@@ -29239,9 +35095,50 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/lang"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
+        },
+        {
+            "name": "nonce",
+            "description": {
+                "kind": "markdown",
+                "value": "Defines a cryptographic nonce (\"number used once\") which can be used by [Content Security Policy](https://developer.mozilla.org/docs/Web/HTTP/Guides/CSP) to determine whether or not a given fetch will be allowed to proceed for a given element."
+            },
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/nonce"
+                }
+            ],
+            "browsers": [
+                "C61",
+                "CA61",
+                "E79",
+                "FF31",
+                "FFA31",
+                "S15.4",
+                "SM15.4"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2022-03-14",
+                "baseline_high_date": "2024-09-14"
+            }
         },
         {
             "name": "part",
@@ -29252,9 +35149,50 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/part"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/part"
                 }
-            ]
+            ],
+            "browsers": [
+                "C73",
+                "CA73",
+                "E79",
+                "FF72",
+                "FFA79",
+                "S13.1",
+                "SM13.4"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2020-07-28",
+                "baseline_high_date": "2023-01-28"
+            }
+        },
+        {
+            "name": "popover",
+            "description": {
+                "kind": "markdown",
+                "value": "Designates an element as a popover element."
+            },
+            "valueSet": "popover",
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/popover"
+                }
+            ],
+            "browsers": [
+                "C114",
+                "CA114",
+                "E114",
+                "FF125",
+                "FFA125",
+                "S17",
+                "SM17"
+            ],
+            "status": {
+                "baseline": "low",
+                "baseline_low_date": "2024-04-16"
+            }
         },
         {
             "name": "role",
@@ -29269,9 +35207,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/slot"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/slot"
                 }
-            ]
+            ],
+            "browsers": [
+                "C53",
+                "CA53",
+                "E79",
+                "FF63",
+                "FFA63",
+                "S10",
+                "SM10"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "≤2020-01-15",
+                "baseline_high_date": "≤2022-07-15"
+            }
         },
         {
             "name": "spellcheck",
@@ -29283,9 +35235,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/spellcheck"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/spellcheck"
                 }
-            ]
+            ],
+            "browsers": [
+                "C9",
+                "CA47",
+                "E12",
+                "FF2",
+                "FFA57",
+                "S5.1",
+                "SM9.3"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2017-11-28",
+                "baseline_high_date": "2020-05-28"
+            }
         },
         {
             "name": "style",
@@ -29296,9 +35262,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/style"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/style"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S1",
+                "SM1"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "tabindex",
@@ -29309,9 +35289,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/tabindex"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1.5",
+                "FFA4",
+                "S3.1",
+                "SM2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "title",
@@ -29322,9 +35316,23 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/title"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/title"
                 }
-            ]
+            ],
+            "browsers": [
+                "C1",
+                "CA18",
+                "E12",
+                "FF1",
+                "FFA4",
+                "S4",
+                "SM3.2"
+            ],
+            "status": {
+                "baseline": "high",
+                "baseline_low_date": "2015-07-29",
+                "baseline_high_date": "2018-01-29"
+            }
         },
         {
             "name": "translate",
@@ -29336,9 +35344,44 @@ const webCustomData_htmlData = {
             "references": [
                 {
                     "name": "MDN Reference",
-                    "url": "https://developer.mozilla.org/docs/Web/HTML/Global_attributes/translate"
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/translate"
                 }
-            ]
+            ],
+            "browsers": [
+                "C19",
+                "CA25",
+                "E79",
+                "FF111",
+                "FFA111",
+                "S6",
+                "SM6"
+            ],
+            "status": {
+                "baseline": "low",
+                "baseline_low_date": "2023-03-14"
+            }
+        },
+        {
+            "name": "virtualkeyboardpolicy",
+            "description": {
+                "kind": "markdown",
+                "value": "When specified on an element that the element's content is editable (for example, it is an `<input>` or `<textarea>` element, or an element with the `contenteditable` attribute set), it controls the on-screen virtual keyboard behavior on devices such as tablets, mobile phones, or other devices where a hardware keyboard may not be available."
+            },
+            "valueSet": "b",
+            "references": [
+                {
+                    "name": "MDN Reference",
+                    "url": "https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy"
+                }
+            ],
+            "browsers": [
+                "C94",
+                "CA94",
+                "E94"
+            ],
+            "status": {
+                "baseline": false
+            }
         },
         {
             "name": "onabort",
@@ -31667,10 +37710,18 @@ const webCustomData_htmlData = {
             "name": "loading",
             "values": [
                 {
-                    "name": "eager"
+                    "name": "eager",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "Loads the image immediately, regardless of whether or not the image is currently within the visible viewport (this is the default value)."
+                    }
                 },
                 {
-                    "name": "lazy"
+                    "name": "lazy",
+                    "description": {
+                        "kind": "markdown",
+                        "value": "Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases."
+                    }
                 }
             ]
         },
@@ -31700,6 +37751,60 @@ const webCustomData_htmlData = {
                 },
                 {
                     "name": "unsafe-url"
+                }
+            ]
+        },
+        {
+            "name": "enterkeyhint",
+            "values": [
+                {
+                    "name": "enter"
+                },
+                {
+                    "name": "done"
+                },
+                {
+                    "name": "go"
+                },
+                {
+                    "name": "next"
+                },
+                {
+                    "name": "previous"
+                },
+                {
+                    "name": "search"
+                },
+                {
+                    "name": "send"
+                }
+            ]
+        },
+        {
+            "name": "popover",
+            "values": [
+                {
+                    "name": "auto"
+                },
+                {
+                    "name": "hint"
+                },
+                {
+                    "name": "manual"
+                }
+            ]
+        },
+        {
+            "name": "fetchpriority",
+            "values": [
+                {
+                    "name": "high"
+                },
+                {
+                    "name": "low"
+                },
+                {
+                    "name": "auto"
                 }
             ]
         }
@@ -31828,6 +37933,7 @@ function getLanguageService(options = defaultLanguageServiceOptions) {
         findDocumentHighlights: findDocumentHighlights,
         findDocumentLinks: htmlDocumentLinks.findDocumentLinks.bind(htmlDocumentLinks),
         findDocumentSymbols: findDocumentSymbols,
+        findDocumentSymbols2: findDocumentSymbols2,
         getFoldingRanges: htmlFolding.getFoldingRanges.bind(htmlFolding),
         getSelectionRanges: htmlSelectionRange.getSelectionRanges.bind(htmlSelectionRange),
         doQuoteComplete: htmlCompletion.doQuoteComplete.bind(htmlCompletion),
@@ -31846,9 +37952,9 @@ function getDefaultHTMLDataProvider() {
 }
 
 // EXTERNAL MODULE: ./src/utils.ts
-var utils = __nested_webpack_require_653296__(7770);
+var utils = __nested_webpack_require_655132__(7770);
 // EXTERNAL MODULE: ../../node_modules/vscode-languageserver-protocol/lib/browser/main.js
-var browser_main = __nested_webpack_require_653296__(5501);
+var browser_main = __nested_webpack_require_655132__(5501);
 ;// CONCATENATED MODULE: ./src/ace/range-singleton.ts
 function _define_property(obj, key, value) {
     if (key in obj) {

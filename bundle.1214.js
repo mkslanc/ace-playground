@@ -4,18 +4,29 @@
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
-/*global define, require */
-
 /**
- * Show Settings Menu
- * @fileOverview Show Settings Menu <br />
- * Displays an interactive settings menu mostly generated on the fly based on
- *  the current state of the editor.
+ * ## Interactive Settings Menu Extension
+ *
+ * Provides settings interface for the Ace editor that displays dynamically generated configuration options based on
+ * the current editor state. The menu appears as an overlay panel allowing users to modify editor options, themes,
+ * modes, and other settings through an intuitive graphical interface.
+ *
+ * **Usage:**
+ * ```javascript
+ * editor.showSettingsMenu();
+ * ```
+ *
+ * The extension automatically registers the `showSettingsMenu` command and method
+ * on the editor instance when initialized.
+ *
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
+ *
+ * @module
  */
+
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
+/*global define, require */
 
 
 var OptionPanel = (__webpack_require__(86613).OptionPanel);
@@ -59,18 +70,30 @@ module.exports.init = function() {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
+/**
+ * ## Overlay Page utility
+ *
+ * Provides modal overlay functionality for displaying editor extension interfaces. Creates a full-screen overlay with
+ * configurable backdrop behavior, keyboard navigation (ESC to close), and focus management. Used by various extensions
+ * to display menus, settings panels, and other interactive content over the editor interface.
+ *
+ * **Usage:**
+ * ```javascript
+ * var overlayPage = require('./overlay_page').overlayPage;
+ * var contentElement = document.createElement('div');
+ * contentElement.innerHTML = '<h1>Settings</h1>';
+ *
+ * var overlay = overlayPage(editor, contentElement, function() {
+ *   console.log('Overlay closed');
+ * });
+ * ```
+ *
+ * @module
+ */
+
+
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
 /*global define, require */
-
-/**
- * Overlay Page
- * @fileOverview Overlay Page <br />
- * Generates an overlay for displaying menus. The overlay is an absolutely
- *  positioned div.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- */
 
 
 var dom = __webpack_require__(71435);
@@ -83,10 +106,10 @@ dom.importCssString(cssText, "settings_menu.css", false);
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @param editor
+ * @param {import("../../editor").Editor} editor
  * @param {HTMLElement} contentElement Any element which may be presented inside
  *  a div.
- * @param [callback]
+ * @param {() => void} [callback]
  */
 module.exports.overlayPage = function overlayPage(editor, contentElement, callback) {
     var closer = document.createElement('div');
@@ -227,6 +250,25 @@ module.exports = `#ace_settingsmenu, #kbshortcutmenu {
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
+/**
+ * ## Settings Menu extension
+ *
+ * Provides a settings panel for configuring editor options through an interactive UI.
+ * Creates a tabular interface with grouped configuration options including themes, modes, keybindings,
+ * font settings, display preferences, and advanced editor behaviors. Supports dynamic option rendering
+ * with various input types (dropdowns, checkboxes, number inputs, button bars) and real-time updates.
+ *
+ * **Usage:**
+ * ```javascript
+ * var OptionPanel = require("ace/ext/settings_menu").OptionPanel;
+ * var panel = new OptionPanel(editor);
+ * panel.render();
+ * ```
+ *
+ * @module
+ */
+
+
 
 /**
  * @typedef {import("../editor").Editor} Editor
@@ -253,6 +295,12 @@ var modes = modelist.modes.map(function(x){
 });
 
 
+/**
+ * Configuration object for grouping various options/settings into categorized groups.
+ *
+ * Organizes settings into two main categories: "Main" and "More",
+ * each containing settings for configurable features of an application.
+ */
 var optionGroups = {
     Main: {
         Mode: {
@@ -443,6 +491,10 @@ var optionGroups = {
     }
 };
 
+/**
+ * Option panel component for configuring settings or options.
+ * The panel is designed to integrate with an editor and render various UI controls based on provided configuration.
+ */
 class OptionPanel {
     /**
      * 
@@ -630,6 +682,7 @@ class OptionPanel {
 oop.implement(OptionPanel.prototype, EventEmitter);
 
 exports.OptionPanel = OptionPanel;
+exports.optionGroups = optionGroups;
 
 
 /***/ }),
@@ -638,6 +691,19 @@ exports.OptionPanel = OptionPanel;
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
+/**
+ * ## Theme enumeration utility
+ *
+ * Provides theme management for the Ace Editor by generating and organizing available themes into
+ * categorized collections. Automatically maps theme data into structured objects containing theme metadata including
+ * display captions, theme paths, brightness classification (dark/light), and normalized names. Exports both an
+ * indexed theme collection and a complete themes array for easy integration with theme selection components
+ * and configuration systems.
+ *
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ * @module
+ */
 /**
  * Generates a list of themes available when ace was built.
  * @fileOverview Generates a list of themes available when ace was built.

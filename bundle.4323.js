@@ -3,6 +3,17 @@
 /***/ 94323:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+/**
+ * ## Interactive Linking Extension
+ *
+ * Enables clickable links and hover interactions in the editor when the Control key is pressed. Provides
+ * keyboard-accelerated navigation by detecting tokens under the cursor and emitting custom events that can be handled
+ * by external code to implement go-to-definition, symbol navigation, or other link-based functionality.
+ *
+ * **Enable:** `editor.setOption("enableLinking", true)`
+ * @module
+ */
+
 var Editor = (__webpack_require__(27258).Editor);
 
 (__webpack_require__(76321).defineOptions)(Editor.prototype, "editor", {

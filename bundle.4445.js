@@ -10,7 +10,7 @@ var oop = __webpack_require__(2645);
 var XmlMode = (__webpack_require__(49846).Mode);
 var JavaScriptMode = (__webpack_require__(93388).Mode);
 var SvgHighlightRules = (__webpack_require__(25498)/* .SvgHighlightRules */ .M);
-var MixedFoldMode = (__webpack_require__(90610)/* .FoldMode */ .l);
+var MixedFoldMode = (__webpack_require__(90610).FoldMode);
 var XmlFoldMode = (__webpack_require__(79712)/* .FoldMode */ .l);
 var CStyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
 
@@ -340,7 +340,7 @@ exports.l = XmlHighlightRules;
 var oop = __webpack_require__(2645);
 var BaseFoldMode = (__webpack_require__(51358).FoldMode);
 
-var FoldMode = exports.l = function(defaultMode, subModes) {
+var FoldMode = exports.FoldMode = function(defaultMode, subModes) {
     this.defaultMode = defaultMode;
     this.subModes = subModes;
 };

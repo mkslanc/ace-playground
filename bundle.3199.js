@@ -4,6 +4,27 @@
 /***/ 23199:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+/**
+ * ## Simple tokenizer extension
+ *
+ * Provides standalone tokenization functionality that can parse code content using Ace's highlight rules without
+ * requiring a full editor instance. This is useful for generating syntax-highlighted tokens for external rendering,
+ * static code generation, or testing tokenization rules. The tokenizer processes text line by line and returns
+ * structured token data with CSS class names compatible with Ace themes.
+ *
+ * **Usage:**
+ * ```javascript
+ * const { tokenize } = require("ace/ext/simple_tokenizer");
+ * const { JsonHighlightRules } = require("ace/mode/json_highlight_rules");
+ *
+ * const content = '{"name": "value"}';
+ * const tokens = tokenize(content, new JsonHighlightRules());
+ * // Returns: [[{className: "ace_paren ace_lparen", value: "{"}, ...]]
+ * ```
+ *
+ * @module
+ */
+
 
 const { Tokenizer } = __webpack_require__(32934);
 const isTextToken = (__webpack_require__(41109)/* .isTextToken */ .t);

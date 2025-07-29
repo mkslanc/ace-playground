@@ -481,7 +481,7 @@ var Tag = function() {
 };
 
 function is(token, type) {
-    return token.type.lastIndexOf(type + ".xml") > -1;
+    return token && token.type && token.type.lastIndexOf(type + ".xml") > -1;
 }
 
 (function() {

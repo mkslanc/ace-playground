@@ -4,6 +4,17 @@
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
+/**
+ * ## Inline Autocomplete extension
+ *
+ * Provides lightweight, prefix-based autocompletion with inline ghost text rendering and an optional command bar tooltip.
+ * Displays completion suggestions as ghost text directly in the editor with keyboard navigation and interactive controls.
+ *
+ * **Enable:** `editor.setOption("enableInlineAutocompletion", true)`
+ * or configure it during editor initialization in the options object.
+ * @module
+ */
+
 
 
 var HashHandler = (__webpack_require__(93050).HashHandler);
@@ -492,6 +503,17 @@ exports.InlineAutocomplete = InlineAutocomplete;
 
 /***/ 47700:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+/**
+ * ## Command Bar extension.
+ *
+ * Provides an interactive command bar tooltip that displays above the editor's active line. The extension enables
+ * clickable commands with keyboard shortcuts, icons, and various button types including standard buttons, checkboxes,
+ * and text elements. Supports overflow handling with a secondary tooltip for additional commands when space is limited.
+ * The tooltip can be configured to always show or display only on mouse hover over the active line.
+ *
+ * @module
+ */
 
 /**
  * @typedef {import("../editor").Editor} Editor

@@ -19,7 +19,7 @@ return /******/ (() => { // webpackBootstrap
 /* harmony export */ __nested_webpack_require_529__.d(__nested_webpack_exports__, {
 /* harmony export */   Go: () => (/* binding */ MessageType)
 /* harmony export */ });
-/* unused harmony exports BaseMessage, InitMessage, FormatMessage, CompleteMessage, ResolveCompletionMessage, HoverMessage, ValidateMessage, ChangeMessage, DeltasMessage, ChangeModeMessage, ChangeOptionsMessage, CloseDocumentMessage, CloseConnectionMessage, GlobalOptionsMessage, ConfigureFeaturesMessage, SignatureHelpMessage, DocumentHighlightMessage, GetSemanticTokensMessage, GetCodeActionsMessage, SetWorkspaceMessage, ExecuteCommandMessage, AppliedEditMessage, RenameDocumentMessage */
+/* unused harmony exports BaseMessage, InitMessage, FormatMessage, CompleteMessage, InlineCompleteMessage, ResolveCompletionMessage, HoverMessage, ValidateMessage, ChangeMessage, DeltasMessage, ChangeModeMessage, ChangeOptionsMessage, CloseDocumentMessage, CloseConnectionMessage, GlobalOptionsMessage, ConfigureFeaturesMessage, SignatureHelpMessage, DocumentHighlightMessage, GetSemanticTokensMessage, GetCodeActionsMessage, SetWorkspaceMessage, ExecuteCommandMessage, AppliedEditMessage, RenameDocumentMessage, SendRequestMessage, SendResponseMessage */
 function _define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -72,6 +72,14 @@ class CompleteMessage extends BaseMessage {
     constructor(documentIdentifier, callbackId, value){
         super(documentIdentifier, callbackId);
         _define_property(this, "type", MessageType.complete);
+        _define_property(this, "value", void 0);
+        this.value = value;
+    }
+}
+class InlineCompleteMessage extends BaseMessage {
+    constructor(documentIdentifier, callbackId, value){
+        super(documentIdentifier, callbackId);
+        _define_property(this, "type", MessageType.inlineComplete);
         _define_property(this, "value", void 0);
         this.value = value;
     }
@@ -248,6 +256,30 @@ class RenameDocumentMessage extends BaseMessage {
         this.version = version;
     }
 }
+class SendRequestMessage {
+    constructor(serviceName, callbackId, requestName, args){
+        _define_property(this, "callbackId", void 0);
+        _define_property(this, "serviceName", void 0);
+        _define_property(this, "type", MessageType.sendRequest);
+        _define_property(this, "value", void 0);
+        _define_property(this, "args", void 0);
+        this.serviceName = serviceName;
+        this.callbackId = callbackId;
+        this.value = requestName;
+        this.args = args;
+    }
+}
+class SendResponseMessage {
+    constructor(serviceName, callbackId, args){
+        _define_property(this, "callbackId", void 0);
+        _define_property(this, "serviceName", void 0);
+        _define_property(this, "type", MessageType.sendResponse);
+        _define_property(this, "args", void 0);
+        this.serviceName = serviceName;
+        this.callbackId = callbackId;
+        this.args = args;
+    }
+}
 var MessageType;
 (function(MessageType) {
     MessageType[MessageType["init"] = 0] = "init";
@@ -274,20 +306,23 @@ var MessageType;
     MessageType[MessageType["appliedEdit"] = 21] = "appliedEdit";
     MessageType[MessageType["setWorkspace"] = 22] = "setWorkspace";
     MessageType[MessageType["renameDocument"] = 23] = "renameDocument";
+    MessageType[MessageType["sendRequest"] = 24] = "sendRequest";
+    MessageType[MessageType["showDocument"] = 25] = "showDocument";
+    MessageType[MessageType["sendResponse"] = 26] = "sendResponse";
+    MessageType[MessageType["inlineComplete"] = 27] = "inlineComplete";
 })(MessageType || (MessageType = {}));
 
 
 /***/ }),
 
 /***/ 7770:
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_11415__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_12975__) => {
 
-/* harmony export */ __nested_webpack_require_11415__.d(__nested_webpack_exports__, {
+/* harmony export */ __nested_webpack_require_12975__.d(__nested_webpack_exports__, {
 /* harmony export */   rL: () => (/* binding */ mergeObjects),
 /* harmony export */   z2: () => (/* binding */ notEmpty)
 /* harmony export */ });
-/* unused harmony exports mergeRanges, checkValueAgainstRegexpArray, convertToUri */
-
+/* unused harmony exports isEmptyRange, mergeRanges, checkValueAgainstRegexpArray, convertToUri */
 function mergeObjects(obj1, obj2, excludeUndefined = false) {
     if (!obj1) return obj2;
     if (!obj2) return obj1;
@@ -319,6 +354,9 @@ function excludeUndefinedValues(obj) {
 function notEmpty(value) {
     return value !== null && value !== undefined;
 }
+function isEmptyRange(range) {
+    return range.start.row === range.end.row && range.start.column === range.end.column;
+}
 //taken with small changes from ace-code
 function mergeRanges(ranges) {
     var list = ranges;
@@ -331,7 +369,7 @@ function mergeRanges(ranges) {
         next = list[i];
         var cmp = comparePoints(range.end, next.start);
         if (cmp < 0) continue;
-        if (cmp == 0 && !range.isEmpty() && !next.isEmpty()) continue;
+        if (cmp == 0 && !isEmptyRange(range) && !isEmptyRange(next)) continue;
         if (comparePoints(range.end, next.end) < 0) {
             range.end.row = next.end.row;
             range.end.column = next.end.column;
@@ -356,12 +394,32 @@ function checkValueAgainstRegexpArray(value, regexpArray) {
     }
     return false;
 }
-function convertToUri(filePath) {
-    //already URI
-    if (filePath.startsWith("file:///")) {
-        return filePath;
+
+/**
+ * Converts a given file path to a URI format. If the given file path is already a URI,
+ * it normalizes and optionally resolves the path against a workspace URI.
+ *
+ * @param filePath - The file path to convert to a URI. Can be an absolute path or an existing file URI.
+ * @param [joinWorkspaceURI] - Optional flag to determine if the converted URI should be joined with given URI
+ * @param [workspaceUri] - The base workspace URI to resolve against if `joinWorkspaceURI` is true. Required if resolution is needed.
+ * @return {string} - The resulting URI
+ */ function convertToUri(filePath, joinWorkspaceURI = false, workspaceUri) {
+    const isFullUri = filePath.startsWith('file://');
+    const normalizedPath = filePath.replace(/\\/g, "/");
+    let uri;
+    if (isFullUri) {
+        uri = URI.parse(normalizedPath);
+    } else {
+        uri = URI.file(normalizedPath);
     }
-    return URI.file(filePath).toString();
+    if (joinWorkspaceURI && workspaceUri) {
+        if (!workspaceUri.startsWith('file://')) {
+            throw new Error('workspaceUri must be a file:// URI');
+        }
+        const workspaceUriParsed = URI.parse(workspaceUri);
+        uri = Utils.joinPath(workspaceUriParsed, uri.path);
+    }
+    return uri.toString();
 }
 
 
@@ -373,7 +431,7 @@ function convertToUri(filePath) {
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_14372__(moduleId) {
+/******/ 	function __nested_webpack_require_17124__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -387,7 +445,7 @@ function convertToUri(filePath) {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14372__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_17124__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -397,9 +455,9 @@ function convertToUri(filePath) {
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__nested_webpack_require_14372__.d = (exports, definition) => {
+/******/ 		__nested_webpack_require_17124__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
-/******/ 				if(__nested_webpack_require_14372__.o(definition, key) && !__nested_webpack_require_14372__.o(exports, key)) {
+/******/ 				if(__nested_webpack_require_17124__.o(definition, key) && !__nested_webpack_require_17124__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
@@ -408,13 +466,13 @@ function convertToUri(filePath) {
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_14372__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 		__nested_webpack_require_17124__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_14372__.r = (exports) => {
+/******/ 		__nested_webpack_require_17124__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -424,12 +482,12 @@ function convertToUri(filePath) {
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-__nested_webpack_require_14372__.r(__nested_webpack_exports__);
-/* harmony export */ __nested_webpack_require_14372__.d(__nested_webpack_exports__, {
+__nested_webpack_require_17124__.r(__nested_webpack_exports__);
+/* harmony export */ __nested_webpack_require_17124__.d(__nested_webpack_exports__, {
 /* harmony export */   ServiceManager: () => (/* binding */ ServiceManager)
 /* harmony export */ });
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14372__(7770);
-/* harmony import */ var _message_types__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14372__(2032);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_17124__(7770);
+/* harmony import */ var _message_types__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_17124__(2032);
 function _define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -597,6 +655,8 @@ class ServiceManager {
                 case "completionResolve":
                     var _capabilities_completionProvider;
                     return ((_capabilities_completionProvider = capabilities.completionProvider) === null || _capabilities_completionProvider === void 0 ? void 0 : _capabilities_completionProvider.resolveProvider) === true;
+                case "inlineCompletion":
+                    return capabilities.inlineCompletionProvider != undefined;
                 case "format":
                     return capabilities.documentRangeFormattingProvider == true || capabilities.documentFormattingProvider == true;
                 case "diagnostics":
@@ -639,7 +699,7 @@ class ServiceManager {
         this.$services[name].features = features;
     }
     setDefaultFeaturesState(serviceFeatures) {
-        var _features, _features1, _features2, _features3, _features4, _features5, _features6, _features7, _features8, _features9;
+        var _features, _features1, _features2, _features3, _features4, _features5, _features6, _features7, _features8, _features9, _features10;
         let features = serviceFeatures !== null && serviceFeatures !== void 0 ? serviceFeatures : {};
         var _hover;
         (_hover = (_features = features).hover) !== null && _hover !== void 0 ? _hover : _features.hover = true;
@@ -661,6 +721,8 @@ class ServiceManager {
         (_codeAction = (_features8 = features).codeAction) !== null && _codeAction !== void 0 ? _codeAction : _features8.codeAction = true;
         var _executeCommand;
         (_executeCommand = (_features9 = features).executeCommand) !== null && _executeCommand !== void 0 ? _executeCommand : _features9.executeCommand = true;
+        var _inlineCompletion;
+        (_inlineCompletion = (_features10 = features).inlineCompletion) !== null && _inlineCompletion !== void 0 ? _inlineCompletion : _features10.inlineCompletion = true;
         return features;
     }
     constructor(ctx){
@@ -736,6 +798,14 @@ class ServiceManager {
                     postMessage["value"] = (await Promise.all(this.filterByFeature(serviceInstances, "completion").map(async (service)=>{
                         return {
                             completions: await service.doComplete(documentIdentifier, message["value"]),
+                            service: service.serviceData.className
+                        };
+                    }))).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .z2);
+                    break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.inlineComplete:
+                    postMessage["value"] = (await Promise.all(this.filterByFeature(serviceInstances, "inlineCompletion").map(async (service)=>{
+                        return {
+                            completions: await service.doInlineComplete(documentIdentifier, message["value"]),
                             service: service.serviceData.className
                         };
                     }))).filter(_utils__WEBPACK_IMPORTED_MODULE_1__/* .notEmpty */ .z2);
@@ -831,6 +901,14 @@ class ServiceManager {
                     break;
                 case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.renameDocument:
                     this.renameDocument(documentIdentifier, message.value);
+                    break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.sendRequest:
+                    var _this_$services_message_serviceName_serviceInstance2, _this_$services_message_serviceName2;
+                    postMessage["value"] = (_this_$services_message_serviceName2 = this.$services[message.serviceName]) === null || _this_$services_message_serviceName2 === void 0 ? void 0 : (_this_$services_message_serviceName_serviceInstance2 = _this_$services_message_serviceName2.serviceInstance) === null || _this_$services_message_serviceName_serviceInstance2 === void 0 ? void 0 : _this_$services_message_serviceName_serviceInstance2.sendRequest(message.value, message.args);
+                    break;
+                case _message_types__WEBPACK_IMPORTED_MODULE_0__/* .MessageType */ .Go.sendResponse:
+                    var _this_$services_message_serviceName_serviceInstance3, _this_$services_message_serviceName3;
+                    postMessage["value"] = (_this_$services_message_serviceName3 = this.$services[message.serviceName]) === null || _this_$services_message_serviceName3 === void 0 ? void 0 : (_this_$services_message_serviceName_serviceInstance3 = _this_$services_message_serviceName3.serviceInstance) === null || _this_$services_message_serviceName_serviceInstance3 === void 0 ? void 0 : _this_$services_message_serviceName_serviceInstance3.sendResponse(message.callbackId, message.args);
                     break;
             }
             ctx.postMessage(postMessage);

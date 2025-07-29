@@ -25,10 +25,8 @@ var JavaHighlightRules = function() {
     "char|final|interface|static|void|" +
     "class|finally|long|strictfp|volatile|" +
     "const|float|native|super|while|" +
-    "var|exports|opens|requires|uses|yield|" +
-    "module|permits|(?:non\\-)?sealed|var|" +
-    "provides|to|when|" +
-    "open|record|transitive|with"    
+    "yield|when|record|var|" +
+    "permits|(?:non\\-)?sealed"
     );
 
     var buildinConstants = ("null|Infinity|NaN|undefined");
@@ -72,16 +70,7 @@ var JavaHighlightRules = function() {
 
     this.$rules = {
         "start" : [
-            {
-                token : "comment",
-                regex : "\\/\\/.*$"
-            },
-            DocCommentHighlightRules.getStartRule("doc-start"),
-            {
-                token : "comment", // multi line comment
-                regex : "\\/\\*",
-                next : "comment"
-            },
+            {include: "comments"},
             {include: "multiline-strings"},
             {include: "strings"},
             {include: "constants"},
@@ -91,15 +80,19 @@ var JavaHighlightRules = function() {
                 next: [{
                     regex: "{",
                     token: "paren.lparen",
-                    next: [{
-                        regex: "}",
-                        token: "paren.rparen",
-                        next: "start"
-                    }, {
-                        // From Section 3.9 of http://cr.openjdk.java.net/~mr/jigsaw/spec/java-se-9-jls-diffs.pdf
-                        regex: "\\b(requires|transitive|exports|opens|to|uses|provides|with)\\b",
-                        token: "keyword" 
-                    }]
+                    push: [
+                        {
+                            regex: "}",
+                            token: "paren.rparen",
+                            next: "pop"
+                        },
+                        {include: "comments"},
+                        {
+                            // From Section 3.9 of http://cr.openjdk.java.net/~mr/jigsaw/spec/java-se-9-jls-diffs.pdf
+                            regex: "\\b(requires|transitive|exports|opens|to|uses|provides|with)\\b",
+                            token: "keyword"
+                        }
+                    ]
                 }, {
                     token : "text",
                     regex : "\\s+"
@@ -119,14 +112,29 @@ var JavaHighlightRules = function() {
             },
             {include: "statements"}
         ],
-        "comment" : [
+        "comments" : [
             {
-                token : "comment", // closing comment
-                regex : "\\*\\/",
-                next : "start"
-            }, {
-                defaultToken : "comment"
-            }
+                token : "comment",
+                regex : "\\/\\/.*$"
+            },
+            {
+                token : "comment.doc", // doc comment
+                regex: /\/\*\*(?!\/)/,
+                push  : "doc-start"
+            },
+            {
+                token : "comment", // multi line comment
+                regex : "\\/\\*",
+                push : [
+                    {
+                        token : "comment", // closing comment
+                        regex : "\\*\\/",
+                        next : "pop"
+                    }, {
+                        defaultToken : "comment"
+                    }
+                ]
+            },
         ],
         "strings": [
             {
@@ -271,9 +279,9 @@ var JavaHighlightRules = function() {
         ]
     };
 
-    
+
     this.embedRules(DocCommentHighlightRules, "doc-",
-        [ DocCommentHighlightRules.getEndRule("start") ]);
+        [ DocCommentHighlightRules.getEndRule("pop") ]);
     this.normalizeRules();
 };
 
@@ -379,18 +387,36 @@ var TokenIterator = (__webpack_require__(99339).TokenIterator);
 var FoldMode = exports.l = function() {};
 oop.inherits(FoldMode, BaseFoldMode);
 
-(function() {
+(function () {
 
     // regular expressions that identify starting and stopping points
-    this.foldingStartMarker = /\b(rule|declare|query|when|then)\b/; 
+    this.foldingStartMarker = /\b(rule|declare|query|when|then)\b/;
     this.foldingStopMarker = /\bend\b/;
+    this.importRegex = /^import /;
+    this.globalRegex = /^global /;
+    this.getBaseFoldWidget = this.getFoldWidget;
 
-    this.getFoldWidgetRange = function(session, foldStyle, row) {
+    this.getFoldWidget = function (session, foldStyle, row) {
+        if (foldStyle === "markbegin") {
+            var line = session.getLine(row);
+            if (this.importRegex.test(line)) {
+                if (row === 0 || !this.importRegex.test(session.getLine(row - 1)))
+                    return "start";
+            }
+            if (this.globalRegex.test(line)) {
+                if (row === 0 || !this.globalRegex.test(session.getLine(row - 1)))
+                    return "start";
+            }
+        }
+
+        return this.getBaseFoldWidget(session, foldStyle, row);
+    };
+
+    this.getFoldWidgetRange = function (session, foldStyle, row) {
         var line = session.getLine(row);
         var match = line.match(this.foldingStartMarker);
-        if (match) {
-            var i = match.index;
 
+        if (match) {
             if (match[1]) {
                 var position = {row: row, column: line.length};
                 var iterator = new TokenIterator(session, position.row, position.column);
@@ -400,7 +426,7 @@ oop.inherits(FoldMode, BaseFoldMode);
                     seek = "then";
                 }
                 while (token) {
-                    if (token.value == seek) { 
+                    if (token.value == seek) {
                         return Range.fromPoints(position ,{
                             row: iterator.getCurrentTokenRow(),
                             column: iterator.getCurrentTokenColumn()
@@ -411,10 +437,41 @@ oop.inherits(FoldMode, BaseFoldMode);
             }
 
         }
+        match = line.match(this.importRegex);
+        if (match) {
+            return getMatchedFoldRange(session, this.importRegex, match, row);
+        }
+        match = line.match(this.globalRegex);
+        if (match) {
+            return getMatchedFoldRange(session, this.globalRegex, match, row);
+        }
         // test each line, and return a range of segments to collapse
     };
 
 }).call(FoldMode.prototype);
+
+function getMatchedFoldRange(session, regex, match, row) {
+    let startColumn = match[0].length;
+    let maxRow = session.getLength();
+    let startRow = row;
+    let endRow = row;
+
+    while (++row < maxRow) {
+        let line = session.getLine(row);
+        if (line.match(/^\s*$/))
+            continue;
+
+        if (!line.match(regex))
+            break;
+
+        endRow = row;
+    }
+
+    if (endRow > startRow) {
+        let endColumn = session.getLine(endRow).length;
+        return new Range(startRow, startColumn, endRow, endColumn);
+    }
+}
 
 
 /***/ }),

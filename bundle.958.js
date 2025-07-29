@@ -4,6 +4,18 @@
 /***/ 10958:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+/**
+ * ## Elastic Tabstops Lite extension.
+ *
+ * Automatically adjusts tab spacing to align content in tabular format by calculating optimal column widths
+ * and maintaining consistent vertical alignment across multiple lines. Tracks content changes and dynamically
+ * reprocesses affected rows to ensure proper formatting without manual intervention.
+ *
+ * **Enable:** `editor.setOption("useElasticTabstops", true)`
+ *  or configure it during editor initialization in the options object.
+ * @module
+ */
+
 
 class ElasticTabstopsLite {
     /**

@@ -1,4 +1,7 @@
 import { Ace } from 'ace-code';
+import { CompletionProvider } from 'ace-code/src/autocomplete';
+import { CommandBarTooltip } from 'ace-code/src/ext/command_bar';
+import { InlineAutocomplete } from 'ace-code/src/ext/inline_autocomplete';
 import * as lsp from 'vscode-languageserver-protocol';
 import { CompletionItemKind } from 'vscode-languageserver-protocol';
 
@@ -18,12 +21,14 @@ declare namespace CommonConverter {
 	function normalizeRanges(completions: Ace.Completion[]): Ace.Completion[];
 	function cleanHtml(html: string): string;
 	function toRange(range: {
-		start: any;
-		end: any;
+		start: Ace.Point;
+		end: Ace.Point;
 	}): any;
 	type TooltipType = "plaintext" | "markdown";
 	function convertKind(kind?: string): CompletionItemKind;
-	function excludeByErrorMessage<T>(diagnostics: T[], errorMessagesToIgnore?: RegExp[], fieldName?: string): T[];
+	function excludeByErrorMessage<T extends {
+		[key: string]: any;
+	}>(diagnostics: T[], errorMessagesToIgnore?: RegExp[], fieldName?: string): T[];
 }
 declare namespace ts {
 	interface CompilerOptionsWithoutEnums {
@@ -403,6 +408,10 @@ export interface CompletionService {
 	completions: lsp.CompletionItem[] | lsp.CompletionList | null;
 	service: string;
 }
+export interface InlineCompletionService {
+	completions: lsp.InlineCompletionItem[] | lsp.InlineCompletionList | null;
+	service: string;
+}
 export interface ServiceOptions {
 	[name: string]: any;
 }
@@ -516,10 +525,23 @@ export interface ServiceOptionsMap {
 	[serviceName: string]: any;
 }
 export type SupportedServices = "json" | "json5" | "typescript" | "css" | "html" | "yaml" | "php" | "xml" | /** @deprecated would be removed in next iterations */ "javascript" | "eslint" | "lua" | "less" | "scss" | "python";
+/** Options for the completer coming from the LSP server */
+export interface LspCompleterOptions {
+	triggerCharacters: TriggerCharacterOptions;
+}
+/** Options regarding the trigger characters */
+export interface TriggerCharacterOptions {
+	add?: string[];
+	remove?: string[];
+}
 export interface ProviderOptions {
 	functionality?: {
 		hover?: boolean;
 		completion?: {
+			overwriteCompleters: boolean;
+			lspCompleterOptions?: LspCompleterOptions;
+		} | false;
+		inlineCompletion?: {
 			overwriteCompleters: boolean;
 		} | false;
 		completionResolve?: boolean;
@@ -530,13 +552,36 @@ export interface ProviderOptions {
 		codeActions?: boolean;
 	};
 	markdownConverter?: MarkDownConverter;
-	requireFilePath?: boolean;
 	workspacePath?: string;
+	aceComponents?: {
+		"InlineAutocomplete"?: typeof InlineAutocomplete;
+		"CommandBarTooltip"?: typeof CommandBarTooltip;
+		"CompletionProvider"?: typeof CompletionProvider;
+	};
+	/**
+	 * When true, disables automatic session registration on editor session changes.
+	 * Users must manually call registerSession() and handle session change events themselves.
+	 * @default false
+	 */
+	manualSessionControl?: boolean;
+}
+export interface SessionLspConfig {
+	/**
+	 * Absolute or relative path of the file for the session
+	 */
+	filePath: string;
+	/**
+	 * When `true` the given path is treated as relative and will be joined with
+	 * the workspace’s root URI to form the final canonical URI. When false (or omitted) filePath is just transformed to
+	 * URI.
+	 * @default `false`
+	 */
+	joinWorkspaceURI?: boolean;
 }
 export type ServiceFeatures = {
 	[feature in SupportedFeatures]?: boolean;
 };
-export type SupportedFeatures = "hover" | "completion" | "completionResolve" | "format" | "diagnostics" | "signatureHelp" | "documentHighlight" | "semanticTokens" | "codeAction" | "executeCommand";
+export type SupportedFeatures = "hover" | "completion" | "completionResolve" | "format" | "diagnostics" | "signatureHelp" | "documentHighlight" | "semanticTokens" | "codeAction" | "executeCommand" | "inlineCompletion";
 export interface AceRangeData {
 	start: {
 		row: number;
@@ -569,6 +614,7 @@ export interface IMessageController {
 	}) => void): void;
 	doValidation(documentIdentifier: ComboDocumentIdentifier, callback?: (annotations: lsp.Diagnostic[]) => void): any;
 	doComplete(documentIdentifier: ComboDocumentIdentifier, position: lsp.Position, callback?: (completions: CompletionService[]) => void): any;
+	doInlineComplete(documentIdentifier: ComboDocumentIdentifier, position: lsp.Position, callback?: (completions: InlineCompletionService[]) => void): void;
 	doResolve(documentIdentifier: ComboDocumentIdentifier, completion: lsp.CompletionItem, callback?: (completion: lsp.CompletionItem | null) => void): any;
 	format(documentIdentifier: ComboDocumentIdentifier, range: lsp.Range, format: lsp.FormattingOptions, callback?: (edits: lsp.TextEdit[]) => void): any;
 	doHover(documentIdentifier: ComboDocumentIdentifier, position: lsp.Position, callback?: (hover: lsp.Hover[]) => void): any;
@@ -588,6 +634,7 @@ export interface IMessageController {
 	executeCommand(serviceName: string, command: string, args?: any[], callback?: (result: any) => void): any;
 	setWorkspace(workspaceUri: string, callback?: () => void): void;
 	renameDocument(documentIdentifier: ComboDocumentIdentifier, newDocumentUri: string, version: number): void;
+	sendRequest(serviceName: string, requestName: string, options: any, callback?: (result: any) => void): void;
 }
 declare class MarkerGroup {
 	private markers;
@@ -621,6 +668,68 @@ declare class MarkerGroup {
 	setMarkers(markers: any): void;
 	update(html: any, markerLayer: any, session: any, config: any): void;
 }
+declare class SessionLanguageProvider {
+	session: Ace.EditSession;
+	documentUri: string;
+	private $messageController;
+	private $deltaQueue;
+	private $isConnected;
+	private $options?;
+	private $filePath;
+	private $servicesCapabilities?;
+	private $requestsQueue;
+	state: {
+		occurrenceMarkers: MarkerGroup | null;
+		diagnosticMarkers: MarkerGroup | null;
+	};
+	private extensions;
+	editor: Ace.Editor;
+	private semanticTokensLegend?;
+	private $provider;
+	/**
+	 * Constructs a new instance of the `SessionLanguageProvider` class.
+	 *
+	 * @param provider - The `LanguageProvider` instance.
+	 * @param session - The Ace editor session.
+	 * @param editor - The Ace editor instance.
+	 * @param messageController - The `IMessageController` instance for handling messages.
+	 * @param config
+	 */
+	constructor(provider: LanguageProvider, session: Ace.EditSession, editor: Ace.Editor, messageController: IMessageController, config?: SessionLspConfig);
+	enqueueIfNotConnected(callback: () => void): void;
+	get comboDocumentIdentifier(): ComboDocumentIdentifier;
+	/**
+	 * Sets the file path for the current document and optionally joins it with the workspace URI.
+	 * Increments the document version and updates the internal document URI and identifier.
+	 *
+	 * @param {string} filePath - The new file path for the document.
+	 * @param {boolean} [joinWorkspaceURI] - when true the given path is treated as relative and will be joined with
+	 * the workspace’s root URI to form the final canonical URI. When false (or omitted) filePath is just transformed to
+	 * URI.
+	 */
+	setFilePath(filePath: string, joinWorkspaceURI?: boolean): void;
+	private $init;
+	addSemanticTokenSupport(session: Ace.EditSession): void;
+	private $connected;
+	private $changeMode;
+	setServerCapabilities: (capabilities: {
+		[serviceName: string]: lsp.ServerCapabilities;
+	}) => void;
+	private initDocumentUri;
+	private get $extension();
+	private get $mode();
+	private get $format();
+	private $changeListener;
+	$sendDeltaQueue: (callback?: any) => any;
+	$showAnnotations: (diagnostics: lsp.Diagnostic[]) => void;
+	setOptions<OptionsType extends ServiceOptions>(options: OptionsType): void;
+	validate: () => void;
+	format: () => void;
+	applyEdits: (edits: lsp.TextEdit[]) => void;
+	getSemanticTokens(): void;
+	$applyDocumentHighlight: (documentHighlights: lsp.DocumentHighlight[]) => void;
+	closeDocument(callback?: any): void;
+}
 export declare class LanguageProvider {
 	activeEditor: Ace.Editor;
 	private readonly $messageController;
@@ -635,12 +744,14 @@ export declare class LanguageProvider {
 		[uri: string]: string;
 	};
 	workspaceUri: string;
-	requireFilePath: boolean;
 	private $lightBulbWidgets;
 	private stylesEmbedded;
+	private inlineCompleter?;
+	private doLiveAutocomplete;
+	private completerAdapter?;
 	private constructor();
 	/**
-	 *  Creates LanguageProvider using our transport protocol with ability to register different services on same
+	 *  Creates LanguageProvider using our transport protocol with the ability to register different services on the same
 	 *  webworker
 	 * @param {Worker} worker
 	 * @param {ProviderOptions} options
@@ -665,20 +776,48 @@ export declare class LanguageProvider {
 		[name in SupportedServices]?: boolean;
 	} | boolean): LanguageProvider;
 	setProviderOptions(options?: ProviderOptions): void;
+	private checkInlineCompletionAdapter;
 	/**
-	 * @param session
-	 * @param filePath - The full file path associated with the editor.
+	 * Sets the file path for the given Ace edit session. Optionally allows the file path to
+	 * be joined with the workspace URI.
+	 *
+	 * @param session The Ace edit session to update with the file path.
+	 * @param config config to set
 	 */
-	setSessionFilePath(session: Ace.EditSession, filePath: string): void;
-	private $registerSession;
+	setSessionFilePath(session: Ace.EditSession, config: SessionLspConfig): void;
+	/**
+	 * Registers a new editing session with the editor and associates it with a language provider.
+	 * If a language provider for the specified editing session does not already exist, it initializes
+	 * and stores a new session-specific language provider.
+	 *
+	 * @param session - The Ace EditSession object to be registered, representing a specific editing session.
+	 * @param editor - The Ace Editor instance associated with the editing session.
+	 * @param [config] - An optional configuration object for initializing the session.
+	 */
+	registerSession: (session: Ace.EditSession, editor: Ace.Editor, config?: SessionLspConfig) => void;
+	/**
+	 * Sets the Language Server Protocol (LSP) configuration for the given session.
+	 *
+	 * @param session - The editor session to which the LSP configuration will be applied.
+	 * @param config - The LSP configuration to set for the session.
+	 * @return The updated editor session with the applied LSP configuration.
+	 */
+	setSessionLspConfig(session: Ace.EditSession, config: SessionLspConfig): import("ace-code").EditSession;
 	private $getSessionLanguageProvider;
 	private $getFileName;
 	/**
-	 * Registers an Ace editor instance with the language provider.
-	 * @param editor - The Ace editor instance to register.
+	 * Registers an Ace editor instance along with the session's configuration settings.
+	 *
+	 * @param editor - The Ace editor instance to be registered.
+	 * @param [config] - Configuration options for the session.
 	 */
-	registerEditor(editor: Ace.Editor): void;
+	registerEditor(editor: Ace.Editor, config?: SessionLspConfig): void;
 	codeActionCallback: (codeActions: CodeActionsByService[]) => void;
+	/**
+	 * Sets a callback function that will be triggered with an array of code actions grouped by service.
+	 *
+	 * @param {function} callback - A function that receives an array of code actions, categorized by service, as its argument.
+	 */
 	setCodeActionCallback(callback: (codeActions: CodeActionsByService[]) => void): void;
 	executeCommand(command: string, serviceName: string, args?: any[], callback?: (something: any) => void): void;
 	applyEdit(workspaceEdit: lsp.WorkspaceEdit, serviceName: string, callback?: (result: lsp.ApplyWorkspaceEditResult, serviceName: string) => void): void;
@@ -688,6 +827,21 @@ export declare class LanguageProvider {
 	private createHoverNode;
 	private createErrorNode;
 	private setStyles;
+	/**
+	 * Configures global options that apply to all documents handled by the specified language service.
+	 *
+	 * Global options serve as default settings for all documents processed by a service when no
+	 * document-specific options are provided. These options affect language service behavior across
+	 * the entire workspace, including validation rules, formatting preferences, completion settings,
+	 * and service-specific configurations.
+	 *
+	 * @param serviceName - The identifier of the language service to configure. Must be a valid
+	 *                      service name from the supported services (e.g., 'typescript', 'json', 'html').
+	 * @param options - The global configuration options specific to the language service. The structure
+	 *                  varies by service type.
+	 * @param {boolean} [merge=false] - Indicates whether to merge the provided options with the existing options.
+	 *                  Defaults to false.
+	 */
 	setGlobalOptions<T extends keyof ServiceOptionsMap>(serviceName: T & string, options: ServiceOptionsMap[T], merge?: boolean): void;
 	/**
 	 * Sets the workspace URI for the language provider.
@@ -700,14 +854,37 @@ export declare class LanguageProvider {
 	 * @param workspaceUri - The new workspace URI. Could be simple path, not URI itself.
 	 */
 	changeWorkspaceFolder(workspaceUri: string): void;
+	/**
+	 * Sets the options for a specified editor session.
+	 *
+	 * @param session - The Ace editor session to configure.
+	 * @param options - The configuration options to be applied to the session.
+	 * @deprecated Use `setDocumentOptions` instead. This method will be removed in the future.
+	 */
 	setSessionOptions<OptionsType extends ServiceOptions>(session: Ace.EditSession, options: OptionsType): void;
+	/**
+	 * Sets configuration options for a document associated with the specified editor session.
+	 *
+	 * @param session - The Ace editor session representing the document to configure.
+	 * @param options - The service options to apply. The exact shape depends on the language services
+	 *                  active for this session (e.g. JSON schema settings).
+	 */
+	setDocumentOptions<OptionsType extends ServiceOptions>(session: Ace.EditSession, options: OptionsType): void;
+	/**
+	 * Configures the specified features for a given service.
+	 *
+	 * @param {SupportedServices} serviceName - The name of the service for which features are being configured.
+	 * @param {ServiceFeatures} features - The features to be configured for the given service.
+	 * @return {void} Does not return a value.
+	 */
 	configureServiceFeatures(serviceName: SupportedServices, features: ServiceFeatures): void;
 	doHover(session: Ace.EditSession, position: Ace.Point, callback?: (hover: Tooltip | undefined) => void): void;
 	provideSignatureHelp(session: Ace.EditSession, position: Ace.Point, callback?: (signatureHelp: Tooltip | undefined) => void): void;
 	getTooltipText(hover: Tooltip): string;
 	format: () => void;
 	getSemanticTokens(): void;
-	doComplete(editor: Ace.Editor, session: Ace.EditSession, callback: (CompletionList: Ace.Completion[] | null) => void): void;
+	doComplete(editor: Ace.Editor, session: Ace.EditSession, callback: (completionList: Ace.Completion[] | null) => void): void;
+	doInlineComplete(editor: Ace.Editor, session: Ace.EditSession, callback: (completionList: Ace.Completion[] | null) => void): void;
 	doResolve(item: Ace.Completion, callback: (completionItem: lsp.CompletionItem | null) => void): void;
 	$registerCompleters(editor: Ace.Editor): void;
 	closeConnection(): void;
@@ -717,62 +894,15 @@ export declare class LanguageProvider {
 	 * @param [callback]
 	 */
 	closeDocument(session: Ace.EditSession, callback?: any): void;
-}
-declare class SessionLanguageProvider {
-	session: Ace.EditSession;
-	documentUri: string;
-	private $messageController;
-	private $deltaQueue;
-	private $isConnected;
-	private $options?;
-	private $filePath;
-	private $isFilePathRequired;
-	private $servicesCapabilities?;
-	private $requestsQueue;
-	state: {
-		occurrenceMarkers: MarkerGroup | null;
-		diagnosticMarkers: MarkerGroup | null;
-	};
-	private extensions;
-	editor: Ace.Editor;
-	private semanticTokensLegend?;
-	private $provider;
 	/**
-	 * Constructs a new instance of the `SessionLanguageProvider` class.
-	 *
-	 * @param provider - The `LanguageProvider` instance.
-	 * @param session - The Ace editor session.
-	 * @param editor - The Ace editor instance.
-	 * @param messageController - The `IMessageController` instance for handling messages.
+	 * Sends a request to the message controller.
+	 * @param serviceName - The name of the service/server to send the request to.
+	 * @param method - The method name for the request.
+	 * @param params - The parameters for the request.
+	 * @param callback - An optional callback function that will be called with the result of the request.
 	 */
-	constructor(provider: LanguageProvider, session: Ace.EditSession, editor: Ace.Editor, messageController: IMessageController);
-	enqueueIfNotConnected(callback: () => void): void;
-	get comboDocumentIdentifier(): ComboDocumentIdentifier;
-	/**
-	 * @param filePath
-	 */
-	setFilePath(filePath: string): void;
-	private $init;
-	addSemanticTokenSupport(session: Ace.EditSession): void;
-	private $connected;
-	private $changeMode;
-	setServerCapabilities: (capabilities: {
-		[serviceName: string]: lsp.ServerCapabilities;
-	}) => void;
-	private initDocumentUri;
-	private get $extension();
-	private get $mode();
-	private get $format();
-	private $changeListener;
-	$sendDeltaQueue: (callback?: any) => any;
-	$showAnnotations: (diagnostics: lsp.Diagnostic[]) => void;
-	setOptions<OptionsType extends ServiceOptions>(options: OptionsType): void;
-	validate: () => void;
-	format: () => void;
-	applyEdits: (edits: lsp.TextEdit[]) => void;
-	getSemanticTokens(): void;
-	$applyDocumentHighlight: (documentHighlights: lsp.DocumentHighlight[]) => void;
-	closeDocument(callback?: any): void;
+	sendRequest(serviceName: string, method: string, params: any, callback?: (result: any) => void): void;
+	showDocument(params: lsp.ShowDocumentParams, serviceName: string, callback?: (result: lsp.LSPAny, serviceName: string) => void): void;
 }
 declare abstract class BaseMessage {
 	abstract type: MessageType;
@@ -794,6 +924,14 @@ declare class ExecuteCommandMessage {
 	value: string;
 	args: any[] | undefined;
 	constructor(serviceName: string, callbackId: number, command: string, args?: any[]);
+}
+declare class SendRequestMessage {
+	callbackId: number;
+	serviceName: string;
+	type: MessageType.sendRequest;
+	value: string;
+	args?: any;
+	constructor(serviceName: string, callbackId: number, requestName: string, args?: any);
 }
 declare enum MessageType {
 	init = 0,
@@ -819,7 +957,11 @@ declare enum MessageType {
 	applyEdit = 20,
 	appliedEdit = 21,
 	setWorkspace = 22,
-	renameDocument = 23
+	renameDocument = 23,
+	sendRequest = 24,
+	showDocument = 25,
+	sendResponse = 26,
+	inlineComplete = 27
 }
 export declare class MessageController implements IMessageController {
 	$worker: Worker;
@@ -833,6 +975,7 @@ export declare class MessageController implements IMessageController {
 	}) => void): void;
 	doValidation(documentIdentifier: ComboDocumentIdentifier, callback?: (annotations: lsp.Diagnostic[]) => void): void;
 	doComplete(documentIdentifier: ComboDocumentIdentifier, position: lsp.Position, callback?: (completions: CompletionService[]) => void): void;
+	doInlineComplete(documentIdentifier: ComboDocumentIdentifier, position: lsp.Position, callback?: (completions: InlineCompletionService[]) => void): void;
 	doResolve(documentIdentifier: ComboDocumentIdentifier, completion: lsp.CompletionItem, callback?: (completion: lsp.CompletionItem | null) => void): void;
 	format(documentIdentifier: ComboDocumentIdentifier, range: lsp.Range, format: lsp.FormattingOptions, callback?: (edits: lsp.TextEdit[]) => void): void;
 	doHover(documentIdentifier: ComboDocumentIdentifier, position: lsp.Position, callback?: (hover: lsp.Hover[]) => void): void;
@@ -850,7 +993,8 @@ export declare class MessageController implements IMessageController {
 	executeCommand(serviceName: string, command: string, args?: any[], callback?: (result: any) => void): void;
 	setWorkspace(workspaceUri: string, callback?: () => void): void;
 	renameDocument(documentIdentifier: ComboDocumentIdentifier, newDocumentUri: string, version: number): void;
-	postMessage(message: BaseMessage | CloseConnectionMessage | ExecuteCommandMessage, callback?: (any: any) => void): void;
+	sendRequest(serviceName: string, requestName: string, args?: any, callback?: (result: any) => void): void;
+	postMessage(message: BaseMessage | CloseConnectionMessage | ExecuteCommandMessage | SendRequestMessage, callback?: (any: any) => void): void;
 }
 
 export {};

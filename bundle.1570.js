@@ -173,6 +173,34 @@ module.exports = `
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
+/**
+ * ## Interactive search and replace UI extension for text editing
+ *
+ * Provides a floating search box interface with find/replace functionality including live search results, regex
+ * support, case sensitivity options, whole word matching, and scoped selection searching. Features keyboard shortcuts
+ * for quick access and navigation, with visual feedback for search matches and a counter showing current position
+ * in results.
+ *
+ * **Key Features:**
+ * - Real-time search with highlighted matches
+ * - Find and replace with individual or bulk operations
+ * - Advanced options: regex, case sensitivity, whole words, search in selection
+ * - Keyboard navigation and shortcuts
+ * - Visual match counter and no-match indicators
+ *
+ * **Usage:**
+ * ```javascript
+ * // Show search box
+ * require("ace/ext/searchbox").Search(editor);
+ *
+ * // Show with replace functionality
+ * require("ace/ext/searchbox").Search(editor, true);
+ * ```
+ *
+ * @module
+ */
+
+
 
 /**
  * @typedef {import("../editor").Editor} Editor
@@ -196,10 +224,10 @@ class SearchBox {
      * @param {never} [showReplaceForm]
      */
     constructor(editor, range, showReplaceForm) {
-        /**@type {any}*/
+        /**@type {HTMLInputElement}*/
         this.activeInput;
-        var div = dom.createElement("div");
-        dom.buildDom(["div", {class:"ace_search right"},
+        /**@type {HTMLDivElement}*/
+        this.element = dom.buildDom(["div", {class:"ace_search right"},
             ["span", {action: "hide", class: "ace_searchbtn_close"}],
             ["div", {class: "ace_search_form"},
                 ["input", {class: "ace_search_field", placeholder: nls("search-box.find.placeholder", "Search for"), spellcheck: "false"}],
@@ -221,9 +249,7 @@ class SearchBox {
                 ["span", {action: "toggleWholeWords", class: "ace_button", title: nls("search-box.toggle-whole-word.title", "Whole Word Search")}, "\\b"],
                 ["span", {action: "searchInSelection", class: "ace_button", title: nls("search-box.toggle-in-selection.title", "Search In Selection")}, "S"]
             ]
-        ], div);
-        /**@type {any}*/
-        this.element = div.firstChild;
+        ]);
 
         this.setSession = this.setSession.bind(this);
         this.$onEditorInput = this.onEditorInput.bind(this);
@@ -231,6 +257,7 @@ class SearchBox {
         this.$init();
         this.setEditor(editor);
         dom.importCssString(searchboxCss, "ace_searchbox", editor.container);
+        event.addListener(this.element, "touchstart", function(e) { e.stopPropagation(); }, editor);
     }
 
     /**
@@ -372,6 +399,7 @@ class SearchBox {
      * @param {any} [preventScroll]
      */
     find(skipCurrent, backwards, preventScroll) {
+        if (!this.editor.session) return;
         var range = this.editor.find(this.searchInput.value, {
             skipCurrent: skipCurrent,
             backwards: backwards,
@@ -490,7 +518,7 @@ class SearchBox {
         if (this.editor.$search.$options.regExp)
             value = lang.escapeRegExp(value);
 
-        if (value)
+        if (value != undefined)
             this.searchInput.value = value;
 
         this.searchInput.focus();
@@ -604,13 +632,16 @@ SearchBox.prototype.$closeSearchBarKb = $closeSearchBarKb;
 exports.SearchBox = SearchBox;
 
 /**
+ * Shows the search box for the editor with optional replace functionality.
  *
- * @param {Editor} editor
- * @param {boolean} [isReplace]
+ * @param {Editor} editor - The editor instance
+ * @param {boolean} [isReplace] - Whether to show replace options
  */
 exports.Search = function(editor, isReplace) {
     var sb = editor.searchBox || new SearchBox(editor);
-    sb.show(editor.session.getTextRange(), isReplace);
+    var range = editor.session.selection.getRange();
+    var value = range.isMultiLine() ? "" : editor.session.getTextRange(range);
+    sb.show(value, isReplace);
 };
 
 

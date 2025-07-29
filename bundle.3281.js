@@ -4,18 +4,30 @@
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
+/**
+ * ## Overlay Page utility
+ *
+ * Provides modal overlay functionality for displaying editor extension interfaces. Creates a full-screen overlay with
+ * configurable backdrop behavior, keyboard navigation (ESC to close), and focus management. Used by various extensions
+ * to display menus, settings panels, and other interactive content over the editor interface.
+ *
+ * **Usage:**
+ * ```javascript
+ * var overlayPage = require('./overlay_page').overlayPage;
+ * var contentElement = document.createElement('div');
+ * contentElement.innerHTML = '<h1>Settings</h1>';
+ *
+ * var overlay = overlayPage(editor, contentElement, function() {
+ *   console.log('Overlay closed');
+ * });
+ * ```
+ *
+ * @module
+ */
+
+
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
 /*global define, require */
-
-/**
- * Overlay Page
- * @fileOverview Overlay Page <br />
- * Generates an overlay for displaying menus. The overlay is an absolutely
- *  positioned div.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- */
 
 
 var dom = __webpack_require__(71435);
@@ -28,10 +40,10 @@ dom.importCssString(cssText, "settings_menu.css", false);
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @param editor
+ * @param {import("../../editor").Editor} editor
  * @param {HTMLElement} contentElement Any element which may be presented inside
  *  a div.
- * @param [callback]
+ * @param {() => void} [callback]
  */
 module.exports.overlayPage = function overlayPage(editor, contentElement, callback) {
     var closer = document.createElement('div');
@@ -172,17 +184,20 @@ module.exports = `#ace_settingsmenu, #kbshortcutmenu {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
-/*global define, require */
-
 /**
- * Show Keyboard Shortcuts
- * @fileOverview Show Keyboard Shortcuts <br />
- * Generates a menu which displays the keyboard shortcuts.
+ * ## Show Keyboard Shortcuts extension
+ *
+ * Provides a keyboard shortcuts display overlay for the Ace editor. Creates an interactive menu that shows all available
+ * keyboard shortcuts with their corresponding commands, organized in a searchable and navigable format. The menu
+ * appears as an overlay page and can be triggered via keyboard shortcut (Ctrl-Alt-H/Cmd-Alt-H) or programmatically.
+ *
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
+ * @module
  */
+
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
+/*global define, require */
 
 
 
@@ -215,7 +230,11 @@ function showKeyboardShortcuts(editor) {
 }
 
 /**
- * @param {Editor} editor
+ * Initializes keyboard shortcut functionality for the editor.
+ * Adds a method to show keyboard shortcuts and registers a command
+ * to trigger the keyboard shortcuts display.
+ *
+ * @param {Editor} editor The Ace editor instance to initialize
  */
 module.exports.init = function (editor) {
     Editor.prototype.showKeyboardShortcuts = function () {
@@ -246,17 +265,30 @@ module.exports.init = function (editor) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
+/**
+ * ## Editor Keyboard Shortcuts Utility
+ *
+ * Provides functionality to extract and format keyboard shortcuts from an Ace editor instance. Analyzes all registered
+ * command handlers and their key bindings to generate a list of available keyboard shortcuts for the
+ * current platform. Returns formatted key combinations with proper modifier key representations and handles multiple
+ * bindings per command with pipe-separated notation.
+ *
+ * **Usage:**
+ * ```javascript
+ * var getKbShortcuts = require('ace/ext/menu_tools/get_editor_keyboard_shortcuts');
+ * var shortcuts = getKbShortcuts.getEditorKeybordShortcuts(editor);
+ * console.log(shortcuts);
+ * // [
+ * //     {'command': 'selectall', 'key': 'Ctrl-A'},
+ * //     {'command': 'copy', 'key': 'Ctrl-C|Ctrl-Insert'}
+ * // ]
+ * ```
+ *
+ * @module
+ */
+
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, vars: true*/
 /*global define, require */
-
-/**
- * Get Editor Keyboard Shortcuts
- * @fileOverview Get Editor Keyboard Shortcuts <br />
- * Gets a map of keyboard shortcuts to command names for the current platform.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- */
 
 
 

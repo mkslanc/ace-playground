@@ -11285,7 +11285,8 @@ ziparchive_deletename|ziparchive_extractto|ziparchive_getarchivecomment|ziparchi
 ziparchive_getfromindex|ziparchive_getfromname|ziparchive_getnameindex|ziparchive_getstatusstring|ziparchive_getstream|\
 ziparchive_locatename|ziparchive_open|ziparchive_renameindex|ziparchive_renamename|ziparchive_setCommentName|ziparchive_setarchivecomment|\
 ziparchive_setcommentindex|ziparchive_statindex|ziparchive_statname|ziparchive_unchangeall|ziparchive_unchangearchive|\
-ziparchive_unchangeindex|ziparchive_unchangename|zlib_get_coding_type'.split('|')
+ziparchive_unchangeindex|ziparchive_unchangename|zlib_get_coding_type|array_is_list|fdatasync|fdiv|fsync|get_debug_type|get_resource_id|\
+json_validate|mb_str_pad|mysqli_execute_query|preg_last_error_msg|stream_context_set_options|str_contains|str_ends_with|str_starts_with'.split('|')
     );
 
     // http://php.net/manual/en/reserved.keywords.php
@@ -11744,7 +11745,7 @@ var WorkerClient = (__webpack_require__(28402).WorkerClient);
 var PhpCompletions = (__webpack_require__(16151)/* .PhpCompletions */ ._);
 var PhpFoldMode = (__webpack_require__(79581)/* .FoldMode */ .l);
 var unicode = __webpack_require__(6672);
-var MixedFoldMode = (__webpack_require__(90610)/* .FoldMode */ .l);
+var MixedFoldMode = (__webpack_require__(90610).FoldMode);
 var HtmlFoldMode = (__webpack_require__(6944).FoldMode);
 var CstyleFoldMode = (__webpack_require__(93887)/* .FoldMode */ .l);
 var HtmlMode = (__webpack_require__(32234).Mode);
