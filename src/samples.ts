@@ -33,5 +33,9 @@ export const SAMPLES = {
     "Language-features": [
         'Validation-against-JSON-schema',
         'Typescript-language-service'
+    ],
+    "Diff-extension": [
+        'Inline-diff-example',
+        'Side-by-side-diff-example',
     ]
 };
