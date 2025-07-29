@@ -76,10 +76,10 @@ export default {
                     from: "node_modules/ace-builds/ace-modes.d.ts",
                     to: "ace-modes.d.ts"
                 }, {
-                    from: "node_modules/ace-builds/types/ace-modules.d.ts",
-                    to: "ace-modules.d.ts"
+                    from: "node_modules/ace-builds/types/**/*",
+                    to: "[name][ext]"
                 }, {
-                    from: "node_modules/ace-linters/types/ace-linters.d.ts",
+                    from: "node_modules/ace-linters/build/ace-linters.d.ts",
                     to: "ace-linters.d.ts"
                 }
             ]

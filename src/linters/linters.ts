@@ -7,45 +7,56 @@ import keyUtil from "ace-code/src/lib/keys";
 
 let languageProvider: LanguageProvider;
 
-function requestDeclarations() {
-    let ace = request('ace.d.ts').then(function (response: XMLHttpRequest) {
-        return response.responseText;
-    });
-    let aceModes = request('ace-modes.d.ts').then(function (response: XMLHttpRequest) {
-        return response.responseText;
-    });
-    let aceModules = request('ace-modules.d.ts').then(function (response: XMLHttpRequest) {
-        return response.responseText;
-    });
-    let aceLinters = request('ace-linters.d.ts').then(function (response: XMLHttpRequest) {
-        return response.responseText;
-    });
-    Promise.all([ace, aceModes, aceModules, aceLinters]).then(function (responses) {
+async function requestDeclarations() {
+    const declarationFiles = [
+        'ace.d.ts',
+        'ace-modes.d.ts',
+        'ace-modules.d.ts',
+        'ace-linters.d.ts',
+        'ace-lib.d.ts',
+        'ace-ext.d.ts',
+        'ace-snippets.d.ts',
+        'ace-theme.d.ts'
+    ];
+
+    try {
+        const requests = declarationFiles.map(filename =>
+            request(filename).then((response: XMLHttpRequest) => ({
+                filename,
+                content: response.responseText
+            }))
+        );
+
+        const declarations = await Promise.all(requests);
+
+        const extraLibs = declarations.reduce((libs, { filename, content }) => {
+            let processedContent = content;
+
+            if (filename === 'ace.d.ts') {
+                processedContent = correctAceDeclaration(content);
+            } else if (filename === 'ace-linters.d.ts') {
+                processedContent = correctDeclaration(content);
+            }
+
+            libs[filename] = {
+                content: processedContent,
+                version: 1
+            };
+
+            return libs;
+        }, {} as Record<string, { content: string; version: number }>);
+
         languageProvider.setGlobalOptions("typescript", {
-            extraLibs: {
-                "ace.d.ts": {
-                    content: correctAceDeclaration(responses[0]),
-                    version: 1
-                },
-                "ace-modes.d.ts": {
-                    content: responses[1],
-                    version: 1
-                },
-                "ace-modules.d.ts": {
-                    content: responses[2],
-                    version: 1
-                },
-                "ace-linters.d.ts": {
-                    content: correctDeclaration(responses[3]),
-                    version: 1
-                },
-            },
+            extraLibs,
             compilerOptions: {
                 allowJs: true,
                 checkJs: true
             }
         }, true);
-    });
+
+    } catch (error) {
+        console.error('Failed to load declaration files:', error);
+    }
 }
 
 

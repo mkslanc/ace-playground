@@ -6,10 +6,10 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
-    "ace-code": "^1.39.0",
-    "ace-builds": "^1.39.0",
+    "ace-code": "^1.43.2",
+    "ace-builds": "^1.43.2",
     "ace-layout": "^1.5.0",
-    "ace-linters": "^1.5.0",
+    "ace-linters": "^1.8.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
