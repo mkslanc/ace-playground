@@ -179,7 +179,7 @@ module.exports = `.ace-cloud9-day .ace_gutter {
   exports.cssText = __webpack_require__(36582);
 
   var dom = __webpack_require__(71435);
-  dom.importCssString(exports.cssText, exports.cssClass);
+  dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ })

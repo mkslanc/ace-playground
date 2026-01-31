@@ -179,7 +179,7 @@ exports.cssClass = "ace-gruvbox-dark-hard";
 exports.cssText = __webpack_require__(4543);
 
 var dom = __webpack_require__(71435);
-dom.importCssString(exports.cssText, exports.cssClass);
+dom.importCssString(exports.cssText, exports.cssClass, false);
 
 
 /***/ })

@@ -284,16 +284,21 @@ class InlineDiffView extends BaseDiffView {
         diffView.sessionB["_emit"]("changeFold", {data: {start: {row: 0}}});
     }
 
-    onChangeWrapLimit() {
-        this.sessionB.adjustWrapLimit(this.sessionA.$wrapLimit);
+    onChangeWrapLimit(e, session) {
+        this.otherSession.setOption("wrap", session.getOption("wrap"));
+        this.otherSession.adjustWrapLimit(session.$wrapLimit);
         this.scheduleRealign();
+        // todo, this is needed because editor.onChangeWrapMode
+        // calls resize(true) instead of waiting for the renderloop
+        this.activeEditor.renderer.updateFull();
     }
 
     $attachSessionsEventHandlers() {
         this.$attachSessionEventHandlers(this.editorA, this.markerA);
         this.$attachSessionEventHandlers(this.editorB, this.markerB);
-        this.sessionA.on("changeWrapLimit", this.onChangeWrapLimit);
-        this.sessionA.on("changeWrapMode", this.onChangeWrapLimit);
+        var session = this.activeEditor.session;
+        session.on("changeWrapLimit", this.onChangeWrapLimit);
+        session.on("changeWrapMode", this.onChangeWrapLimit);
     }
 
     $attachSessionEventHandlers(editor, marker) {
@@ -307,8 +312,9 @@ class InlineDiffView extends BaseDiffView {
         this.$detachSessionHandlers(this.editorA, this.markerA);
         this.$detachSessionHandlers(this.editorB, this.markerB);
         this.otherSession.bgTokenizer.lines.fill(undefined);
-        this.sessionA.off("changeWrapLimit", this.onChangeWrapLimit);
-        this.sessionA.off("changeWrapMode", this.onChangeWrapLimit);
+        var session = this.activeEditor.session;
+        session.off("changeWrapLimit", this.onChangeWrapLimit);
+        session.off("changeWrapMode", this.onChangeWrapLimit);
     }
 
     $detachSessionHandlers(editor, marker) {
@@ -3386,7 +3392,7 @@ var dummyDiffProvider = {
     }
 };
 
-dom.importCssString(css, "diffview.css");
+dom.importCssString(css, "diffview.css", false);
 
 class BaseDiffView {
     /**
@@ -3478,6 +3484,10 @@ class BaseDiffView {
                 diffModel.valueB || "")),
             chunks: []
         });
+        
+        if (this.otherEditor && this.activeEditor) {
+            this.otherSession.setOption("wrap", this.activeEditor.getOption("wrap"));
+        }
 
         this.setupScrollbars();
     }
@@ -4600,7 +4610,6 @@ exports.n = `
     position: absolute;
     right: 2px;
     content: "+";
-    color: darkgray;
     background-color: inherit;
 }
 
@@ -4608,7 +4617,6 @@ exports.n = `
     position: absolute;
     right: 2px;
     content: "-";
-    color: darkgray;
     background-color: inherit;
 }
 .ace_fade-fold-widgets:hover > .ace_folding-enabled > .mini-diff-added:after,
@@ -4620,7 +4628,8 @@ exports.n = `
     filter: drop-shadow(1px 2px 3px darkgray);
 }
 
-.ace_hidden_marker-layer .ace_bracket {
+.ace_hidden_marker-layer .ace_bracket,
+.ace_hidden_marker-layer .ace_error_bracket {
     display: none;
 }
 

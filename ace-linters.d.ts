@@ -2,6 +2,7 @@ import { Ace } from 'ace-code';
 import { CompletionProvider } from 'ace-code/src/autocomplete';
 import { CommandBarTooltip } from 'ace-code/src/ext/command_bar';
 import { InlineAutocomplete } from 'ace-code/src/ext/inline_autocomplete';
+import { Linter } from 'eslint';
 import * as lsp from 'vscode-languageserver-protocol';
 import { CompletionItemKind } from 'vscode-languageserver-protocol';
 
@@ -473,29 +474,7 @@ export interface PhpServiceOptions extends ServiceOptionsWithErrorMessages {
 }
 export interface LuaServiceOptions extends ServiceOptionsWithErrorMessages {
 }
-export interface JavascriptServiceOptions extends ServiceOptionsWithErrorMessages {
-	env?: {
-		[name: string]: boolean;
-	} | undefined;
-	extends?: string | string[] | undefined;
-	globals?: {
-		[name: string]: boolean | "off" | "readonly" | "readable" | "writable" | "writeable";
-	} | undefined;
-	noInlineConfig?: boolean | undefined;
-	overrides?: Array<any> | undefined;
-	parser?: string | undefined;
-	parserOptions?: {
-		[option: string]: any;
-	} | undefined;
-	plugins?: string[] | undefined;
-	processor?: string | undefined;
-	reportUnusedDisableDirectives?: boolean | undefined;
-	settings?: {
-		[name: string]: any;
-	} | undefined;
-	rules?: {
-		[rule: string]: any;
-	};
+export interface JavascriptServiceOptions extends ServiceOptionsWithErrorMessages, Linter.FlatConfig {
 }
 export interface PythonServiceOptions extends ServiceOptionsWithErrorCodes, ServiceOptionsWithErrorMessages {
 	configuration: {
@@ -686,6 +665,7 @@ declare class SessionLanguageProvider {
 	editor: Ace.Editor;
 	private semanticTokensLegend?;
 	private $provider;
+	private $changeScrollTopHandler?;
 	/**
 	 * Constructs a new instance of the `SessionLanguageProvider` class.
 	 *
@@ -728,10 +708,18 @@ declare class SessionLanguageProvider {
 	applyEdits: (edits: lsp.TextEdit[]) => void;
 	getSemanticTokens(): void;
 	$applyDocumentHighlight: (documentHighlights: lsp.DocumentHighlight[]) => void;
+	/**
+	 * Disposes of the SessionLanguageProvider, cleaning up all event listeners,
+	 * marker groups, and notifying the server to close the document.
+	 * This method should be called when the session is no longer needed.
+	 *
+	 * @param callback - Optional callback to execute after the document is closed
+	 */
+	dispose(callback?: any): void;
 	closeDocument(callback?: any): void;
 }
 export declare class LanguageProvider {
-	activeEditor: Ace.Editor;
+	activeEditor: Ace.Editor | null;
 	private readonly $messageController;
 	private $signatureTooltip;
 	$sessionLanguageProviders: {
@@ -749,6 +737,8 @@ export declare class LanguageProvider {
 	private inlineCompleter?;
 	private doLiveAutocomplete;
 	private completerAdapter?;
+	private $editorEventHandlers;
+	private $editorOriginalState;
 	private constructor();
 	/**
 	 *  Creates LanguageProvider using our transport protocol with the ability to register different services on the same
@@ -812,6 +802,16 @@ export declare class LanguageProvider {
 	 * @param [config] - Configuration options for the session.
 	 */
 	registerEditor(editor: Ace.Editor, config?: SessionLspConfig): void;
+	/**
+	 * Unregisters an Ace editor instance, removing all event listeners, completers, tooltips,
+	 * and cleaning up associated resources. This is the counterpart to registerEditor.
+	 *
+	 * @param editor - The Ace editor instance to be unregistered.
+	 * @param cleanupSession - Optional flag to also dispose the current session. When true,
+	 *                         calls closeDocument on the editor's session, cleaning up all
+	 *                         session-related resources. Default: false.
+	 */
+	unregisterEditor(editor: Ace.Editor, cleanupSession?: boolean): void;
 	codeActionCallback: (codeActions: CodeActionsByService[]) => void;
 	/**
 	 * Sets a callback function that will be triggered with an array of code actions grouped by service.
@@ -822,6 +822,7 @@ export declare class LanguageProvider {
 	executeCommand(command: string, serviceName: string, args?: any[], callback?: (something: any) => void): void;
 	applyEdit(workspaceEdit: lsp.WorkspaceEdit, serviceName: string, callback?: (result: lsp.ApplyWorkspaceEditResult, serviceName: string) => void): void;
 	$registerEditor(editor: Ace.Editor): void;
+	$unregisterEditor(editor: Ace.Editor, cleanupSession?: boolean): void;
 	private $provideCodeActions;
 	private $initHoverTooltip;
 	private createHoverNode;
@@ -889,9 +890,10 @@ export declare class LanguageProvider {
 	$registerCompleters(editor: Ace.Editor): void;
 	closeConnection(): void;
 	/**
-	 * Removes document from all linked services by session id
-	 * @param session
-	 * @param [callback]
+	 * Removes document from all linked services by session id and cleans up all associated resources.
+	 * This includes removing event listeners, clearing marker groups, annotations, and notifying the server.
+	 * @param session - The Ace EditSession to close
+	 * @param [callback] - Optional callback to execute after the document is closed
 	 */
 	closeDocument(session: Ace.EditSession, callback?: any): void;
 	/**
