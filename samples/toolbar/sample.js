@@ -1,4 +1,5 @@
-var buildDom = require("ace/lib/dom").buildDom;
+var buildDom = ace.require("ace/lib/dom").buildDom;
+var snippetManager = ace.require("ace/snippets").snippetManager;
 var editor = ace.edit();
 editor.setOptions({
     theme: "ace/theme/tomorrow_night_eighties",
@@ -57,7 +58,7 @@ buildDom([
         "button", {
             style: "font-weight: bold",
             onclick: function () {
-                editor.insertSnippet("**${1:$SELECTION}**");
+                snippetManager.insertSnippet(editor, "**${1:$SELECTION}**");
                 editor.renderer.scrollCursorIntoView();
             }
         }, "bold"
@@ -65,12 +66,10 @@ buildDom([
         "button", {
             style: "font-style: italic",
             onclick: function () {
-                editor.insertSnippet("*${1:$SELECTION}*");
+                snippetManager.insertSnippet(editor, "*${1:$SELECTION}*");
                 editor.renderer.scrollCursorIntoView();
             }
         }, "Italic"
     ]
 ], document.body, refs);
 document.body.appendChild(editor.container);
-
-window.editor = editor;
